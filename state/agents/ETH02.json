@@ -1,13 +1,32 @@
 {
   "agent_id": "ETH02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_REDEMPTION_SOURCE_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:46:58.517342+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
+    "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
+    "853-855行partial hint/净债务条件不满足可取消部分赎回；名义请求量不保证全部完成。",
+    "1379-1405行赎回费是baseRate与floor计算的ETH费用，当前费率unknown；不把源码0.5%字样当本轮实际费率。"
+  ],
+  "pending_questions": [
+    "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
+    "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
+    "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
+    "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:46:58.517342+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ETH02/full-20261108T152118Z/record.json"
 }

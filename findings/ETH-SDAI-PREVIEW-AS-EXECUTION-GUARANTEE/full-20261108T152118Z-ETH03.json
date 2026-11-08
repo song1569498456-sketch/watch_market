@@ -1,0 +1,22 @@
+{
+  "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+  "chain": "ETH",
+  "status": "REJECTED",
+  "market_ids": [
+    "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea"
+  ],
+  "mechanism": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+  ],
+  "next_check": "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "ETH03",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/ETH03/full-20261108T152118Z/record.json"
+}

@@ -1,0 +1,271 @@
+{
+  "name": "aave_liquidation_source",
+  "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+  "fetched_at_utc": "2026-11-08T15:46:04.372387+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+  "excerpts": [
+    {
+      "line": 40,
+      "text": "   * @dev Percentage applied when the users health factor is above `CLOSE_FACTOR_HF_THRESHOLD`"
+    },
+    {
+      "line": 43,
+      "text": "  uint256 internal constant DEFAULT_LIQUIDATION_CLOSE_FACTOR = 0.5e4;"
+    },
+    {
+      "line": 49,
+      "text": "  uint256 public constant CLOSE_FACTOR_HF_THRESHOLD = 0.95e18;"
+    },
+    {
+      "line": 56,
+      "text": "  uint256 public constant MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD = 2000e8;"
+    },
+    {
+      "line": 60,
+      "text": "   * This parameter is inferred from MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD as the logic is dependent."
+    },
+    {
+      "line": 61,
+      "text": "   * Assuming a MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD of `n` a liquidation of `n+1` might result in `n/2` leftover which is assumed to be still economically liquidatable."
+    },
+    {
+      "line": 64,
+      "text": "  uint256 public constant MIN_LEFTOVER_BASE = MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD / 2;"
+    },
+    {
+      "line": 137,
+      "text": "    uint256 actualDebtToLiquidate;"
+    },
+    {
+      "line": 138,
+      "text": "    uint256 actualCollateralToLiquidate;"
+    },
+    {
+      "line": 139,
+      "text": "    uint256 liquidationBonus;"
+    },
+    {
+      "line": 140,
+      "text": "    uint256 healthFactor;"
+    },
+    {
+      "line": 141,
+      "text": "    uint256 liquidationProtocolFeeAmount;"
+    },
+    {
+      "line": 166,
+      "text": "  function executeLiquidationCall("
+    },
+    {
+      "line": 190,
+      "text": "      vars.healthFactor,"
+    },
+    {
+      "line": 220,
+      "text": "        healthFactor: vars.healthFactor,"
+    },
+    {
+      "line": 233,
+      "text": "      vars.liquidationBonus = eModeCategories[params.borrowerEModeCategory].liquidationBonus;"
+    },
+    {
+      "line": 235,
+      "text": "      vars.liquidationBonus = vars"
+    },
+    {
+      "line": 238,
+      "text": "        .getLiquidationBonus();"
+    },
+    {
+      "line": 260,
+      "text": "    // but if debt and collateral is above or equal MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD"
+    },
+    {
+      "line": 261,
+      "text": "    // and health factor is above CLOSE_FACTOR_HF_THRESHOLD this amount may be adjusted"
+    },
+    {
+      "line": 263,
+      "text": "      vars.borrowerReserveCollateralInBaseCurrency >= MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD &&"
+    },
+    {
+      "line": 264,
+      "text": "      vars.borrowerReserveDebtInBaseCurrency >= MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD &&"
+    },
+    {
+      "line": 265,
+      "text": "      vars.healthFactor > CLOSE_FACTOR_HF_THRESHOLD"
+    },
+    {
+      "line": 268,
+      "text": "        DEFAULT_LIQUIDATION_CLOSE_FACTOR"
+    },
+    {
+      "line": 271,
+      "text": "      // if the debt is more then DEFAULT_LIQUIDATION_CLOSE_FACTOR % of the whole,"
+    },
+    {
+      "line": 272,
+      "text": "      // then we CAN liquidate only up to DEFAULT_LIQUIDATION_CLOSE_FACTOR %"
+    },
+    {
+      "line": 280,
+      "text": "    vars.actualDebtToLiquidate = params.debtToCover > maxLiquidatableDebt"
+    },
+    {
+      "line": 285,
+      "text": "      vars.actualCollateralToLiquidate,"
+    },
+    {
+      "line": 286,
+      "text": "      vars.actualDebtToLiquidate,"
+    },
+    {
+      "line": 287,
+      "text": "      vars.liquidationProtocolFeeAmount"
+    },
+    {
+      "line": 294,
+      "text": "      vars.actualDebtToLiquidate,"
+    },
+    {
+      "line": 296,
+      "text": "      vars.liquidationBonus"
+    },
+    {
+      "line": 304,
+      "text": "      vars.actualDebtToLiquidate < vars.borrowerReserveDebt &&"
+    },
+    {
+      "line": 305,
+      "text": "      vars.actualCollateralToLiquidate + vars.liquidationProtocolFeeAmount <"
+    },
+    {
+      "line": 309,
+      "text": "        vars.borrowerReserveDebt - vars.actualDebtToLiquidate,"
+    },
+    {
+      "line": 316,
+      "text": "        vars.actualCollateralToLiquidate -"
+    },
+    {
+      "line": 317,
+      "text": "        vars.liquidationProtocolFeeAmount) * vars.collateralAssetPrice) /"
+    },
+    {
+      "line": 340,
+      "text": "    // so the scaled consumption is correct for both the receiveAToken and the burn path."
+    },
+    {
+      "line": 343,
+      "text": "      uint256 scaledCollateralConsumed = vars.actualCollateralToLiquidate.getATokenBurnScaledAmount("
+    },
+    {
+      "line": 346,
+      "text": "        vars.liquidationProtocolFeeAmount.getATokenTransferScaledAmount("
+    },
+    {
+      "line": 385,
+      "text": "      vars.actualDebtToLiquidate,"
+    },
+    {
+      "line": 390,
+      "text": "    if (params.receiveAToken) {"
+    },
+    {
+      "line": 394,
+      "text": "        vars.actualCollateralToLiquidate,"
+    },
+    {
+      "line": 395,
+      "text": "        vars.actualCollateralToLiquidate.getATokenTransferScaledAmount("
+    },
+    {
+      "line": 414,
+      "text": "    if (vars.liquidationProtocolFeeAmount != 0) {"
+    },
+    {
+      "line": 416,
+      "text": "      uint256 scaledDownLiquidationProtocolFee = vars"
+    },
+    {
+      "line": 417,
+      "text": "        .liquidationProtocolFeeAmount"
+    },
+    {
+      "line": 422,
+      "text": "      if (scaledDownLiquidationProtocolFee > scaledDownBorrowerBalance) {"
+    },
+    {
+      "line": 423,
+      "text": "        scaledDownLiquidationProtocolFee = scaledDownBorrowerBalance;"
+    },
+    {
+      "line": 424,
+      "text": "        vars.liquidationProtocolFeeAmount = scaledDownBorrowerBalance.getATokenBalance("
+    },
+    {
+      "line": 431,
+      "text": "        amount: vars.liquidationProtocolFeeAmount,"
+    },
+    {
+      "line": 432,
+      "text": "        scaledAmount: scaledDownLiquidationProtocolFee,"
+    },
+    {
+      "line": 448,
+      "text": "      vars.actualDebtToLiquidate"
+    },
+    {
+      "line": 455,
+      "text": "      vars.actualDebtToLiquidate,"
+    },
+    {
+      "line": 456,
+      "text": "      vars.actualCollateralToLiquidate,"
+    },
+    {
+      "line": 458,
+      "text": "      params.receiveAToken"
+    },
+    {
+      "line": 478,
+      "text": "      vars.actualCollateralToLiquidate,"
+    },
+    {
+      "line": 486,
+      "text": "      amount: vars.actualCollateralToLiquidate,"
+    },
+    {
+      "line": 487,
+      "text": "      scaledAmount: vars.actualCollateralToLiquidate.getATokenBurnScaledAmount("
+    },
+    {
+      "line": 503,
+      "text": "   * @param actualDebtToLiquidate The actual debt to liquidate"
+    },
+    {
+      "line": 513,
+      "text": "    uint256 actualDebtToLiquidate,"
+    },
+    {
+      "line": 522,
+      "text": "      uint256 burnAmount = hasNoCollateralLeft ? borrowerReserveDebt : actualDebtToLiquidate;"
+    },
+    {
+      "line": 536,
+      "text": "    uint256 outstandingDebt = borrowerReserveDebt - actualDebtToLiquidate;"
+    },
+    {
+      "line": 549,
+      "text": "      actualDebtToLiquidate,"
+    },
+    {
+      "line": 561,
+      "text": "    uint256 liquidationProtocolFeePercentage;"
+    }
+  ],
+  "success": true
+}

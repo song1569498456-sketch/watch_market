@@ -630,20 +630,71 @@
     {
       "agent_id": "ETH02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:46:58.517342+00:00",
+      "actual_coverage": [
+        "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
+        "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
+        "853-855行partial hint/净债务条件不满足可取消部分赎回；名义请求量不保证全部完成。",
+        "1379-1405行赎回费是baseRate与floor计算的ETH费用，当前费率unknown；不把源码0.5%字样当本轮实际费率。"
+      ],
+      "coverage_gaps": [
+        "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
+        "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
+        "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
+        "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
+      ],
+      "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ETH03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:47:03.965320+00:00",
+      "actual_coverage": [
+        "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
+        "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
+        "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
+        "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+      ],
+      "coverage_gaps": [
+        "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
+        "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
+        "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
+        "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
+        "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+      ],
+      "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ETH04",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:46:46.422746+00:00",
+      "actual_coverage": [
+        {
+          "protocol": "Aave V3 Ethereum",
+          "pool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          "pool_impl_static": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+          "fields": "L43 default close factor常量；L260-280按健康度/金额限制代还；L390 receiveAToken；L414协议清算费",
+          "data_kind": "static source not current Ethereum config"
+        }
+      ],
+      "coverage_gaps": [
+        "30天清算参数/实现升级窗口未覆盖。",
+        "7天及已发生清算复盘未覆盖：无区块/交易/借款账户索引。",
+        "Ethereum链身份、proxy代码与源码实现匹配未核验，RPC CONNECT403。",
+        "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
+        "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。"
+      ],
+      "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ETH05",

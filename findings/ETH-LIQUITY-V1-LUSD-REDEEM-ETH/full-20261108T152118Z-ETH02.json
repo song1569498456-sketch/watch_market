@@ -1,0 +1,29 @@
+{
+  "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+  "status": "UNVERIFIED",
+  "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+  "mechanism": "官方v1 redeemCollateral由持有LUSD的msg.sender发起，不要求其拥有Trove；受余额、TCR、bootstrap、最大费率、迭代/hints和实际可赎债务约束，产出ETH减赎回费，不等于持币无条件兑1美元。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol"
+  ],
+  "net_result": "unknown",
+  "unknown_costs": [
+    "LUSD买入费/冲击",
+    "动态赎回费",
+    "Ethereum gas",
+    "ETH变现/等待与价格风险"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "主网代码/版本不符",
+    "TCR或可赎债务不支持",
+    "资格或金额/fee上限/hints失败",
+    "费用及ETH出售价值吞没差额"
+  ],
+  "owner": "ETH02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/ETH02/full-20261108T152118Z/record.json"
+}

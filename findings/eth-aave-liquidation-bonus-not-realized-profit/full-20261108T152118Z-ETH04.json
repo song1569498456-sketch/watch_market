@@ -1,0 +1,15 @@
+{
+  "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+  "claim": "排除“预言机估值乘清算奖励就是已兑现净利润”的论证。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+  ],
+  "evidence_fields": "实际代还限额、receiveAToken分支、liquidationProtocolFee；还需市场出售/融资/费用证据。",
+  "scope_limit": "静态规则反证，不声称某实际仓位可清算或无利可图。",
+  "owner": "ETH04",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
+}

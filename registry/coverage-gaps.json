@@ -1406,6 +1406,160 @@
         "核真实XVS池及有限数量卖出报价，把供借/锁定/利息与gas计入；奖励若成为抵押必须单列。",
         "补30天公开活动/资格窗口与7天claim/卖出事件，未找到有效公开窗口继续保持未核验，不沿用未来升级公告。"
       ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
+      "next_check": [
+        "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+        "按普通LUSD持有人而非借款人条件，测有限数量buy→redeem→ETH退出；考虑实际只赎部分、hints/迭代取消、赎回引起费率变化和gas。",
+        "分开持币人赎回、借款人偿债关仓与清算机制，不能用一个账户的退出条件替代另一个。",
+        "恢复数据后补30天费率/规则、7天交易和旧小池；具体候选交Q00独立核对。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
+      "next_check": [
+        "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+        "按普通LUSD持有人而非借款人条件，测有限数量buy→redeem→ETH退出；考虑实际只赎部分、hints/迭代取消、赎回引起费率变化和gas。",
+        "分开持币人赎回、借款人偿债关仓与清算机制，不能用一个账户的退出条件替代另一个。",
+        "恢复数据后补30天费率/规则、7天交易和旧小池；具体候选交Q00独立核对。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
+      "next_check": [
+        "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+        "按普通LUSD持有人而非借款人条件，测有限数量buy→redeem→ETH退出；考虑实际只赎部分、hints/迭代取消、赎回引起费率变化和gas。",
+        "分开持币人赎回、借款人偿债关仓与清算机制，不能用一个账户的退出条件替代另一个。",
+        "恢复数据后补30天费率/规则、7天交易和旧小池；具体候选交Q00独立核对。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。",
+      "next_check": [
+        "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+        "按普通LUSD持有人而非借款人条件，测有限数量buy→redeem→ETH退出；考虑实际只赎部分、hints/迭代取消、赎回引起费率变化和gas。",
+        "分开持币人赎回、借款人偿债关仓与清算机制，不能用一个账户的退出条件替代另一个。",
+        "恢复数据后补30天费率/规则、7天交易和旧小池；具体候选交Q00独立核对。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
+      "next_check": [
+        "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+        "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+        "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+        "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
+      "next_check": [
+        "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+        "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+        "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+        "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
+      "next_check": [
+        "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+        "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+        "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+        "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
+      "next_check": [
+        "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+        "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+        "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+        "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。",
+      "next_check": [
+        "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+        "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+        "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+        "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天清算参数/实现升级窗口未覆盖。",
+      "next_check": [
+        "恢复ethereum-rpc.publicnode.com并核chainId1、blockHash及Aave provider/proxy实现，选择对应代码版本。",
+        "从已核市场事件索引有界范围内真实借款仓位，逐仓读取当前债务、抵押、健康度、阈值、close factor和费。",
+        "按实际代还量测可取得抵押、aToken/底层出口、指定数量卖出及融资偿还；不只按oracle估值。",
+        "补30天规则及7天清算复盘，核期末残余头寸和外部注资；机会过期重新报价或降级。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天及已发生清算复盘未覆盖：无区块/交易/借款账户索引。",
+      "next_check": [
+        "恢复ethereum-rpc.publicnode.com并核chainId1、blockHash及Aave provider/proxy实现，选择对应代码版本。",
+        "从已核市场事件索引有界范围内真实借款仓位，逐仓读取当前债务、抵押、健康度、阈值、close factor和费。",
+        "按实际代还量测可取得抵押、aToken/底层出口、指定数量卖出及融资偿还；不只按oracle估值。",
+        "补30天规则及7天清算复盘，核期末残余头寸和外部注资；机会过期重新报价或降级。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Ethereum链身份、proxy代码与源码实现匹配未核验，RPC CONNECT403。",
+      "next_check": [
+        "恢复ethereum-rpc.publicnode.com并核chainId1、blockHash及Aave provider/proxy实现，选择对应代码版本。",
+        "从已核市场事件索引有界范围内真实借款仓位，逐仓读取当前债务、抵押、健康度、阈值、close factor和费。",
+        "按实际代还量测可取得抵押、aToken/底层出口、指定数量卖出及融资偿还；不只按oracle估值。",
+        "补30天规则及7天清算复盘，核期末残余头寸和外部注资；机会过期重新报价或降级。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
+      "next_check": [
+        "恢复ethereum-rpc.publicnode.com并核chainId1、blockHash及Aave provider/proxy实现，选择对应代码版本。",
+        "从已核市场事件索引有界范围内真实借款仓位，逐仓读取当前债务、抵押、健康度、阈值、close factor和费。",
+        "按实际代还量测可取得抵押、aToken/底层出口、指定数量卖出及融资偿还；不只按oracle估值。",
+        "补30天规则及7天清算复盘，核期末残余头寸和外部注资；机会过期重新报价或降级。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。",
+      "next_check": [
+        "恢复ethereum-rpc.publicnode.com并核chainId1、blockHash及Aave provider/proxy实现，选择对应代码版本。",
+        "从已核市场事件索引有界范围内真实借款仓位，逐仓读取当前债务、抵押、健康度、阈值、close factor和费。",
+        "按实际代还量测可取得抵押、aToken/底层出口、指定数量卖出及融资偿还；不只按oracle估值。",
+        "补30天规则及7天清算复盘，核期末残余头寸和外部注资；机会过期重新报价或降级。"
+      ]
     }
   ],
   "status": "OPEN",

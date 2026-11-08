@@ -10,7 +10,17 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_TOKEN_IDENTITY_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:44:27.270968+00:00",
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "自主发现BNB地址书USDC/USDT具体合约，两者静态标18 decimals，与其他链常见6位不能混用。",
     "无已核DEX池，所列USDC→USDT→USDC仅待建立测试骨架，不是报价路线。",
@@ -26,7 +36,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:44:27.270968+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB03/full-20261108T152118Z/record.json"
+  "record": "evidence/BNB03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+    "verified_at": "2026-11-08T15:45:17.258417+00:00",
+    "record": "evidence/BNB03/full-20261108T152118Z/record.json"
+  }
 }

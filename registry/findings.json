@@ -334,6 +334,72 @@
       "owner": "BNB05",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BNB05/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+      "status": "UNVERIFIED",
+      "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+      "mechanism": "官方v1 redeemCollateral由持有LUSD的msg.sender发起，不要求其拥有Trove；受余额、TCR、bootstrap、最大费率、迭代/hints和实际可赎债务约束，产出ETH减赎回费，不等于持币无条件兑1美元。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol"
+      ],
+      "net_result": "unknown",
+      "unknown_costs": [
+        "LUSD买入费/冲击",
+        "动态赎回费",
+        "Ethereum gas",
+        "ETH变现/等待与价格风险"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "主网代码/版本不符",
+        "TCR或可赎债务不支持",
+        "资格或金额/fee上限/hints失败",
+        "费用及ETH出售价值吞没差额"
+      ],
+      "owner": "ETH02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+      "chain": "ETH",
+      "status": "REJECTED",
+      "market_ids": [
+        "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "mechanism": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+        "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+      ],
+      "next_check": "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "ETH03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH03/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+      "claim": "排除“预言机估值乘清算奖励就是已兑现净利润”的论证。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+      ],
+      "evidence_fields": "实际代还限额、receiveAToken分支、liquidationProtocolFee；还需市场出售/融资/费用证据。",
+      "scope_limit": "静态规则反证，不声称某实际仓位可清算或无利可图。",
+      "owner": "ETH04",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

@@ -1,13 +1,37 @@
 {
   "agent_id": "ETH03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "deployment_commit_document": "665879762f8b5df5d234463f45d1d6a49bd4fbeb",
+    "vault_document_address": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+    "current_block": null,
+    "actual_secondary_pools_read": 0,
+    "redeems_simulated": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
+    "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
+    "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
+    "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+  ],
+  "pending_questions": [
+    "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
+    "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
+    "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
+    "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
+    "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:47:03.965320+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ETH03/full-20261108T152118Z/record.json"
 }

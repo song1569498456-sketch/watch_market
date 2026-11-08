@@ -1,0 +1,138 @@
+{
+  "agent_id": "ETH03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ETH",
+  "scope": "Ethereum可转让金库份额二级折价买入→正常提款；自主发现sDAI文档部署，无现行二级折价证据",
+  "started_at": "2026-11-08T15:45:54.287793+00:00",
+  "finished_at": "2026-11-08T15:47:03.965320+00:00",
+  "duration_seconds": 69.678,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:47:03.965320+00:00",
+  "block_or_slot": null,
+  "market_ids": [
+    "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea"
+  ],
+  "asset_ids": [
+    "ETH:1:0x83f20f44975d03b1b09e64809b757c47f942beea"
+  ],
+  "discovery_source": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://api.dexscreener.com/latest/dex/search?q=ethereum%20sDAI",
+    "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/master/src/SavingsDai.sol",
+    "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+  ],
+  "mechanism": "sDAI是DSR份额，转换取决chi/时间；显示totalAssets/convertToAssets不是当前现金承诺，份额所有权/授权和底层退出状态必须另核。",
+  "observations": [
+    "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
+    "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
+    "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
+    "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "DAI（底层/退出价格未核验）",
+    "realized": false,
+    "unknown_costs": [
+      "二级买入价/冲击",
+      "当前赎回状态/费用",
+      "ETH gas/授权",
+      "DAI变现成本",
+      "等待与现行限制"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "owner份额/授权依源码须满足；普通账户资格及链上状态未测",
+  "liabilities": "unknown，无份额取得或借款",
+  "waiting_time": "unknown，本轮无异步或即时实际测量",
+  "invalidation_conditions": [
+    "份额二级市场不存在",
+    "preview不满足max/实际redeem前提",
+    "部署/参数变化",
+    "当前底层不可退出",
+    "报价缺失或过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/master/src/SavingsDai.sol",
+    "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+  ],
+  "coverage_gaps": [
+    "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
+    "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
+    "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
+    "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
+    "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+  ],
+  "next_check": [
+    "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+    "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+    "完整模拟不得改金库余额/权限；如仅假设账户持有份额须披露，最终底层资产再按可成交报价退出。",
+    "补查30天治理/迁移和7天提款历史；显示NAV、即时可提、异步待领分别列；未知项保持unknown。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea",
+      "chain": "ETH",
+      "protocol": "Savings DAI / sDAI",
+      "asset_ids": [
+        "ETH:1:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+        "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+      ],
+      "identity_status": "OFFICIAL_DEPLOYMENT_DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+      "chain": "ETH",
+      "status": "REJECTED",
+      "market_ids": [
+        "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "mechanism": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+        "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+      ],
+      "next_check": "先证明二级市场池存在及可转让份额可买，再按数量比较真实买入成本、previewRedeem、用户maxRedeem/maxWithdraw和实际redeem可用性。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "NAV/preview=即时可提现额度",
+      "reason": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。"
+    },
+    {
+      "case": "份额DSR增值或名义DAI价值=二级折价收益",
+      "reason": "没有二级池和真实买入/退出报价，不能假造折价；DSR收益也不是本岗位即时套利。"
+    }
+  ],
+  "observed_cursor": {
+    "deployment_commit_document": "665879762f8b5df5d234463f45d1d6a49bd4fbeb",
+    "vault_document_address": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+    "current_block": null,
+    "actual_secondary_pools_read": 0,
+    "redeems_simulated": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

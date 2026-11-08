@@ -13,7 +13,20 @@
     "chain_block": null,
     "historical_window_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json"
+      ],
+      "chain_block": null,
+      "historical_window_complete": false
+    },
+    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "protocol": "Venus XVS rewards",
@@ -36,7 +49,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:44:36.743710+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB05/full-20261108T152118Z/record.json"
+  "record": "evidence/BNB05/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+    "verified_at": "2026-11-08T15:45:17.258417+00:00",
+    "record": "evidence/BNB05/full-20261108T152118Z/record.json"
+  }
 }

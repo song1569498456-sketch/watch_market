@@ -1,0 +1,31 @@
+{
+  "name": "aave_eth_deployment",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
+  "fetched_at_utc": "2026-11-08T15:46:02.939064+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "afe8adbbf8fe7d709ae1d2168b8d97ccb8110fdedb572fc2120ecae10ae7588b",
+  "excerpts": [
+    {
+      "line": 8,
+      "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+    },
+    {
+      "line": 12,
+      "text": "  IPool internal constant POOL = IPool(0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2);"
+    },
+    {
+      "line": 33,
+      "text": "  address internal constant POOL_IMPL = 0x728a138A4823392C2EFA55e028d434F526fE03CF;"
+    },
+    {
+      "line": 72,
+      "text": "  address internal constant POOL_ADDRESSES_PROVIDER_REGISTRY ="
+    },
+    {
+      "line": 1595,
+      "text": "  address internal constant LIQUIDATION_LOGIC = 0x96D5686812e33Ab509ECCDb38C89d15607B2a413;"
+    }
+  ],
+  "success": true
+}

@@ -451,6 +451,55 @@
       "owner": "BNB05",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BNB05/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+      "chain": "ETH",
+      "protocol": "Liquity v1 LUSD normal redemption",
+      "asset_ids": [
+        "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol"
+      ],
+      "identity_status": "OFFICIAL_DEPLOYMENT_AND_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+      "owner": "ETH02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea",
+      "chain": "ETH",
+      "protocol": "Savings DAI / sDAI",
+      "asset_ids": [
+        "ETH:1:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+        "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol"
+      ],
+      "identity_status": "OFFICIAL_DEPLOYMENT_DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "固定Ethereum chainId=1和区块，核对sDAI code与README所述部署commit/构造参数，读取asset、pot、chi/dsr/rho、totalSupply/totalAssets和实际退出前提。",
+      "owner": "ETH03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH03/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+      "chain": "ETH",
+      "protocol": "Aave V3 Ethereum",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
+        "https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
+      "next_check": "当前proxy代码/实现与reserve配置，再索引真实仓位",
+      "owner": "ETH04",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

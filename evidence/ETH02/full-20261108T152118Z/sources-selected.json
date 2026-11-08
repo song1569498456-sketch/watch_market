@@ -1,0 +1,456 @@
+{
+  "started_at": "2026-11-08T15:45:50.874260+00:00",
+  "sources": [
+    {
+      "source": "liquity-redemption-docs",
+      "url": "https://docs.liquity.org/liquity-v1/faq/lusd-redemptions",
+      "retrieved_at_utc": "2026-11-08T15:45:50.874267+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "ethereum-rpc",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:45:51.894696+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "liquity-mainnet-deployment",
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+      "retrieved_at_utc": "2026-11-08T15:45:52.901700+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "a1694d65c6b9800645d18cf0d3e38f5eb57af2e3545a32095c91dba952d87b36",
+      "bytes_read": 13917,
+      "selected": {
+        "priceFeed": {
+          "address": "0x4c517D4e2C851CA76d7eC94B805269Df0f2201De",
+          "verification": "https://etherscan.io/address/0x4c517D4e2C851CA76d7eC94B805269Df0f2201De#code"
+        },
+        "troveManager": {
+          "address": "0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+          "verification": "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2#code"
+        },
+        "activePool": {
+          "address": "0xDf9Eb223bAFBE5c5271415C75aeCD68C21fE3D7F",
+          "verification": "https://etherscan.io/address/0xDf9Eb223bAFBE5c5271415C75aeCD68C21fE3D7F#code"
+        },
+        "borrowerOperations": {
+          "address": "0x24179CD81c9e782A4096035f7eC97fB8B783e007",
+          "verification": "https://etherscan.io/address/0x24179CD81c9e782A4096035f7eC97fB8B783e007#code"
+        },
+        "lusdToken": {
+          "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+          "verification": "https://etherscan.io/address/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0#code"
+        }
+      }
+    },
+    {
+      "source": "liquity-trove-manager-source",
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+      "retrieved_at_utc": "2026-11-08T15:45:54.308757+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "30871ff587a8d0208340699023c2ce3f9f2279d1472cb4448770d74bf81b1c96",
+      "bytes_read": 68444,
+      "excerpts": [
+        {
+          "line": 851,
+          "text": "            * If the resultant net debt of the partial is less than the minimum, net debt we bail."
+        },
+        {
+          "line": 852,
+          "text": "            */"
+        },
+        {
+          "line": 853,
+          "text": "            if (newNICR != _partialRedemptionHintNICR || _getNetDebt(newDebt) < MIN_NET_DEBT) {"
+        },
+        {
+          "line": 854,
+          "text": "                singleRedemption.cancelledPartial = true;"
+        },
+        {
+          "line": 855,
+          "text": "                return singleRedemption;"
+        },
+        {
+          "line": 856,
+          "text": "            }"
+        },
+        {
+          "line": 857,
+          "text": ""
+        },
+        {
+          "line": 858,
+          "text": "            _contractsCache.sortedTroves.reInsert(_borrower, newNICR, _upperPartialRedemptionHint, _lowerPartialRedemptionHint);"
+        },
+        {
+          "line": 925,
+          "text": "    function redeemCollateral("
+        },
+        {
+          "line": 926,
+          "text": "        uint _LUSDamount,"
+        },
+        {
+          "line": 927,
+          "text": "        address _firstRedemptionHint,"
+        },
+        {
+          "line": 928,
+          "text": "        address _upperPartialRedemptionHint,"
+        },
+        {
+          "line": 929,
+          "text": "        address _lowerPartialRedemptionHint,"
+        },
+        {
+          "line": 930,
+          "text": "        uint _partialRedemptionHintNICR,"
+        },
+        {
+          "line": 931,
+          "text": "        uint _maxIterations,"
+        },
+        {
+          "line": 932,
+          "text": "        uint _maxFeePercentage"
+        },
+        {
+          "line": 933,
+          "text": "    )"
+        },
+        {
+          "line": 934,
+          "text": "        external"
+        },
+        {
+          "line": 935,
+          "text": "        override"
+        },
+        {
+          "line": 936,
+          "text": "    {"
+        },
+        {
+          "line": 937,
+          "text": "        ContractsCache memory contractsCache = ContractsCache("
+        },
+        {
+          "line": 938,
+          "text": "            activePool,"
+        },
+        {
+          "line": 946,
+          "text": "        RedemptionTotals memory totals;"
+        },
+        {
+          "line": 947,
+          "text": ""
+        },
+        {
+          "line": 948,
+          "text": "        _requireValidMaxFeePercentage(_maxFeePercentage);"
+        },
+        {
+          "line": 949,
+          "text": "        _requireAfterBootstrapPeriod();"
+        },
+        {
+          "line": 950,
+          "text": "        totals.price = priceFeed.fetchPrice();"
+        },
+        {
+          "line": 951,
+          "text": "        _requireTCRoverMCR(totals.price);"
+        },
+        {
+          "line": 952,
+          "text": "        _requireAmountGreaterThanZero(_LUSDamount);"
+        },
+        {
+          "line": 953,
+          "text": "        _requireLUSDBalanceCoversRedemption(contractsCache.lusdToken, msg.sender, _LUSDamount);"
+        },
+        {
+          "line": 954,
+          "text": ""
+        },
+        {
+          "line": 955,
+          "text": "        totals.totalLUSDSupplyAtStart = getEntireSystemDebt();"
+        },
+        {
+          "line": 956,
+          "text": "        // Confirm redeemer's balance is less than total LUSD supply"
+        },
+        {
+          "line": 957,
+          "text": "        assert(contractsCache.lusdToken.balanceOf(msg.sender) <= totals.totalLUSDSupplyAtStart);"
+        },
+        {
+          "line": 958,
+          "text": ""
+        },
+        {
+          "line": 959,
+          "text": "        totals.remainingLUSD = _LUSDamount;"
+        },
+        {
+          "line": 960,
+          "text": "        address currentBorrower;"
+        },
+        {
+          "line": 961,
+          "text": ""
+        },
+        {
+          "line": 962,
+          "text": "        if (_isValidFirstRedemptionHint(contractsCache.sortedTroves, _firstRedemptionHint, totals.price)) {"
+        },
+        {
+          "line": 963,
+          "text": "            currentBorrower = _firstRedemptionHint;"
+        },
+        {
+          "line": 964,
+          "text": "        } else {"
+        },
+        {
+          "line": 965,
+          "text": "            currentBorrower = contractsCache.sortedTroves.getLast();"
+        },
+        {
+          "line": 966,
+          "text": "            // Find the first trove with ICR >= MCR"
+        },
+        {
+          "line": 1379,
+          "text": "    function getRedemptionRate() public view override returns (uint) {"
+        },
+        {
+          "line": 1380,
+          "text": "        return _calcRedemptionRate(baseRate);"
+        },
+        {
+          "line": 1381,
+          "text": "    }"
+        },
+        {
+          "line": 1382,
+          "text": ""
+        },
+        {
+          "line": 1383,
+          "text": "    function getRedemptionRateWithDecay() public view override returns (uint) {"
+        },
+        {
+          "line": 1384,
+          "text": "        return _calcRedemptionRate(_calcDecayedBaseRate());"
+        },
+        {
+          "line": 1385,
+          "text": "    }"
+        },
+        {
+          "line": 1386,
+          "text": ""
+        },
+        {
+          "line": 1387,
+          "text": "    function _calcRedemptionRate(uint _baseRate) internal pure returns (uint) {"
+        },
+        {
+          "line": 1388,
+          "text": "        return LiquityMath._min("
+        },
+        {
+          "line": 1389,
+          "text": "            REDEMPTION_FEE_FLOOR.add(_baseRate),"
+        },
+        {
+          "line": 1390,
+          "text": "            DECIMAL_PRECISION // cap at a maximum of 100%"
+        },
+        {
+          "line": 1391,
+          "text": "        );"
+        },
+        {
+          "line": 1392,
+          "text": "    }"
+        },
+        {
+          "line": 1393,
+          "text": ""
+        },
+        {
+          "line": 1394,
+          "text": "    function _getRedemptionFee(uint _ETHDrawn) internal view returns (uint) {"
+        },
+        {
+          "line": 1395,
+          "text": "        return _calcRedemptionFee(getRedemptionRate(), _ETHDrawn);"
+        },
+        {
+          "line": 1396,
+          "text": "    }"
+        },
+        {
+          "line": 1397,
+          "text": ""
+        },
+        {
+          "line": 1398,
+          "text": "    function getRedemptionFeeWithDecay(uint _ETHDrawn) external view override returns (uint) {"
+        },
+        {
+          "line": 1399,
+          "text": "        return _calcRedemptionFee(getRedemptionRateWithDecay(), _ETHDrawn);"
+        },
+        {
+          "line": 1400,
+          "text": "    }"
+        },
+        {
+          "line": 1401,
+          "text": ""
+        },
+        {
+          "line": 1402,
+          "text": "    function _calcRedemptionFee(uint _redemptionRate, uint _ETHDrawn) internal pure returns (uint) {"
+        },
+        {
+          "line": 1403,
+          "text": "        uint redemptionFee = _redemptionRate.mul(_ETHDrawn).div(DECIMAL_PRECISION);"
+        },
+        {
+          "line": 1404,
+          "text": "        require(redemptionFee < _ETHDrawn, \"TroveManager: Fee would eat up all returned collateral\");"
+        },
+        {
+          "line": 1405,
+          "text": "        return redemptionFee;"
+        },
+        {
+          "line": 1406,
+          "text": "    }"
+        },
+        {
+          "line": 1484,
+          "text": "    function _requireLUSDBalanceCoversRedemption(ILUSDToken _lusdToken, address _redeemer, uint _amount) internal view {"
+        },
+        {
+          "line": 1485,
+          "text": "        require(_lusdToken.balanceOf(_redeemer) >= _amount, \"TroveManager: Requested redemption amount must be <= user's LUSD token balance\");"
+        },
+        {
+          "line": 1486,
+          "text": "    }"
+        },
+        {
+          "line": 1487,
+          "text": ""
+        },
+        {
+          "line": 1488,
+          "text": "    function _requireMoreThanOneTroveInSystem(uint TroveOwnersArrayLength) internal view {"
+        },
+        {
+          "line": 1489,
+          "text": "        require (TroveOwnersArrayLength > 1 && sortedTroves.getSize() > 1, \"TroveManager: Only one trove in the system\");"
+        },
+        {
+          "line": 1490,
+          "text": "    }"
+        },
+        {
+          "line": 1491,
+          "text": ""
+        },
+        {
+          "line": 1492,
+          "text": "    function _requireAmountGreaterThanZero(uint _amount) internal pure {"
+        },
+        {
+          "line": 1493,
+          "text": "        require(_amount > 0, \"TroveManager: Amount must be greater than zero\");"
+        },
+        {
+          "line": 1494,
+          "text": "    }"
+        },
+        {
+          "line": 1495,
+          "text": ""
+        },
+        {
+          "line": 1496,
+          "text": "    function _requireTCRoverMCR(uint _price) internal view {"
+        },
+        {
+          "line": 1497,
+          "text": "        require(_getTCR(_price) >= MCR, \"TroveManager: Cannot redeem when TCR < MCR\");"
+        },
+        {
+          "line": 1498,
+          "text": "    }"
+        },
+        {
+          "line": 1499,
+          "text": ""
+        },
+        {
+          "line": 1500,
+          "text": "    function _requireAfterBootstrapPeriod() internal view {"
+        },
+        {
+          "line": 1501,
+          "text": "        uint systemDeploymentTime = lqtyToken.getDeploymentStartTime();"
+        },
+        {
+          "line": 1502,
+          "text": "        require(block.timestamp >= systemDeploymentTime.add(BOOTSTRAP_PERIOD), \"TroveManager: Redemptions are not allowed during bootstrap phase\");"
+        },
+        {
+          "line": 1503,
+          "text": "    }"
+        },
+        {
+          "line": 1504,
+          "text": ""
+        },
+        {
+          "line": 1505,
+          "text": "    function _requireValidMaxFeePercentage(uint _maxFeePercentage) internal pure {"
+        },
+        {
+          "line": 1506,
+          "text": "        require(_maxFeePercentage >= REDEMPTION_FEE_FLOOR && _maxFeePercentage <= DECIMAL_PRECISION,"
+        },
+        {
+          "line": 1507,
+          "text": "            \"Max fee percentage must be between 0.5% and 100%\");"
+        },
+        {
+          "line": 1508,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "source": "lusd-secondary-market-discovery",
+      "url": "https://api.dexscreener.com/token-pairs/v1/ethereum/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "retrieved_at_utc": "2026-11-08T15:46:14.425051+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}
