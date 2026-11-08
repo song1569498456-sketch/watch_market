@@ -29,5 +29,17 @@
   "agent_manifest": "config/agents.json",
   "main_prompt": "prompts/agents/M00.txt",
   "storage_contract": "docs/cloud-recording-protocol.txt",
-  "research_history": "state/research-history.json"
+  "research_history": "state/research-history.json",
+  "data_access_control": {
+    "owner": "M00",
+    "shared_registry": "registry/data-sources.json",
+    "capability_state": "state/data-capability.json",
+    "observation_pilot_state": "state/observation-pilot.json",
+    "request_policy": "M00 checks shared failed RPC/API access once per policy revision or deliberate diagnosis. Roles reuse archived checks; no per-role retries of known proxy-blocked domains. Q00 may independently verify selected reachable static source facts.",
+    "consecutive_failure_limit_per_service": 3,
+    "full_roster_repeat": false,
+    "current_mode": "SINGLE_MARKET_GATE_THEN_TWO_DAY_DELTA_ONLY_PILOT",
+    "single_market_gate_required_before_live_pilot": true,
+    "network_change_is_external_platform_setting_not_this_file": true
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "purpose": "transport diagnosis after central urllib failure; not a market quote retry",
+  "requested_at_utc": "2026-11-08T16:37:56.650488+00:00",
+  "url": "https://ethereum-rpc.publicnode.com",
+  "method": "POST",
+  "request_json": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "eth_chainId",
+    "params": []
+  },
+  "curl_exit": 56,
+  "final_http_code": "000",
+  "error": "curl: (56) CONNECT tunnel failed, response 403",
+  "selected_response_headers": [
+    "HTTP/1.1 403 Forbidden",
+    "content-length: 16",
+    "content-type: text/plain"
+  ],
+  "duration_seconds": 0.019454,
+  "proxy": "inherited, unchanged",
+  "tls_verification": true
+}

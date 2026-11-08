@@ -1,0 +1,488 @@
+{
+  "run_id": "data-check-20261108T163237Z",
+  "basis": "Initial run status reused; central fresh access checks + enforced policy, not 48 new research runs",
+  "live_market_monitoring_ready_count": 0,
+  "read_only_live_market_gate_passed": false,
+  "rows": [
+    {
+      "agent_id": "M00",
+      "chain": "CONTROL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "coordination/review of archived data",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "Q00",
+      "chain": "CONTROL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "coordination/review of archived data",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-ARB",
+      "chain": "ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "chain": "AVAX",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-BASE",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-BNB",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-ETH",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-OP",
+      "chain": "OP",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-POLY",
+      "chain": "POLY",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-SOL",
+      "chain": "SOL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "chain": "SONIC",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ARB01",
+      "chain": "ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ARB02",
+      "chain": "ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ARB03",
+      "chain": "ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ARB04",
+      "chain": "ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "AVAX01",
+      "chain": "AVAX",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "AVAX02",
+      "chain": "AVAX",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BASE01",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BASE02",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BASE03",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BASE04",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BASE05",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BNB01",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BNB02",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BNB03",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BNB04",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "BNB05",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ETH01",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ETH02",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ETH03",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ETH04",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "ETH05",
+      "chain": "ETH",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "OP01",
+      "chain": "OP",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "OP02",
+      "chain": "OP",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "POLY01",
+      "chain": "POLY",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "POLY02",
+      "chain": "POLY",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "POLY03",
+      "chain": "POLY",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "R-BASE",
+      "chain": "BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "R-BNB",
+      "chain": "BNB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "R-POLY",
+      "chain": "POLY",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SOL01",
+      "chain": "SOL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SOL02",
+      "chain": "SOL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SOL03",
+      "chain": "SOL",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SONIC01",
+      "chain": "SONIC",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SONIC02",
+      "chain": "SONIC",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "SONIC03",
+      "chain": "SONIC",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "X-ARB",
+      "chain": "ETH+ARB",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md"
+    },
+    {
+      "agent_id": "X-BASE",
+      "chain": "ETH+BASE",
+      "enabled": true,
+      "real_time_monitoring": "NOT_READY",
+      "currently_available_scope": "official GitHub static documentation/source research only; some old URLs need canonical-path repair",
+      "basis": "No verified live block/slot, deployed identity, executable amount quote and full costs. Proxy policy still excludes data endpoints; chosen RPC gate failed. This is capability mapping, not a fresh market sweep.",
+      "can_resume_after_one_ETH_gate": "NOT_AUTOMATIC: each role still needs its own chain/source/scope gates",
+      "baseline_report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md"
+    }
+  ]
+}

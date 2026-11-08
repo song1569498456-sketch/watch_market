@@ -1,0 +1,566 @@
+{
+  "schema_version": 1,
+  "owner": "M00",
+  "last_check_run": "data-check-20261108T163237Z",
+  "network_revision_observed": "1",
+  "policy": "All roles consume shared status/evidence; do not re-probe blocked endpoints per role. Invalidate on observed network revision/access change or deliberate central diagnosis, not on permission text alone. Cap consecutive failures per service at 3, respect Retry-After. No rotating identities/proxies.",
+  "sources": [
+    {
+      "name": "ethereum_rpc",
+      "host": "ethereum-rpc.publicnode.com",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "checked_at": "2026-11-08T16:35:55.286366+00:00",
+      "status": "ENV_PROXY_CONNECT_403",
+      "record": "evidence/M00/data-check-20261108T163237Z/central-probes.json",
+      "central_only": true,
+      "failure_attempts_this_run": 3,
+      "retry_suppressed_until": "actual applied network revision/access change",
+      "latest_evidence": "evidence/M00/data-check-20261108T163237Z/rpc-after-full-access-request.json"
+    },
+    {
+      "name": "shared_dex_discovery",
+      "host": "api.dexscreener.com",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH%20ethereum",
+      "checked_at": "2026-11-08T16:35:56.325777+00:00",
+      "status": "ENV_PROXY_CONNECT_403",
+      "record": "evidence/M00/data-check-20261108T163237Z/central-probes.json",
+      "central_only": true
+    },
+    {
+      "name": "curve_official_pool_registry",
+      "host": "raw.githubusercontent.com",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/ethereum.ts",
+      "checked_at": "2026-11-08T16:35:57.347112+00:00",
+      "status": "HTTP_SUCCESS",
+      "record": "evidence/M00/data-check-20261108T163237Z/central-probes.json",
+      "central_only": true
+    },
+    {
+      "name": "lido_official_deployment",
+      "host": "raw.githubusercontent.com",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "checked_at": "2026-11-08T16:35:58.787193+00:00",
+      "status": "HTTP_SUCCESS",
+      "record": "evidence/M00/data-check-20261108T163237Z/central-probes.json",
+      "central_only": true
+    },
+    {
+      "name": "Arbitrum NodeInterface source path repair, same repo/interface",
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "checked_at": "2026-11-08T16:44:32.309853+00:00",
+      "http_status": 200,
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "scope": "Exact interface source location, not deployed-code confirmation",
+      "record": "evidence/M00/data-check-20261108T163237Z/verified-document-path-repairs.json",
+      "central_only": true
+    },
+    {
+      "name": "Sushi Arbitrum factory identity source",
+      "url": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "checked_at": "2026-11-08T16:44:33.698469+00:00",
+      "http_status": 200,
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "scope": "Factory deployment reference only; not complete SDK/config equivalent",
+      "record": "evidence/M00/data-check-20261108T163237Z/verified-document-path-repairs.json",
+      "central_only": true
+    },
+    {
+      "name": "Sonic staking official README entry",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "checked_at": "2026-11-08T16:44:35.094007+00:00",
+      "http_status": 200,
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "scope": "Documentation entry fallback already evidenced by prior official address source; not an asserted equivalence of every old contract",
+      "record": "evidence/M00/data-check-20261108T163237Z/verified-document-path-repairs.json",
+      "central_only": true
+    }
+  ],
+  "known_404_urls": [
+    {
+      "agent_id": "M00",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "ARB01",
+      "failed_url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "scope": "Factory deployment reference only; not complete SDK/config equivalent"
+    },
+    {
+      "agent_id": "ARB02",
+      "failed_url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/precompiles/NodeInterface.sol",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "scope": "Exact interface source location, not deployed-code confirmation"
+    },
+    {
+      "agent_id": "ARB04",
+      "failed_url": "https://raw.githubusercontent.com/beefyfinance/beefy-api/master/src/data/arbitrum_pools.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://raw.githubusercontent.com/coinbase/wrapped-tokens/main/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://raw.githubusercontent.com/base-org/token-list/main/src/tokens/base.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://github.com/coinbase/wrapped-tokens",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB01",
+      "failed_url": "https://raw.githubusercontent.com/lista-dao/lista-new-contracts/main/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB03",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/tokens/src/56.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB03",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/projects/exchange-protocol/contracts/PancakePair.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/contracts/PancakePair.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "OP01",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "SOL02",
+      "failed_url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/Docs/DEPLOYMENT.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "SONIC02",
+      "failed_url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "scope": "Documentation entry fallback already evidenced by prior official address source; not an asserted equivalence of every old contract"
+    },
+    {
+      "agent_id": "SONIC02",
+      "failed_url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/contracts/SonicStaking.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "X-BASE",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    }
+  ],
+  "historically_blocked_domains_under_unchanged_policy": [
+    {
+      "host": "docs.base.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "ethereum-rpc.publicnode.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "polygon-bor-rpc.publicnode.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "mainnet.base.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "rpc.soniclabs.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.mainnet-beta.solana.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "portal.arbitrum.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "arb1.arbitrum.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.avax.network",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "build.avax.network",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "www.bnbchain.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "bsc-dataseed.bnbchain.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "ethereum.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.lido.fi",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "www.optimism.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "mainnet.optimism.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "polygon.technology",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "solana.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "www.soniclabs.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "sonic-rpc.publicnode.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.dexscreener.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "arbitrum-one-rpc.publicnode.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.beefy.finance",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.benqi.fi",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "developers.circle.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "help.coinbase.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.morpho.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.morpho.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "base-rpc.publicnode.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.v3.aave.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.lista.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs-v4.venus.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "bsc-dataseed.binance.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "dappbay.bnbchain.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "cloudflare-eth.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.liquity.org",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "aave.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "eth.llamarpc.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.polygon.technology",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "polygon-rpc.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.venus.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "gamma-api.polymarket.com",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api-v3.raydium.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.orca.so",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.marinade.finance",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.kamino.finance",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "api.curve.finance",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.beets.fi",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    },
+    {
+      "host": "docs.arbitrum.io",
+      "evidence_status": "HISTORICAL_PROXY_CONNECT_403",
+      "fresh_individual_probe": false,
+      "policy_revision": "1",
+      "reason": "Domain excluded by current enforced policy; M00 rechecks only on configuration change or deliberate diagnosis."
+    }
+  ],
+  "latest_network_change_attempt": "runs/data-check-20261108T163237Z/full-network-update-attempt.json"
+}

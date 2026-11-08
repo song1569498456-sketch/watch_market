@@ -1,0 +1,87 @@
+{
+  "verification_id": "ETH-CURVE-STETH-ETH-DATA-GATE",
+  "run_id": "data-check-20261108T163237Z",
+  "status": "BLOCKED",
+  "research_grade": "UNVERIFIED",
+  "chain": "Ethereum",
+  "expected_chain_id": 1,
+  "observed_chain_id": null,
+  "block_number": null,
+  "block_hash": null,
+  "block_timestamp": null,
+  "market_id": "1:Curve:steth:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+  "swap_contract": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+  "asset_in": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "symbol_from_static_source": "stETH",
+    "decimals_from_static_source": 18
+  },
+  "asset_out": {
+    "kind": "native ETH",
+    "registry_sentinel_not_erc20": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+  },
+  "identity_level": "Official static Curve pool registry agrees with Lido wstETH constructor underlying; deployed code/current storage NOT_VERIFIED",
+  "measurement_amount": {
+    "human": "0.01",
+    "raw": "10000000000000000",
+    "unit": "stETH",
+    "purpose": "test scale, not user capital/recommendation"
+  },
+  "path": {
+    "type": "single market stETH to ETH exit only",
+    "planned_view_call": "get_dy(int128,int128,uint256)",
+    "planned_args": [
+      "1",
+      "0",
+      "10000000000000000"
+    ],
+    "planned_execution_simulation": "exchange(int128,int128,uint256,uint256) at same pinned block, explicit balance/allowance/account assumptions, no signing or broadcasting",
+    "view_call_executed": false,
+    "execution_simulation_executed": false,
+    "amount_out_raw": null,
+    "quote_time": null,
+    "quote_classification": "NOT_OBTAINED",
+    "round_trip_or_profit_closed": false
+  },
+  "code_identity": {
+    "pool_bytecode": null,
+    "pool_code_hash": null,
+    "steth_bytecode": null,
+    "proxy_implementation": null,
+    "coins_onchain": null,
+    "decimals_onchain": null
+  },
+  "rules_static_only": [
+    "get_dy returns dy less pool trading fee; fee already included in quote, do not deduct it twice",
+    "exchange separately checks is_killed and min_dy; view quote alone does not prove execution eligibility",
+    "stETH input requires actual balance and transferFrom authorization; ETH output and stETH transfer semantics require current deployment confirmation",
+    "selected ABI has no public is_killed getter; do not fabricate is_killed() call",
+    "compiler ABI gas metadata is not actual current transaction gas"
+  ],
+  "fees": {
+    "pool_fee_raw": null,
+    "admin_fee_raw": null,
+    "fee_denominator": 10000000000,
+    "approval_gas_units": null,
+    "exchange_gas_units": null,
+    "gas_price_wei": null,
+    "priority_fee_wei": null,
+    "tax_or_transfer_adjustment": "unknown until current code/flow verified",
+    "gas_cost_ETH": null,
+    "fee_denominator_basis": "Q00 independently re-read official Curve source FEE_DENOMINATOR = 10 ** 10; a source constant only, not current fee value"
+  },
+  "accounting": {
+    "output_ETH": "unknown",
+    "input_acquisition_cost_ETH": "unknown; stETH not presumed 1 ETH",
+    "net_ETH": null,
+    "formula": "output_ETH - actual input acquisition cost in ETH - incremental approval/exchange/other costs, accounting once for fees already embedded in get_dy",
+    "profit_claim": false
+  },
+  "next_step": "Restore RPC access; pin canonical block; verify both contracts, asset indices and proxy; fetch fee/state/quantity quote; simulate permissible exchange at same state; estimate current gas then independently review. Failed identity or simulation keeps gate BLOCKED/PARTIAL.",
+  "evidence_files": [
+    "central-probes.json",
+    "rpc-transport-diagnostic.json",
+    "selected-exit-rule-sources.json"
+  ],
+  "new_valid_market_finding": false
+}

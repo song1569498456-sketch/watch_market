@@ -1,0 +1,997 @@
+{
+  "agent_id": "Q00",
+  "run_id": "data-check-20261108T163237Z",
+  "verification_id": "ETH-CURVE-STETH-ETH-DATA-GATE",
+  "scope": "一次共享数据能力门槛独立复核；不重跑48岗、不新增市场/探针",
+  "execution_status": "PARTIAL",
+  "verdict": "NEEDS_DATA",
+  "recommended_status": "UNVERIFIED",
+  "live_market_validation_passed": false,
+  "live_markets_passed_count": 0,
+  "block_or_slot": null,
+  "quotes": [],
+  "model_usage": {
+    "tokens": null,
+    "cost": null,
+    "measurement_status": "UNAVAILABLE_NO_MODEL_USAGE_TOOL; 未以请求数/模型估算代替实测"
+  },
+  "timing": {
+    "measurement_started_at": "2026-11-08T16:44:01.143057+00:00",
+    "finished_at_utc": "2026-11-08T16:47:46.768405+00:00",
+    "finished_at_beijing": "2026-11-09T00:47:46.768405+08:00",
+    "measured_duration_seconds": 225.62534,
+    "scope": "独立源补读、统计复核文件与报告交付；之前材料阅读未计时",
+    "preparation_read_duration_seconds": null
+  },
+  "requests": {
+    "q00_new_HTTP": 2,
+    "q00_HTTP_200": 2,
+    "q00_RPC_or_DEX_probes": 0,
+    "q00_configuration_tool_calls": 0,
+    "m00_latest_HTTP_count_from_handoff": 11,
+    "m00_count_basis": "4 central probes+1 curl diagnosis+2 rule/ABI GET+3 document repairs+1 fresh RPC after wildcard update request; 不作为token/费用计量",
+    "note": "本run复核仅以上2次独立HTTP；313是上一轮留存观察，二者不可混加成精确历史请求数",
+    "explicit_HTTP_total_this_run": 13
+  },
+  "check_counts": {
+    "CONFIRMED_EVIDENCE": 8,
+    "NEEDS_DATA": 1
+  },
+  "checks": [
+    {
+      "check_id": "HISTORICAL_COUNTS",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "313条主清单留存观察的口径、原始行与算术；不是全量HTTP/计费次数",
+      "result": {
+        "files_read": 52,
+        "rows_reclassified": 313,
+        "actual_counts": {
+          "HTTP_SUCCESS": 183,
+          "HTTP_404_SOURCE_PATH": 20,
+          "ENV_PROXY_CONNECT_403": 110
+        },
+        "source_url_or_category_mismatches": 0,
+        "duplicate_count_under_declared_key": 0,
+        "missing_request_time_in_retained_events": 0,
+        "domain_observation_total": 313,
+        "unique_domains": 51
+      },
+      "reason": "逐行按source_file/source_row读回原始manifest并重新分类；183+110+20=313，样本和索引匹配。Q00补读/临时未保存请求等不保证全部入主清单，不能当精确请求或计费数。"
+    },
+    {
+      "check_id": "FAILURE_LAYER",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "归档中央探针错误层级",
+      "reason": "urllib Tunnel connection failed:403及curl CONNECT403/exit56/final_http_code000共同说明未达上游HTTP/JSON-RPC。未取得401/429/5xx/timeout不代表服务无需鉴权或无限额；404仅指所请求路径。Q00遵守共享检测，不重复探针。 HTTP404也可能来自路径/分支/仓库移动、删除或私有资源隐藏；其原因未确定，不能排除权限隐藏。"
+    },
+    {
+      "check_id": "CONFIG_APPLICATION",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "只审查已保存配置结果与运行状态描述是否被过度表述；未独立调用配置工具",
+      "reason": "保存的3次草稿读和1次安全追加写均INVALID_ARGUMENT且持久化未确认，revision1/allowed_hosts空/enforced未变；用户授权不等于应用成功。追加RPC URL变量也不等于添加网络域名egress。上游鉴权/限流及工具backend根因仍未知。"
+    },
+    {
+      "check_id": "STATIC_MARKET_IDENTITY",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "只确认归档官方静态Curve清单与Lido构造参数的地址相符",
+      "reason": "Curve steth池地址0xDC24316b9AE028F1497c275EB9192a3Ea0f67022，coins[0]是native ETH sentinel，coins[1]是stETH 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84，静态18位；与Lido wstETH constructor underlying一致。未读实时代码/存储，sentinel不是ERC20合约。身份资料复核使用已归档中央证据，未多占第3个HTTP。"
+    },
+    {
+      "check_id": "MEASUREMENT_PLAN",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "0.01stETH换ETH的数量单位/索引计划；不确认已取报价",
+      "reason": "在静态18位假设下0.01×10^18=10000000000000000，get_dy(1,0,10^16)方向正确；只是测量刻度，不是投入建议。路径仅单市场退出，前置取得成本/闭环收益未建立；fixed block/from/value/min_dy/余额授权应明确。"
+    },
+    {
+      "check_id": "SOURCE_FEE_EXECUTION_BOUNDARY",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "Q00独立重读官方StableSwapSTETH.vy的静态字段；未绑定部署",
+      "reason": "L87 FEE_DENOMINATOR=10**10。L424-425 get_dy扣pool fee后返回。exchange L441查is_killed、L453查min_dy；L457 admin_fee分配自dy_fee，不能作为额外用户fee重复扣。stETH输入分支L466要求value=0、L467 transferFrom、L468 native ETH raw_call；余额授权与接收方能力可令view成功而实际执行失败。"
+    },
+    {
+      "check_id": "ABI_AND_GAS_BOUNDARY",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "Q00独立重读完整官方swap ABI的函数集合与gas metadata",
+      "reason": "完整ABI函数列表无is_killed；源码is_killed:bool非public。禁止虚构is_killed()调用或猜槽。ABI get_dy gas=2444404、exchange gas=2638539仅随ABI留存的静态metadata，不能当当前gas实测、估算或已付成本。"
+    },
+    {
+      "check_id": "DOCUMENT_REPAIR_BOUNDARIES",
+      "verdict": "CONFIRMED_EVIDENCE",
+      "claim_scope": "仅审查主控3份已存HTTP200修复证据与20条404分流边界，未重复HTTP",
+      "result": {
+        "historical_404": 20,
+        "triage_rows": 20,
+        "restored_document_references": 3,
+        "unresolved_or_partial": 17
+      },
+      "reason": "NodeInterface为同repo同接口路径修正；Sushi只恢复Arbitrum V2工厂deployment reference，不等价恢复完整SDK；Sonic只恢复stS文档入口，当前delay仍可被admin改。20条404中3条参考入口已恢复、17条未解决或仅局部替代；没有把V2→V3、USDC.e→USDC或Base registry→node文档当等价验证。 “路径404”是统计标签，不是确定根因；仍可能私有资源隐藏。"
+    },
+    {
+      "check_id": "LIVE_MARKET_GATE",
+      "verdict": "NEEDS_DATA",
+      "claim_scope": "单市场当前链身份→固定区块→0.01stETH报价→可执行退出与完整费用",
+      "reason": "共享RPC仍CONNECT403，chainId/block/code/current coins/报价与模拟均未取得；静态源码与ABI可读不满足实时门槛。0个市场实时通过，不能升级QUOTED或SIMULATED，更不能外推其他47岗位或两天观察完成。",
+      "missing_fields": [
+        "可访问的Ethereum只读RPC和已应用网络egress规则",
+        "eth_chainId=1；固定规范区块number/hash/timestamp与最终性",
+        "池/stETH实际code或代理实现、coins索引及decimals（不能由静态表替代）",
+        "指定from账户、真实stETH余额与pool allowance；若隔离模拟需披露账户/授权/余额假设",
+        "同块get_dy(1,0,10000000000000000)输出与数据时间",
+        "真实fee/admin_fee和有效流动性/暂停；无getter时仅用已验证存储布局或有效exchange只读执行，不能猜storage slot",
+        "同状态exchange(1,0,dx,min_dy)，value=0、接收ETH账户能力及返回数额/revert原因",
+        "当前approval/exchange估算gas、gasPrice/priority fee、转账/重基准数量差异及全部增量成本",
+        "若提出净收益：实际取得0.01stETH的ETH成本和完整取得→退出账本；单腿换出ETH不等于利润"
+      ]
+    }
+  ],
+  "fee_denominator_correction": {
+    "previous": "FEE_DENOMINATOR from selected source; Q00 to recheck exact constant",
+    "value": "10000000000",
+    "expression": "10 ** 10",
+    "source_line": 87,
+    "semantic": "fee_raw/10^10为费率；不表示当前fee_raw或费率已取到",
+    "m00_current_gate_value": 10000000000,
+    "resolution": "M00已按Q00独立源补入常量；未升级当前fee/报价等实时字段。"
+  },
+  "corrections_count": 1,
+  "additional_boundary_clarifications": [
+    "admin_fee分配自dy_fee，不对get_dy输出再扣一遍pool/admin fee。",
+    "无is_killed getter不等于无暂停；需部署匹配及有效exchange只读验证或已核布局。",
+    "RPC URL建议/用户授权与已应用网络egress是不同事实。"
+  ],
+  "raw_inventory_samples": [
+    {
+      "inventory_event": {
+        "agent_id": "M00",
+        "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+        "source_row": 0,
+        "url": "https://github.com/song1569498456-sketch/watch_market",
+        "host": "github.com",
+        "request_time": "2026-11-08T15:23:06.954299+00:00",
+        "method": "GET",
+        "request_json": null,
+        "http_status": 200,
+        "category": "HTTP_SUCCESS",
+        "error_excerpt": ""
+      },
+      "raw_selected_fields": {
+        "url": "https://github.com/song1569498456-sketch/watch_market",
+        "http_status": 200,
+        "fetched_at": "2026-11-08T15:23:06.954299+00:00"
+      },
+      "independent_raw_classification": "HTTP_SUCCESS"
+    },
+    {
+      "inventory_event": {
+        "agent_id": "Q00",
+        "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+        "source_row": 0,
+        "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "host": "raw.githubusercontent.com",
+        "request_time": "2026-11-08T16:05:09.998824+00:00",
+        "method": "GET",
+        "request_json": null,
+        "http_status": 200,
+        "category": "HTTP_SUCCESS",
+        "error_excerpt": ""
+      },
+      "raw_selected_fields": {
+        "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "http_status": "200",
+        "error": "",
+        "fetched_at": "2026-11-08T16:05:09.998824+00:00",
+        "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+      },
+      "independent_raw_classification": "HTTP_SUCCESS"
+    },
+    {
+      "inventory_event": {
+        "agent_id": "M00",
+        "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+        "source_row": 3,
+        "url": "https://docs.base.org/base-chain/network-information/withdrawals",
+        "host": "docs.base.org",
+        "request_time": "2026-11-08T15:23:12.170089+00:00",
+        "method": "GET",
+        "request_json": null,
+        "http_status": 403,
+        "category": "ENV_PROXY_CONNECT_403",
+        "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "raw_selected_fields": {
+        "url": "https://docs.base.org/base-chain/network-information/withdrawals",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+        "fetched_at": "2026-11-08T15:23:12.170089+00:00"
+      },
+      "independent_raw_classification": "ENV_PROXY_CONNECT_403"
+    },
+    {
+      "inventory_event": {
+        "agent_id": "Q00",
+        "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+        "source_row": 0,
+        "url": "https://ethereum-rpc.publicnode.com",
+        "host": "ethereum-rpc.publicnode.com",
+        "request_time": "2026-11-08T16:06:28.183523+00:00",
+        "method": "POST",
+        "request_json": {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_chainId",
+          "params": []
+        },
+        "http_status": 403,
+        "category": "ENV_PROXY_CONNECT_403",
+        "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+      },
+      "raw_selected_fields": {
+        "url": "https://ethereum-rpc.publicnode.com",
+        "error": "curl: (56) CONNECT tunnel failed, response 403\n",
+        "fetched_at": "2026-11-08T16:06:28.183523+00:00"
+      },
+      "independent_raw_classification": "ENV_PROXY_CONNECT_403"
+    },
+    {
+      "inventory_event": {
+        "agent_id": "M00",
+        "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+        "source_row": 1,
+        "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+        "host": "raw.githubusercontent.com",
+        "request_time": "2026-11-08T15:23:09.363369+00:00",
+        "method": "GET",
+        "request_json": null,
+        "http_status": 404,
+        "category": "HTTP_404_SOURCE_PATH",
+        "error_excerpt": "HTTP Error 404: Not Found"
+      },
+      "raw_selected_fields": {
+        "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+        "error": "HTTP Error 404: Not Found",
+        "fetched_at": "2026-11-08T15:23:09.363369+00:00"
+      },
+      "independent_raw_classification": "HTTP_404_SOURCE_PATH"
+    },
+    {
+      "inventory_event": {
+        "agent_id": "ARB01",
+        "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+        "source_row": 4,
+        "url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+        "host": "raw.githubusercontent.com",
+        "request_time": "2026-11-08T15:34:19.000403+00:00",
+        "method": "GET",
+        "request_json": null,
+        "http_status": 404,
+        "category": "HTTP_404_SOURCE_PATH",
+        "error_excerpt": "HTTP Error 404: Not Found"
+      },
+      "raw_selected_fields": {
+        "url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "independent_raw_classification": "HTTP_404_SOURCE_PATH"
+    }
+  ],
+  "input_files_read": [
+    {
+      "path": "/tmp/watch-market-data-check/context.json",
+      "sha256": "526ffd9c5c3ac36b67151b73ea7102aebeb230266bfe20f1cbf4f249b6655620"
+    },
+    {
+      "path": "prompts/agents/Q00.txt",
+      "sha256": "d7edaaea9aef48ee368edd2e050aa10574b0787057d15141fc448558376fc8f9"
+    },
+    {
+      "path": "reports/daily/2026-11-09/data-check-20261108T163237Z.md",
+      "sha256": "fb78d6cc5da1e8cce2b3841bac19044632269c28083a604a8bd8ea4faf5dd368"
+    },
+    {
+      "path": "registry/data-sources.json",
+      "sha256": "27a909766ce4ca0c1abacad4487c60e47bc7485239ed2640375a6e0ced252716"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/selected-exit-rule-sources.json",
+      "sha256": "d29252c96eb83eacfed3a5e785ddabdbc7a2771ec2a6a1827511eaef87c07d34"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/baseline-access-inventory.json",
+      "sha256": "5bc9153a2644f8cdace248e51fec1207aafe5485245484109d1f1c04e2ce0c88"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/all-404-triage.json",
+      "sha256": "e30bbaae3b5230ec8862f74fd226c7194b7a4a8ddcb0cc32b8d4c318d23ba82a"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/verified-document-path-repairs.json",
+      "sha256": "28edc6a38957e9e524ed49d3dbc3a39209f95a97d5594950e650ef065e270869"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/rpc-transport-diagnostic.json",
+      "sha256": "bc466a2eb21a3edaa6b086390ed9fa1f117bd5302c005fba87181c12fcce94d3"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/single-market-gate.json",
+      "sha256": "43ba66ff659c16997ffb6047fb85f2a3d52929db80d71ced46ad94287b0abae1"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/central-probes.json",
+      "sha256": "63c594b5e425080052e8483ba18ec68ce94a7ac329b9360e5a74a4708ca217eb"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/platform-configuration-errors.json",
+      "sha256": "c96a21e4ed5c78eae63f79b763370b68ee3cff04194447975e168e8eaee05b92"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/runtime-policy-observation.json",
+      "sha256": "9d68a48e23a61e673450af8ee6aed861c0b90c558f5f1dd0502f802d6e2bebce"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/role-readiness.json",
+      "sha256": "a661d4a13f86f554357d15b1fb28ba299161e781bd4c03365cf42b5ce2e8f340"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/manifest.json",
+      "sha256": "30f3a8eb654483e0ede88620c176d77aca4809df865407540fbfae91ada1ac2b"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/network-requirements.json",
+      "sha256": "fab07857d0ca9c7afe7815f86fb86c2f261ca017fc48c4c84fbc1518a6757ae2"
+    },
+    {
+      "path": "runs/data-check-20261108T163237Z/full-network-update-attempt.json",
+      "sha256": "4091c0d54416e4a435bcbe7e6bfcc0f42010621025f2b7305cda0e1a8a2cc2d6"
+    },
+    {
+      "path": "evidence/M00/data-check-20261108T163237Z/rpc-after-full-access-request.json",
+      "sha256": "475f9c18f7ef6e19164b7443d9bb30c79616c075d1d15e300c141746645ceede"
+    }
+  ],
+  "raw_manifest_read_summary": {
+    "file_count": 52,
+    "row_count": 313,
+    "file_set_digest": "f4c1723e907ebb5540380623915f2b8b8f69947aebb0c0ca07d97dea020cf8e4",
+    "note": "全部52个主清单文件读取并按313行溯源重分类；不是重跑历史岗位"
+  },
+  "independent_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/curvefi/curve-contract/master/contracts/pools/steth/StableSwapSTETH.vy",
+      "method": "GET",
+      "requested_at_utc": "2026-11-08T16:44:01.143071+00:00",
+      "http_status": 200,
+      "curl_exit": 0,
+      "duration_seconds": 0.324376,
+      "response_sha256": "6d26b749b603fe09b55f4ca1e68e10ee0e53d11f472ee35c7c07ce4a469bcde1",
+      "response_bytes": 24678,
+      "tls_verification": true,
+      "proxy": "inherited, unchanged",
+      "error": "",
+      "excerpts": [
+        {
+          "line": 80,
+          "text": "    t: uint256"
+        },
+        {
+          "line": 81,
+          "text": ""
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "# These constants must be set prior to compiling"
+        },
+        {
+          "line": 84,
+          "text": "N_COINS: constant(int128) = 2"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "# fixed constants"
+        },
+        {
+          "line": 87,
+          "text": "FEE_DENOMINATOR: constant(uint256) = 10 ** 10"
+        },
+        {
+          "line": 88,
+          "text": "PRECISION: constant(uint256) = 10 ** 18  # The precision to convert to"
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "MAX_ADMIN_FEE: constant(uint256) = 10 * 10 ** 9"
+        },
+        {
+          "line": 91,
+          "text": "MAX_FEE: constant(uint256) = 5 * 10 ** 9"
+        },
+        {
+          "line": 92,
+          "text": ""
+        },
+        {
+          "line": 93,
+          "text": "MAX_A: constant(uint256) = 10 ** 6"
+        },
+        {
+          "line": 94,
+          "text": "MAX_A_CHANGE: constant(uint256) = 10"
+        },
+        {
+          "line": 95,
+          "text": "A_PRECISION: constant(uint256) = 100"
+        },
+        {
+          "line": 96,
+          "text": ""
+        },
+        {
+          "line": 97,
+          "text": "ADMIN_ACTIONS_DELAY: constant(uint256) = 3 * 86400"
+        },
+        {
+          "line": 98,
+          "text": "MIN_RAMP_TIME: constant(uint256) = 86400"
+        },
+        {
+          "line": 99,
+          "text": ""
+        },
+        {
+          "line": 100,
+          "text": "coins: public(address[N_COINS])"
+        },
+        {
+          "line": 101,
+          "text": "admin_balances: public(uint256[N_COINS])"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "fee: public(uint256)  # fee * 1e10"
+        },
+        {
+          "line": 104,
+          "text": "admin_fee: public(uint256)  # admin_fee * 1e10"
+        },
+        {
+          "line": 105,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "future_owner: public(address)"
+        },
+        {
+          "line": 119,
+          "text": ""
+        },
+        {
+          "line": 120,
+          "text": "is_killed: bool"
+        },
+        {
+          "line": 121,
+          "text": "kill_deadline: uint256"
+        },
+        {
+          "line": 122,
+          "text": "KILL_DEADLINE_DT: constant(uint256) = 2 * 30 * 86400"
+        },
+        {
+          "line": 417,
+          "text": "@view"
+        },
+        {
+          "line": 418,
+          "text": "@external"
+        },
+        {
+          "line": 419,
+          "text": "def get_dy(i: int128, j: int128, dx: uint256) -> uint256:"
+        },
+        {
+          "line": 420,
+          "text": "    xp: uint256[N_COINS] = self._balances()"
+        },
+        {
+          "line": 421,
+          "text": "    x: uint256 = xp[i] + dx"
+        },
+        {
+          "line": 422,
+          "text": "    y: uint256 = self.get_y(i, j, x, xp)"
+        },
+        {
+          "line": 423,
+          "text": "    dy: uint256 = xp[j] - y - 1"
+        },
+        {
+          "line": 424,
+          "text": "    fee: uint256 = self.fee * dy / FEE_DENOMINATOR"
+        },
+        {
+          "line": 425,
+          "text": "    return dy - fee"
+        },
+        {
+          "line": 426,
+          "text": ""
+        },
+        {
+          "line": 427,
+          "text": ""
+        },
+        {
+          "line": 428,
+          "text": "@payable"
+        },
+        {
+          "line": 429,
+          "text": "@external"
+        },
+        {
+          "line": 430,
+          "text": "@nonreentrant('lock')"
+        },
+        {
+          "line": 431,
+          "text": "def exchange(i: int128, j: int128, dx: uint256, min_dy: uint256) -> uint256:"
+        },
+        {
+          "line": 432,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 433,
+          "text": "    @notice Perform an exchange between two coins"
+        },
+        {
+          "line": 434,
+          "text": "    @dev Index values can be found via the `coins` public getter method"
+        },
+        {
+          "line": 435,
+          "text": "    @param i Index value for the coin to send"
+        },
+        {
+          "line": 436,
+          "text": "    @param j Index valie of the coin to recieve"
+        },
+        {
+          "line": 437,
+          "text": "    @param dx Amount of `i` being exchanged"
+        },
+        {
+          "line": 438,
+          "text": "    @param min_dy Minimum amount of `j` to receive"
+        },
+        {
+          "line": 439,
+          "text": "    @return Actual amount of `j` received"
+        },
+        {
+          "line": 440,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 441,
+          "text": "    assert not self.is_killed  # dev: is killed"
+        },
+        {
+          "line": 442,
+          "text": "    # dx and dy are in aTokens"
+        },
+        {
+          "line": 443,
+          "text": ""
+        },
+        {
+          "line": 444,
+          "text": "    xp: uint256[N_COINS] = self._balances(msg.value)"
+        },
+        {
+          "line": 445,
+          "text": ""
+        },
+        {
+          "line": 446,
+          "text": "    x: uint256 = xp[i] + dx"
+        },
+        {
+          "line": 447,
+          "text": "    y: uint256 = self.get_y(i, j, x, xp)"
+        },
+        {
+          "line": 448,
+          "text": "    dy: uint256 = xp[j] - y - 1"
+        },
+        {
+          "line": 449,
+          "text": "    dy_fee: uint256 = dy * self.fee / FEE_DENOMINATOR"
+        },
+        {
+          "line": 450,
+          "text": ""
+        },
+        {
+          "line": 451,
+          "text": "    # Convert all to real units"
+        },
+        {
+          "line": 452,
+          "text": "    dy = dy - dy_fee"
+        },
+        {
+          "line": 453,
+          "text": "    assert dy >= min_dy, \"Exchange resulted in fewer coins than expected\""
+        },
+        {
+          "line": 454,
+          "text": ""
+        },
+        {
+          "line": 455,
+          "text": "    admin_fee: uint256 = self.admin_fee"
+        },
+        {
+          "line": 456,
+          "text": "    if admin_fee != 0:"
+        },
+        {
+          "line": 457,
+          "text": "        dy_admin_fee: uint256 = dy_fee * admin_fee / FEE_DENOMINATOR"
+        },
+        {
+          "line": 458,
+          "text": "        if dy_admin_fee != 0:"
+        },
+        {
+          "line": 459,
+          "text": "            self.admin_balances[j] += dy_admin_fee"
+        },
+        {
+          "line": 460,
+          "text": ""
+        },
+        {
+          "line": 461,
+          "text": "    coin: address = self.coins[1]"
+        },
+        {
+          "line": 462,
+          "text": "    if i == 0:"
+        },
+        {
+          "line": 463,
+          "text": "        assert msg.value == dx"
+        },
+        {
+          "line": 464,
+          "text": "        assert ERC20(coin).transfer(msg.sender, dy)"
+        },
+        {
+          "line": 465,
+          "text": "    else:"
+        },
+        {
+          "line": 466,
+          "text": "        assert msg.value == 0"
+        },
+        {
+          "line": 467,
+          "text": "        assert ERC20(coin).transferFrom(msg.sender, self, dx)"
+        },
+        {
+          "line": 468,
+          "text": "        raw_call(msg.sender, b\"\", value=dy)"
+        },
+        {
+          "line": 469,
+          "text": ""
+        },
+        {
+          "line": 470,
+          "text": "    log TokenExchange(msg.sender, i, dx, j, dy)"
+        },
+        {
+          "line": 471,
+          "text": ""
+        },
+        {
+          "line": 472,
+          "text": "    return dy"
+        }
+      ],
+      "fee_denominator_declaration": "FEE_DENOMINATOR: constant(uint256) = 10 ** 10",
+      "fee_denominator_value": "10000000000"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/steth/swap.json",
+      "method": "GET",
+      "requested_at_utc": "2026-11-08T16:44:02.518923+00:00",
+      "http_status": 200,
+      "curl_exit": 0,
+      "duration_seconds": 0.393455,
+      "response_sha256": "6d79246ae7ff3873971dfd1e366495bd9c5c0952e8ef3d382d77accf192a336a",
+      "response_bytes": 15575,
+      "tls_verification": true,
+      "proxy": "inherited, unchanged",
+      "error": "",
+      "abi_function_names": [
+        "A",
+        "A_precise",
+        "get_virtual_price",
+        "calc_token_amount",
+        "add_liquidity",
+        "get_dy",
+        "exchange",
+        "remove_liquidity",
+        "remove_liquidity_imbalance",
+        "calc_withdraw_one_coin",
+        "remove_liquidity_one_coin",
+        "ramp_A",
+        "stop_ramp_A",
+        "commit_new_fee",
+        "apply_new_fee",
+        "revert_new_parameters",
+        "commit_transfer_ownership",
+        "apply_transfer_ownership",
+        "revert_transfer_ownership",
+        "admin_balances",
+        "withdraw_admin_fees",
+        "donate_admin_fees",
+        "kill_me",
+        "unkill_me",
+        "coins",
+        "balances",
+        "fee",
+        "admin_fee",
+        "owner",
+        "initial_A",
+        "future_A",
+        "initial_A_time",
+        "future_A_time",
+        "admin_actions_deadline",
+        "transfer_ownership_deadline",
+        "future_fee",
+        "future_admin_fee",
+        "future_owner"
+      ],
+      "is_killed_getter_present": false,
+      "selected_abi": [
+        {
+          "name": "get_dy",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2444404"
+        },
+        {
+          "name": "exchange",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            },
+            {
+              "type": "uint256",
+              "name": "min_dy"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "gas": "2638539"
+        },
+        {
+          "name": "coins",
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2130"
+        },
+        {
+          "name": "balances",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2160"
+        },
+        {
+          "name": "fee",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2081"
+        },
+        {
+          "name": "admin_fee",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2111"
+        }
+      ]
+    }
+  ],
+  "missing_fields": [
+    "可访问的Ethereum只读RPC和已应用网络egress规则",
+    "eth_chainId=1；固定规范区块number/hash/timestamp与最终性",
+    "池/stETH实际code或代理实现、coins索引及decimals（不能由静态表替代）",
+    "指定from账户、真实stETH余额与pool allowance；若隔离模拟需披露账户/授权/余额假设",
+    "同块get_dy(1,0,10000000000000000)输出与数据时间",
+    "真实fee/admin_fee和有效流动性/暂停；无getter时仅用已验证存储布局或有效exchange只读执行，不能猜storage slot",
+    "同状态exchange(1,0,dx,min_dy)，value=0、接收ETH账户能力及返回数额/revert原因",
+    "当前approval/exchange估算gas、gasPrice/priority fee、转账/重基准数量差异及全部增量成本",
+    "若提出净收益：实际取得0.01stETH的ETH成本和完整取得→退出账本；单腿换出ETH不等于利润"
+  ],
+  "liabilities": "本轮未建仓；不把已换出ETH或借款现金视作利润",
+  "net_result": {
+    "amount": null,
+    "unit": "ETH",
+    "realized_profit_confirmed": false,
+    "unknown_costs": [
+      "input acquisition cost",
+      "current approval/exchange gas",
+      "current gas price and priority fee",
+      "transfer/rounding/rebase adjustments",
+      "other incremental route costs"
+    ]
+  },
+  "coverage_gaps": [
+    "当前链身份/区块/状态/数量报价/模拟未覆盖",
+    "本次不是30天规则或7天活动扫描，均无新增成功游标",
+    "两天观察尚未开始/完成，不能用本次检查代替",
+    "配置工具故障根因/持久化未独立重现，依据共享归档错误；运行策略未确认有修复"
+  ],
+  "next_check": [
+    "主控修复可用配置入口并安全应用最小Ethereum RPC域名，保留现有规则；观察revision/access变化后中央复测。",
+    "取固定区块、核池与token当前code/coins/precision，再取get_dy并模拟合法exchange，记录原始输出/revert与全费。",
+    "只有单市场门槛通过后，再按链和策略分别评估岗位能力；不自动批量放行48岗。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "storage_status": "PENDING_M00_PUBLICATION_AND_REMOTE_READBACK",
+  "schedule_created": false,
+  "transaction_broadcast": false,
+  "metadata_clarifications": [
+    {
+      "field_replaced": "checks[HISTORICAL_COUNTS].result.domain_total",
+      "replacement_fields": {
+        "domain_observation_total": 313,
+        "unique_domains": 51
+      },
+      "basis": "直接重算已归档inventory.domains键数及retained_observations之和；没有新HTTP请求",
+      "previous_measured_stage_seconds_preserved": 225.62534,
+      "clarified_at_utc": "2026-11-08T16:49:09.354242+00:00",
+      "local_correction_elapsed_seconds": 0.001822,
+      "model_tokens": null,
+      "model_cost": null
+    }
+  ],
+  "full_network_authorization_followup": {
+    "reviewed_at_utc": "2026-11-08T16:54:25.846441+00:00",
+    "authorization": "用户已明确授权全域名放开，不缺用户授权或额外域名批准。",
+    "requested_change": {
+      "network": {
+        "allowed_domains": [
+          "*"
+        ]
+      }
+    },
+    "configuration_result": "INVALID_ARGUMENT; persistence UNCONFIRMED",
+    "observed_runtime": "revision1, restricted/enforced, custom_allowed_hosts=[], effective_all_hosts=false；未观察到全域放开生效。",
+    "fresh_RPC_shared_evidence": {
+      "requested_at_utc": "2026-11-08T16:52:51.321372+00:00",
+      "curl_exit": 56,
+      "upstream_http_code": "000",
+      "classification": "ENV_PROXY_CONNECT_403",
+      "rpc_success": false
+    },
+    "verdict": "NEEDS_DATA",
+    "live_market_validation_passed": false,
+    "reason": "授权已经给出；配置通道未确认保存且运行未生效，新RPC仍CONNECT403，不能取得实时链身份/区块/报价。配置故障根因除INVALID_ARGUMENT外未知。",
+    "explicit_HTTP_attempts_this_run": {
+      "total": 13,
+      "M00": 11,
+      "Q00": 2,
+      "ethereum_RPC_failures_including_transport_diagnosis": 3,
+      "further_RPC_retries": "SUPPRESSED_AT_THREE_FAILURES"
+    },
+    "new_HTTP_by_Q00_for_this_followup": 0,
+    "original_stage_timing_unchanged": true,
+    "model_tokens": null,
+    "model_cost": null,
+    "evidence": [
+      {
+        "path": "runs/data-check-20261108T163237Z/full-network-update-attempt.json",
+        "sha256": "4091c0d54416e4a435bcbe7e6bfcc0f42010621025f2b7305cda0e1a8a2cc2d6"
+      },
+      {
+        "path": "evidence/M00/data-check-20261108T163237Z/rpc-after-full-access-request.json",
+        "sha256": "475f9c18f7ef6e19164b7443d9bb30c79616c075d1d15e300c141746645ceede"
+      }
+    ]
+  }
+}

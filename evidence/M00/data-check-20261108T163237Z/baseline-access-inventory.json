@@ -1,0 +1,5168 @@
+{
+  "baseline_run": "full-20261108T152118Z",
+  "classification_basis": "one primary request manifest per research role; Q00 independent manifests; M00 own probes; de-duplicated only where URL/payload/time/category identical",
+  "coverage_note": "retained request observations, not exact billable HTTP request counts; absent status/time remains unknown",
+  "files_scanned": [
+    "evidence/M00/full-20261108T152118Z/source-probes.json",
+    "evidence/M00/full-20261108T152118Z/cross-chain-source-excerpts.json",
+    "evidence/M00/full-20261108T152118Z/superchain-list-check.json",
+    "evidence/M00/full-20261108T152118Z/base-source-migration-check.json",
+    "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+    "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+    "evidence/N-ARB/full-20261108T152118Z/sources-selected.json",
+    "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+    "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+    "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+    "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+    "evidence/N-OP/full-20261108T152118Z/attempts.json",
+    "evidence/N-POLY/full-20261108T152118Z/sources-selected.json",
+    "evidence/N-SOL/full-20261108T152118Z/attempts.json",
+    "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+    "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+    "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+    "evidence/ARB03/full-20261108T152118Z/attempts.json",
+    "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+    "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+    "evidence/AVAX02/full-20261108T152118Z/attempts.json",
+    "evidence/BASE01/full-20261108T152118Z/sources-selected.json",
+    "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+    "evidence/BASE03/full-20261108T152118Z/attempts.json",
+    "evidence/BASE04/full-20261108T152118Z/sources-selected.json",
+    "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+    "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+    "evidence/BNB02/full-20261108T152118Z/attempts.json",
+    "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+    "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+    "evidence/BNB05/full-20261108T152118Z/attempts.json",
+    "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+    "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+    "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+    "evidence/ETH04/full-20261108T152118Z/attempts.json",
+    "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+    "evidence/OP01/full-20261108T152118Z/source-checks.json",
+    "evidence/OP02/full-20261108T152118Z/attempts.json",
+    "evidence/POLY01/full-20261108T152118Z/sources-selected.json",
+    "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+    "evidence/POLY03/full-20261108T152118Z/attempts.json",
+    "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+    "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+    "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+    "evidence/SOL01/full-20261108T152118Z/attempts.json",
+    "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+    "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+    "evidence/SONIC01/full-20261108T152118Z/attempts.json",
+    "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+    "evidence/SONIC03/full-20261108T152118Z/source-checks.json",
+    "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+    "evidence/X-BASE/full-20261108T152118Z/sources-selected.json"
+  ],
+  "retained_observations": 313,
+  "counts": {
+    "HTTP_SUCCESS": 183,
+    "HTTP_404_SOURCE_PATH": 20,
+    "ENV_PROXY_CONNECT_403": 110
+  },
+  "domains": {
+    "github.com": {
+      "retained_observations": 13,
+      "categories": {
+        "HTTP_SUCCESS": 12,
+        "HTTP_404_SOURCE_PATH": 1
+      },
+      "roles": [
+        "BASE02",
+        "BNB01",
+        "M00",
+        "N-AVAX",
+        "N-BASE",
+        "N-BNB",
+        "Q00"
+      ],
+      "example_urls": [
+        "https://github.com/song1569498456-sketch/watch_market",
+        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+        "https://github.com/base/base/releases/tag/v1.5.4"
+      ]
+    },
+    "raw.githubusercontent.com": {
+      "retained_observations": 190,
+      "categories": {
+        "HTTP_404_SOURCE_PATH": 19,
+        "HTTP_SUCCESS": 171
+      },
+      "roles": [
+        "ARB01",
+        "ARB02",
+        "ARB03",
+        "ARB04",
+        "AVAX01",
+        "AVAX02",
+        "BASE01",
+        "BASE02",
+        "BASE03",
+        "BASE04",
+        "BASE05",
+        "BNB01",
+        "BNB02",
+        "BNB03",
+        "BNB04",
+        "BNB05",
+        "ETH01",
+        "ETH02",
+        "ETH03",
+        "ETH04",
+        "ETH05",
+        "M00",
+        "N-ARB",
+        "N-AVAX",
+        "N-BASE",
+        "N-BNB",
+        "N-ETH",
+        "N-OP",
+        "N-POLY",
+        "N-SOL",
+        "N-SONIC",
+        "OP01",
+        "OP02",
+        "POLY01",
+        "POLY02",
+        "POLY03",
+        "Q00",
+        "R-BASE",
+        "R-BNB",
+        "R-POLY",
+        "SOL01",
+        "SOL02",
+        "SOL03",
+        "SONIC01",
+        "SONIC02",
+        "SONIC03",
+        "X-ARB",
+        "X-BASE"
+      ],
+      "example_urls": [
+        "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+        "https://raw.githubusercontent.com/OffchainLabs/nitro/master/README.md",
+        "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/master/packages/sdk/src/lib/dataEntities/networks.ts"
+      ]
+    },
+    "docs.base.org": {
+      "retained_observations": 3,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 3
+      },
+      "roles": [
+        "M00",
+        "N-BASE",
+        "X-BASE"
+      ],
+      "example_urls": [
+        "https://docs.base.org/base-chain/network-information/withdrawals",
+        "https://docs.base.org/base-chain/network-information",
+        "https://docs.base.org/base-chain/network-information/bridges-mainnet"
+      ]
+    },
+    "ethereum-rpc.publicnode.com": {
+      "retained_observations": 7,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 7
+      },
+      "roles": [
+        "ETH02",
+        "ETH03",
+        "ETH04",
+        "N-ETH",
+        "Q00",
+        "X-ARB",
+        "X-BASE"
+      ],
+      "example_urls": [
+        "https://ethereum-rpc.publicnode.com"
+      ]
+    },
+    "polygon-bor-rpc.publicnode.com": {
+      "retained_observations": 2,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 2
+      },
+      "roles": [
+        "N-POLY",
+        "Q00"
+      ],
+      "example_urls": [
+        "https://polygon-bor-rpc.publicnode.com"
+      ]
+    },
+    "mainnet.base.org": {
+      "retained_observations": 8,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 8
+      },
+      "roles": [
+        "BASE01",
+        "BASE02",
+        "BASE03",
+        "BASE05",
+        "N-BASE",
+        "Q00",
+        "R-BASE",
+        "X-BASE"
+      ],
+      "example_urls": [
+        "https://mainnet.base.org"
+      ]
+    },
+    "rpc.soniclabs.com": {
+      "retained_observations": 5,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 5
+      },
+      "roles": [
+        "N-SONIC",
+        "Q00",
+        "SONIC01",
+        "SONIC02",
+        "SONIC03"
+      ],
+      "example_urls": [
+        "https://rpc.soniclabs.com"
+      ]
+    },
+    "api.mainnet-beta.solana.com": {
+      "retained_observations": 5,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 5
+      },
+      "roles": [
+        "N-SOL",
+        "Q00",
+        "SOL01",
+        "SOL02",
+        "SOL03"
+      ],
+      "example_urls": [
+        "https://api.mainnet-beta.solana.com"
+      ]
+    },
+    "portal.arbitrum.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-ARB"
+      ],
+      "example_urls": [
+        "https://portal.arbitrum.io/"
+      ]
+    },
+    "arb1.arbitrum.io": {
+      "retained_observations": 5,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 5
+      },
+      "roles": [
+        "ARB02",
+        "ARB03",
+        "ARB04",
+        "N-ARB",
+        "X-ARB"
+      ],
+      "example_urls": [
+        "https://arb1.arbitrum.io/rpc"
+      ]
+    },
+    "api.avax.network": {
+      "retained_observations": 3,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 3
+      },
+      "roles": [
+        "AVAX01",
+        "AVAX02",
+        "N-AVAX"
+      ],
+      "example_urls": [
+        "https://api.avax.network/ext/bc/C/rpc"
+      ]
+    },
+    "build.avax.network": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-AVAX"
+      ],
+      "example_urls": [
+        "https://build.avax.network/docs/quick-start/networks"
+      ]
+    },
+    "www.bnbchain.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-BNB"
+      ],
+      "example_urls": [
+        "https://www.bnbchain.org/en/dappbay"
+      ]
+    },
+    "bsc-dataseed.bnbchain.org": {
+      "retained_observations": 6,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 6
+      },
+      "roles": [
+        "BNB01",
+        "BNB02",
+        "BNB04",
+        "BNB05",
+        "N-BNB",
+        "R-BNB"
+      ],
+      "example_urls": [
+        "https://bsc-dataseed.bnbchain.org"
+      ]
+    },
+    "ethereum.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-ETH"
+      ],
+      "example_urls": [
+        "https://ethereum.org/en/dapps/"
+      ]
+    },
+    "docs.lido.fi": {
+      "retained_observations": 3,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 3
+      },
+      "roles": [
+        "ARB03",
+        "ETH05",
+        "N-ETH"
+      ],
+      "example_urls": [
+        "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+        "https://docs.lido.fi/deployed-contracts/"
+      ]
+    },
+    "www.optimism.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-OP"
+      ],
+      "example_urls": [
+        "https://www.optimism.io/apps"
+      ]
+    },
+    "mainnet.optimism.io": {
+      "retained_observations": 3,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 3
+      },
+      "roles": [
+        "N-OP",
+        "OP01",
+        "OP02"
+      ],
+      "example_urls": [
+        "https://mainnet.optimism.io"
+      ]
+    },
+    "polygon.technology": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-POLY"
+      ],
+      "example_urls": [
+        "https://polygon.technology/ecosystem"
+      ]
+    },
+    "solana.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-SOL"
+      ],
+      "example_urls": [
+        "https://solana.com/ecosystem/explore"
+      ]
+    },
+    "www.soniclabs.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-SONIC"
+      ],
+      "example_urls": [
+        "https://www.soniclabs.com/ecosystem"
+      ]
+    },
+    "sonic-rpc.publicnode.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "N-SONIC"
+      ],
+      "example_urls": [
+        "https://sonic-rpc.publicnode.com"
+      ]
+    },
+    "api.dexscreener.com": {
+      "retained_observations": 17,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 17
+      },
+      "roles": [
+        "ARB01",
+        "ARB02",
+        "AVAX01",
+        "BASE02",
+        "BASE05",
+        "BNB01",
+        "BNB02",
+        "BNB03",
+        "BNB04",
+        "BNB05",
+        "ETH01",
+        "ETH02",
+        "ETH03",
+        "OP01",
+        "OP02",
+        "POLY03",
+        "SONIC03"
+      ],
+      "example_urls": [
+        "https://api.dexscreener.com/latest/dex/search?q=arbitrum%20WETH%20USDC",
+        "https://api.dexscreener.com/latest/dex/search?q=arbitrum",
+        "https://api.dexscreener.com/latest/dex/search?q=avalanche%20USDC"
+      ]
+    },
+    "arbitrum-one-rpc.publicnode.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ARB01"
+      ],
+      "example_urls": [
+        "https://arbitrum-one-rpc.publicnode.com"
+      ]
+    },
+    "api.beefy.finance": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ARB04"
+      ],
+      "example_urls": [
+        "https://api.beefy.finance/vaults"
+      ]
+    },
+    "docs.benqi.fi": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "AVAX02"
+      ],
+      "example_urls": [
+        "https://docs.benqi.fi/liquid-staking"
+      ]
+    },
+    "developers.circle.com": {
+      "retained_observations": 2,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 2
+      },
+      "roles": [
+        "BASE01",
+        "OP01"
+      ],
+      "example_urls": [
+        "https://developers.circle.com/stablecoins/usdc-contract-addresses"
+      ]
+    },
+    "help.coinbase.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BASE02"
+      ],
+      "example_urls": [
+        "https://help.coinbase.com/en/coinbase/coinbase-staking/staking/cbeth-intro"
+      ]
+    },
+    "api.morpho.org": {
+      "retained_observations": 2,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 2
+      },
+      "roles": [
+        "BASE03",
+        "R-BASE"
+      ],
+      "example_urls": [
+        "https://api.morpho.org/graphql"
+      ]
+    },
+    "docs.morpho.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BASE03"
+      ],
+      "example_urls": [
+        "https://docs.morpho.org/get-started/resources/addresses/"
+      ]
+    },
+    "base-rpc.publicnode.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BASE04"
+      ],
+      "example_urls": [
+        "https://base-rpc.publicnode.com"
+      ]
+    },
+    "api.v3.aave.com": {
+      "retained_observations": 2,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 2
+      },
+      "roles": [
+        "BASE04",
+        "POLY02"
+      ],
+      "example_urls": [
+        "https://api.v3.aave.com/graphql"
+      ]
+    },
+    "docs.lista.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BNB01"
+      ],
+      "example_urls": [
+        "https://docs.lista.org/technical-reference/mainnet-contracts"
+      ]
+    },
+    "docs-v4.venus.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BNB02"
+      ],
+      "example_urls": [
+        "https://docs-v4.venus.io/technical-reference/reference-core-pool/vai/vai-controller"
+      ]
+    },
+    "bsc-dataseed.binance.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BNB03"
+      ],
+      "example_urls": [
+        "https://bsc-dataseed.binance.org"
+      ]
+    },
+    "dappbay.bnbchain.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "BNB05"
+      ],
+      "example_urls": [
+        "https://dappbay.bnbchain.org/campaign"
+      ]
+    },
+    "cloudflare-eth.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ETH01"
+      ],
+      "example_urls": [
+        "https://cloudflare-eth.com"
+      ]
+    },
+    "docs.liquity.org": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ETH02"
+      ],
+      "example_urls": [
+        "https://docs.liquity.org/liquity-v1/faq/lusd-redemptions"
+      ]
+    },
+    "aave.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ETH04"
+      ],
+      "example_urls": [
+        "https://aave.com/docs/developers/liquidations"
+      ]
+    },
+    "eth.llamarpc.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "ETH05"
+      ],
+      "example_urls": [
+        "https://eth.llamarpc.com"
+      ]
+    },
+    "docs.polygon.technology": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "POLY01"
+      ],
+      "example_urls": [
+        "https://docs.polygon.technology/pos/reference/mapped-tokens/"
+      ]
+    },
+    "polygon-rpc.com": {
+      "retained_observations": 4,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 4
+      },
+      "roles": [
+        "POLY01",
+        "POLY02",
+        "POLY03",
+        "R-POLY"
+      ],
+      "example_urls": [
+        "https://polygon-rpc.com"
+      ]
+    },
+    "api.venus.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "R-BNB"
+      ],
+      "example_urls": [
+        "https://api.venus.io/isolated-pools/pools?chainId=56"
+      ]
+    },
+    "gamma-api.polymarket.com": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "R-POLY"
+      ],
+      "example_urls": [
+        "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false"
+      ]
+    },
+    "api-v3.raydium.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SOL01"
+      ],
+      "example_urls": [
+        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+      ]
+    },
+    "api.orca.so": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SOL01"
+      ],
+      "example_urls": [
+        "https://api.orca.so/v2/solana/pools"
+      ]
+    },
+    "docs.marinade.finance": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SOL02"
+      ],
+      "example_urls": [
+        "https://docs.marinade.finance/marinade-protocol/faq/faq"
+      ]
+    },
+    "api.kamino.finance": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SOL03"
+      ],
+      "example_urls": [
+        "https://api.kamino.finance/kamino-market"
+      ]
+    },
+    "api.curve.finance": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SONIC01"
+      ],
+      "example_urls": [
+        "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng"
+      ]
+    },
+    "docs.beets.fi": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "SONIC02"
+      ],
+      "example_urls": [
+        "https://docs.beets.fi/beets-staked-sonic"
+      ]
+    },
+    "docs.arbitrum.io": {
+      "retained_observations": 1,
+      "categories": {
+        "ENV_PROXY_CONNECT_403": 1
+      },
+      "roles": [
+        "X-ARB"
+      ],
+      "example_urls": [
+        "https://docs.arbitrum.io/build-decentralized-apps/token-bridging/overview"
+      ]
+    }
+  },
+  "events": [
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+      "source_row": 0,
+      "url": "https://github.com/song1569498456-sketch/watch_market",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:23:06.954299+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+      "source_row": 1,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:09.363369+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:10.734410+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json",
+      "source_row": 3,
+      "url": "https://docs.base.org/base-chain/network-information/withdrawals",
+      "host": "docs.base.org",
+      "request_time": "2026-11-08T15:23:12.170089+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/cross-chain-source-excerpts.json",
+      "source_row": 0,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/master/packages/sdk/src/lib/dataEntities/networks.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:24:12.971347+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/cross-chain-source-excerpts.json",
+      "source_row": 1,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:24:14.250627+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/superchain-list-check.json",
+      "source_row": 0,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/chainList.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:44.856270+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "M00",
+      "source_file": "evidence/M00/full-20261108T152118Z/base-source-migration-check.json",
+      "source_row": 0,
+      "url": "https://raw.githubusercontent.com/base/node/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:44.344104+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 0,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:09.998824+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 1,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:11.533797+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 2,
+      "url": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+      "host": "github.com",
+      "request_time": "2026-11-08T16:05:12.993947+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:14.958120+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:16.458281+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:17.895701+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:19.355525+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 7,
+      "url": "https://raw.githubusercontent.com/base-org/node/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:20.860619+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 8,
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:22.174039+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 9,
+      "url": "https://github.com/base/base/releases/tag/v1.5.4",
+      "host": "github.com",
+      "request_time": "2026-11-08T16:05:23.580518+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 10,
+      "url": "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+      "host": "github.com",
+      "request_time": "2026-11-08T16:05:25.270110+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 11,
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:26.961609+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 12,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:28.268946+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 13,
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:29.718189+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 14,
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:31.057747+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 15,
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:32.535653+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 16,
+      "url": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:33.848008+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 17,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:35.309252+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 18,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:36.840942+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 19,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:38.180304+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 20,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:39.601888+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 21,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:40.934432+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 22,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:42.306315+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 23,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:43.634544+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 24,
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:44.961195+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 25,
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:46.340651+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 26,
+      "url": "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:47.690729+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 27,
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:49.079643+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 28,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:50.424784+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 29,
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:51.960485+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 30,
+      "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:53.292511+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 31,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:54.644194+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 32,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:55.985085+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 33,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:57.545658+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 34,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:05:58.996517+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 35,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:00.341876+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 36,
+      "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:01.685244+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 37,
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:03.074502+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 38,
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:04.407974+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 39,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:05.765304+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 40,
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:07.184583+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 41,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:08.723941+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 42,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:10.077868+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 43,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:11.542593+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 44,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:12.890071+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 45,
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:06:14.329364+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 46,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:07:31.160835+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-sources.json",
+      "source_row": 47,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralOfframp.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:07:32.623963+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+      "source_row": 0,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T16:06:28.183523+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+      "source_row": 1,
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "host": "polygon-bor-rpc.publicnode.com",
+      "request_time": "2026-11-08T16:06:29.253595+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+      "source_row": 2,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T16:06:30.334247+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+      "source_row": 3,
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "request_time": "2026-11-08T16:06:31.415131+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+    },
+    {
+      "agent_id": "Q00",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json",
+      "source_row": 4,
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "request_time": "2026-11-08T16:06:32.487451+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getGenesisHash",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n"
+    },
+    {
+      "agent_id": "N-ARB",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://portal.arbitrum.io/",
+      "host": "portal.arbitrum.io",
+      "request_time": "2026-11-08T15:28:48.346074+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-ARB",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "request_time": "2026-11-08T15:28:49.364047+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-ARB",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:50.375377+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-ARB",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:51.805555+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "request_time": "2026-11-08T15:31:34.595471+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://build.avax.network/docs/quick-start/networks",
+      "host": "build.avax.network",
+      "request_time": "2026-11-08T15:31:35.622982+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:36.630587+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://github.com/ava-labs/avalanchego/releases/latest",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:31:38.166701+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/src/LBFactory.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:57.880593+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/index.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:59.332000+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:32:09.537088+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:28:46.920321+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://docs.base.org/base-chain/network-information",
+      "host": "docs.base.org",
+      "request_time": "2026-11-08T15:28:47.945480+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/base-org/node/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:48.951829+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:50.369633+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://github.com/base-org/node/releases",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:28:51.793019+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:29:09.662127+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://github.com/base/base/releases",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:29:11.139238+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 7,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:29:13.380698+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 8,
+      "url": "https://github.com/base/base/releases/tag/v1.5.2",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:29:35.012548+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json",
+      "source_row": 9,
+      "url": "https://github.com/base/base/releases/tag/v1.5.4",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:29:36.566135+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://www.bnbchain.org/en/dappbay",
+      "host": "www.bnbchain.org",
+      "request_time": "2026-11-08T15:23:05.407203+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:23:06.430189+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:07.437744+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://github.com/bnb-chain/bsc/releases",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:23:08.833553+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/v3-deploy.mjs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:21.721382+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:23.014831+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:23:43.457085+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 7,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-core/contracts/PancakeV3Factory.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:45.307346+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+      "source_row": 0,
+      "url": "https://ethereum.org/en/dapps/",
+      "host": "ethereum.org",
+      "request_time": "2026-11-08T15:23:08.007287+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+      "source_row": 1,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:23:09.030633+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-core/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:10.039109+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:11.477908+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json",
+      "source_row": 4,
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "request_time": "2026-11-08T15:23:12.935065+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-OP",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://www.optimism.io/apps",
+      "host": "www.optimism.io",
+      "request_time": "2026-11-08T15:28:53.077209+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-OP",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "request_time": "2026-11-08T15:28:54.099215+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-OP",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:55.106914+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-OP",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:28:56.474041+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-POLY",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://polygon.technology/ecosystem",
+      "host": "polygon.technology",
+      "request_time": "2026-11-08T15:31:32.663748+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-POLY",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "host": "polygon-bor-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:31:33.683323+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-POLY",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:34.691806+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-POLY",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:36.178917+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SOL",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://solana.com/ecosystem/explore",
+      "host": "solana.com",
+      "request_time": "2026-11-08T15:23:28.719634+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-SOL",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "request_time": "2026-11-08T15:23:29.745506+00:00",
+      "method": "POST",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-SOL",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:30.754275+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SOL",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:23:32.156898+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://www.soniclabs.com/ecosystem",
+      "host": "www.soniclabs.com",
+      "request_time": "2026-11-08T15:31:39.832526+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "request_time": "2026-11-08T15:31:40.850761+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:41.860345+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:43.374833+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:31:44.625878+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json",
+      "source_row": 5,
+      "url": "https://sonic-rpc.publicnode.com",
+      "host": "sonic-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:31:56.624419+00:00",
+      "method": "POST",
+      "request_json": [
+        {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "method": "eth_chainId",
+          "params": []
+        },
+        {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_blockNumber",
+          "params": []
+        }
+      ],
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB01",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum%20WETH%20USDC",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:34:14.144491+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB01",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://arbitrum-one-rpc.publicnode.com",
+      "host": "arbitrum-one-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:34:15.172821+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB01",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:16.180724+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB01",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:17.615354+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB01",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:19.000403+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "request_time": "2026-11-08T15:34:21.724779+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:34:22.753654+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:23.763660+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:25.310395+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/precompiles/NodeInterface.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:26.717221+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "ARB02",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:42.379788+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB03",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://docs.lido.fi/deployed-contracts/",
+      "host": "docs.lido.fi",
+      "request_time": "2026-11-08T15:34:19.631076+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB03",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "request_time": "2026-11-08T15:34:20.656026+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB03",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:21.664048+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB03",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:23.108141+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB03",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:34:35.632471+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB04",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://api.beefy.finance/vaults",
+      "host": "api.beefy.finance",
+      "request_time": "2026-11-08T15:36:29.510952+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB04",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "request_time": "2026-11-08T15:36:30.532287+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ARB04",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/beefyfinance/beefy-api/master/src/data/arbitrum_pools.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:31.540985+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "ARB04",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/beefyfinance/beefy-contracts/master/contracts/BIFI/vaults/BeefyVaultV7.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:32.898200+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ARB04",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:52.971035+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "request_time": "2026-11-08T15:36:27.655325+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=avalanche%20USDC",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:36:28.737931+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:29.753468+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:31.182965+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:32.578635+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/aave/swap.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:48.166521+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX02",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://docs.benqi.fi/liquid-staking",
+      "host": "docs.benqi.fi",
+      "request_time": "2026-11-08T15:36:33.541333+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "AVAX02",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "request_time": "2026-11-08T15:36:34.578579+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "AVAX02",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:35.602304+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "AVAX02",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:36:36.887340+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE01",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "host": "developers.circle.com",
+      "request_time": "2026-11-08T15:38:37.412030+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE01",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:38:38.439704+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE01",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:39.448004+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE01",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:40.802054+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:38:39.364255+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=base%20cbETH",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:38:40.389615+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/coinbase/wrapped-tokens/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:41.400245+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:42.736113+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/base-org/token-list/main/src/tokens/base.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:44.119482+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://github.com/coinbase/wrapped-tokens",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:39:01.863540+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:39:03.421380+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE02",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json",
+      "source_row": 7,
+      "url": "https://help.coinbase.com/en/coinbase/coinbase-staking/staking/cbeth-intro",
+      "host": "help.coinbase.com",
+      "request_time": "2026-11-08T15:39:19.882754+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE03",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "request_time": "2026-11-08T15:38:45.344708+00:00",
+      "method": "POST",
+      "request_json": {
+        "query": "query { vaults(first: 5, where: {chainId_in: [8453]}) { items { address name asset { address symbol } } } }"
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE03",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:38:46.368579+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE03",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://docs.morpho.org/get-started/resources/addresses/",
+      "host": "docs.morpho.org",
+      "request_time": "2026-11-08T15:38:47.375895+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE03",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:48.382778+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE03",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:38:49.813760+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE04",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://base-rpc.publicnode.com",
+      "host": "base-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:41:02.852073+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE04",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://api.v3.aave.com/graphql",
+      "host": "api.v3.aave.com",
+      "request_time": "2026-11-08T15:41:03.869483+00:00",
+      "method": "POST",
+      "request_json": {
+        "query": "{ __typename }"
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE04",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:04.878163+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE04",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:06.360686+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:41:06.263480+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=aerodrome",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:41:07.279649+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:08.286387+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/Pool.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:09.735963+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:11.155732+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BASE05",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:12.509088+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://docs.lista.org/technical-reference/mainnet-contracts",
+      "host": "docs.lista.org",
+      "request_time": "2026-11-08T15:26:08.522063+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:26:09.540822+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://github.com/orgs/lista-dao/repositories",
+      "host": "github.com",
+      "request_time": "2026-11-08T15:26:10.547141+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:12.492279+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/SUMMARY.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:24.594034+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-new-contracts/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:25.890639+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:36.036567+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 7,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:37.329396+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 8,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:38.706987+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 9,
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:39.961261+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB01",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json",
+      "source_row": 10,
+      "url": "https://api.dexscreener.com/tokens/v1/bsc/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:26:58.929007+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB02",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://docs-v4.venus.io/technical-reference/reference-core-pool/vai/vai-controller",
+      "host": "docs-v4.venus.io",
+      "request_time": "2026-11-08T15:41:14.018257+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB02",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:41:15.078472+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB02",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:16.092790+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB02",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:41:17.594151+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB02",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:41:35.977280+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=bsc%20USDT%20USDC",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:43:14.577690+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://bsc-dataseed.binance.org",
+      "host": "bsc-dataseed.binance.org",
+      "request_time": "2026-11-08T15:43:15.606152+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/tokens/src/56.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:16.615104+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:17.968163+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3BNB.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:40.466436+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:43:20.207826+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=pancakeswap%20bsc",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:43:21.228958+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:22.235908+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/projects/exchange-protocol/contracts/PancakePair.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:23.448821+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:24.786902+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:47.010160+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/contracts/PancakePair.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:48.377904+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 7,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:44:05.733725+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB04",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json",
+      "source_row": 8,
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:44:07.180305+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB05",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://dappbay.bnbchain.org/campaign",
+      "host": "dappbay.bnbchain.org",
+      "request_time": "2026-11-08T15:43:37.162076+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB05",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:43:38.186359+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "BNB05",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:39.194735+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB05",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:43:40.659400+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "BNB05",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:43:58.066636+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:26:13.313353+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://cloudflare-eth.com",
+      "host": "cloudflare-eth.com",
+      "request_time": "2026-11-08T15:26:14.339211+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:15.347026+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:16.681052+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:18.048385+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH01",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/rocket-pool/rocketpool/master/contracts/contract/token/RocketTokenRETH.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:19.426261+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH02",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://docs.liquity.org/liquity-v1/faq/lusd-redemptions",
+      "host": "docs.liquity.org",
+      "request_time": "2026-11-08T15:45:50.874267+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH02",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:45:51.894696+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH02",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:45:52.901700+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH02",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:45:54.308757+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH02",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://api.dexscreener.com/token-pairs/v1/ethereum/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:46:14.425051+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:45:54.287801+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=ethereum%20sDAI",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:45:55.312848+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:45:56.319821+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/master/src/SavingsDai.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:45:57.719804+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:45:59.086462+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH03",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:46:18.735311+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH04",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://aave.com/docs/developers/liquidations",
+      "host": "aave.com",
+      "request_time": "2026-11-08T15:46:00.906751+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH04",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:46:01.927645+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH04",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:46:02.939064+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH04",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:46:04.372387+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH05",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "request_time": "2026-11-08T15:48:12.928626+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH05",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://eth.llamarpc.com",
+      "host": "eth.llamarpc.com",
+      "request_time": "2026-11-08T15:48:13.953893+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "ETH05",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:14.963898+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH05",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:16.430352+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "ETH05",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:17.865526+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "request_time": "2026-11-08T15:48:11.338196+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism%20USDC",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:48:12.361270+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "host": "developers.circle.com",
+      "request_time": "2026-11-08T15:48:13.370788+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:14.378920+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:15.791999+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "OP01",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:38.491899+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "OP02",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:48:15.049046+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "OP02",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "request_time": "2026-11-08T15:48:16.073091+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "OP02",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:17.088102+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "OP02",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:48:18.478188+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY01",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://docs.polygon.technology/pos/reference/mapped-tokens/",
+      "host": "docs.polygon.technology",
+      "request_time": "2026-11-08T15:50:20.520936+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY01",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "request_time": "2026-11-08T15:50:21.537592+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY01",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:22.546391+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY01",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/maticnetwork/pos-portal/master/contracts/child/ChildToken/ChildERC20.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:23.910354+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY02",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "request_time": "2026-11-08T15:50:30.114427+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY02",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.v3.aave.com/graphql",
+      "host": "api.v3.aave.com",
+      "request_time": "2026-11-08T15:50:31.138792+00:00",
+      "method": "POST",
+      "request_json": {
+        "query": "{ __typename }"
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY02",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:32.148672+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY02",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:33.424169+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY02",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:34.663146+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY03",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=polygon",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:50:27.243077+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY03",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "request_time": "2026-11-08T15:50:28.263985+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "POLY03",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:29.273054+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "POLY03",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:50:30.700432+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "request_time": "2026-11-08T15:52:53.143289+00:00",
+      "method": "POST",
+      "request_json": {
+        "query": "{ __typename }"
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T15:52:54.161736+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:52:55.169920+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:52:56.518146+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:17.449576+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "request_time": "2026-11-08T15:53:01.221091+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.venus.io/isolated-pools/pools?chainId=56",
+      "host": "api.venus.io",
+      "request_time": "2026-11-08T15:53:02.239402+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:03.248084+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:04.653915+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:06.129140+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+      "host": "gamma-api.polymarket.com",
+      "request_time": "2026-11-08T15:53:07.947937+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "request_time": "2026-11-08T15:53:08.970245+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:09.980832+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:11.394810+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:12.798079+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:53:25.423235+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL01",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "host": "api-v3.raydium.io",
+      "request_time": "2026-11-08T15:26:42.067296+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL01",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://api.orca.so/v2/solana/pools",
+      "host": "api.orca.so",
+      "request_time": "2026-11-08T15:26:43.085906+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL01",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "request_time": "2026-11-08T15:26:44.094996+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getGenesisHash"
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL01",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/raydium/cpmm/curve/calculator.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:45.102552+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL01",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/swap.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:26:46.328765+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://docs.marinade.finance/marinade-protocol/faq/faq",
+      "host": "docs.marinade.finance",
+      "request_time": "2026-11-08T15:56:04.350965+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "request_time": "2026-11-08T15:56:05.374356+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getGenesisHash",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:06.383429+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/marinade-finance/marinade-ts-sdk/main/src/config/marinade-config.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:07.889180+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:09.153336+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:32.142521+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL02",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 6,
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/Docs/DEPLOYMENT.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:33.509972+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "SOL03",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "request_time": "2026-11-08T15:56:00.560382+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getGenesisHash",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL03",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.kamino.finance/kamino-market",
+      "host": "api.kamino.finance",
+      "request_time": "2026-11-08T15:56:01.601941+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SOL03",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:02.609029+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL03",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:03.968702+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SOL03",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/handlers/handler_liquidate_obligation_and_redeem_reserve_collateral.rs",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:05.397198+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC01",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng",
+      "host": "api.curve.finance",
+      "request_time": "2026-11-08T15:56:04.398953+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC01",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "request_time": "2026-11-08T15:56:05.423210+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC01",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:06.449269+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC01",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:56:07.843213+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://docs.beets.fi/beets-staked-sonic",
+      "host": "docs.beets.fi",
+      "request_time": "2026-11-08T15:58:26.670371+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "request_time": "2026-11-08T15:58:27.697271+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:28.703780+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:30.048747+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:31.424652+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/contracts/SonicStaking.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:50.919202+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "SONIC03",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json",
+      "source_row": 0,
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "request_time": "2026-11-08T15:58:29.465104+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC03",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json",
+      "source_row": 1,
+      "url": "https://api.dexscreener.com/latest/dex/search?q=sonic%20USDC",
+      "host": "api.dexscreener.com",
+      "request_time": "2026-11-08T15:58:30.491932+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "SONIC03",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:31.499127+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "SONIC03",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:32.599606+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+      "source_row": 0,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T15:58:41.464451+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+      "source_row": 1,
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "request_time": "2026-11-08T15:58:42.486141+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+      "source_row": 2,
+      "url": "https://docs.arbitrum.io/build-decentralized-apps/token-bridging/overview",
+      "host": "docs.arbitrum.io",
+      "request_time": "2026-11-08T15:58:43.495383+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:44.505400+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json",
+      "source_row": 4,
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T15:58:45.922224+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 0,
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "request_time": "2026-11-08T16:01:03.338607+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 1,
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "request_time": "2026-11-08T16:01:04.363108+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 2,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:01:05.369415+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 404,
+      "category": "HTTP_404_SOURCE_PATH",
+      "error_excerpt": "HTTP Error 404: Not Found"
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 3,
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/optimism/develop/packages/contracts-bedrock/src/universal/StandardBridge.sol",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:01:06.752272+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 4,
+      "url": "https://docs.base.org/base-chain/network-information/bridges-mainnet",
+      "host": "docs.base.org",
+      "request_time": "2026-11-08T16:01:08.170702+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 403,
+      "category": "ENV_PROXY_CONNECT_403",
+      "error_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json",
+      "source_row": 5,
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "host": "raw.githubusercontent.com",
+      "request_time": "2026-11-08T16:01:50.826551+00:00",
+      "method": "GET",
+      "request_json": null,
+      "http_status": 200,
+      "category": "HTTP_SUCCESS",
+      "error_excerpt": ""
+    }
+  ],
+  "not_observed_categories": [
+    "UPSTREAM_AUTH_401",
+    "RATE_LIMIT_429",
+    "UPSTREAM_403_CAUSE_UNKNOWN",
+    "NETWORK_TIMEOUT",
+    "UPSTREAM_5XX"
+  ],
+  "not_observed_meaning": "No retained observation, not proof these services never need auth or never limit traffic.",
+  "category_definitions": {
+    "ENV_PROXY_CONNECT_403": "Proxy CONNECT rejected before upstream API. Enforced allowlist excludes target, consistent with environmental egress block; upstream auth/rate behavior not observed.",
+    "HTTP_404_SOURCE_PATH": "HTTP 404 at requested source URL. Path/branch/repo moved, deletion, or hidden/private resource are possible; exact cause unproven unless a scoped canonical replacement is independently verified. Not proof of stopped chain/market.",
+    "HTTP_SUCCESS": "Retained HTTP success, not necessarily deployed/current market validation."
+  }
+}

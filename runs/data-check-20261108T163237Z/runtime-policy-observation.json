@@ -1,0 +1,9 @@
+{
+  "observed_at": "2026-11-08T16:46:42.857Z",
+  "observations_current": true,
+  "spec_revision": "1",
+  "network_state": "enforced",
+  "custom_allowed_hosts": [],
+  "ethereum_rpc_explicitly_allowed": false,
+  "runtime_variable_names": []
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "request_id": "ethereum_rpc-163555",
+    "name": "ethereum_rpc",
+    "url": "https://ethereum-rpc.publicnode.com",
+    "method": "POST",
+    "request_json": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "requested_at_utc": "2026-11-08T16:35:55.286366+00:00",
+    "requested_at_beijing": "2026-11-09T00:35:55.286366+08:00",
+    "tls_verification": true,
+    "proxy": "inherited settings",
+    "retry_index": 0,
+    "error_type": "URLError",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "finished_at_utc": "2026-11-08T16:35:55.322697+00:00",
+    "duration_seconds": 0.036306,
+    "classification": "ENV_PROXY_CONNECT_403"
+  },
+  {
+    "request_id": "shared_dex_discovery-163556",
+    "name": "shared_dex_discovery",
+    "url": "https://api.dexscreener.com/latest/dex/search?q=stETH%20ethereum",
+    "method": "GET",
+    "request_json": null,
+    "requested_at_utc": "2026-11-08T16:35:56.325777+00:00",
+    "requested_at_beijing": "2026-11-09T00:35:56.325777+08:00",
+    "tls_verification": true,
+    "proxy": "inherited settings",
+    "retry_index": 0,
+    "error_type": "URLError",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "finished_at_utc": "2026-11-08T16:35:56.346946+00:00",
+    "duration_seconds": 0.020319,
+    "classification": "ENV_PROXY_CONNECT_403"
+  },
+  {
+    "request_id": "curve_official_pool_registry-163557",
+    "name": "curve_official_pool_registry",
+    "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/ethereum.ts",
+    "method": "GET",
+    "request_json": null,
+    "requested_at_utc": "2026-11-08T16:35:57.347112+00:00",
+    "requested_at_beijing": "2026-11-09T00:35:57.347112+08:00",
+    "tls_verification": true,
+    "proxy": "inherited settings",
+    "retry_index": 0,
+    "http_status": 200,
+    "response_sha256": "7c0ff7447cd2b77f8683445ea5da505c2c798e0bcd3322a5c9a8794965411bf4",
+    "response_bytes_captured": 74895,
+    "content_type": "text/plain; charset=utf-8",
+    "retry_after": null,
+    "effective_url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/ethereum.ts",
+    "selected_excerpt": "6],\n        wrapped_decimals: [18, 6, 6],\n        use_lending: [true, true, true],\n        swap_abi: aaveSwapABI,\n        gauge_abi: gaugeV2ABI,\n        sCurveRewards_abi: aaveRewardsABI,\n    },\n\n    steth: {\n        name: \"steth\",\n        full_name: \"steth\",\n        symbol: \"steth\",\n        reference_asset: 'ETH',\n        swap_address: '0xDC24316b9AE028F1497c275EB9192a3Ea0f67022',\n        token_address: '0x06325440D014e39736583c165C2963BA99fAf14E',\n        gauge_address: '0x182B723a58739a9c974cFDB385ceaDb237453c28',\n        sCurveRewards_address: \"0x99ac10631F69C753DDb595D074422a0922D9056B\",\n        is_plain: true,\n        underlying_coins: ['ETH', 'stETH'],\n        wrapped_coins: ['ETH', 'stETH'],\n        underlying_coin_addresses: [\n            '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',\n            '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',\n        ],\n        wrapped_coin_addresses: [\n            '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',\n            '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',\n        ],\n        underlying_decimals: [18, 18],\n        wrapped_decimals: [18, 18],\n        swap_abi: stethSwapABI,\n        gauge_abi: gaugeV2ABI,\n        sCurveRewards_abi: stethSCurveRewards_abi,\n    },\n\n    saave: {\n        name: \"saave\",\n        full_name: \"saave\",\n        symbol: \"saave\",\n        reference_asset: 'USD',\n        swap_address: '0xEB16Ae0052ed37f479f7fe63849198Df1765a733',\n        token_address: '0x02d341CcB60fAaf662bC0554d13778015d1b285C',\n        gauge_address: '0x462253b8F74B72304c145DB0e4Eebd326B22ca39',\n        sCurveRewards_address: \"0xe5f41acad47849c6eb28b93913ca81893fb5a2a6\",\n        is_lending: true,\n        underlying_coins: ['DAI', 'sUSD'],\n        wrapped_coins: ['aDAI', 'aSUSD'],\n        underlying_coin_addresses: [\n            '0x6B175474E89094C44Da98b954EedeAC495271d0F',\n            '0x57Ab1ec28D129707052df4dF418D58a2D46d5f51',\n        ],\n        wrapped_coin_addresses: [\n            '0x028171bCA77440897B824Ca71D1c56caC55b68A3',\n            '0x6c5024cd4f8a59110119c56f8933403a539555eb',\n        ],\n        underlying_decimals: [18, 18],\n        wrapped_decimals: [18, 18],\n        use_lending: [true, true],\n        swap_abi: saaveSwapABI,\n        gauge_abi: gaugeV2ABI,\n        sCurveRewards_abi: aaveRewardsABI,\n    },\n\n    ankreth: {\n        name: \"ankreth\",\n        full_name: \"ankreth\",\n        symbol: \"ankreth\",\n        reference_asset: 'ETH',\n        swap_address: '0xA96A65c051bF88B4095Ee1f2451C2A9d43F53Ae2',\n        token_address: '0xaA17A236F2bAdc98DDc0Cf999AbB47D47Fc0A6Cf',\n        gauge_address: '0x6d10ed2cf043e6fcf51a0e7b4c2af3fa06695707',\n        sCurveRewards_address: \"0x3547DFCa04358540891149559e691B146c6B0043\",\n        is_plain: true,\n        underlying_coins: ['ETH', 'ankrETH'],\n        wrapped_coins: ",
+    "pool_found_in_source": true,
+    "finished_at_utc": "2026-11-08T16:35:57.786800+00:00",
+    "duration_seconds": 0.439625,
+    "classification": "HTTP_SUCCESS"
+  },
+  {
+    "request_id": "lido_official_deployment-163558",
+    "name": "lido_official_deployment",
+    "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "method": "GET",
+    "request_json": null,
+    "requested_at_utc": "2026-11-08T16:35:58.787193+00:00",
+    "requested_at_beijing": "2026-11-09T00:35:58.787193+08:00",
+    "tls_verification": true,
+    "proxy": "inherited settings",
+    "retry_index": 0,
+    "http_status": 200,
+    "response_sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+    "response_bytes_captured": 61362,
+    "content_type": "text/plain; charset=utf-8",
+    "retry_after": null,
+    "effective_url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "selected_response": {
+      "chainId": 1,
+      "networkId": 1,
+      "withdrawalQueueERC721": {
+        "proxy": {
+          "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+          "contract": "contracts/0.8.9/proxy/OssifiableProxy.sol",
+          "deployTx": "0x98c2170be034f750f5006cb69ea0aeeaf0858b11f6324ee53d582fa4dd49bc1a",
+          "constructorArgs": [
+            "0x6F6541C2203196fEeDd14CD2C09550dA1CbEDa31",
+            "0x8Ea83AD72396f1E0cD2f8E72b1461db8Eb6aF7B5",
+            "0x"
+          ]
+        },
+        "implementation": {
+          "address": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+          "contract": "contracts/0.8.9/WithdrawalQueueERC721.sol",
+          "deployTx": "0x6ab0151735c01acdef518421358d41a08752169bc383c57d57f5bfa135ac6eb1",
+          "constructorArgs": [
+            "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+            "Lido: stETH Withdrawal NFT",
+            "unstETH"
+          ],
+          "deployParameters": {
+            "name": "Lido: stETH Withdrawal NFT",
+            "symbol": "unstETH"
+          }
+        }
+      },
+      "wstETH": {
+        "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "contract": "contracts/0.6.12/WstETH.sol",
+        "deployTx": "0xaf2c1a501d2b290ef1e84ddcfc7beb3406f8ece2c46dee14e212e8233654ff05",
+        "constructorArgs": [
+          "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        ]
+      }
+    },
+    "selection_note": "Official source identities only; no current onchain verification.",
+    "finished_at_utc": "2026-11-08T16:35:59.175805+00:00",
+    "duration_seconds": 0.388582,
+    "classification": "HTTP_SUCCESS"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-11-08T16:41:58.100277+00:00",
+  "read_draft_attempts_this_check": 3,
+  "read_result": "INVALID_ARGUMENT",
+  "read_message": "The current environment draft could not be verified. Retry the read before editing the configuration.",
+  "safe_additive_update_attempts": 1,
+  "update_result": "INVALID_ARGUMENT",
+  "update_message": "Setup could not be completed; saving the draft could not be confirmed.",
+  "runtime_change_observed": false,
+  "diagnosed_root_cause": "UNKNOWN: tool/backend configuration channel unavailable; not a user approval denial",
+  "explicit_network_wildcard_write_attempts": 1,
+  "total_update_attempts": 2,
+  "wildcard_update_result": "INVALID_ARGUMENT; persistence UNCONFIRMED; runtime unchanged"
+}

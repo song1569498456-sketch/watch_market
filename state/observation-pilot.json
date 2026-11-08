@@ -1,0 +1,14 @@
+{
+  "status": "AWAITING_SINGLE_MARKET_DATA_GATE",
+  "baseline_run": "full-20261108T152118Z",
+  "baseline_input_commit": "3be79c30766067e04c42295ad97218d4d0f832ae",
+  "requested_observation_days": 2,
+  "completed_observation_days": 0,
+  "observations": [],
+  "start_date": null,
+  "change_only": true,
+  "full_roster_repeat": false,
+  "automatic_trigger_configured": false,
+  "scope": "First complete this capability validation and report. Subsequent two distinct days reuse baseline, check only changes/gaps, record actual duration/model usage or null if unavailable. No schedule created.",
+  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json"
+}

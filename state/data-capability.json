@@ -1,0 +1,14 @@
+{
+  "last_check_run": "data-check-20261108T163237Z",
+  "gate_status": "BLOCKED",
+  "checkpoint_advanced": false,
+  "shared_sources": "registry/data-sources.json",
+  "readiness": "runs/data-check-20261108T163237Z/role-readiness.json",
+  "permissions": "User explicitly authorized all-domain access; wildcard update actually requested but backend returned INVALID_ARGUMENT; no additional user domain approval is needed",
+  "required_configuration": "runs/data-check-20261108T163237Z/network-requirements.json",
+  "pending_external_dependency": "working platform network configuration channel",
+  "storage_status": "PENDING_UPLOAD",
+  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json",
+  "review_verdict": "NEEDS_DATA",
+  "live_gate_passed": false
+}

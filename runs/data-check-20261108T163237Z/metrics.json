@@ -1,0 +1,37 @@
+{
+  "measurement_scope": "This capability run; not a two-day observation result",
+  "started_at": "2026-11-08T16:32:37.586592+00:00",
+  "assembled_at": "2026-11-08T16:54:33.064714+00:00",
+  "m00_run_elapsed_seconds": 1315.478,
+  "m00_timing_scope": "run initialization through report assembly; initial inspection and final publication excluded",
+  "q00_timing": {
+    "measurement_started_at": "2026-11-08T16:44:01.143057+00:00",
+    "finished_at_utc": "2026-11-08T16:47:46.768405+00:00",
+    "finished_at_beijing": "2026-11-09T00:47:46.768405+08:00",
+    "measured_duration_seconds": 225.62534,
+    "scope": "独立源补读、统计复核文件与报告交付；之前材料阅读未计时",
+    "preparation_read_duration_seconds": null
+  },
+  "q00_metadata_clarification_new_http": 0,
+  "model_tokens": null,
+  "model_cost": null,
+  "model_usage_status": "UNAVAILABLE: no current-session model usage API exposed; tool output token lengths, HTTP counts and inferred model estimates not substituted",
+  "explicit_http_client_attempts": 13,
+  "attempts_breakdown": {
+    "M00_central_probes": 4,
+    "M00_transport_diagnostic": 1,
+    "M00_static_rules_ABI": 2,
+    "M00_document_repairs": 3,
+    "Q00_independent_static_GET": 2,
+    "M00_after_full_access_request_RPC": 1
+  },
+  "http_count_caveat": "Client attempts include proxy-denied calls before upstream; not provider billable requests, model token use, or a full redirect/transport accounting. Configuration-tool API traffic excluded.",
+  "new_valid_market_findings": 0,
+  "existing_document_references_revalidated": 3,
+  "completed_observation_days": 0,
+  "baseline_reused": "full-20261108T152118Z",
+  "m00_explicit_http_attempts": 11,
+  "q00_explicit_http_attempts": 2,
+  "model_compute_duration_seconds": null,
+  "timing_note": "Run wall-clock includes Q00 and metadata corrections/waiting; not model compute/billed duration. Q00 original phase timing excludes preparation and later clarifications."
+}

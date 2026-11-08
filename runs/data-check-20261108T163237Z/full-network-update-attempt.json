@@ -1,0 +1,27 @@
+{
+  "authorization": "User explicitly requested all-domain network access; no additional domain approval needed",
+  "requested_change": {
+    "network": {
+      "allowed_domains": [
+        "*"
+      ]
+    }
+  },
+  "configuration_tool": "update_environment_config_draft",
+  "result": {
+    "error_code": "INVALID_ARGUMENT",
+    "message": "Setup could not be completed; saving the draft could not be confirmed.",
+    "persistence": "UNCONFIRMED"
+  },
+  "observed_runtime_after_request": {
+    "observations_current": true,
+    "spec_revision": "1",
+    "mode": "restricted",
+    "state": "enforced",
+    "custom_allowed_hosts": [],
+    "effective_all_hosts": false
+  },
+  "fresh_rpc_result": "evidence/M00/data-check-20261108T163237Z/rpc-after-full-access-request.json",
+  "outcome": "NO_APPLIED_RUNTIME_CHANGE_OBSERVED; fresh RPC still CONNECT 403",
+  "root_cause": "Configuration channel failure not diagnosed beyond INVALID_ARGUMENT. User permission is present; no bypass attempted."
+}

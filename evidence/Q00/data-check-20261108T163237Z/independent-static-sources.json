@@ -1,0 +1,546 @@
+{
+  "measurement_started_at": "2026-11-08T16:44:01.143057+00:00",
+  "measurement_started_monotonic": 6491.647509557,
+  "timing_scope": "独立源补读、统计复核文件与报告交付；之前材料阅读未计时",
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/curvefi/curve-contract/master/contracts/pools/steth/StableSwapSTETH.vy",
+      "method": "GET",
+      "requested_at_utc": "2026-11-08T16:44:01.143071+00:00",
+      "http_status": 200,
+      "curl_exit": 0,
+      "duration_seconds": 0.324376,
+      "response_sha256": "6d26b749b603fe09b55f4ca1e68e10ee0e53d11f472ee35c7c07ce4a469bcde1",
+      "response_bytes": 24678,
+      "tls_verification": true,
+      "proxy": "inherited, unchanged",
+      "error": "",
+      "excerpts": [
+        {
+          "line": 80,
+          "text": "    t: uint256"
+        },
+        {
+          "line": 81,
+          "text": ""
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "# These constants must be set prior to compiling"
+        },
+        {
+          "line": 84,
+          "text": "N_COINS: constant(int128) = 2"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "# fixed constants"
+        },
+        {
+          "line": 87,
+          "text": "FEE_DENOMINATOR: constant(uint256) = 10 ** 10"
+        },
+        {
+          "line": 88,
+          "text": "PRECISION: constant(uint256) = 10 ** 18  # The precision to convert to"
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "MAX_ADMIN_FEE: constant(uint256) = 10 * 10 ** 9"
+        },
+        {
+          "line": 91,
+          "text": "MAX_FEE: constant(uint256) = 5 * 10 ** 9"
+        },
+        {
+          "line": 92,
+          "text": ""
+        },
+        {
+          "line": 93,
+          "text": "MAX_A: constant(uint256) = 10 ** 6"
+        },
+        {
+          "line": 94,
+          "text": "MAX_A_CHANGE: constant(uint256) = 10"
+        },
+        {
+          "line": 95,
+          "text": "A_PRECISION: constant(uint256) = 100"
+        },
+        {
+          "line": 96,
+          "text": ""
+        },
+        {
+          "line": 97,
+          "text": "ADMIN_ACTIONS_DELAY: constant(uint256) = 3 * 86400"
+        },
+        {
+          "line": 98,
+          "text": "MIN_RAMP_TIME: constant(uint256) = 86400"
+        },
+        {
+          "line": 99,
+          "text": ""
+        },
+        {
+          "line": 100,
+          "text": "coins: public(address[N_COINS])"
+        },
+        {
+          "line": 101,
+          "text": "admin_balances: public(uint256[N_COINS])"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "fee: public(uint256)  # fee * 1e10"
+        },
+        {
+          "line": 104,
+          "text": "admin_fee: public(uint256)  # admin_fee * 1e10"
+        },
+        {
+          "line": 105,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "future_owner: public(address)"
+        },
+        {
+          "line": 119,
+          "text": ""
+        },
+        {
+          "line": 120,
+          "text": "is_killed: bool"
+        },
+        {
+          "line": 121,
+          "text": "kill_deadline: uint256"
+        },
+        {
+          "line": 122,
+          "text": "KILL_DEADLINE_DT: constant(uint256) = 2 * 30 * 86400"
+        },
+        {
+          "line": 417,
+          "text": "@view"
+        },
+        {
+          "line": 418,
+          "text": "@external"
+        },
+        {
+          "line": 419,
+          "text": "def get_dy(i: int128, j: int128, dx: uint256) -> uint256:"
+        },
+        {
+          "line": 420,
+          "text": "    xp: uint256[N_COINS] = self._balances()"
+        },
+        {
+          "line": 421,
+          "text": "    x: uint256 = xp[i] + dx"
+        },
+        {
+          "line": 422,
+          "text": "    y: uint256 = self.get_y(i, j, x, xp)"
+        },
+        {
+          "line": 423,
+          "text": "    dy: uint256 = xp[j] - y - 1"
+        },
+        {
+          "line": 424,
+          "text": "    fee: uint256 = self.fee * dy / FEE_DENOMINATOR"
+        },
+        {
+          "line": 425,
+          "text": "    return dy - fee"
+        },
+        {
+          "line": 426,
+          "text": ""
+        },
+        {
+          "line": 427,
+          "text": ""
+        },
+        {
+          "line": 428,
+          "text": "@payable"
+        },
+        {
+          "line": 429,
+          "text": "@external"
+        },
+        {
+          "line": 430,
+          "text": "@nonreentrant('lock')"
+        },
+        {
+          "line": 431,
+          "text": "def exchange(i: int128, j: int128, dx: uint256, min_dy: uint256) -> uint256:"
+        },
+        {
+          "line": 432,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 433,
+          "text": "    @notice Perform an exchange between two coins"
+        },
+        {
+          "line": 434,
+          "text": "    @dev Index values can be found via the `coins` public getter method"
+        },
+        {
+          "line": 435,
+          "text": "    @param i Index value for the coin to send"
+        },
+        {
+          "line": 436,
+          "text": "    @param j Index valie of the coin to recieve"
+        },
+        {
+          "line": 437,
+          "text": "    @param dx Amount of `i` being exchanged"
+        },
+        {
+          "line": 438,
+          "text": "    @param min_dy Minimum amount of `j` to receive"
+        },
+        {
+          "line": 439,
+          "text": "    @return Actual amount of `j` received"
+        },
+        {
+          "line": 440,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 441,
+          "text": "    assert not self.is_killed  # dev: is killed"
+        },
+        {
+          "line": 442,
+          "text": "    # dx and dy are in aTokens"
+        },
+        {
+          "line": 443,
+          "text": ""
+        },
+        {
+          "line": 444,
+          "text": "    xp: uint256[N_COINS] = self._balances(msg.value)"
+        },
+        {
+          "line": 445,
+          "text": ""
+        },
+        {
+          "line": 446,
+          "text": "    x: uint256 = xp[i] + dx"
+        },
+        {
+          "line": 447,
+          "text": "    y: uint256 = self.get_y(i, j, x, xp)"
+        },
+        {
+          "line": 448,
+          "text": "    dy: uint256 = xp[j] - y - 1"
+        },
+        {
+          "line": 449,
+          "text": "    dy_fee: uint256 = dy * self.fee / FEE_DENOMINATOR"
+        },
+        {
+          "line": 450,
+          "text": ""
+        },
+        {
+          "line": 451,
+          "text": "    # Convert all to real units"
+        },
+        {
+          "line": 452,
+          "text": "    dy = dy - dy_fee"
+        },
+        {
+          "line": 453,
+          "text": "    assert dy >= min_dy, \"Exchange resulted in fewer coins than expected\""
+        },
+        {
+          "line": 454,
+          "text": ""
+        },
+        {
+          "line": 455,
+          "text": "    admin_fee: uint256 = self.admin_fee"
+        },
+        {
+          "line": 456,
+          "text": "    if admin_fee != 0:"
+        },
+        {
+          "line": 457,
+          "text": "        dy_admin_fee: uint256 = dy_fee * admin_fee / FEE_DENOMINATOR"
+        },
+        {
+          "line": 458,
+          "text": "        if dy_admin_fee != 0:"
+        },
+        {
+          "line": 459,
+          "text": "            self.admin_balances[j] += dy_admin_fee"
+        },
+        {
+          "line": 460,
+          "text": ""
+        },
+        {
+          "line": 461,
+          "text": "    coin: address = self.coins[1]"
+        },
+        {
+          "line": 462,
+          "text": "    if i == 0:"
+        },
+        {
+          "line": 463,
+          "text": "        assert msg.value == dx"
+        },
+        {
+          "line": 464,
+          "text": "        assert ERC20(coin).transfer(msg.sender, dy)"
+        },
+        {
+          "line": 465,
+          "text": "    else:"
+        },
+        {
+          "line": 466,
+          "text": "        assert msg.value == 0"
+        },
+        {
+          "line": 467,
+          "text": "        assert ERC20(coin).transferFrom(msg.sender, self, dx)"
+        },
+        {
+          "line": 468,
+          "text": "        raw_call(msg.sender, b\"\", value=dy)"
+        },
+        {
+          "line": 469,
+          "text": ""
+        },
+        {
+          "line": 470,
+          "text": "    log TokenExchange(msg.sender, i, dx, j, dy)"
+        },
+        {
+          "line": 471,
+          "text": ""
+        },
+        {
+          "line": 472,
+          "text": "    return dy"
+        }
+      ],
+      "fee_denominator_declaration": "FEE_DENOMINATOR: constant(uint256) = 10 ** 10",
+      "fee_denominator_value": "10000000000"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/steth/swap.json",
+      "method": "GET",
+      "requested_at_utc": "2026-11-08T16:44:02.518923+00:00",
+      "http_status": 200,
+      "curl_exit": 0,
+      "duration_seconds": 0.393455,
+      "response_sha256": "6d79246ae7ff3873971dfd1e366495bd9c5c0952e8ef3d382d77accf192a336a",
+      "response_bytes": 15575,
+      "tls_verification": true,
+      "proxy": "inherited, unchanged",
+      "error": "",
+      "abi_function_names": [
+        "A",
+        "A_precise",
+        "get_virtual_price",
+        "calc_token_amount",
+        "add_liquidity",
+        "get_dy",
+        "exchange",
+        "remove_liquidity",
+        "remove_liquidity_imbalance",
+        "calc_withdraw_one_coin",
+        "remove_liquidity_one_coin",
+        "ramp_A",
+        "stop_ramp_A",
+        "commit_new_fee",
+        "apply_new_fee",
+        "revert_new_parameters",
+        "commit_transfer_ownership",
+        "apply_transfer_ownership",
+        "revert_transfer_ownership",
+        "admin_balances",
+        "withdraw_admin_fees",
+        "donate_admin_fees",
+        "kill_me",
+        "unkill_me",
+        "coins",
+        "balances",
+        "fee",
+        "admin_fee",
+        "owner",
+        "initial_A",
+        "future_A",
+        "initial_A_time",
+        "future_A_time",
+        "admin_actions_deadline",
+        "transfer_ownership_deadline",
+        "future_fee",
+        "future_admin_fee",
+        "future_owner"
+      ],
+      "is_killed_getter_present": false,
+      "selected_abi": [
+        {
+          "name": "get_dy",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2444404"
+        },
+        {
+          "name": "exchange",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            },
+            {
+              "type": "uint256",
+              "name": "min_dy"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "gas": "2638539"
+        },
+        {
+          "name": "coins",
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2130"
+        },
+        {
+          "name": "balances",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2160"
+        },
+        {
+          "name": "fee",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2081"
+        },
+        {
+          "name": "admin_fee",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2111"
+        }
+      ]
+    }
+  ]
+}

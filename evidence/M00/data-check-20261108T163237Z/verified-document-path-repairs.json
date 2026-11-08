@@ -1,0 +1,148 @@
+[
+  {
+    "purpose": "Arbitrum NodeInterface source path repair, same repo/interface",
+    "old_url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/precompiles/NodeInterface.sol",
+    "new_url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+    "scope": "Exact interface source location, not deployed-code confirmation",
+    "requested_at_utc": "2026-11-08T16:44:32.309853+00:00",
+    "http_status": 200,
+    "sha256": "f42de11ff893d17ed7e490094f4d21730f9720a93dbb6e190de35a7e9481d752",
+    "selected_lines": [
+      {
+        "line": 13,
+        "text": "interface NodeInterface {"
+      },
+      {
+        "line": 81,
+        "text": "     * @return gasEstimateForL1 an estimate of the amount of gas needed for the l1 component of this tx"
+      },
+      {
+        "line": 85,
+        "text": "    function gasEstimateComponents("
+      },
+      {
+        "line": 94,
+        "text": "            uint64 gasEstimateForL1,"
+      },
+      {
+        "line": 102,
+        "text": "     *      This method is similar to gasEstimateComponents, but doesn't include the l2 component"
+      },
+      {
+        "line": 109,
+        "text": "     * @return gasEstimateForL1 an estimate of the amount of gas needed for the l1 component of this tx"
+      },
+      {
+        "line": 120,
+        "text": "        returns (uint64 gasEstimateForL1, uint256 baseFee, uint256 l1BaseFeeEstimate);"
+      }
+    ],
+    "repair_status": "DOCUMENT_REFERENCE_ACCESS_RESTORED"
+  },
+  {
+    "purpose": "Sushi Arbitrum factory identity source",
+    "old_url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+    "new_url": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+    "scope": "Factory deployment reference only; not complete SDK/config equivalent",
+    "requested_at_utc": "2026-11-08T16:44:33.698469+00:00",
+    "http_status": 200,
+    "sha256": "7106a26328fe5392eb1d7846af5e5927e8cf2bbccd54c8c0190d7cef363386c5",
+    "selected_fields": {
+      "address": "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+      "transactionHash": "0x8d0a67317d0f3996ce544776afa7c503e8c33d0475a0660e08748d1a8cad14a5"
+    },
+    "repair_status": "DOCUMENT_REFERENCE_ACCESS_RESTORED"
+  },
+  {
+    "purpose": "Sonic staking official README entry",
+    "old_url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+    "new_url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+    "scope": "Documentation entry fallback already evidenced by prior official address source; not an asserted equivalence of every old contract",
+    "requested_at_utc": "2026-11-08T16:44:35.094007+00:00",
+    "http_status": 200,
+    "sha256": "57614777e891a7e80a5d886de8dfce2d159b909eaa3ea14399b6f96242dc42b8",
+    "selected_lines": [
+      {
+        "line": 1,
+        "text": "# Sonic Staking"
+      },
+      {
+        "line": 3,
+        "text": "This repository includes all contracts used for the LST Staked S ($stS) by Beets."
+      },
+      {
+        "line": 14,
+        "text": "- A user can undelegate $stS and can withdraw the $S two weeks later."
+      },
+      {
+        "line": 18,
+        "text": "The code has been audited by Spearbit, the report can seen [here](./audits/report-cantinacode-sonic-1209.pdf) or on [Spearbit](https://cantina.xyz/portfolio/71a6f59b-7533-4ae9-87c5-d1d1bf6d675a)"
+      },
+      {
+        "line": 19,
+        "text": "The code has been audited by Trail of Bits, the report can seen [here](./audits/2025-01-beethovenx-sonicstaking-securityreview.pdf) or on [Trail of Bits](https://github.com/trailofbits/publications/blob/master/reviews/2025-01-beethovenx-sonicstaking-securityreview.pdf)"
+      },
+      {
+        "line": 23,
+        "text": "[Beets Staked Sonic - stS](https://sonicscan.org/address/0xe5da20f15420ad15de0fa650600afc998bbe3955)"
+      },
+      {
+        "line": 33,
+        "text": "The Sonic Staking contract is `ownable` and also uses OpenZeppelin `AccessControl`. Under access-control, we define the following roles:"
+      },
+      {
+        "line": 39,
+        "text": "The owner of the contract is a [3 week Timelock](https://sonicscan.org/address/0xf750f4E0813898C544A4349526206e1165F0E5d0) run by a [5/7 multisig](https://app.safe.global/transactions/queue?safe=sonic:0x7B782A460Def196149f8369BdeC30e3f2F2356EB) and has the following permissions:"
+      },
+      {
+        "line": 43,
+        "text": "The default Admin role is granted to a [1 day Timelock](https://sonicscan.org/address/0xd0f62fbe32a72cd18ab8943b52220a7af6c743f4#code) run by a [5/7 multisig](https://app.safe.global/transactions/queue?safe=sonic:0x6daeb8bb06a7cf3475236c6c567029d333455e38) and has the following permissions:"
+      },
+      {
+        "line": 46,
+        "text": "2. Set the withdrawal delay"
+      },
+      {
+        "line": 52,
+        "text": "8. Pause/Unpause withdraw"
+      },
+      {
+        "line": 54,
+        "text": "The Operator role is granted to a [3/6 multisig](https://app.safe.global/transactions/queue?safe=sonic:0x6840Bd91417373Af296cc263e312DfEBcAb494ae) and has the following permissions:"
+      },
+      {
+        "line": 59,
+        "text": "4. pause (which pauses deposits, undelegations, undelegations from pool and withdraws)"
+      },
+      {
+        "line": 62,
+        "text": "The Claim role will be given to an [EOA](https://sonicscan.org/address/0xFaC37371dFAFbfA0937DF84532D1EDED08b21718) (for automation purposes) and has the following permissions:"
+      },
+      {
+        "line": 68,
+        "text": "Staking on Sonic is done via the Special Fees Contract (SFC) as per this [repo](https://github.com/Fantom-foundation/opera-sfc). The contracts in this repository are implemented against [this commit](https://github.com/Fantom-foundation/opera-sfc/tree/8c700e0ef1224cdb29e8afed6ea89eacdfba9dd7)."
+      },
+      {
+        "line": 83,
+        "text": "The staking system on Sonic, which is handled by the SFC, uses validators and delegators. Validators run validator nodes that secure the network. Validators are required to have at least 500k $S self-staked. Each validator can have up to 15 times their self-staked amount delegated to it. To delegate to a validator, one calls [delegate()](https://github.com/Fantom-foundation/opera-sfc/blob/8c700e0ef1224cdb29e8afed6ea89eacdfba9dd7/contracts/sfc/SFC.sol#L392) on the SFC and passes the amount of $S as a value."
+      },
+      {
+        "line": 85,
+        "text": "### Undelegate and withdraw"
+      },
+      {
+        "line": 87,
+        "text": "There is an unbonding period of two weeks. Retrieving delegated funds is a two step process with a two week waiting period in between. You first call [undelegate](https://github.com/Fantom-foundation/opera-sfc/blob/8c700e0ef1224cdb29e8afed6ea89eacdfba9dd7/contracts/sfc/SFC.sol#L466) and after two weeks you can withdraw your $S via [withdraw](https://github.com/Fantom-foundation/opera-sfc/blob/8c700e0ef1224cdb29e8afed6ea89eacdfba9dd7/contracts/sfc/SFC.sol#L398)."
+      },
+      {
+        "line": 97,
+        "text": "## Sonic Staking"
+      },
+      {
+        "line": 104,
+        "text": "A user deposits $S into the Sonic Staking contract and receives $stS based on the current rate. The $S that has been sent to the contract is first added to the pool and is not immediately delegated."
+      }
+    ],
+    "repair_status": "DOCUMENT_REFERENCE_ACCESS_RESTORED"
+  }
+]

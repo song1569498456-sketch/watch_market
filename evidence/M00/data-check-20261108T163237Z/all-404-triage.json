@@ -1,0 +1,146 @@
+{
+  "historical_404_observations": 20,
+  "fresh_verified_replacement_entries": 3,
+  "observations": [
+    {
+      "agent_id": "M00",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "ARB01",
+      "failed_url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "scope": "Factory deployment reference only; not complete SDK/config equivalent"
+    },
+    {
+      "agent_id": "ARB02",
+      "failed_url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/precompiles/NodeInterface.sol",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "scope": "Exact interface source location, not deployed-code confirmation"
+    },
+    {
+      "agent_id": "ARB04",
+      "failed_url": "https://raw.githubusercontent.com/beefyfinance/beefy-api/master/src/data/arbitrum_pools.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://raw.githubusercontent.com/coinbase/wrapped-tokens/main/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://raw.githubusercontent.com/base-org/token-list/main/src/tokens/base.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BASE02",
+      "failed_url": "https://github.com/coinbase/wrapped-tokens",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB01",
+      "failed_url": "https://raw.githubusercontent.com/lista-dao/lista-new-contracts/main/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB03",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/tokens/src/56.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB03",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/projects/exchange-protocol/contracts/PancakePair.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/README.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "BNB04",
+      "failed_url": "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/contracts/PancakePair.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "OP01",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "SOL02",
+      "failed_url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/Docs/DEPLOYMENT.md",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "SONIC02",
+      "failed_url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+      "status": "DOCUMENT_REFERENCE_ACCESS_RESTORED",
+      "replacement": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "scope": "Documentation entry fallback already evidenced by prior official address source; not an asserted equivalence of every old contract"
+    },
+    {
+      "agent_id": "SONIC02",
+      "failed_url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/contracts/SonicStaking.sol",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    },
+    {
+      "agent_id": "X-BASE",
+      "failed_url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "status": "UNRESOLVED_OR_PARTIAL_ALTERNATIVE",
+      "replacement": null,
+      "scope": "Do not replace V2 with V3, USDC.e with USDC, old registry membership with node docs, or guessed deployment with a different protocol. Previously saved successful alternatives may inform discovery but are not equivalent verification."
+    }
+  ]
+}
