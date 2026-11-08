@@ -1,0 +1,14 @@
+# Credentials and disposable data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+.cache/
+tmp/
+__pycache__/
+*.pyc
+node_modules/
+.venv/

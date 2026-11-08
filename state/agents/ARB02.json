@@ -1,0 +1,13 @@
+{
+  "agent_id": "ARB02",
+  "status": "NOT_STARTED",
+  "research_started": false,
+  "last_research_run_id": null,
+  "last_success_at": null,
+  "observed_cursor": null,
+  "published_cursor": null,
+  "coverage": [],
+  "pending_questions": [],
+  "initialized_at": "2026-11-08T15:17:15.896871+00:00",
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+}

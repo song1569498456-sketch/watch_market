@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/song1569498456-sketch/watch_market",
+  "authoritative_branch": "setup/access-check-20261108T150555Z",
+  "timezone": "Asia/Shanghai",
+  "max_concurrent_subagents": 3,
+  "schedule": {
+    "status": "NOT_CONFIGURED",
+    "proposed_local_time": "09:00",
+    "created": false
+  },
+  "execution": {
+    "mode": "existing_cloud_session",
+    "create_new_thread_required": false,
+    "first_run": "full_enabled_roster",
+    "auto_trade": false
+  },
+  "bootstrap": {
+    "status": "RULES_PREPARED_FOR_PUBLICATION",
+    "research_started": false,
+    "history_state": "EMPTY_VALID_BASELINE",
+    "prior_preflight_commit": "c1d87e4f0c0ff4245b97f3ff4af853e0b82d4fc9"
+  },
+  "storage": {
+    "canonical": "github_branch",
+    "publisher": "M00",
+    "verify_remote_after_push": true
+  },
+  "agent_manifest": "config/agents.json",
+  "main_prompt": "prompts/agents/M00.txt",
+  "storage_contract": "docs/cloud-recording-protocol.txt",
+  "research_history": "state/research-history.json"
+}

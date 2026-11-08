@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "prepared_at": "2026-11-08T15:17:15.896871+00:00",
+  "prompt_version": "2026-11-08-v2-cloud",
+  "agents": 48,
+  "enabled_agents": 48,
+  "research_started": false,
+  "scheduler_created": false,
+  "history_initialized_empty": true,
+  "previous_blocked_report": "preflight/20261108T151305Z.md",
+  "source": "用户批准的正式本地提示词包迁移；已增加当前云端直接接续说明",
+  "authoritative_branch": "setup/access-check-20261108T150555Z"
+}

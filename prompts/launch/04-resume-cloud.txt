@@ -1,0 +1,9 @@
+继续在当前云端会话运行，不需要创建新任务。
+正式仓库：https://github.com/song1569498456-sketch/watch_market
+权威分支：setup/access-check-20261108T150555Z
+先同步远端分支，读取 config/runtime.json、config/agents.json、prompts/agents/M00.txt、docs/cloud-recording-protocol.txt 和 state/research-history.json。
+全套 48 个岗位提示词已发布。所有岗位已启用但尚未研究，NOT_STARTED 和 null 游标是合法初始状态，不要再要求不存在的历史进度。
+由你担任 M00，使用真正的子 agent，按最多同时 3 个分批完成启用岗位的一轮自主发现与研究；候选交 Q00 复核。每批及时按协议归档，确认远端文件后推进检查点。
+不要只做前置核验，不要再读取用户电脑，不要求重传提示词或另建云端任务；具体数据源缺失时记录该岗位缺口并继续其他可运行岗位，不能把局部限制扩大为全队停止。
+保留 preflight 历史记录，将其作为之前的阻塞事实。本次给真实完成清单、未完成原因、日报 GitHub 链接、输入和输出提交。没有机会也报告覆盖与证据，不编造结果。
+本轮不创建定时任务、不进行链上交易。

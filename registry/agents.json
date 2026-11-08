@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "agents": [
+    {
+      "agent_id": "M00",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "Q00",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-ARB",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-AVAX",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-BASE",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-BNB",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-ETH",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-OP",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-POLY",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-SOL",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "N-SONIC",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ARB01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ARB02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ARB03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ARB04",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "AVAX01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "AVAX02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BASE01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BASE02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BASE03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BASE04",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BASE05",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BNB01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BNB02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BNB03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BNB04",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "BNB05",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ETH01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ETH02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ETH03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ETH04",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "ETH05",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "OP01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "OP02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "POLY01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "POLY02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "POLY03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "R-BASE",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "R-BNB",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "R-POLY",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SOL01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SOL02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SOL03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SONIC01",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SONIC02",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "SONIC03",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "X-ARB",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    },
+    {
+      "agent_id": "X-BASE",
+      "enabled": true,
+      "status": "NOT_STARTED",
+      "last_success_at": null
+    }
+  ]
+}

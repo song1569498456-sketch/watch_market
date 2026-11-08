@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "NOT_STARTED",
+  "completed_research_runs": [],
+  "last_completed_research_run": null,
+  "research_checkpoints": {},
+  "known_non_research_records": [
+    {
+      "type": "BLOCKED_PREFLIGHT",
+      "commit": "c1d87e4f0c0ff4245b97f3ff4af853e0b82d4fc9",
+      "path": "preflight/20261108T151305Z.md"
+    }
+  ],
+  "note": "已核验材料未显示任何已完成研究；前置核验和访问测试不算研究历史。首次运行无需旧检查点。"
+}
