@@ -882,7 +882,7 @@
     "PARTIAL": 47
   },
   "enabled_roles": 48,
-  "research_completed_without_gaps": 1,
+  "research_completed_without_gaps": 0,
   "missing_roles": [],
   "real_subagent_workers": 3,
   "independent_review_subagents": 1,
@@ -900,5 +900,9 @@
       "coverage": "NOT_FULLY_SCANNED"
     },
     "note": "目标窗口，不是已扫描范围；逐岗真实观察以record和state为准。"
-  }
+  },
+  "control_roles_completed_in_assigned_scope": [
+    "M00"
+  ],
+  "completion_count_note": "COMPLETED 1为M00控制职责；46研究岗位和Q00均PARTIAL，没有完整实时/30天/7天研究覆盖。"
 }
