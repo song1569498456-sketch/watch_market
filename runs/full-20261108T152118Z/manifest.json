@@ -1,0 +1,158 @@
+{
+  "run_id": "full-20261108T152118Z",
+  "date": "2026-11-08",
+  "input_commit": "c269e1a674c2680dbf2ac00638206efdef0da79a",
+  "start_utc": "2026-11-08T15:21:18.018143+00:00",
+  "start_monotonic": 1528.526536465,
+  "branch": "setup/access-check-20261108T150555Z",
+  "status": "RUNNING",
+  "storage_status": "PENDING_UPLOAD",
+  "schedule_status": "NOT_CONFIGURED",
+  "agents": {
+    "M00": {
+      "status": "RUNNING"
+    },
+    "Q00": {
+      "status": "NOT_STARTED"
+    },
+    "N-ARB": {
+      "status": "NOT_STARTED"
+    },
+    "N-AVAX": {
+      "status": "NOT_STARTED"
+    },
+    "N-BASE": {
+      "status": "NOT_STARTED"
+    },
+    "N-BNB": {
+      "status": "NOT_STARTED"
+    },
+    "N-ETH": {
+      "status": "NOT_STARTED"
+    },
+    "N-OP": {
+      "status": "NOT_STARTED"
+    },
+    "N-POLY": {
+      "status": "NOT_STARTED"
+    },
+    "N-SOL": {
+      "status": "NOT_STARTED"
+    },
+    "N-SONIC": {
+      "status": "NOT_STARTED"
+    },
+    "ARB01": {
+      "status": "NOT_STARTED"
+    },
+    "ARB02": {
+      "status": "NOT_STARTED"
+    },
+    "ARB03": {
+      "status": "NOT_STARTED"
+    },
+    "ARB04": {
+      "status": "NOT_STARTED"
+    },
+    "AVAX01": {
+      "status": "NOT_STARTED"
+    },
+    "AVAX02": {
+      "status": "NOT_STARTED"
+    },
+    "BASE01": {
+      "status": "NOT_STARTED"
+    },
+    "BASE02": {
+      "status": "NOT_STARTED"
+    },
+    "BASE03": {
+      "status": "NOT_STARTED"
+    },
+    "BASE04": {
+      "status": "NOT_STARTED"
+    },
+    "BASE05": {
+      "status": "NOT_STARTED"
+    },
+    "BNB01": {
+      "status": "NOT_STARTED"
+    },
+    "BNB02": {
+      "status": "NOT_STARTED"
+    },
+    "BNB03": {
+      "status": "NOT_STARTED"
+    },
+    "BNB04": {
+      "status": "NOT_STARTED"
+    },
+    "BNB05": {
+      "status": "NOT_STARTED"
+    },
+    "ETH01": {
+      "status": "NOT_STARTED"
+    },
+    "ETH02": {
+      "status": "NOT_STARTED"
+    },
+    "ETH03": {
+      "status": "NOT_STARTED"
+    },
+    "ETH04": {
+      "status": "NOT_STARTED"
+    },
+    "ETH05": {
+      "status": "NOT_STARTED"
+    },
+    "OP01": {
+      "status": "NOT_STARTED"
+    },
+    "OP02": {
+      "status": "NOT_STARTED"
+    },
+    "POLY01": {
+      "status": "NOT_STARTED"
+    },
+    "POLY02": {
+      "status": "NOT_STARTED"
+    },
+    "POLY03": {
+      "status": "NOT_STARTED"
+    },
+    "R-BASE": {
+      "status": "NOT_STARTED"
+    },
+    "R-BNB": {
+      "status": "NOT_STARTED"
+    },
+    "R-POLY": {
+      "status": "NOT_STARTED"
+    },
+    "SOL01": {
+      "status": "NOT_STARTED"
+    },
+    "SOL02": {
+      "status": "NOT_STARTED"
+    },
+    "SOL03": {
+      "status": "NOT_STARTED"
+    },
+    "SONIC01": {
+      "status": "NOT_STARTED"
+    },
+    "SONIC02": {
+      "status": "NOT_STARTED"
+    },
+    "SONIC03": {
+      "status": "NOT_STARTED"
+    },
+    "X-ARB": {
+      "status": "NOT_STARTED"
+    },
+    "X-BASE": {
+      "status": "NOT_STARTED"
+    }
+  },
+  "batches": []
+}
