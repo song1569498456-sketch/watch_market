@@ -1,0 +1,38 @@
+{
+  "purpose": "User requested immediate full-network permission retry and RPC retest",
+  "requested_change": {
+    "network": {
+      "allowed_domains": [
+        "*"
+      ]
+    }
+  },
+  "configuration_result": {
+    "error_code": "INVALID_ARGUMENT",
+    "persistence": "UNCONFIRMED"
+  },
+  "runtime": {
+    "observed_at": "2026-11-08T17:01:21.560Z",
+    "observations_current": true,
+    "spec_revision": "1",
+    "network_mode": "restricted",
+    "network_state": "enforced",
+    "custom_allowed_hosts": [],
+    "all_hosts_allowed": false
+  },
+  "rpc": {
+    "tested_at_utc": "2026-11-08T17:01:21.852503+00:00",
+    "url": "https://ethereum-rpc.publicnode.com",
+    "method": "POST",
+    "request_json": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "error_type": "URLError",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "duration_seconds": 0.021296
+  },
+  "result": "BLOCKED; no applied policy change"
+}
