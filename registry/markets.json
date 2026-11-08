@@ -84,7 +84,23 @@
       "next_check": "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
       "owner": "N-ARB",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json",
+      "observations_by_role": {
+        "ARB01": {
+          "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+          "chain": "ARB",
+          "protocol": "Uniswap v3 factory discovery registry",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+          ],
+          "identity_status": "OFFICIAL_STATIC_DEPLOYMENT_ONLY_NOT_CHAIN_VERIFIED",
+          "next_check": "先读chainId=42161及两工厂代码/代理；从明确区块范围读取Uniswap PoolCreated与Sushi PairCreated，记录分页。",
+          "owner": "ARB01",
+          "last_observed_run": "full-20261108T152118Z",
+          "source_record": "evidence/ARB01/full-20261108T152118Z/record.json"
+        }
+      }
     },
     {
       "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
@@ -205,6 +221,52 @@
       "owner": "N-SONIC",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:FACTORY:0xc35dadb65012ec5796536bd9864ed8773abc74c4",
+      "chain": "ARB",
+      "protocol": "Sushi v2 factory discovery registry",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+      ],
+      "identity_status": "OFFICIAL_STATIC_DEPLOYMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "先读chainId=42161及两工厂代码/代理；从明确区块范围读取Uniswap PoolCreated与Sushi PairCreated，记录分页。",
+      "owner": "ARB01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ARB01/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ARB:42161:UniswapV3Factory:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "ARB",
+      "protocol": "Uniswap V3",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "先核对eth_chainId=0xa4b1、区块与工厂代码，按已核验工厂PoolCreated建立地址+费率有向边，轮转最多30新增池并补第三边。",
+      "owner": "ARB02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ARB02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+      "chain": "ARB",
+      "protocol": "Lido wstETH (source-discovered asset; DEX not identified)",
+      "asset_ids": [
+        "42161:0x5979d7b546e38e414f7e9822514be443a4800529"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529"
+      ],
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_ONLY_UNVERIFIED_LIVE",
+      "next_check": "Lido官方部署/当前gateway与token code交叉核对；发现真实DEX池和本链退出函数。",
+      "owner": "ARB03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

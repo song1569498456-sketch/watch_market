@@ -1,13 +1,36 @@
 {
   "agent_id": "ARB01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_FACTORY_DISCOVERY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:35:07.091426+00:00",
+    "source_urls": [
+      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
+    "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
+    "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+  ],
+  "pending_questions": [
+    "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
+    "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
+    "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
+    "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
+    "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:35:07.091426+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ARB01/full-20261108T152118Z/record.json"
 }

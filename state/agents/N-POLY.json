@@ -14,7 +14,21 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_SOURCE_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:32:36.909343+00:00",
+      "source_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+      ],
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
     "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
@@ -30,7 +44,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:32:36.909343+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
+  "record": "evidence/N-POLY/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "verified_at": "2026-11-08T15:33:32.477653+00:00",
+    "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,237 @@
+{
+  "agent_id": "ARB01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One同资产A→B→A两个独立DEX市场，不做三角或跨链",
+  "started_at": "2026-11-08T15:34:14.144484+00:00",
+  "finished_at": "2026-11-08T15:35:07.091426+00:00",
+  "duration_seconds": 52.947,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:35:07.091426+00:00",
+    "beijing": "2026-11-08T23:35:07.091426+08:00",
+    "data_time": "unknown; branch deployment snapshots not live"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+    "ARB:SUSHISWAP_V2:FACTORY:0xc35dadb65012ec5796536bd9864ed8773abc74c4"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    {
+      "source": "dex-pool-discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum%20WETH%20USDC",
+      "retrieved_at_utc": "2026-11-08T15:34:14.144491+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "arb-rpc",
+      "url": "https://arbitrum-one-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:34:15.172821+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "uniswap-arb-deploy",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-08T15:34:16.180724+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc",
+      "bytes_read": 35066,
+      "excerpts": [
+        {
+          "line": 106,
+          "text": "const DEFAULT_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 107,
+          "text": "  v3CoreFactoryAddress: '0x1F98431c8aD98523631AE4a59f267346ea31F984',"
+        },
+        {
+          "line": 108,
+          "text": "  multicallAddress: '0x1F98415757620B543A52E61c46B32eB19261F984',"
+        },
+        {
+          "line": 109,
+          "text": "  quoterAddress: '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6',"
+        },
+        {
+          "line": 110,
+          "text": "  v3MigratorAddress: '0xA5644E29708357803b5A882D272c41cC0dF92B34',"
+        },
+        {
+          "line": 111,
+          "text": "  nonfungiblePositionManagerAddress: '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',"
+        },
+        {
+          "line": 112,
+          "text": "}"
+        },
+        {
+          "line": 140,
+          "text": "const ARBITRUM_ONE_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 141,
+          "text": "  ...DEFAULT_ADDRESSES,"
+        },
+        {
+          "line": 142,
+          "text": "  multicallAddress: '0xadF885960B47eA2CD9B55E6DAc6B42b7Cb2806dB',"
+        },
+        {
+          "line": 143,
+          "text": "  tickLensAddress: '0xbfd8137f7d1516D3ea5cA83523914859ec47F573',"
+        },
+        {
+          "line": 144,
+          "text": "  mixedRouteQuoterV2Address: '0x5c834b6cac4173bfe288c5722a38e04b9e366e30',"
+        },
+        {
+          "line": 145,
+          "text": ""
+        },
+        {
+          "line": 146,
+          "text": "  v4PoolManagerAddress: '0x360e68faccca8ca495c1b759fd9eee466db9fb32',"
+        },
+        {
+          "line": 147,
+          "text": "  v4PositionManagerAddress: '0xd88f38f930b7952f2db2432cb002e7abbf3dd869',"
+        },
+        {
+          "line": 148,
+          "text": "  v4StateView: '0x76fd297e2d437cd7f76d50f01afe6160f86e9990',"
+        },
+        {
+          "line": 149,
+          "text": "  v4QuoterAddress: '0x8928074ca1b241d8ec02815881c1af11e8bc5219',"
+        },
+        {
+          "line": 584,
+          "text": "  [ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,"
+        }
+      ]
+    },
+    {
+      "source": "sushi-arb-factory-deploy",
+      "url": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "retrieved_at_utc": "2026-11-08T15:34:17.615354+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "7106a26328fe5392eb1d7846af5e5927e8cf2bbccd54c8c0190d7cef363386c5",
+      "bytes_read": 28334,
+      "selected": {
+        "address": "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+        "transactionHash": "0x8d0a67317d0f3996ce544776afa7c503e8c33d0475a0660e08748d1a8cad14a5"
+      }
+    },
+    {
+      "source": "sushi-config-fallback",
+      "url": "https://raw.githubusercontent.com/sushiswap/sushi/master/packages/sushi/src/config/sushiswap-v2.ts",
+      "retrieved_at_utc": "2026-11-08T15:34:19.000403+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "mechanism": "两个独立工厂只构成建立池队列的入口；真实可闭环差异必须以同权益资产对、第一腿实际输出驱动第二腿及完整费用确认，地址不同不代表可成交价差。",
+  "observations": [
+    "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
+    "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
+    "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "input_asset",
+    "unknown_costs": [
+      "DEX费与冲击",
+      "转账税/路由附加费",
+      "L2 gas与L1数据费",
+      "授权及组合执行成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "池可卖性/激活状态unknown",
+  "liabilities": "未交易；完整路径负债核算未模拟",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "工厂/池身份不匹配",
+    "不同资产权益或底层共享池",
+    "第一腿实际输出不能走第二腿",
+    "费用/滑点消除差额",
+    "两腿报价时间不同或已过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+    "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+    "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "https://arbiscan.io/address/0xc35DADB65012eC5796536bD9864eD8773aBc74C4"
+  ],
+  "coverage_gaps": [
+    "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
+    "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
+    "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
+    "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
+    "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+  ],
+  "next_check": [
+    "先读chainId=42161及两工厂代码/代理；从明确区块范围读取Uniswap PoolCreated与Sushi PairCreated，记录分页。",
+    "按资产合约地址、版本/fee和真实池底层去重；使用各工厂getPool/getPair与池token0/token1互证。",
+    "两个方向分数量只读报价，第二腿严格使用第一腿实际输出；核算滑点、动态费、税、L2执行费与L1数据费，确认组合可行性。",
+    "取得具体候选再交Q00；当前工厂差异本身不是套利候选。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "ARB",
+      "protocol": "Uniswap v3 factory discovery registry",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "identity_status": "OFFICIAL_STATIC_DEPLOYMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "先读chainId=42161及两工厂代码/代理；从明确区块范围读取Uniswap PoolCreated与Sushi PairCreated，记录分页。"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:FACTORY:0xc35dadb65012ec5796536bd9864ed8773abc74c4",
+      "chain": "ARB",
+      "protocol": "Sushi v2 factory discovery registry",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+      ],
+      "identity_status": "OFFICIAL_STATIC_DEPLOYMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "先读chainId=42161及两工厂代码/代理；从明确区块范围读取Uniswap PoolCreated与Sushi PairCreated，记录分页。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "两个工厂不同或聚合器显示两条路线就算两个独立池且有套利",
+      "reason": "尚未核对池、资产和共享底层，更无两腿实际数量与成本；拒绝收益推断，不判定市场无机会。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_FACTORY_DISCOVERY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:35:07.091426+00:00",
+    "source_urls": [
+      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  }
+}

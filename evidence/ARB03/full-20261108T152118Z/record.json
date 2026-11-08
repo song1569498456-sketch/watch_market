@@ -1,0 +1,142 @@
+{
+  "agent_id": "ARB03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One质押衍生品折价与本链真实赎回出口；跨链退出仅交接不作为本链即时出口",
+  "started_at": "2026-11-08T15:34:19.631069+00:00",
+  "finished_at": "2026-11-08T15:35:18.919313+00:00",
+  "duration_seconds": 59.288,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:35:18.919313+00:00",
+    "beijing": "2026-11-08T23:35:18.919313+08:00",
+    "data_time": "静态源码/登记表抓取时间；链数据unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529"
+  ],
+  "asset_ids": [
+    "42161:0x5979d7b546e38e414f7e9822514be443a4800529"
+  ],
+  "discovery_source": [
+    "https://docs.lido.fi/deployed-contracts/",
+    "https://arb1.arbitrum.io/rpc",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+  ],
+  "mechanism": "Lido Arbitrum gateway官方说明L2退出burn L2Token并发送L1消息，争议窗口后在L1释放托管token，不是本链ETH即时赎回。L2资产存在不证明本链有原生质押退出口，也不能将份额数量等同ETH。当前桥状态、转换率和DEX价格未核验。",
+  "observations": [
+    {
+      "asset": "wstETH",
+      "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "decimals_from_static_registry": 18,
+      "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "lines": "78-80",
+      "field": "L2 burn -> L1 outbox release after dispute window",
+      "data_kind": "static official design; not current deployment/state"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": "ETH",
+    "realized": false,
+    "unknown_costs": [
+      "DEX费用及滑点",
+      "当前L2/L1费用口径",
+      "真实退出费",
+      "等待天数/机会成本",
+      "wstETH/ETH份额转换率"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown；暂停、gateway及领取权限未查链",
+  "liabilities": "无建立仓位；路径残余负债unknown",
+  "waiting_time": "桥设计有争议窗口，当前时长unknown；本链即时/排队出口未核验",
+  "invalidation_conditions": [
+    "wstETH映射或合约代码不符",
+    "DEX不可卖/份额率失真",
+    "桥暂停或领取权限不满足",
+    "L1释放资产被误记成本链ETH"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+  ],
+  "coverage_gaps": [
+    "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
+    "7天代表性活动未覆盖，无区块/交易/事件。",
+    "链身份42161、token code、官方Lido映射、份额率未链上核验。",
+    "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
+    "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+  ],
+  "next_check": [
+    "恢复arb1.arbitrum.io后核对42161、token code、gateway映射与当前暂停字段，交叉核对Lido官方部署。",
+    "发现本链真实wstETH/ETH池并读取实际数量卖出价；另核本链协议是否存在可执行赎回，而不是自动调用ETH退出。",
+    "若路径必须到L1才释放token，交X-ARB评估固定ETH+ARB流程，继续不计本链即时赎回。",
+    "补30天规则与7天事件；以ETH计价并将未知等待成本留空，仅提供已证实等待天数后再算盈亏平衡成本。"
+  ],
+  "handoff_to": [
+    "M00",
+    "X-ARB",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+      "chain": "ARB",
+      "protocol": "Lido wstETH (source-discovered asset; DEX not identified)",
+      "asset_ids": [
+        "42161:0x5979d7b546e38e414f7e9822514be443a4800529"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529"
+      ],
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_ONLY_UNVERIFIED_LIVE",
+      "next_check": "Lido官方部署/当前gateway与token code交叉核对；发现真实DEX池和本链退出函数。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+      "status": "REJECTED",
+      "chain": "ARB",
+      "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+      "claim": "排除“通过上述Lido Arbitrum canonical gateway退出就是Arbitrum本链即时ETH赎回”的说法。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+      ],
+      "evidence_fields": "官方设计文档78-80行：L2 burn -> L1 release after dispute window；当前实现未核验",
+      "scope_limit": "仅针对该已读设计中的出口，不能推断所有其他LST或所有Arbitrum协议均无本链出口。"
+    }
+  ],
+  "rejections": [
+    {
+      "case": "把canonical bridge的L1 token释放写作本链ETH即时赎回",
+      "reason": "官方设计明确跨链消息与争议窗口，不是本链即时出口。"
+    },
+    {
+      "case": "假设1 wstETH=1 ETH或用ETH提款规则替代ARB规则",
+      "reason": "未核份额转换率、L2资产映射及本链出口，不能据此算折价利润。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+    ],
+    "chain_block": null,
+    "history_complete": false
+  }
+}

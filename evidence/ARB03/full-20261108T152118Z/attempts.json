@@ -1,0 +1,472 @@
+{
+  "started_at": "2026-11-08T15:34:19.631069+00:00",
+  "data_seconds": 4.755,
+  "attempts": [
+    {
+      "name": "lido_deployments",
+      "url": "https://docs.lido.fi/deployed-contracts/",
+      "fetched_at_utc": "2026-11-08T15:34:19.631076+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "arb_chain_identity",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "fetched_at_utc": "2026-11-08T15:34:20.656026+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "lido_l2_official_source",
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+      "fetched_at_utc": "2026-11-08T15:34:21.664048+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "67374b6c736279148cb1e60fb91a623752acd2df030b8b7c58cb91111e24a61a",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Lido L2"
+        },
+        {
+          "line": 3,
+          "text": "This project contains the implementations of the L2 ERC20 token bridges for Arbitrum and Optimism chains. The current solution allows transferring ERC20 tokens between L1 and L2 chains."
+        },
+        {
+          "line": 7,
+          "text": "- [Lido's Arbitrum Gateway](https://github.com/lidofinance/lido-l2/blob/main/contracts/arbitrum/README.md)."
+        },
+        {
+          "line": 8,
+          "text": "- [Lido's Optimism Bridge](https://github.com/lidofinance/lido-l2/blob/main/contracts/optimism/README.md)."
+        },
+        {
+          "line": 15,
+          "text": "git clone git@github.com:lidofinance/lido-l2.git"
+        },
+        {
+          "line": 16,
+          "text": "cd ./lido-l2"
+        },
+        {
+          "line": 41,
+          "text": "## Bridge deployment"
+        },
+        {
+          "line": 45,
+          "text": "- [`TOKEN`](#TOKEN) - address of the token to deploy a new bridge on the Ethereum chain."
+        },
+        {
+          "line": 49,
+          "text": "- [`ARB_DEPLOYER_PRIVATE_KEY`](#ARB_DEPLOYER_PRIVATE_KEY) - The private key of the deployer account in the Arbitrum network is used during the deployment process."
+        },
+        {
+          "line": 51,
+          "text": "- [`L1_PROXY_ADMIN`](#L1_PROXY_ADMIN) - The address to grant admin rights of the `OssifiableProxy` on the L1 bridge"
+        },
+        {
+          "line": 52,
+          "text": "- [`L1_BRIDGE_ADMIN`](#L1_BRIDGE_ADMIN) - Address to grant the `DEFAULT_ADMIN_ROLE` on the L1 bridge"
+        },
+        {
+          "line": 53,
+          "text": "- [`L2_PROXY_ADMIN`](#L2_PROXY_ADMIN) - The address to grant admin rights of the `OssifiableProxy` on the L2 bridge"
+        },
+        {
+          "line": 54,
+          "text": "- [`L2_BRIDGE_ADMIN`](#L2_BRIDGE_ADMIN) - Address to grant the `DEFAULT_ADMIN_ROLE` on the L2 bridge"
+        },
+        {
+          "line": 56,
+          "text": "The following ENV variables are optional and might be used to make an additional setup of the bridge after the deployment:"
+        },
+        {
+          "line": 58,
+          "text": "- [`L1_DEPOSITS_ENABLED`](#L1_DEPOSITS_ENABLED) - whether the deposits are enabled on the L1 after the deployment. By default, deposits are disabled."
+        },
+        {
+          "line": 59,
+          "text": "- [`L1_WITHDRAWALS_ENABLED`](#L1_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L1 after the deployment. By default, withdrawals are disabled."
+        },
+        {
+          "line": 60,
+          "text": "- [`L1_DEPOSITS_ENABLERS`](#L1_DEPOSITS_ENABLERS) - array of addresses to grant `DEPOSITS_ENABLER_ROLE` on the L1 bridge."
+        },
+        {
+          "line": 61,
+          "text": "- [`L1_DEPOSITS_DISABLERS`](#L1_DEPOSITS_DISABLERS) - array of addresses to grant `DEPOSITS_DISABLER_ROLE` on the L1 bridge."
+        },
+        {
+          "line": 62,
+          "text": "- [`L1_WITHDRAWALS_ENABLERS`](#L1_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L1 bridge."
+        },
+        {
+          "line": 63,
+          "text": "- [`L1_WITHDRAWALS_DISABLERS`](#L1_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L1 bridge."
+        },
+        {
+          "line": 64,
+          "text": "- [`L2_DEPOSITS_ENABLED`](#L2_DEPOSITS_ENABLED) - whether the deposits are enabled on the L2 after the deployment. By default, deposits are disabled."
+        },
+        {
+          "line": 65,
+          "text": "- [`L2_WITHDRAWALS_ENABLED`](#L2_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L2 after the deployment. By default, deposits are disabled."
+        },
+        {
+          "line": 66,
+          "text": "- [`L2_DEPOSITS_ENABLERS`](#L2_DEPOSITS_ENABLERS) - array of addresses to grant `DEPOSITS_ENABLER_ROLE` on the L2 bridge."
+        },
+        {
+          "line": 67,
+          "text": "- [`L2_DEPOSITS_DISABLERS`](#L2_DEPOSITS_DISABLERS) - array of addresses to grant `DEPOSITS_DISABLER_ROLE` on the L2 bridge."
+        },
+        {
+          "line": 68,
+          "text": "- [`L2_WITHDRAWALS_ENABLERS`](#L2_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L2 bridge."
+        },
+        {
+          "line": 69,
+          "text": "- [`L2_WITHDRAWALS_DISABLERS`](#L2_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L2 bridge."
+        },
+        {
+          "line": 71,
+          "text": "### Deploying Arbitrum gateway"
+        },
+        {
+          "line": 73,
+          "text": "To run the deployment of the ERC20 token gateway for the Ethereum <-> Arbitrum chains use the following command:"
+        },
+        {
+          "line": 76,
+          "text": "npm run arbitrum:deploy"
+        },
+        {
+          "line": 79,
+          "text": "### Deploying Optimism bridge"
+        },
+        {
+          "line": 95,
+          "text": "# Run tests for both Arbitrum and Optimism bridges"
+        },
+        {
+          "line": 98,
+          "text": "# Run tests only for Arbitrum gateway"
+        },
+        {
+          "line": 99,
+          "text": "npm run arbitrum:test:unit"
+        },
+        {
+          "line": 101,
+          "text": "# Run tests only for Optimism bridge"
+        },
+        {
+          "line": 110,
+          "text": "# Required to run both Arbitrum and Optimism integraton tests"
+        },
+        {
+          "line": 116,
+          "text": "# Required to run Arbitrum integration tests"
+        },
+        {
+          "line": 123,
+          "text": "# Run integration tests for both Arbitrum and Optimism bridges"
+        },
+        {
+          "line": 126,
+          "text": "# Run integration tests for Arbitrum bridge"
+        },
+        {
+          "line": 127,
+          "text": "npm run arbitrum:test:integration"
+        },
+        {
+          "line": 129,
+          "text": "# Run integration tests for Optimism bridge"
+        },
+        {
+          "line": 139,
+          "text": "TESTING_L1_TOKENS_HOLDER="
+        },
+        {
+          "line": 141,
+          "text": "# Addresses of the Arbitrum gateway"
+        },
+        {
+          "line": 143,
+          "text": "TESTING_ARB_L1_TOKEN="
+        },
+        {
+          "line": 144,
+          "text": "TESTING_ARB_L2_TOKEN="
+        },
+        {
+          "line": 145,
+          "text": "TESTING_ARB_L1_ERC20_TOKEN_GATEWAY="
+        },
+        {
+          "line": 146,
+          "text": "TESTING_ARB_L2_ERC20_TOKEN_GATEWAY="
+        },
+        {
+          "line": 148,
+          "text": "# Below addresses are not required when the gateway uses the default Arbitrum router"
+        },
+        {
+          "line": 149,
+          "text": "TESTING_ARB_L1_GATEWAY_ROUTER="
+        },
+        {
+          "line": 150,
+          "text": "TESTING_ARB_L2_GATEWAY_ROUTER="
+        },
+        {
+          "line": 152,
+          "text": "# Addresses of the Optimism bridge"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "arbitrum_asset_registry",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "fetched_at_utc": "2026-11-08T15:34:23.108141+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Arbitrum {"
+        },
+        {
+          "line": 74,
+          "text": "  address internal constant L2_ENCODER = 0x9abADECD08572e0eA5aF4d47A9C7984a5AA503dC;"
+        },
+        {
+          "line": 114,
+          "text": "  address internal constant WITHDRAW_SWAP_ADAPTER = 0x5598BbFA2f4fE8151f45bBA0a3edE1b54B51a0a9;"
+        },
+        {
+          "line": 128,
+          "text": "library AaveV3ArbitrumAssets {"
+        },
+        {
+          "line": 318,
+          "text": "  address internal constant wstETH_UNDERLYING = 0x5979D7b546E38E414F7E9822514be443A4800529;"
+        },
+        {
+          "line": 320,
+          "text": "  uint8 internal constant wstETH_DECIMALS = 18;"
+        },
+        {
+          "line": 323,
+          "text": "  address internal constant wstETH_A_TOKEN = 0x513c7E3a9c69cA3e22550eF58AC1C0088e918FFf;"
+        },
+        {
+          "line": 326,
+          "text": "  address internal constant wstETH_V_TOKEN = 0x77CA01483f379E58174739308945f044e1a764dc;"
+        },
+        {
+          "line": 329,
+          "text": "  address internal constant wstETH_ORACLE = 0xb4a28DF1b926646f94e6fE6f15828c491b4def5F;"
+        },
+        {
+          "line": 332,
+          "text": "  address internal constant wstETH_INTEREST_RATE_STRATEGY ="
+        },
+        {
+          "line": 336,
+          "text": "  address internal constant wstETH_STATIC_A_TOKEN = 0x7775d4Ae4Dbb79a624fB96AAcDB8Ca74F671c0DF;"
+        },
+        {
+          "line": 339,
+          "text": "  address internal constant wstETH_STATA_TOKEN = 0xe98fc055c99DECD8Da0c111B090885d5d15C774E;"
+        },
+        {
+          "line": 575,
+          "text": "library AaveV3ArbitrumEModes {"
+        },
+        {
+          "line": 580,
+          "text": "  uint8 internal constant WETH_wstETH_weETH__WETH = 2;"
+        },
+        {
+          "line": 582,
+          "text": "  uint8 internal constant ezETH__WETH_wstETH = 3;"
+        },
+        {
+          "line": 586,
+          "text": "  uint8 internal constant rsETH__WETH_wstETH = 5;"
+        },
+        {
+          "line": 590,
+          "text": "  uint8 internal constant wstETH__WETH = 7;"
+        },
+        {
+          "line": 598,
+          "text": "library AaveV3ArbitrumExternalLibraries {"
+        }
+      ],
+      "success": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "fetched_at_utc": "2026-11-08T15:34:35.632471+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "The document details implementation of the bridging of the ERC20 compatible tokens[^*] between Ethereum and Arbitrum chains via Arbitrum's “Canonical Bridge”."
+        },
+        {
+          "line": 5,
+          "text": "It's the first step of the Lido's integration into the Arbitrum protocol. The main goal of the current implementation is to be the strong foundation for the long-term goals of the Lido expansion in the Arbitrum chain. The long-run picture of the Lido's integration into L2s includes:"
+        },
+        {
+          "line": 7,
+          "text": "- Bridging of Lido's tokens from L1 to L2 chains"
+        },
+        {
+          "line": 8,
+          "text": "- Instant ETH staking on L2 chains with receiving stETH/wstETH on the corresponding L2 immediately"
+        },
+        {
+          "line": 9,
+          "text": "- Keeping UX on L2 as close as possible to the UX on Ethereum mainnet"
+        },
+        {
+          "line": 11,
+          "text": "At this point, the implementation must provide a scalable and reliable solution for Lido to bridge ERC20 compatible tokens between Arbitrum and Ethereum chain."
+        },
+        {
+          "line": 13,
+          "text": "[^*]: The current implementation might not support the non-standard functionality of the ERC20 tokens. For example, rebasable tokens or tokens with transfers fee will work incorrectly. In case your token implements some non-typical ERC20 logic, make sure it is compatible with the gateway before usage."
+        },
+        {
+          "line": 19,
+          "text": "1. **Asset contracts**: these are the token contracts themselves, i.e., an ERC20 on L1 and it's counterpart on Arbitrum."
+        },
+        {
+          "line": 20,
+          "text": "2. **Gateways**: Pairs of contracts (one on L1, one on L2) that implement a particular type of cross chain asset bridging."
+        },
+        {
+          "line": 21,
+          "text": "3. **Routers**: Exactly two contracts - (one on L1, one on L2) that route each asset to its designated Gateway."
+        },
+        {
+          "line": 23,
+          "text": "All Ethereum to Arbitrum token transfers are initiated via the `L1GatewayRouter` contract. `L1GatewayRouter` is responsible for mapping L1 token addresses to `L1Gateway`, thus acting as an L1/L2 address oracle and ensuring that each token corresponds to only one gateway. The `L1Gateway` communicates to an `L2Gateway` (typically/expectedly via retryable tickets)."
+        },
+        {
+          "line": 25,
+          "text": "Similarly, Arbitrum to Ethereum transfers are initiated via the `L2GatewayRouter` contract, which forwards calls the token's `L2Gateway`, which in turn communicates to its corresponding `L1Gateway` (typically/expectedly via sending messages to the Outbox.)"
+        },
+        {
+          "line": 27,
+          "text": "To be compatible with Arbitrum's `GatewayRouter`, both L1 and L2 gateways must conform to the `ITokenGateway` interface."
+        },
+        {
+          "line": 31,
+          "text": "  function calculateL2TokenAddress(address l1ERC20)"
+        },
+        {
+          "line": 68,
+          "text": "1. A user calls `L1GatewayRouter.outboundTransfer()` (with `L1Token`'s L1 address as an argument)."
+        },
+        {
+          "line": 69,
+          "text": "2. `L1GatewayRouter` looks up `L1Token`'s gateway."
+        },
+        {
+          "line": 70,
+          "text": "3. `L1GatewayRouter` calls `L1TokensGateway.outboundTransfer()`, forwarding the appropriate parameters."
+        },
+        {
+          "line": 71,
+          "text": "4. `L1TokensGateway` escrows tokens and triggers `L2TokensGateway.finalizeInboundTransfer()` method on L2 (typically via a creation of a retryable ticket)."
+        },
+        {
+          "line": 72,
+          "text": "5. `finalizeInboundTransfer` mints the appropriate amount of tokens at the `L2Token` contract on L2."
+        },
+        {
+          "line": 76,
+          "text": "### Withdrawals"
+        },
+        {
+          "line": 78,
+          "text": "1. On Arbitrum, a user calls `L2GatewayRouter.outboundTransfer()`, which in turn calls `outboundTransfer` on `L2Token`'s gateway (i.e., `L2TokensGateway`)."
+        },
+        {
+          "line": 79,
+          "text": "2. This burns `L2Token` tokens and calls [`ArbSys`](https://developer.offchainlabs.com/docs/arbsys) with an encoded message to `L1TokensGateway.finalizeInboundTransfer()`, which will be eventually executed on L1."
+        },
+        {
+          "line": 80,
+          "text": "3. After the dispute window expires and the assertion with the user's transaction is confirmed, a user can call `Outbox.executeTransaction()`, which in turn calls the encoded `L1ERC20Gateway.finalizeInboundTransfer()` message, releasing the user's tokens from the `L1TokensGateway` contract's escrow."
+        },
+        {
+          "line": 84,
+          "text": "The `L1GatewayRouter` allows registering custom gateways for certain tokens via `setGateways()` method, which might be called by the OffchainLabs team manually."
+        },
+        {
+          "line": 90,
+          "text": "The current implementation of the gateways provides functionality to bridge the specified type of ERC20 compatible token between Ethereum and Arbitrum chains. Additionally, the bridge provides some administrative features, like the **temporary disabling of the deposits and withdrawals**. It's necessary when bridging must be disabled fast because of the malicious usage of the bridge or vulnerability in the contracts. Also, it might be helpful in the implementation upgrade process."
+        },
+        {
+          "line": 103,
+          "text": "  - [**`L1OutboundDataParser`**](#L1OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+        },
+        {
+          "line": 104,
+          "text": "  - [**`L2OutboundDataParser`**](#L2OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L2ERC20TokenGateway`."
+        },
+        {
+          "line": 106,
+          "text": "  - [_**`InterchainERC20TokenGateway`**_](#InterchainERC20TokenGateway) - an abstract contract that implements logic shared between L1 and L2 gateways."
+        },
+        {
+          "line": 111,
+          "text": "  - [**`L1CrossDomainEnabled`**](#L1CrossDomainEnabled) - helper contract for contracts performing Ethereum to Arbitrum communication process via Retryable Tickets."
+        },
+        {
+          "line": 112,
+          "text": "  - [**`L1ERC20TokenGateway`**](#L1ERC20TokenGateway) - Ethereum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains."
+        },
+        {
+          "line": 113,
+          "text": "  - [**`L2CrossDomainEnabled`**](#L2Messenger) - helper contract to simplify Arbitrum to Ethereum communication process"
+        },
+        {
+          "line": 114,
+          "text": "  - [**`L2ERC20TokenGateway`**](#L2ERC20TokenGateway) - Arbitrum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains"
+        },
+        {
+          "line": 115,
+          "text": "  - [**`ERC20Bridged`**](#ERC20Bridged) - an implementation of the `ERC20` token with administrative methods to mint and burn tokens."
+        },
+        {
+          "line": 118,
+          "text": "## L1OutboundDataParser"
+        },
+        {
+          "line": 120,
+          "text": "A helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+        }
+      ],
+      "success": true
+    }
+  ]
+}

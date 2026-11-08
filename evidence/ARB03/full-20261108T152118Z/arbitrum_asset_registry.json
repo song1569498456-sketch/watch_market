@@ -1,0 +1,83 @@
+{
+  "name": "arbitrum_asset_registry",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+  "fetched_at_utc": "2026-11-08T15:34:23.108141+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c",
+  "excerpts": [
+    {
+      "line": 6,
+      "text": "library AaveV3Arbitrum {"
+    },
+    {
+      "line": 74,
+      "text": "  address internal constant L2_ENCODER = 0x9abADECD08572e0eA5aF4d47A9C7984a5AA503dC;"
+    },
+    {
+      "line": 114,
+      "text": "  address internal constant WITHDRAW_SWAP_ADAPTER = 0x5598BbFA2f4fE8151f45bBA0a3edE1b54B51a0a9;"
+    },
+    {
+      "line": 128,
+      "text": "library AaveV3ArbitrumAssets {"
+    },
+    {
+      "line": 318,
+      "text": "  address internal constant wstETH_UNDERLYING = 0x5979D7b546E38E414F7E9822514be443A4800529;"
+    },
+    {
+      "line": 320,
+      "text": "  uint8 internal constant wstETH_DECIMALS = 18;"
+    },
+    {
+      "line": 323,
+      "text": "  address internal constant wstETH_A_TOKEN = 0x513c7E3a9c69cA3e22550eF58AC1C0088e918FFf;"
+    },
+    {
+      "line": 326,
+      "text": "  address internal constant wstETH_V_TOKEN = 0x77CA01483f379E58174739308945f044e1a764dc;"
+    },
+    {
+      "line": 329,
+      "text": "  address internal constant wstETH_ORACLE = 0xb4a28DF1b926646f94e6fE6f15828c491b4def5F;"
+    },
+    {
+      "line": 332,
+      "text": "  address internal constant wstETH_INTEREST_RATE_STRATEGY ="
+    },
+    {
+      "line": 336,
+      "text": "  address internal constant wstETH_STATIC_A_TOKEN = 0x7775d4Ae4Dbb79a624fB96AAcDB8Ca74F671c0DF;"
+    },
+    {
+      "line": 339,
+      "text": "  address internal constant wstETH_STATA_TOKEN = 0xe98fc055c99DECD8Da0c111B090885d5d15C774E;"
+    },
+    {
+      "line": 575,
+      "text": "library AaveV3ArbitrumEModes {"
+    },
+    {
+      "line": 580,
+      "text": "  uint8 internal constant WETH_wstETH_weETH__WETH = 2;"
+    },
+    {
+      "line": 582,
+      "text": "  uint8 internal constant ezETH__WETH_wstETH = 3;"
+    },
+    {
+      "line": 586,
+      "text": "  uint8 internal constant rsETH__WETH_wstETH = 5;"
+    },
+    {
+      "line": 590,
+      "text": "  uint8 internal constant wstETH__WETH = 7;"
+    },
+    {
+      "line": 598,
+      "text": "library AaveV3ArbitrumExternalLibraries {"
+    }
+  ],
+  "success": true
+}

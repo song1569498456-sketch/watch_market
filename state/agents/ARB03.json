@@ -1,13 +1,46 @@
 {
   "agent_id": "ARB03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+    ],
+    "chain_block": null,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "asset": "wstETH",
+      "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "decimals_from_static_registry": 18,
+      "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "lines": "78-80",
+      "field": "L2 burn -> L1 outbox release after dispute window",
+      "data_kind": "static official design; not current deployment/state"
+    }
+  ],
+  "pending_questions": [
+    "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
+    "7天代表性活动未覆盖，无区块/交易/事件。",
+    "链身份42161、token code、官方Lido映射、份额率未链上核验。",
+    "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
+    "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:35:18.919313+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ARB03/full-20261108T152118Z/record.json"
 }

@@ -1,0 +1,20 @@
+{
+  "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+  "chain": "ARB",
+  "status": "REJECTED",
+  "mechanism": "排除把三腿独立展示价相乘、或每腿都按同一输入数量报价当闭环收益的做法。QuoterV2代码明确amountIn=_amountOut逐腿传递；其gasEstimate仍不等于完整执行/融资全费用。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+    "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol"
+  ],
+  "market_ids": [],
+  "next_check": "只有找到三个不同资产和三个实际池才建立A→B→C→A卡；逐级数量用每腿实际输出作为下腿输入，同状态采样。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "ARB02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/ARB02/full-20261108T152118Z/record.json"
+}

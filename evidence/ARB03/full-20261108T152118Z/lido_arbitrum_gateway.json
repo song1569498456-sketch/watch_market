@@ -1,0 +1,150 @@
+{
+  "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+  "fetched_at_utc": "2026-11-08T15:34:35.632471+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+  "excerpts": [
+    {
+      "line": 3,
+      "text": "The document details implementation of the bridging of the ERC20 compatible tokens[^*] between Ethereum and Arbitrum chains via Arbitrum's “Canonical Bridge”."
+    },
+    {
+      "line": 5,
+      "text": "It's the first step of the Lido's integration into the Arbitrum protocol. The main goal of the current implementation is to be the strong foundation for the long-term goals of the Lido expansion in the Arbitrum chain. The long-run picture of the Lido's integration into L2s includes:"
+    },
+    {
+      "line": 7,
+      "text": "- Bridging of Lido's tokens from L1 to L2 chains"
+    },
+    {
+      "line": 8,
+      "text": "- Instant ETH staking on L2 chains with receiving stETH/wstETH on the corresponding L2 immediately"
+    },
+    {
+      "line": 9,
+      "text": "- Keeping UX on L2 as close as possible to the UX on Ethereum mainnet"
+    },
+    {
+      "line": 11,
+      "text": "At this point, the implementation must provide a scalable and reliable solution for Lido to bridge ERC20 compatible tokens between Arbitrum and Ethereum chain."
+    },
+    {
+      "line": 13,
+      "text": "[^*]: The current implementation might not support the non-standard functionality of the ERC20 tokens. For example, rebasable tokens or tokens with transfers fee will work incorrectly. In case your token implements some non-typical ERC20 logic, make sure it is compatible with the gateway before usage."
+    },
+    {
+      "line": 19,
+      "text": "1. **Asset contracts**: these are the token contracts themselves, i.e., an ERC20 on L1 and it's counterpart on Arbitrum."
+    },
+    {
+      "line": 20,
+      "text": "2. **Gateways**: Pairs of contracts (one on L1, one on L2) that implement a particular type of cross chain asset bridging."
+    },
+    {
+      "line": 21,
+      "text": "3. **Routers**: Exactly two contracts - (one on L1, one on L2) that route each asset to its designated Gateway."
+    },
+    {
+      "line": 23,
+      "text": "All Ethereum to Arbitrum token transfers are initiated via the `L1GatewayRouter` contract. `L1GatewayRouter` is responsible for mapping L1 token addresses to `L1Gateway`, thus acting as an L1/L2 address oracle and ensuring that each token corresponds to only one gateway. The `L1Gateway` communicates to an `L2Gateway` (typically/expectedly via retryable tickets)."
+    },
+    {
+      "line": 25,
+      "text": "Similarly, Arbitrum to Ethereum transfers are initiated via the `L2GatewayRouter` contract, which forwards calls the token's `L2Gateway`, which in turn communicates to its corresponding `L1Gateway` (typically/expectedly via sending messages to the Outbox.)"
+    },
+    {
+      "line": 27,
+      "text": "To be compatible with Arbitrum's `GatewayRouter`, both L1 and L2 gateways must conform to the `ITokenGateway` interface."
+    },
+    {
+      "line": 31,
+      "text": "  function calculateL2TokenAddress(address l1ERC20)"
+    },
+    {
+      "line": 68,
+      "text": "1. A user calls `L1GatewayRouter.outboundTransfer()` (with `L1Token`'s L1 address as an argument)."
+    },
+    {
+      "line": 69,
+      "text": "2. `L1GatewayRouter` looks up `L1Token`'s gateway."
+    },
+    {
+      "line": 70,
+      "text": "3. `L1GatewayRouter` calls `L1TokensGateway.outboundTransfer()`, forwarding the appropriate parameters."
+    },
+    {
+      "line": 71,
+      "text": "4. `L1TokensGateway` escrows tokens and triggers `L2TokensGateway.finalizeInboundTransfer()` method on L2 (typically via a creation of a retryable ticket)."
+    },
+    {
+      "line": 72,
+      "text": "5. `finalizeInboundTransfer` mints the appropriate amount of tokens at the `L2Token` contract on L2."
+    },
+    {
+      "line": 76,
+      "text": "### Withdrawals"
+    },
+    {
+      "line": 78,
+      "text": "1. On Arbitrum, a user calls `L2GatewayRouter.outboundTransfer()`, which in turn calls `outboundTransfer` on `L2Token`'s gateway (i.e., `L2TokensGateway`)."
+    },
+    {
+      "line": 79,
+      "text": "2. This burns `L2Token` tokens and calls [`ArbSys`](https://developer.offchainlabs.com/docs/arbsys) with an encoded message to `L1TokensGateway.finalizeInboundTransfer()`, which will be eventually executed on L1."
+    },
+    {
+      "line": 80,
+      "text": "3. After the dispute window expires and the assertion with the user's transaction is confirmed, a user can call `Outbox.executeTransaction()`, which in turn calls the encoded `L1ERC20Gateway.finalizeInboundTransfer()` message, releasing the user's tokens from the `L1TokensGateway` contract's escrow."
+    },
+    {
+      "line": 84,
+      "text": "The `L1GatewayRouter` allows registering custom gateways for certain tokens via `setGateways()` method, which might be called by the OffchainLabs team manually."
+    },
+    {
+      "line": 90,
+      "text": "The current implementation of the gateways provides functionality to bridge the specified type of ERC20 compatible token between Ethereum and Arbitrum chains. Additionally, the bridge provides some administrative features, like the **temporary disabling of the deposits and withdrawals**. It's necessary when bridging must be disabled fast because of the malicious usage of the bridge or vulnerability in the contracts. Also, it might be helpful in the implementation upgrade process."
+    },
+    {
+      "line": 103,
+      "text": "  - [**`L1OutboundDataParser`**](#L1OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+    },
+    {
+      "line": 104,
+      "text": "  - [**`L2OutboundDataParser`**](#L2OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L2ERC20TokenGateway`."
+    },
+    {
+      "line": 106,
+      "text": "  - [_**`InterchainERC20TokenGateway`**_](#InterchainERC20TokenGateway) - an abstract contract that implements logic shared between L1 and L2 gateways."
+    },
+    {
+      "line": 111,
+      "text": "  - [**`L1CrossDomainEnabled`**](#L1CrossDomainEnabled) - helper contract for contracts performing Ethereum to Arbitrum communication process via Retryable Tickets."
+    },
+    {
+      "line": 112,
+      "text": "  - [**`L1ERC20TokenGateway`**](#L1ERC20TokenGateway) - Ethereum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains."
+    },
+    {
+      "line": 113,
+      "text": "  - [**`L2CrossDomainEnabled`**](#L2Messenger) - helper contract to simplify Arbitrum to Ethereum communication process"
+    },
+    {
+      "line": 114,
+      "text": "  - [**`L2ERC20TokenGateway`**](#L2ERC20TokenGateway) - Arbitrum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains"
+    },
+    {
+      "line": 115,
+      "text": "  - [**`ERC20Bridged`**](#ERC20Bridged) - an implementation of the `ERC20` token with administrative methods to mint and burn tokens."
+    },
+    {
+      "line": 118,
+      "text": "## L1OutboundDataParser"
+    },
+    {
+      "line": 120,
+      "text": "A helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+    }
+  ],
+  "success": true
+}

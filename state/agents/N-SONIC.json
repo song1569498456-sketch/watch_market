@@ -15,7 +15,22 @@
       "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
     ]
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "chain_block": null,
+      "rpc_chain_id": null,
+      "history_complete": false,
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+        "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+      ]
+    },
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "source": "ethereum-lists registry",
@@ -46,7 +61,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:32:35.366969+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
+  "record": "evidence/N-SONIC/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "verified_at": "2026-11-08T15:33:32.477653+00:00",
+    "record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
+  }
 }

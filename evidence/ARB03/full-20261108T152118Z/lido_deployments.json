@@ -1,0 +1,8 @@
+{
+  "name": "lido_deployments",
+  "url": "https://docs.lido.fi/deployed-contracts/",
+  "fetched_at_utc": "2026-11-08T15:34:19.631076+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

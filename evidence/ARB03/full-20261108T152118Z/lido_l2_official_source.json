@@ -1,0 +1,211 @@
+{
+  "name": "lido_l2_official_source",
+  "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:34:21.664048+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "67374b6c736279148cb1e60fb91a623752acd2df030b8b7c58cb91111e24a61a",
+  "excerpts": [
+    {
+      "line": 1,
+      "text": "# Lido L2"
+    },
+    {
+      "line": 3,
+      "text": "This project contains the implementations of the L2 ERC20 token bridges for Arbitrum and Optimism chains. The current solution allows transferring ERC20 tokens between L1 and L2 chains."
+    },
+    {
+      "line": 7,
+      "text": "- [Lido's Arbitrum Gateway](https://github.com/lidofinance/lido-l2/blob/main/contracts/arbitrum/README.md)."
+    },
+    {
+      "line": 8,
+      "text": "- [Lido's Optimism Bridge](https://github.com/lidofinance/lido-l2/blob/main/contracts/optimism/README.md)."
+    },
+    {
+      "line": 15,
+      "text": "git clone git@github.com:lidofinance/lido-l2.git"
+    },
+    {
+      "line": 16,
+      "text": "cd ./lido-l2"
+    },
+    {
+      "line": 41,
+      "text": "## Bridge deployment"
+    },
+    {
+      "line": 45,
+      "text": "- [`TOKEN`](#TOKEN) - address of the token to deploy a new bridge on the Ethereum chain."
+    },
+    {
+      "line": 49,
+      "text": "- [`ARB_DEPLOYER_PRIVATE_KEY`](#ARB_DEPLOYER_PRIVATE_KEY) - The private key of the deployer account in the Arbitrum network is used during the deployment process."
+    },
+    {
+      "line": 51,
+      "text": "- [`L1_PROXY_ADMIN`](#L1_PROXY_ADMIN) - The address to grant admin rights of the `OssifiableProxy` on the L1 bridge"
+    },
+    {
+      "line": 52,
+      "text": "- [`L1_BRIDGE_ADMIN`](#L1_BRIDGE_ADMIN) - Address to grant the `DEFAULT_ADMIN_ROLE` on the L1 bridge"
+    },
+    {
+      "line": 53,
+      "text": "- [`L2_PROXY_ADMIN`](#L2_PROXY_ADMIN) - The address to grant admin rights of the `OssifiableProxy` on the L2 bridge"
+    },
+    {
+      "line": 54,
+      "text": "- [`L2_BRIDGE_ADMIN`](#L2_BRIDGE_ADMIN) - Address to grant the `DEFAULT_ADMIN_ROLE` on the L2 bridge"
+    },
+    {
+      "line": 56,
+      "text": "The following ENV variables are optional and might be used to make an additional setup of the bridge after the deployment:"
+    },
+    {
+      "line": 58,
+      "text": "- [`L1_DEPOSITS_ENABLED`](#L1_DEPOSITS_ENABLED) - whether the deposits are enabled on the L1 after the deployment. By default, deposits are disabled."
+    },
+    {
+      "line": 59,
+      "text": "- [`L1_WITHDRAWALS_ENABLED`](#L1_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L1 after the deployment. By default, withdrawals are disabled."
+    },
+    {
+      "line": 60,
+      "text": "- [`L1_DEPOSITS_ENABLERS`](#L1_DEPOSITS_ENABLERS) - array of addresses to grant `DEPOSITS_ENABLER_ROLE` on the L1 bridge."
+    },
+    {
+      "line": 61,
+      "text": "- [`L1_DEPOSITS_DISABLERS`](#L1_DEPOSITS_DISABLERS) - array of addresses to grant `DEPOSITS_DISABLER_ROLE` on the L1 bridge."
+    },
+    {
+      "line": 62,
+      "text": "- [`L1_WITHDRAWALS_ENABLERS`](#L1_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L1 bridge."
+    },
+    {
+      "line": 63,
+      "text": "- [`L1_WITHDRAWALS_DISABLERS`](#L1_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L1 bridge."
+    },
+    {
+      "line": 64,
+      "text": "- [`L2_DEPOSITS_ENABLED`](#L2_DEPOSITS_ENABLED) - whether the deposits are enabled on the L2 after the deployment. By default, deposits are disabled."
+    },
+    {
+      "line": 65,
+      "text": "- [`L2_WITHDRAWALS_ENABLED`](#L2_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L2 after the deployment. By default, deposits are disabled."
+    },
+    {
+      "line": 66,
+      "text": "- [`L2_DEPOSITS_ENABLERS`](#L2_DEPOSITS_ENABLERS) - array of addresses to grant `DEPOSITS_ENABLER_ROLE` on the L2 bridge."
+    },
+    {
+      "line": 67,
+      "text": "- [`L2_DEPOSITS_DISABLERS`](#L2_DEPOSITS_DISABLERS) - array of addresses to grant `DEPOSITS_DISABLER_ROLE` on the L2 bridge."
+    },
+    {
+      "line": 68,
+      "text": "- [`L2_WITHDRAWALS_ENABLERS`](#L2_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L2 bridge."
+    },
+    {
+      "line": 69,
+      "text": "- [`L2_WITHDRAWALS_DISABLERS`](#L2_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L2 bridge."
+    },
+    {
+      "line": 71,
+      "text": "### Deploying Arbitrum gateway"
+    },
+    {
+      "line": 73,
+      "text": "To run the deployment of the ERC20 token gateway for the Ethereum <-> Arbitrum chains use the following command:"
+    },
+    {
+      "line": 76,
+      "text": "npm run arbitrum:deploy"
+    },
+    {
+      "line": 79,
+      "text": "### Deploying Optimism bridge"
+    },
+    {
+      "line": 95,
+      "text": "# Run tests for both Arbitrum and Optimism bridges"
+    },
+    {
+      "line": 98,
+      "text": "# Run tests only for Arbitrum gateway"
+    },
+    {
+      "line": 99,
+      "text": "npm run arbitrum:test:unit"
+    },
+    {
+      "line": 101,
+      "text": "# Run tests only for Optimism bridge"
+    },
+    {
+      "line": 110,
+      "text": "# Required to run both Arbitrum and Optimism integraton tests"
+    },
+    {
+      "line": 116,
+      "text": "# Required to run Arbitrum integration tests"
+    },
+    {
+      "line": 123,
+      "text": "# Run integration tests for both Arbitrum and Optimism bridges"
+    },
+    {
+      "line": 126,
+      "text": "# Run integration tests for Arbitrum bridge"
+    },
+    {
+      "line": 127,
+      "text": "npm run arbitrum:test:integration"
+    },
+    {
+      "line": 129,
+      "text": "# Run integration tests for Optimism bridge"
+    },
+    {
+      "line": 139,
+      "text": "TESTING_L1_TOKENS_HOLDER="
+    },
+    {
+      "line": 141,
+      "text": "# Addresses of the Arbitrum gateway"
+    },
+    {
+      "line": 143,
+      "text": "TESTING_ARB_L1_TOKEN="
+    },
+    {
+      "line": 144,
+      "text": "TESTING_ARB_L2_TOKEN="
+    },
+    {
+      "line": 145,
+      "text": "TESTING_ARB_L1_ERC20_TOKEN_GATEWAY="
+    },
+    {
+      "line": 146,
+      "text": "TESTING_ARB_L2_ERC20_TOKEN_GATEWAY="
+    },
+    {
+      "line": 148,
+      "text": "# Below addresses are not required when the gateway uses the default Arbitrum router"
+    },
+    {
+      "line": 149,
+      "text": "TESTING_ARB_L1_GATEWAY_ROUTER="
+    },
+    {
+      "line": 150,
+      "text": "TESTING_ARB_L2_GATEWAY_ROUTER="
+    },
+    {
+      "line": 152,
+      "text": "# Addresses of the Optimism bridge"
+    }
+  ],
+  "success": true
+}

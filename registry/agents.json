@@ -236,20 +236,73 @@
     {
       "agent_id": "ARB01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:35:07.091426+00:00",
+      "actual_coverage": [
+        "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
+        "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
+        "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+      ],
+      "coverage_gaps": [
+        "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
+        "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
+        "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
+        "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
+        "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+      ],
+      "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ARB02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:35:29.566307+00:00",
+      "actual_coverage": [
+        "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
+        "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
+        "QuoterV2源代码quoteExactInput逐腿amountIn=_amountOut并累积内部gasEstimate，未执行本轮报价。",
+        "官方NodeInterface注释定义gasEstimate为总gas、gasEstimateForL1为其中L1分量；不能total之外重复加L1。"
+      ],
+      "coverage_gaps": [
+        "当前池图未建立：Arbitrum RPC与DEX发现入口均代理CONNECT403，三腿实际池地址、代币地址、区块和数量全部未取得。",
+        "30天规则窗口未覆盖：只读SDK/Quoter/NodeInterface当前源码，没有治理/部署变更历史与链上生效证据。",
+        "7天真实三角交易与旧小池轮转未覆盖，没有事件扫描或交易复盘。",
+        "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
+        "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
+      ],
+      "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ARB03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:35:18.919313+00:00",
+      "actual_coverage": [
+        {
+          "asset": "wstETH",
+          "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+          "decimals_from_static_registry": 18,
+          "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+          "lines": "78-80",
+          "field": "L2 burn -> L1 outbox release after dispute window",
+          "data_kind": "static official design; not current deployment/state"
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
+        "7天代表性活动未覆盖，无区块/交易/事件。",
+        "链身份42161、token code、官方Lido映射、份额率未链上核验。",
+        "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
+        "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+      ],
+      "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ARB04",

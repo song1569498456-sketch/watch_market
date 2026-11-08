@@ -1,13 +1,40 @@
 {
   "agent_id": "ARB02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "sdk_document_read": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+    "code_mechanisms_read": [
+      "quoteExactInput",
+      "gasEstimateComponents"
+    ],
+    "actual_pools_read": 0,
+    "cycles_quoted": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
+    "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
+    "QuoterV2源代码quoteExactInput逐腿amountIn=_amountOut并累积内部gasEstimate，未执行本轮报价。",
+    "官方NodeInterface注释定义gasEstimate为总gas、gasEstimateForL1为其中L1分量；不能total之外重复加L1。"
+  ],
+  "pending_questions": [
+    "当前池图未建立：Arbitrum RPC与DEX发现入口均代理CONNECT403，三腿实际池地址、代币地址、区块和数量全部未取得。",
+    "30天规则窗口未覆盖：只读SDK/Quoter/NodeInterface当前源码，没有治理/部署变更历史与链上生效证据。",
+    "7天真实三角交易与旧小池轮转未覆盖，没有事件扫描或交易复盘。",
+    "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
+    "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:35:29.566307+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ARB02/full-20261108T152118Z/record.json"
 }

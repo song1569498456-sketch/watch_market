@@ -30,7 +30,8 @@
       "duration_seconds": 85.26,
       "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-AVAX/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
     },
     "N-BASE": {
       "status": "PARTIAL",
@@ -74,7 +75,8 @@
       "duration_seconds": 64.246,
       "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-POLY/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
     },
     "N-SOL": {
       "status": "PARTIAL",
@@ -91,16 +93,38 @@
       "duration_seconds": 55.534,
       "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-SONIC/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
     },
     "ARB01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 52.947,
+      "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ARB01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/ARB01.txt",
+      "prompt_sha256": "3bf0a2a87677058d53b797ad053b9f1c07034d9755bbb49172acf457ee07b762"
     },
     "ARB02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 67.842,
+      "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ARB02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/ARB02.txt",
+      "prompt_sha256": "0eee277ce3382e0ba9587e40c4fa0532c1723884881a2578d4ba569e27b6bb4f"
     },
     "ARB03": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 59.288,
+      "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ARB03/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/ARB03.txt",
+      "prompt_sha256": "df01b6791368f432b96e9f42947c0b645c487e5a6a4589bb348047fe1569c73c"
     },
     "ARB04": {
       "status": "NOT_STARTED"
@@ -265,6 +289,17 @@
         "N-SONIC"
       ],
       "merged_at": "2026-11-08T15:33:28.973063+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
+    },
+    {
+      "batch": 5,
+      "agents": [
+        "ARB01",
+        "ARB02",
+        "ARB03"
+      ],
+      "merged_at": "2026-11-08T15:35:51.602080+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -296,6 +331,13 @@
       "verified_at": "2026-11-08T15:30:59.022489+00:00",
       "verified_files": 65,
       "label": "batch N-ARB N-BASE N-OP"
+    },
+    {
+      "commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+      "remote_head": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+      "verified_at": "2026-11-08T15:33:32.477653+00:00",
+      "verified_files": 85,
+      "label": "batch N-POLY N-AVAX N-SONIC"
     }
   ]
 }

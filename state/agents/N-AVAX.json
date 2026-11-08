@@ -18,7 +18,25 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "release_tag": "v1.15.3",
+      "release_published_at": "2026-11-05T22:47:12Z",
+      "sdk_document_read": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "factory_versions_documented": [
+        "V2",
+        "V2.1"
+      ],
+      "last_block": null,
+      "events_scanned": 0,
+      "transactions_analyzed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
     "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
@@ -34,7 +52,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:32:59.855358+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+  "record": "evidence/N-AVAX/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+    "verified_at": "2026-11-08T15:33:32.477653+00:00",
+    "record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+  }
 }
