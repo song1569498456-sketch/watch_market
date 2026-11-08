@@ -1,13 +1,52 @@
 {
   "agent_id": "N-SONIC",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "chain_block": null,
+    "rpc_chain_id": null,
+    "history_complete": false,
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+      "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+    ]
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "source": "ethereum-lists registry",
+      "chain_id": 146,
+      "native_symbol": "S",
+      "status": "THIRD_PARTY_STATIC_NOT_LIVENESS_PROOF"
+    },
+    {
+      "source": "0xsoniclabs/sonic README",
+      "field": "genesis required",
+      "status": "OFFICIAL_SOURCE_NOT_CHAIN_LIVENESS"
+    },
+    {
+      "protocol": "Aave V3 Sonic",
+      "pool_proxy": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "pool_impl": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
+      "provider": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+    }
+  ],
+  "pending_questions": [
+    "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
+    "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
+    "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
+    "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
+    "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:32:35.366969+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
 }

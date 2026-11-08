@@ -157,6 +157,26 @@
       "owner": "N-BASE",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+      "chain": "AVAX",
+      "status": "REJECTED",
+      "mechanism": "AvalancheGo v1.15.3新增C-Chain /rpc Gas-Used响应头，表示请求中已完成eth_call总gas；不能将它等同真实完整交易成本或所有买入/卖出费用。",
+      "evidence_urls": [
+        "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3"
+      ],
+      "market_ids": [],
+      "next_check": "真实成本需同状态执行路径、gas估算/实际receipt、gas price及DEX/冲击等，未读取时保持unknown。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00",
+        "AVAX01"
+      ],
+      "owner": "N-AVAX",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

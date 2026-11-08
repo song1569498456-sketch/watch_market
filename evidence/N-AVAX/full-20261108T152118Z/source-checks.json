@@ -1,0 +1,92 @@
+{
+  "started_at": "2026-11-08T15:31:34.595463+00:00",
+  "results": [
+    {
+      "name": "cchain_rpc",
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:31:34.595471+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "avax_docs",
+      "url": "https://build.avax.network/docs/quick-start/networks",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:31:35.622982+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "lfj_readme",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/README.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:31:36.630587+00:00",
+      "http_status": 200,
+      "final_url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/README.md",
+      "snapshot": "# [Joe V2: Liquidity Book](https://github.com/traderjoe-xyz/joe-v2)\n\nThis repository contains the Liquidity Book contracts, as well as tests and deploy scripts.\n\n- The [LBPair](./src/LBPair.sol) is the contract that contains all the logic of the actual pair for swaps, adds, removals of liquidity and fee claiming. This contract should never be deployed directly, and the factory should always be used for that matter.\n\n- The [LBToken](./src/LBToken.sol) is the contract that is used to calculate the shares of a user. The LBToken is a new token standard that is similar to ERC-1155, but without any callbacks (for safety reasons) and any functions or variables relating to ERC-721.\n\n- The [LBFactory](./src/LBFactory.sol) is the contract used to deploy the different pairs and acts as a registry for all the pairs already created. There are also privileged functions such as setting the parameters of the fees, the flashloan fee, setting the pair implementation, set if a pair should be ignored by the quoter and add new presets. Unless the `creationUnlocked` is `true`, only the owner of the factory can create pairs.\n\n- The [LBRouter](./src/LBRouter.sol) is the main contract that user will interact with as it adds security checks. Most users shouldn't interact directly with the pair.\n\n- The [LBQuoter](./src/LBQuoter.sol) is a contract that is used to return the best route of all those given. This should be used before a swap to get the best return on a swap.\n\nFor more information, go to the [documentation](https://docs.traderjoexyz.com/) and the [whitepaper](https://github.com/traderjoe-xyz/LB-Whitepaper/blob/main/Joe%20v2%20Liquidity%20Book%20Whitepaper.pdf).\n\n## Install foundry\n\nFoundry documentation can be found [here](https://book.getfoundry.sh/forge/index.html).\n\n### On Linux and macOS\n\nOpen your terminal and type in the following command:\n\n```\ncurl -L https://foundry.paradigm.xyz | bash\n```\n\nThis will download foundryup. Then install Foundry by running:\n\n```\nfoundryup\n```\n\nTo update foundry after installation, simply run `foundryup` again, and it will update to the latest Foundry release.\nYou can also revert to a specific version of Foundry with `foundryup -v $VERSION`.\n\n### On Windows\n\nIf you use Windows, you need to build from source to get Foundry.\n\nDownload and run `rustup-init` from [rustup.rs](https://rustup.rs/). It will start the installation in a console.\n\nAfter this, run the following to build Foundry from source:\n\n```\ncargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked\n```\n\nTo update from source, run the same command again.\n\n## Install dependencies\n\nTo install dependencies, run the following to install dependencies:\n\n```\nforge install\n```\n\n___\n\n## Tests\n\nTo run tests, run the following command:\n\n```\nforge test\n```\n"
+    },
+    {
+      "name": "avalanche_release",
+      "url": "https://github.com/ava-labs/avalanchego/releases/latest",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:31:38.166701+00:00",
+      "http_status": 200,
+      "final_url": "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+      "published_times": [
+        "2026-11-05T22:47:12Z",
+        "2026-11-04 21:35:04 UTC"
+      ],
+      "selected_excerpts": [
+        "version is unchanged at 47 and is compatible with version v1.15.2 . APIs Added a Gas-Used header to C-Chain /rpc responses with the total gas used by every completed eth_call in the request. admin.lockProfile and continuous profiling now write lock.profile in the binary pprof format, like the CPU and memory profiles. Configs Added --profile-continuous-mutex-fraction (default 1 , which keeps the existing behavior) to set the mutex profile fraction used by continuous profiling. Set it to 0 to stop recording mutex contention, or to n to sample 1 of every n events. Added the filter API to the C-Chain apis option. It serves the polling filter methods ( eth_newFilter , eth_newBlockFilter , eth_newPendingTransactionFilter , eth_getFilterChanges , "
+      ]
+    },
+    {
+      "name": "lb_factory",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/src/LBFactory.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:31:57.880593+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "     * @return lbPairNumber\n     */\n    function getNumberOfLBPairs() external view override returns (uint256 lbPairNumber) {\n        return _allLBPairs.length;\n    }\n\n    /**\n     * @notice View function to return the LBPair created at index `index`\n     * @param index The index",
+        "     * @return lbPair The address of the LBPair at index `index`\n     */\n    function getLBPairAtIndex(uint256 index) external view override returns (ILBPair lbPair) {\n        return _allLBPairs[index];\n    }\n\n    /**\n     * @notice View function to return the number of quote assets whitelisted\n     * @return numberOfQuoteAssets The number of quote assets",
+        "     * @return pair The address of the newly created LBPair\n     */\n    function createLBPair(IERC20 tokenX, IERC20 tokenY, uint24 activeId, uint16 binStep)\n        external\n        override\n        returns (ILBPair pair)\n    {\n        if (!_presets.contains(binStep)) revert LBFactory__BinStepHasNoPreset(binStep);\n",
+        "        _availableLBPairBinSteps[tokenA][tokenB].add(binStep);\n\n        emit LBPairCreated(tokenX, tokenY, binStep, pair, _allLBPairs.length - 1);\n\n        pair.initialize(\n            preset.getBaseFactor(),\n            preset.getFilterPeriod(),\n            preset.getDecayPeriod(),\n            preset.getReductionFactor(),",
+        "     * @param ignored Whether to ignore (true) or not (false) the pair for routing\n     */\n    function setLBPairIgnored(IERC20 tokenX, IERC20 tokenY, uint16 binStep, bool ignored) external override onlyOwner {\n        (IERC20 tokenA, IERC20 tokenB) = _sortTokens(tokenX, tokenY);\n\n        LBPairInformation memory pairInformation = _lbPairsInfo[tokenA][tokenB][binStep];\n        if (address(pairInformation.LBPair) == address(0)) {\n            revert LBFactory__LBPairDoesNotExist(tokenX, tokenY, binStep);\n        }"
+      ]
+    },
+    {
+      "name": "joe_sdk_constants",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/index.ts",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:31:59.332000+00:00",
+      "http_status": 200,
+      "snapshot": "export * from './internal'\nexport * from './v2Addrs'\nexport * from './liquidityConfig'\nexport * from './subgraphs'\n"
+    },
+    {
+      "name": "joe_sdk_avalanche_addresses",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:32:09.537088+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "export const MULTICALL_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0xcA11bde05977b3631167028862bE2a173976CA11',",
+        "export const LB_QUOTER_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x9dbf1706577636941ab5f443d2aebe251ccd1648',",
+        "export const LB_QUOTER_V21_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x64b57F4249aA99a812212cee7DAEFEDC40B203cD',",
+        "export const LB_ROUTER_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0xE3Ffc583dC176575eEA7FD9dF2A7c65F7E23f4C3',",
+        "export const LB_ROUTER_V21_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0xb4315e873dBcf96Ffd0acd8EA43f689D8c20fB30',",
+        "export const LB_FACTORY_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x6E77932A92582f504FF6c4BdbCef7Da6c198aEEf',",
+        "export const LB_FACTORY_V21_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x8e42f2F4101563bF679975178e880FD87d3eFd4e',",
+        "export const DEXLENS_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x441eF20e39DfE886AAb99a6E1bb64f43E45bD973',",
+        "export const LB_REWARDER_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x624C5b9BEB13af6893e715932c26e2b7A59c410a',",
+        "export const VAULT_FACTORY_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x613aDdd55D30BF626c3009e9DAC66222346Ae760',",
+        "export const LIQUIDITY_AMOUNTS_HELPER_ADDRESS: {\n  [ChainId.AVALANCHE]: '0x49D3D17b5349600A7206EE7f46218A1209a5c2B4',",
+        "export const LIMIT_ORDER_MANAGER_ADDRESS: {\n  [ChainId.AVALANCHE]: '0xd88401763206db1C32A3bd938CBD205b9fcde5b5',"
+      ]
+    }
+  ]
+}

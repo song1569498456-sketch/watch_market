@@ -129,6 +129,82 @@
       "owner": "N-OP",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/N-OP/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "POLY:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon Pool registry",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+      "owner": "N-POLY",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-POLY/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "POLY:POLYMARKET:CTF_EXCHANGE:0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e",
+      "chain": "POLY",
+      "protocol": "Polymarket CTFExchange registry, not an event-specific market",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+      ],
+      "identity_status": "OFFICIAL_README_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+      "owner": "N-POLY",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-POLY/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBFactory:V2:0x6e77932a92582f504ff6c4bdbcef7da6c198aeef",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+      "owner": "N-AVAX",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBFactory:V2.1:0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+      "owner": "N-AVAX",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+      "chain": "SONIC",
+      "protocol": "Aave V3 Sonic",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
+      "next_check": "chainId146、provider.getPool、proxy code/implementation、reserve列表与可提流动性",
+      "owner": "N-SONIC",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

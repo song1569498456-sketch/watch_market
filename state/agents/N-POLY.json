@@ -1,13 +1,36 @@
 {
   "agent_id": "N-POLY",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:32:36.909343+00:00",
+    "source_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
+    "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
+    "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+  ],
+  "pending_questions": [
+    "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
+    "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
+    "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
+    "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
+    "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:32:36.909343+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
 }

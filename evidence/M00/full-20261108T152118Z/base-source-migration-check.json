@@ -1,0 +1,7 @@
+{
+  "url": "https://raw.githubusercontent.com/base/node/main/README.md",
+  "fetched_at": "2026-11-08T15:31:44.344104+00:00",
+  "http_status": 200,
+  "excerpt": "> [!CAUTION]\n> # This repository is archived\n> **Use [releases from `base/base`](https://github.com/base/base/releases) for all new installations and upgrades.** Development and releases have moved to [`base/base`](https://github.com/base/base); this repository is no longer maintained.\n\n![Base](logo.webp)\n\n# Base Node\n\nBase is a secure, low-cost, developer-friendly Ethereum L2 built on Optimism's [OP Stack](https://docs.optimism.io/). This reposi",
+  "captured_excerpt_sha256": "849e52bc6d29cb87fcb9d4a9be86dd793d994e0cfc0d75d494e6ddaf2137e612"
+}

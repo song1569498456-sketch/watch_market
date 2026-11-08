@@ -1,13 +1,40 @@
 {
   "agent_id": "N-AVAX",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "release_tag": "v1.15.3",
+    "release_published_at": "2026-11-05T22:47:12Z",
+    "sdk_document_read": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "factory_versions_documented": [
+      "V2",
+      "V2.1"
+    ],
+    "last_block": null,
+    "events_scanned": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
+    "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
+    "源码有setLBPairIgnored owner权限，说明quoter路由可能不包括全部工厂注册池；实际设置unknown。",
+    "AvalancheGo v1.15.3发布于2026-11-05T22:47:12Z，说明C-Chain eth_call Gas-Used头和filter API变化；不代表当前RPC已升级。"
+  ],
+  "pending_questions": [
+    "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
+    "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
+    "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
+    "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:32:59.855358+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
 }

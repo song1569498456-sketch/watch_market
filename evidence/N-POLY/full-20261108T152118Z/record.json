@@ -1,0 +1,335 @@
+{
+  "agent_id": "N-POLY",
+  "run_id": "full-20261108T152118Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS新市场/规则/操作发现；当前仅静态官方源基线",
+  "started_at": "2026-11-08T15:31:32.663741+00:00",
+  "finished_at": "2026-11-08T15:32:36.909343+00:00",
+  "duration_seconds": 64.246,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:32:36.909343+00:00",
+    "beijing": "2026-11-08T23:32:36.909343+08:00",
+    "data_time": "unknown; upstream branch snapshots not chain current state"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "POLY:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+    "POLY:POLYMARKET:CTF_EXCHANGE:0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e"
+  ],
+  "asset_ids": [
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+  ],
+  "discovery_source": [
+    {
+      "source": "polygon-ecosystem",
+      "url": "https://polygon.technology/ecosystem",
+      "retrieved_at_utc": "2026-11-08T15:31:32.663748+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-rpc",
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:31:33.683323+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-polygon-deployment",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "2026-11-08T15:31:34.691806+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "bytes_read": 30929,
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Polygon {"
+        },
+        {
+          "line": 7,
+          "text": "  // https://polygonscan.com/address/0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+        },
+        {
+          "line": 8,
+          "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+        },
+        {
+          "line": 9,
+          "text": "    IPoolAddressesProvider(0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb);"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "  // https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 160,
+          "text": "  // https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        },
+        {
+          "line": 161,
+          "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+        },
+        {
+          "line": 162,
+          "text": ""
+        },
+        {
+          "line": 163,
+          "text": "  uint8 internal constant USDCe_DECIMALS = 6;"
+        },
+        {
+          "line": 164,
+          "text": ""
+        },
+        {
+          "line": 165,
+          "text": "  // https://polygonscan.com/address/0x625E7708f30cA75bfd92586e17077590C60eb4cD"
+        },
+        {
+          "line": 166,
+          "text": "  address internal constant USDCe_A_TOKEN = 0x625E7708f30cA75bfd92586e17077590C60eb4cD;"
+        },
+        {
+          "line": 167,
+          "text": ""
+        },
+        {
+          "line": 178,
+          "text": "  // https://polygonscan.com/address/0x1017F4a86Fc3A3c824346d0b8C5e96A5029bDAf9"
+        },
+        {
+          "line": 179,
+          "text": "  address internal constant USDCe_STATIC_A_TOKEN = 0x1017F4a86Fc3A3c824346d0b8C5e96A5029bDAf9;"
+        },
+        {
+          "line": 180,
+          "text": ""
+        },
+        {
+          "line": 181,
+          "text": "  // https://polygonscan.com/address/0xE1a9178Ad1815099004145eC00Eb516B54c93CEB"
+        },
+        {
+          "line": 182,
+          "text": "  address internal constant USDCe_STATA_TOKEN = 0xE1a9178Ad1815099004145eC00Eb516B54c93CEB;"
+        },
+        {
+          "line": 183,
+          "text": ""
+        },
+        {
+          "line": 541,
+          "text": "  // https://polygonscan.com/address/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+        },
+        {
+          "line": 542,
+          "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+        },
+        {
+          "line": 543,
+          "text": ""
+        },
+        {
+          "line": 544,
+          "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+        },
+        {
+          "line": 545,
+          "text": ""
+        },
+        {
+          "line": 546,
+          "text": "  // https://polygonscan.com/address/0xA4D94019934D8333Ef880ABFFbF2FDd611C762BD"
+        },
+        {
+          "line": 547,
+          "text": "  address internal constant USDCn_A_TOKEN = 0xA4D94019934D8333Ef880ABFFbF2FDd611C762BD;"
+        },
+        {
+          "line": 548,
+          "text": ""
+        },
+        {
+          "line": 559,
+          "text": "  // https://polygonscan.com/address/0x2dCa80061632f3F87c9cA28364d1d0c30cD79a19"
+        },
+        {
+          "line": 560,
+          "text": "  address internal constant USDCn_STATIC_A_TOKEN = 0x2dCa80061632f3F87c9cA28364d1d0c30cD79a19;"
+        },
+        {
+          "line": 561,
+          "text": ""
+        },
+        {
+          "line": 562,
+          "text": "  // https://polygonscan.com/address/0x79261231698B26Ed9085b59ae89d59843Ae925a8"
+        },
+        {
+          "line": 563,
+          "text": "  address internal constant USDCn_STATA_TOKEN = 0x79261231698B26Ed9085b59ae89d59843Ae925a8;"
+        },
+        {
+          "line": 564,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "source": "polymarket-exchange",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:31:36.178917+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+      "bytes_read": 2621,
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "The Polymarket CTF Exchange is an exchange protocol that facilitates atomic swaps between [Conditional Tokens Framework(CTF)](https://docs.gnosis.io/conditionaltokens/) ERC1155 assets and an ERC20 collateral asset."
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "It is intended to be used in a hybrid-decentralized exchange model wherein there is an operator that provides offchain matching services while settlement happens on-chain, non-custodially."
+        },
+        {
+          "line": 36,
+          "text": "## Deployments"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 39,
+          "text": "| ---------------- | --------------------------------------------------------------------------------- |"
+        },
+        {
+          "line": 40,
+          "text": "| Polygon          | [0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E](https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E)|"
+        }
+      ]
+    }
+  ],
+  "mechanism": "同名USDCn/USDCe为不同合约权益；CTF ERC1155事件权益与ERC20抵押资产可原子兑换，但市场成交/结算权与借贷抵押资格须分别验证。",
+  "observations": [
+    "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
+    "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
+    "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "USD_reference_only_not_assuming_peg",
+    "unknown_costs": [
+      "gas/优先费",
+      "兑换费与冲击",
+      "实际赎回/跨权益资格成本",
+      "结算等待"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "当前资产资格、交易/赎回权限和风险参数unknown",
+  "liabilities": "未执行；候选负债核算unknown",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "chainId/代码/实现与官方源不符",
+    "资产合同与名义资产混同",
+    "事件未最终结算或不可领取",
+    "借贷协议不支持对应抵押权益"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+    "https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+    "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+  ],
+  "coverage_gaps": [
+    "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
+    "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
+    "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
+    "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
+    "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+  ],
+  "next_check": [
+    "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+    "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+    "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+    "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+  ],
+  "handoff_to": [
+    "POLY01",
+    "POLY02",
+    "R-POLY"
+  ],
+  "markets": [
+    {
+      "market_id": "POLY:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon Pool registry",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。"
+    },
+    {
+      "market_id": "POLY:POLYMARKET:CTF_EXCHANGE:0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e",
+      "chain": "POLY",
+      "protocol": "Polymarket CTFExchange registry, not an event-specific market",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+      ],
+      "identity_status": "OFFICIAL_README_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "USDC与USDC.e名字相似就能等量互换或共用赎回资格",
+      "reason": "官方表给不同UNDERLYING合约，必须分别核验；没有当前兑付证据。"
+    },
+    {
+      "claim": "Polygon上的预测权益能自动用作同链Aave抵押品",
+      "reason": "同链共存不代表支持借贷，未读取任何该类抵押配置，拒绝这种推断。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:32:36.909343+00:00",
+    "source_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  }
+}

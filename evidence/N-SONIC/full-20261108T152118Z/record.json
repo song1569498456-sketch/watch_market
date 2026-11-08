@@ -1,0 +1,133 @@
+{
+  "agent_id": "N-SONIC",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SONIC",
+  "scope": "仅Sonic chainId146的新市场/规则/操作发现，不含Fantom Opera",
+  "started_at": "2026-11-08T15:31:39.832518+00:00",
+  "finished_at": "2026-11-08T15:32:35.366969+00:00",
+  "duration_seconds": 55.534,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:32:35.366969+00:00",
+    "beijing": "2026-11-08T23:32:35.366969+08:00",
+    "data_time": "源码与注册表抓取时点；当前链状态unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://www.soniclabs.com/ecosystem",
+    "https://rpc.soniclabs.com",
+    "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+    "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://sonic-rpc.publicnode.com"
+  ],
+  "mechanism": "Sonic官方节点源码说明启动网络需指定genesis；第三方chain registry静态登记146/S。AaveV3Sonic专用地址表给池proxy、implementation、oracle和provider，不能拿Fantom旧地址或同名资产直接替代。需核验chainId、code及reserve底层资产后才研究取得/赎回与债务。",
+  "observations": [
+    {
+      "source": "ethereum-lists registry",
+      "chain_id": 146,
+      "native_symbol": "S",
+      "status": "THIRD_PARTY_STATIC_NOT_LIVENESS_PROOF"
+    },
+    {
+      "source": "0xsoniclabs/sonic README",
+      "field": "genesis required",
+      "status": "OFFICIAL_SOURCE_NOT_CHAIN_LIVENESS"
+    },
+    {
+      "protocol": "Aave V3 Sonic",
+      "pool_proxy": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "pool_impl": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
+      "provider": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "Sonic gas",
+      "协议费",
+      "退出容量/等待",
+      "桥接或迁移费用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown",
+  "liabilities": "unknown；无建立仓位",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "RPC chainId不是146",
+    "数据实际来自Fantom旧网",
+    "proxy或reserve身份不符",
+    "市场退役/暂停或不可提款"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+    "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+  ],
+  "coverage_gaps": [
+    "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
+    "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
+    "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
+    "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
+    "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
+  ],
+  "next_check": [
+    "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+    "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+    "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+    "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+      "chain": "SONIC",
+      "protocol": "Aave V3 Sonic",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
+      "next_check": "chainId146、provider.getPool、proxy code/implementation、reserve列表与可提流动性"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "case": "Sonic README或chain registry仍可访问就宣布主网存活",
+      "reason": "静态文件不是增长区块证据，当前链可用性unknown。"
+    },
+    {
+      "case": "沿用Fantom历史池或同名资产作为Sonic当前市场",
+      "reason": "链146与旧网不相同；需逐地址/代码/底层资产核验。"
+    },
+    {
+      "case": "Aave源码登记表被当作新部署或收益候选",
+      "reason": "无新旧比较、当前流动性、资格或报价。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "chain_block": null,
+    "rpc_chain_id": null,
+    "history_complete": false,
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+      "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+    ]
+  }
+}

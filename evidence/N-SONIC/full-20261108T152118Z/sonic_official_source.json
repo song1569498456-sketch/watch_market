@@ -1,0 +1,83 @@
+{
+  "name": "sonic_official_source",
+  "url": "https://raw.githubusercontent.com/0xsoniclabs/sonic/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:31:43.374833+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "f5af5002a0385ae9438d67ae4221335829ca57db3227f714f474df6c105f7a82",
+  "excerpts": [
+    {
+      "line": 1,
+      "text": "# Sonic"
+    },
+    {
+      "line": 7,
+      "text": "Building Sonic requires both a Go (version 1.27 or later) and a C compiler. You can install"
+    },
+    {
+      "line": 13,
+      "text": "The build outputs are ```build/sonicd``` and ```build/sonictool``` executables."
+    },
+    {
+      "line": 15,
+      "text": "## Initialization of the Sonic Database"
+    },
+    {
+      "line": 17,
+      "text": "You will need a genesis file to join a network. See [lachesis_launch](https://github.com/Fantom-foundation/lachesis_launch) for details on obtaining one. Once you have a genesis file, initialize the DB:"
+    },
+    {
+      "line": 20,
+      "text": "sonictool --datadir=<target DB path> genesis <path to the genesis file>"
+    },
+    {
+      "line": 23,
+      "text": "## Running `sonicd`"
+    },
+    {
+      "line": 27,
+      "text": "on how you can run your own `sonicd` instance."
+    },
+    {
+      "line": 31,
+      "text": "To launch a `sonicd` read-only (non-validator) node for network specified by the genesis file:"
+    },
+    {
+      "line": 34,
+      "text": "sonicd --datadir=<DB path>"
+    },
+    {
+      "line": 39,
+      "text": "As an alternative to passing the numerous flags to the `sonicd` binary, you can also pass a"
+    },
+    {
+      "line": 43,
+      "text": "sonicd --datadir=<DB path> --config /path/to/your/config.toml"
+    },
+    {
+      "line": 50,
+      "text": "sonictool --datadir=<DB path> dumpconfig"
+    },
+    {
+      "line": 58,
+      "text": "sonictool --datadir=<DB path> validator new"
+    },
+    {
+      "line": 61,
+      "text": "To launch a validator, use the `--validator.id` and `--validator.pubkey` flags. See the [Sonic Documentation](https://docs.soniclabs.com/) for details on obtaining a validator ID and registering your initial stake."
+    },
+    {
+      "line": 64,
+      "text": "sonicd --datadir=<DB path> --validator.id=YOUR_ID --validator.pubkey=0xYOUR_PUBKEY"
+    },
+    {
+      "line": 67,
+      "text": "`sonicd` will prompt for a password to decrypt your validator private key. Optionally, use `--validator.password` to specify a password file."
+    },
+    {
+      "line": 74,
+      "text": "sonicd --datadir=<DB path> --nat=extip:1.2.3.4"
+    }
+  ],
+  "success": true
+}

@@ -1,0 +1,145 @@
+{
+  "agent_id": "N-AVAX",
+  "run_id": "full-20261108T152118Z",
+  "chain": "AVAX",
+  "scope": "Avalanche C-Chain 43114：Liquidity Book注册表发现入口与官方客户端规则资料",
+  "started_at": "2026-11-08T15:31:34.595463+00:00",
+  "finished_at": "2026-11-08T15:32:59.855358+00:00",
+  "duration_seconds": 85.26,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:32:59.855358+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://build.avax.network/docs/quick-start/networks",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/README.md",
+    "https://github.com/ava-labs/avalanchego/releases/latest",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/src/LBFactory.sol",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/index.ts",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts"
+  ],
+  "mechanism": "同token对可分不同binStep及工厂版本；工厂可标记pair被quoter忽略，路由覆盖不等于所有池覆盖。官方SDK地址需先与链上实现对应。",
+  "observations": [
+    "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
+    "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
+    "源码有setLBPairIgnored owner权限，说明quoter路由可能不包括全部工厂注册池；实际设置unknown。",
+    "AvalancheGo v1.15.3发布于2026-11-05T22:47:12Z，说明C-Chain eth_call Gas-Used头和filter API变化；不代表当前RPC已升级。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "实际gas/优先费",
+      "池动态费用",
+      "价格冲击",
+      "资产税/限制",
+      "退出费用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "current factory creation preset/owner/ignored state unknown",
+  "liabilities": "unknown，无交易借款",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "工厂部署与SDK不符",
+    "源码与实现版本不同",
+    "C-Chain身份不符",
+    "未获同状态报价"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-v2/main/src/LBFactory.sol",
+    "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3"
+  ],
+  "coverage_gaps": [
+    "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
+    "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
+    "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
+    "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
+  ],
+  "next_check": [
+    "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+    "对各已验证工厂读取getNumberOfLBPairs/getLBPairAtIndex或按LBPairCreated事件分页，登记tokenX/tokenY/binStep/工厂版本。",
+    "向AVAX01交付文档级V2.1工厂和Quoter入口，待其核验稳定资产原生/桥接身份、同状态循环报价与动态费用。",
+    "补查30天规则、7天交易、旧小池和暂停/恢复状态；v1.15.3 Gas-Used eth_call响应头不能直接当净收益全费用。"
+  ],
+  "handoff_to": [
+    "M00",
+    "AVAX01",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "AVAX:43114:LFJ:LBFactory:V2:0x6e77932a92582f504ff6c4bdbcef7da6c198aeef",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBFactory:V2.1:0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+      "chain": "AVAX",
+      "status": "REJECTED",
+      "mechanism": "AvalancheGo v1.15.3新增C-Chain /rpc Gas-Used响应头，表示请求中已完成eth_call总gas；不能将它等同真实完整交易成本或所有买入/卖出费用。",
+      "evidence_urls": [
+        "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3"
+      ],
+      "market_ids": [],
+      "next_check": "真实成本需同状态执行路径、gas估算/实际receipt、gas price及DEX/冲击等，未读取时保持unknown。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00",
+        "AVAX01"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "同币名/同token对跨版本合并",
+      "reason": "V2/V2.1、binStep和工厂须分别登记，不能混用状态/费用。"
+    },
+    {
+      "case": "Gas-Used响应头=净收益全部成本",
+      "reason": "AvalancheGo v1.15.3新增C-Chain /rpc Gas-Used响应头，表示请求中已完成eth_call总gas；不能将它等同真实完整交易成本或所有买入/卖出费用。"
+    }
+  ],
+  "observed_cursor": {
+    "release_tag": "v1.15.3",
+    "release_published_at": "2026-11-05T22:47:12Z",
+    "sdk_document_read": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "factory_versions_documented": [
+      "V2",
+      "V2.1"
+    ],
+    "last_block": null,
+    "events_scanned": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

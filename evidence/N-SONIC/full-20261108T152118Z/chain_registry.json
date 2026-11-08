@@ -1,0 +1,141 @@
+{
+  "name": "chain_registry",
+  "url": "https://raw.githubusercontent.com/ethereum-lists/chains/master/_data/chains/eip155-146.json",
+  "fetched_at_utc": "2026-11-08T15:31:41.860345+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "37ea0ba8a767c5953d7d5a8764a0cba4b0835636c94c214ae076d2acb5b5f378",
+  "excerpts": [
+    {
+      "line": 2,
+      "text": "  \"name\": \"Sonic Mainnet\","
+    },
+    {
+      "line": 3,
+      "text": "  \"chain\": \"sonic\","
+    },
+    {
+      "line": 4,
+      "text": "  \"rpc\": ["
+    },
+    {
+      "line": 5,
+      "text": "    \"https://rpc.soniclabs.com\","
+    },
+    {
+      "line": 6,
+      "text": "    \"https://sonic-rpc.publicnode.com\","
+    },
+    {
+      "line": 7,
+      "text": "    \"wss://sonic-rpc.publicnode.com\","
+    },
+    {
+      "line": 8,
+      "text": "    \"https://sonic.drpc.org\","
+    },
+    {
+      "line": 9,
+      "text": "    \"wss://sonic.drpc.org\","
+    },
+    {
+      "line": 10,
+      "text": "    \"https://sonic-rpc.blockreq.com/v1/rpc/public\""
+    },
+    {
+      "line": 13,
+      "text": "  \"nativeCurrency\": {"
+    },
+    {
+      "line": 14,
+      "text": "    \"name\": \"Sonic\","
+    },
+    {
+      "line": 15,
+      "text": "    \"symbol\": \"S\","
+    },
+    {
+      "line": 19,
+      "text": "  \"infoURL\": \"https://soniclabs.com\","
+    },
+    {
+      "line": 20,
+      "text": "  \"shortName\": \"sonic\","
+    },
+    {
+      "line": 21,
+      "text": "  \"chainId\": 146,"
+    },
+    {
+      "line": 23,
+      "text": "  \"icon\": \"sonic\","
+    },
+    {
+      "line": 24,
+      "text": "  \"explorers\": ["
+    },
+    {
+      "line": 27,
+      "text": "      \"url\": \"https://sonicscan.org\","
+    },
+    {
+      "line": 28,
+      "text": "      \"icon\": \"sonic\","
+    },
+    {
+      "line": 32,
+      "text": "      \"name\": \"sonic\","
+    },
+    {
+      "line": 33,
+      "text": "      \"url\": \"https://explorer.soniclabs.com\","
+    },
+    {
+      "line": 34,
+      "text": "      \"icon\": \"sonic\","
+    }
+  ],
+  "success": true,
+  "registry": {
+    "name": "Sonic Mainnet",
+    "chain": "sonic",
+    "rpc": [
+      "https://rpc.soniclabs.com",
+      "https://sonic-rpc.publicnode.com",
+      "wss://sonic-rpc.publicnode.com",
+      "https://sonic.drpc.org",
+      "wss://sonic.drpc.org",
+      "https://sonic-rpc.blockreq.com/v1/rpc/public"
+    ],
+    "faucets": [],
+    "nativeCurrency": {
+      "name": "Sonic",
+      "symbol": "S",
+      "decimals": 18
+    },
+    "features": [
+      {
+        "name": "EIP155"
+      }
+    ],
+    "infoURL": "https://soniclabs.com",
+    "shortName": "sonic",
+    "chainId": 146,
+    "networkId": 146,
+    "icon": "sonic",
+    "explorers": [
+      {
+        "name": "etherscan",
+        "url": "https://sonicscan.org",
+        "icon": "sonic",
+        "standard": "EIP3091"
+      },
+      {
+        "name": "sonic",
+        "url": "https://explorer.soniclabs.com",
+        "icon": "sonic",
+        "standard": "none"
+      }
+    ]
+  }
+}

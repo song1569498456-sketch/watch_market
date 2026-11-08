@@ -1,0 +1,151 @@
+{
+  "name": "aave_sonic_deployment",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+  "fetched_at_utc": "2026-11-08T15:31:44.625878+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+  "excerpts": [
+    {
+      "line": 6,
+      "text": "library AaveV3Sonic {"
+    },
+    {
+      "line": 7,
+      "text": "  // https://sonicscan.org/address/0x5C2e738F6E27bCE0F7558051Bf90605dD6176900"
+    },
+    {
+      "line": 8,
+      "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+    },
+    {
+      "line": 9,
+      "text": "    IPoolAddressesProvider(0x5C2e738F6E27bCE0F7558051Bf90605dD6176900);"
+    },
+    {
+      "line": 11,
+      "text": "  // https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+    },
+    {
+      "line": 12,
+      "text": "  IPool internal constant POOL = IPool(0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3);"
+    },
+    {
+      "line": 14,
+      "text": "  // https://sonicscan.org/address/0x50c70FEB95aBC1A92FC30b9aCc41Bd349E5dE2f0"
+    },
+    {
+      "line": 16,
+      "text": "    IPoolConfigurator(0x50c70FEB95aBC1A92FC30b9aCc41Bd349E5dE2f0);"
+    },
+    {
+      "line": 18,
+      "text": "  // https://sonicscan.org/address/0xD63f7658C66B2934Bd234D79D06aEF5290734B30"
+    },
+    {
+      "line": 19,
+      "text": "  IAaveOracle internal constant ORACLE = IAaveOracle(0xD63f7658C66B2934Bd234D79D06aEF5290734B30);"
+    },
+    {
+      "line": 21,
+      "text": "  // https://sonicscan.org/address/0x7b62461a3570c6AC8a9f8330421576e417B71EE7"
+    },
+    {
+      "line": 22,
+      "text": "  address internal constant ACL_ADMIN = 0x7b62461a3570c6AC8a9f8330421576e417B71EE7;"
+    },
+    {
+      "line": 24,
+      "text": "  // https://sonicscan.org/address/0x3a790a47c4d531FD333FAD24f70B0ccb521B3b5A"
+    },
+    {
+      "line": 26,
+      "text": "    IACLManager(0x3a790a47c4d531FD333FAD24f70B0ccb521B3b5A);"
+    },
+    {
+      "line": 28,
+      "text": "  // https://sonicscan.org/address/0xc0a344397cfa89dF1e1d3e4fb330834D789cF2CD"
+    },
+    {
+      "line": 30,
+      "text": "    IPoolDataProvider(0xc0a344397cfa89dF1e1d3e4fb330834D789cF2CD);"
+    },
+    {
+      "line": 32,
+      "text": "  // https://sonicscan.org/address/0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5"
+    },
+    {
+      "line": 33,
+      "text": "  address internal constant POOL_IMPL = 0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5;"
+    },
+    {
+      "line": 35,
+      "text": "  // https://sonicscan.org/address/0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99"
+    },
+    {
+      "line": 36,
+      "text": "  address internal constant POOL_CONFIGURATOR_IMPL = 0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99;"
+    },
+    {
+      "line": 38,
+      "text": "  // https://sonicscan.org/address/0x24bD6e9ca54F1737467DEf82dCA9702925B3Aa59"
+    },
+    {
+      "line": 40,
+      "text": "    0x24bD6e9ca54F1737467DEf82dCA9702925B3Aa59;"
+    },
+    {
+      "line": 42,
+      "text": "  // https://sonicscan.org/address/0xd3A0A19Cdb7d1615f30988763BEA5f8feCc17a87"
+    },
+    {
+      "line": 43,
+      "text": "  address internal constant EMISSION_MANAGER = 0xd3A0A19Cdb7d1615f30988763BEA5f8feCc17a87;"
+    },
+    {
+      "line": 45,
+      "text": "  // https://sonicscan.org/address/0x1aB55bBdD5DF0782BBCf73553Af93BC6B29A286B"
+    },
+    {
+      "line": 46,
+      "text": "  ICollector internal constant COLLECTOR = ICollector(0x1aB55bBdD5DF0782BBCf73553Af93BC6B29A286B);"
+    },
+    {
+      "line": 48,
+      "text": "  // https://sonicscan.org/address/0x9E7A2eD2da913Cf5608256Bd7114dF3fC3a24a78"
+    },
+    {
+      "line": 49,
+      "text": "  address internal constant DEFAULT_A_TOKEN_IMPL = 0x9E7A2eD2da913Cf5608256Bd7114dF3fC3a24a78;"
+    },
+    {
+      "line": 51,
+      "text": "  // https://sonicscan.org/address/0x2022597abeE8007bbf4E72f51Fc1B5493363AcA6"
+    },
+    {
+      "line": 53,
+      "text": "    0x2022597abeE8007bbf4E72f51Fc1B5493363AcA6;"
+    },
+    {
+      "line": 55,
+      "text": "  // https://sonicscan.org/address/0x04a8D477eE202aDCE1682F5902e1160455205b12"
+    },
+    {
+      "line": 56,
+      "text": "  address internal constant CONFIG_ENGINE = 0x04a8D477eE202aDCE1682F5902e1160455205b12;"
+    },
+    {
+      "line": 58,
+      "text": "  // https://sonicscan.org/address/0xb9898C9F4711cBCaD882863302EF8300bFc9d6Dc"
+    },
+    {
+      "line": 59,
+      "text": "  address internal constant RISK_STEWARD = 0xb9898C9F4711cBCaD882863302EF8300bFc9d6Dc;"
+    },
+    {
+      "line": 61,
+      "text": "  // https://sonicscan.org/address/0x1dE39A17a9Fa8c76899fff37488482EEb7835d04"
+    }
+  ],
+  "success": true
+}

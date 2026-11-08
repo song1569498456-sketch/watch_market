@@ -14,7 +14,21 @@
     "complete_event_time_window": null,
     "retrieved_at_utc": "2026-11-08T15:29:57.007506+00:00"
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_SOURCE_ONLY",
+      "source_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "complete_block_range": null,
+      "complete_event_time_window": null,
+      "retrieved_at_utc": "2026-11-08T15:29:57.007506+00:00"
+    },
+    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
     "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
@@ -30,7 +44,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:29:57.007506+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+  "record": "evidence/N-ARB/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+    "verified_at": "2026-11-08T15:30:59.022489+00:00",
+    "record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+  }
 }

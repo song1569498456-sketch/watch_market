@@ -1,0 +1,214 @@
+{
+  "started_at": "2026-11-08T15:31:32.663741+00:00",
+  "sources": [
+    {
+      "source": "polygon-ecosystem",
+      "url": "https://polygon.technology/ecosystem",
+      "retrieved_at_utc": "2026-11-08T15:31:32.663748+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-rpc",
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:31:33.683323+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-polygon-deployment",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "2026-11-08T15:31:34.691806+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "bytes_read": 30929,
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Polygon {"
+        },
+        {
+          "line": 7,
+          "text": "  // https://polygonscan.com/address/0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+        },
+        {
+          "line": 8,
+          "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+        },
+        {
+          "line": 9,
+          "text": "    IPoolAddressesProvider(0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb);"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "  // https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 160,
+          "text": "  // https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        },
+        {
+          "line": 161,
+          "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+        },
+        {
+          "line": 162,
+          "text": ""
+        },
+        {
+          "line": 163,
+          "text": "  uint8 internal constant USDCe_DECIMALS = 6;"
+        },
+        {
+          "line": 164,
+          "text": ""
+        },
+        {
+          "line": 165,
+          "text": "  // https://polygonscan.com/address/0x625E7708f30cA75bfd92586e17077590C60eb4cD"
+        },
+        {
+          "line": 166,
+          "text": "  address internal constant USDCe_A_TOKEN = 0x625E7708f30cA75bfd92586e17077590C60eb4cD;"
+        },
+        {
+          "line": 167,
+          "text": ""
+        },
+        {
+          "line": 178,
+          "text": "  // https://polygonscan.com/address/0x1017F4a86Fc3A3c824346d0b8C5e96A5029bDAf9"
+        },
+        {
+          "line": 179,
+          "text": "  address internal constant USDCe_STATIC_A_TOKEN = 0x1017F4a86Fc3A3c824346d0b8C5e96A5029bDAf9;"
+        },
+        {
+          "line": 180,
+          "text": ""
+        },
+        {
+          "line": 181,
+          "text": "  // https://polygonscan.com/address/0xE1a9178Ad1815099004145eC00Eb516B54c93CEB"
+        },
+        {
+          "line": 182,
+          "text": "  address internal constant USDCe_STATA_TOKEN = 0xE1a9178Ad1815099004145eC00Eb516B54c93CEB;"
+        },
+        {
+          "line": 183,
+          "text": ""
+        },
+        {
+          "line": 541,
+          "text": "  // https://polygonscan.com/address/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+        },
+        {
+          "line": 542,
+          "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+        },
+        {
+          "line": 543,
+          "text": ""
+        },
+        {
+          "line": 544,
+          "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+        },
+        {
+          "line": 545,
+          "text": ""
+        },
+        {
+          "line": 546,
+          "text": "  // https://polygonscan.com/address/0xA4D94019934D8333Ef880ABFFbF2FDd611C762BD"
+        },
+        {
+          "line": 547,
+          "text": "  address internal constant USDCn_A_TOKEN = 0xA4D94019934D8333Ef880ABFFbF2FDd611C762BD;"
+        },
+        {
+          "line": 548,
+          "text": ""
+        },
+        {
+          "line": 559,
+          "text": "  // https://polygonscan.com/address/0x2dCa80061632f3F87c9cA28364d1d0c30cD79a19"
+        },
+        {
+          "line": 560,
+          "text": "  address internal constant USDCn_STATIC_A_TOKEN = 0x2dCa80061632f3F87c9cA28364d1d0c30cD79a19;"
+        },
+        {
+          "line": 561,
+          "text": ""
+        },
+        {
+          "line": 562,
+          "text": "  // https://polygonscan.com/address/0x79261231698B26Ed9085b59ae89d59843Ae925a8"
+        },
+        {
+          "line": 563,
+          "text": "  address internal constant USDCn_STATA_TOKEN = 0x79261231698B26Ed9085b59ae89d59843Ae925a8;"
+        },
+        {
+          "line": 564,
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "source": "polymarket-exchange",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:31:36.178917+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+      "bytes_read": 2621,
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "The Polymarket CTF Exchange is an exchange protocol that facilitates atomic swaps between [Conditional Tokens Framework(CTF)](https://docs.gnosis.io/conditionaltokens/) ERC1155 assets and an ERC20 collateral asset."
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "It is intended to be used in a hybrid-decentralized exchange model wherein there is an operator that provides offchain matching services while settlement happens on-chain, non-custodially."
+        },
+        {
+          "line": 36,
+          "text": "## Deployments"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 39,
+          "text": "| ---------------- | --------------------------------------------------------------------------------- |"
+        },
+        {
+          "line": 40,
+          "text": "| Polygon          | [0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E](https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E)|"
+        }
+      ]
+    }
+  ]
+}

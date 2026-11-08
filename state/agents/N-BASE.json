@@ -13,7 +13,20 @@
     "transactions_analyzed": 0,
     "history_window_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "official_source": "base/base",
+      "official_release_tag": "v1.5.4",
+      "release_published_at": "2026-11-06T01:25:10Z",
+      "last_block": null,
+      "pool_events_scanned": 0,
+      "transactions_analyzed": 0,
+      "history_window_complete": false
+    },
+    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
     "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
@@ -30,7 +43,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:30:38.025797+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+  "record": "evidence/N-BASE/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+    "verified_at": "2026-11-08T15:30:59.022489+00:00",
+    "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+  }
 }

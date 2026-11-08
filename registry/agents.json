@@ -36,8 +36,22 @@
     {
       "agent_id": "N-AVAX",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:32:59.855358+00:00",
+      "actual_coverage": [
+        "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
+        "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
+        "源码有setLBPairIgnored owner权限，说明quoter路由可能不包括全部工厂注册池；实际设置unknown。",
+        "AvalancheGo v1.15.3发布于2026-11-05T22:47:12Z，说明C-Chain eth_call Gas-Used头和filter API变化；不代表当前RPC已升级。"
+      ],
+      "coverage_gaps": [
+        "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
+        "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
+        "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
+        "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
+      ],
+      "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-BASE",
@@ -132,8 +146,22 @@
     {
       "agent_id": "N-POLY",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:32:36.909343+00:00",
+      "actual_coverage": [
+        "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
+        "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
+        "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+      ],
+      "coverage_gaps": [
+        "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
+        "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
+        "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
+        "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
+        "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+      ],
+      "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-SOL",
@@ -173,8 +201,37 @@
     {
       "agent_id": "N-SONIC",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:32:35.366969+00:00",
+      "actual_coverage": [
+        {
+          "source": "ethereum-lists registry",
+          "chain_id": 146,
+          "native_symbol": "S",
+          "status": "THIRD_PARTY_STATIC_NOT_LIVENESS_PROOF"
+        },
+        {
+          "source": "0xsoniclabs/sonic README",
+          "field": "genesis required",
+          "status": "OFFICIAL_SOURCE_NOT_CHAIN_LIVENESS"
+        },
+        {
+          "protocol": "Aave V3 Sonic",
+          "pool_proxy": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+          "pool_impl": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
+          "provider": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
+          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+        }
+      ],
+      "coverage_gaps": [
+        "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
+        "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
+        "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
+        "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
+        "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
+      ],
+      "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ARB01",

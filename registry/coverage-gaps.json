@@ -449,6 +449,160 @@
         "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
         "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
       ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
+      "next_check": [
+        "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+        "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+        "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+        "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
+      "next_check": [
+        "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+        "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+        "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+        "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
+      "next_check": [
+        "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+        "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+        "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+        "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
+      "next_check": [
+        "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+        "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+        "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+        "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。",
+      "next_check": [
+        "POLY01分别按两个合约核对USDCn/USDCe身份、不同赎回路径与报价，不把同名资产合并。",
+        "POLY02验证Aave Pool与储备配置，独立读取普通清算借款人状态、偿债及可出售抵押品，不假定预测份额是Aave抵押品。",
+        "R-POLY核验CTFExchange当前collateral/ctf地址、positionId对应condition及payout状态；只有实际借贷协议明确支持该资产才研究估值风险。",
+        "N-POLY恢复官方门户/RPC后补30天、7天、工厂事件与旧小池轮转；保留真实分页/区块范围。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
+      "next_check": [
+        "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+        "对各已验证工厂读取getNumberOfLBPairs/getLBPairAtIndex或按LBPairCreated事件分页，登记tokenX/tokenY/binStep/工厂版本。",
+        "向AVAX01交付文档级V2.1工厂和Quoter入口，待其核验稳定资产原生/桥接身份、同状态循环报价与动态费用。",
+        "补查30天规则、7天交易、旧小池和暂停/恢复状态；v1.15.3 Gas-Used eth_call响应头不能直接当净收益全费用。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
+      "next_check": [
+        "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+        "对各已验证工厂读取getNumberOfLBPairs/getLBPairAtIndex或按LBPairCreated事件分页，登记tokenX/tokenY/binStep/工厂版本。",
+        "向AVAX01交付文档级V2.1工厂和Quoter入口，待其核验稳定资产原生/桥接身份、同状态循环报价与动态费用。",
+        "补查30天规则、7天交易、旧小池和暂停/恢复状态；v1.15.3 Gas-Used eth_call响应头不能直接当净收益全费用。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
+      "next_check": [
+        "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+        "对各已验证工厂读取getNumberOfLBPairs/getLBPairAtIndex或按LBPairCreated事件分页，登记tokenX/tokenY/binStep/工厂版本。",
+        "向AVAX01交付文档级V2.1工厂和Quoter入口，待其核验稳定资产原生/桥接身份、同状态循环报价与动态费用。",
+        "补查30天规则、7天交易、旧小池和暂停/恢复状态；v1.15.3 Gas-Used eth_call响应头不能直接当净收益全费用。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "full-20261108T152118Z",
+      "gap": "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。",
+      "next_check": [
+        "先核对C-Chain eth_chainId=0xa86a、最新区块与工厂eth_getCode；独立对应SDK V2与V2.1实现，不能混报价。",
+        "对各已验证工厂读取getNumberOfLBPairs/getLBPairAtIndex或按LBPairCreated事件分页，登记tokenX/tokenY/binStep/工厂版本。",
+        "向AVAX01交付文档级V2.1工厂和Quoter入口，待其核验稳定资产原生/桥接身份、同状态循环报价与动态费用。",
+        "补查30天规则、7天交易、旧小池和暂停/恢复状态；v1.15.3 Gas-Used eth_call响应头不能直接当净收益全费用。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "full-20261108T152118Z",
+      "gap": "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
+      "next_check": [
+        "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+        "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+        "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+        "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
+      "next_check": [
+        "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+        "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+        "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+        "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
+      "next_check": [
+        "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+        "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+        "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+        "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
+      "next_check": [
+        "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+        "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+        "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+        "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。",
+      "next_check": [
+        "恢复rpc.soniclabs.com或sonic-rpc.publicnode.com后核对eth_chainId=0x92及增长/最终确认区块，再查询池代码与provider.getPool。",
+        "核对AaveV3Sonic真实reserve底层资产与proxy implementation；与Fantom部署分档，不合并迁移版/桥接版。",
+        "按已核工厂补30天事件和7天活动，记录明确区块范围与分页。",
+        "给M00一次性Sonic借贷退出研究卡：唯一问题是池账面资产是否有对应可实际提现流动性；先核身份，不增设日常岗位或宣布机会。"
+      ]
     }
   ],
   "status": "OPEN",
