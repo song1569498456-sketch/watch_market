@@ -1,0 +1,14 @@
+{
+  "name": "polygon_chain_identity",
+  "url": "https://polygon-rpc.com",
+  "fetched_at_utc": "2026-11-08T15:53:08.970245+00:00",
+  "method": "POST",
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "eth_chainId",
+    "params": []
+  },
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

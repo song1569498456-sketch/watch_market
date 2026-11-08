@@ -1,13 +1,33 @@
 {
   "agent_id": "R-BASE",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_DEPLOYMENT_AND_RULE_OBSERVATION_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:54:01.784114+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
+    "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
+    "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
+    "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+  ],
+  "pending_questions": [
+    "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
+    "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
+    "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
+    "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
+    "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:54:01.784114+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
 }

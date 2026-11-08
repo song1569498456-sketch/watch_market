@@ -843,20 +843,86 @@
     {
       "agent_id": "R-BASE",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:54:01.784114+00:00",
+      "actual_coverage": [
+        "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
+        "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
+        "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
+        "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+      ],
+      "coverage_gaps": [
+        "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
+        "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
+        "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
+        "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
+        "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+      ],
+      "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "R-BNB",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:54:10.950788+00:00",
+      "actual_coverage": [
+        "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
+        "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
+        "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
+        "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+      ],
+      "coverage_gaps": [
+        "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
+        "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
+        "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
+        "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
+        "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+      ],
+      "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "R-POLY",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:54:30.454783+00:00",
+      "actual_coverage": [
+        {
+          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+          "field": "L4-5官方声明部署地址更新，指向ctf-exchange-v2",
+          "data_kind": "migration notice; effective time unverified",
+          "legacy_polygon_exchange_static": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+          "scope": "V1 README legacy exchange table; official notice says use V2; legacy liveness/retirement not read onchain"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+          "system": "Polymarket CTF Exchange V2",
+          "polygon_exchange_static": "0xE111180000d2663C0091e4f400237545B87B996B",
+          "pmct_proxy_static": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "field": "PMCT wraps USDC/USDCe, separate from outcome ERC1155",
+          "identity_status": "OFFICIAL_DEPLOYMENT_TABLE_ONLY_NOT_LIVE_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+          "fields": "reportPayouts L78-96；redeemPositions L218-254按payout vector",
+          "data_kind": "generic CTF source, deployment match unknown"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+          "field": "Aave Polygon静态池/资产登记；未取得CTF outcome wrapper接受映射",
+          "scope": "selected registry only, not exhaustive Polygon lending survey"
+        }
+      ],
+      "coverage_gaps": [
+        "Gamma当前事件目录与Polygon RPC CONNECT403，无condition/结果份额/区块。",
+        "30天结算/争议/版本生效窗口未覆盖；静态V2提示不是生效时间证据。",
+        "7天借贷/偿还/清算与兑付活动未覆盖，无交易或事件游标。",
+        "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
+        "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
+      ],
+      "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SOL01",

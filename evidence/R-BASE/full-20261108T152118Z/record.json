@@ -1,0 +1,477 @@
+{
+  "agent_id": "R-BASE",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base金库NAV与真实可兑资产的防御性异常识别，不利用估值或设计交易",
+  "started_at": "2026-11-08T15:52:53.143282+00:00",
+  "finished_at": "2026-11-08T15:54:01.784114+00:00",
+  "duration_seconds": 68.641,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:54:01.784114+00:00",
+    "beijing": "2026-11-08T23:54:01.784114+08:00",
+    "data_time": "unknown; static branch snapshots"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "BASE:AAVE_STATA:USDC:0xc768c589647798a6ee01a91fde98ef2ed046dbd6"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+  ],
+  "discovery_source": [
+    {
+      "source": "morpho-vault-registry",
+      "url": "https://api.morpho.org/graphql",
+      "retrieved_at_utc": "2026-11-08T15:52:53.143289+00:00",
+      "request": {
+        "query": "{ __typename }"
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-rpc",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-08T15:52:54.161736+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "metamorpho-deployments-readme",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:52:55.169920+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "719f7a99a3e64ea62ae385a535f0197eeef671dd5168b3a67b9592eb99e0bc86",
+      "bytes_read": 11342,
+      "excerpts": [
+        {
+          "line": 16,
+          "text": "[`MetaMorpho`](./src/MetaMorpho.sol) vaults are [ERC-4626](https://eips.ethereum.org/EIPS/eip-4626) vaults, with ([ERC-2612](https://eips.ethereum.org/EIPS/eip-2612)) permit."
+        },
+        {
+          "line": 17,
+          "text": "One MetaMorpho vault is related to one loan asset on Morpho Blue."
+        },
+        {
+          "line": 18,
+          "text": "The [`MetaMorphoFactory`](./src/MetaMorphoFactory.sol) is deploying immutable onchain instances of MetaMorpho vaults."
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "Users can supply or withdraw assets at any time, depending on the available liquidity on Morpho Blue."
+        },
+        {
+          "line": 21,
+          "text": "A maximum of 30 markets can be enabled on a given MetaMorpho vault."
+        },
+        {
+          "line": 22,
+          "text": "Each market has a supply cap that guarantees that allocators cannot reallocate more than that limit to that market."
+        },
+        {
+          "line": 23,
+          "text": "The vault can have more exposure to a given market than its supply cap because of donations or because of interests."
+        },
+        {
+          "line": 24,
+          "text": "By default, the supply cap of a market is set to 0."
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "There are 4 different roles for a MetaMorpho vault: owner, curator, guardian & allocator."
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "The vault owner can set a performance fee, cutting up to 50% of the generated interest."
+        },
+        {
+          "line": 83,
+          "text": "- Set the `supplyQueue` and `withdrawQueue`, i.e. decide on the order of the markets to supply/withdraw from."
+        },
+        {
+          "line": 84,
+          "text": "  - Upon a deposit, the vault will supply up to the cap of each Morpho Blue market in the `supplyQueue` in the order set."
+        },
+        {
+          "line": 85,
+          "text": "  - Upon a withdrawal, the vault will withdraw up to the liquidity of each Morpho Blue market in the `withdrawQueue` in the order set."
+        },
+        {
+          "line": 86,
+          "text": "  - The `supplyQueue` only contains markets which cap has previously been non-zero."
+        },
+        {
+          "line": 87,
+          "text": "  - The `withdrawQueue` contains all markets that have a non-zero cap or a non-zero vault allocation."
+        },
+        {
+          "line": 88,
+          "text": "- Instantaneously reallocate funds by supplying on markets of the `withdrawQueue` and withdrawing from markets that have the same loan asset as the vault's asset."
+        }
+      ]
+    },
+    {
+      "source": "metamorpho-nav-source",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "retrieved_at_utc": "2026-11-08T15:52:56.518146+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+      "bytes_read": 35967,
+      "excerpts": [
+        {
+          "line": 589,
+          "text": "    function totalAssets() public view override returns (uint256 assets) {"
+        },
+        {
+          "line": 590,
+          "text": "        for (uint256 i; i < withdrawQueue.length; ++i) {"
+        },
+        {
+          "line": 591,
+          "text": "            assets += MORPHO.expectedSupplyAssets(_marketParams(withdrawQueue[i]), address(this));"
+        },
+        {
+          "line": 592,
+          "text": "        }"
+        },
+        {
+          "line": 593,
+          "text": "    }"
+        },
+        {
+          "line": 594,
+          "text": ""
+        },
+        {
+          "line": 595,
+          "text": "    /* ERC4626 (INTERNAL) */"
+        },
+        {
+          "line": 596,
+          "text": ""
+        },
+        {
+          "line": 597,
+          "text": "    /// @inheritdoc ERC4626"
+        },
+        {
+          "line": 598,
+          "text": "    function _decimalsOffset() internal view override returns (uint8) {"
+        },
+        {
+          "line": 599,
+          "text": "        return DECIMALS_OFFSET;"
+        },
+        {
+          "line": 600,
+          "text": "    }"
+        },
+        {
+          "line": 601,
+          "text": ""
+        },
+        {
+          "line": 602,
+          "text": "    /// @dev Returns the maximum amount of asset (`assets`) that the `owner` can withdraw from the vault, as well as the"
+        },
+        {
+          "line": 603,
+          "text": "    /// new vault's total supply (`newTotalSupply`) and total assets (`newTotalAssets`)."
+        },
+        {
+          "line": 604,
+          "text": "    function _maxWithdraw(address owner)"
+        },
+        {
+          "line": 605,
+          "text": "        internal"
+        },
+        {
+          "line": 606,
+          "text": "        view"
+        },
+        {
+          "line": 607,
+          "text": "        returns (uint256 assets, uint256 newTotalSupply, uint256 newTotalAssets)"
+        },
+        {
+          "line": 608,
+          "text": "    {"
+        },
+        {
+          "line": 609,
+          "text": "        uint256 feeShares;"
+        },
+        {
+          "line": 610,
+          "text": "        (feeShares, newTotalAssets) = _accruedFeeShares();"
+        },
+        {
+          "line": 611,
+          "text": "        newTotalSupply = totalSupply() + feeShares;"
+        },
+        {
+          "line": 612,
+          "text": ""
+        },
+        {
+          "line": 613,
+          "text": "        assets = _convertToAssetsWithTotals(balanceOf(owner), newTotalSupply, newTotalAssets, Math.Rounding.Floor);"
+        },
+        {
+          "line": 614,
+          "text": "        assets -= _simulateWithdrawMorpho(assets);"
+        },
+        {
+          "line": 807,
+          "text": "    function _withdrawMorpho(uint256 assets) internal {"
+        },
+        {
+          "line": 808,
+          "text": "        for (uint256 i; i < withdrawQueue.length; ++i) {"
+        },
+        {
+          "line": 809,
+          "text": "            Id id = withdrawQueue[i];"
+        },
+        {
+          "line": 810,
+          "text": "            MarketParams memory marketParams = _marketParams(id);"
+        },
+        {
+          "line": 811,
+          "text": "            (uint256 supplyAssets,, Market memory market) = _accruedSupplyBalance(marketParams, id);"
+        },
+        {
+          "line": 812,
+          "text": ""
+        },
+        {
+          "line": 813,
+          "text": "            uint256 toWithdraw = UtilsLib.min("
+        },
+        {
+          "line": 814,
+          "text": "                _withdrawable(marketParams, market.totalSupplyAssets, market.totalBorrowAssets, supplyAssets), assets"
+        },
+        {
+          "line": 815,
+          "text": "            );"
+        },
+        {
+          "line": 816,
+          "text": ""
+        },
+        {
+          "line": 817,
+          "text": "            if (toWithdraw > 0) {"
+        },
+        {
+          "line": 818,
+          "text": "                // Using try/catch to skip markets that revert."
+        },
+        {
+          "line": 819,
+          "text": "                try MORPHO.withdraw(marketParams, toWithdraw, 0, address(this), address(this)) {"
+        },
+        {
+          "line": 862,
+          "text": "    function _withdrawable("
+        },
+        {
+          "line": 863,
+          "text": "        MarketParams memory marketParams,"
+        },
+        {
+          "line": 864,
+          "text": "        uint256 totalSupplyAssets,"
+        },
+        {
+          "line": 865,
+          "text": "        uint256 totalBorrowAssets,"
+        },
+        {
+          "line": 866,
+          "text": "        uint256 supplyAssets"
+        },
+        {
+          "line": 867,
+          "text": "    ) internal view returns (uint256) {"
+        },
+        {
+          "line": 868,
+          "text": "        // Inside a flashloan callback, liquidity on Morpho Blue may be limited to the singleton's balance."
+        },
+        {
+          "line": 869,
+          "text": "        uint256 availableLiquidity = UtilsLib.min("
+        },
+        {
+          "line": 870,
+          "text": "            totalSupplyAssets - totalBorrowAssets, ERC20(marketParams.loanToken).balanceOf(address(MORPHO))"
+        },
+        {
+          "line": 871,
+          "text": "        );"
+        },
+        {
+          "line": 872,
+          "text": ""
+        },
+        {
+          "line": 873,
+          "text": "        return UtilsLib.min(supplyAssets, availableLiquidity);"
+        },
+        {
+          "line": 874,
+          "text": "    }"
+        }
+      ]
+    },
+    {
+      "source": "base-vault-wrapper-identity-fallback",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "retrieved_at_utc": "2026-11-08T15:53:17.449576+00:00",
+      "http_status": 200,
+      "bytes_read": 25203,
+      "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae",
+      "excerpts": [
+        {
+          "line": 222,
+          "text": "  // https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        {
+          "line": 223,
+          "text": "  address internal constant USDC_UNDERLYING = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;"
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 243,
+          "text": "  // https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+        },
+        {
+          "line": 244,
+          "text": "  address internal constant USDC_STATA_TOKEN = 0xC768c589647798a6EE01A91FdE98EF2ed046DBD6;"
+        },
+        {
+          "line": 245,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "mechanism": "独立MetaMorpho源码totalAssets累加expectedSupplyAssets，而可退出值另受市场流动性与withdrawQueue限制；此正常机制不证明任何Base金库有漏洞，也不得套给Aave STATA。",
+  "observations": [
+    "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
+    "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
+    "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
+    "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "underlying_asset",
+    "unknown_costs": [
+      "正常退出费用/损失",
+      "交易/gas及L1数据费",
+      "等待与底层变现"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "Base目标admin/upgrade/提款资格unknown",
+  "liabilities": "资产敞口/策略债权和残仓unknown；未交易",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "当前实现/asset不符",
+    "差异可由正常借出/费率/等待解释",
+    "无同状态可比数据",
+    "历史外部注资或收益被遗漏"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+    "https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+  ],
+  "coverage_gaps": [
+    "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
+    "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
+    "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
+    "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
+    "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+  ],
+  "next_check": [
+    "核对8453与Base USDC STATA实现/asset、totalAssets/totalSupply、底层现金、maxWithdraw/maxRedeem及管理员/升级依赖，按实际版本读取。",
+    "恢复Morpho官方注册表后独立发现Base金库并绑定具体实现，正常退出受流动性限制不自动等于估值漏洞。",
+    "对真实异常事件取前后状态、外部资金/收益/费用/亏损与正常队列解释，缺历史则保留UNKNOWN。",
+    "正常二级买入赎回折价交BASE03；只有实证无法正常解释的偏差才列RISK_ONLY交Q00，不设计利用路径。"
+  ],
+  "handoff_to": [
+    "M00",
+    "BASE03"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:AAVE_STATA:USDC:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+      "chain": "BASE",
+      "protocol": "Aave USDC STATA wrapper observation target",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "核对8453与Base USDC STATA实现/asset、totalAssets/totalSupply、底层现金、maxWithdraw/maxRedeem及管理员/升级依赖，按实际版本读取。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "totalAssets大于可提现金就是漏洞或可保证套利",
+      "reason": "正常借贷资产/流动性及费用队列即可形成差异，且没有当前Base比较数据。"
+    },
+    {
+      "claim": "把MetaMorpho源码机制套给名单中的Aave STATA",
+      "reason": "不同实现/协议，必须逐目标绑定代码及状态。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_DEPLOYMENT_AND_RULE_OBSERVATION_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:54:01.784114+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "risk_card": {
+    "anomaly_time": null,
+    "risk_dependency": "unverified accounting versus liquidity relationship",
+    "existing_asset_exposure": "unknown",
+    "counterevidence": "normal lending illiquidity/fees/queues can explain differences",
+    "repair_status": "not assessed; no confirmed defect"
+  }
+}

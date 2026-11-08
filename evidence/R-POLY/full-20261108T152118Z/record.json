@@ -1,0 +1,175 @@
+{
+  "agent_id": "R-POLY",
+  "run_id": "full-20261108T152118Z",
+  "chain": "POLY",
+  "scope": "Polygon预测事件结算→结果份额/wrapper→实际接受的借贷市场→oracle/债务风险映射；无映射不下风险结论",
+  "started_at": "2026-11-08T15:53:07.947930+00:00",
+  "finished_at": "2026-11-08T15:54:30.454783+00:00",
+  "duration_seconds": 82.507,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:54:30.454783+00:00",
+    "beijing": "2026-11-08T23:54:30.454783+08:00",
+    "data_time": "静态源码/部署表抓取时点；事件/链状态unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "137:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb"
+  ],
+  "discovery_source": [
+    "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+    "https://polygon-rpc.com",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+  ],
+  "mechanism": "CTF源码按condition payoutNumerators/payoutDenominator计算redeem。Polymarket旧README提示转V2；V2引入PMCT现金抵押wrapper包USDC/USDCe及on/offramp，不可把PMCT现金wrapper误认为某结果份额wrapper，更不可由collateral命名推断借贷接受。未取得condition→position→wrapper→贷款市场→oracle映射，无已确认估值风险。",
+  "observations": [
+    {
+      "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "field": "L4-5官方声明部署地址更新，指向ctf-exchange-v2",
+      "data_kind": "migration notice; effective time unverified",
+      "legacy_polygon_exchange_static": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+      "scope": "V1 README legacy exchange table; official notice says use V2; legacy liveness/retirement not read onchain"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "system": "Polymarket CTF Exchange V2",
+      "polygon_exchange_static": "0xE111180000d2663C0091e4f400237545B87B996B",
+      "pmct_proxy_static": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "field": "PMCT wraps USDC/USDCe, separate from outcome ERC1155",
+      "identity_status": "OFFICIAL_DEPLOYMENT_TABLE_ONLY_NOT_LIVE_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "fields": "reportPayouts L78-96；redeemPositions L218-254按payout vector",
+      "data_kind": "generic CTF source, deployment match unknown"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "field": "Aave Polygon静态池/资产登记；未取得CTF outcome wrapper接受映射",
+      "scope": "selected registry only, not exhaustive Polygon lending survey"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "实际兑付/赎回成本",
+      "wrapper转换费/精度",
+      "借贷利息与退出费",
+      "当前gas",
+      "真实卖出成本"
+    ]
+  },
+  "capacity": "unknown；无已映射借贷市场或当前敞口",
+  "permissions": "unknown；当前事件结算/争议、wrapper及借贷抵押资格未核验",
+  "liabilities": {
+    "condition_id": null,
+    "position_id": null,
+    "outcome_wrapper": null,
+    "loan_market_id": null,
+    "collateral_oracle": null,
+    "payout_vector": null,
+    "existing_collateral": null,
+    "debt_principal_interest": null,
+    "recoverable_value": null,
+    "repayment_or_liquidation_status": null,
+    "confirmed_mapping": false
+  },
+  "waiting_time": "unknown；未取事件是否已最终结算",
+  "invalidation_conditions": [
+    "缺少结果份额到实际接受wrapper的链上映射",
+    "把PMCT现金抵押当结果份额",
+    "仅oracle时间戳旧而无设计依据就判错误",
+    "事件未最终结算即提前判断输赢",
+    "交易所地址/版本过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+  ],
+  "coverage_gaps": [
+    "Gamma当前事件目录与Polygon RPC CONNECT403，无condition/结果份额/区块。",
+    "30天结算/争议/版本生效窗口未覆盖；静态V2提示不是生效时间证据。",
+    "7天借贷/偿还/清算与兑付活动未覆盖，无交易或事件游标。",
+    "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
+    "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
+  ],
+  "next_check": [
+    "恢复Gamma与Polygon只读RPC后先核chainId137和V2真实部署/实现，确认旧V1是否仍支持目标市场。",
+    "选真实condition核final payout vector、争议与兑付；明确ERC1155 position与任何outcome wrapper，PMCT现金wrapper另档。",
+    "有界读取实际借贷市场注册事件，只有核对同wrapper/loan/oracle/IRM/阈值后才检查债务和敞口。",
+    "无实际接受映射继续排除风险断言；若确认正常清算且有真实价值交POLY02，若风险冲突仅报RISK_ONLY而不提供提取步骤。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [],
+  "findings": [
+    {
+      "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
+      "status": "REJECTED",
+      "chain": "POLY",
+      "market_id": null,
+      "claim": "排除“存在CTF结果份额或名为CollateralToken的PMCT，就证明某借贷市场接受输方份额并有可借收益”的推断。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+        "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "evidence_fields": "V2 README PMCT=USDC/USDCe wrapper；CTF outcome payout机制独立；缺实际贷款wrapper映射",
+      "scope_limit": "证据不足的风险假设被排除；不声称Polygon所有相关借贷市场不存在，也不声称已有漏洞。"
+    }
+  ],
+  "rejections": [
+    {
+      "case": "把PMCT直接等同预测结果份额及可用借贷抵押",
+      "reason": "官方V2说明PMCT是现金抵押wrapper，实际借贷接受映射未建立。"
+    },
+    {
+      "case": "用旧V1地址和未结算情景宣称当前坏账/可提资金",
+      "reason": "官方提示V2迁移且当前condition/债务状态均未查链。"
+    },
+    {
+      "case": "旧oracle时间戳单独构成错误估值证明",
+      "reason": "未核固定价/兑换率/实时价设计与事件最终兑付，不作风险结论。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+    ],
+    "chain_block": null,
+    "conditions_read": 0,
+    "lending_mappings_verified": 0,
+    "history_complete": false
+  },
+  "corrections": [
+    {
+      "target": "N-POLY旧Polymarket/CTF发现入口",
+      "suggested_change": "将旧V1交易所入口标待重新核验，并新增V2官方源码/部署线索；不直接宣告V1已退役。",
+      "legacy_exchange": "137:0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+      "v2_exchange": "137:0xE111180000d2663C0091e4f400237545B87B996B",
+      "pmct_proxy": "137:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "rights_scope": "V1/V2是交易系统部署入口；PMCT为USDC/USDCe现金抵押wrapper；三者均不是特定condition outcome token/贷款抵押映射。",
+      "evidence": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+      ],
+      "verification_needed": "Q00独立复核公告与权益边界；恢复RPC核当前code/运行与迁移生效时间。"
+    }
+  ]
+}

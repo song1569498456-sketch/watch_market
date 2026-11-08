@@ -10,7 +10,17 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_ASSET_AND_BRIDGE_RULES_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:51:10.147775+00:00",
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
     "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
@@ -26,7 +36,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:51:10.147775+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY01/full-20261108T152118Z/record.json"
+  "record": "evidence/POLY01/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "verified_at": "2026-11-08T15:52:19.836508+00:00",
+    "record": "evidence/POLY01/full-20261108T152118Z/record.json"
+  }
 }

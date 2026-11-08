@@ -1,0 +1,8 @@
+{
+  "name": "active_event_discovery",
+  "url": "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+  "fetched_at_utc": "2026-11-08T15:53:07.947937+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

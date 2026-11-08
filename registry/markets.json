@@ -582,6 +582,38 @@
       "owner": "POLY02",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/POLY02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BASE:AAVE_STATA:USDC:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+      "chain": "BASE",
+      "protocol": "Aave USDC STATA wrapper observation target",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "核对8453与Base USDC STATA实现/asset、totalAssets/totalSupply、底层现金、maxWithdraw/maxRedeem及管理员/升级依赖，按实际版本读取。",
+      "owner": "R-BASE",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/R-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BNB:56:Venus:PoolRegistry:0x9f7b01a536afa00ef10310a162877fd792cd0666",
+      "chain": "BNB",
+      "protocol": "Venus Isolated Pools",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json"
+      ],
+      "identity_status": "DEPLOYMENT_ARTIFACT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "registry_discovery_queue",
+      "next_check": "核对BNB链ID56和PoolRegistry代理/实现，读当前所有已注册pool、Comptroller和vToken/underlying逐项登记；不从币名判断价值。",
+      "owner": "R-BNB",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/R-BNB/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

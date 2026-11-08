@@ -1,0 +1,136 @@
+{
+  "agent_id": "R-BNB",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 借贷抵押资产资格与真实兑现风险；自主发现Venus isolated-pools注册表文档与权限机制基线",
+  "started_at": "2026-11-08T15:53:01.221084+00:00",
+  "finished_at": "2026-11-08T15:54:10.950788+00:00",
+  "duration_seconds": 69.73,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:54:10.950788+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://api.venus.io/isolated-pools/pools?chainId=56",
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json",
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol"
+  ],
+  "mechanism": "资产名字/可创建token不构成抵押资格；上市、抵押因子、oracle/权限、上限/暂停及真实退出需要分开核验，借出现金对应债务不是收益。",
+  "observations": [
+    "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
+    "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
+    "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
+    "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "资产买卖/赎回成本",
+      "借款本息",
+      "gas",
+      "坏账/回收能力"
+    ]
+  },
+  "capacity": "unknown，真实市场规模/坏账未读取",
+  "permissions": "only registry/support、治理oracle配置为源码条件；现行ACL unknown",
+  "liabilities": "unknown，未核任何账户债务；不把借款现金当净资产",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "部署版本与源码不符",
+    "资产身份/出口未核",
+    "凭名称或借款流出判定风险/收益",
+    "缺少债务/回收账本"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json",
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol"
+  ],
+  "coverage_gaps": [
+    "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
+    "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
+    "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
+    "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
+    "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+  ],
+  "next_check": [
+    "核对BNB链ID56和PoolRegistry代理/实现，读当前所有已注册pool、Comptroller和vToken/underlying逐项登记；不从币名判断价值。",
+    "对每个具体抵押物独立核发行人、桥储备/暂停、正常赎回或现货退出、黑名单/税/卖出限制，和oracle价格/精度/时效交叉对照。",
+    "读取listed/抵押因子/借贷上限/暂停、oracle tokenConfigs/feed与治理权限，先验证当前部署再比较源码。",
+    "补30天变更与7天债务/利息/偿还/坏账/回收历史；若真实正常清算可行交M00，若估值冲突仅风险报告，不提供利用调用。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "BNB:56:Venus:PoolRegistry:0x9f7b01a536afa00ef10310a162877fd792cd0666",
+      "chain": "BNB",
+      "protocol": "Venus Isolated Pools",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json"
+      ],
+      "identity_status": "DEPLOYMENT_ARTIFACT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "registry_discovery_queue",
+      "next_check": "核对BNB链ID56和PoolRegistry代理/实现，读当前所有已注册pool、Comptroller和vToken/underlying逐项登记；不从币名判断价值。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+      "chain": "BNB",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除“任何自建ERC20或名字叫TEST/DAI的资产可直接抵押并无负债获利”的推断。所读Venus isolated-pools源码支持市场需PoolRegistry调用；加入市场/借款需已上市并经oracle、上限、流动性校验。代码不证明现有资产全部安全，也未确认任何当前风险敞口。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+        "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol"
+      ],
+      "next_check": "核对BNB链ID56和PoolRegistry代理/实现，读当前所有已注册pool、Comptroller和vToken/underlying逐项登记；不从币名判断价值。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "任意ERC20/TEST资产可直接抵押借款获利",
+      "reason": "排除“任何自建ERC20或名字叫TEST/DAI的资产可直接抵押并无负债获利”的推断。所读Venus isolated-pools源码支持市场需PoolRegistry调用；加入市场/借款需已上市并经oracle、上限、流动性校验。代码不证明现有资产全部安全，也未确认任何当前风险敞口。"
+    },
+    {
+      "case": "只有名字DAI即1美元或TEST即无价值",
+      "reason": "必须核链/合约/发行权益与真实出口，名称不足以判定。"
+    },
+    {
+      "case": "借款已流出=无负债收益",
+      "reason": "未核债务本息、偿还和可回收资产，现金流不能当净资产。"
+    }
+  ],
+  "observed_cursor": {
+    "registry_document_address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+    "code_mechanisms_read": [
+      "supportMarket",
+      "preBorrowHook",
+      "_addToMarket",
+      "getUnderlyingPrice",
+      "setTokenConfig"
+    ],
+    "collateral_assets_chain_checked": 0,
+    "debts_checked": 0,
+    "transactions_analyzed": 0,
+    "current_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
+  "status": "REJECTED",
+  "chain": "POLY",
+  "market_id": null,
+  "claim": "排除“存在CTF结果份额或名为CollateralToken的PMCT，就证明某借贷市场接受输方份额并有可借收益”的推断。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+  ],
+  "evidence_fields": "V2 README PMCT=USDC/USDCe wrapper；CTF outcome payout机制独立；缺实际贷款wrapper映射",
+  "scope_limit": "证据不足的风险假设被排除；不声称Polygon所有相关借贷市场不存在，也不声称已有漏洞。",
+  "owner": "R-POLY",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+}

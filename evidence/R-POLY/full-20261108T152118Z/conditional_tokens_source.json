@@ -1,0 +1,251 @@
+{
+  "name": "conditional_tokens_source",
+  "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+  "fetched_at_utc": "2026-11-08T15:53:11.394810+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08",
+  "excerpts": [
+    {
+      "line": 9,
+      "text": "    /// @param conditionId The condition's ID. This ID may be derived from the other three parameters via ``keccak256(abi.encodePacked(oracle, questionId, outcomeSlotCount))``."
+    },
+    {
+      "line": 14,
+      "text": "        bytes32 indexed conditionId,"
+    },
+    {
+      "line": 21,
+      "text": "        bytes32 indexed conditionId,"
+    },
+    {
+      "line": 25,
+      "text": "        uint[] payoutNumerators"
+    },
+    {
+      "line": 31,
+      "text": "        IERC20 collateralToken,"
+    },
+    {
+      "line": 33,
+      "text": "        bytes32 indexed conditionId,"
+    },
+    {
+      "line": 40,
+      "text": "        IERC20 collateralToken,"
+    },
+    {
+      "line": 42,
+      "text": "        bytes32 indexed conditionId,"
+    },
+    {
+      "line": 48,
+      "text": "        IERC20 indexed collateralToken,"
+    },
+    {
+      "line": 50,
+      "text": "        bytes32 conditionId,"
+    },
+    {
+      "line": 57,
+      "text": "    mapping(bytes32 => uint[]) public payoutNumerators;"
+    },
+    {
+      "line": 59,
+      "text": "    mapping(bytes32 => uint) public payoutDenominator;"
+    },
+    {
+      "line": 69,
+      "text": "        bytes32 conditionId = CTHelpers.getConditionId(oracle, questionId, outcomeSlotCount);"
+    },
+    {
+      "line": 70,
+      "text": "        require(payoutNumerators[conditionId].length == 0, \"condition already prepared\");"
+    },
+    {
+      "line": 71,
+      "text": "        payoutNumerators[conditionId] = new uint[](outcomeSlotCount);"
+    },
+    {
+      "line": 72,
+      "text": "        emit ConditionPreparation(conditionId, oracle, questionId, outcomeSlotCount);"
+    },
+    {
+      "line": 75,
+      "text": "    /// @dev Called by the oracle for reporting results of conditions. Will set the payout vector for the condition with the ID ``keccak256(abi.encodePacked(oracle, questionId, outcomeSlotCount))``, where oracle is the message sender, questionId is one of the parameters of this function, and outcomeSlotCount is the length of the payouts parameter, which contains the payoutNumerators for each outcome slot of the condition."
+    },
+    {
+      "line": 78,
+      "text": "    function reportPayouts(bytes32 questionId, uint[] calldata payouts) external {"
+    },
+    {
+      "line": 82,
+      "text": "        bytes32 conditionId = CTHelpers.getConditionId(msg.sender, questionId, outcomeSlotCount);"
+    },
+    {
+      "line": 83,
+      "text": "        require(payoutNumerators[conditionId].length == outcomeSlotCount, \"condition not prepared or found\");"
+    },
+    {
+      "line": 84,
+      "text": "        require(payoutDenominator[conditionId] == 0, \"payout denominator already set\");"
+    },
+    {
+      "line": 91,
+      "text": "            require(payoutNumerators[conditionId][i] == 0, \"payout numerator already set\");"
+    },
+    {
+      "line": 92,
+      "text": "            payoutNumerators[conditionId][i] = num;"
+    },
+    {
+      "line": 95,
+      "text": "        payoutDenominator[conditionId] = den;"
+    },
+    {
+      "line": 96,
+      "text": "        emit ConditionResolution(conditionId, msg.sender, questionId, outcomeSlotCount, payoutNumerators[conditionId]);"
+    },
+    {
+      "line": 100,
+      "text": "    /// @param collateralToken The address of the positions' backing collateral token."
+    },
+    {
+      "line": 102,
+      "text": "    /// @param conditionId The ID of the condition to split on."
+    },
+    {
+      "line": 106,
+      "text": "        IERC20 collateralToken,"
+    },
+    {
+      "line": 108,
+      "text": "        bytes32 conditionId,"
+    },
+    {
+      "line": 113,
+      "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+    },
+    {
+      "line": 128,
+      "text": "            positionIds[i] = CTHelpers.getPositionId(collateralToken, CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+    },
+    {
+      "line": 135,
+      "text": "                require(collateralToken.transferFrom(msg.sender, address(this), amount), \"could not receive collateral tokens\");"
+    },
+    {
+      "line": 139,
+      "text": "                    CTHelpers.getPositionId(collateralToken, parentCollectionId),"
+    },
+    {
+      "line": 149,
+      "text": "                CTHelpers.getPositionId(collateralToken,"
+    },
+    {
+      "line": 150,
+      "text": "                    CTHelpers.getCollectionId(parentCollectionId, conditionId, fullIndexSet ^ freeIndexSet)),"
+    },
+    {
+      "line": 162,
+      "text": "        emit PositionSplit(msg.sender, collateralToken, parentCollectionId, conditionId, partition, amount);"
+    },
+    {
+      "line": 166,
+      "text": "        IERC20 collateralToken,"
+    },
+    {
+      "line": 168,
+      "text": "        bytes32 conditionId,"
+    },
+    {
+      "line": 173,
+      "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+    },
+    {
+      "line": 185,
+      "text": "            positionIds[i] = CTHelpers.getPositionId(collateralToken, CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+    },
+    {
+      "line": 196,
+      "text": "                require(collateralToken.transfer(msg.sender, amount), \"could not send collateral tokens\");"
+    },
+    {
+      "line": 200,
+      "text": "                    CTHelpers.getPositionId(collateralToken, parentCollectionId),"
+    },
+    {
+      "line": 208,
+      "text": "                CTHelpers.getPositionId(collateralToken,"
+    },
+    {
+      "line": 209,
+      "text": "                    CTHelpers.getCollectionId(parentCollectionId, conditionId, fullIndexSet ^ freeIndexSet)),"
+    },
+    {
+      "line": 215,
+      "text": "        emit PositionsMerge(msg.sender, collateralToken, parentCollectionId, conditionId, partition, amount);"
+    },
+    {
+      "line": 218,
+      "text": "    function redeemPositions(IERC20 collateralToken, bytes32 parentCollectionId, bytes32 conditionId, uint[] calldata indexSets) external {"
+    },
+    {
+      "line": 219,
+      "text": "        uint den = payoutDenominator[conditionId];"
+    },
+    {
+      "line": 221,
+      "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+    },
+    {
+      "line": 230,
+      "text": "            uint positionId = CTHelpers.getPositionId(collateralToken,"
+    },
+    {
+      "line": 231,
+      "text": "                CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+    },
+    {
+      "line": 233,
+      "text": "            uint payoutNumerator = 0;"
+    },
+    {
+      "line": 236,
+      "text": "                    payoutNumerator = payoutNumerator.add(payoutNumerators[conditionId][j]);"
+    },
+    {
+      "line": 242,
+      "text": "                totalPayout = totalPayout.add(payoutStake.mul(payoutNumerator).div(den));"
+    },
+    {
+      "line": 249,
+      "text": "                require(collateralToken.transfer(msg.sender, totalPayout), \"could not transfer payout to message sender\");"
+    },
+    {
+      "line": 251,
+      "text": "                _mint(msg.sender, CTHelpers.getPositionId(collateralToken, parentCollectionId), totalPayout, \"\");"
+    },
+    {
+      "line": 254,
+      "text": "        emit PayoutRedemption(msg.sender, collateralToken, parentCollectionId, conditionId, indexSets, totalPayout);"
+    },
+    {
+      "line": 258,
+      "text": "    /// @param conditionId ID of the condition."
+    },
+    {
+      "line": 260,
+      "text": "    function getOutcomeSlotCount(bytes32 conditionId) external view returns (uint) {"
+    },
+    {
+      "line": 261,
+      "text": "        return payoutNumerators[conditionId].length;"
+    },
+    {
+      "line": 268,
+      "text": "    function getConditionId(address oracle, bytes32 questionId, uint outcomeSlotCount) external pure returns (bytes32) {"
+    }
+  ],
+  "success": true
+}

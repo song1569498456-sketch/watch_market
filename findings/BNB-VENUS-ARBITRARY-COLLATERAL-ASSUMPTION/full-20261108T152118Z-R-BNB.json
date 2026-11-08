@@ -1,0 +1,20 @@
+{
+  "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+  "chain": "BNB",
+  "status": "REJECTED",
+  "market_ids": [],
+  "mechanism": "排除“任何自建ERC20或名字叫TEST/DAI的资产可直接抵押并无负债获利”的推断。所读Venus isolated-pools源码支持市场需PoolRegistry调用；加入市场/借款需已上市并经oracle、上限、流动性校验。代码不证明现有资产全部安全，也未确认任何当前风险敞口。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol"
+  ],
+  "next_check": "核对BNB链ID56和PoolRegistry代理/实现，读当前所有已注册pool、Comptroller和vToken/underlying逐项登记；不从币名判断价值。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "R-BNB",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/R-BNB/full-20261108T152118Z/record.json"
+}

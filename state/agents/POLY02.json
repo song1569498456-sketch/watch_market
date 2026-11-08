@@ -14,7 +14,21 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "pool_document_address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "logic_source_read": "aave-v3-origin/main",
+      "borrowers_read": 0,
+      "liquidations_analyzed": 0,
+      "quotes_obtained": 0,
+      "current_block": null,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
     "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
@@ -31,7 +45,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:51:39.625601+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY02/full-20261108T152118Z/record.json"
+  "record": "evidence/POLY02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "verified_at": "2026-11-08T15:52:19.836508+00:00",
+    "record": "evidence/POLY02/full-20261108T152118Z/record.json"
+  }
 }

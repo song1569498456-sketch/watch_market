@@ -1,0 +1,195 @@
+{
+  "name": "polygon_lending_registry",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+  "fetched_at_utc": "2026-11-08T15:53:12.798079+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+  "excerpts": [
+    {
+      "line": 12,
+      "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+    },
+    {
+      "line": 19,
+      "text": "  IAaveOracle internal constant ORACLE = IAaveOracle(0xb023e699F5a33916Ea823A16485e259257cA8Bd1);"
+    },
+    {
+      "line": 33,
+      "text": "  address internal constant POOL_IMPL = 0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e;"
+    },
+    {
+      "line": 110,
+      "text": "  address internal constant EDGE_RISK_ORACLE = 0x9f6aA2aB14bFF53e4b79A81ce1554F1DFdbb6608;"
+    },
+    {
+      "line": 120,
+      "text": "  address internal constant DAI_UNDERLYING = 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063;"
+    },
+    {
+      "line": 131,
+      "text": "  address internal constant DAI_ORACLE = 0xa1913Df228db08F02F3F3Dc0f397Af3A2d2f96A1;"
+    },
+    {
+      "line": 140,
+      "text": "  address internal constant LINK_UNDERLYING = 0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39;"
+    },
+    {
+      "line": 151,
+      "text": "  address internal constant LINK_ORACLE = 0xd9FFdb71EbE7496cC440152d43986Aae0AB76665;"
+    },
+    {
+      "line": 161,
+      "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+    },
+    {
+      "line": 172,
+      "text": "  address internal constant USDCe_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+    },
+    {
+      "line": 185,
+      "text": "  address internal constant WBTC_UNDERLYING = 0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6;"
+    },
+    {
+      "line": 196,
+      "text": "  address internal constant WBTC_ORACLE = 0xc907E116054Ad103354f2D350FD2514433D57F6f;"
+    },
+    {
+      "line": 206,
+      "text": "  address internal constant WETH_UNDERLYING = 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619;"
+    },
+    {
+      "line": 217,
+      "text": "  address internal constant WETH_ORACLE = 0xF9680D99D6C9589e2a93a78A04A279e509205945;"
+    },
+    {
+      "line": 227,
+      "text": "  address internal constant USDT0_UNDERLYING = 0xc2132D05D31c914a87C6611C10748AEb04B58e8F;"
+    },
+    {
+      "line": 238,
+      "text": "  address internal constant USDT0_ORACLE = 0x01Aba1Fe7D72a3490bEef7CD0C09e1Ba2dD88D83;"
+    },
+    {
+      "line": 251,
+      "text": "  address internal constant AAVE_UNDERLYING = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;"
+    },
+    {
+      "line": 262,
+      "text": "  address internal constant AAVE_ORACLE = 0x72484B12719E23115761D5DA1646945632979bB6;"
+    },
+    {
+      "line": 272,
+      "text": "  address internal constant WPOL_UNDERLYING = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270;"
+    },
+    {
+      "line": 283,
+      "text": "  address internal constant WPOL_ORACLE = 0xAB594600376Ec9fD91F8e885dADF0CE036862dE0;"
+    },
+    {
+      "line": 293,
+      "text": "  address internal constant CRV_UNDERLYING = 0x172370d5Cd63279eFa6d502DAB29171933a610AF;"
+    },
+    {
+      "line": 304,
+      "text": "  address internal constant CRV_ORACLE = 0x336584C8E6Dc19637A5b36206B1c79923111b405;"
+    },
+    {
+      "line": 313,
+      "text": "  address internal constant SUSHI_UNDERLYING = 0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a;"
+    },
+    {
+      "line": 324,
+      "text": "  address internal constant SUSHI_ORACLE = 0x49B0c695039243BBfEb8EcD054EB70061fd54aa0;"
+    },
+    {
+      "line": 334,
+      "text": "  address internal constant GHST_UNDERLYING = 0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7;"
+    },
+    {
+      "line": 345,
+      "text": "  address internal constant GHST_ORACLE = 0x61c417D189A9983B3eD9054692c16451E5391058;"
+    },
+    {
+      "line": 355,
+      "text": "  address internal constant BAL_UNDERLYING = 0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3;"
+    },
+    {
+      "line": 366,
+      "text": "  address internal constant BAL_ORACLE = 0x55Eb6D9432a9842844b60Cd9D38497c0be7E623D;"
+    },
+    {
+      "line": 375,
+      "text": "  address internal constant DPI_UNDERLYING = 0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369;"
+    },
+    {
+      "line": 386,
+      "text": "  address internal constant DPI_ORACLE = 0x105fe43207CE8331555C9Be8c13718d6DeD2fD97;"
+    },
+    {
+      "line": 395,
+      "text": "  address internal constant EURS_UNDERLYING = 0xE111178A87A3BFf0c8d18DECBa5798827539Ae99;"
+    },
+    {
+      "line": 406,
+      "text": "  address internal constant EURS_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+    },
+    {
+      "line": 416,
+      "text": "  address internal constant jEUR_UNDERLYING = 0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c;"
+    },
+    {
+      "line": 427,
+      "text": "  address internal constant jEUR_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+    },
+    {
+      "line": 437,
+      "text": "  address internal constant EURA_UNDERLYING = 0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4;"
+    },
+    {
+      "line": 448,
+      "text": "  address internal constant EURA_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+    },
+    {
+      "line": 458,
+      "text": "  address internal constant miMATIC_UNDERLYING = 0xa3Fa99A148fA48D14Ed51d610c367C61876997F1;"
+    },
+    {
+      "line": 469,
+      "text": "  address internal constant miMATIC_ORACLE = 0xe756E3e985Bb5666ce7CE07d47EA97E1Fd33B834;"
+    },
+    {
+      "line": 479,
+      "text": "  address internal constant stMATIC_UNDERLYING = 0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4;"
+    },
+    {
+      "line": 490,
+      "text": "  address internal constant stMATIC_ORACLE = 0x6D02E35031C4D99ee3A6A2BA47FaD0cFE355cA8f;"
+    },
+    {
+      "line": 500,
+      "text": "  address internal constant MaticX_UNDERLYING = 0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6;"
+    },
+    {
+      "line": 511,
+      "text": "  address internal constant MaticX_ORACLE = 0xB0A72A5e454890e9715e059e8df8582a6B383DE3;"
+    },
+    {
+      "line": 521,
+      "text": "  address internal constant wstETH_UNDERLYING = 0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD;"
+    },
+    {
+      "line": 532,
+      "text": "  address internal constant wstETH_ORACLE = 0xBD96b5ABBC6048c28184b462167E487533F2e35E;"
+    },
+    {
+      "line": 542,
+      "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+    },
+    {
+      "line": 553,
+      "text": "  address internal constant USDCn_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+    }
+  ],
+  "success": true
+}

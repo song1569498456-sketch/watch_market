@@ -1,0 +1,170 @@
+{
+  "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:53:25.423235+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c",
+  "excerpts": [
+    {
+      "line": 1,
+      "text": "# Polymarket CTF Exchange V2"
+    },
+    {
+      "line": 3,
+      "text": "The CTF Exchange V2 is the core smart contract system for trading [Conditional Token Framework](https://docs.gnosis.io/conditionaltokens/) (CTF) assets on Polymarket. It implements operator-driven order matching with support for multiple settlement types, signature schemes, and a wrapped collateral layer."
+    },
+    {
+      "line": 5,
+      "text": "## Deployed Contracts"
+    },
+    {
+      "line": 7,
+      "text": "### Polygon"
+    },
+    {
+      "line": 11,
+      "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f`](https://polygonscan.com/address/0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f) |"
+    },
+    {
+      "line": 12,
+      "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |"
+    },
+    {
+      "line": 13,
+      "text": "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |"
+    },
+    {
+      "line": 14,
+      "text": "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |"
+    },
+    {
+      "line": 15,
+      "text": "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |"
+    },
+    {
+      "line": 16,
+      "text": "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |"
+    },
+    {
+      "line": 17,
+      "text": "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |"
+    },
+    {
+      "line": 18,
+      "text": "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |"
+    },
+    {
+      "line": 19,
+      "text": "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |"
+    },
+    {
+      "line": 25,
+      "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29`](https://amoy.polygonscan.com/address/0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29) |"
+    },
+    {
+      "line": 26,
+      "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://amoy.polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |"
+    },
+    {
+      "line": 27,
+      "text": "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://amoy.polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |"
+    },
+    {
+      "line": 28,
+      "text": "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://amoy.polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |"
+    },
+    {
+      "line": 29,
+      "text": "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://amoy.polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |"
+    },
+    {
+      "line": 30,
+      "text": "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://amoy.polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |"
+    },
+    {
+      "line": 31,
+      "text": "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://amoy.polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |"
+    },
+    {
+      "line": 32,
+      "text": "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://amoy.polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |"
+    },
+    {
+      "line": 33,
+      "text": "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://amoy.polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |"
+    },
+    {
+      "line": 41,
+      "text": "| Quantstamp | [CTF Exchange V2 - Quantstamp - March 2026](audits/CTF%20Exchange%20V2%20-%20Quantstamp%20-%20March%202026.pdf) |"
+    },
+    {
+      "line": 42,
+      "text": "| Cantina | [CTF Exchange V2 - Cantina - March 2026](audits/CTF%20Exchange%20V2%20-%20Cantina%20-%20March%202026.pdf) |"
+    },
+    {
+      "line": 59,
+      "text": "│   ├── Fees          — Fee validation and collection"
+    },
+    {
+      "line": 82,
+      "text": "│   ├── CtfCollateralAdapter.sol        — CTF ↔ PMCT adapter"
+    },
+    {
+      "line": 83,
+      "text": "│   └── NegRiskCtfCollateralAdapter.sol — Negative Risk variant"
+    },
+    {
+      "line": 84,
+      "text": "└── collateral/"
+    },
+    {
+      "line": 85,
+      "text": "    ├── CollateralToken.sol             — PMCT (PolyMarket Collateral Token)"
+    },
+    {
+      "line": 86,
+      "text": "    ├── CollateralOnramp.sol            — Wrap USDC/USDCe → PMCT"
+    },
+    {
+      "line": 87,
+      "text": "    └── CollateralOfframp.sol           — Unwrap PMCT → USDC/USDCe"
+    },
+    {
+      "line": 97,
+      "text": "   - **MINT** (both BUY) — Collateral split into outcome tokens via CTF"
+    },
+    {
+      "line": 98,
+      "text": "   - **MERGE** (both SELL) — Outcome tokens merged back into collateral via CTF"
+    },
+    {
+      "line": 111,
+      "text": "### Collateral System"
+    },
+    {
+      "line": 113,
+      "text": "The exchange trades in **PMCT** (PolyMarket Collateral Token), an ERC20 wrapper around USDC/USDCe:"
+    },
+    {
+      "line": 114,
+      "text": "- **CollateralOnramp**: Wraps supported assets into PMCT"
+    },
+    {
+      "line": 115,
+      "text": "- **CollateralOfframp**: Unwraps PMCT back to supported assets"
+    },
+    {
+      "line": 116,
+      "text": "- **CtfCollateralAdapter**: Bridges PMCT ↔ CTF operations (split/merge/redeem)"
+    },
+    {
+      "line": 125,
+      "text": "- **Wrapped collateral (PMCT)** — New collateral token layer with onramp/offramp, replacing direct USDC usage. Enables the collateral adapter pattern for CTF interactions."
+    },
+    {
+      "line": 126,
+      "text": "- **Configurable max fee rate** — Admin-settable maximum fee rate in basis points (default 500 = 5%), enforced per-order."
+    }
+  ],
+  "success": true
+}

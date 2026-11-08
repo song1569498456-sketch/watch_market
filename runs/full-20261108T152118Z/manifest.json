@@ -351,9 +351,10 @@
       "duration_seconds": 49.627,
       "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/POLY01/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/POLY01.txt",
-      "prompt_sha256": "92d769b585b45c1c74f3752bc855c0239dbe114ee000aa088843d0bac2c66d37"
+      "prompt_sha256": "92d769b585b45c1c74f3752bc855c0239dbe114ee000aa088843d0bac2c66d37",
+      "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e"
     },
     "POLY02": {
       "status": "PARTIAL",
@@ -361,9 +362,10 @@
       "duration_seconds": 69.511,
       "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/POLY02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/POLY02.txt",
-      "prompt_sha256": "0da46a5b941a46e8564bff9ff3ed04acae755a2857fde73c36e956c19e05fe9e"
+      "prompt_sha256": "0da46a5b941a46e8564bff9ff3ed04acae755a2857fde73c36e956c19e05fe9e",
+      "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e"
     },
     "POLY03": {
       "status": "PARTIAL",
@@ -371,18 +373,40 @@
       "duration_seconds": 48.068,
       "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/POLY03/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/POLY03.txt",
-      "prompt_sha256": "d870491aa248dc5ab1ccd5748229f069a3ded35f47fe4b5c3573df4298676f86"
+      "prompt_sha256": "d870491aa248dc5ab1ccd5748229f069a3ded35f47fe4b5c3573df4298676f86",
+      "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e"
     },
     "R-BASE": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 68.641,
+      "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/R-BASE/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/R-BASE.txt",
+      "prompt_sha256": "41a390fb4b82c75682d4d466d15e20f5a3aa78f8fd093ca1ae9641402df934c9"
     },
     "R-BNB": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 69.73,
+      "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/R-BNB/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/R-BNB.txt",
+      "prompt_sha256": "6c3119fe4810ec8dab61b0a8cc54bcea2a12b4f35f24e239137f7d264ae803aa"
     },
     "R-POLY": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 82.507,
+      "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/R-POLY/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/R-POLY.txt",
+      "prompt_sha256": "0d2326354930445213f9404458cfbf39ed45674952ae41ad029ce3f54864c038"
     },
     "SOL01": {
       "status": "PARTIAL",
@@ -545,6 +569,17 @@
         "POLY03"
       ],
       "merged_at": "2026-11-08T15:52:14.602730+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e"
+    },
+    {
+      "batch": 13,
+      "agents": [
+        "R-BASE",
+        "R-BNB",
+        "R-POLY"
+      ],
+      "merged_at": "2026-11-08T15:55:17.599521+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -632,6 +667,13 @@
       "verified_at": "2026-11-08T15:49:44.821008+00:00",
       "verified_files": 220,
       "label": "batch ETH05 OP01 OP02"
+    },
+    {
+      "commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+      "remote_head": "14339a53a416913ca1daddaa53cd7a972762800e",
+      "verified_at": "2026-11-08T15:52:19.836508+00:00",
+      "verified_files": 239,
+      "label": "batch POLY01 POLY02 POLY03"
     }
   ]
 }

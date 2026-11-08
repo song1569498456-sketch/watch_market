@@ -1,0 +1,719 @@
+{
+  "started_at": "2026-11-08T15:53:07.947930+00:00",
+  "data_seconds": 6.114,
+  "attempts": [
+    {
+      "name": "active_event_discovery",
+      "url": "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+      "fetched_at_utc": "2026-11-08T15:53:07.947937+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "polygon_chain_identity",
+      "url": "https://polygon-rpc.com",
+      "fetched_at_utc": "2026-11-08T15:53:08.970245+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "polymarket_exchange_deployment",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "fetched_at_utc": "2026-11-08T15:53:09.980832+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+      "excerpts": [
+        {
+          "line": 4,
+          "text": "> Contract addresses have been updated. Please refer to the V2 repository for the latest deployments and integration details:"
+        },
+        {
+          "line": 5,
+          "text": "> https://github.com/Polymarket/ctf-exchange-v2"
+        },
+        {
+          "line": 7,
+          "text": "# Polymarket CTF Exchange"
+        },
+        {
+          "line": 13,
+          "text": "[version-badge]: https://img.shields.io/github/v/release/polymarket/ctf-exchange.svg?label=version"
+        },
+        {
+          "line": 14,
+          "text": "[version-link]: https://github.com/Polymarket/ctf-exchange/releases"
+        },
+        {
+          "line": 15,
+          "text": "[license-badge]: https://img.shields.io/github/license/polymarket/ctf-exchange"
+        },
+        {
+          "line": 16,
+          "text": "[license-link]: https://github.com/Polymarket/ctf-exchange/blob/main/LICENSE.md"
+        },
+        {
+          "line": 17,
+          "text": "[ci-badge]: https://github.com/Polymarket/ctf-exchange/actions/workflows/Tests.yml/badge.svg"
+        },
+        {
+          "line": 18,
+          "text": "[ci-link]: https://github.com/Polymarket/ctf-exchange/actions/workflows/Tests.yml"
+        },
+        {
+          "line": 22,
+          "text": "The Polymarket CTF Exchange is an exchange protocol that facilitates atomic swaps between [Conditional Tokens Framework(CTF)](https://docs.gnosis.io/conditionaltokens/) ERC1155 assets and an ERC20 collateral asset."
+        },
+        {
+          "line": 24,
+          "text": "It is intended to be used in a hybrid-decentralized exchange model wherein there is an operator that provides offchain matching services while settlement happens on-chain, non-custodially."
+        },
+        {
+          "line": 29,
+          "text": "Docs for the CTF Exchange are available in this repo [here](./docs/Overview.md)."
+        },
+        {
+          "line": 33,
+          "text": "These contracts have been audited by Chainsecurity and the report is available [here](./audit/ChainSecurity_Polymarket_Exchange_audit.pdf)."
+        },
+        {
+          "line": 40,
+          "text": "| Polygon          | [0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E](https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E)|"
+        },
+        {
+          "line": 41,
+          "text": "| Amoy           | [0xdFE02Eb6733538f8Ea35D585af8DE5958AD99E40](https://amoy.polygonscan.com/address/0xdfe02eb6733538f8ea35d585af8de5958ad99e40)|"
+        },
+        {
+          "line": 58,
+          "text": "To run tests in contracts matching a regex pattern `forge test --mc PATTERN`"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "conditional_tokens_source",
+      "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "fetched_at_utc": "2026-11-08T15:53:11.394810+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "    /// @param conditionId The condition's ID. This ID may be derived from the other three parameters via ``keccak256(abi.encodePacked(oracle, questionId, outcomeSlotCount))``."
+        },
+        {
+          "line": 14,
+          "text": "        bytes32 indexed conditionId,"
+        },
+        {
+          "line": 21,
+          "text": "        bytes32 indexed conditionId,"
+        },
+        {
+          "line": 25,
+          "text": "        uint[] payoutNumerators"
+        },
+        {
+          "line": 31,
+          "text": "        IERC20 collateralToken,"
+        },
+        {
+          "line": 33,
+          "text": "        bytes32 indexed conditionId,"
+        },
+        {
+          "line": 40,
+          "text": "        IERC20 collateralToken,"
+        },
+        {
+          "line": 42,
+          "text": "        bytes32 indexed conditionId,"
+        },
+        {
+          "line": 48,
+          "text": "        IERC20 indexed collateralToken,"
+        },
+        {
+          "line": 50,
+          "text": "        bytes32 conditionId,"
+        },
+        {
+          "line": 57,
+          "text": "    mapping(bytes32 => uint[]) public payoutNumerators;"
+        },
+        {
+          "line": 59,
+          "text": "    mapping(bytes32 => uint) public payoutDenominator;"
+        },
+        {
+          "line": 69,
+          "text": "        bytes32 conditionId = CTHelpers.getConditionId(oracle, questionId, outcomeSlotCount);"
+        },
+        {
+          "line": 70,
+          "text": "        require(payoutNumerators[conditionId].length == 0, \"condition already prepared\");"
+        },
+        {
+          "line": 71,
+          "text": "        payoutNumerators[conditionId] = new uint[](outcomeSlotCount);"
+        },
+        {
+          "line": 72,
+          "text": "        emit ConditionPreparation(conditionId, oracle, questionId, outcomeSlotCount);"
+        },
+        {
+          "line": 75,
+          "text": "    /// @dev Called by the oracle for reporting results of conditions. Will set the payout vector for the condition with the ID ``keccak256(abi.encodePacked(oracle, questionId, outcomeSlotCount))``, where oracle is the message sender, questionId is one of the parameters of this function, and outcomeSlotCount is the length of the payouts parameter, which contains the payoutNumerators for each outcome slot of the condition."
+        },
+        {
+          "line": 78,
+          "text": "    function reportPayouts(bytes32 questionId, uint[] calldata payouts) external {"
+        },
+        {
+          "line": 82,
+          "text": "        bytes32 conditionId = CTHelpers.getConditionId(msg.sender, questionId, outcomeSlotCount);"
+        },
+        {
+          "line": 83,
+          "text": "        require(payoutNumerators[conditionId].length == outcomeSlotCount, \"condition not prepared or found\");"
+        },
+        {
+          "line": 84,
+          "text": "        require(payoutDenominator[conditionId] == 0, \"payout denominator already set\");"
+        },
+        {
+          "line": 91,
+          "text": "            require(payoutNumerators[conditionId][i] == 0, \"payout numerator already set\");"
+        },
+        {
+          "line": 92,
+          "text": "            payoutNumerators[conditionId][i] = num;"
+        },
+        {
+          "line": 95,
+          "text": "        payoutDenominator[conditionId] = den;"
+        },
+        {
+          "line": 96,
+          "text": "        emit ConditionResolution(conditionId, msg.sender, questionId, outcomeSlotCount, payoutNumerators[conditionId]);"
+        },
+        {
+          "line": 100,
+          "text": "    /// @param collateralToken The address of the positions' backing collateral token."
+        },
+        {
+          "line": 102,
+          "text": "    /// @param conditionId The ID of the condition to split on."
+        },
+        {
+          "line": 106,
+          "text": "        IERC20 collateralToken,"
+        },
+        {
+          "line": 108,
+          "text": "        bytes32 conditionId,"
+        },
+        {
+          "line": 113,
+          "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+        },
+        {
+          "line": 128,
+          "text": "            positionIds[i] = CTHelpers.getPositionId(collateralToken, CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+        },
+        {
+          "line": 135,
+          "text": "                require(collateralToken.transferFrom(msg.sender, address(this), amount), \"could not receive collateral tokens\");"
+        },
+        {
+          "line": 139,
+          "text": "                    CTHelpers.getPositionId(collateralToken, parentCollectionId),"
+        },
+        {
+          "line": 149,
+          "text": "                CTHelpers.getPositionId(collateralToken,"
+        },
+        {
+          "line": 150,
+          "text": "                    CTHelpers.getCollectionId(parentCollectionId, conditionId, fullIndexSet ^ freeIndexSet)),"
+        },
+        {
+          "line": 162,
+          "text": "        emit PositionSplit(msg.sender, collateralToken, parentCollectionId, conditionId, partition, amount);"
+        },
+        {
+          "line": 166,
+          "text": "        IERC20 collateralToken,"
+        },
+        {
+          "line": 168,
+          "text": "        bytes32 conditionId,"
+        },
+        {
+          "line": 173,
+          "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+        },
+        {
+          "line": 185,
+          "text": "            positionIds[i] = CTHelpers.getPositionId(collateralToken, CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+        },
+        {
+          "line": 196,
+          "text": "                require(collateralToken.transfer(msg.sender, amount), \"could not send collateral tokens\");"
+        },
+        {
+          "line": 200,
+          "text": "                    CTHelpers.getPositionId(collateralToken, parentCollectionId),"
+        },
+        {
+          "line": 208,
+          "text": "                CTHelpers.getPositionId(collateralToken,"
+        },
+        {
+          "line": 209,
+          "text": "                    CTHelpers.getCollectionId(parentCollectionId, conditionId, fullIndexSet ^ freeIndexSet)),"
+        },
+        {
+          "line": 215,
+          "text": "        emit PositionsMerge(msg.sender, collateralToken, parentCollectionId, conditionId, partition, amount);"
+        },
+        {
+          "line": 218,
+          "text": "    function redeemPositions(IERC20 collateralToken, bytes32 parentCollectionId, bytes32 conditionId, uint[] calldata indexSets) external {"
+        },
+        {
+          "line": 219,
+          "text": "        uint den = payoutDenominator[conditionId];"
+        },
+        {
+          "line": 221,
+          "text": "        uint outcomeSlotCount = payoutNumerators[conditionId].length;"
+        },
+        {
+          "line": 230,
+          "text": "            uint positionId = CTHelpers.getPositionId(collateralToken,"
+        },
+        {
+          "line": 231,
+          "text": "                CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet));"
+        },
+        {
+          "line": 233,
+          "text": "            uint payoutNumerator = 0;"
+        },
+        {
+          "line": 236,
+          "text": "                    payoutNumerator = payoutNumerator.add(payoutNumerators[conditionId][j]);"
+        },
+        {
+          "line": 242,
+          "text": "                totalPayout = totalPayout.add(payoutStake.mul(payoutNumerator).div(den));"
+        },
+        {
+          "line": 249,
+          "text": "                require(collateralToken.transfer(msg.sender, totalPayout), \"could not transfer payout to message sender\");"
+        },
+        {
+          "line": 251,
+          "text": "                _mint(msg.sender, CTHelpers.getPositionId(collateralToken, parentCollectionId), totalPayout, \"\");"
+        },
+        {
+          "line": 254,
+          "text": "        emit PayoutRedemption(msg.sender, collateralToken, parentCollectionId, conditionId, indexSets, totalPayout);"
+        },
+        {
+          "line": 258,
+          "text": "    /// @param conditionId ID of the condition."
+        },
+        {
+          "line": 260,
+          "text": "    function getOutcomeSlotCount(bytes32 conditionId) external view returns (uint) {"
+        },
+        {
+          "line": 261,
+          "text": "        return payoutNumerators[conditionId].length;"
+        },
+        {
+          "line": 268,
+          "text": "    function getConditionId(address oracle, bytes32 questionId, uint outcomeSlotCount) external pure returns (bytes32) {"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "polygon_lending_registry",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "fetched_at_utc": "2026-11-08T15:53:12.798079+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "excerpts": [
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 19,
+          "text": "  IAaveOracle internal constant ORACLE = IAaveOracle(0xb023e699F5a33916Ea823A16485e259257cA8Bd1);"
+        },
+        {
+          "line": 33,
+          "text": "  address internal constant POOL_IMPL = 0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e;"
+        },
+        {
+          "line": 110,
+          "text": "  address internal constant EDGE_RISK_ORACLE = 0x9f6aA2aB14bFF53e4b79A81ce1554F1DFdbb6608;"
+        },
+        {
+          "line": 120,
+          "text": "  address internal constant DAI_UNDERLYING = 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063;"
+        },
+        {
+          "line": 131,
+          "text": "  address internal constant DAI_ORACLE = 0xa1913Df228db08F02F3F3Dc0f397Af3A2d2f96A1;"
+        },
+        {
+          "line": 140,
+          "text": "  address internal constant LINK_UNDERLYING = 0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39;"
+        },
+        {
+          "line": 151,
+          "text": "  address internal constant LINK_ORACLE = 0xd9FFdb71EbE7496cC440152d43986Aae0AB76665;"
+        },
+        {
+          "line": 161,
+          "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+        },
+        {
+          "line": 172,
+          "text": "  address internal constant USDCe_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+        },
+        {
+          "line": 185,
+          "text": "  address internal constant WBTC_UNDERLYING = 0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6;"
+        },
+        {
+          "line": 196,
+          "text": "  address internal constant WBTC_ORACLE = 0xc907E116054Ad103354f2D350FD2514433D57F6f;"
+        },
+        {
+          "line": 206,
+          "text": "  address internal constant WETH_UNDERLYING = 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619;"
+        },
+        {
+          "line": 217,
+          "text": "  address internal constant WETH_ORACLE = 0xF9680D99D6C9589e2a93a78A04A279e509205945;"
+        },
+        {
+          "line": 227,
+          "text": "  address internal constant USDT0_UNDERLYING = 0xc2132D05D31c914a87C6611C10748AEb04B58e8F;"
+        },
+        {
+          "line": 238,
+          "text": "  address internal constant USDT0_ORACLE = 0x01Aba1Fe7D72a3490bEef7CD0C09e1Ba2dD88D83;"
+        },
+        {
+          "line": 251,
+          "text": "  address internal constant AAVE_UNDERLYING = 0xD6DF932A45C0f255f85145f286eA0b292B21C90B;"
+        },
+        {
+          "line": 262,
+          "text": "  address internal constant AAVE_ORACLE = 0x72484B12719E23115761D5DA1646945632979bB6;"
+        },
+        {
+          "line": 272,
+          "text": "  address internal constant WPOL_UNDERLYING = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270;"
+        },
+        {
+          "line": 283,
+          "text": "  address internal constant WPOL_ORACLE = 0xAB594600376Ec9fD91F8e885dADF0CE036862dE0;"
+        },
+        {
+          "line": 293,
+          "text": "  address internal constant CRV_UNDERLYING = 0x172370d5Cd63279eFa6d502DAB29171933a610AF;"
+        },
+        {
+          "line": 304,
+          "text": "  address internal constant CRV_ORACLE = 0x336584C8E6Dc19637A5b36206B1c79923111b405;"
+        },
+        {
+          "line": 313,
+          "text": "  address internal constant SUSHI_UNDERLYING = 0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a;"
+        },
+        {
+          "line": 324,
+          "text": "  address internal constant SUSHI_ORACLE = 0x49B0c695039243BBfEb8EcD054EB70061fd54aa0;"
+        },
+        {
+          "line": 334,
+          "text": "  address internal constant GHST_UNDERLYING = 0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7;"
+        },
+        {
+          "line": 345,
+          "text": "  address internal constant GHST_ORACLE = 0x61c417D189A9983B3eD9054692c16451E5391058;"
+        },
+        {
+          "line": 355,
+          "text": "  address internal constant BAL_UNDERLYING = 0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3;"
+        },
+        {
+          "line": 366,
+          "text": "  address internal constant BAL_ORACLE = 0x55Eb6D9432a9842844b60Cd9D38497c0be7E623D;"
+        },
+        {
+          "line": 375,
+          "text": "  address internal constant DPI_UNDERLYING = 0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369;"
+        },
+        {
+          "line": 386,
+          "text": "  address internal constant DPI_ORACLE = 0x105fe43207CE8331555C9Be8c13718d6DeD2fD97;"
+        },
+        {
+          "line": 395,
+          "text": "  address internal constant EURS_UNDERLYING = 0xE111178A87A3BFf0c8d18DECBa5798827539Ae99;"
+        },
+        {
+          "line": 406,
+          "text": "  address internal constant EURS_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+        },
+        {
+          "line": 416,
+          "text": "  address internal constant jEUR_UNDERLYING = 0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c;"
+        },
+        {
+          "line": 427,
+          "text": "  address internal constant jEUR_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+        },
+        {
+          "line": 437,
+          "text": "  address internal constant EURA_UNDERLYING = 0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4;"
+        },
+        {
+          "line": 448,
+          "text": "  address internal constant EURA_ORACLE = 0x73366Fe0AA0Ded304479862808e02506FE556a98;"
+        },
+        {
+          "line": 458,
+          "text": "  address internal constant miMATIC_UNDERLYING = 0xa3Fa99A148fA48D14Ed51d610c367C61876997F1;"
+        },
+        {
+          "line": 469,
+          "text": "  address internal constant miMATIC_ORACLE = 0xe756E3e985Bb5666ce7CE07d47EA97E1Fd33B834;"
+        },
+        {
+          "line": 479,
+          "text": "  address internal constant stMATIC_UNDERLYING = 0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4;"
+        },
+        {
+          "line": 490,
+          "text": "  address internal constant stMATIC_ORACLE = 0x6D02E35031C4D99ee3A6A2BA47FaD0cFE355cA8f;"
+        },
+        {
+          "line": 500,
+          "text": "  address internal constant MaticX_UNDERLYING = 0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6;"
+        },
+        {
+          "line": 511,
+          "text": "  address internal constant MaticX_ORACLE = 0xB0A72A5e454890e9715e059e8df8582a6B383DE3;"
+        },
+        {
+          "line": 521,
+          "text": "  address internal constant wstETH_UNDERLYING = 0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD;"
+        },
+        {
+          "line": 532,
+          "text": "  address internal constant wstETH_ORACLE = 0xBD96b5ABBC6048c28184b462167E487533F2e35E;"
+        },
+        {
+          "line": 542,
+          "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+        },
+        {
+          "line": 553,
+          "text": "  address internal constant USDCn_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+        }
+      ],
+      "success": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "fetched_at_utc": "2026-11-08T15:53:25.423235+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Polymarket CTF Exchange V2"
+        },
+        {
+          "line": 3,
+          "text": "The CTF Exchange V2 is the core smart contract system for trading [Conditional Token Framework](https://docs.gnosis.io/conditionaltokens/) (CTF) assets on Polymarket. It implements operator-driven order matching with support for multiple settlement types, signature schemes, and a wrapped collateral layer."
+        },
+        {
+          "line": 5,
+          "text": "## Deployed Contracts"
+        },
+        {
+          "line": 7,
+          "text": "### Polygon"
+        },
+        {
+          "line": 11,
+          "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f`](https://polygonscan.com/address/0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f) |"
+        },
+        {
+          "line": 12,
+          "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |"
+        },
+        {
+          "line": 13,
+          "text": "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |"
+        },
+        {
+          "line": 14,
+          "text": "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |"
+        },
+        {
+          "line": 15,
+          "text": "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |"
+        },
+        {
+          "line": 16,
+          "text": "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |"
+        },
+        {
+          "line": 17,
+          "text": "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |"
+        },
+        {
+          "line": 18,
+          "text": "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |"
+        },
+        {
+          "line": 19,
+          "text": "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |"
+        },
+        {
+          "line": 25,
+          "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29`](https://amoy.polygonscan.com/address/0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29) |"
+        },
+        {
+          "line": 26,
+          "text": "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://amoy.polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |"
+        },
+        {
+          "line": 27,
+          "text": "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://amoy.polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |"
+        },
+        {
+          "line": 28,
+          "text": "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://amoy.polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |"
+        },
+        {
+          "line": 29,
+          "text": "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://amoy.polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |"
+        },
+        {
+          "line": 30,
+          "text": "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://amoy.polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |"
+        },
+        {
+          "line": 31,
+          "text": "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://amoy.polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |"
+        },
+        {
+          "line": 32,
+          "text": "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://amoy.polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |"
+        },
+        {
+          "line": 33,
+          "text": "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://amoy.polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |"
+        },
+        {
+          "line": 41,
+          "text": "| Quantstamp | [CTF Exchange V2 - Quantstamp - March 2026](audits/CTF%20Exchange%20V2%20-%20Quantstamp%20-%20March%202026.pdf) |"
+        },
+        {
+          "line": 42,
+          "text": "| Cantina | [CTF Exchange V2 - Cantina - March 2026](audits/CTF%20Exchange%20V2%20-%20Cantina%20-%20March%202026.pdf) |"
+        },
+        {
+          "line": 59,
+          "text": "│   ├── Fees          — Fee validation and collection"
+        },
+        {
+          "line": 82,
+          "text": "│   ├── CtfCollateralAdapter.sol        — CTF ↔ PMCT adapter"
+        },
+        {
+          "line": 83,
+          "text": "│   └── NegRiskCtfCollateralAdapter.sol — Negative Risk variant"
+        },
+        {
+          "line": 84,
+          "text": "└── collateral/"
+        },
+        {
+          "line": 85,
+          "text": "    ├── CollateralToken.sol             — PMCT (PolyMarket Collateral Token)"
+        },
+        {
+          "line": 86,
+          "text": "    ├── CollateralOnramp.sol            — Wrap USDC/USDCe → PMCT"
+        },
+        {
+          "line": 87,
+          "text": "    └── CollateralOfframp.sol           — Unwrap PMCT → USDC/USDCe"
+        },
+        {
+          "line": 97,
+          "text": "   - **MINT** (both BUY) — Collateral split into outcome tokens via CTF"
+        },
+        {
+          "line": 98,
+          "text": "   - **MERGE** (both SELL) — Outcome tokens merged back into collateral via CTF"
+        },
+        {
+          "line": 111,
+          "text": "### Collateral System"
+        },
+        {
+          "line": 113,
+          "text": "The exchange trades in **PMCT** (PolyMarket Collateral Token), an ERC20 wrapper around USDC/USDCe:"
+        },
+        {
+          "line": 114,
+          "text": "- **CollateralOnramp**: Wraps supported assets into PMCT"
+        },
+        {
+          "line": 115,
+          "text": "- **CollateralOfframp**: Unwraps PMCT back to supported assets"
+        },
+        {
+          "line": 116,
+          "text": "- **CtfCollateralAdapter**: Bridges PMCT ↔ CTF operations (split/merge/redeem)"
+        },
+        {
+          "line": 125,
+          "text": "- **Wrapped collateral (PMCT)** — New collateral token layer with onramp/offramp, replacing direct USDC usage. Enables the collateral adapter pattern for CTF interactions."
+        },
+        {
+          "line": 126,
+          "text": "- **Configurable max fee rate** — Admin-settable maximum fee rate in basis points (default 500 = 5%), enforced per-order."
+        }
+      ],
+      "success": true
+    }
+  ]
+}

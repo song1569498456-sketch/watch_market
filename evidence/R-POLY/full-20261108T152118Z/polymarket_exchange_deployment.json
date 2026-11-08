@@ -1,0 +1,75 @@
+{
+  "name": "polymarket_exchange_deployment",
+  "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:53:09.980832+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+  "excerpts": [
+    {
+      "line": 4,
+      "text": "> Contract addresses have been updated. Please refer to the V2 repository for the latest deployments and integration details:"
+    },
+    {
+      "line": 5,
+      "text": "> https://github.com/Polymarket/ctf-exchange-v2"
+    },
+    {
+      "line": 7,
+      "text": "# Polymarket CTF Exchange"
+    },
+    {
+      "line": 13,
+      "text": "[version-badge]: https://img.shields.io/github/v/release/polymarket/ctf-exchange.svg?label=version"
+    },
+    {
+      "line": 14,
+      "text": "[version-link]: https://github.com/Polymarket/ctf-exchange/releases"
+    },
+    {
+      "line": 15,
+      "text": "[license-badge]: https://img.shields.io/github/license/polymarket/ctf-exchange"
+    },
+    {
+      "line": 16,
+      "text": "[license-link]: https://github.com/Polymarket/ctf-exchange/blob/main/LICENSE.md"
+    },
+    {
+      "line": 17,
+      "text": "[ci-badge]: https://github.com/Polymarket/ctf-exchange/actions/workflows/Tests.yml/badge.svg"
+    },
+    {
+      "line": 18,
+      "text": "[ci-link]: https://github.com/Polymarket/ctf-exchange/actions/workflows/Tests.yml"
+    },
+    {
+      "line": 22,
+      "text": "The Polymarket CTF Exchange is an exchange protocol that facilitates atomic swaps between [Conditional Tokens Framework(CTF)](https://docs.gnosis.io/conditionaltokens/) ERC1155 assets and an ERC20 collateral asset."
+    },
+    {
+      "line": 24,
+      "text": "It is intended to be used in a hybrid-decentralized exchange model wherein there is an operator that provides offchain matching services while settlement happens on-chain, non-custodially."
+    },
+    {
+      "line": 29,
+      "text": "Docs for the CTF Exchange are available in this repo [here](./docs/Overview.md)."
+    },
+    {
+      "line": 33,
+      "text": "These contracts have been audited by Chainsecurity and the report is available [here](./audit/ChainSecurity_Polymarket_Exchange_audit.pdf)."
+    },
+    {
+      "line": 40,
+      "text": "| Polygon          | [0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E](https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E)|"
+    },
+    {
+      "line": 41,
+      "text": "| Amoy           | [0xdFE02Eb6733538f8Ea35D585af8DE5958AD99E40](https://amoy.polygonscan.com/address/0xdfe02eb6733538f8ea35d585af8de5958ad99e40)|"
+    },
+    {
+      "line": 58,
+      "text": "To run tests in contracts matching a regex pattern `forge test --mc PATTERN`"
+    }
+  ],
+  "success": true
+}

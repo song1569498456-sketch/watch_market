@@ -1,0 +1,84 @@
+{
+  "started_at": "2026-11-08T15:53:01.221084+00:00",
+  "results": [
+    {
+      "name": "bnb_rpc",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:53:01.221091+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "venus_pool_discovery",
+      "url": "https://api.venus.io/isolated-pools/pools?chainId=56",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:53:02.239402+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "venus_pool_registry",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/deployments/bscmainnet/PoolRegistry.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:53:03.248084+00:00",
+      "http_status": 200,
+      "selected_fields": {
+        "address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666"
+      },
+      "abi_methods": [
+        "admin",
+        "changeAdmin",
+        "implementation",
+        "upgradeTo",
+        "upgradeToAndCall",
+        "acceptOwnership",
+        "accessControlManager",
+        "addMarket",
+        "addPool",
+        "getAllPools",
+        "getPoolByComptroller",
+        "getPoolsSupportedByAsset",
+        "getVTokenForAsset",
+        "getVenusPoolMetadata",
+        "initialize",
+        "metadata",
+        "owner",
+        "pendingOwner",
+        "renounceOwnership",
+        "setAccessControlManager",
+        "setPoolName",
+        "transferOwnership",
+        "updatePoolMetadata"
+      ]
+    },
+    {
+      "name": "venus_comptroller",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:53:04.653915+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "    function supportMarket(VToken vToken) external {\n        _checkSenderIs(poolRegistry);\n\n        if (markets[address(vToken)].isListed) {\n            revert MarketAlreadyListed(address(vToken));\n        }\n\n        require(vToken.isVToken(), \"Comptroller: Invalid vToken\"); // Sanity check to make sure its really a VToken\n\n        Market storage newMarket = markets[address(vToken)];\n        newMarket.isListed = true;\n        newMarket.collateralFactorMantissa = 0;\n        newMarket.liquidationThresholdMantissa = 0;\n\n        _addMarket(address(vToken));\n\n        uint256 rewardDistributorsCount = rewardsDistributors.length;\n\n        for (uint256 i; i < rewardDistributorsCount; ++i) {\n            rewardsDistributors[i].initializeMarket(address(vToken));\n        }\n\n        emit MarketSupported(vToken);\n    }\n\n    /**\n     * @notice Set the given borrow caps for the given vToken markets. Borrowing that brings total borrows to or above borrow cap will revert.\n     * @dev This function is restricted by the AccessControlManager\n     * @dev A borrow cap of type(uint256).max corresponds to unlimited borrowing.\n     * @dev Borrow caps smaller than the current total borrows are accepted. This way, new borrows will not be allowed\n            until the total borrows amount goes below the new borrow cap\n     * @param vTokens The addresses of the markets (tokens) to change the borrow caps for\n     * @param newBorrowCaps The new borrow cap values in underlying to be set. A value of type(uint256).max corresponds to unlimited borrowing.\n     * @custom:access Controlled by AccessControlManager\n     */",
+        "    function preBorrowHook(address vToken, address borrower, uint256 borrowAmount) external override {\n        _checkActionPauseState(vToken, Action.BORROW);\n\n        if (!markets[vToken].isListed) {\n            revert MarketNotListed(address(vToken));\n        }\n\n        if (!markets[vToken].accountMembership[borrower]) {\n            // only vTokens may call borrowAllowed if borrower not in market\n            _checkSenderIs(vToken);\n\n            // attempt to add borrower to the market or revert\n            _addToMarket(VToken(msg.sender), borrower);\n        }\n\n        // Update the prices of tokens\n        updatePrices(borrower);\n\n        if (oracle.getUnderlyingPrice(vToken) == 0) {\n            revert PriceError(address(vToken));\n        }\n\n        uint256 borrowCap = borrowCaps[vToken];\n        // Skipping the cap check for uncapped coins to save some gas\n        if (borrowCap != type(uint256).max) {\n            uint256 totalBorrows = VToken(vToken).totalBorrows();\n            uint256 badDebt = VToken(vToken).badDebt();\n            uint256 nextTotalBorrows = totalBorrows + borrowAmount + badDebt;\n            if (nextTotalBorrows > borrowCap) {\n                revert BorrowCapExceeded(vToken, borrowCap);\n            }\n        }\n\n        AccountLiquiditySnapshot memory snapshot = _getHypotheticalLiquiditySnapshot(\n            borrower,\n            VToken(vToken),\n            0,\n            borrowAmount,\n            _getCollateralFactor\n        );\n\n        if (snapshot.shortfall > 0) {\n            revert InsufficientLiquidity();\n        }\n\n        Exp memory borrowIndex = Exp({ mantissa: VToken(vToken).borrowIndex() });\n\n        // Keep the flywheel moving\n        uint256 rewardDistributorsCount = rewardsDistributors.length;\n\n        for (uint256 i; i < rewardDistributorsCount; ++i) {\n            RewardsDistributor rewardsDistributor = rewardsDistributors[i];\n            rewardsDistributor.updateRewardTokenBorrowIndex(vToken, borrowIndex);\n            rewardsDistributor.distributeBorrowerRewardToken(vToken, borrower, borrowIndex);\n        }\n    }\n\n    /**\n     * @notice Validates borrow, accrues interest and updates score in prime. Reverts on rejection. May emit logs.\n     * @param vToken Asset whose underlying is being borrowed\n     * @param borrower The address borrowing the underlying\n     * @param borrowAmount The amount of the underlying asset requested to borrow\n     */\n    // solhint-disable-next-line no-unused-vars",
+        "    function _addToMarket(VToken vToken, address borrower) internal {\n        _checkActionPauseState(address(vToken), Action.ENTER_MARKET);\n        Market storage marketToJoin = markets[address(vToken)];\n\n        if (!marketToJoin.isListed) {\n            revert MarketNotListed(address(vToken));\n        }\n\n        if (marketToJoin.accountMembership[borrower]) {\n            // already joined\n            return;\n        }\n\n        // survived the gauntlet, add to list\n        // NOTE: we store these somewhat redundantly as a significant optimization\n        //  this avoids having to iterate through the list for the most common use cases\n        //  that is, only when we need to perform liquidity checks\n        //  and not whenever we want to check if an account is in a particular market\n        marketToJoin.accountMembership[borrower] = true;\n        accountAssets[borrower].push(vToken);\n\n        emit MarketEntered(vToken, borrower);\n    }\n\n    /**\n     * @notice Internal function to validate that a market hasn't already been added\n     * and if it hasn't adds it\n     * @param vToken The market to support\n     */"
+      ]
+    },
+    {
+      "name": "venus_resilient_oracle",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:53:06.129140+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "    function getUnderlyingPrice(address vToken) external view override returns (uint256) {\n        if (paused()) revert(\"resilient oracle is paused\");\n\n        address asset = _getUnderlyingAsset(vToken);\n        return _getPrice(asset);\n    }\n\n    /**\n     * @notice Gets price of the asset\n     * @param asset asset address\n     * @return price USD price in scaled decimal places.\n     * @custom:error Paused error is thrown when resilent oracle is paused\n     * @custom:error Invalid resilient oracle price error is thrown if fetched prices from oracle is invalid\n     */",
+        "    function setTokenConfig(\n        TokenConfig memory tokenConfig\n    ) public notNullAddress(tokenConfig.asset) notNullAddress(tokenConfig.oracles[uint256(OracleRole.MAIN)]) {\n        _checkAccessAllowed(\"setTokenConfig(TokenConfig)\");\n\n        tokenConfigs[tokenConfig.asset] = tokenConfig;\n        emit TokenConfigAdded(\n            tokenConfig.asset,\n            tokenConfig.oracles[uint256(OracleRole.MAIN)],\n            tokenConfig.oracles[uint256(OracleRole.PIVOT)],\n            tokenConfig.oracles[uint256(OracleRole.FALLBACK)]\n        );\n        emit CachedEnabled(tokenConfig.asset, tokenConfig.cachingEnabled);\n    }\n\n    /**\n     * @notice Gets oracle and enabled status by asset address\n     * @param asset asset address\n     * @param role Oracle role\n     * @return oracle Oracle address based on role\n     * @return enabled Enabled flag of the oracle based on token config\n     */",
+        "    function _getUnderlyingAsset(address vToken) private view notNullAddress(vToken) returns (address asset) {\n        if (vToken == nativeMarket) {\n            asset = NATIVE_TOKEN_ADDR;\n        } else if (vToken == vai) {\n            asset = vai;\n        } else {\n            asset = VBep20Interface(vToken).underlying();\n        }\n    }\n\n    /**\n     * @dev This function checks if the asset price should be cached\n     * @param asset asset address\n     * @return bool true if caching is enabled, false otherwise\n     */"
+      ]
+    }
+  ]
+}

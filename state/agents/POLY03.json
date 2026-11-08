@@ -14,7 +14,21 @@
     "market_pages_completed": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+        "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol"
+      ],
+      "chain_block": null,
+      "market_pages_completed": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "asset_label": "USDCe",
@@ -44,7 +58,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:51:15.311322+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY03/full-20261108T152118Z/record.json"
+  "record": "evidence/POLY03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+    "verified_at": "2026-11-08T15:52:19.836508+00:00",
+    "record": "evidence/POLY03/full-20261108T152118Z/record.json"
+  }
 }

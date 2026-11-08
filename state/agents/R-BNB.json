@@ -1,13 +1,43 @@
 {
   "agent_id": "R-BNB",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "registry_document_address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+    "code_mechanisms_read": [
+      "supportMarket",
+      "preBorrowHook",
+      "_addToMarket",
+      "getUnderlyingPrice",
+      "setTokenConfig"
+    ],
+    "collateral_assets_chain_checked": 0,
+    "debts_checked": 0,
+    "transactions_analyzed": 0,
+    "current_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
+    "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
+    "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
+    "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+  ],
+  "pending_questions": [
+    "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
+    "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
+    "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
+    "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
+    "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:54:10.950788+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
 }
