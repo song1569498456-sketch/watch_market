@@ -1087,6 +1087,160 @@
         "同状态分别记录二级买价、显示NAV、max/实际即时赎回值与异步领取值；再做只读完整路径核验。",
         "补30天规则和7天活动、治理实现变更；异常净值线索交R-BASE但不推断存在漏洞。"
       ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
+      "next_check": [
+        "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+        "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+        "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+        "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
+      "next_check": [
+        "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+        "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+        "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+        "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
+      "next_check": [
+        "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+        "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+        "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+        "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
+      "next_check": [
+        "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+        "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+        "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+        "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。",
+      "next_check": [
+        "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+        "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+        "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+        "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未取得真实池、token0/token1、当前实现/字节码、reserve/balance/totalSupply；Base RPC和池发现API代理CONNECT403。",
+      "next_check": [
+        "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。",
+        "固定同区块读取balance/reserves/LP totalSupply、stable标志、可提现/暂停，构建入池前→入池后→退出后账本，禁止用旧预览拼利润。",
+        "必要swap腿读取factory.getFee(pool,stable)而非默认值，模拟实际数量和资产限制；LP本身不是收益。",
+        "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有任何指定数量入池→出池→必要兑换报价或同状态模拟；实际LP余量/提款资产/可重复性unknown。",
+      "next_check": [
+        "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。",
+        "固定同区块读取balance/reserves/LP totalSupply、stable标志、可提现/暂停，构建入池前→入池后→退出后账本，禁止用旧预览拼利润。",
+        "必要swap腿读取factory.getFee(pool,stable)而非默认值，模拟实际数量和资产限制；LP本身不是收益。",
+        "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
+      "next_check": [
+        "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。",
+        "固定同区块读取balance/reserves/LP totalSupply、stable标志、可提现/暂停，构建入池前→入池后→退出后账本，禁止用旧预览拼利润。",
+        "必要swap腿读取factory.getFee(pool,stable)而非默认值，模拟实际数量和资产限制；LP本身不是收益。",
+        "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。",
+      "next_check": [
+        "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。",
+        "固定同区块读取balance/reserves/LP totalSupply、stable标志、可提现/暂停，构建入池前→入池后→退出后账本，禁止用旧预览拼利润。",
+        "必要swap腿读取factory.getFee(pool,stable)而非默认值，模拟实际数量和资产限制；LP本身不是收益。",
+        "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天额度/费率/治理生效窗口未覆盖。",
+      "next_check": [
+        "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+        "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+        "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+        "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天代表性交易未覆盖，无区块/事件或成功游标。",
+      "next_check": [
+        "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+        "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+        "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+        "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "chainId56、token/controller/proxy代码与当前开启状态未核验。",
+      "next_check": [
+        "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+        "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+        "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+        "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
+      "next_check": [
+        "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+        "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+        "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+        "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。",
+      "next_check": [
+        "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+        "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+        "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+        "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+      ]
     }
   ],
   "status": "OPEN",

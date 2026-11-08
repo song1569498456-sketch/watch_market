@@ -14,7 +14,21 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "token_list_entry": "data/cbETH/data.json",
+      "base_token_document_address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "current_block": null,
+      "actual_pools_read": 0,
+      "quotes_obtained": 0,
+      "transactions_analyzed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
     "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
@@ -30,7 +44,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:40:08.482699+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE02/full-20261108T152118Z/record.json"
+  "record": "evidence/BASE02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+    "verified_at": "2026-11-08T15:40:29.232589+00:00",
+    "record": "evidence/BASE02/full-20261108T152118Z/record.json"
+  }
 }

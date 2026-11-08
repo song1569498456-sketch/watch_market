@@ -1,0 +1,214 @@
+{
+  "name": "vai_deployment",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+  "fetched_at_utc": "2026-11-08T15:41:17.594151+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "def80d492d3f65f91bf9467ff1de07a3f43ad31472f5ce8059a7d81622cda9d7",
+  "excerpts": [
+    {
+      "line": 2,
+      "text": "  \"address\": \"0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7\","
+    },
+    {
+      "line": 21,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 23,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 27,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 29,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 52,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 54,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 83,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 85,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 89,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 91,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 137,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 139,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 142,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 144,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 163,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 165,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 189,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 191,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 210,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 212,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 220,
+      "text": "      \"name\": \"burn\","
+    },
+    {
+      "line": 245,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 247,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 260,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 262,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 280,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 282,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 285,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 287,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 320,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 322,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 341,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 343,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 346,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 348,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 391,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 393,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 411,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 413,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 431,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 433,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 476,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 478,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 502,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 504,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 507,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 509,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 548,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 550,
+      "text": "          \"type\": \"address\""
+    }
+  ],
+  "success": true,
+  "deployment_fields": {
+    "address": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+  }
+}

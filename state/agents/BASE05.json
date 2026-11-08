@@ -1,13 +1,44 @@
 {
   "agent_id": "BASE05",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "source_functions_read": [
+      "Pool.mint",
+      "Pool.burn",
+      "Pool.claimFees",
+      "PoolFactory.getFee",
+      "Gauge.deposit",
+      "Gauge.withdraw",
+      "Gauge._claimFees"
+    ],
+    "actual_pools_read": 0,
+    "complete_cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "本岗位独立读取README、Pool、PoolFactory和Gauge源码，未把N-BASE静态结论当现行状态。",
+    "Pool.mint非首次用min(amount0*totalSupply/reserve0,amount1*totalSupply/reserve1)；首次锁MINIMUM_LIQUIDITY；burn按实际余额同比例返回并销毁份额。",
+    "PoolFees与核心储备分离；claimFees先更新持有人指数，不能把账面池费当全部可提核心资产。",
+    "Gauge.deposit检查isAlive并将LP转入Gauge，withdraw返回LP；_claimFees向feesVotingReward分配，不能重复计为存款人自由资产。",
+    "PoolFactory.getFee有customFee覆盖和特殊0费指示值，适用于必要swap腿；不把默认swap费机械当LP mint/burn手续费。"
+  ],
+  "pending_questions": [
+    "未取得真实池、token0/token1、当前实现/字节码、reserve/balance/totalSupply；Base RPC和池发现API代理CONNECT403。",
+    "没有任何指定数量入池→出池→必要兑换报价或同状态模拟；实际LP余量/提款资产/可重复性unknown。",
+    "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
+    "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:42:07.492556+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BASE05/full-20261108T152118Z/record.json"
 }

@@ -14,7 +14,21 @@
     "discovered_market_pages": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+        "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol"
+      ],
+      "chain_block": null,
+      "discovered_market_pages": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
@@ -39,7 +53,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:39:43.762988+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE03/full-20261108T152118Z/record.json"
+  "record": "evidence/BASE03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+    "verified_at": "2026-11-08T15:40:29.232589+00:00",
+    "record": "evidence/BASE03/full-20261108T152118Z/record.json"
+  }
 }

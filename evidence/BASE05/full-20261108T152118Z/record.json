@@ -1,0 +1,141 @@
+{
+  "agent_id": "BASE05",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base 8453 LP正常铸造/燃烧/必要兑换，Aerodrome传统Pool源码机制基线；不涵盖Slipstream集中流动性模型",
+  "started_at": "2026-11-08T15:41:06.263474+00:00",
+  "finished_at": "2026-11-08T15:42:07.492556+00:00",
+  "duration_seconds": 61.229,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:42:07.492556+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://mainnet.base.org",
+    "https://api.dexscreener.com/latest/dex/search?q=aerodrome",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/Pool.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol"
+  ],
+  "mechanism": "传统Aerodrome Pool按真实balance-reserve增加铸LP、按LP/totalSupply比例燃烧提币；LP是资产权利凭证，不是铸出即利润。费用隔离PoolFees与Gauge排放需分别记权利。",
+  "observations": [
+    "本岗位独立读取README、Pool、PoolFactory和Gauge源码，未把N-BASE静态结论当现行状态。",
+    "Pool.mint非首次用min(amount0*totalSupply/reserve0,amount1*totalSupply/reserve1)；首次锁MINIMUM_LIQUIDITY；burn按实际余额同比例返回并销毁份额。",
+    "PoolFees与核心储备分离；claimFees先更新持有人指数，不能把账面池费当全部可提核心资产。",
+    "Gauge.deposit检查isAlive并将LP转入Gauge，withdraw返回LP；_claimFees向feesVotingReward分配，不能重复计为存款人自由资产。",
+    "PoolFactory.getFee有customFee覆盖和特殊0费指示值，适用于必要swap腿；不把默认swap费机械当LP mint/burn手续费。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "真实各资产数量/价值",
+      "LP舍入/最小流动性",
+      "必要兑换费用/冲击",
+      "L2执行/L1数据费",
+      "授权和代币限制"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown，当前pool/paused/gauge alive未核验",
+  "liabilities": "unknown，未建立仓位或借款",
+  "waiting_time": "unknown；本轮不将未来排放年化当即时循环收益",
+  "invalidation_conditions": [
+    "源代码与当前实现不符",
+    "使用集中流动性却套普通Pool模型",
+    "双计手续费/排放",
+    "同状态完整账本缺失",
+    "LP剩余份额未计"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/Pool.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol"
+  ],
+  "coverage_gaps": [
+    "未取得真实池、token0/token1、当前实现/字节码、reserve/balance/totalSupply；Base RPC和池发现API代理CONNECT403。",
+    "没有任何指定数量入池→出池→必要兑换报价或同状态模拟；实际LP余量/提款资产/可重复性unknown。",
+    "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
+    "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。"
+  ],
+  "next_check": [
+    "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。",
+    "固定同区块读取balance/reserves/LP totalSupply、stable标志、可提现/暂停，构建入池前→入池后→退出后账本，禁止用旧预览拼利润。",
+    "必要swap腿读取factory.getFee(pool,stable)而非默认值，模拟实际数量和资产限制；LP本身不是收益。",
+    "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:8453:Aerodrome:PoolFactory:0x420dd381b31aef6683db6b902084cb0ffece40da",
+      "chain": "BASE",
+      "protocol": "Aerodrome conventional Pool",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "从文档工厂核对chainId=8453、factory/implementation代码并读取allPools/PoolCreated，选择真实公开mint/burn池，记录token身份与精度。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+      "chain": "BASE",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol"
+      ],
+      "next_check": "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "铸出LP即净收益",
+      "reason": "必须扣原始底层资产并计退出、剩余LP和必要兑换；没有完整资产账本。"
+    },
+    {
+      "case": "Gauge排放+同期间全部池费双计给存款人",
+      "reason": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。"
+    },
+    {
+      "case": "所有池套默认稳定/波动费率或同一模型",
+      "reason": "池级customFee可覆盖swap费；传统Pool不能直接套Slipstream CL。"
+    }
+  ],
+  "observed_cursor": {
+    "source_functions_read": [
+      "Pool.mint",
+      "Pool.burn",
+      "Pool.claimFees",
+      "PoolFactory.getFee",
+      "Gauge.deposit",
+      "Gauge.withdraw",
+      "Gauge._claimFees"
+    ],
+    "actual_pools_read": 0,
+    "complete_cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

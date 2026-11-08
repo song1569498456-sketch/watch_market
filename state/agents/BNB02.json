@@ -1,13 +1,43 @@
 {
   "agent_id": "BNB02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json"
+    ],
+    "chain_block": null,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "Venus VAI",
+      "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "deployment_source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+      "identity_status": "OFFICIAL_DEPLOYMENT_RECORD_NOT_LIVE_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "fields": "mintVAI L101-164记录债务/额度/fee；repayVAIFresh L225-245 burn VAI与transferFrom VAI利息",
+      "implementation_match": "unknown"
+    }
+  ],
+  "pending_questions": [
+    "30天额度/费率/治理生效窗口未覆盖。",
+    "7天代表性交易未覆盖，无区块/事件或成功游标。",
+    "chainId56、token/controller/proxy代码与当前开启状态未核验。",
+    "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
+    "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:42:21.901356+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BNB02/full-20261108T152118Z/record.json"
 }

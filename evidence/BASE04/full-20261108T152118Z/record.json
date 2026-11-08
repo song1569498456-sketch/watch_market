@@ -1,0 +1,602 @@
+{
+  "agent_id": "BASE04",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base正常借贷清算→抵押兑现，不操纵价格或建立坏抵押借款路径",
+  "started_at": "2026-11-08T15:41:02.852067+00:00",
+  "finished_at": "2026-11-08T15:41:56.518362+00:00",
+  "duration_seconds": 53.666,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:41:56.518362+00:00",
+    "beijing": "2026-11-08T23:41:56.518362+08:00",
+    "data_time": "unknown; current upstream branch snapshots not deployed-state proof"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0x4200000000000000000000000000000000000006"
+  ],
+  "discovery_source": [
+    {
+      "source": "base-rpc",
+      "url": "https://base-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:41:02.852073+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-indexer",
+      "url": "https://api.v3.aave.com/graphql",
+      "retrieved_at_utc": "2026-11-08T15:41:03.869483+00:00",
+      "request": {
+        "query": "{ __typename }"
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-base-deploy",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "retrieved_at_utc": "2026-11-08T15:41:04.878163+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae",
+      "bytes_read": 25203,
+      "excerpts": [
+        {
+          "line": 11,
+          "text": "  // https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0xA238Dd80C259a72e81d7e4664a9801593F98d1c5);"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "  // https://basescan.org/address/0x5731a04B1E775f0fdd454Bf70f3335886e9A96be"
+        },
+        {
+          "line": 15,
+          "text": "  IPoolConfigurator internal constant POOL_CONFIGURATOR ="
+        },
+        {
+          "line": 18,
+          "text": "  // https://basescan.org/address/0x2Cc0Fc26eD4563A5ce5e8bdcfe1A2878676Ae156"
+        },
+        {
+          "line": 19,
+          "text": "  IAaveOracle internal constant ORACLE = IAaveOracle(0x2Cc0Fc26eD4563A5ce5e8bdcfe1A2878676Ae156);"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "  // https://basescan.org/address/0x9390B1735def18560c509E2d0bc090E9d6BA257a"
+        },
+        {
+          "line": 22,
+          "text": "  address internal constant ACL_ADMIN = 0x9390B1735def18560c509E2d0bc090E9d6BA257a;"
+        },
+        {
+          "line": 32,
+          "text": "  // https://basescan.org/address/0xA4AbC5FcBA6D0d7E3D144d6dbF6cb6128599dFdB"
+        },
+        {
+          "line": 33,
+          "text": "  address internal constant POOL_IMPL = 0xA4AbC5FcBA6D0d7E3D144d6dbF6cb6128599dFdB;"
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "  // https://basescan.org/address/0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99"
+        },
+        {
+          "line": 36,
+          "text": "  address internal constant POOL_CONFIGURATOR_IMPL = 0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99;"
+        },
+        {
+          "line": 126,
+          "text": "  // https://basescan.org/address/0x4200000000000000000000000000000000000006"
+        },
+        {
+          "line": 127,
+          "text": "  address internal constant WETH_UNDERLYING = 0x4200000000000000000000000000000000000006;"
+        },
+        {
+          "line": 128,
+          "text": ""
+        },
+        {
+          "line": 129,
+          "text": "  uint8 internal constant WETH_DECIMALS = 18;"
+        },
+        {
+          "line": 130,
+          "text": ""
+        },
+        {
+          "line": 222,
+          "text": "  // https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        {
+          "line": 223,
+          "text": "  address internal constant USDC_UNDERLYING = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;"
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 225,
+          "text": "  uint8 internal constant USDC_DECIMALS = 6;"
+        }
+      ]
+    },
+    {
+      "source": "aave-liquidation-rules",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "retrieved_at_utc": "2026-11-08T15:41:06.360686+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+      "bytes_read": 29642,
+      "excerpts": [
+        {
+          "line": 39,
+          "text": "   * @dev Default percentage of borrower's debt to be repaid in a liquidation."
+        },
+        {
+          "line": 40,
+          "text": "   * @dev Percentage applied when the users health factor is above `CLOSE_FACTOR_HF_THRESHOLD`"
+        },
+        {
+          "line": 41,
+          "text": "   * Expressed in bps, a value of 0.5e4 results in 50.00%"
+        },
+        {
+          "line": 42,
+          "text": "   */"
+        },
+        {
+          "line": 43,
+          "text": "  uint256 internal constant DEFAULT_LIQUIDATION_CLOSE_FACTOR = 0.5e4;"
+        },
+        {
+          "line": 44,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "  /**"
+        },
+        {
+          "line": 46,
+          "text": "   * @dev This constant represents the upper bound on the health factor, below(inclusive) which the full amount of debt becomes liquidatable."
+        },
+        {
+          "line": 48,
+          "text": "   */"
+        },
+        {
+          "line": 49,
+          "text": "  uint256 public constant CLOSE_FACTOR_HF_THRESHOLD = 0.95e18;"
+        },
+        {
+          "line": 50,
+          "text": ""
+        },
+        {
+          "line": 51,
+          "text": "  /**"
+        },
+        {
+          "line": 52,
+          "text": "   * @dev This constant represents a base value threshold."
+        },
+        {
+          "line": 55,
+          "text": "   */"
+        },
+        {
+          "line": 56,
+          "text": "  uint256 public constant MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD = 2000e8;"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "  /**"
+        },
+        {
+          "line": 59,
+          "text": "   * @dev This constant represents the minimum amount of assets in base currency that need to be leftover after a liquidation, if not clearing a position completely."
+        },
+        {
+          "line": 60,
+          "text": "   * This parameter is inferred from MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD as the logic is dependent."
+        },
+        {
+          "line": 61,
+          "text": "   * Assuming a MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD of `n` a liquidation of `n+1` might result in `n/2` leftover which is assumed to be still economically liquidatable."
+        },
+        {
+          "line": 62,
+          "text": "   * This mechanic was introduced to ensure liquidators don't optimize gas by leaving some wei on the liquidation."
+        },
+        {
+          "line": 63,
+          "text": "   */"
+        },
+        {
+          "line": 64,
+          "text": "  uint256 public constant MIN_LEFTOVER_BASE = MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD / 2;"
+        },
+        {
+          "line": 213,
+          "text": "    ValidationLogic.validateLiquidationCall("
+        },
+        {
+          "line": 214,
+          "text": "      borrowerConfig,"
+        },
+        {
+          "line": 215,
+          "text": "      collateralReserve,"
+        },
+        {
+          "line": 216,
+          "text": "      debtReserve,"
+        },
+        {
+          "line": 219,
+          "text": "        totalDebt: vars.borrowerReserveDebt,"
+        },
+        {
+          "line": 220,
+          "text": "        healthFactor: vars.healthFactor,"
+        },
+        {
+          "line": 221,
+          "text": "        borrower: params.borrower,"
+        },
+        {
+          "line": 222,
+          "text": "        liquidator: params.liquidator"
+        },
+        {
+          "line": 223,
+          "text": "      })"
+        },
+        {
+          "line": 259,
+          "text": "    uint256 maxLiquidatableDebt = vars.borrowerReserveDebt;"
+        },
+        {
+          "line": 260,
+          "text": "    // but if debt and collateral is above or equal MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD"
+        },
+        {
+          "line": 261,
+          "text": "    // and health factor is above CLOSE_FACTOR_HF_THRESHOLD this amount may be adjusted"
+        },
+        {
+          "line": 262,
+          "text": "    if ("
+        },
+        {
+          "line": 263,
+          "text": "      vars.borrowerReserveCollateralInBaseCurrency >= MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD &&"
+        },
+        {
+          "line": 264,
+          "text": "      vars.borrowerReserveDebtInBaseCurrency >= MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD &&"
+        },
+        {
+          "line": 265,
+          "text": "      vars.healthFactor > CLOSE_FACTOR_HF_THRESHOLD"
+        },
+        {
+          "line": 266,
+          "text": "    ) {"
+        },
+        {
+          "line": 267,
+          "text": "      uint256 totalDefaultLiquidatableDebtInBaseCurrency = vars.totalDebtInBaseCurrency.percentMul("
+        },
+        {
+          "line": 268,
+          "text": "        DEFAULT_LIQUIDATION_CLOSE_FACTOR"
+        },
+        {
+          "line": 269,
+          "text": "      );"
+        },
+        {
+          "line": 270,
+          "text": ""
+        },
+        {
+          "line": 271,
+          "text": "      // if the debt is more then DEFAULT_LIQUIDATION_CLOSE_FACTOR % of the whole,"
+        },
+        {
+          "line": 272,
+          "text": "      // then we CAN liquidate only up to DEFAULT_LIQUIDATION_CLOSE_FACTOR %"
+        },
+        {
+          "line": 273,
+          "text": "      if (vars.borrowerReserveDebtInBaseCurrency > totalDefaultLiquidatableDebtInBaseCurrency) {"
+        },
+        {
+          "line": 274,
+          "text": "        maxLiquidatableDebt ="
+        },
+        {
+          "line": 275,
+          "text": "          (totalDefaultLiquidatableDebtInBaseCurrency * vars.debtAssetUnit) /"
+        },
+        {
+          "line": 279,
+          "text": ""
+        },
+        {
+          "line": 280,
+          "text": "    vars.actualDebtToLiquidate = params.debtToCover > maxLiquidatableDebt"
+        },
+        {
+          "line": 281,
+          "text": "      ? maxLiquidatableDebt"
+        },
+        {
+          "line": 282,
+          "text": "      : params.debtToCover;"
+        },
+        {
+          "line": 283,
+          "text": ""
+        },
+        {
+          "line": 285,
+          "text": "      vars.actualCollateralToLiquidate,"
+        },
+        {
+          "line": 286,
+          "text": "      vars.actualDebtToLiquidate,"
+        },
+        {
+          "line": 287,
+          "text": "      vars.liquidationProtocolFeeAmount"
+        },
+        {
+          "line": 288,
+          "text": "    ) = _calculateAvailableCollateralToLiquidate("
+        },
+        {
+          "line": 289,
+          "text": "      vars.collateralReserveCache.reserveConfiguration,"
+        },
+        {
+          "line": 290,
+          "text": "      vars.collateralAssetPrice,"
+        },
+        {
+          "line": 293,
+          "text": "      vars.debtAssetUnit,"
+        },
+        {
+          "line": 294,
+          "text": "      vars.actualDebtToLiquidate,"
+        },
+        {
+          "line": 295,
+          "text": "      vars.borrowerCollateralBalance,"
+        },
+        {
+          "line": 296,
+          "text": "      vars.liquidationBonus"
+        },
+        {
+          "line": 297,
+          "text": "    );"
+        },
+        {
+          "line": 390,
+          "text": "    if (params.receiveAToken) {"
+        },
+        {
+          "line": 391,
+          "text": "      IAToken(vars.collateralReserveCache.aTokenAddress).transferOnLiquidation("
+        },
+        {
+          "line": 392,
+          "text": "        params.borrower,"
+        },
+        {
+          "line": 393,
+          "text": "        params.liquidator,"
+        },
+        {
+          "line": 595,
+          "text": "    vars.liquidationProtocolFeePercentage = collateralReserveConfiguration"
+        },
+        {
+          "line": 596,
+          "text": "      .getLiquidationProtocolFee();"
+        },
+        {
+          "line": 597,
+          "text": ""
+        },
+        {
+          "line": 598,
+          "text": "    // This is the base collateral to liquidate based on the given debt to cover"
+        },
+        {
+          "line": 613,
+          "text": ""
+        },
+        {
+          "line": 614,
+          "text": "    if (vars.liquidationProtocolFeePercentage != 0) {"
+        },
+        {
+          "line": 615,
+          "text": "      vars.bonusCollateral ="
+        },
+        {
+          "line": 616,
+          "text": "        vars.collateralAmount -"
+        },
+        {
+          "line": 617,
+          "text": "        vars.collateralAmount.percentDivFloor(liquidationBonus);"
+        },
+        {
+          "line": 618,
+          "text": ""
+        },
+        {
+          "line": 619,
+          "text": "      vars.liquidationProtocolFee = vars.bonusCollateral.percentMulCeil("
+        },
+        {
+          "line": 620,
+          "text": "        vars.liquidationProtocolFeePercentage"
+        },
+        {
+          "line": 621,
+          "text": "      );"
+        },
+        {
+          "line": 622,
+          "text": "      vars.collateralAmount -= vars.liquidationProtocolFee;"
+        },
+        {
+          "line": 623,
+          "text": "    }"
+        },
+        {
+          "line": 624,
+          "text": "    return (vars.collateralAmount, vars.debtAmountNeeded, vars.liquidationProtocolFee);"
+        },
+        {
+          "line": 625,
+          "text": "  }"
+        }
+      ]
+    }
+  ],
+  "mechanism": "正常清算是支付实际代还本金换取受协议费/限额约束的抵押权益，再正常出售；抵押预言机价值或清算奖励并非现金收入或净利。",
+  "observations": [
+    "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
+    "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
+    "本轮没有借款人，仓位卡为空，不将未知HF写成可清算或接近阈值。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "debt_asset",
+    "unknown_costs": [
+      "代还本金/利息",
+      "抵押卖出费与冲击",
+      "清算协议抽成",
+      "gas/L1数据费",
+      "融资成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "当前普通清算资格/储备暂停规则unknown",
+  "liabilities": "未执行；融资偿还/期末残仓unknown",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "HF未满足或仓位已被他人清算",
+    "实现/预言机版本不同",
+    "抵押无可兑现出口",
+    "成本吞没奖励",
+    "状态/报价过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5"
+  ],
+  "coverage_gaps": [
+    "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
+    "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
+    "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
+    "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
+    "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
+  ],
+  "next_check": [
+    "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+    "从可用索引器或明确区块Borrow/Repay/LiquidationCall事件建真实仓位队列，逐仓读取getUserAccountData/债务本息/抵押与储备配置。",
+    "在相同区块按协议规则求最大正常代还，再取抵押实际可售收入；扣本金、协议费、gas/L1数据费和融资成本。",
+    "接近阈值只列watch；真实条件满足且有具体偿债→抵押退出证据才交Q00。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
+      "chain": "BASE",
+      "protocol": "Aave V3 Base",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0x4200000000000000000000000000000000000006"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "按oracle抵押价值×清算奖励即可记净利润",
+      "reason": "必须扣代还本金/协议费/融资并验证抵押真实出售或赎回，不存在本轮报价。"
+    },
+    {
+      "claim": "未知或旧HF即可认定仓位可清算",
+      "reason": "必须同状态读取真实债务与规则；本轮没有借款人数据。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_DEPLOYMENT_AND_RULES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:41:56.518362+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "position_card": {
+    "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
+    "borrower_or_position": null,
+    "block": null,
+    "max_repay": "unknown",
+    "collateral_received": "unknown",
+    "sale_net_value": "unknown",
+    "costs": "unknown",
+    "simulated": false
+  }
+}

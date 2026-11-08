@@ -1,0 +1,305 @@
+{
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+  "method": "GET",
+  "fetched_at_utc": "2026-11-08T15:41:37.000637+00:00",
+  "http_status": 200,
+  "sha256": "d922c2b3805a73f8f5c6a96b42fcd74e164fa228ddd21b41d878ca0ea5d51be7",
+  "excerpts": [
+    {
+      "line": 170,
+      "text": "     * @notice The repay function transfers VAI interest into the protocol and burns the rest,"
+    },
+    {
+      "line": 171,
+      "text": "     * reducing the borrower's borrow balance. Before repaying VAI, users must first approve"
+    },
+    {
+      "line": 172,
+      "text": "     * VAIController to access their VAI balance."
+    },
+    {
+      "line": 173,
+      "text": "     * @dev If the Comptroller address is not set, repayment is a no-op and the function returns the success code."
+    },
+    {
+      "line": 174,
+      "text": "     * @param amount The amount of VAI to be repaid."
+    },
+    {
+      "line": 175,
+      "text": "     * @return Error code (0=success, otherwise a failure, see ErrorReporter.sol)"
+    },
+    {
+      "line": 176,
+      "text": "     * @return Actual repayment amount"
+    },
+    {
+      "line": 177,
+      "text": "     */"
+    },
+    {
+      "line": 178,
+      "text": "    function repayVAI(uint256 amount) external nonReentrant returns (uint256, uint256) {"
+    },
+    {
+      "line": 179,
+      "text": "        return _repayVAI(msg.sender, amount);"
+    },
+    {
+      "line": 180,
+      "text": "    }"
+    },
+    {
+      "line": 181,
+      "text": ""
+    },
+    {
+      "line": 182,
+      "text": "    /**"
+    },
+    {
+      "line": 183,
+      "text": "     * @notice The repay on behalf function transfers VAI interest into the protocol and burns the rest,"
+    },
+    {
+      "line": 184,
+      "text": "     * reducing the borrower's borrow balance. Borrowed VAIs are repaid by another user (possibly the borrower)."
+    },
+    {
+      "line": 185,
+      "text": "     * Before repaying VAI, the payer must first approve VAIController to access their VAI balance."
+    },
+    {
+      "line": 186,
+      "text": "     * @dev If the Comptroller address is not set, repayment is a no-op and the function returns the success code."
+    },
+    {
+      "line": 187,
+      "text": "     * @param borrower The account to repay the debt for."
+    },
+    {
+      "line": 188,
+      "text": "     * @param amount The amount of VAI to be repaid."
+    },
+    {
+      "line": 189,
+      "text": "     * @return Error code (0=success, otherwise a failure, see ErrorReporter.sol)"
+    },
+    {
+      "line": 190,
+      "text": "     * @return Actual repayment amount"
+    },
+    {
+      "line": 191,
+      "text": "     */"
+    },
+    {
+      "line": 192,
+      "text": "    function repayVAIBehalf(address borrower, uint256 amount) external nonReentrant returns (uint256, uint256) {"
+    },
+    {
+      "line": 193,
+      "text": "        _ensureNonzeroAddress(borrower);"
+    },
+    {
+      "line": 194,
+      "text": "        return _repayVAI(borrower, amount);"
+    },
+    {
+      "line": 195,
+      "text": "    }"
+    },
+    {
+      "line": 196,
+      "text": ""
+    },
+    {
+      "line": 197,
+      "text": "    /**"
+    },
+    {
+      "line": 198,
+      "text": "     * @dev Checks the parameters and the protocol state, accrues interest, and invokes repayVAIFresh."
+    },
+    {
+      "line": 199,
+      "text": "     * @dev If the Comptroller address is not set, repayment is a no-op and the function returns the success code."
+    },
+    {
+      "line": 200,
+      "text": "     * @param borrower The account to repay the debt for."
+    },
+    {
+      "line": 201,
+      "text": "     * @param amount The amount of VAI to be repaid."
+    },
+    {
+      "line": 202,
+      "text": "     * @return Error code (0=success, otherwise a failure, see ErrorReporter.sol)"
+    },
+    {
+      "line": 203,
+      "text": "     * @return Actual repayment amount"
+    },
+    {
+      "line": 204,
+      "text": "     */"
+    },
+    {
+      "line": 205,
+      "text": "    function _repayVAI(address borrower, uint256 amount) internal returns (uint256, uint256) {"
+    },
+    {
+      "line": 223,
+      "text": "     * @return Actual repayment amount"
+    },
+    {
+      "line": 224,
+      "text": "     */"
+    },
+    {
+      "line": 225,
+      "text": "    function repayVAIFresh(address payer, address borrower, uint256 repayAmount) internal returns (uint256, uint256) {"
+    },
+    {
+      "line": 226,
+      "text": "        (uint256 burn, uint256 partOfCurrentInterest, uint256 partOfPastInterest) = getVAICalculateRepayAmount("
+    },
+    {
+      "line": 227,
+      "text": "            borrower,"
+    },
+    {
+      "line": 228,
+      "text": "            repayAmount"
+    },
+    {
+      "line": 229,
+      "text": "        );"
+    },
+    {
+      "line": 230,
+      "text": ""
+    },
+    {
+      "line": 231,
+      "text": "        IVAI _vai = IVAI(vai);"
+    },
+    {
+      "line": 232,
+      "text": "        _vai.burn(payer, burn);"
+    },
+    {
+      "line": 233,
+      "text": "        bool success = _vai.transferFrom(payer, receiver, partOfCurrentInterest);"
+    },
+    {
+      "line": 234,
+      "text": "        require(success == true, \"failed to transfer VAI fee\");"
+    },
+    {
+      "line": 235,
+      "text": ""
+    },
+    {
+      "line": 236,
+      "text": "        uint256 vaiBalanceBorrower = comptroller.mintedVAIs(borrower);"
+    },
+    {
+      "line": 237,
+      "text": ""
+    },
+    {
+      "line": 238,
+      "text": "        uint256 accountVAINew = sub_(sub_(vaiBalanceBorrower, burn), partOfPastInterest);"
+    },
+    {
+      "line": 239,
+      "text": "        pastVAIInterest[borrower] = sub_(pastVAIInterest[borrower], partOfPastInterest);"
+    },
+    {
+      "line": 240,
+      "text": ""
+    },
+    {
+      "line": 241,
+      "text": "        uint256 error = comptroller.setMintedVAIOf(borrower, accountVAINew);"
+    },
+    {
+      "line": 242,
+      "text": "        // We have to revert upon error since side-effects already happened at this point"
+    },
+    {
+      "line": 243,
+      "text": "        require(error == uint256(Error.NO_ERROR), \"comptroller rejection\");"
+    },
+    {
+      "line": 244,
+      "text": ""
+    },
+    {
+      "line": 245,
+      "text": "        uint256 repaidAmount = add_(burn, partOfCurrentInterest);"
+    },
+    {
+      "line": 667,
+      "text": "     * @return (uint256) The total amount of VAI the user needs to repay"
+    },
+    {
+      "line": 668,
+      "text": "     */"
+    },
+    {
+      "line": 669,
+      "text": "    function getVAIRepayAmount(address account) public view returns (uint256) {"
+    },
+    {
+      "line": 670,
+      "text": "        MathError mErr;"
+    },
+    {
+      "line": 671,
+      "text": "        uint256 delta;"
+    },
+    {
+      "line": 672,
+      "text": ""
+    },
+    {
+      "line": 673,
+      "text": "        uint256 amount = comptroller.mintedVAIs(account);"
+    },
+    {
+      "line": 674,
+      "text": "        uint256 interest = pastVAIInterest[account];"
+    },
+    {
+      "line": 675,
+      "text": "        uint256 totalMintedVAI;"
+    },
+    {
+      "line": 676,
+      "text": "        uint256 newInterest;"
+    },
+    {
+      "line": 677,
+      "text": ""
+    },
+    {
+      "line": 678,
+      "text": "        (mErr, totalMintedVAI) = subUInt(amount, interest);"
+    },
+    {
+      "line": 679,
+      "text": "        require(mErr == MathError.NO_ERROR, \"VAI_TOTAL_REPAY_AMOUNT_CALCULATION_FAILED\");"
+    },
+    {
+      "line": 680,
+      "text": ""
+    },
+    {
+      "line": 681,
+      "text": "        (mErr, delta) = subUInt(vaiMintIndex, getVAIMinterInterestIndex(account));"
+    }
+  ]
+}

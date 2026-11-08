@@ -1,0 +1,15 @@
+{
+  "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+  "status": "REJECTED",
+  "chain": "BNB",
+  "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+  "claim": "排除“VAI铸造卖出现金可直接记为利润、或可随意用其他面值稳定币偿债”的推断。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol"
+  ],
+  "evidence_fields": "mint记录债务；repayVAIFresh L231-245使用VAI burn及transferFrom支付利息。",
+  "scope_limit": "基于已读官方源码；当前部署与资格未核验，不构成当前可铸或不可铸的判断。",
+  "owner": "BNB02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/BNB02/full-20261108T152118Z/record.json"
+}

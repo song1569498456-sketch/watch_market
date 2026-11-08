@@ -1,13 +1,32 @@
 {
   "agent_id": "BASE04",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_DEPLOYMENT_AND_RULES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:41:56.518362+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
+    "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
+    "本轮没有借款人，仓位卡为空，不将未知HF写成可清算或接近阈值。"
+  ],
+  "pending_questions": [
+    "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
+    "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
+    "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
+    "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
+    "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:41:56.518362+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BASE04/full-20261108T152118Z/record.json"
 }

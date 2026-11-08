@@ -1,0 +1,331 @@
+{
+  "name": "vai_controller_source",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+  "fetched_at_utc": "2026-11-08T15:41:16.092790+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "d922c2b3805a73f8f5c6a96b42fcd74e164fa228ddd21b41d878ca0ea5d51be7",
+  "excerpts": [
+    {
+      "line": 6,
+      "text": "import { VAIControllerErrorReporter } from \"../../Utils/ErrorReporter.sol\";"
+    },
+    {
+      "line": 10,
+      "text": "import { VAIUnitroller } from \"./VAIUnitroller.sol\";"
+    },
+    {
+      "line": 11,
+      "text": "import { VAIControllerInterface } from \"./VAIControllerInterface.sol\";"
+    },
+    {
+      "line": 12,
+      "text": "import { IVAI } from \"./IVAI.sol\";"
+    },
+    {
+      "line": 15,
+      "text": "import { VAIControllerStorageG4 } from \"./VAIControllerStorage.sol\";"
+    },
+    {
+      "line": 19,
+      "text": " * @title VAI Comptroller"
+    },
+    {
+      "line": 21,
+      "text": " * @notice This is the implementation contract for the VAIUnitroller proxy"
+    },
+    {
+      "line": 23,
+      "text": "contract VAIController is VAIControllerInterface, VAIControllerStorageG4, VAIControllerErrorReporter, Exponential {"
+    },
+    {
+      "line": 24,
+      "text": "    /// @notice Initial index used in interest computations"
+    },
+    {
+      "line": 25,
+      "text": "    uint256 public constant INITIAL_VAI_MINT_INDEX = 1e18;"
+    },
+    {
+      "line": 37,
+      "text": "    event NewPrime(address oldPrime, address newPrime);"
+    },
+    {
+      "line": 39,
+      "text": "    /// @notice Event emitted when VAI is minted"
+    },
+    {
+      "line": 40,
+      "text": "    event MintVAI(address minter, uint256 mintVAIAmount);"
+    },
+    {
+      "line": 42,
+      "text": "    /// @notice Event emitted when VAI is repaid"
+    },
+    {
+      "line": 43,
+      "text": "    event RepayVAI(address payer, address borrower, uint256 repayVAIAmount);"
+    },
+    {
+      "line": 45,
+      "text": "    /// @notice Event emitted when a borrow is liquidated"
+    },
+    {
+      "line": 46,
+      "text": "    event LiquidateVAI("
+    },
+    {
+      "line": 47,
+      "text": "        address liquidator,"
+    },
+    {
+      "line": 48,
+      "text": "        address borrower,"
+    },
+    {
+      "line": 49,
+      "text": "        uint256 repayAmount,"
+    },
+    {
+      "line": 50,
+      "text": "        address vTokenCollateral,"
+    },
+    {
+      "line": 55,
+      "text": "    event NewTreasuryGuardian(address oldTreasuryGuardian, address newTreasuryGuardian);"
+    },
+    {
+      "line": 57,
+      "text": "    /// @notice Emitted when treasury address is changed"
+    },
+    {
+      "line": 58,
+      "text": "    event NewTreasuryAddress(address oldTreasuryAddress, address newTreasuryAddress);"
+    },
+    {
+      "line": 63,
+      "text": "    /// @notice Event emitted when VAIs are minted and fee are transferred"
+    },
+    {
+      "line": 64,
+      "text": "    event MintFee(address minter, uint256 feeAmount);"
+    },
+    {
+      "line": 66,
+      "text": "    /// @notice Emiitted when VAI base rate is changed"
+    },
+    {
+      "line": 67,
+      "text": "    event NewVAIBaseRate(uint256 oldBaseRateMantissa, uint256 newBaseRateMantissa);"
+    },
+    {
+      "line": 69,
+      "text": "    /// @notice Emiitted when VAI float rate is changed"
+    },
+    {
+      "line": 70,
+      "text": "    event NewVAIFloatRate(uint256 oldFloatRateMantissa, uint256 newFlatRateMantissa);"
+    },
+    {
+      "line": 72,
+      "text": "    /// @notice Emiitted when VAI receiver address is changed"
+    },
+    {
+      "line": 73,
+      "text": "    event NewVAIReceiver(address oldReceiver, address newReceiver);"
+    },
+    {
+      "line": 75,
+      "text": "    /// @notice Emiitted when VAI mint cap is changed"
+    },
+    {
+      "line": 76,
+      "text": "    event NewVAIMintCap(uint256 oldMintCap, uint256 newMintCap);"
+    },
+    {
+      "line": 78,
+      "text": "    /// @notice Emitted when access control address is changed by admin"
+    },
+    {
+      "line": 79,
+      "text": "    event NewAccessControl(address oldAccessControlAddress, address newAccessControlAddress);"
+    },
+    {
+      "line": 81,
+      "text": "    /// @notice Emitted when VAI token address is changed by admin"
+    },
+    {
+      "line": 82,
+      "text": "    event NewVaiToken(address oldVaiToken, address newVaiToken);"
+    },
+    {
+      "line": 85,
+      "text": "        require(vaiMintIndex == 0, \"already initialized\");"
+    },
+    {
+      "line": 87,
+      "text": "        vaiMintIndex = INITIAL_VAI_MINT_INDEX;"
+    },
+    {
+      "line": 95,
+      "text": "    function _become(VAIUnitroller unitroller) external {"
+    },
+    {
+      "line": 101,
+      "text": "     * @notice The mintVAI function mints and transfers VAI from the protocol to the user, and adds a borrow balance."
+    },
+    {
+      "line": 102,
+      "text": "     * The amount minted must be less than the user's Account Liquidity and the mint vai limit."
+    },
+    {
+      "line": 103,
+      "text": "     * @dev If the Comptroller address is not set, minting is a no-op and the function returns the success code."
+    },
+    {
+      "line": 104,
+      "text": "     * @param mintVAIAmount The amount of the VAI to be minted."
+    },
+    {
+      "line": 108,
+      "text": "    function mintVAI(uint256 mintVAIAmount) external nonReentrant returns (uint256) {"
+    },
+    {
+      "line": 109,
+      "text": "        if (address(comptroller) == address(0)) {"
+    },
+    {
+      "line": 113,
+      "text": "        require(comptroller.userPoolId(msg.sender) == CORE_POOL_ID, \"VAI mint only allowed in the core Pool\");"
+    },
+    {
+      "line": 115,
+      "text": "        _ensureNonzeroAmount(mintVAIAmount);"
+    },
+    {
+      "line": 117,
+      "text": "        accrueVAIInterest();"
+    },
+    {
+      "line": 120,
+      "text": "        address minter = msg.sender;"
+    },
+    {
+      "line": 121,
+      "text": "        address _vai = vai;"
+    },
+    {
+      "line": 122,
+      "text": "        uint256 vaiTotalSupply = IVAI(_vai).totalSupply();"
+    },
+    {
+      "line": 124,
+      "text": "        uint256 vaiNewTotalSupply = add_(vaiTotalSupply, mintVAIAmount);"
+    },
+    {
+      "line": 125,
+      "text": "        require(vaiNewTotalSupply <= mintCap, \"mint cap reached\");"
+    },
+    {
+      "line": 129,
+      "text": "        uint256 accountMintableVAI;"
+    },
+    {
+      "line": 130,
+      "text": "        (err, accountMintableVAI) = getMintableVAI(minter);"
+    },
+    {
+      "line": 133,
+      "text": "        // check that user have sufficient mintableVAI balance"
+    },
+    {
+      "line": 134,
+      "text": "        require(mintVAIAmount <= accountMintableVAI, \"minting more than allowed\");"
+    },
+    {
+      "line": 136,
+      "text": "        // Calculate the minted balance based on interest index"
+    },
+    {
+      "line": 137,
+      "text": "        uint256 totalMintedVAI = comptroller.mintedVAIs(minter);"
+    },
+    {
+      "line": 139,
+      "text": "        if (totalMintedVAI > 0) {"
+    },
+    {
+      "line": 140,
+      "text": "            uint256 repayAmount = getVAIRepayAmount(minter);"
+    },
+    {
+      "line": 141,
+      "text": "            uint256 remainedAmount = sub_(repayAmount, totalMintedVAI);"
+    },
+    {
+      "line": 142,
+      "text": "            pastVAIInterest[minter] = add_(pastVAIInterest[minter], remainedAmount);"
+    },
+    {
+      "line": 143,
+      "text": "            totalMintedVAI = repayAmount;"
+    },
+    {
+      "line": 146,
+      "text": "        uint256 accountMintVAINew = add_(totalMintedVAI, mintVAIAmount);"
+    },
+    {
+      "line": 147,
+      "text": "        err = comptroller.setMintedVAIOf(minter, accountMintVAINew);"
+    },
+    {
+      "line": 152,
+      "text": "            uint256 feeAmount = div_(mul_(mintVAIAmount, treasuryPercent), 1e18);"
+    },
+    {
+      "line": 153,
+      "text": "            remainedAmount = sub_(mintVAIAmount, feeAmount);"
+    },
+    {
+      "line": 154,
+      "text": "            IVAI(_vai).mint(treasuryAddress, feeAmount);"
+    },
+    {
+      "line": 158,
+      "text": "            remainedAmount = mintVAIAmount;"
+    },
+    {
+      "line": 161,
+      "text": "        IVAI(_vai).mint(minter, remainedAmount);"
+    },
+    {
+      "line": 162,
+      "text": "        vaiMinterInterestIndex[minter] = vaiMintIndex;"
+    },
+    {
+      "line": 164,
+      "text": "        emit MintVAI(minter, remainedAmount);"
+    },
+    {
+      "line": 170,
+      "text": "     * @notice The repay function transfers VAI interest into the protocol and burns the rest,"
+    },
+    {
+      "line": 171,
+      "text": "     * reducing the borrower's borrow balance. Before repaying VAI, users must first approve"
+    },
+    {
+      "line": 172,
+      "text": "     * VAIController to access their VAI balance."
+    },
+    {
+      "line": 173,
+      "text": "     * @dev If the Comptroller address is not set, repayment is a no-op and the function returns the success code."
+    },
+    {
+      "line": 174,
+      "text": "     * @param amount The amount of VAI to be repaid."
+    }
+  ],
+  "success": true
+}

@@ -1,0 +1,20 @@
+{
+  "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+  "chain": "BASE",
+  "status": "REJECTED",
+  "market_ids": [],
+  "mechanism": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol"
+  ],
+  "next_check": "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "BASE05",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/BASE05/full-20261108T152118Z/record.json"
+}

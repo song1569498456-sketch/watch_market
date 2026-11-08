@@ -168,9 +168,10 @@
       "duration_seconds": 52.364,
       "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/BASE01/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/BASE01.txt",
-      "prompt_sha256": "24539d1199443105b9def18309e7acc978ff121d70711330581c787f13fa18ef"
+      "prompt_sha256": "24539d1199443105b9def18309e7acc978ff121d70711330581c787f13fa18ef",
+      "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98"
     },
     "BASE02": {
       "status": "PARTIAL",
@@ -178,9 +179,10 @@
       "duration_seconds": 89.118,
       "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/BASE02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/BASE02.txt",
-      "prompt_sha256": "cad5b71bec2893d18981499b7c8affd9c2a5763554f20b3257b44d9c3ff35153"
+      "prompt_sha256": "cad5b71bec2893d18981499b7c8affd9c2a5763554f20b3257b44d9c3ff35153",
+      "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98"
     },
     "BASE03": {
       "status": "PARTIAL",
@@ -188,15 +190,30 @@
       "duration_seconds": 58.418,
       "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/BASE03/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/BASE03.txt",
-      "prompt_sha256": "7c2da4cded31458112404027e2485f3019579883d39b9e19de90a971108765da"
+      "prompt_sha256": "7c2da4cded31458112404027e2485f3019579883d39b9e19de90a971108765da",
+      "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98"
     },
     "BASE04": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 53.666,
+      "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BASE04/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BASE04.txt",
+      "prompt_sha256": "5b1d76751b718d192a7def2e98a75c7e2f4dc74f180cd7268056b76c8add97bd"
     },
     "BASE05": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 61.229,
+      "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BASE05/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BASE05.txt",
+      "prompt_sha256": "eb93785b8ba8329c7fff5d50a1f04991dfcb811585a731ab97f5ed5f3a37594e"
     },
     "BNB01": {
       "status": "PARTIAL",
@@ -208,7 +225,14 @@
       "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946"
     },
     "BNB02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 67.883,
+      "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BNB02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BNB02.txt",
+      "prompt_sha256": "b6b91240a1c80d9e8a8809de2451227e16a6b810fd3fe05fedfcc05806dafe63"
     },
     "BNB03": {
       "status": "NOT_STARTED"
@@ -370,6 +394,17 @@
         "BASE03"
       ],
       "merged_at": "2026-11-08T15:40:24.567400+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98"
+    },
+    {
+      "batch": 8,
+      "agents": [
+        "BASE04",
+        "BASE05",
+        "BNB02"
+      ],
+      "merged_at": "2026-11-08T15:42:35.399097+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -422,6 +457,13 @@
       "verified_at": "2026-11-08T15:38:02.616211+00:00",
       "verified_files": 124,
       "label": "batch ARB04 AVAX01 AVAX02"
+    },
+    {
+      "commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+      "remote_head": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+      "verified_at": "2026-11-08T15:40:29.232589+00:00",
+      "verified_files": 143,
+      "label": "batch BASE01 BASE02 BASE03"
     }
   ]
 }

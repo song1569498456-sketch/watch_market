@@ -265,6 +265,41 @@
       "owner": "BASE03",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BASE03/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+      "chain": "BASE",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol"
+      ],
+      "next_check": "单独核对PoolFees和Gauge权利，禁止把用户LP手续费、Gauge排放和投票手续费重复计到同一账户；补齐30天/7天缺口。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "BASE05",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BASE05/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "status": "REJECTED",
+      "chain": "BNB",
+      "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+      "claim": "排除“VAI铸造卖出现金可直接记为利润、或可随意用其他面值稳定币偿债”的推断。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol"
+      ],
+      "evidence_fields": "mint记录债务；repayVAIFresh L231-245使用VAI burn及transferFrom支付利息。",
+      "scope_limit": "基于已读官方源码；当前部署与资格未核验，不构成当前可铸或不可铸的判断。",
+      "owner": "BNB02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB02/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

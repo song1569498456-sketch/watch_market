@@ -1,0 +1,149 @@
+{
+  "agent_id": "BNB02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB Chain56正常抵押铸造/借出→卖出→回购真实偿债资产→本金利息偿清→释放抵押；不做买入赎回方向",
+  "started_at": "2026-11-08T15:41:14.018249+00:00",
+  "finished_at": "2026-11-08T15:42:21.901356+00:00",
+  "duration_seconds": 67.883,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:42:21.901356+00:00",
+    "beijing": "2026-11-08T23:42:21.901356+08:00",
+    "data_time": "官方仓库源码与部署登记抓取时点；链状态unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+  ],
+  "asset_ids": [
+    "56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+  ],
+  "discovery_source": [
+    "https://docs-v4.venus.io/technical-reference/reference-core-pool/vai/vai-controller",
+    "https://bsc-dataseed.bnbchain.org",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+    "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+  ],
+  "mechanism": "Venus官方源码mintVAI增加mintedVAI债务，并按账户额度/全局mintCap约束，可扣treasury铸造费。repayVAIFresh消耗VAI本金并转移VAI利息，不是任意按1美元面值偿债；卖出所得须扣回购VAI、利息和释放抵押成本。当前部署是否启用及费率未核验，“成本便宜”机制不明。",
+  "observations": [
+    {
+      "protocol": "Venus VAI",
+      "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "deployment_source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+      "identity_status": "OFFICIAL_DEPLOYMENT_RECORD_NOT_LIVE_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "fields": "mintVAI L101-164记录债务/额度/fee；repayVAIFresh L225-245 burn VAI与transferFrom VAI利息",
+      "implementation_match": "unknown"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "取得/回收抵押物成本",
+      "treasury铸造费",
+      "VAI回购滑点及交易费",
+      "VAI本金与当前利息",
+      "BNB gas",
+      "退出/等待成本"
+    ]
+  },
+  "capacity": "unknown；mintCap/accountMintableVAI与DEX深度未查链",
+  "permissions": "源码限制core pool且有额度；当前暂停/升级/资格unknown",
+  "liabilities": {
+    "unit": "VAI",
+    "principal_before": null,
+    "principal_after_mint": null,
+    "interest_due": null,
+    "repayment_amount": null,
+    "debt_after_close": null,
+    "collateral_locked_after": null,
+    "closed_loop_verified": false,
+    "actual_transactions": "none"
+  },
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "偿债资产与卖出所得不同且未计回购",
+    "仍有VAI债务或锁定抵押物",
+    "mint停用/额度或资格不足",
+    "转账税/黑名单/卖出限制",
+    "当前proxy实现不匹配源码"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json"
+  ],
+  "coverage_gaps": [
+    "30天额度/费率/治理生效窗口未覆盖。",
+    "7天代表性交易未覆盖，无区块/事件或成功游标。",
+    "chainId56、token/controller/proxy代码与当前开启状态未核验。",
+    "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
+    "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
+  ],
+  "next_check": [
+    "恢复bsc-dataseed.bnbchain.org，核chainId0x38与当前VAI/controller/proxy实现、pause状态。",
+    "读取core pool资格、抵押资产/因子、mintCap和账户mintable、treasury费、getVAIRepayAmount及利息指数。",
+    "发现真实VAI出口池并按有限数量测卖出与回购，计税/黑名单/滑点；用实际VAI偿清本金利息再验证取回抵押。",
+    "补30天治理生效与7天活动；不以铸币到账、借款现金或未释放抵押作为利润。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+      "chain": "BNB",
+      "protocol": "Venus VAI (issuance asset; DEX pool not discovered)",
+      "asset_ids": [
+        "56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+        "https://bscscan.com/address/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+      ],
+      "identity_status": "OFFICIAL_DEPLOYMENT_JSON_ONLY_UNVERIFIED_LIVE",
+      "next_check": "token/controller代理与VAI债务规则、当前mint状态及真实DEX池"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "status": "REJECTED",
+      "chain": "BNB",
+      "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+      "claim": "排除“VAI铸造卖出现金可直接记为利润、或可随意用其他面值稳定币偿债”的推断。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol"
+      ],
+      "evidence_fields": "mint记录债务；repayVAIFresh L231-245使用VAI burn及transferFrom支付利息。",
+      "scope_limit": "基于已读官方源码；当前部署与资格未核验，不构成当前可铸或不可铸的判断。"
+    }
+  ],
+  "rejections": [
+    {
+      "case": "铸造VAI卖出现金全部计收益",
+      "reason": "铸造同时增加VAI债务，未计回购本金利息/抵押释放，不是闭环。"
+    },
+    {
+      "case": "默认USDT/USDC按1美元即可偿还VAI",
+      "reason": "已读repay实现消耗VAI本金和利息，需核实际接受资产并计回购。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json"
+    ],
+    "chain_block": null,
+    "history_complete": false
+  }
+}
