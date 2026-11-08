@@ -1,0 +1,306 @@
+{
+  "started_at": "2026-11-08T15:48:15.049039+00:00",
+  "data_seconds": 4.76,
+  "attempts": [
+    {
+      "name": "op_pair_discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism",
+      "fetched_at_utc": "2026-11-08T15:48:15.049046+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "op_chain_identity",
+      "url": "https://mainnet.optimism.io",
+      "fetched_at_utc": "2026-11-08T15:48:16.073091+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "uniswap_op_deployments",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "fetched_at_utc": "2026-11-08T15:48:17.088102+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "7daa52b28d2fc15eb5888a86b5261604a7d32cb43113cde8ca8ea1516d24b8de",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "| Contract                                                                                                                                                     | Mainnet, Polygon, Optimism, Arbitrum, Testnets Address | Celo Address                                 |"
+        },
+        {
+          "line": 7,
+          "text": "| [UniswapV3Factory](https://github.com/Uniswap/uniswap-v3-core/blob/v1.0.0/contracts/UniswapV3Factory.sol)                                                    | `0x1F98431c8aD98523631AE4a59f267346ea31F984`           | `0xAfE208a311B21f13EF87E33A90049fC17A7acDEc` |"
+        },
+        {
+          "line": 11,
+          "text": "| [Quoter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/Quoter.sol)                                                              | `0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6`           | `0x82825d0554fA07f7FC52Ab63c961F330fdEFa8E8` |"
+        },
+        {
+          "line": 12,
+          "text": "| [SwapRouter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/SwapRouter.sol)                                                           | `0xE592427A0AEce92De3Edee1F18E0157C05861564`           | `0x5615CDAb10dc425a742d643d949a7F474C01abc4` |"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "velodrome_pool_source",
+      "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "fetched_at_utc": "2026-11-08T15:48:18.478188+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "32d040ff419fa9b1f9113f7e10d587b332a2ab9c6b6099851025cc16a4e986bb",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "import {PoolFees} from \"./PoolFees.sol\";"
+        },
+        {
+          "line": 10,
+          "text": "import {SafeERC20} from \"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\";"
+        },
+        {
+          "line": 18,
+          "text": "/// @notice Veldrome V2 token pool, either stable or volatile"
+        },
+        {
+          "line": 20,
+          "text": "    using SafeERC20 for IERC20;"
+        },
+        {
+          "line": 26,
+          "text": "    bool public stable;"
+        },
+        {
+          "line": 36,
+          "text": "    address public poolFees;"
+        },
+        {
+          "line": 45,
+          "text": "    uint256 internal decimals0;"
+        },
+        {
+          "line": 46,
+          "text": "    uint256 internal decimals1;"
+        },
+        {
+          "line": 49,
+          "text": "    uint256 public reserve0;"
+        },
+        {
+          "line": 51,
+          "text": "    uint256 public reserve1;"
+        },
+        {
+          "line": 56,
+          "text": "    uint256 public reserve0CumulativeLast;"
+        },
+        {
+          "line": 58,
+          "text": "    uint256 public reserve1CumulativeLast;"
+        },
+        {
+          "line": 78,
+          "text": "    function initialize(address _token0, address _token1, bool _stable) external {"
+        },
+        {
+          "line": 81,
+          "text": "        (token0, token1, stable) = (_token0, _token1, _stable);"
+        },
+        {
+          "line": 82,
+          "text": "        poolFees = address(new PoolFees(_token0, _token1));"
+        },
+        {
+          "line": 85,
+          "text": "        if (_stable) {"
+        },
+        {
+          "line": 86,
+          "text": "            _name = string(abi.encodePacked(\"StableV2 AMM - \", symbol0, \"/\", symbol1));"
+        },
+        {
+          "line": 93,
+          "text": "        decimals0 = 10 ** ERC20(_token0).decimals();"
+        },
+        {
+          "line": 94,
+          "text": "        decimals1 = 10 ** ERC20(_token1).decimals();"
+        },
+        {
+          "line": 127,
+          "text": "        return (decimals0, decimals1, reserve0, reserve1, stable, token0, token1);"
+        },
+        {
+          "line": 136,
+          "text": "    function claimFees() external returns (uint256 claimed0, uint256 claimed1) {"
+        },
+        {
+          "line": 146,
+          "text": "            PoolFees(poolFees).claimFeesFor(msg.sender, claimed0, claimed1);"
+        },
+        {
+          "line": 152,
+          "text": "    /// @dev Accrue fees on token0"
+        },
+        {
+          "line": 154,
+          "text": "        // Only update on this pool if there is a fee"
+        },
+        {
+          "line": 156,
+          "text": "        IERC20(token0).safeTransfer(poolFees, amount); // transfer the fees out to PoolFees"
+        },
+        {
+          "line": 161,
+          "text": "        emit Fees(msg.sender, amount, 0);"
+        },
+        {
+          "line": 164,
+          "text": "    /// @dev Accrue fees on token1"
+        },
+        {
+          "line": 166,
+          "text": "        // Only update on this pool if there is a fee"
+        },
+        {
+          "line": 168,
+          "text": "        IERC20(token1).safeTransfer(poolFees, amount);"
+        },
+        {
+          "line": 173,
+          "text": "        emit Fees(msg.sender, 0, amount);"
+        },
+        {
+          "line": 176,
+          "text": "    /// @dev This function MUST be called on any balance changes, otherwise can be used to infinitely claim fees"
+        },
+        {
+          "line": 177,
+          "text": "    ///      Fees are segregated from core funds, so fees can never put liquidity at risk."
+        },
+        {
+          "line": 183,
+          "text": "            uint256 _index0 = index0; // get global index0 for accumulated fees"
+        },
+        {
+          "line": 204,
+          "text": "    function getReserves() public view returns (uint256 _reserve0, uint256 _reserve1, uint256 _blockTimestampLast) {"
+        },
+        {
+          "line": 205,
+          "text": "        _reserve0 = reserve0;"
+        },
+        {
+          "line": 206,
+          "text": "        _reserve1 = reserve1;"
+        },
+        {
+          "line": 211,
+          "text": "    function _update(uint256 balance0, uint256 balance1, uint256 _reserve0, uint256 _reserve1) internal {"
+        },
+        {
+          "line": 214,
+          "text": "        if (timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0) {"
+        },
+        {
+          "line": 215,
+          "text": "            reserve0CumulativeLast += _reserve0 * timeElapsed;"
+        },
+        {
+          "line": 216,
+          "text": "            reserve1CumulativeLast += _reserve1 * timeElapsed;"
+        },
+        {
+          "line": 222,
+          "text": "            observations.push(Observation(blockTimestamp, reserve0CumulativeLast, reserve1CumulativeLast));"
+        },
+        {
+          "line": 224,
+          "text": "        reserve0 = balance0;"
+        },
+        {
+          "line": 225,
+          "text": "        reserve1 = balance1;"
+        },
+        {
+          "line": 227,
+          "text": "        emit Sync(reserve0, reserve1);"
+        },
+        {
+          "line": 234,
+          "text": "        returns (uint256 reserve0Cumulative, uint256 reserve1Cumulative, uint256 blockTimestamp)"
+        },
+        {
+          "line": 237,
+          "text": "        reserve0Cumulative = reserve0CumulativeLast;"
+        },
+        {
+          "line": 238,
+          "text": "        reserve1Cumulative = reserve1CumulativeLast;"
+        },
+        {
+          "line": 241,
+          "text": "        (uint256 _reserve0, uint256 _reserve1, uint256 _blockTimestampLast) = getReserves();"
+        },
+        {
+          "line": 245,
+          "text": "            reserve0Cumulative += _reserve0 * timeElapsed;"
+        },
+        {
+          "line": 246,
+          "text": "            reserve1Cumulative += _reserve1 * timeElapsed;"
+        },
+        {
+          "line": 282,
+          "text": "            uint256 _reserve0 ="
+        },
+        {
+          "line": 283,
+          "text": "                (observations[nextIndex].reserve0Cumulative - observations[i].reserve0Cumulative) / timeElapsed;"
+        },
+        {
+          "line": 284,
+          "text": "            uint256 _reserve1 ="
+        },
+        {
+          "line": 285,
+          "text": "                (observations[nextIndex].reserve1Cumulative - observations[i].reserve1Cumulative) / timeElapsed;"
+        },
+        {
+          "line": 286,
+          "text": "            _prices[index] = _getAmountOut(amountIn, tokenIn, _reserve0, _reserve1);"
+        },
+        {
+          "line": 297,
+          "text": "        (uint256 _reserve0, uint256 _reserve1) = (reserve0, reserve1);"
+        },
+        {
+          "line": 300,
+          "text": "        uint256 _amount0 = _balance0 - _reserve0;"
+        },
+        {
+          "line": 301,
+          "text": "        uint256 _amount1 = _balance1 - _reserve1;"
+        },
+        {
+          "line": 303,
+          "text": "        uint256 _totalSupply = totalSupply(); // gas savings, must be defined here since totalSupply can update in _mintFee"
+        },
+        {
+          "line": 307,
+          "text": "            if (stable) {"
+        }
+      ],
+      "success": true
+    }
+  ]
+}

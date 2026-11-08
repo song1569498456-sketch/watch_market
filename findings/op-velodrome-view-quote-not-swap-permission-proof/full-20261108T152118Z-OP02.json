@@ -1,0 +1,15 @@
+{
+  "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+  "status": "REJECTED",
+  "chain": "OP",
+  "market_id": null,
+  "claim": "排除“getAmountOut可返回数值就证明同状态可执行swap”的论证。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+  ],
+  "evidence_fields": "Pool.sol getAmountOut L447-450不查pause，而swap L345查factory.isPaused",
+  "scope_limit": "针对已读源码中的两方法；未证明OP某实际池暂停或对应当前部署。",
+  "owner": "OP02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/OP02/full-20261108T152118Z/record.json"
+}

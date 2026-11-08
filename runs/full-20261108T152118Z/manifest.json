@@ -285,9 +285,10 @@
       "duration_seconds": 67.643,
       "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ETH02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ETH02.txt",
-      "prompt_sha256": "6a12bc31e565201018606a06ebc72f7a5710e08775fe9608f44dec7c5ea955a5"
+      "prompt_sha256": "6a12bc31e565201018606a06ebc72f7a5710e08775fe9608f44dec7c5ea955a5",
+      "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0"
     },
     "ETH03": {
       "status": "PARTIAL",
@@ -295,9 +296,10 @@
       "duration_seconds": 69.678,
       "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ETH03/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ETH03.txt",
-      "prompt_sha256": "6b8aea797a54381e9ff6bd4418996fda413b286926be305a772ecf4e0a5e564f"
+      "prompt_sha256": "6b8aea797a54381e9ff6bd4418996fda413b286926be305a772ecf4e0a5e564f",
+      "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0"
     },
     "ETH04": {
       "status": "PARTIAL",
@@ -305,18 +307,40 @@
       "duration_seconds": 45.516,
       "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ETH04/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ETH04.txt",
-      "prompt_sha256": "5cdffca3dab75313ce38e6924182bda17d3a5c56b2eba99397f4ac52a225f315"
+      "prompt_sha256": "5cdffca3dab75313ce38e6924182bda17d3a5c56b2eba99397f4ac52a225f315",
+      "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0"
     },
     "ETH05": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 62.256,
+      "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ETH05/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/ETH05.txt",
+      "prompt_sha256": "086973088185e19f8fecd964873fd122203f825dcac4f4013fa7ed6d44070905"
     },
     "OP01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 72.084,
+      "report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/OP01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/OP01.txt",
+      "prompt_sha256": "eddc85c36fdce6f589a87f10c7d6ee9aa2f6094efd9b238819a07f59d3211993"
     },
     "OP02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 50.658,
+      "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/OP02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/OP02.txt",
+      "prompt_sha256": "9a54497817306c2b1179a5a28485850708ebe2bf8388220b765cefd81bc9e1cb"
     },
     "POLY01": {
       "status": "NOT_STARTED"
@@ -475,6 +499,17 @@
         "ETH04"
       ],
       "merged_at": "2026-11-08T15:47:31.786052+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0"
+    },
+    {
+      "batch": 11,
+      "agents": [
+        "ETH05",
+        "OP01",
+        "OP02"
+      ],
+      "merged_at": "2026-11-08T15:49:39.533451+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -548,6 +583,13 @@
       "verified_at": "2026-11-08T15:45:17.258417+00:00",
       "verified_files": 182,
       "label": "batch BNB03 BNB04 BNB05"
+    },
+    {
+      "commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+      "remote_head": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+      "verified_at": "2026-11-08T15:47:35.918126+00:00",
+      "verified_files": 201,
+      "label": "batch ETH02 ETH03 ETH04"
     }
   ]
 }

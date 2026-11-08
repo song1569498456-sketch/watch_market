@@ -1,0 +1,131 @@
+{
+  "agent_id": "OP01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "OP",
+  "scope": "OP Mainnet 10 稳定币折价买入→真实兑付；自主发现USDC文档地址，出口与现价未核验",
+  "started_at": "2026-11-08T15:48:11.338190+00:00",
+  "finished_at": "2026-11-08T15:49:23.421716+00:00",
+  "duration_seconds": 72.084,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:49:23.421716+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "OP:10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+  ],
+  "discovery_source": [
+    "https://mainnet.optimism.io",
+    "https://api.dexscreener.com/latest/dex/search?q=optimism%20USDC",
+    "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json",
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json"
+  ],
+  "mechanism": "原生发行/桥接权益、token burn和发行人现金兑付是不同边；资格、额度、接收资产与等待未知时不把锚定1美元当自由现金。",
+  "observations": [
+    "Superchain官方token-list data/USDC/data.json将OP地址列为0x0b2c639c533813f4aa9d7837caf62653d097ff85，decimals=6，描述native USDC；仅文档级线索。",
+    "Circle FiatTokenV1源码burn仅minter、非暂停/黑名单条件下销毁自有余额，总供给减少；这是源码读取，不是当前OP链上角色实测。",
+    "没有实际折价、普通账户兑付资格、储备可兑余额或现金回款证据。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "DEX买入价/冲击",
+      "兑付与账户费用",
+      "L2执行/L1数据费",
+      "等待成本",
+      "接收资产退出成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown，issuer cash redemption eligibility与当前合约roles均未验证",
+  "liabilities": "unknown，无操作或借款",
+  "waiting_time": "unknown，不假定即时现金兑付",
+  "invalidation_conditions": [
+    "资产原生/桥接身份错误",
+    "用户无现金兑付资格",
+    "只有销毁而无付款出口",
+    "当前储备/额度不可用",
+    "报价缺失/过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json",
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol"
+  ],
+  "coverage_gaps": [
+    "OP RPC、DEX发现和Circle发行方部署页目标均代理CONNECT403；没有chainId、当前区块、真实池或按数量报价。",
+    "token-list描述原生USDC地址，但未通过发行方部署和链上代理实现独立核验；桥接USDC.e条目猜测路径404，未核其地址，不拼接记忆地址。",
+    "Circle FiatTokenV1源码是权限/销毁语义参考，不等于本轮OP部署实现；当前minter、黑名单、暂停、现金兑付资格/地域账户条件和额度均unknown。",
+    "30天发行/桥迁移/权限/费率规则变更未覆盖，7天实际兑付和交易未覆盖。",
+    "实际买入价、可兑现金/接收资产、等待与退出深度、完整L2/L1费用均未取得。"
+  ],
+  "next_check": [
+    "固定OP链ID10和区块，核对USDC代理代码/实现与发行方正式地址；独立发现桥接版并分开登记，不按币名合并。",
+    "核验普通合格用户的真实赎回渠道、账户/地区条件、额度、最小额、手续费/等待；合约burn/CCTP不是现金到账证明。",
+    "找到实际二级池后逐级数量测量买入→权益→真实可兑现资产→退出，全部成本和异步款分开。",
+    "补齐30天变更与7天实际兑付/交易，恢复失败文档/索引器入口；无资格或无出口继续排除。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "chain": "OP",
+      "protocol": "Circle USDC（发现表描述，部署待核验）",
+      "asset_ids": [
+        "OP:10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json"
+      ],
+      "identity_status": "DISCOVERY_LIST_ONLY_NOT_ISSUER_OR_CHAIN_VERIFIED",
+      "kind": "asset_discovery_queue_not_pool",
+      "next_check": "固定OP链ID10和区块，核对USDC代理代码/实现与发行方正式地址；独立发现桥接版并分开登记，不按币名合并。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+      "chain": "OP",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol"
+      ],
+      "next_check": "核验普通合格用户的真实赎回渠道、账户/地区条件、额度、最小额、手续费/等待；合约burn/CCTP不是现金到账证明。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "合约burn=普通持有人现金兑付",
+      "reason": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。"
+    },
+    {
+      "case": "两种USDC币名相同即同权益/1美元",
+      "reason": "必须分别核原生/桥接版的合约与真实出口，本轮桥接版身份尚缺。"
+    }
+  ],
+  "observed_cursor": {
+    "token_list_entry": "data/USDC/data.json",
+    "op_token_document_address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+    "reference_source_read": "FiatTokenV1.burn",
+    "current_block": null,
+    "cash_redemptions_verified": 0,
+    "quotes_obtained": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

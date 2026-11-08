@@ -14,7 +14,21 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "deployment_commit_document": "665879762f8b5df5d234463f45d1d6a49bd4fbeb",
+      "vault_document_address": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+      "current_block": null,
+      "actual_secondary_pools_read": 0,
+      "redeems_simulated": 0,
+      "transactions_analyzed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
     "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
@@ -31,7 +45,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:47:03.965320+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH03/full-20261108T152118Z/record.json"
+  "record": "evidence/ETH03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+    "verified_at": "2026-11-08T15:47:35.918126+00:00",
+    "record": "evidence/ETH03/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,216 @@
+{
+  "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+  "fetched_at_utc": "2026-11-08T15:48:30.168833+00:00",
+  "http_status": 200,
+  "sha256": "32d040ff419fa9b1f9113f7e10d587b332a2ab9c6b6099851025cc16a4e986bb",
+  "excerpts": [
+    {
+      "line": 344,
+      "text": "    function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data) external nonReentrant {"
+    },
+    {
+      "line": 345,
+      "text": "        if (IPoolFactory(factory).isPaused()) revert IsPaused();"
+    },
+    {
+      "line": 346,
+      "text": "        if (amount0Out == 0 && amount1Out == 0) revert InsufficientOutputAmount();"
+    },
+    {
+      "line": 347,
+      "text": "        (uint256 _reserve0, uint256 _reserve1) = (reserve0, reserve1);"
+    },
+    {
+      "line": 348,
+      "text": "        if (amount0Out >= _reserve0 || amount1Out >= _reserve1) revert InsufficientLiquidity();"
+    },
+    {
+      "line": 349,
+      "text": ""
+    },
+    {
+      "line": 350,
+      "text": "        uint256 _balance0;"
+    },
+    {
+      "line": 351,
+      "text": "        uint256 _balance1;"
+    },
+    {
+      "line": 352,
+      "text": "        {"
+    },
+    {
+      "line": 353,
+      "text": "            // scope for _token{0,1}, avoids stack too deep errors"
+    },
+    {
+      "line": 354,
+      "text": "            (address _token0, address _token1) = (token0, token1);"
+    },
+    {
+      "line": 355,
+      "text": "            if (to == _token0 || to == _token1) revert InvalidTo();"
+    },
+    {
+      "line": 356,
+      "text": "            if (amount0Out > 0) IERC20(_token0).safeTransfer(to, amount0Out); // optimistically transfer tokens"
+    },
+    {
+      "line": 357,
+      "text": "            if (amount1Out > 0) IERC20(_token1).safeTransfer(to, amount1Out); // optimistically transfer tokens"
+    },
+    {
+      "line": 358,
+      "text": "            if (data.length > 0) IPoolCallee(to).hook(msg.sender, amount0Out, amount1Out, data); // callback, used for flash loans"
+    },
+    {
+      "line": 367,
+      "text": "            (address _token0, address _token1) = (token0, token1);"
+    },
+    {
+      "line": 368,
+      "text": "            if (amount0In > 0) _update0((amount0In * IPoolFactory(factory).getFee(address(this), stable)) / 10000); // accrue fees for token0 and move them out of pool"
+    },
+    {
+      "line": 369,
+      "text": "            if (amount1In > 0) _update1((amount1In * IPoolFactory(factory).getFee(address(this), stable)) / 10000); // accrue fees for token1 and move them out of pool"
+    },
+    {
+      "line": 370,
+      "text": "            _balance0 = IERC20(_token0).balanceOf(address(this)); // since we removed tokens, we need to reconfirm balances, can also simply use previous balance - amountIn/ 10000, but doing balanceOf again as safety check"
+    },
+    {
+      "line": 371,
+      "text": "            _balance1 = IERC20(_token1).balanceOf(address(this));"
+    },
+    {
+      "line": 372,
+      "text": "            // The curve, either x3y+y3x for stable pools, or x*y for volatile pools"
+    },
+    {
+      "line": 373,
+      "text": "            if (_k(_balance0, _balance1) < _k(_reserve0, _reserve1)) revert K();"
+    },
+    {
+      "line": 374,
+      "text": "        }"
+    },
+    {
+      "line": 375,
+      "text": ""
+    },
+    {
+      "line": 376,
+      "text": "        _update(_balance0, _balance1, _reserve0, _reserve1);"
+    },
+    {
+      "line": 377,
+      "text": "        emit Swap(msg.sender, to, amount0In, amount1In, amount0Out, amount1Out);"
+    },
+    {
+      "line": 378,
+      "text": "    }"
+    },
+    {
+      "line": 379,
+      "text": ""
+    },
+    {
+      "line": 380,
+      "text": "    /// @inheritdoc IPool"
+    },
+    {
+      "line": 381,
+      "text": "    function skim(address to) external nonReentrant {"
+    },
+    {
+      "line": 382,
+      "text": "        (address _token0, address _token1) = (token0, token1);"
+    },
+    {
+      "line": 446,
+      "text": "    /// @inheritdoc IPool"
+    },
+    {
+      "line": 447,
+      "text": "    function getAmountOut(uint256 amountIn, address tokenIn) external view returns (uint256) {"
+    },
+    {
+      "line": 448,
+      "text": "        (uint256 _reserve0, uint256 _reserve1) = (reserve0, reserve1);"
+    },
+    {
+      "line": 449,
+      "text": "        amountIn -= (amountIn * IPoolFactory(factory).getFee(address(this), stable)) / 10000; // remove fee from amount received"
+    },
+    {
+      "line": 450,
+      "text": "        return _getAmountOut(amountIn, tokenIn, _reserve0, _reserve1);"
+    },
+    {
+      "line": 451,
+      "text": "    }"
+    },
+    {
+      "line": 452,
+      "text": ""
+    },
+    {
+      "line": 453,
+      "text": "    function _getAmountOut(uint256 amountIn, address tokenIn, uint256 _reserve0, uint256 _reserve1)"
+    },
+    {
+      "line": 454,
+      "text": "        internal"
+    },
+    {
+      "line": 455,
+      "text": "        view"
+    },
+    {
+      "line": 456,
+      "text": "        returns (uint256)"
+    },
+    {
+      "line": 457,
+      "text": "    {"
+    },
+    {
+      "line": 458,
+      "text": "        if (stable) {"
+    },
+    {
+      "line": 459,
+      "text": "            uint256 xy = _k(_reserve0, _reserve1);"
+    },
+    {
+      "line": 460,
+      "text": "            _reserve0 = (_reserve0 * 1e18) / decimals0;"
+    },
+    {
+      "line": 461,
+      "text": "            _reserve1 = (_reserve1 * 1e18) / decimals1;"
+    },
+    {
+      "line": 462,
+      "text": "            (uint256 reserveA, uint256 reserveB) = tokenIn == token0 ? (_reserve0, _reserve1) : (_reserve1, _reserve0);"
+    },
+    {
+      "line": 463,
+      "text": "            amountIn = tokenIn == token0 ? (amountIn * 1e18) / decimals0 : (amountIn * 1e18) / decimals1;"
+    },
+    {
+      "line": 464,
+      "text": "            uint256 y = reserveB - _get_y(amountIn + reserveA, xy, reserveB);"
+    },
+    {
+      "line": 465,
+      "text": "            return (y * (tokenIn == token0 ? decimals1 : decimals0)) / 1e18;"
+    },
+    {
+      "line": 466,
+      "text": "        } else {"
+    }
+  ]
+}

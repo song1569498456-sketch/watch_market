@@ -10,7 +10,17 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_REDEMPTION_SOURCE_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:46:58.517342+00:00",
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
     "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
@@ -26,7 +36,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:46:58.517342+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH02/full-20261108T152118Z/record.json"
+  "record": "evidence/ETH02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+    "verified_at": "2026-11-08T15:47:35.918126+00:00",
+    "record": "evidence/ETH02/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,69 @@
+{
+  "started_at": "2026-11-08T15:48:11.338190+00:00",
+  "results": [
+    {
+      "name": "op_rpc",
+      "url": "https://mainnet.optimism.io",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:48:11.338196+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "op_stable_discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism%20USDC",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:48:12.361270+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "issuer_usdc_deployments",
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:48:13.370788+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "op_usdc_list",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:48:14.378920+00:00",
+      "http_status": 200,
+      "selected_fields": {
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "decimals": 6,
+        "description": "USDC is a faster, safer, and more efficient way to send, spend, and exchange money around the globe. This is native USDC, minted by Circle's Cross-Chain Transfer Protocol.",
+        "tokens": {
+          "optimism": {
+            "address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+          }
+        }
+      }
+    },
+    {
+      "name": "circle_fiat_token",
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:48:15.791999+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "     * @dev Throws if called by any account other than a minter.\n     */\n    modifier onlyMinters() {\n        require(minters[msg.sender], \"FiatToken: caller is not a minter\");\n        _;\n    }\n\n    /**\n     * @notice Mints fiat tokens to an address.\n     * @param _to The address that will receive the minted tokens.\n     * @param _amount The amount of tokens to mint. Must be less than or equal\n     * to the minterAllowance of the caller.\n     * @return True if the operation was successful.\n     */\n    function mint(address _to, uint256 _amount)\n        external\n        virtual\n        whenNotPaused\n        onlyMinters\n        notBlacklisted(msg.sender)\n        notBlacklisted(_to)\n        returns (bool)\n    {\n        require(_to != address(0), \"FiatToken: mint to the zero address\");\n        require(_amount > 0, \"FiatToken: mint amount not greater than 0\");\n\n        uint256 mintingAllowedAmount = minterAllowed[msg.sender];\n        require(\n            _amount <= mintingAllowedAmount,\n            \"FiatToken: mint amount exceeds minterAllowance\"\n        );\n\n        totalSupply_ = totalSupply_.add(_amount);\n        _setBalance(_to, _balanceOf(_to).add(_amount));\n        minterAllowed[msg.sender] = mintingAllowedAmount.sub(_amount);\n        emit Mint(msg.sender, _to, _amount);\n        emit Transfer(address(0), _to, _amount);\n        return true;\n    }\n\n    /**\n     * @dev Throws if called by any account other than the masterMinter",
+        "     * @return True if the operation was successful.\n     */\n    function mint(address _to, uint256 _amount)\n        external\n        virtual\n        whenNotPaused\n        onlyMinters\n        notBlacklisted(msg.sender)\n        notBlacklisted(_to)\n        returns (bool)\n    {\n        require(_to != address(0), \"FiatToken: mint to the zero address\");\n        require(_amount > 0, \"FiatToken: mint amount not greater than 0\");\n\n        uint256 mintingAllowedAmount = minterAllowed[msg.sender];\n        require(\n            _amount <= mintingAllowedAmount,\n            \"FiatToken: mint amount exceeds minterAllowance\"\n        );\n\n        totalSupply_ = totalSupply_.add(_amount);\n        _setBalance(_to, _balanceOf(_to).add(_amount));\n        minterAllowed[msg.sender] = mintingAllowedAmount.sub(_amount);\n        emit Mint(msg.sender, _to, _amount);\n        emit Transfer(address(0), _to, _amount);\n        return true;\n    }\n\n    /**\n     * @dev Throws if called by any account other than the masterMinter\n     */\n    modifier onlyMasterMinter() {\n        require(\n            msg.sender == masterMinter,\n            \"FiatToken: caller is not the masterMinter\"\n        );\n        _;\n    }\n\n    /**\n     * @notice Gets the minter allowance for an account.\n     * @param minter The address to check.",
+        "     * @param _amount the amount of tokens to be burned.\n     */\n    function burn(uint256 _amount)\n        external\n        virtual\n        whenNotPaused\n        onlyMinters\n        notBlacklisted(msg.sender)\n    {\n        uint256 balance = _balanceOf(msg.sender);\n        require(_amount > 0, \"FiatToken: burn amount not greater than 0\");\n        require(balance >= _amount, \"FiatToken: burn amount exceeds balance\");\n\n        totalSupply_ = totalSupply_.sub(_amount);\n        _setBalance(msg.sender, balance.sub(_amount));\n        emit Burn(msg.sender, _amount);\n        emit Transfer(msg.sender, address(0), _amount);\n    }\n\n    /**\n     * @notice Updates the master minter address.\n     * @param _newMasterMinter The address of the new master minter.\n     */\n    function updateMasterMinter(address _newMasterMinter) external onlyOwner {\n        require(\n            _newMasterMinter != address(0),\n            \"FiatToken: new masterMinter is the zero address\"\n        );\n        masterMinter = _newMasterMinter;\n        emit MasterMinterChanged(masterMinter);\n    }\n\n    /**\n     * @inheritdoc Blacklistable\n     */\n    function _blacklist(address _account) internal override {\n        _setBlacklistState(_account, true);\n    }\n\n    /**\n     * @inheritdoc Blacklistable\n     */"
+      ]
+    },
+    {
+      "name": "op_bridged_usdc_list",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:48:38.491899+00:00",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

@@ -38,6 +38,25 @@
           "owner": "ETH01",
           "last_observed_run": "full-20261108T152118Z",
           "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+        },
+        "ETH05": {
+          "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+          "chain": "ETH",
+          "protocol": "Lido WithdrawalQueueERC721 / unstETH rights",
+          "asset_ids": [
+            "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+          ],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+          ],
+          "identity_status": "OFFICIAL_DEPLOYMENT_AND_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+          "next_check": "核对Ethereum chainId=1、queue代码/实现与ERC721接口；用真实事件范围建立requestId队列。",
+          "owner": "ETH05",
+          "last_observed_run": "full-20261108T152118Z",
+          "source_record": "evidence/ETH05/full-20261108T152118Z/record.json"
         }
       }
     },
@@ -500,6 +519,23 @@
       "owner": "ETH04",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "chain": "OP",
+      "protocol": "Circle USDC（发现表描述，部署待核验）",
+      "asset_ids": [
+        "OP:10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json"
+      ],
+      "identity_status": "DISCOVERY_LIST_ONLY_NOT_ISSUER_OR_CHAIN_VERIFIED",
+      "kind": "asset_discovery_queue_not_pool",
+      "next_check": "固定OP链ID10和区块，核对USDC代理代码/实现与发行方正式地址；独立发现桥接版并分开登记，不按币名合并。",
+      "owner": "OP01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/OP01/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

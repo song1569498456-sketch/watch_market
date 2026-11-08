@@ -1,13 +1,32 @@
 {
   "agent_id": "ETH05",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_NFT_RIGHTS_SOURCE_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:49:15.184460+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方部署表chainId=1、name=Lido: stETH Withdrawal NFT、symbol=unstETH，queue与实现已提取，尚未实时链核验。",
+    "ERC721源码169-175行ownerOf对claimed请求revert；230-248行_transfer拒绝已claimed并更新request.owner、清除approval。",
+    "WithdrawalQueue.sol:218-230未finalized或已claimed返回0，264-273行领取要求owner和finalized；当前无真实requestId可验证。"
+  ],
+  "pending_questions": [
+    "30天NFT权益/升级变更与7天请求/转移/领取活动均未回溯，无交易/事件/区块。",
+    "Lido文档与Ethereum LlamaRPC eth_chainId均CONNECT 403，当前代码/代理实现和NFT队列状态未链核验。",
+    "没有真实requestId/tokenId、当前owner/claimed/finalized/claimable，不能认定任何一件NFT仍可领取。",
+    "没有实际NFT可成交买单/卖单与取得成本、gas/等待或剩余可支付ETH，无法核算NFT买入→领取收益。",
+    "仅有官方静态部署与源码；NFT转移后的current owner逻辑需要当前实现核对，不使用地板价或显示APR计收入。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:49:15.184460+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ETH05/full-20261108T152118Z/record.json"
 }

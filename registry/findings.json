@@ -400,6 +400,40 @@
       "owner": "ETH04",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+      "chain": "OP",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol"
+      ],
+      "next_check": "核验普通合格用户的真实赎回渠道、账户/地区条件、额度、最小额、手续费/等待；合约burn/CCTP不是现金到账证明。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "OP01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/OP01/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+      "status": "REJECTED",
+      "chain": "OP",
+      "market_id": null,
+      "claim": "排除“getAmountOut可返回数值就证明同状态可执行swap”的论证。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+      ],
+      "evidence_fields": "Pool.sol getAmountOut L447-450不查pause，而swap L345查factory.isPaused",
+      "scope_limit": "针对已读源码中的两方法；未证明OP某实际池暂停或对应当前部署。",
+      "owner": "OP02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/OP02/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

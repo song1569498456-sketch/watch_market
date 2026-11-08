@@ -1,0 +1,27 @@
+{
+  "name": "uniswap_op_deployments",
+  "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+  "fetched_at_utc": "2026-11-08T15:48:17.088102+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "7daa52b28d2fc15eb5888a86b5261604a7d32cb43113cde8ca8ea1516d24b8de",
+  "excerpts": [
+    {
+      "line": 5,
+      "text": "| Contract                                                                                                                                                     | Mainnet, Polygon, Optimism, Arbitrum, Testnets Address | Celo Address                                 |"
+    },
+    {
+      "line": 7,
+      "text": "| [UniswapV3Factory](https://github.com/Uniswap/uniswap-v3-core/blob/v1.0.0/contracts/UniswapV3Factory.sol)                                                    | `0x1F98431c8aD98523631AE4a59f267346ea31F984`           | `0xAfE208a311B21f13EF87E33A90049fC17A7acDEc` |"
+    },
+    {
+      "line": 11,
+      "text": "| [Quoter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/Quoter.sol)                                                              | `0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6`           | `0x82825d0554fA07f7FC52Ab63c961F330fdEFa8E8` |"
+    },
+    {
+      "line": 12,
+      "text": "| [SwapRouter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/SwapRouter.sol)                                                           | `0xE592427A0AEce92De3Edee1F18E0157C05861564`           | `0x5615CDAb10dc425a742d643d949a7F474C01abc4` |"
+    }
+  ],
+  "success": true
+}

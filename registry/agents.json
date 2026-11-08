@@ -699,20 +699,71 @@
     {
       "agent_id": "ETH05",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:49:15.184460+00:00",
+      "actual_coverage": [
+        "官方部署表chainId=1、name=Lido: stETH Withdrawal NFT、symbol=unstETH，queue与实现已提取，尚未实时链核验。",
+        "ERC721源码169-175行ownerOf对claimed请求revert；230-248行_transfer拒绝已claimed并更新request.owner、清除approval。",
+        "WithdrawalQueue.sol:218-230未finalized或已claimed返回0，264-273行领取要求owner和finalized；当前无真实requestId可验证。"
+      ],
+      "coverage_gaps": [
+        "30天NFT权益/升级变更与7天请求/转移/领取活动均未回溯，无交易/事件/区块。",
+        "Lido文档与Ethereum LlamaRPC eth_chainId均CONNECT 403，当前代码/代理实现和NFT队列状态未链核验。",
+        "没有真实requestId/tokenId、当前owner/claimed/finalized/claimable，不能认定任何一件NFT仍可领取。",
+        "没有实际NFT可成交买单/卖单与取得成本、gas/等待或剩余可支付ETH，无法核算NFT买入→领取收益。",
+        "仅有官方静态部署与源码；NFT转移后的current owner逻辑需要当前实现核对，不使用地板价或显示APR计收入。"
+      ],
+      "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "OP01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:49:23.421716+00:00",
+      "actual_coverage": [
+        "Superchain官方token-list data/USDC/data.json将OP地址列为0x0b2c639c533813f4aa9d7837caf62653d097ff85，decimals=6，描述native USDC；仅文档级线索。",
+        "Circle FiatTokenV1源码burn仅minter、非暂停/黑名单条件下销毁自有余额，总供给减少；这是源码读取，不是当前OP链上角色实测。",
+        "没有实际折价、普通账户兑付资格、储备可兑余额或现金回款证据。"
+      ],
+      "coverage_gaps": [
+        "OP RPC、DEX发现和Circle发行方部署页目标均代理CONNECT403；没有chainId、当前区块、真实池或按数量报价。",
+        "token-list描述原生USDC地址，但未通过发行方部署和链上代理实现独立核验；桥接USDC.e条目猜测路径404，未核其地址，不拼接记忆地址。",
+        "Circle FiatTokenV1源码是权限/销毁语义参考，不等于本轮OP部署实现；当前minter、黑名单、暂停、现金兑付资格/地域账户条件和额度均unknown。",
+        "30天发行/桥迁移/权限/费率规则变更未覆盖，7天实际兑付和交易未覆盖。",
+        "实际买入价、可兑现金/接收资产、等待与退出深度、完整L2/L1费用均未取得。"
+      ],
+      "report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "OP02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:49:05.707031+00:00",
+      "actual_coverage": [
+        {
+          "protocol": "Uniswap V3 OP",
+          "factory_static": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          "quoter_static": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "identity_status": "STATIC_FACTORY_NOT_MARKET"
+        },
+        {
+          "protocol": "Velodrome V2",
+          "source": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+          "fields": "swap L345查pause；getAmountOut L447-450扣factory.getFee；stable L458-465精度归一",
+          "identity_status": "SOURCE_ONLY_NO_LIVE_POOL_MATCH"
+        }
+      ],
+      "coverage_gaps": [
+        "30天费率/迁移/流动性变化未覆盖。",
+        "7天代表性活动/价差出现前交易未覆盖，无区块/事件。",
+        "OP RPC与交易对目录CONNECT403，未核chainId10、code、真实池和资产地址。",
+        "未检验底层独立、储备真实性、转账税/封装权益与卖出/激活状态。",
+        "没有同状态两腿指定数量报价、曲线、容量、最终重报价或模拟。"
+      ],
+      "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "POLY01",

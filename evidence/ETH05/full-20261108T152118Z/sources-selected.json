@@ -1,0 +1,489 @@
+{
+  "started_at": "2026-11-08T15:48:12.928619+00:00",
+  "sources": [
+    {
+      "source": "lido-nft-rights-docs",
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "retrieved_at_utc": "2026-11-08T15:48:12.928626+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "ethereum-rpc",
+      "url": "https://eth.llamarpc.com",
+      "retrieved_at_utc": "2026-11-08T15:48:13.953893+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "lido-nft-deployment",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "retrieved_at_utc": "2026-11-08T15:48:14.963898+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+      "bytes_read": 61362,
+      "selected": {
+        "chainId": 1,
+        "stETH": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "withdrawalQueue": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "implementation": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+        "name_symbol": {
+          "name": "Lido: stETH Withdrawal NFT",
+          "symbol": "unstETH"
+        }
+      }
+    },
+    {
+      "source": "withdrawal-nft-source",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+      "retrieved_at_utc": "2026-11-08T15:48:16.430352+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+      "bytes_read": 17218,
+      "excerpts": [
+        {
+          "line": 28,
+          "text": ""
+        },
+        {
+          "line": 29,
+          "text": "/// @title NFT implementation on top of {WithdrawalQueue}"
+        },
+        {
+          "line": 30,
+          "text": "/// NFT is minted on every request and burned on claim"
+        },
+        {
+          "line": 31,
+          "text": "///"
+        },
+        {
+          "line": 32,
+          "text": "/// @author psirex, folkyatina"
+        },
+        {
+          "line": 33,
+          "text": "contract WithdrawalQueueERC721 is IERC721Metadata, IERC4906, WithdrawalQueue {"
+        },
+        {
+          "line": 34,
+          "text": "    using Address for address;"
+        },
+        {
+          "line": 35,
+          "text": "    using Strings for uint256;"
+        },
+        {
+          "line": 36,
+          "text": "    using EnumerableSet for EnumerableSet.UintSet;"
+        },
+        {
+          "line": 37,
+          "text": "    using UnstructuredRefStorage for bytes32;"
+        },
+        {
+          "line": 38,
+          "text": "    using UnstructuredStorage for bytes32;"
+        },
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "    bytes32 internal constant TOKEN_APPROVALS_POSITION = keccak256(\"lido.WithdrawalQueueERC721.tokenApprovals\");"
+        },
+        {
+          "line": 41,
+          "text": "    bytes32 internal constant OPERATOR_APPROVALS_POSITION = keccak256(\"lido.WithdrawalQueueERC721.operatorApprovals\");"
+        },
+        {
+          "line": 42,
+          "text": "    bytes32 internal constant BASE_URI_POSITION = keccak256(\"lido.WithdrawalQueueERC721.baseUri\");"
+        },
+        {
+          "line": 43,
+          "text": "    bytes32 internal constant NFT_DESCRIPTOR_ADDRESS_POSITION ="
+        },
+        {
+          "line": 167,
+          "text": ""
+        },
+        {
+          "line": 168,
+          "text": "    /// @dev See {IERC721-ownerOf}."
+        },
+        {
+          "line": 169,
+          "text": "    function ownerOf(uint256 _requestId) public view override returns (address) {"
+        },
+        {
+          "line": 170,
+          "text": "        if (_requestId == 0 || _requestId > getLastRequestId()) revert InvalidRequestId(_requestId);"
+        },
+        {
+          "line": 171,
+          "text": ""
+        },
+        {
+          "line": 172,
+          "text": "        WithdrawalRequest storage request = _getQueue()[_requestId];"
+        },
+        {
+          "line": 173,
+          "text": "        if (request.claimed) revert RequestAlreadyClaimed(_requestId);"
+        },
+        {
+          "line": 174,
+          "text": ""
+        },
+        {
+          "line": 175,
+          "text": "        return request.owner;"
+        },
+        {
+          "line": 176,
+          "text": "    }"
+        },
+        {
+          "line": 177,
+          "text": ""
+        },
+        {
+          "line": 178,
+          "text": "    /// @dev See {IERC721-approve}."
+        },
+        {
+          "line": 179,
+          "text": "    function approve(address _to, uint256 _requestId) external override {"
+        },
+        {
+          "line": 180,
+          "text": "        address owner = ownerOf(_requestId);"
+        },
+        {
+          "line": 181,
+          "text": "        if (_to == owner) revert ApprovalToOwner();"
+        },
+        {
+          "line": 182,
+          "text": "        if (msg.sender != owner && !isApprovedForAll(owner, msg.sender)) revert NotOwnerOrApprovedForAll(msg.sender);"
+        },
+        {
+          "line": 183,
+          "text": ""
+        },
+        {
+          "line": 184,
+          "text": "        _approve(_to, _requestId);"
+        },
+        {
+          "line": 185,
+          "text": "    }"
+        },
+        {
+          "line": 186,
+          "text": ""
+        },
+        {
+          "line": 228,
+          "text": "    /// - `_requestId` request must not be claimed and be owned by `_from`."
+        },
+        {
+          "line": 229,
+          "text": "    /// - `msg.sender` should be approved, or approved for all, or owner"
+        },
+        {
+          "line": 230,
+          "text": "    function _transfer(address _from, address _to, uint256 _requestId) internal {"
+        },
+        {
+          "line": 231,
+          "text": "        if (_to == address(0)) revert TransferToZeroAddress();"
+        },
+        {
+          "line": 232,
+          "text": "        if (_to == _from) revert TransferToThemselves();"
+        },
+        {
+          "line": 233,
+          "text": "        if (_requestId == 0 || _requestId > getLastRequestId()) revert InvalidRequestId(_requestId);"
+        },
+        {
+          "line": 234,
+          "text": ""
+        },
+        {
+          "line": 235,
+          "text": "        WithdrawalRequest storage request = _getQueue()[_requestId];"
+        },
+        {
+          "line": 236,
+          "text": "        if (request.claimed) revert RequestAlreadyClaimed(_requestId);"
+        },
+        {
+          "line": 237,
+          "text": ""
+        },
+        {
+          "line": 238,
+          "text": "        if (_from != request.owner) revert TransferFromIncorrectOwner(_from, request.owner);"
+        },
+        {
+          "line": 239,
+          "text": "        // here and below we are sure that `_from` is the owner of the request"
+        },
+        {
+          "line": 240,
+          "text": "        address msgSender = msg.sender;"
+        },
+        {
+          "line": 241,
+          "text": "        if ("
+        },
+        {
+          "line": 242,
+          "text": "            !(_from == msgSender || isApprovedForAll(_from, msgSender) || _getTokenApprovals()[_requestId] == msgSender)"
+        },
+        {
+          "line": 243,
+          "text": "        ) {"
+        },
+        {
+          "line": 244,
+          "text": "            revert NotOwnerOrApproved(msgSender);"
+        },
+        {
+          "line": 245,
+          "text": "        }"
+        },
+        {
+          "line": 246,
+          "text": ""
+        },
+        {
+          "line": 247,
+          "text": "        delete _getTokenApprovals()[_requestId];"
+        },
+        {
+          "line": 248,
+          "text": "        request.owner = _to;"
+        },
+        {
+          "line": 249,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "source": "withdrawal-claim-source",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "retrieved_at_utc": "2026-11-08T15:48:17.865526+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "efa5a32fbc99cafdb16a38d96a9bb5b29a62e60b5610e7c317711cc58402b131",
+      "bytes_read": 19771,
+      "excerpts": [
+        {
+          "line": 205,
+          "text": "    /// @notice Returns status for requests with provided ids"
+        },
+        {
+          "line": 206,
+          "text": "    /// @param _requestIds array of withdrawal request ids"
+        },
+        {
+          "line": 207,
+          "text": "    function getWithdrawalStatus(uint256[] calldata _requestIds)"
+        },
+        {
+          "line": 208,
+          "text": "        external"
+        },
+        {
+          "line": 209,
+          "text": "        view"
+        },
+        {
+          "line": 210,
+          "text": "        returns (WithdrawalRequestStatus[] memory statuses)"
+        },
+        {
+          "line": 211,
+          "text": "    {"
+        },
+        {
+          "line": 212,
+          "text": "        statuses = new WithdrawalRequestStatus[](_requestIds.length);"
+        },
+        {
+          "line": 213,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 214,
+          "text": "            statuses[i] = _getStatus(_requestIds[i]);"
+        },
+        {
+          "line": 215,
+          "text": "        }"
+        },
+        {
+          "line": 216,
+          "text": "    }"
+        },
+        {
+          "line": 217,
+          "text": ""
+        },
+        {
+          "line": 218,
+          "text": "    /// @notice Returns amount of ether available for claim for each provided request id"
+        },
+        {
+          "line": 219,
+          "text": "    /// @param _requestIds array of request ids"
+        },
+        {
+          "line": 220,
+          "text": "    /// @param _hints checkpoint hints. can be found with `findCheckpointHints(_requestIds, 1, getLastCheckpointIndex())`"
+        },
+        {
+          "line": 221,
+          "text": "    /// @return claimableEthValues amount of claimable ether for each request, amount is equal to 0 if request"
+        },
+        {
+          "line": 222,
+          "text": "    ///  is not finalized or already claimed"
+        },
+        {
+          "line": 223,
+          "text": "    function getClaimableEther(uint256[] calldata _requestIds, uint256[] calldata _hints)"
+        },
+        {
+          "line": 224,
+          "text": "        external"
+        },
+        {
+          "line": 225,
+          "text": "        view"
+        },
+        {
+          "line": 226,
+          "text": "        returns (uint256[] memory claimableEthValues)"
+        },
+        {
+          "line": 227,
+          "text": "    {"
+        },
+        {
+          "line": 228,
+          "text": "        claimableEthValues = new uint256[](_requestIds.length);"
+        },
+        {
+          "line": 229,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 230,
+          "text": "            claimableEthValues[i] = _getClaimableEther(_requestIds[i], _hints[i]);"
+        },
+        {
+          "line": 231,
+          "text": "        }"
+        },
+        {
+          "line": 232,
+          "text": "    }"
+        },
+        {
+          "line": 233,
+          "text": ""
+        },
+        {
+          "line": 234,
+          "text": "    /// @notice Claim a batch of withdrawal requests if they are finalized sending ether to `_recipient`"
+        },
+        {
+          "line": 235,
+          "text": "    /// @param _requestIds array of request ids to claim"
+        },
+        {
+          "line": 236,
+          "text": "    /// @param _hints checkpoint hint for each id. Can be obtained with `findCheckpointHints()`"
+        },
+        {
+          "line": 264,
+          "text": "    ///  Reverts if any request is not finalized or already claimed"
+        },
+        {
+          "line": 265,
+          "text": "    ///  Reverts if msg sender is not an owner of the requests"
+        },
+        {
+          "line": 266,
+          "text": "    function claimWithdrawals(uint256[] calldata _requestIds, uint256[] calldata _hints) external {"
+        },
+        {
+          "line": 267,
+          "text": "        if (_requestIds.length != _hints.length) {"
+        },
+        {
+          "line": 268,
+          "text": "            revert ArraysLengthMismatch(_requestIds.length, _hints.length);"
+        },
+        {
+          "line": 269,
+          "text": "        }"
+        },
+        {
+          "line": 270,
+          "text": ""
+        },
+        {
+          "line": 271,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 272,
+          "text": "            _claim(_requestIds[i], _hints[i], msg.sender);"
+        },
+        {
+          "line": 273,
+          "text": "            _emitTransfer(msg.sender, address(0), _requestIds[i]);"
+        },
+        {
+          "line": 274,
+          "text": "        }"
+        },
+        {
+          "line": 275,
+          "text": "    }"
+        },
+        {
+          "line": 276,
+          "text": ""
+        },
+        {
+          "line": 277,
+          "text": "    /// @notice Claim one`_requestId` request once finalized sending locked ether to the owner"
+        },
+        {
+          "line": 278,
+          "text": "    /// @param _requestId request id to claim"
+        },
+        {
+          "line": 279,
+          "text": "    /// @dev use unbounded loop to find a hint, which can lead to OOG"
+        }
+      ]
+    }
+  ]
+}

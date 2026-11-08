@@ -1,13 +1,45 @@
 {
   "agent_id": "OP02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+    ],
+    "chain_block": null,
+    "market_pages_completed": 0,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "Uniswap V3 OP",
+      "factory_static": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "quoter_static": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+      "identity_status": "STATIC_FACTORY_NOT_MARKET"
+    },
+    {
+      "protocol": "Velodrome V2",
+      "source": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "fields": "swap L345查pause；getAmountOut L447-450扣factory.getFee；stable L458-465精度归一",
+      "identity_status": "SOURCE_ONLY_NO_LIVE_POOL_MATCH"
+    }
+  ],
+  "pending_questions": [
+    "30天费率/迁移/流动性变化未覆盖。",
+    "7天代表性活动/价差出现前交易未覆盖，无区块/事件。",
+    "OP RPC与交易对目录CONNECT403，未核chainId10、code、真实池和资产地址。",
+    "未检验底层独立、储备真实性、转账税/封装权益与卖出/激活状态。",
+    "没有同状态两腿指定数量报价、曲线、容量、最终重报价或模拟。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:49:05.707031+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/OP02/full-20261108T152118Z/record.json"
 }

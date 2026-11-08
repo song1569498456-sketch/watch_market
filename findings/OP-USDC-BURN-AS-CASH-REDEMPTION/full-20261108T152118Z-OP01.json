@@ -1,0 +1,19 @@
+{
+  "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+  "chain": "OP",
+  "status": "REJECTED",
+  "market_ids": [],
+  "mechanism": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol"
+  ],
+  "next_check": "核验普通合格用户的真实赎回渠道、账户/地区条件、额度、最小额、手续费/等待；合约burn/CCTP不是现金到账证明。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "OP01",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/OP01/full-20261108T152118Z/record.json"
+}
