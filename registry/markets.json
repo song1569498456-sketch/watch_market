@@ -1,6 +1,41 @@
 {
   "schema_version": 1,
-  "items": [],
-  "status": "NOT_RESEARCHED",
+  "items": [
+    {
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "chain": "ETH",
+      "protocol": "Lido WithdrawalQueueERC721",
+      "asset_ids": [
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+      "owner": "N-ETH",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Factory:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+      "owner": "N-BNB",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+    }
+  ],
+  "status": "BASELINE_PARTIAL",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

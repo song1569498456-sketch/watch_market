@@ -1,13 +1,51 @@
 {
   "agent_id": "N-SOL",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+      "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+      "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+    ],
+    "chain_slot": null,
+    "historical_window_completed": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "Raydium",
+      "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "kind": "CLMM_PROGRAM_ID",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Raydium",
+      "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "kind": "CREATE_CPMM_POOL_PROGRAM",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Orca Whirlpools",
+      "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "kind": "README official deployment",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    }
+  ],
+  "pending_questions": [
+    "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
+    "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
+    "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
+    "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
+    "旧小池退出窗口、数量报价及完整成本未核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:24:55.859069+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
 }

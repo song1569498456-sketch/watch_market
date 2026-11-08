@@ -1,6 +1,157 @@
 {
   "schema_version": 1,
-  "items": [],
-  "status": "NOT_RESEARCHED",
+  "items": [
+    {
+      "agent_id": "N-ETH",
+      "run_id": "full-20261108T152118Z",
+      "gap": "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
+      "next_check": [
+        "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+        "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+        "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+        "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "full-20261108T152118Z",
+      "gap": "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
+      "next_check": [
+        "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+        "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+        "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+        "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
+      "next_check": [
+        "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+        "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+        "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+        "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
+      "next_check": [
+        "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+        "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+        "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+        "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。",
+      "next_check": [
+        "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+        "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+        "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+        "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
+      "next_check": [
+        "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+        "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+        "按30天规则/7天活动的缺口补查，并独立核对资产原生/桥接身份、卖出限制及转账税。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
+      "next_check": [
+        "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+        "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+        "按30天规则/7天活动的缺口补查，并独立核对资产原生/桥接身份、卖出限制及转账税。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
+      "next_check": [
+        "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+        "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+        "按30天规则/7天活动的缺口补查，并独立核对资产原生/桥接身份、卖出限制及转账税。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。",
+      "next_check": [
+        "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+        "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+        "按30天规则/7天活动的缺口补查，并独立核对资产原生/桥接身份、卖出限制及转账税。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
+      "next_check": [
+        "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+        "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+        "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+        "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
+      "next_check": [
+        "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+        "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+        "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+        "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
+      "next_check": [
+        "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+        "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+        "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+        "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
+      "next_check": [
+        "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+        "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+        "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+        "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "full-20261108T152118Z",
+      "gap": "旧小池退出窗口、数量报价及完整成本未核验。",
+      "next_check": [
+        "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+        "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+        "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+        "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+      ]
+    }
+  ],
+  "status": "OPEN",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

@@ -34,14 +34,41 @@
     {
       "agent_id": "N-BNB",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:24:45.675031+00:00",
+      "actual_coverage": [
+        "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
+        "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
+        "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+      ],
+      "coverage_gaps": [
+        "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
+        "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
+        "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
+        "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+      ],
+      "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-ETH",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:24:52.450934+00:00",
+      "actual_coverage": [
+        "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
+        "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
+        "WithdrawalQueueERC721.sol第29-30行描述request铸NFT/claim销毁；第147-155行finalize有_checkResumed与FINALIZE_ROLE权限。"
+      ],
+      "coverage_gaps": [
+        "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
+        "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
+        "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
+        "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
+        "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
+      ],
+      "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-OP",
@@ -58,8 +85,37 @@
     {
       "agent_id": "N-SOL",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:24:55.859069+00:00",
+      "actual_coverage": [
+        {
+          "protocol": "Raydium",
+          "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+          "kind": "CLMM_PROGRAM_ID",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Raydium",
+          "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+          "kind": "CREATE_CPMM_POOL_PROGRAM",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Orca Whirlpools",
+          "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+          "kind": "README official deployment",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
+        "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
+        "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
+        "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
+        "旧小池退出窗口、数量报价及完整成本未核验。"
+      ],
+      "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-SONIC",

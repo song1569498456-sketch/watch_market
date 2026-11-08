@@ -1,6 +1,81 @@
 {
   "schema_version": 1,
-  "items": [],
-  "status": "NOT_RESEARCHED",
+  "items": [
+    {
+      "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+      "status": "UNVERIFIED",
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "mechanism": "官方源码在每次请求时铸造NFT、claim时销毁；finalize需FINALIZE_ROLE并检查resumed。仅表明退出为带条件的队列权益，不能将stETH名义数量直接当即刻可得ETH。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "net_result": "unknown",
+      "unknown_costs": [
+        "买入/卖出费与冲击",
+        "gas",
+        "等待机会成本",
+        "赎回差额/可兑数量"
+      ],
+      "handoff_to": [
+        "ETH01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "主网代理实现与所读源码不一致",
+        "队列暂停或资格不满足",
+        "实际赎回状态/金额不支持假设",
+        "当前报价无差异或费用耗尽差额"
+      ],
+      "owner": "N-ETH",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+      "chain": "BNB",
+      "status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
+      "mechanism": "BSC v1.8.2官方发布说明计划2026-12-08 02:30 UTC激活Jenner；BEP-702 CAS20资产创建还需治理任命管理员单独激活。此为待生效规则监控，不能当当前开放铸造权益或利润。",
+      "evidence_urls": [
+        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2"
+      ],
+      "market_ids": [],
+      "unknown_costs": [
+        "发行/参与资格",
+        "gas与优先费",
+        "资产买卖/退出容量"
+      ],
+      "next_check": "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+      "handoff_to": [
+        "M00",
+        "BNB05",
+        "R-BNB"
+      ],
+      "review_required": true,
+      "owner": "N-BNB",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "sol-whirlpool-token-interface-identity-check",
+      "status": "UNVERIFIED",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "market_id": null,
+      "claim": "存在值得专项核对的mint owner/Token Program身份约束；不是盈利或新规则生效主张",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+      ],
+      "next_check": "验证部署代码和真实池mint/Token Program/扩展后才能比较取得与退出成本。",
+      "net_profit": null,
+      "owner": "N-SOL",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+    }
+  ],
+  "status": "BASELINE_PARTIAL",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

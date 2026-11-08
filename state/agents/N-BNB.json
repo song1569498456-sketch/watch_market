@@ -1,13 +1,34 @@
 {
   "agent_id": "N-BNB",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "official_release_tag": "v1.8.2",
+    "release_published_at": "2026-11-03T02:12:36Z",
+    "factory_document_read": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "last_block": null,
+    "pool_events_scanned": 0,
+    "transactions_analyzed": 0,
+    "history_window_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
+    "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
+    "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+  ],
+  "pending_questions": [
+    "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
+    "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
+    "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
+    "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:24:45.675031+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
 }
