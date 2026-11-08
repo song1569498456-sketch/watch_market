@@ -1,0 +1,26 @@
+{
+  "trigger": "User showed watch_market settings with all-public access ON and reported publishing",
+  "runtime": {
+    "observations_current": true,
+    "spec_revision": "1",
+    "source_config_version_suffix": "cecfgver_6af08d6965a481a0827965853613ec15",
+    "network_mode": "restricted",
+    "network_state": "enforced",
+    "custom_allowed_hosts": [],
+    "note": "Same source configuration version as at initial environment inspection; screenshot shows desired all-public toggle ON and correct repository, but does not establish migration of this running instance."
+  },
+  "fresh_rpc": {
+    "requested_at_utc": "2026-11-08T17:09:41.223281+00:00",
+    "url": "https://ethereum-rpc.publicnode.com",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "elapsed_seconds": 0.027455
+  },
+  "result": "Current instance still restricted and RPC blocked; newly edited/published configuration not observed here. Cannot verify latest published version via failing draft-read tool.",
+  "recovery": "Select the newly published watch_market environment for a new cloud task or use supported latest-version restart UI if available. Fetch authoritative branch and resume state/data-capability.json; do not repeat 48-role sweep."
+}
