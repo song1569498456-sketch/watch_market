@@ -1,0 +1,23 @@
+{
+  "trigger": "User reported changing environment settings",
+  "runtime_after_recheck": {
+    "observations_current": true,
+    "spec_revision": "1",
+    "observed_spec_revision": "1",
+    "network_mode": "restricted",
+    "network_state": "enforced",
+    "custom_allowed_hosts": []
+  },
+  "fresh_requests": [
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "method": "eth_chainId",
+      "params": [],
+      "requested_at_utc": "2026-11-08T17:05:56.705893+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "duration_seconds": 0.034412
+    }
+  ],
+  "draft_read": "INVALID_ARGUMENT; current draft could not be verified",
+  "result": "Change not observed on this running instance, including second status read after10s; user UI save/application status unknown"
+}
