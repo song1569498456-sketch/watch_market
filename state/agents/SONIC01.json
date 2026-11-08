@@ -1,13 +1,47 @@
 {
   "agent_id": "SONIC01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
+    ],
+    "chain_block": null,
+    "pool_pages_completed": 0,
+    "cycles_quoted": 0,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "asset_label_from_registry": "USDC",
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "decimals_static": 6,
+      "chain_scope": "AaveV3Sonic.sol",
+      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+      "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
+      "deployment_match": "unknown；未识别Sonic池"
+    }
+  ],
+  "pending_questions": [
+    "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
+    "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
+    "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
+    "30天规则/新池/迁移/费率窗口未覆盖。",
+    "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
+    "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:56:51.722665+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
 }

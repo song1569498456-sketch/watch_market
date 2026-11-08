@@ -20,7 +20,27 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "registry_document_address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+      "code_mechanisms_read": [
+        "supportMarket",
+        "preBorrowHook",
+        "_addToMarket",
+        "getUnderlyingPrice",
+        "setTokenConfig"
+      ],
+      "collateral_assets_chain_checked": 0,
+      "debts_checked": 0,
+      "transactions_analyzed": 0,
+      "current_block": null,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
     "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
@@ -37,7 +57,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:54:10.950788+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
+  "record": "evidence/R-BNB/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "verified_at": "2026-11-08T15:55:22.338512+00:00",
+    "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
+  }
 }

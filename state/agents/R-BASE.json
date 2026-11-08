@@ -10,7 +10,17 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_DEPLOYMENT_AND_RULE_OBSERVATION_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:54:01.784114+00:00",
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
     "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
@@ -27,7 +37,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:54:01.784114+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
+  "record": "evidence/R-BASE/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "verified_at": "2026-11-08T15:55:22.338512+00:00",
+    "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
+  }
 }

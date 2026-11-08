@@ -1,13 +1,38 @@
 {
   "agent_id": "SOL03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "document_program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+    "genesis_hash": null,
+    "slot": null,
+    "commitment": null,
+    "obligations_read": 0,
+    "liquidations_analyzed": 0,
+    "quotes_obtained": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
+    "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
+    "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
+    "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+  ],
+  "pending_questions": [
+    "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
+    "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
+    "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
+    "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
+    "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:57:10.826803+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/SOL03/full-20261108T152118Z/record.json"
 }

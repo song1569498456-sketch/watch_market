@@ -2055,6 +2055,182 @@
         "有界读取实际借贷市场注册事件，只有核对同wrapper/loan/oracle/IRM/阈值后才检查债务和敞口。",
         "无实际接受映射继续排除风险断言；若确认正常清算且有真实价值交POLY02，若风险冲突仅报RISK_ONLY而不提供提取步骤。"
       ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
+      "next_check": [
+        "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+        "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+        "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+        "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
+      "next_check": [
+        "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+        "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+        "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+        "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
+      "next_check": [
+        "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+        "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+        "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+        "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
+      "next_check": [
+        "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+        "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+        "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+        "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。",
+      "next_check": [
+        "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+        "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+        "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+        "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
+      "next_check": [
+        "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+        "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+        "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+        "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
+      "next_check": [
+        "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+        "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+        "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+        "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
+      "next_check": [
+        "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+        "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+        "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+        "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
+      "next_check": [
+        "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+        "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+        "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+        "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。",
+      "next_check": [
+        "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+        "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+        "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+        "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/新池/迁移/费率窗口未覆盖。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。",
+      "next_check": [
+        "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+        "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+        "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+        "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+      ]
     }
   ],
   "status": "OPEN",

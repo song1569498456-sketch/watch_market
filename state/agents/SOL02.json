@@ -1,13 +1,34 @@
 {
   "agent_id": "SOL02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_PROGRAM_AND_STATE_CONFIG_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:57:28.691174+00:00",
+    "slot_range": null,
+    "commitment": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
+    "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
+    "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
+    "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+  ],
+  "pending_questions": [
+    "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
+    "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
+    "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
+    "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
+    "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:57:28.691174+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/SOL02/full-20261108T152118Z/record.json"
 }

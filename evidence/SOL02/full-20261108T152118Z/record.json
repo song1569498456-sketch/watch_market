@@ -1,0 +1,615 @@
+{
+  "agent_id": "SOL02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SOL",
+  "scope": "Solana mainnet-beta质押衍生品折价与正常退出，Marinade静态规则基线",
+  "started_at": "2026-11-08T15:56:04.350959+00:00",
+  "finished_at": "2026-11-08T15:57:28.691174+00:00",
+  "duration_seconds": 84.34,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:57:28.691174+00:00",
+    "beijing": "2026-11-08T23:57:28.691174+08:00",
+    "data_time": "unknown; static sources not finalized cluster snapshot"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    {
+      "source": "marinade-exit-docs",
+      "url": "https://docs.marinade.finance/marinade-protocol/faq/faq",
+      "retrieved_at_utc": "2026-11-08T15:56:04.350965+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "solana-mainnet-rpc",
+      "url": "https://api.mainnet-beta.solana.com",
+      "retrieved_at_utc": "2026-11-08T15:56:05.374356+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getGenesisHash",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "marinade-program-readme",
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:56:06.383429+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "2b605bde37d5e993f4136306ea1db40a28d1ae17b4ee916f8961eebd0201ccb7",
+      "bytes_read": 1859,
+      "excerpts": [
+        {
+          "line": 4,
+          "text": "# Deployments"
+        },
+        {
+          "line": 5,
+          "text": "Branch `mainnet` contains the version deployed on mainnet, keep it up to date with every deployment."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "Even though the audited and deployed commit hashes might differ, it is critical that the program source is identical."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "## 2026-10-TODO (v2.1.0): derive stake rent from the Rent sysvar (SIMD-0437 rent reduction)"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "## 2026-07-16 (v2.1.0): fix delinquent stakes and introduce deposit fees"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "commit: [`0f031c4`](https://github.com/marinade-finance/liquid-staking-program/pull/84)"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": "tx: [wyCLBNG716ScBE1rAU7FC2EmqHJxcho3LCofb2vLBcCDxVfXn6SF8b3gfjda1cUEhdYeKwbF2j4AmhimxNA9PUh](https://solscan.io/tx/wyCLBNG716ScBE1rAU7FC2EmqHJxcho3LCofb2vLBcCDxVfXn6SF8b3gfjda1cUEhdYeKwbF2j4AmhimxNA9PUh)"
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 51,
+          "text": ""
+        },
+        {
+          "line": 52,
+          "text": "[Mainnet Deployment](Docs/DEPLOYMENT.md)"
+        },
+        {
+          "line": 53,
+          "text": ""
+        },
+        {
+          "line": 54,
+          "text": "# Integration Testing"
+        },
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "Note: integration tests are not included in this repo. Tests will be published later."
+        }
+      ]
+    },
+    {
+      "source": "marinade-sdk-config",
+      "url": "https://raw.githubusercontent.com/marinade-finance/marinade-ts-sdk/main/src/config/marinade-config.ts",
+      "retrieved_at_utc": "2026-11-08T15:56:07.889180+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "4f40c4acce492e7d76a41de28ce928dd296c003c5cc8bb0ab368c1d1280c5849",
+      "bytes_read": 1012,
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "export class MarinadeConfig {"
+        },
+        {
+          "line": 6,
+          "text": "  marinadeFinanceProgramId = new web3.PublicKey("
+        },
+        {
+          "line": 7,
+          "text": "    'MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD'"
+        },
+        {
+          "line": 8,
+          "text": "  )"
+        },
+        {
+          "line": 9,
+          "text": "  marinadeReferralProgramId = new web3.PublicKey("
+        },
+        {
+          "line": 10,
+          "text": "    'MR2LqxoSbw831bNy68utpu5n4YqBH3AzDmddkgk9LQv'"
+        },
+        {
+          "line": 11,
+          "text": "  )"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "  marinadeStateAddress = new web3.PublicKey("
+        },
+        {
+          "line": 14,
+          "text": "    '8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC'"
+        },
+        {
+          "line": 15,
+          "text": "  )"
+        },
+        {
+          "line": 16,
+          "text": "  marinadeReferralGlobalStateAddress = new web3.PublicKey("
+        },
+        {
+          "line": 17,
+          "text": "    'MRSh4rUNrpn7mjAq9ENHV4rvwwPKMij113ScZq3twp2'"
+        },
+        {
+          "line": 18,
+          "text": "  )"
+        }
+      ]
+    },
+    {
+      "source": "marinade-liquid-unstake-source",
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+      "retrieved_at_utc": "2026-11-08T15:56:09.153336+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "36971dd60d422e237d2ba49a32a9d330d2a597cf08f83f677d9a8d0d6b37da51",
+      "bytes_read": 6619,
+      "excerpts": [
+        {
+          "line": 75,
+          "text": "        let liq_pool_msol_balance = self.liq_pool_msol_leg.amount;"
+        },
+        {
+          "line": 76,
+          "text": "        let liq_pool_sol_balance = self.liq_pool_sol_leg_pda.lamports();"
+        },
+        {
+          "line": 77,
+          "text": "        let liq_pool_available_sol_balance ="
+        },
+        {
+          "line": 78,
+          "text": "            liq_pool_sol_balance.saturating_sub(self.state.rent_exempt_for_token_acc);"
+        },
+        {
+          "line": 79,
+          "text": ""
+        },
+        {
+          "line": 80,
+          "text": "        // fee is computed based on the liquidity *after* the user takes the sol"
+        },
+        {
+          "line": 81,
+          "text": "        let user_remove_lamports = self.state.msol_to_sol(msol_amount)?;"
+        },
+        {
+          "line": 82,
+          "text": "        let liquid_unstake_fee = if user_remove_lamports >= liq_pool_available_sol_balance {"
+        },
+        {
+          "line": 83,
+          "text": "            // user is removing all liquidity"
+        },
+        {
+          "line": 84,
+          "text": "            self.state.liq_pool.lp_max_fee"
+        },
+        {
+          "line": 85,
+          "text": "        } else {"
+        },
+        {
+          "line": 86,
+          "text": "            let after_lamports = liq_pool_available_sol_balance - user_remove_lamports; //how much will be left?"
+        },
+        {
+          "line": 87,
+          "text": "            self.state.liq_pool.linear_fee(after_lamports)"
+        },
+        {
+          "line": 88,
+          "text": "        };"
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "        // compute fee in msol"
+        },
+        {
+          "line": 91,
+          "text": "        let msol_fee = liquid_unstake_fee.apply(msol_amount);"
+        },
+        {
+          "line": 92,
+          "text": "        msg!(\"msol_fee {}\", msol_fee);"
+        },
+        {
+          "line": 93,
+          "text": ""
+        },
+        {
+          "line": 94,
+          "text": "        // fee goes into treasury & LPs, so the user receives lamport value of data.msol_amount - msol_fee"
+        },
+        {
+          "line": 95,
+          "text": "        // compute how many lamports the msol_amount the user is \"selling\" (minus fee) is worth"
+        },
+        {
+          "line": 96,
+          "text": "        let working_lamports_value = self.state.msol_to_sol(msol_amount - msol_fee)?;"
+        },
+        {
+          "line": 97,
+          "text": ""
+        },
+        {
+          "line": 98,
+          "text": "        // it can't be more than what's in the LiqPool"
+        },
+        {
+          "line": 99,
+          "text": "        if working_lamports_value + self.state.rent_exempt_for_token_acc"
+        },
+        {
+          "line": 100,
+          "text": "            > self.liq_pool_sol_leg_pda.lamports()"
+        },
+        {
+          "line": 101,
+          "text": "        {"
+        },
+        {
+          "line": 102,
+          "text": "            return err!(MarinadeError::InsufficientLiquidity);"
+        },
+        {
+          "line": 103,
+          "text": "        }"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "        require_gte!("
+        },
+        {
+          "line": 106,
+          "text": "            working_lamports_value,"
+        },
+        {
+          "line": 107,
+          "text": "            self.state.min_withdraw,"
+        }
+      ],
+      "applicability": "main branch, not deployment branch per upstream README; comparison only"
+    },
+    {
+      "source": "marinade-mainnet-liquid-unstake",
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+      "retrieved_at_utc": "2026-11-08T15:56:32.142521+00:00",
+      "http_status": 200,
+      "bytes_read": 6619,
+      "sha256": "36971dd60d422e237d2ba49a32a9d330d2a597cf08f83f677d9a8d0d6b37da51",
+      "excerpts": [
+        {
+          "line": 59,
+          "text": "    // fn liquid_unstake()"
+        },
+        {
+          "line": 60,
+          "text": "    pub fn process(&mut self, msol_amount: u64) -> Result<()> {"
+        },
+        {
+          "line": 61,
+          "text": "        require!(!self.state.paused, MarinadeError::ProgramIsPaused);"
+        },
+        {
+          "line": 62,
+          "text": ""
+        },
+        {
+          "line": 63,
+          "text": "        check_token_source_account("
+        },
+        {
+          "line": 64,
+          "text": "            &self.get_msol_from,"
+        },
+        {
+          "line": 65,
+          "text": "            self.get_msol_from_authority.key,"
+        },
+        {
+          "line": 66,
+          "text": "            msol_amount,"
+        },
+        {
+          "line": 79,
+          "text": ""
+        },
+        {
+          "line": 80,
+          "text": "        // fee is computed based on the liquidity *after* the user takes the sol"
+        },
+        {
+          "line": 81,
+          "text": "        let user_remove_lamports = self.state.msol_to_sol(msol_amount)?;"
+        },
+        {
+          "line": 82,
+          "text": "        let liquid_unstake_fee = if user_remove_lamports >= liq_pool_available_sol_balance {"
+        },
+        {
+          "line": 83,
+          "text": "            // user is removing all liquidity"
+        },
+        {
+          "line": 84,
+          "text": "            self.state.liq_pool.lp_max_fee"
+        },
+        {
+          "line": 85,
+          "text": "        } else {"
+        },
+        {
+          "line": 86,
+          "text": "            let after_lamports = liq_pool_available_sol_balance - user_remove_lamports; //how much will be left?"
+        },
+        {
+          "line": 87,
+          "text": "            self.state.liq_pool.linear_fee(after_lamports)"
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "        // compute fee in msol"
+        },
+        {
+          "line": 91,
+          "text": "        let msol_fee = liquid_unstake_fee.apply(msol_amount);"
+        },
+        {
+          "line": 92,
+          "text": "        msg!(\"msol_fee {}\", msol_fee);"
+        },
+        {
+          "line": 93,
+          "text": ""
+        },
+        {
+          "line": 94,
+          "text": "        // fee goes into treasury & LPs, so the user receives lamport value of data.msol_amount - msol_fee"
+        },
+        {
+          "line": 95,
+          "text": "        // compute how many lamports the msol_amount the user is \"selling\" (minus fee) is worth"
+        },
+        {
+          "line": 96,
+          "text": "        let working_lamports_value = self.state.msol_to_sol(msol_amount - msol_fee)?;"
+        },
+        {
+          "line": 97,
+          "text": ""
+        },
+        {
+          "line": 98,
+          "text": "        // it can't be more than what's in the LiqPool"
+        },
+        {
+          "line": 99,
+          "text": "        if working_lamports_value + self.state.rent_exempt_for_token_acc"
+        },
+        {
+          "line": 100,
+          "text": "            > self.liq_pool_sol_leg_pda.lamports()"
+        },
+        {
+          "line": 101,
+          "text": "        {"
+        },
+        {
+          "line": 102,
+          "text": "            return err!(MarinadeError::InsufficientLiquidity);"
+        },
+        {
+          "line": 103,
+          "text": "        }"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "        require_gte!("
+        },
+        {
+          "line": 106,
+          "text": "            working_lamports_value,"
+        },
+        {
+          "line": 107,
+          "text": "            self.state.min_withdraw,"
+        },
+        {
+          "line": 108,
+          "text": "            MarinadeError::WithdrawAmountIsTooLow"
+        },
+        {
+          "line": 109,
+          "text": "        );"
+        },
+        {
+          "line": 110,
+          "text": ""
+        },
+        {
+          "line": 111,
+          "text": "        //transfer SOL from the liq-pool to the user"
+        },
+        {
+          "line": 112,
+          "text": "        if working_lamports_value > 0 {"
+        }
+      ]
+    },
+    {
+      "source": "marinade-mainnet-deploy-doc",
+      "url": "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/Docs/DEPLOYMENT.md",
+      "retrieved_at_utc": "2026-11-08T15:56:33.509972+00:00",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "mechanism": "Marinade mainnet分支liquid_unstake按实际mSOL→SOL转换并从退出后流动性定动态费，净输出受SOL池余额/租金保留/min_withdraw限制；不保证1mSOL=1SOL或无条件即时退出。",
+  "observations": [
+    "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
+    "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
+    "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
+    "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "SOL",
+    "unknown_costs": [
+      "实际动态退出费",
+      "DEX费/冲击",
+      "优先费/账户创建",
+      "租金与可退部分",
+      "等待/汇率风险"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "Token账户owner/delegate、mint/Program、paused与min_withdraw当前unknown",
+  "liabilities": "未执行；延期权益/残仓unknown",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "集群/program/state身份不符",
+    "mint/Token Program或扩展不匹配",
+    "SOL缓冲不足或paused",
+    "份额率/动态费/优先费吞没差额",
+    "slot或报价过期"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/README.md",
+    "https://raw.githubusercontent.com/marinade-finance/marinade-ts-sdk/main/src/config/marinade-config.ts",
+    "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/main/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+    "https://raw.githubusercontent.com/marinade-finance/liquid-staking-program/mainnet/programs/marinade-finance/src/instructions/liq_pool/liquid_unstake.rs",
+    "https://solscan.io/account/8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC",
+    "https://solscan.io/account/MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD"
+  ],
+  "coverage_gaps": [
+    "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
+    "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
+    "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
+    "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
+    "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+  ],
+  "next_check": [
+    "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+    "按mint+Token Program核验SPL/Token-2022、精度、冻结/转账扩展；逐项读取mSOL→SOL比率、lp_min/max_fee、真实SOL余额/租金扣除和min_withdraw。",
+    "分开DEX即卖、liquid_unstake即时池、延迟ticket退出；在相近slot分数量报价，计算SOL净额、优先费/账户初始化与可退租金。",
+    "延期等待有数据后给盈亏平衡年化资金成本，不假定用户成本；N-SOL复核2026-10-TODO与实际升级，未生效不报规则变化。"
+  ],
+  "handoff_to": [
+    "M00",
+    "N-SOL"
+  ],
+  "markets": [
+    {
+      "market_id": "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC",
+      "chain": "SOL",
+      "protocol": "Marinade liquid staking state discovery, mint pending",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/marinade-finance/marinade-ts-sdk/main/src/config/marinade-config.ts"
+      ],
+      "identity_status": "OFFICIAL_SDK_ONLY_NOT_CLUSTER_OWNER_OR_MINT_VERIFIED",
+      "next_check": "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "1mSOL必然兑1SOL且立即无费退出",
+      "reason": "mainnet源码有份额转换、退出后流动性动态费与缓冲/min_withdraw，当前数值还未知。"
+    },
+    {
+      "claim": "README TODO日期即链上规则已经生效",
+      "reason": "必须核对实际部署程序与升级slot；本轮RPC不可达。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_PROGRAM_AND_STATE_CONFIG_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:57:28.691174+00:00",
+    "slot_range": null,
+    "commitment": null,
+    "complete_event_time_window": null
+  },
+  "exit_columns": {
+    "dex_spot_exit": "unknown",
+    "immediate_protocol_sol": "unknown",
+    "delayed_sol_and_time": "unknown"
+  }
+}

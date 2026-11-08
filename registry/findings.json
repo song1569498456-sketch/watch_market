@@ -508,6 +508,26 @@
       "owner": "R-POLY",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+      "chain": "SOL",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除仅见KLend程序ID就证明mainnet-beta身份或现行可清算仓位。官方README对Mainnet与Devnet列同一程序ID；必须另核genesis/slot/commitment和账户owner/ProgramData。程序文档不是仓位/报价。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs"
+      ],
+      "next_check": "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "SOL03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/SOL03/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

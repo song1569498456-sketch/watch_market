@@ -1,0 +1,310 @@
+{
+  "started_at": "2026-11-08T15:56:04.398947+00:00",
+  "data_seconds": 4.891,
+  "attempts": [
+    {
+      "name": "sonic_curve_pool_discovery",
+      "url": "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng",
+      "fetched_at_utc": "2026-11-08T15:56:04.398953+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "sonic_chain_identity",
+      "url": "https://rpc.soniclabs.com",
+      "fetched_at_utc": "2026-11-08T15:56:05.423210+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "sonic_stable_asset_registry",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "fetched_at_utc": "2026-11-08T15:56:06.449269+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+      "excerpts": [
+        {
+          "line": 125,
+          "text": "  address internal constant USDC_UNDERLYING = 0x29219dd400f2Bf60E5a23d13Be72B486D4038894;"
+        },
+        {
+          "line": 127,
+          "text": "  uint8 internal constant USDC_DECIMALS = 6;"
+        },
+        {
+          "line": 130,
+          "text": "  address internal constant USDC_A_TOKEN = 0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6;"
+        },
+        {
+          "line": 133,
+          "text": "  address internal constant USDC_V_TOKEN = 0x2273caBAd63b7D247A6b107E723c803fc49953A0;"
+        },
+        {
+          "line": 136,
+          "text": "  address internal constant USDC_ORACLE = 0x7A8443a2a5D772db7f1E40DeFe32db485108F128;"
+        },
+        {
+          "line": 139,
+          "text": "  address internal constant USDC_INTEREST_RATE_STRATEGY ="
+        },
+        {
+          "line": 143,
+          "text": "  address internal constant USDC_STATA_TOKEN = 0x6646248971427B80ce531bdD793e2Eb859347E55;"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "curve_stableswap_ng_source",
+      "url": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+      "fetched_at_utc": "2026-11-08T15:56:07.843213+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "dfe8f8a4dda288c41c630ea4be9bb0e5d61244c50dfdeaf1981a098b55ee12ab",
+      "excerpts": [
+        {
+          "line": 72,
+          "text": "    def get_dy(i: int128, j: int128, dx: uint256, pool: address) -> uint256: view"
+        },
+        {
+          "line": 73,
+          "text": "    def dynamic_fee(i: int128, j: int128, pool: address) -> uint256: view"
+        },
+        {
+          "line": 165,
+          "text": "stored_balances: DynArray[uint256, MAX_COINS]"
+        },
+        {
+          "line": 311,
+          "text": "        self.stored_balances.append(0)"
+        },
+        {
+          "line": 378,
+          "text": "        _dx = _dx - self.stored_balances[coin_idx]"
+        },
+        {
+          "line": 392,
+          "text": "    self.stored_balances[coin_idx] += _dx"
+        },
+        {
+          "line": 413,
+          "text": "        self.stored_balances[_coin_idx] -= _amount"
+        },
+        {
+          "line": 425,
+          "text": "        self.stored_balances[_coin_idx] = coin_balance - _amount"
+        },
+        {
+          "line": 456,
+          "text": "            rates[i] = unsafe_div(rates[i] * fetched_rate, PRECISION)"
+        },
+        {
+          "line": 463,
+          "text": "            rates[i] = unsafe_div("
+        },
+        {
+          "line": 464,
+          "text": "                rates[i] * ERC4626(coins[i]).convertToAssets(call_amount[i]) * scale_factor[i],"
+        },
+        {
+          "line": 489,
+          "text": "            balances_i = ERC20(coins[i]).balanceOf(self) - self.admin_balances[i]"
+        },
+        {
+          "line": 492,
+          "text": "            balances_i = self.stored_balances[i] - self.admin_balances[i]"
+        },
+        {
+          "line": 504,
+          "text": "def exchange("
+        },
+        {
+          "line": 534,
+          "text": "def exchange_received("
+        },
+        {
+          "line": 544,
+          "text": "         dx = ERC20(coin[i]).balanceOf(self) - self.stored_balances[i]. Users of"
+        },
+        {
+          "line": 600,
+          "text": "            new_balances[i] += self._transfer_in("
+        },
+        {
+          "line": 630,
+          "text": "        _dynamic_fee_i: uint256 = 0"
+        },
+        {
+          "line": 640,
+          "text": "            ideal_balance = D1 * old_balances[i] / D0"
+        },
+        {
+          "line": 642,
+          "text": "            new_balance = new_balances[i]"
+        },
+        {
+          "line": 649,
+          "text": "            # fee[i] = _dynamic_fee(i, j) * difference / FEE_DENOMINATOR"
+        },
+        {
+          "line": 650,
+          "text": "            xs = unsafe_div(rates[i] * (old_balances[i] + new_balance), PRECISION)"
+        },
+        {
+          "line": 651,
+          "text": "            _dynamic_fee_i = self._dynamic_fee(xs, ys, base_fee)"
+        },
+        {
+          "line": 652,
+          "text": "            fees.append(unsafe_div(_dynamic_fee_i * difference, FEE_DENOMINATOR))"
+        },
+        {
+          "line": 653,
+          "text": "            self.admin_balances[i] += unsafe_div(fees[i] * admin_fee, FEE_DENOMINATOR)"
+        },
+        {
+          "line": 654,
+          "text": "            new_balances[i] -= fees[i]"
+        },
+        {
+          "line": 713,
+          "text": "    self.admin_balances[i] += unsafe_div(fee * admin_fee, FEE_DENOMINATOR)"
+        },
+        {
+          "line": 749,
+          "text": "            new_balances[i] -= _amounts[i]"
+        },
+        {
+          "line": 760,
+          "text": "    dynamic_fee: uint256 = 0"
+        },
+        {
+          "line": 768,
+          "text": "        ideal_balance = D1 * old_balances[i] / D0"
+        },
+        {
+          "line": 770,
+          "text": "        new_balance = new_balances[i]"
+        },
+        {
+          "line": 777,
+          "text": "        xs = unsafe_div(rates[i] * (old_balances[i] + new_balance), PRECISION)"
+        },
+        {
+          "line": 778,
+          "text": "        dynamic_fee = self._dynamic_fee(xs, ys, base_fee)"
+        },
+        {
+          "line": 779,
+          "text": "        fees.append(unsafe_div(dynamic_fee * difference, FEE_DENOMINATOR))"
+        },
+        {
+          "line": 781,
+          "text": "        self.admin_balances[i] += unsafe_div(fees[i] * admin_fee, FEE_DENOMINATOR)"
+        },
+        {
+          "line": 782,
+          "text": "        new_balances[i] -= fees[i]"
+        },
+        {
+          "line": 831,
+          "text": "        value = unsafe_div(balances[i] * _burn_amount, total_supply)"
+        },
+        {
+          "line": 887,
+          "text": "def _dynamic_fee(xpi: uint256, xpj: uint256, _fee: uint256) -> uint256:"
+        },
+        {
+          "line": 917,
+          "text": "    dy_fee: uint256 = unsafe_div("
+        },
+        {
+          "line": 918,
+          "text": "        dy * self._dynamic_fee("
+        },
+        {
+          "line": 925,
+          "text": "    dy = (dy - dy_fee) * PRECISION / rates[j]"
+        },
+        {
+          "line": 927,
+          "text": "    self.admin_balances[j] += unsafe_div("
+        },
+        {
+          "line": 928,
+          "text": "        unsafe_div(dy_fee * admin_fee, FEE_DENOMINATOR) * PRECISION,"
+        },
+        {
+          "line": 929,
+          "text": "        rates[j]"
+        },
+        {
+          "line": 943,
+          "text": "def _exchange("
+        },
+        {
+          "line": 972,
+          "text": "    x: uint256 = xp[i] + unsafe_div(dx * rates[i], PRECISION)"
+        },
+        {
+          "line": 996,
+          "text": "        if admin_balances[i] > 0:"
+        },
+        {
+          "line": 998,
+          "text": "            self._transfer_out(i, admin_balances[i], fee_receiver)"
+        },
+        {
+          "line": 999,
+          "text": "            admin_balances[i] = 0"
+        },
+        {
+          "line": 1216,
+          "text": "        result.append(unsafe_div(_rates[i] * _balances[i], PRECISION))"
+        },
+        {
+          "line": 1265,
+          "text": "    dynamic_fee: uint256 = 0"
+        },
+        {
+          "line": 1282,
+          "text": "        dynamic_fee = self._dynamic_fee(xavg, ys, base_fee)"
+        },
+        {
+          "line": 1283,
+          "text": "        xp_reduced[j] = xp_j - unsafe_div(dynamic_fee * dx_expected, FEE_DENOMINATOR)"
+        },
+        {
+          "line": 1286,
+          "text": "    dy_0: uint256 = (xp[i] - new_y) * PRECISION / rates[i]  # w/o fees"
+        },
+        {
+          "line": 1287,
+          "text": "    dy = unsafe_div((dy - 1) * PRECISION, rates[i])  # Withdraw less to account for rounding errors"
+        },
+        {
+          "line": 1702,
+          "text": "def get_dy(i: int128, j: int128, dx: uint256) -> uint256:"
+        },
+        {
+          "line": 1811,
+          "text": "def dynamic_fee(i: int128, j: int128) -> uint256:"
+        },
+        {
+          "line": 1818,
+          "text": "    return StableSwapViews(factory.views_implementation()).dynamic_fee(i, j, self)"
+        }
+      ],
+      "success": true
+    }
+  ]
+}

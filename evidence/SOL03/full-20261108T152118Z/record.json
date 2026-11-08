@@ -1,0 +1,135 @@
+{
+  "agent_id": "SOL03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SOL",
+  "scope": "Solana mainnet-beta正常借贷清算→抵押兑现；自主发现Kamino KLend官方程序文档与清算分账机制",
+  "started_at": "2026-11-08T15:56:00.560374+00:00",
+  "finished_at": "2026-11-08T15:57:10.826803+00:00",
+  "duration_seconds": 70.266,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:57:10.826803+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://api.mainnet-beta.solana.com",
+    "https://api.kamino.finance/kamino-market",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/handlers/handler_liquidate_obligation_and_redeem_reserve_collateral.rs"
+  ],
+  "mechanism": "Kamino清算handler分别计算实际repay、抵押权利、可选底层提款和protocol_fee；须核refresh/权限、真实Token Program与接收资产，不能把抵押权利或奖金当自由现金。",
+  "observations": [
+    "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
+    "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
+    "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
+    "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "实际代还/融资本息",
+      "卖出冲击/费用",
+      "Token2022扩展/冻结/权限",
+      "优先费/CU费用",
+      "账户创建和可退租金"
+    ]
+  },
+  "capacity": "unknown，没有实际obligation/可代还额",
+  "permissions": "unknown，当前市场permissioning/refresh/账户资格未核；未签名或模拟",
+  "liabilities": "unknown，无任何借款/清算执行",
+  "waiting_time": "unknown，未取得commitment/退出数据",
+  "invalidation_conditions": [
+    "集群身份错误",
+    "程序/账户owner或升级版本不符",
+    "状态/价格未刷新",
+    "抵押不可卖/兑",
+    "优先费/账户成本未核",
+    "当前清算资格不满足"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/handlers/handler_liquidate_obligation_and_redeem_reserve_collateral.rs"
+  ],
+  "coverage_gaps": [
+    "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
+    "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
+    "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
+    "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
+    "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+  ],
+  "next_check": [
+    "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+    "按官方注册表/账户发现具体Kamino market、reserves和obligations，以owner/program和mint+Token Program确认身份，不从程序ID推定全部部署。",
+    "每仓读取最新债务/抵押/价格状态、规则/权限与可代还额；同状态测量抵押权利和底层到账、协议费用、真实出售/赎回及融资归还。",
+    "补30天与7天窗口，Token-2022转账扩展和全部交易费用未知时不声明SIMULATED/净收益。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "SOL:mainnet-beta:Kamino:program:KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+      "chain": "SOL",
+      "protocol": "Kamino KLend",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs"
+      ],
+      "identity_status": "PROGRAM_DOCUMENT_ONLY_NOT_CLUSTER_OR_ACCOUNT_VERIFIED",
+      "kind": "program_discovery_queue_not_lending_market",
+      "next_check": "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+      "chain": "SOL",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除仅见KLend程序ID就证明mainnet-beta身份或现行可清算仓位。官方README对Mainnet与Devnet列同一程序ID；必须另核genesis/slot/commitment和账户owner/ProgramData。程序文档不是仓位/报价。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+        "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs"
+      ],
+      "next_check": "恢复只读RPC先核getGenesisHash、slot与commitment，再核程序executable/owner/ProgramData与部署版本，区分mainnet/staging/devnet。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "程序ID=mainnet集群与可清算仓位证明",
+      "reason": "排除仅见KLend程序ID就证明mainnet-beta身份或现行可清算仓位。官方README对Mainnet与Devnet列同一程序ID；必须另核genesis/slot/commitment和账户owner/ProgramData。程序文档不是仓位/报价。"
+    },
+    {
+      "case": "抵押凭证/名义奖励=已兑现利润",
+      "reason": "需区分实际repay、可选底层提款、协议费与出售/融资/交易成本。"
+    },
+    {
+      "case": "套EVM链ID/统一HF/地址规则",
+      "reason": "该链应查genesis、slot/commitment、owner/program及mint+Token Program，不能套ERC20/EVM查询。"
+    }
+  ],
+  "observed_cursor": {
+    "document_program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+    "genesis_hash": null,
+    "slot": null,
+    "commitment": null,
+    "obligations_read": 0,
+    "liquidations_analyzed": 0,
+    "quotes_obtained": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

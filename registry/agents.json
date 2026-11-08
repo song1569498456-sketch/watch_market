@@ -1275,20 +1275,74 @@
     {
       "agent_id": "SOL02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:57:28.691174+00:00",
+      "actual_coverage": [
+        "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
+        "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
+        "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
+        "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+      ],
+      "coverage_gaps": [
+        "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
+        "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
+        "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
+        "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
+        "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+      ],
+      "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SOL03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:57:10.826803+00:00",
+      "actual_coverage": [
+        "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
+        "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
+        "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
+        "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+      ],
+      "coverage_gaps": [
+        "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
+        "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
+        "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
+        "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
+        "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+      ],
+      "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SONIC01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:56:51.722665+00:00",
+      "actual_coverage": [
+        {
+          "asset_label_from_registry": "USDC",
+          "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+          "decimals_static": 6,
+          "chain_scope": "AaveV3Sonic.sol",
+          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+          "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
+          "deployment_match": "unknown；未识别Sonic池"
+        }
+      ],
+      "coverage_gaps": [
+        "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
+        "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
+        "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
+        "30天规则/新池/迁移/费率窗口未覆盖。",
+        "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
+        "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+      ],
+      "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SONIC02",

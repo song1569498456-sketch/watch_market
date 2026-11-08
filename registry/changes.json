@@ -1,6 +1,29 @@
 {
   "schema_version": 1,
-  "items": [],
+  "items": [
+    {
+      "run_id": "full-20261108T152118Z",
+      "type": "SOURCE_VERSION_CORRECTION",
+      "agent_id": "R-POLY",
+      "at": "2026-11-08T15:56:00.581554+00:00",
+      "status": "AWAITING_Q00_AND_ONCHAIN_RECHECK",
+      "corrections": [
+        {
+          "target": "N-POLY旧Polymarket/CTF发现入口",
+          "suggested_change": "将旧V1交易所入口标待重新核验，并新增V2官方源码/部署线索；不直接宣告V1已退役。",
+          "legacy_exchange": "137:0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+          "v2_exchange": "137:0xE111180000d2663C0091e4f400237545B87B996B",
+          "pmct_proxy": "137:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "rights_scope": "V1/V2是交易系统部署入口；PMCT为USDC/USDCe现金抵押wrapper；三者均不是特定condition outcome token/贷款抵押映射。",
+          "evidence": [
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+          ],
+          "verification_needed": "Q00独立复核公告与权益边界；恢复RPC核当前code/运行与迁移生效时间。"
+        }
+      ]
+    }
+  ],
   "status": "NOT_RESEARCHED",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

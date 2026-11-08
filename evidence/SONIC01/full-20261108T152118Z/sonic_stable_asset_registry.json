@@ -1,0 +1,39 @@
+{
+  "name": "sonic_stable_asset_registry",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+  "fetched_at_utc": "2026-11-08T15:56:06.449269+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+  "excerpts": [
+    {
+      "line": 125,
+      "text": "  address internal constant USDC_UNDERLYING = 0x29219dd400f2Bf60E5a23d13Be72B486D4038894;"
+    },
+    {
+      "line": 127,
+      "text": "  uint8 internal constant USDC_DECIMALS = 6;"
+    },
+    {
+      "line": 130,
+      "text": "  address internal constant USDC_A_TOKEN = 0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6;"
+    },
+    {
+      "line": 133,
+      "text": "  address internal constant USDC_V_TOKEN = 0x2273caBAd63b7D247A6b107E723c803fc49953A0;"
+    },
+    {
+      "line": 136,
+      "text": "  address internal constant USDC_ORACLE = 0x7A8443a2a5D772db7f1E40DeFe32db485108F128;"
+    },
+    {
+      "line": 139,
+      "text": "  address internal constant USDC_INTEREST_RATE_STRATEGY ="
+    },
+    {
+      "line": 143,
+      "text": "  address internal constant USDC_STATA_TOKEN = 0x6646248971427B80ce531bdD793e2Eb859347E55;"
+    }
+  ],
+  "success": true
+}

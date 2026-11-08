@@ -17,7 +17,24 @@
     "lending_mappings_verified": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+        "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+      ],
+      "chain_block": null,
+      "conditions_read": 0,
+      "lending_mappings_verified": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
@@ -55,7 +72,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:54:30.454783+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+  "record": "evidence/R-POLY/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+    "verified_at": "2026-11-08T15:55:22.338512+00:00",
+    "record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+  }
 }

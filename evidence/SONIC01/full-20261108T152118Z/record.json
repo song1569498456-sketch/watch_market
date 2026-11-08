@@ -1,0 +1,114 @@
+{
+  "agent_id": "SONIC01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SONIC",
+  "scope": "Sonic chain146稳定币有限2～3腿完整同起始币兑换回路；不复用Fantom池",
+  "started_at": "2026-11-08T15:56:04.398947+00:00",
+  "finished_at": "2026-11-08T15:56:51.722665+00:00",
+  "duration_seconds": 47.324,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:56:51.722665+00:00",
+    "beijing": "2026-11-08T23:56:51.722665+08:00",
+    "data_time": "静态资产表/源码抓取时点；Sonic当前状态unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "146:0x29219dd400f2bf60e5a23d13be72b486d4038894"
+  ],
+  "discovery_source": [
+    "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng",
+    "https://rpc.soniclabs.com",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
+  ],
+  "mechanism": "自主从Sonic专属Aave资产登记获得USDC静态地址，从Curve StableSwapNG源码核查按rates/余额及动态费计算实际输出。稳定币不能都当1美元，同币闭环须上一腿实际输出接下一腿；重复同池需反映前腿对余额/动态费影响。未得Sonic真实池与资产版本，不声称Curve通用源码就是Sonic部署。",
+  "observations": [
+    {
+      "asset_label_from_registry": "USDC",
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "decimals_static": 6,
+      "chain_scope": "AaveV3Sonic.sol",
+      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+      "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
+      "deployment_match": "unknown；未识别Sonic池"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": "起始稳定币未选定；没有回路",
+    "realized": false,
+    "unknown_costs": [
+      "逐腿池费/动态费",
+      "滑点和转账税",
+      "Sonic gas",
+      "可能融资费用/可贷量",
+      "取得起始币成本"
+    ]
+  },
+  "capacity": "unknown；无真实池/储备/可贷量",
+  "permissions": "unknown；代币版本/转账/黑名单、池交易状态未核",
+  "liabilities": "无建立仓位；无融资，假设路线残余unknown",
+  "waiting_time": "unknown；原子组合与多步风险未核",
+  "invalidation_conditions": [
+    "链身份不是146或拿Fantom旧池替代",
+    "桥接/迁移/原生版本混同",
+    "重复池未更新储备或费",
+    "回到不同稳定币却当同币收益",
+    "最后报价过期/池暂停或资金不可原子组合"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
+  ],
+  "coverage_gaps": [
+    "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
+    "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
+    "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
+    "30天规则/新池/迁移/费率窗口未覆盖。",
+    "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
+    "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+  ],
+  "next_check": [
+    "恢复rpc.soniclabs.com和Sonic池目录，先核eth_chainId=0x92与增长/最终确认区块，逐池核factory/implementation与资产code。",
+    "核USDC官方发行/桥接版本，并自主发现其他真实稳定币及交易边；Fantom与Sonic分档。",
+    "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
+    "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [],
+  "findings": [],
+  "rejections": [
+    {
+      "case": "单腿换到更多另一稳定币就计完整循环收益",
+      "reason": "没有回到同一起始token，名义美元锚定不能替代数量核算。"
+    },
+    {
+      "case": "将Curve通用源码或Fantom历史池当Sonic当前交易市场",
+      "reason": "未取得Sonic真实池与部署对应，必须核chain146/code和资产版本。"
+    },
+    {
+      "case": "把同池前后腿独立当前快照拼成可同时成交回路",
+      "reason": "源码余额和动态费随前腿改变，必须按序模拟状态。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
+    ],
+    "chain_block": null,
+    "pool_pages_completed": 0,
+    "cycles_quoted": 0,
+    "history_complete": false
+  }
+}
