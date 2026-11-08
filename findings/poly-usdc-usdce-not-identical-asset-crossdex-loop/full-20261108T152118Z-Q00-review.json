@@ -1,0 +1,25 @@
+{
+  "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+  "claim_scope": "排除Polygon USDCe与USDCn按名称/精度/oracle相同当同token双DEX闭环",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S33",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "fetched_at": "2026-11-08T16:05:55.985085+00:00",
+      "http_status": "200",
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "fields_and_result": "L161 USDCe=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174；L542 USDCn=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359，各自aToken不同。"
+    }
+  ],
+  "missing_fields": [
+    "发行方/桥映射与链上token代码",
+    "两个真实池/资产方向和独立底层",
+    "q转换→第二腿实际输出、完整费用"
+  ],
+  "reasoning_summary": "两个underlying地址不同且aToken分开，必须显式计转换规则；不裁决其当前价格或正常转换收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "按合约地址建图，保留原生/桥接转换边后报价。"
+}

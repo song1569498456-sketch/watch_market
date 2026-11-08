@@ -1,0 +1,34 @@
+{
+  "finding_id": "SONIC-BEETS-STS-REDEEM-S",
+  "claim_scope": "Sonic stS→S正常退出；静态份额与两步提款可核，当前数量/等待/价差未核",
+  "verdict": "NEEDS_DATA",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S40",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "fetched_at": "2026-11-08T16:06:05.765304+00:00",
+      "http_status": "200",
+      "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+      "fields_and_result": "Aave Sonic登记stS=0xE5DA20F15420aD15DE0fa650600aFc998bbE3955、USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894、wS不同。"
+    },
+    {
+      "source_id": "S41",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "fetched_at": "2026-11-08T16:06:07.184583+00:00",
+      "http_status": "200",
+      "sha256": "57614777e891a7e80a5d886de8dfce2d159b909eaa3ea14399b6f96242dc42b8",
+      "fields_and_result": "README L110烧stS、L114-118 pool与validator都走withdraw；L46 admin可改delay，文档two weeks不能当现行固定等待。"
+    }
+  ],
+  "missing_fields": [
+    "chainId146/block、stS当前proxy implementation",
+    "q DEX买入→按rate burn→withdraw→S可卖数量",
+    "current delay/pause/validator选择/withdrawal资金/罚没状态",
+    "退出费用、gas、等待成本与容量"
+  ],
+  "reasoning_summary": "两个静态源指向同stS；两条undelegate路径共用withdraw，admin可改等待。无当前rate/可提款额/DEX报价，文档两周不是实测。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "绑定Sonic部署后分现货/即时/异步三出口测数量；有真实等待再给盈亏平衡成本。"
+}

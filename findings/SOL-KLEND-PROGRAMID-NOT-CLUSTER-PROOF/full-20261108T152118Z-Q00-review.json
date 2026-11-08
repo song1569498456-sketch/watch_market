@@ -1,0 +1,34 @@
+{
+  "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+  "claim_scope": "排除KLend program ID单独证明mainnet-beta或可清算仓位",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S38",
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+      "fetched_at": "2026-11-08T16:06:03.074502+00:00",
+      "http_status": "200",
+      "sha256": "149201ebf3c5bf207df667d8c4eb5b5deb96a2ab0c795777b9ec83c0af2ac6c3",
+      "fields_and_result": "README L9/L11 Mainnet与Devnet同KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，单ID不证明cluster。"
+    },
+    {
+      "source_id": "S39",
+      "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+      "fetched_at": "2026-11-08T16:06:04.407974+00:00",
+      "http_status": "200",
+      "sha256": "3ad3d1d0d5f2e25b0633d69dc9274e512d6a0c4c85b803b842a3a2dfa002a080",
+      "fields_and_result": "L30 declare_id同README，只是源声明，未读取实际ProgramData。"
+    }
+  ],
+  "missing_fields": [
+    "getGenesisHash/finalized slot/commitment",
+    "program owner/executable/ProgramData",
+    "market/reserve/obligation/mint/当前清算资格",
+    "q正常清算/退出报价及优先费/租金/融资"
+  ],
+  "reasoning_summary": "官方Mainnet/Devnet可使用同程序ID，集群需genesis和slot证明；lib declare_id不是program binary或仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先确集群和版本，再核具体账户；不套EVM HF/地址口径。"
+}

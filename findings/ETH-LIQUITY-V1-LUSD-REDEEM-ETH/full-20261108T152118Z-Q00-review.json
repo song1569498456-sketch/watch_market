@@ -1,0 +1,34 @@
+{
+  "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+  "claim_scope": "Liquity v1持LUSD赎回ETH；静态持有人权限与输出规则可核，当前经济候选未核",
+  "verdict": "NEEDS_DATA",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S25",
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+      "fetched_at": "2026-11-08T16:05:44.961195+00:00",
+      "http_status": "200",
+      "sha256": "a1694d65c6b9800645d18cf0d3e38f5eb57af2e3545a32095c91dba952d87b36",
+      "fields_and_result": "补充独立读取JSON字段：troveManager=0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2，lusdToken=0x5f98805A4E8be255a32880FDeC7F6728C6568bA0。"
+    },
+    {
+      "source_id": "S26",
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+      "fetched_at": "2026-11-08T16:05:46.340651+00:00",
+      "http_status": "200",
+      "sha256": "30871ff587a8d0208340699023c2ce3f9f2279d1472cb4448770d74bf81b1c96",
+      "fields_and_result": "L948-953需maxFee/bootstrap/TCR/正数/LUSD余额；未要求赎回人有Trove；L1014-1022发送扣费后的ETH；L1387-1405动态赎回费。"
+    }
+  ],
+  "missing_fields": [
+    "chainId/block与TroveManager当前代码/版本",
+    "q LUSD买入→实际可赎ETH→ETH出售数量路线",
+    "TCR、可赎债务、baseRate/fee、hints与partial completion",
+    "gas/授权/冲击/容量和最终余额"
+  ],
+  "reasoning_summary": "持币赎回不同于赎回自己Trove；源码可向持币人发送扣费ETH，但当下TCR/可赎债务/fee/hints和二级成交均未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "绑定v1部署后同状态测普通持币人路径，实际成功赎回量与未赎LUSD分别记。"
+}

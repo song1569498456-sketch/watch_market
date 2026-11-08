@@ -1,0 +1,33 @@
+{
+  "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+  "claim_scope": "排除Polygon Aave预言机奖金估值为可兑现净利；不认定任何仓位可清算",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S29",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "fetched_at": "2026-11-08T16:05:50.424784+00:00",
+      "http_status": "200",
+      "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+      "fields_and_result": "L258-282 actualDebtToLiquidate有条件上限；L390 receiveAToken分支；L595-624按奖金部分扣协议费。未证明任何当前仓位。"
+    },
+    {
+      "source_id": "S32",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+      "fetched_at": "2026-11-08T16:05:54.644194+00:00",
+      "http_status": "200",
+      "sha256": "0bfb51e54f0a8589fbf24bbc03046b12ee6f189641b7a2a6f1b2874acbb2bb45",
+      "fields_and_result": "validateLiquidationCall检查reserve active/pause、HF、grace、抵押启用及债务；仍须与本链当前部署绑定。"
+    }
+  ],
+  "missing_fields": [
+    "Polygon当前实现/reserve配置、borrower/block/HF",
+    "q实际代还→抵押/aToken→可卖/可提→融资归还",
+    "全费用/本金利息/最终自由资产"
+  ],
+  "reasoning_summary": "正常清算需当前资格并支付实际代还，抵押权利/协议费/现金退出与融资分账；与Ethereum同源码不代表相同链上仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "逐Polygon仓位同状态核验证据，不能套旧close factor或跨链仓位。"
+}

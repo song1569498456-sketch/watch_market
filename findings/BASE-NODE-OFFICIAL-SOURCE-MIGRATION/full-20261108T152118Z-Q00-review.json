@@ -1,0 +1,40 @@
+{
+  "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+  "claim_scope": "仅确认Base节点官方研究源迁移及v1.5.4发布描述；不确认停链或链运行状态",
+  "verdict": "CONFIRMED_EVIDENCE",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S08",
+      "url": "https://raw.githubusercontent.com/base-org/node/main/README.md",
+      "fetched_at": "2026-11-08T16:05:20.860619+00:00",
+      "http_status": "200",
+      "sha256": "849e52bc6d29cb87fcb9d4a9be86dd793d994e0cfc0d75d494e6ddaf2137e612",
+      "fields_and_result": "L1-3旧仓明确archived，开发发布迁至base/base。"
+    },
+    {
+      "source_id": "S09",
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "fetched_at": "2026-11-08T16:05:22.174039+00:00",
+      "http_status": "200",
+      "sha256": "985158a78fba796ba5bee4c0da0efd9cd5c07a560b8101057babbda7b808f941",
+      "fields_and_result": "L31新仓承接原base/node public node；不是停链或当前增长区块证据。"
+    },
+    {
+      "source_id": "S10",
+      "url": "https://github.com/base/base/releases/tag/v1.5.4",
+      "fetched_at": "2026-11-08T16:05:23.580518+00:00",
+      "http_status": "200",
+      "sha256": "e1ad7f156046d432d6ab5a7d94ec0da54835b81406d93e4db54952bb2cc920dc",
+      "fields_and_result": "发布正文200ms synchronization/propagation fixes；engine.persistence-threshold 7→70、memory-block-buffer 5→70、backpressure 16→160是软件默认值。"
+    }
+  ],
+  "missing_fields": [
+    "当前eth_chainId/最新区块及连续增长/最终性",
+    "运行版本和实际链参数（若要判断节点现状）"
+  ],
+  "reasoning_summary": "旧README直接给新维护源，新仓承接节点，停链推断无依据。发布默认值不能替代当前链配置/增长区块。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "采用base/base固定版本作源；恢复RPC后独立核运行情况。"
+}

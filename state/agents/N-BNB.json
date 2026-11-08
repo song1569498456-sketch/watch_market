@@ -49,5 +49,6 @@
     "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
     "verified_at": "2026-11-08T15:25:36.912083+00:00",
     "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
-  }
+  },
+  "report_errata": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z-errata.md"
 }

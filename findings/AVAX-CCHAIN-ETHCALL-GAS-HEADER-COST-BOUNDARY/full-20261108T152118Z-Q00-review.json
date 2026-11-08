@@ -1,0 +1,24 @@
+{
+  "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+  "claim_scope": "排除C-Chain Gas-Used响应头等于完整交易经济成本",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S11",
+      "url": "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+      "fetched_at": "2026-11-08T16:05:25.270110+00:00",
+      "http_status": "200",
+      "sha256": "3ead181eff2b6493ce10bece6660d27996c6eeab121d32e05783ad997a845aa9",
+      "fields_and_result": "发布正文Gas-Used是每个request中completed eth_call总gas；未包括市场费/融资等，也不是交易receipt。"
+    }
+  ],
+  "missing_fields": [
+    "节点版本和实际响应头",
+    "完整路线交易估算/receipt、gasPrice、DEX/税/融资费"
+  ],
+  "reasoning_summary": "头字段只计已完成eth_call的gas，既不是支付的gas价格乘数量，也未含所有交易腿/市场/融资费用。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "按完整交易与经济账本核费；已含费项不再重复扣。"
+}

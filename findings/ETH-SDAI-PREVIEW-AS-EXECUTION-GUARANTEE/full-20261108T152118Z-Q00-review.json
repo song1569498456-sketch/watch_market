@@ -1,0 +1,41 @@
+{
+  "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+  "claim_scope": "排除sDAI NAV/previewRedeem是用户提款额度或执行成功保证",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S27",
+      "url": "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+      "fetched_at": "2026-11-08T16:05:47.690729+00:00",
+      "http_status": "200",
+      "sha256": "698c05bff73bfb796f59cd7c4732edccdf7e40176f9bb027c19a0bbe7251e10a",
+      "fields_and_result": "ERC4626 previewRedeem L440明确忽略maxRedeem等redemption limits；view报价不等于账户额度/执行成功。"
+    },
+    {
+      "source_id": "S28",
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+      "fetched_at": "2026-11-08T16:05:49.079643+00:00",
+      "http_status": "200",
+      "sha256": "e82b308d37ae26155e5722242f1a9d482d803385827508b21e476a15dcec7ef0",
+      "fields_and_result": "固定部署commit：maxRedeem=owner balance；previewRedeem=convertToAssets；_burn查余额/授权并pot.exit/daiJoin.exit。"
+    },
+    {
+      "source_id": "S46",
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+      "fetched_at": "2026-11-08T16:06:14.329364+00:00",
+      "http_status": "200",
+      "sha256": "0a0956012536833e6147c7f453843338c2b2b9ba75f493d861ce798707ab01c4",
+      "fields_and_result": "README指部署commit 665879762f8b5df5d234463f45d1d6a49bd4fbeb及Mainnet sDAI地址。"
+    }
+  ],
+  "missing_fields": [
+    "当前sDAI代码/Pot状态/chi/rho和用户余额授权",
+    "真实二级池/q买入、max/preview/完整redeem",
+    "DAI可卖数量与gas/费用"
+  ],
+  "reasoning_summary": "标准明确preview忽略限额；指定部署源码还需余额/授权及Pot/DAIJoin实际执行。该源码没异步队列，不据此臆造排队。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先有真实二级流动性，再同状态测试账户可执行退出。"
+}

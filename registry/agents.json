@@ -10,8 +10,45 @@
     {
       "agent_id": "Q00",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T16:14:58.668624+00:00",
+      "actual_coverage": [
+        {
+          "review_counts": {
+            "NEEDS_DATA": 3,
+            "CONFIRMED_EVIDENCE": 3,
+            "REJECTED": 21,
+            "STALE": 0,
+            "RISK_ONLY": 0
+          },
+          "registry_coverage": "27/27 exactly once",
+          "research_records_read": 46,
+          "rejections_read": 102,
+          "original_correction_arrays_read": 1,
+          "original_execution_statuses": {
+            "PARTIAL": 46
+          },
+          "original_quote_count": 0,
+          "independent_official_unique_urls": 48,
+          "independent_official_http_requests": 50,
+          "independent_http_200": 49,
+          "supplemental_successful_deployment_JSON_read_without_saved_HTTP_status": 1,
+          "independent_rpc_probes": 5,
+          "independent_rpc_CONNECT_403": 5
+        },
+        "N-POLY旧源/V2现金包装层、Base迁移、Lido NFT同权益去重独立复核完成；另补pUSD命名与Offramp角色衔接。"
+      ],
+      "coverage_gaps": [
+        "首次状态NOT_STARTED，无此前链上成功游标。",
+        "30天规则：本轮只重读选定官方源及三个发布页，不是全生态变更/生效完整回溯。",
+        "7天活动：未读取任何链上区块/slot、事件、交易与已完成收益样本。",
+        "Ethereum/Polygon/Base/Sonic/Solana五个只读身份探针均CONNECT403，保留真实headers与curl错误；BNB/ARB/OP/AVAX本轮未再探测，不能声称已核或可用。",
+        "所有27项缺部署/当前身份或具体经济字段见reviews.json；三项经济候选缺q/完整数量路线/当前报价/费用。",
+        "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
+        "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
+      ],
+      "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-ARB",

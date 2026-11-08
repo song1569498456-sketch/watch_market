@@ -1,0 +1,25 @@
+{
+  "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+  "claim_scope": "排除Ethereum Aave oracle×清算奖励为已实现净利；不裁决任何真实仓位",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S29",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+      "fetched_at": "2026-11-08T16:05:50.424784+00:00",
+      "http_status": "200",
+      "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+      "fields_and_result": "L258-282 actualDebtToLiquidate有条件上限；L390 receiveAToken分支；L595-624按奖金部分扣协议费。未证明任何当前仓位。"
+    }
+  ],
+  "missing_fields": [
+    "当前Pool实现/borrower/block/HF/债务",
+    "q实际代还、所得抵押与卖出/提款报价",
+    "融资本息、gas/协议费、最终零负债余额"
+  ],
+  "reasoning_summary": "实际代还上限、aToken/底层分支和协议费会改变资产账本，且抵押仍要卖出或取出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先找到真实合规仓位，只读完整路径核实，不用名义奖金记利润。"
+}

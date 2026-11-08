@@ -1,0 +1,25 @@
+{
+  "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+  "claim_scope": "排除VAI铸造卖出金额为无负债利润或可用任意面值稳定币还款",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S22",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+      "fetched_at": "2026-11-08T16:05:40.934432+00:00",
+      "http_status": "200",
+      "sha256": "d922c2b3805a73f8f5c6a96b42fcd74e164fa228ddd21b41d878ca0ea5d51be7",
+      "fields_and_result": "L137-148 mint更新mintedVAI债务；L225-245 repay烧VAI本金并transferFrom VAI利息；卖出余额不是无负债利润。"
+    }
+  ],
+  "missing_fields": [
+    "VAI/Controller当前实现、资格/上限/费率",
+    "q卖出与VAI回购报价",
+    "本金利息、抵押取回、gas/授权成本"
+  ],
+  "reasoning_summary": "mint同时记债，repay用VAI烧本金并支付VAI利息；须回购债务资产并释放抵押才闭环。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "测完整mint→sell→buy VAI→repay→collateral exit账本。"
+}

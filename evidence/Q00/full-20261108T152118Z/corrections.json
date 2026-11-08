@@ -1,0 +1,69 @@
+{
+  "corrections": [
+    {
+      "target": "N-POLY旧CTF入口；R-POLY纠错",
+      "kind": "SOURCE_AND_RIGHTS",
+      "result": "CONFIRMED_EVIDENCE",
+      "evidence": [
+        "S43",
+        "S36",
+        "S37"
+      ],
+      "recommendation": "旧V1标LEGACY_SOURCE_REVALIDATION_REQUIRED，补V2官方入口；不宣称V1链上退役。PMCT现金层与CTF outcome分开，不能自动映射借贷抵押。"
+    },
+    {
+      "target": "M00/N-BASE旧源迁移处理",
+      "kind": "SOURCE_MIGRATION",
+      "result": "CONFIRMED_EVIDENCE",
+      "evidence": [
+        "S08",
+        "S09",
+        "S10"
+      ],
+      "recommendation": "采用base/base；保留链存活UNKNOWN，旧目录缺席/404/归档不得写停链。"
+    },
+    {
+      "target": "N-ETH/ETH01/ETH05",
+      "kind": "DUPLICATE_RIGHTS",
+      "result": "CONFIRMED_EVIDENCE",
+      "evidence": [
+        "S01",
+        "S02",
+        "S44",
+        "S45"
+      ],
+      "recommendation": "三岗queue地址相同，N-ETH与ETH01同一finding；ETH05 unstETH是同queue请求NFT。一个requestId只记一次取得成本/领取额；若独立买NFT，只对该件另核成本，不把底层stETH与NFT同时估为自由资产。"
+    },
+    {
+      "target": "R-POLY/PMCT命名与权限补充",
+      "kind": "IDENTITY_AND_PERMISSION",
+      "result": "CONFIRMED_EVIDENCE",
+      "evidence": [
+        "S47",
+        "S48"
+      ],
+      "recommendation": "README称PMCT，所读源码name=Polymarket USD/symbol=pUSD/6 decimals。token.unwrap受role但公开Offramp可衔接；普通用户当前出口取决于offramp绑定/角色/asset暂停/VAULT余额allowance。不是无条件法币现金。"
+    },
+    {
+      "target": "N-BNB报告北京时间行",
+      "kind": "METADATA",
+      "result": "CORRECTION_REQUIRED",
+      "evidence": [
+        "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md"
+      ],
+      "recommendation": "正文23:24:45.675031+00:00标为北京时间却保留UTC偏移，应改+08:00（绝对UTC时刻15:24:45.675031+00:00）。Q00不改原作者报告。"
+    },
+    {
+      "target": "BNB04源失败尝试",
+      "kind": "PROCEDURE",
+      "result": "CORRECTION_REQUIRED",
+      "evidence": [
+        "evidence/BNB04/full-20261108T152118Z/record.json"
+      ],
+      "recommendation": "记录5个V2猜测路径404，超过同服务3次连续失败后停止的有界要求。后续最多3次失败即转已知官方入口；404不代表协议无市场。"
+    }
+  ],
+  "material_evidence_corrections": 4,
+  "metadata_corrections": 1,
+  "procedure_corrections": 1
+}

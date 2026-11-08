@@ -1,0 +1,33 @@
+{
+  "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
+  "claim_scope": "排除Sonic Aave借出卖出USDC余额为收入或任意面值稳定币可偿债",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S40",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "fetched_at": "2026-11-08T16:06:05.765304+00:00",
+      "http_status": "200",
+      "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+      "fields_and_result": "Aave Sonic登记stS=0xE5DA20F15420aD15DE0fa650600aFc998bbE3955、USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894、wS不同。"
+    },
+    {
+      "source_id": "S42",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+      "fetched_at": "2026-11-08T16:06:08.723941+00:00",
+      "http_status": "200",
+      "sha256": "daf57b87b1f9b669b7103c156ac6ae192b31ec74a60d57dc69e63730345d30bc",
+      "fields_and_result": "executeBorrow mint指数债务并发底层；executeRepay按当前userDebt，L211转params.asset，aToken分支需对应资产/自身偿债等条件。"
+    }
+  ],
+  "missing_fields": [
+    "当前Sonic Pool实现、asset原生/桥接身份、借款资格/额度",
+    "q借出→卖出→取得债务资产→本息偿清→抵押取回",
+    "债务指数/利息与全程报价/gas/融资/剩债"
+  ],
+  "reasoning_summary": "借出同时铸指数债务；偿还用该reserve的asset或合规则对应aToken。回购本息与抵押退出缺一都不是自由利润。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。"
+}

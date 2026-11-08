@@ -1,0 +1,33 @@
+{
+  "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+  "claim_scope": "排除Aerodrome同账户同时拥有Gauge排放和同期间全部LP费用的双计",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S20",
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "fetched_at": "2026-11-08T16:05:38.180304+00:00",
+      "http_status": "200",
+      "sha256": "4a27e9c4a346d39b9d196d8d04209a1c38d707bffd7fffb7f90b852b4748417e",
+      "fields_and_result": "README L35入Gauge换排放时pool fees权利交给Gauge；L39 fees分配voters。"
+    },
+    {
+      "source_id": "S21",
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+      "fetched_at": "2026-11-08T16:05:39.601888+00:00",
+      "http_status": "200",
+      "sha256": "329e26f581a33c0ba5c315b7e478cd717d7b79867acdaa527e7a1462f4eb5858",
+      "fields_and_result": "_claimFees调用Pool.claimFees并向feesVotingReward notify；deposit/withdraw与reward另列，不将同一费用重复归给存款人。"
+    }
+  ],
+  "missing_fields": [
+    "实际Pool/Gauge/feesVotingReward与当前部署",
+    "账户LP/Gauge/veNFT权益、accrued和已到账",
+    "q完整存取/必要兑换、gas与费"
+  ],
+  "reasoning_summary": "LP转给Gauge改变手续费归属，feesVotingReward分给投票权益。可能同时持不同身份不构成把相同费用重复列入。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "按账户和权利逐项分账，证明每份费用只分配一次。"
+}

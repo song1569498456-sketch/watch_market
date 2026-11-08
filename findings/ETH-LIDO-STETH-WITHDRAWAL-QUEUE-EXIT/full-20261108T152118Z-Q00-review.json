@@ -1,0 +1,50 @@
+{
+  "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+  "claim_scope": "stETH/wstETH→Lido请求→unstETH→finalize→ETH领取；静态退出状态可核，当前数量和经济闭环未核",
+  "verdict": "NEEDS_DATA",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S01",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "fetched_at": "2026-11-08T16:05:09.998824+00:00",
+      "http_status": "200",
+      "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+      "fields_and_result": "deployed-mainnet.json chainId=1; withdrawalQueueERC721 proxy=0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1, implementation=0xE42C659Dc09109566720EA8b2De186c2Be7D94D9; stETH/wstETH分别登记。静态部署表未证明当前代理存储。"
+    },
+    {
+      "source_id": "S02",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+      "fetched_at": "2026-11-08T16:05:11.533797+00:00",
+      "http_status": "200",
+      "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+      "fields_and_result": "L149-155 finalize需resumed和FINALIZE_ROLE；L169-175 ownerOf拒绝claimed；L230-248 transfer更新owner、清approval且不重置claimed。"
+    },
+    {
+      "source_id": "S44",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "fetched_at": "2026-11-08T16:06:11.542593+00:00",
+      "http_status": "200",
+      "sha256": "efa5a32fbc99cafdb16a38d96a9bb5b29a62e60b5610e7c317711cc58402b131",
+      "fields_and_result": "L125-134 request需resumed和金额边界；L218-230未finalized/已claimed可领取为0；claim需owner且finalized。"
+    },
+    {
+      "source_id": "S45",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+      "fetched_at": "2026-11-08T16:06:12.890071+00:00",
+      "http_status": "200",
+      "sha256": "254a8bfab14c30ac30d36fbe0174fe424798a67276abb1c52e139af28899cae0",
+      "fields_and_result": "L69-74 unwrap按getPooledEthByShares返回stETH，不是ETH。"
+    }
+  ],
+  "missing_fields": [
+    "chainId/区块/当前proxy implementation",
+    "DEX真实池和数量q→买入输出",
+    "shares rate、paused、requestId/owner/finalized/claimed/claimable",
+    "完整取得→请求→领取→出售路线、gas/授权/等待/容量"
+  ],
+  "reasoning_summary": "份额转换、请求NFT与最终ETH是同一权益的阶段。主网部署表一致，但无当前代理/队列状态或买入报价，不能确认即时现金或收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先绑定主网实现；同状态分数量测现货和queue，记录requestId并与ETH05共用权益账本。"
+}

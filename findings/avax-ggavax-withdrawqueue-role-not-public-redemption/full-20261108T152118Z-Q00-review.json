@@ -1,0 +1,25 @@
+{
+  "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+  "claim_scope": "仅排除ggAVAX两个已读AVAX方法可由任意普通账户无条件直接调用；不否定queue正常用户出口",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S17",
+      "url": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+      "fetched_at": "2026-11-08T16:05:33.848008+00:00",
+      "http_status": "200",
+      "sha256": "7c618262d5dc9b707a2a18b0a9dfd0be6d001fb048c3d365870a28b5b93b0338",
+      "fields_and_result": "L310 withdrawAVAX及L324 redeemAVAX均onlyRole(WITHDRAW_QUEUE_ROLE)；L330-332另查WAVAX流动性。未否定所有正常queue用户出口。"
+    }
+  ],
+  "missing_fields": [
+    "当前ggAVAX部署/实现",
+    "withdrawQueue部署、普通用户入口/资格/容量",
+    "q报价、预览/实际产出、等待和费用"
+  ],
+  "reasoning_summary": "两方法明确queue role，redeem另检查WAVAX现金。preview不能越过角色和资金条件；不套用sAVAX。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "沿已授权正常queue用户入口核查，并独立处理sAVAX。"
+}

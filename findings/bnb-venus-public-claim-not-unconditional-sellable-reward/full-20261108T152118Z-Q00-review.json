@@ -1,0 +1,25 @@
+{
+  "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
+  "claim_scope": "排除Venus公开claim意味着所有新地址零成本取得立即可售XVS",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S24",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "fetched_at": "2026-11-08T16:05:43.634544+00:00",
+      "http_status": "200",
+      "sha256": "aa6556cfd5e8f48d9f987642eb9bdea4d17781d5456ae8d8bb1ed5ba01c942fc",
+      "fields_and_result": "L33-60 claim已累积供借奖励；L64-85 shortfall可转抵押；L88-119库存不足不转及黑名单约束。"
+    }
+  ],
+  "missing_fields": [
+    "当前diamond facet/XVS部署",
+    "普通账户accrued/shortfall/blacklist、库存",
+    "参与成本、claim数量/DEX实际售出/gas"
+  ],
+  "reasoning_summary": "奖励取决于累积供借权益/资金，shortfall可变抵押头寸；公开函数不创造accrued奖励。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "指定正常账户只读核资格和余额，计参与与退出成本。"
+}

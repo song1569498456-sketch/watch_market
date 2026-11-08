@@ -1,0 +1,24 @@
+{
+  "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+  "claim_scope": "仅确认BSC v1.8.2公告中Jenner与CAS20的计划时间/治理激活条件；不确认当前生效或参与收益",
+  "verdict": "CONFIRMED_EVIDENCE",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S03",
+      "url": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+      "fetched_at": "2026-11-08T16:05:12.993947+00:00",
+      "http_status": "200",
+      "sha256": "6815d7f308adb5e1b8af4f4b77ed3463dc4d9e0a14334f836b7bb1b178ec7dc9",
+      "fields_and_result": "发布正文：Jenner计划2026-12-08 02:30 UTC；BEP-702 token creation还需governance-appointed administrator另激活。公告中的非共识改动可早于硬分叉，不能统称所有发布内容都尚未生效。"
+    }
+  ],
+  "missing_fields": [
+    "实际链上fork激活/治理任命/管理员activation",
+    "普通账户资格/成本/退出市场（若提出经济候选）"
+  ],
+  "reasoning_summary": "公告写明未来硬分叉和CAS20另行激活，本轮日期早于计划日期。非共识改动可能更早生效，应逐项区分。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。"
+}

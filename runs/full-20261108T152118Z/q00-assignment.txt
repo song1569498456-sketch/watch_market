@@ -1,0 +1,7 @@
+你是本轮新启动的独立 Q00，不是任何候选原作者。先完整读取 /tmp/watch-market-run/worker-contract.txt、/tmp/watch-market-run/context.json、AGENTS.md、config/runtime.json、prompts/agents/Q00.txt 的完整正文和自身state。角色专属规则优先：你只复核其他岗位具体候选，不自主全链发现。
+全部46研究岗位结果已由M00同步正式分支并fetch读回。先读 registry/findings.json（每个稳定finding_id都必须有复核条目），另用程序遍历本run的46个 evidence/<id>/<run>/record.json，阅读每个rejections/observations/corrections及原报告，检查范围越界、过期和重复。不要照抄原作者，实际重新读取关键官方源/代码字段，能复核的静态事实和缺数据的实时/经济主张分开判断。材料不齐就列具体缺字段并做能做部分，不停等用户、不编造报价；任何RPC/索引器失败都保留真实证据。对已知源限制做有界取数，不无限尝试。
+额外需要独立核对：R-POLY对N-POLY旧CTF入口的V1→V2/PMCT权益纠错；M00对Base旧源迁移而非停链的处理；同finding_id在N-ETH/ETH01及ETH05中的资产/路径是否重复（不能重复计收益）。仍依Q00提示词核对身份、权限、数量、会计、成本、真实性、机制，不把没有证据解释为没有市场/永久无风险。
+只写自己的 reports/agents/Q00/<date>/<run_id>.md 和 evidence/Q00/<run_id>/。不改registry/state/git或其他岗位结果；主控统一合并。
+除完整record.json（契约通用字段；markets/findings可为空）外，必须写 evidence/Q00/<run_id>/reviews.json，格式为 {"reviews":[...]}，每个registry稳定finding_id恰好一条，字段：finding_id, claim_scope（具体被复核主张与静态/当前/经济范围）, verdict（只用Q00规定的CONFIRMED_EVIDENCE/NEEDS_DATA/STALE/REJECTED/RISK_ONLY）, recommended_status（研究等级枚举）, independently_checked_at, independently_checked_sources（实际重读的URL/字段/结果）, missing_fields, reasoning_summary（可公开的证据理由，不含私有思考）, duplicate_of（没有则null）, next_check。不把一般原则的静态确认当实时收益确认。
+报告提供通过/退回/过期/纠正计数、额外rejection检查、已实现/未实现/负债/等待分类、具体纠错与下一步。本轮没有交易，不能确认已实现盈利。每个经济候选缺数量路线/部署/当前报价时应在裁决中明确缺失。可复核静态规则不代表全部研究完成；如实报告PARTIAL和实时身份/30天/7天缺口，避免用零报价伪造检查。
+任务是一次有实质证据的有限独立复核，不新增岗位，不定时、不交易、不购买服务。完成后给主控实际计数、候选覆盖、纠错、耗时及文件路径。

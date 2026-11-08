@@ -1,0 +1,33 @@
+{
+  "finding_id": "base-metamorpho-nav-not-immediate-redemption",
+  "claim_scope": "排除MetaMorpho totalAssets/份额换算保证Base即时赎回折价利润",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S18",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "fetched_at": "2026-11-08T16:05:35.309252+00:00",
+      "http_status": "200",
+      "sha256": "719f7a99a3e64ea62ae385a535f0197eeef671dd5168b3a67b9592eb99e0bc86",
+      "fields_and_result": "README说明退出受Morpho流动性及withdrawQueue影响；通用协议文档没有绑定Base特定vault。"
+    },
+    {
+      "source_id": "S19",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "fetched_at": "2026-11-08T16:05:36.840942+00:00",
+      "http_status": "200",
+      "sha256": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+      "fields_and_result": "L604-615 max扣模拟不可提额；L807-827遍历withdrawQueue后不足则NotEnoughLiquidity；L862-873受供借差额与真实loanToken余额限制。"
+    }
+  ],
+  "missing_fields": [
+    "Base vault/implementation/asset与二级池",
+    "q买入、NAV、maxWithdraw/maxRedeem、真实可提数",
+    "完整退出费/gas、等待及亏损历史"
+  ],
+  "reasoning_summary": "流动性模拟与withdrawQueue限制真实退出，缺Base目标也缺二级市场成本。不能将此源码套给Aave STATA。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先确定Base具体vault和二级池，再比较四列，不混用不同实现。"
+}

@@ -1,0 +1,25 @@
+{
+  "finding_id": "sol-whirlpool-token-interface-identity-check",
+  "claim_scope": "仅确认Orca源码mint-owner/Token Program约束；不确认新规则、当前部署或具体池可交易",
+  "verdict": "CONFIRMED_EVIDENCE",
+  "recommended_status": "UNVERIFIED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S04",
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+      "fetched_at": "2026-11-08T16:05:14.958120+00:00",
+      "http_status": "200",
+      "sha256": "bfd34a554c77ffd0f735c91b8ddd18cb9c7125f83f3658790c5fb613e4397017",
+      "fields_and_result": "L55-58 token_program_a/b必须等于mint owner；L82-91分别verify_supported_token_mint。未读取ProgramData或真实mint。"
+    }
+  ],
+  "missing_fields": [
+    "genesis/finalized slot、ProgramData及升级版本",
+    "pool/mint owner、Token/Token2022扩展与真实余额",
+    "数量路线/当前报价/完整费用（若提交经济主张）"
+  ],
+  "reasoning_summary": "源码确实将token_program绑定mint.owner并验证supported mint；无真实mint和pool，规则源事实可通过，市场身份仍未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先绑定当前程序版本，再在具体已登记池检查mint owner与转账扩展。"
+}

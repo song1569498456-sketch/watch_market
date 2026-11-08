@@ -1,13 +1,87 @@
 {
   "agent_id": "Q00",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "independent_static_source_reads_and_bounded_failed_RPC_probes",
+    "source_fetched_at_start": "2026-11-08T16:05:08.948017+00:00",
+    "source_fetched_at_end": "2026-11-08T16:14:58.186130+00:00",
+    "read_record_count": 46,
+    "reviewed_finding_ids": [
+      "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+      "BNB-JENNER-CAS20-ACTIVATION",
+      "sol-whirlpool-token-interface-identity-check",
+      "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+      "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+      "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+      "arb-wsteth-l1-exit-not-arb-instant-redemption",
+      "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+      "avax-ggavax-withdrawqueue-role-not-public-redemption",
+      "base-metamorpho-nav-not-immediate-redemption",
+      "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+      "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+      "bnb-venus-public-claim-not-unconditional-sellable-reward",
+      "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+      "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+      "eth-aave-liquidation-bonus-not-realized-profit",
+      "OP-USDC-BURN-AS-CASH-REDEMPTION",
+      "op-velodrome-view-quote-not-swap-permission-proof",
+      "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+      "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+      "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+      "poly-pmct-not-outcome-collateral-lending-proof",
+      "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+      "SONIC-BEETS-STS-REDEEM-S",
+      "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
+    ],
+    "chain_block_or_slot": null,
+    "full_30_day_window_complete": false,
+    "full_7_day_window_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "review_counts": {
+        "NEEDS_DATA": 3,
+        "CONFIRMED_EVIDENCE": 3,
+        "REJECTED": 21,
+        "STALE": 0,
+        "RISK_ONLY": 0
+      },
+      "registry_coverage": "27/27 exactly once",
+      "research_records_read": 46,
+      "rejections_read": 102,
+      "original_correction_arrays_read": 1,
+      "original_execution_statuses": {
+        "PARTIAL": 46
+      },
+      "original_quote_count": 0,
+      "independent_official_unique_urls": 48,
+      "independent_official_http_requests": 50,
+      "independent_http_200": 49,
+      "supplemental_successful_deployment_JSON_read_without_saved_HTTP_status": 1,
+      "independent_rpc_probes": 5,
+      "independent_rpc_CONNECT_403": 5
+    },
+    "N-POLY旧源/V2现金包装层、Base迁移、Lido NFT同权益去重独立复核完成；另补pUSD命名与Offramp角色衔接。"
+  ],
+  "pending_questions": [
+    "首次状态NOT_STARTED，无此前链上成功游标。",
+    "30天规则：本轮只重读选定官方源及三个发布页，不是全生态变更/生效完整回溯。",
+    "7天活动：未读取任何链上区块/slot、事件、交易与已完成收益样本。",
+    "Ethereum/Polygon/Base/Sonic/Solana五个只读身份探针均CONNECT403，保留真实headers与curl错误；BNB/ARB/OP/AVAX本轮未再探测，不能声称已核或可用。",
+    "所有27项缺部署/当前身份或具体经济字段见reviews.json；三项经济候选缺q/完整数量路线/当前报价/费用。",
+    "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
+    "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T16:14:58.668624+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/Q00/full-20261108T152118Z/record.json"
 }

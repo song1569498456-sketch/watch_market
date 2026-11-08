@@ -1,0 +1,33 @@
+{
+  "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+  "claim_scope": "排除三腿独立单价或同输入拼三角收益；源码数量传递规则核查，不含实际Arbitrum路线",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S12",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+      "fetched_at": "2026-11-08T16:05:26.961609+00:00",
+      "http_status": "200",
+      "sha256": "7c0a974a98e224b1ec63158bad6c13c73a659dec669dead1fd99a0b0d85418a6",
+      "fields_and_result": "quoteExactInput L170-185逐腿amountIn=_amountOut，gasEstimate为内部估计；各单腿以revert报价，不证明重用同一池后的组合状态。"
+    },
+    {
+      "source_id": "S13",
+      "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+      "fetched_at": "2026-11-08T16:05:28.268946+00:00",
+      "http_status": "200",
+      "sha256": "f42de11ff893d17ed7e490094f4d21730f9720a93dbb6e190de35a7e9481d752",
+      "fields_and_result": "L80-83 gasEstimate是total、gasEstimateForL1是其中L1分量，禁止再重复相加。"
+    }
+  ],
+  "missing_fields": [
+    "三个不同资产/三个真实池和正确Quoter部署ABI",
+    "q及各腿实际输入输出、同块状态更新",
+    "完整交易/融资偿还和L1/L2费用"
+  ],
+  "reasoning_summary": "上一输出成为下一输入；Quoter内部gas不等于整笔成本，NodeInterface total内含L1分量。重复池仍须真实状态顺序模拟。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "建立真实A→B→C→A并按序模拟；不要total外再加其L1分量。"
+}

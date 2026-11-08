@@ -1,0 +1,41 @@
+{
+  "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+  "claim_scope": "排除仅凭lisUSD锚定/借款人还债文档推出公众无条件1美元现金赎回；不判定所有新模块不存在",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S05",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+      "fetched_at": "2026-11-08T16:05:16.458281+00:00",
+      "http_status": "200",
+      "sha256": "66380694c96c55de0c4e022add660baccf90f269b537576b26ab77fcfe55d011",
+      "fields_and_result": "L16-19 折价时borrowers买入lisUSD偿债；文本不建立任意持有人的无条件美元兑付权。"
+    },
+    {
+      "source_id": "S06",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+      "fetched_at": "2026-11-08T16:05:17.895701+00:00",
+      "http_status": "200",
+      "sha256": "c3a589eb0bbeb545205b7c3605b07f141eb266006f60aa5fe8c7ceb1250da775",
+      "fields_and_result": "L6 approve不是repayment完成；L12-18还自己的贷款。剩债文档数值不当当前参数。"
+    },
+    {
+      "source_id": "S07",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+      "fetched_at": "2026-11-08T16:05:19.355525+00:00",
+      "http_status": "200",
+      "sha256": "835fadcb0122a85f6a04ace2441a463d8719388c719d29aa50b46c8e814fb992",
+      "fields_and_result": "L6 outstanding loan与提款相连，L11文档BNB等待/LST立即；不把此文档推广到公众lisUSD兑付。"
+    }
+  ],
+  "missing_fields": [
+    "当前部署/新PSM或公开兑换模块",
+    "普通持有人资格/额度/接收资产",
+    "真实买入→兑付→退出数量及gas/等待"
+  ],
+  "reasoning_summary": "文本的购买主体是借款人、用途是减债并取回自有抵押；推不出任意持有人取得额外现金的权利。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先查当前部署及新增模块；存在明确公众出口后再建立经济路线。"
+}

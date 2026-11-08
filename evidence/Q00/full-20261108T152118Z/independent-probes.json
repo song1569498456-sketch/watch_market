@@ -1,0 +1,72 @@
+[
+  {
+    "chain": "ETH",
+    "url": "https://ethereum-rpc.publicnode.com",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "fetched_at": "2026-11-08T16:06:28.183523+00:00",
+    "curl_exit": 56,
+    "response": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Sun, 08 Nov 2026 16:06:27 GMT\nserver: envoy\nconnection: close\n\n",
+    "error": "curl: (56) CONNECT tunnel failed, response 403\n"
+  },
+  {
+    "chain": "POLY",
+    "url": "https://polygon-bor-rpc.publicnode.com",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "fetched_at": "2026-11-08T16:06:29.253595+00:00",
+    "curl_exit": 56,
+    "response": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Sun, 08 Nov 2026 16:06:28 GMT\nserver: envoy\nconnection: close\n\n",
+    "error": "curl: (56) CONNECT tunnel failed, response 403\n"
+  },
+  {
+    "chain": "BASE",
+    "url": "https://mainnet.base.org",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "fetched_at": "2026-11-08T16:06:30.334247+00:00",
+    "curl_exit": 56,
+    "response": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Sun, 08 Nov 2026 16:06:30 GMT\nserver: envoy\nconnection: close\n\n",
+    "error": "curl: (56) CONNECT tunnel failed, response 403\n"
+  },
+  {
+    "chain": "SONIC",
+    "url": "https://rpc.soniclabs.com",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "fetched_at": "2026-11-08T16:06:31.415131+00:00",
+    "curl_exit": 56,
+    "response": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Sun, 08 Nov 2026 16:06:31 GMT\nserver: envoy\nconnection: close\n\n",
+    "error": "curl: (56) CONNECT tunnel failed, response 403\n"
+  },
+  {
+    "chain": "SOL",
+    "url": "https://api.mainnet-beta.solana.com",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "getGenesisHash",
+      "params": []
+    },
+    "fetched_at": "2026-11-08T16:06:32.487451+00:00",
+    "curl_exit": 56,
+    "response": "HTTP/1.1 403 Forbidden\ncontent-length: 16\ncontent-type: text/plain\ndate: Sun, 08 Nov 2026 16:06:32 GMT\nserver: envoy\nconnection: close\n\n",
+    "error": "curl: (56) CONNECT tunnel failed, response 403\n"
+  }
+]

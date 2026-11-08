@@ -1,0 +1,1442 @@
+{
+  "records_read": 46,
+  "rejections_read_and_scope_checked": 102,
+  "items": [
+    {
+      "agent_id": "ARB01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "两个工厂不同或聚合器显示两条路线就算两个独立池且有套利",
+        "reason": "尚未核对池、资产和共享底层，更无两腿实际数量与成本；拒绝收益推断，不判定市场无机会。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "三腿展示价/同数量报价拼成循环",
+        "reason": "排除把三腿独立展示价相乘、或每腿都按同一输入数量报价当闭环收益的做法。QuoterV2代码明确amountIn=_amountOut逐腿传递；其gasEstimate仍不等于完整执行/融资全费用。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S12",
+        "S13"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "SDK默认quoter与QuoterV2源码混用",
+        "reason": "部署ABI版本未核对，不能把源码结构当当前地址调用结果。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S12",
+        "S13"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB02",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "完整gasEstimate再加gasEstimateForL1",
+        "reason": "NodeInterface注释前者为total，后者是其中分量，需防重复扣费。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S12",
+        "S13"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "把canonical bridge的L1 token释放写作本链ETH即时赎回",
+        "reason": "官方设计明确跨链消息与争议窗口，不是本链即时出口。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S14"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "假设1 wstETH=1 ETH或用ETH提款规则替代ARB规则",
+        "reason": "未核份额转换率、L2资产映射及本链出口，不能据此算折价利润。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S14"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB04",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "用金库getPricePerFullShare/totalAssets显示净值作为无条件可提现价值",
+        "reason": "官方Beefy源码存在策略账面资产与实际回款差异，具体STATA还需独立核验，preview/额度/现金不能互相替代。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ARB04",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "官方份额地址存在即有二级折价机会",
+        "reason": "无二级市场证据与报价，只列规则观察，不制造收益。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "AVAX01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "USDC.e/USDC/avUSDC统记1美元",
+        "reason": "排除将Curve Avalanche配置中USDC.e=0xA7D7...与USDC=0xB97E...、以及包装avUSDC合并为同资产/同1美元现金的闭环核算；官方SDK分别列不同合约和wrapped/underlying。当前储备/兑付与汇率仍未验证。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S15",
+        "S16"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "AVAX01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "同池各独立get_dy拼成可执行循环",
+        "reason": "前腿改变储备/借贷状态，需完整路径隔离模拟，不能拼矛盾状态。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S15",
+        "S16"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "AVAX01",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "ABI gas字段=本轮gas费用",
+        "reason": "ABI历史注解不是真实执行gas，gas价格及完整交易费用均unknown。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S15",
+        "S16"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "AVAX02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "把ggAVAX的preview/totalAssets当作普通用户无条件即时AVAX退出报价",
+        "reason": "已读AVAX方法有queue角色限制，当前可提容量/用户入口未核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S17"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "AVAX02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "把sAVAX与ggAVAX份额按1:1 AVAX或相同退出规则合并",
+        "reason": "协议/资产不同，转换率、权限和队列均需分别核对。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S17"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "任何普通持币人都可用burn按1美元换回现金",
+        "reason": "静态接口本就有minter权限且burn不表示回款；当前用户/地区资格、真实出口未核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "USDbC与原生USDC同名同价同出口",
+        "reason": "合约不同且桥接权益可能需要跨链退出，不能假定即时同链兑现。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "Lido lido-l2旧README直接证明Base退出",
+        "reason": "该文本只明确Arbitrum与Optimism，不能跨链套用。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "Base cbETH可按某L1说明立即取回ETH",
+        "reason": "本轮未确认Base赎回合约或桥路线；出口未知不是即时现金。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE02",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "1cbETH=1ETH",
+        "reason": "18位小数/币名不是兑换比例证据，没有当前份额比率与报价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "只有源码NAV换算、没有二级池和实际退出就认定折价利润",
+        "reason": "缺真实买入成本、当前提款容量与费用，源码存在流动性不足revert。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S18",
+        "S19"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "把MetaMorpho同步实现模板套到所有Base金库",
+        "reason": "当前具体部署/版本未知，异步或非标准实现需另核。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S18",
+        "S19"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE04",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "按oracle抵押价值×清算奖励即可记净利润",
+        "reason": "必须扣代还本金/协议费/融资并验证抵押真实出售或赎回，不存在本轮报价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE04",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "未知或旧HF即可认定仓位可清算",
+        "reason": "必须同状态读取真实债务与规则；本轮没有借款人数据。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE05",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "铸出LP即净收益",
+        "reason": "必须扣原始底层资产并计退出、剩余LP和必要兑换；没有完整资产账本。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S20",
+        "S21"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE05",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "Gauge排放+同期间全部池费双计给存款人",
+        "reason": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S20",
+        "S21"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BASE05",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "所有池套默认稳定/波动费率或同一模型",
+        "reason": "池级customFee可覆盖swap费；传统Pool不能直接套Slipstream CL。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S20",
+        "S21"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "lisUSD nominal peg -> public redemption",
+        "reason": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "repay own debt -> profit for every holder",
+        "reason": "偿债减少负债并释放自己的抵押物；不是凭空取得额外自由资产，更不能忽略最初抵押和债务。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "铸造VAI卖出现金全部计收益",
+        "reason": "铸造同时增加VAI债务，未计回购本金利息/抵押释放，不是闭环。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S22"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "默认USDT/USDC按1美元即可偿还VAI",
+        "reason": "已读repay实现消耗VAI本金和利息，需核实际接受资产并计回购。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S22"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "单腿获得更多USDT或将USDC/USDT均按1美元相加就是利润",
+        "reason": "必须走完同币闭环，含费用且核对资产权益；当前没有任一腿报价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "拼接多个独立池快照可证明重复使用同池的闭环",
+        "reason": "前腿改变储备，必须体现路径依赖；本轮无模拟。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB04",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "decreaseLiquidity返回值即现金到账",
+        "reason": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S23"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB04",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "新铸LP NFT/未来补贴=利润",
+        "reason": "NFT是对已投入底层资产的权利，需完整退出和自由资产账本，未收到奖励不计现金。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S23"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB04",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "V2/V3模型互套",
+        "reason": "本轮只取得V3集中流动性源码，无当前V2核验；不能套同一公式。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S23"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB05",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "公开函数直接等同人人零成本可售收入",
+        "reason": "需要已累积奖励、库存与资格；shortfall路线可成为抵押而非自由代币。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S24"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "BNB05",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "把展示领取价值当实际卖出收入",
+        "reason": "无当前出口/数量报价/完整参与及退出成本。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S24"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "wstETH份额价格低于某个ETH数值即为折价套利",
+        "reason": "需先按份额比例转换并区分DEX即卖、协议即时与排队出口；无可成交报价与完整成本。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S01",
+        "S02",
+        "S44",
+        "S45"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "rETH getEthValue即可无条件即时兑付",
+        "reason": "静态burn源码另检查getTotalCollateral；净值不等于当前可兑流动性，当前值unknown。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S01",
+        "S02",
+        "S44",
+        "S45"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "必须持有自己的Trove才有LUSD赎回资格，或者赎回等于自己还债",
+        "reason": "静态入口核对msg.sender LUSD余额，并遍历被赎回Troves；持币人、借款人和清算者是不同角色。当前实现仍待核。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S25",
+        "S26"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "LUSD低于1美元就能无条件拿1美元现金",
+        "reason": "没有买入报价/可赎数量与动态费率，输出ETH还需真实变现，名义锚定不保证利润。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S25",
+        "S26"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "NAV/preview=即时可提现额度",
+        "reason": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S27",
+        "S28",
+        "S46"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "份额DSR增值或名义DAI价值=二级折价收益",
+        "reason": "没有二级池和真实买入/退出报价，不能假造折价；DSR收益也不是本岗位即时套利。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S27",
+        "S28",
+        "S46"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH04",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "套固定close factor或奖励比例代替当前逐仓状态",
+        "reason": "已读实现按健康度/规模等分支，当前部署与配置未核。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S29"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH04",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "oracle奖励价值算已兑现收益",
+        "reason": "aToken/底层出口不同，缺实际出售收入与本金/融资/费用抵扣。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S29"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH05",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "买任何unstETH NFT就能重复领取或转移后重置收益",
+        "reason": "静态源转移更新owner但不重置claimed，已claimed ownerOf/transfer拒绝；token级实际状态仍待读。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S01",
+        "S02",
+        "S44"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "ETH05",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "NFT地板价或显示可领取金额就是已经实现收益",
+        "reason": "没有具体tokenId、真实买单、取得成本和到账余额，不能计现金。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S01",
+        "S02",
+        "S44"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-ARB",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "官方SDK/地址书中有地址即代表新的可盈利市场",
+        "reason": "它们是静态注册表，不是当前池级报价或已生效时间证据；仅列待验证监控对象。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "同币名/同token对跨版本合并",
+        "reason": "V2/V2.1、binStep和工厂须分别登记，不能混用状态/费用。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S11"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "Gas-Used响应头=净收益全部成本",
+        "reason": "AvalancheGo v1.15.3新增C-Chain /rpc Gas-Used响应头，表示请求中已完成eth_call总gas；不能将它等同真实完整交易成本或所有买入/卖出费用。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S11"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-BASE",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "旧superchain目录没有8453或旧路径404",
+        "reason": "目录/来源迁移不能证明Base停链；独立官方README明确指向新维护仓库。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S08",
+        "S09",
+        "S10"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-BASE",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "默认stableFee或手续费奖励即利润",
+        "reason": "池可有customFee，LP存Gauge还会改变手续费权利；当前状态、负债、价格与成本均未知。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S08",
+        "S09",
+        "S10"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-BNB",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "BSC v1.8.2公告",
+        "reason": "不能将2026-12-08计划硬分叉或CAS20管理员条件当作本轮已生效、公众无条件可参与的机会。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S03"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-BNB",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "Pancake V3默认费率/地址",
+        "reason": "源代码和部署表不是当前工厂状态、池身份、报价或净收益证据；不列QUOTED。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S03"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-ETH",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "将stETH名义数量或withdrawal NFT直接计为当前自由ETH/已实现利润",
+        "reason": "请求/最终化/领取是不同状态；没有当前队列状态、报价与成本，因此拒绝该收益主张，并非证明市场无机会。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S01",
+        "S02",
+        "S44",
+        "S45"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-OP",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "把官方地址表的新抓取时间当新部署/新规则生效时间",
+        "reason": "未读历史diff或生效事件，明确排除该新发现时间主张。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-OP",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "静态工厂部署表视作已完成新池扫描",
+        "reason": "未读取任何PoolCreated事件与当前合约代码。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-POLY",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "USDC与USDC.e名字相似就能等量互换或共用赎回资格",
+        "reason": "官方表给不同UNDERLYING合约，必须分别核验；没有当前兑付证据。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-POLY",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "Polygon上的预测权益能自动用作同链Aave抵押品",
+        "reason": "同链共存不代表支持借贷，未读取任何该类抵押配置，拒绝这种推断。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-SOL",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "用Raydium/Orca源码program列表宣称已发现新池或全链机会",
+        "reason": "程序ID不是池地址，未取得当前状态与历史事件，明确排除该覆盖/收益主张。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S04"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-SOL",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "同名资产报价价差直接视为利润",
+        "reason": "mint、Token Program、转账扩展、容量和费用未知，没有报价与闭环。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S04"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "Sonic README或chain registry仍可访问就宣布主网存活",
+        "reason": "静态文件不是增长区块证据，当前链可用性unknown。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "沿用Fantom历史池或同名资产作为Sonic当前市场",
+        "reason": "链146与旧网不相同；需逐地址/代码/底层资产核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "Aave源码登记表被当作新部署或收益候选",
+        "reason": "无新旧比较、当前流动性、资格或报价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "OP01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "合约burn=普通持有人现金兑付",
+        "reason": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S30"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "OP01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "两种USDC币名相同即同权益/1美元",
+        "reason": "必须分别核原生/桥接版的合约与真实出口，本轮桥接版身份尚缺。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S30"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "OP02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "工厂/路由地址直接计为可交易市场或池深",
+        "reason": "未取得任何真实池与资产储备。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S31"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "OP02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "两个展示价格或view报价就声明闭环利润",
+        "reason": "还需当前卖出权限、第一腿实际数量、费用/精度、独立池和同状态模拟。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S31"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "桥接币withdraw/burn成功即已在Polygon收到现金",
+        "reason": "通用官方桥源码withdraw只销毁，注释还要求根链exit；当前具体资产实现仍待核。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "USDCn与USDCe均6位所以可按1:1共用兑付出口",
+        "reason": "合约、发行/桥接权益与用户资格不同，未获真实兑付证据。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "奖金/预言机估值=可兑现净利",
+        "reason": "排除“预言机抵押价值×清算奖励即净可兑现利润”的推断。所读Aave Origin逻辑有实际代还上限/抵押可用量/协议抽成，receiveAToken与底层退出分支不同；尚须真实出售/提款和融资/交易成本。本轮无仓位。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S29",
+        "S32"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "接近阈值=可清算",
+        "reason": "没有当前HF与适用规则，只能待查，不能创造仓位候选。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S29",
+        "S32"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY02",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "aToken到账=底层现金到账",
+        "reason": "仍要核底层储备/提款权限/深度及价格，未验证不得现金等价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S29",
+        "S32"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "USDCe与USDCn跨版本价格差直接计作同资产双池价差",
+        "reason": "底层合约不同，转换规则/费用未核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S33"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "POLY03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "QuickSwap V2源码或工厂替代当前真实独立双池",
+        "reason": "没有实际池/部署版本匹配及储备，不能据此提供池深或可交易容量。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S33"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-BASE",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "totalAssets大于可提现金就是漏洞或可保证套利",
+        "reason": "正常借贷资产/流动性及费用队列即可形成差异，且没有当前Base比较数据。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-BASE",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "把MetaMorpho源码机制套给名单中的Aave STATA",
+        "reason": "不同实现/协议，必须逐目标绑定代码及状态。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-BNB",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "任意ERC20/TEST资产可直接抵押借款获利",
+        "reason": "排除“任何自建ERC20或名字叫TEST/DAI的资产可直接抵押并无负债获利”的推断。所读Venus isolated-pools源码支持市场需PoolRegistry调用；加入市场/借款需已上市并经oracle、上限、流动性校验。代码不证明现有资产全部安全，也未确认任何当前风险敞口。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S34",
+        "S35"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-BNB",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "只有名字DAI即1美元或TEST即无价值",
+        "reason": "必须核链/合约/发行权益与真实出口，名称不足以判定。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S34",
+        "S35"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-BNB",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "借款已流出=无负债收益",
+        "reason": "未核债务本息、偿还和可回收资产，现金流不能当净资产。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S34",
+        "S35"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-POLY",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "把PMCT直接等同预测结果份额及可用借贷抵押",
+        "reason": "官方V2说明PMCT是现金抵押wrapper，实际借贷接受映射未建立。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S33",
+        "S36",
+        "S37",
+        "S43",
+        "S47",
+        "S48"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-POLY",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "用旧V1地址和未结算情景宣称当前坏账/可提资金",
+        "reason": "官方提示V2迁移且当前condition/债务状态均未查链。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S33",
+        "S36",
+        "S37",
+        "S43",
+        "S47",
+        "S48"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "R-POLY",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "旧oracle时间戳单独构成错误估值证明",
+        "reason": "未核固定价/兑换率/实时价设计与事件最终兑付，不作风险结论。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S33",
+        "S36",
+        "S37",
+        "S43",
+        "S47",
+        "S48"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "只比较两个DEX展示价格就宣布A→B→A获利",
+        "reason": "没有同资产身份、同slot、第二腿实际数量和费用证据，排除该利润主张。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "把两份源码视为两份独立池深",
+        "reason": "源码并非实时池，未确认市场独立性。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "1mSOL必然兑1SOL且立即无费退出",
+        "reason": "mainnet源码有份额转换、退出后流动性动态费与缓冲/min_withdraw，当前数值还未知。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "README TODO日期即链上规则已经生效",
+        "reason": "必须核对实际部署程序与升级slot；本轮RPC不可达。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "程序ID=mainnet集群与可清算仓位证明",
+        "reason": "排除仅见KLend程序ID就证明mainnet-beta身份或现行可清算仓位。官方README对Mainnet与Devnet列同一程序ID；必须另核genesis/slot/commitment和账户owner/ProgramData。程序文档不是仓位/报价。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S38",
+        "S39"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "抵押凭证/名义奖励=已兑现利润",
+        "reason": "需区分实际repay、可选底层提款、协议费与出售/融资/交易成本。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S38",
+        "S39"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SOL03",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "套EVM链ID/统一HF/地址规则",
+        "reason": "该链应查genesis、slot/commitment、owner/program及mint+Token Program，不能套ERC20/EVM查询。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S38",
+        "S39"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC01",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "单腿换到更多另一稳定币就计完整循环收益",
+        "reason": "没有回到同一起始token，名义美元锚定不能替代数量核算。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC01",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "将Curve通用源码或Fantom历史池当Sonic当前交易市场",
+        "reason": "未取得Sonic真实池与部署对应，必须核chain146/code和资产版本。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC01",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "把同池前后腿独立当前快照拼成可同时成交回路",
+        "reason": "源码余额和动态费随前腿改变，必须按序模拟状态。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC02",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "stS=1S且undelegateFromPool有现金就可即时退出",
+        "reason": "份额随rate变化，README描述pool路径仍需withdraw流程与等待，当前规则须查链。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S40",
+        "S41"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC02",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "旧Fantom部署/FTM历史价格可替代Sonic当期出口",
+        "reason": "链146的具体stS部署与S权益必须独立核验，本轮未采用Fantom部署。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S40",
+        "S41"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC03",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "借出卖出现金增长=无负债收益",
+        "reason": "排除“借出/卖出USDC余额增加就是收益，日后可用任意面值稳定币偿债”的推断。参考BorrowLogic同步铸债务并按指数计算当前债，正常repay转入params.asset或符合规则的对应aToken；卖出后必须核真实回购/本息与抵押退出。当前部署与金额未测。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S40",
+        "S42"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "SONIC03",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "Fantom/BNB同名资产和规则直接替代",
+        "reason": "Sonic链146部署、资产身份与现行参数须独立核验。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S40",
+        "S42"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-ARB",
+      "rejection_index": 0,
+      "original_rejection": {
+        "case": "canonical支持列表/SDK注册证明当前可无损跨链",
+        "reason": "未取得当前token映射、暂停/额度/费用及市场出口。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S14"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-ARB",
+      "rejection_index": 1,
+      "original_rejection": {
+        "case": "只比较两侧价格差即锁定跨链净利",
+        "reason": "实际迁移有等待/最终性风险，库存模式亦需取得与恢复成本，均unknown。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S14"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-ARB",
+      "rejection_index": 2,
+      "original_rejection": {
+        "case": "将ARB03 wstETH桥退出当Arbitrum本链即时ETH赎回",
+        "reason": "独立读到gateway设计在L1释放托管token且有争议窗口，不是本链即时出口。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S14"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-BASE",
+      "rejection_index": 0,
+      "original_rejection": {
+        "claim": "桥发送成功或支持列表存在就表示两链即时可用、原子套利",
+        "reason": "发送/最终化/接收/等待与当前额度需要分别验证，本轮无链状态。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S08",
+        "S09"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-BASE",
+      "rejection_index": 1,
+      "original_rejection": {
+        "claim": "两边同时买卖不用计算初始库存和恢复成本",
+        "reason": "库存模式需要预置资金及再平衡，不是凭空零本金闭环。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S08",
+        "S09"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    },
+    {
+      "agent_id": "X-BASE",
+      "rejection_index": 2,
+      "original_rejection": {
+        "claim": "旧Base registry不存在可证明Base停链",
+        "reason": "当前官方base/base已确认源码迁移，404仅为旧来源不可用。"
+      },
+      "audit_result": "LIMITED_REJECTION_SUPPORTED_OR_KEEP_UNVERIFIED",
+      "review_basis": "核对原报告限定范围和缺字段；会计恒等式/无证据不升级原则可支持退回推断，但不证明所有市场不存在或无风险。",
+      "related_independent_sources": [
+        "S08",
+        "S09"
+      ],
+      "source_matching_limit": "source IDs仅列本角色相关独立复读；本条未逐一绑定的其他部署/市场没有独立链核验。"
+    }
+  ],
+  "current_identity_or_economic_independent_verification_complete": false
+}

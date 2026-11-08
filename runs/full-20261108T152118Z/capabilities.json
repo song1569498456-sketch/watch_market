@@ -12,5 +12,12 @@
     }
   },
   "cross_task_lock": "not guaranteed; local OS lock plus non-force Git optimistic concurrency",
-  "schedule": "NOT_CONFIGURED"
+  "schedule": "NOT_CONFIGURED",
+  "end_stage_runtime_observation": {
+    "recorded_at": "2026-11-08T16:04:59.464369+00:00",
+    "observations_current": true,
+    "phase": "running",
+    "connectivity": "connected",
+    "network_policy_state": "enforced"
+  }
 }

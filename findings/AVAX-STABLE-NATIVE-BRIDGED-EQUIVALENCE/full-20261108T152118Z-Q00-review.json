@@ -1,0 +1,33 @@
+{
+  "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+  "claim_scope": "排除Avalanche原生USDC、USDC.e与avUSDC合并为同资产或同1美元现金节点",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S15",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+      "fetched_at": "2026-11-08T16:05:31.057747+00:00",
+      "http_status": "200",
+      "sha256": "acecf5d61ac774fec5d85b0851958ca57d60263b70b47266ed12157866c3a72d",
+      "fields_and_result": "L10 USDC.e=0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664；L12 USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E；L15 avUSDC另有地址。"
+    },
+    {
+      "source_id": "S16",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+      "fetched_at": "2026-11-08T16:05:32.535653+00:00",
+      "http_status": "200",
+      "sha256": "f1b93e0ec781fcaea907fbf2e24bc1d3b3f2d8e121c3dbfe7fe39e812d32b9cd",
+      "fields_and_result": "L23-38 aave is_lending=true；底层DAI.e/USDC.e/USDT.e与avDAI/avUSDC/avUSDT分开，精度18/6/6。"
+    }
+  ],
+  "missing_fields": [
+    "发行方/桥映射和当前代码",
+    "包装汇率/余额/兑换权限",
+    "真实循环池、q/顺序状态报价与完整成本"
+  ],
+  "reasoning_summary": "官方配置给不同地址与wrapped/underlying；没有转换和兑付证据就不能消去这条权益转换边。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "分别建资产节点，明确每条转换边后同状态测完整回路。"
+}

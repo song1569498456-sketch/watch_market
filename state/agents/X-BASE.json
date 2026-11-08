@@ -11,7 +11,18 @@
     "base_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_CROSS_DOMAIN_RULES_AND_SOURCE_MIGRATION_ONLY",
+      "retrieved_at_utc": "2026-11-08T16:02:48.023654+00:00",
+      "ethereum_block_range": null,
+      "base_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "StandardBridge.sol110-117行finalize的onlyOtherBridge检查messenger与xDomainMessageSender；309-328行发跨域消息。",
     "239-258行finalize检查paused、金额/接收地址并向接收方发送ETH；不能由基类paused()返回false推断Base实际桥未暂停。",
@@ -28,7 +39,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T16:02:48.023654+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
+  "record": "evidence/X-BASE/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
+    "verified_at": "2026-11-08T16:03:12.869632+00:00",
+    "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
+  }
 }

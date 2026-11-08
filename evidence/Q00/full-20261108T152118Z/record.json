@@ -1,0 +1,347 @@
+{
+  "agent_id": "Q00",
+  "run_id": "full-20261108T152118Z",
+  "chain": "CONTROL",
+  "scope": "独立复核本run已提交46研究岗位报告、102项rejections和registry全部27稳定finding；不做新市场发现。",
+  "started_at": "2026-11-08T16:05:08.948017+00:00",
+  "finished_at": "2026-11-08T16:14:58.668624+00:00",
+  "duration_seconds": 589.721,
+  "timing_scope": "独立取数至复核文件生成；前置契约/原报告阅读准备未计入，此为可复现数据阶段耗时。",
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T16:14:58.668624+00:00",
+    "beijing": "2026-11-09T00:14:58.668624+08:00",
+    "data_time": "各官方源fetched_at；当前链状态未取得"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+    "https://raw.githubusercontent.com/base-org/node/main/README.md",
+    "https://raw.githubusercontent.com/base/base/main/README.md",
+    "https://github.com/base/base/releases/tag/v1.5.4",
+    "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+    "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+    "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+    "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+    "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+    "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralOfframp.sol"
+  ],
+  "mechanism": "按身份→权限→数量→会计→成本→真实性→机制复核已提交主张，静态规则确认与当前经济闭环分开。",
+  "observations": [
+    {
+      "review_counts": {
+        "NEEDS_DATA": 3,
+        "CONFIRMED_EVIDENCE": 3,
+        "REJECTED": 21,
+        "STALE": 0,
+        "RISK_ONLY": 0
+      },
+      "registry_coverage": "27/27 exactly once",
+      "research_records_read": 46,
+      "rejections_read": 102,
+      "original_correction_arrays_read": 1,
+      "original_execution_statuses": {
+        "PARTIAL": 46
+      },
+      "original_quote_count": 0,
+      "independent_official_unique_urls": 48,
+      "independent_official_http_requests": 50,
+      "independent_http_200": 49,
+      "supplemental_successful_deployment_JSON_read_without_saved_HTTP_status": 1,
+      "independent_rpc_probes": 5,
+      "independent_rpc_CONNECT_403": 5
+    },
+    "N-POLY旧源/V2现金包装层、Base迁移、Lido NFT同权益去重独立复核完成；另补pUSD命名与Offramp角色衔接。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": "unpriced; assets not summed across chains",
+    "realized": false,
+    "realized_profit_confirmed": false,
+    "unrealized_profit_confirmed": false,
+    "unknown_costs": [
+      "每项missing_fields列出的完整买卖/兑换/税费/冲击",
+      "授权/账户初始化/部署(如需)/gas及优先费",
+      "融资本金利息/退出/等待/跨链/失败费用"
+    ],
+    "note": "本轮无交易或历史闭环样本，不能把未发生交易记为已实现盈利0或正数。"
+  },
+  "capacity": "unknown；没有当前q与完整路线或可兑额度",
+  "permissions": "静态代码限制已列；所有本轮真实部署/角色/普通账户当前资格未完成",
+  "liabilities": "本轮未建仓；VAI/Aave等假设路径中的本金利息/抵押锁定必须保留，未测不填0",
+  "waiting_time": "queue/bridge/stS规则存在等待；当前实际时长与可领取金额unknown",
+  "invalidation_conditions": [
+    "官方分支源码与当前实现不同",
+    "源迁移/权限/暂停/资格变化",
+    "报价过期或数量/资产身份错误",
+    "重复权益/内部转账/负债未计或成本缺漏"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+    "https://raw.githubusercontent.com/base-org/node/main/README.md",
+    "https://raw.githubusercontent.com/base/base/main/README.md",
+    "https://github.com/base/base/releases/tag/v1.5.4",
+    "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+    "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+    "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+    "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+    "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+    "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+    "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+    "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+    "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+    "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralOfframp.sol"
+  ],
+  "coverage_gaps": [
+    "首次状态NOT_STARTED，无此前链上成功游标。",
+    "30天规则：本轮只重读选定官方源及三个发布页，不是全生态变更/生效完整回溯。",
+    "7天活动：未读取任何链上区块/slot、事件、交易与已完成收益样本。",
+    "Ethereum/Polygon/Base/Sonic/Solana五个只读身份探针均CONNECT403，保留真实headers与curl错误；BNB/ARB/OP/AVAX本轮未再探测，不能声称已核或可用。",
+    "所有27项缺部署/当前身份或具体经济字段见reviews.json；三项经济候选缺q/完整数量路线/当前报价/费用。",
+    "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
+    "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
+  ],
+  "next_check": [
+    "按reviews.json逐项补字段，优先恢复只读链身份/实现和具体市场。",
+    "先对Lido、Liquity、stS三经济候选读同状态q路线、当前权限/容量与全成本；取得新报价后60秒内重取关键腿再裁决。",
+    "按corrections.json统一修订V1/V2、Base源、Lido权益去重与pUSD权限元数据。",
+    "保留30天/7天未覆盖标志，不推进完整成功游标。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [],
+  "findings": [],
+  "rejections": [
+    {
+      "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "scope": "排除仅凭lisUSD锚定/借款人还债文档推出公众无条件1美元现金赎回；不判定所有新模块不存在",
+      "reason": "文本的购买主体是借款人、用途是减债并取回自有抵押；推不出任意持有人取得额外现金的权利。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+      "scope": "排除C-Chain Gas-Used响应头等于完整交易经济成本",
+      "reason": "头字段只计已完成eth_call的gas，既不是支付的gas价格乘数量，也未含所有交易腿/市场/融资费用。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+      "scope": "排除三腿独立单价或同输入拼三角收益；源码数量传递规则核查，不含实际Arbitrum路线",
+      "reason": "上一输出成为下一输入；Quoter内部gas不等于整笔成本，NodeInterface total内含L1分量。重复池仍须真实状态顺序模拟。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+      "scope": "排除指定Lido canonical gateway退出等于Arbitrum本链即时ETH",
+      "reason": "出口是L2烧token后经消息和争议窗口在L1释放托管token；资产、链和时间均不同于主张。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+      "scope": "排除Avalanche原生USDC、USDC.e与avUSDC合并为同资产或同1美元现金节点",
+      "reason": "官方配置给不同地址与wrapped/underlying；没有转换和兑付证据就不能消去这条权益转换边。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+      "scope": "仅排除ggAVAX两个已读AVAX方法可由任意普通账户无条件直接调用；不否定queue正常用户出口",
+      "reason": "两方法明确queue role，redeem另检查WAVAX现金。preview不能越过角色和资金条件；不套用sAVAX。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "base-metamorpho-nav-not-immediate-redemption",
+      "scope": "排除MetaMorpho totalAssets/份额换算保证Base即时赎回折价利润",
+      "reason": "流动性模拟与withdrawQueue限制真实退出，缺Base目标也缺二级市场成本。不能将此源码套给Aave STATA。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+      "scope": "排除Aerodrome同账户同时拥有Gauge排放和同期间全部LP费用的双计",
+      "reason": "LP转给Gauge改变手续费归属，feesVotingReward分给投票权益。可能同时持不同身份不构成把相同费用重复列入。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "scope": "排除VAI铸造卖出金额为无负债利润或可用任意面值稳定币还款",
+      "reason": "mint同时记债，repay用VAI烧本金并支付VAI利息；须回购债务资产并释放抵押才闭环。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+      "scope": "排除PancakeV3 decreaseLiquidity返回值等于实际到账自由资产",
+      "reason": "pool.burn结果先入tokensOwed，collect才从池收取；NFT销毁还要求余量清零。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
+      "scope": "排除Venus公开claim意味着所有新地址零成本取得立即可售XVS",
+      "reason": "奖励取决于累积供借权益/资金，shortfall可变抵押头寸；公开函数不创造accrued奖励。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+      "scope": "排除sDAI NAV/previewRedeem是用户提款额度或执行成功保证",
+      "reason": "标准明确preview忽略限额；指定部署源码还需余额/授权及Pot/DAIJoin实际执行。该源码没异步队列，不据此臆造排队。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+      "scope": "排除Ethereum Aave oracle×清算奖励为已实现净利；不裁决任何真实仓位",
+      "reason": "实际代还上限、aToken/底层分支和协议费会改变资产账本，且抵押仍要卖出或取出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+      "scope": "排除USDC存在burn即任意OP持币人可链上按1美元拿现金",
+      "reason": "参考burn只是权限销毁余额/供给，没有付款；当前部署及现金渠道仍未知，不能据此否定合格客户发行方退出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+      "scope": "仅排除Velodrome getAmountOut有值就证明同状态swap权限",
+      "reason": "swap另查factory.isPaused，而view不查；未证明实际OP池处于暂停。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+      "scope": "排除Polygon Aave预言机奖金估值为可兑现净利；不认定任何仓位可清算",
+      "reason": "正常清算需当前资格并支付实际代还，抵押权利/协议费/现金退出与融资分账；与Ethereum同源码不代表相同链上仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+      "scope": "排除Polygon USDCe与USDCn按名称/精度/oracle相同当同token双DEX闭环",
+      "reason": "两个underlying地址不同且aToken分开，必须显式计转换规则；不裁决其当前价格或正常转换收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+      "scope": "排除任意自建ERC20/币名TEST或DAI能直接在Venus抵押并无负债获利",
+      "reason": "上市由registry控制，借款还需oracle/cap/liquidity；名称不能证明资产价值，检查存在也不能证明所有已上市资产无风险。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
+      "scope": "排除CTF或CollateralToken名称证明输方结果份额被借贷市场接受并可获利；同时复核V1→V2/PMCT权益",
+      "reason": "V1已提示迁移但未证明链上退役；PMCT现金包装层源码名为pUSD，与condition结果份额分开。token角色限制经公开Offramp可衔接，不能又误判为所有普通人都无出口。无实际借贷接受映射，不能确认风险/收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+      "scope": "排除KLend program ID单独证明mainnet-beta或可清算仓位",
+      "reason": "官方Mainnet/Devnet可使用同程序ID，集群需genesis和slot证明；lib declare_id不是program binary或仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    },
+    {
+      "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
+      "scope": "排除Sonic Aave借出卖出USDC余额为收入或任意面值稳定币可偿债",
+      "reason": "借出同时铸指数债务；偿还用该reserve的asset或合规则对应aToken。回购本息与抵押退出缺一都不是自由利润。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "independent_static_source_reads_and_bounded_failed_RPC_probes",
+    "source_fetched_at_start": "2026-11-08T16:05:08.948017+00:00",
+    "source_fetched_at_end": "2026-11-08T16:14:58.186130+00:00",
+    "read_record_count": 46,
+    "reviewed_finding_ids": [
+      "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+      "BNB-JENNER-CAS20-ACTIVATION",
+      "sol-whirlpool-token-interface-identity-check",
+      "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+      "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+      "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+      "arb-wsteth-l1-exit-not-arb-instant-redemption",
+      "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+      "avax-ggavax-withdrawqueue-role-not-public-redemption",
+      "base-metamorpho-nav-not-immediate-redemption",
+      "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+      "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+      "bnb-venus-public-claim-not-unconditional-sellable-reward",
+      "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+      "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+      "eth-aave-liquidation-bonus-not-realized-profit",
+      "OP-USDC-BURN-AS-CASH-REDEMPTION",
+      "op-velodrome-view-quote-not-swap-permission-proof",
+      "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+      "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+      "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+      "poly-pmct-not-outcome-collateral-lending-proof",
+      "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+      "SONIC-BEETS-STS-REDEEM-S",
+      "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
+    ],
+    "chain_block_or_slot": null,
+    "full_30_day_window_complete": false,
+    "full_7_day_window_complete": false
+  },
+  "review_summary": {
+    "NEEDS_DATA": 3,
+    "CONFIRMED_EVIDENCE": 3,
+    "REJECTED": 21,
+    "STALE": 0,
+    "RISK_ONLY": 0
+  },
+  "research_status": "PARTIAL",
+  "storage_status": "PENDING_M00_PUBLICATION_AND_REMOTE_READBACK",
+  "schedule_status": "NOT_CONFIGURED",
+  "transactions_executed": false
+}

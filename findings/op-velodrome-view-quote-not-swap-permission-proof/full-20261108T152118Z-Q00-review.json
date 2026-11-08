@@ -1,0 +1,25 @@
+{
+  "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+  "claim_scope": "仅排除Velodrome getAmountOut有值就证明同状态swap权限",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S31",
+      "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "fetched_at": "2026-11-08T16:05:53.292511+00:00",
+      "http_status": "200",
+      "sha256": "32d040ff419fa9b1f9113f7e10d587b332a2ab9c6b6099851025cc16a4e986bb",
+      "fields_and_result": "L345 swap查factory.isPaused；L447-450 getAmountOut查reserve/fee但不查pause，不能用view证明swap权限。"
+    }
+  ],
+  "missing_fields": [
+    "真实Pool/Factory当前代码、pause与资产身份",
+    "q两腿同状态报价/组合执行",
+    "完整L1/L2/池费/转账限制"
+  ],
+  "reasoning_summary": "swap另查factory.isPaused，而view不查；未证明实际OP池处于暂停。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "在真实池同时检查当前权限与数量报价，再测双DEX路线。"
+}

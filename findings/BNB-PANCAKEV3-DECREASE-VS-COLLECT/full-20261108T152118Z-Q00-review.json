@@ -1,0 +1,25 @@
+{
+  "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+  "claim_scope": "排除PancakeV3 decreaseLiquidity返回值等于实际到账自由资产",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S23",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+      "fetched_at": "2026-11-08T16:05:42.306315+00:00",
+      "http_status": "200",
+      "sha256": "f49775d339101d0ab836bc68fb283fc87f24ddcb73d9f70a777003b6e82f3e88",
+      "fields_and_result": "L274 pool.burn后L282-299增加tokensOwed；collect另调用pool.collect，burn NFT须liquidity及tokensOwed清零。"
+    }
+  ],
+  "missing_fields": [
+    "真实position tokenId/授权、Pool与token身份",
+    "q流动性/tick/前中后余额、实际collect",
+    "完整退出/兑换费用及剩余NFT/应收"
+  ],
+  "reasoning_summary": "pool.burn结果先入tokensOwed，collect才从池收取；NFT销毁还要求余量清零。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "将liquidity、tokensOwed和已收款分别核，完整模拟确认最终余量。"
+}

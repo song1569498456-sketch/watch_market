@@ -1,0 +1,24 @@
+{
+  "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+  "claim_scope": "排除指定Lido canonical gateway退出等于Arbitrum本链即时ETH",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S14",
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "fetched_at": "2026-11-08T16:05:29.718189+00:00",
+      "http_status": "200",
+      "sha256": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+      "fields_and_result": "L78-80 L2 burn→L1 message→dispute window后Outbox释放L1托管token；不是Arbitrum即时ETH。"
+    }
+  ],
+  "missing_fields": [
+    "实际gateway/token映射与代码/暂停",
+    "当前争议/确认窗口、两侧q报价/桥费"
+  ],
+  "reasoning_summary": "出口是L2烧token后经消息和争议窗口在L1释放托管token；资产、链和时间均不同于主张。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "若具体路径跨L1，交X-ARB；另行验证任何本链即时出口。"
+}

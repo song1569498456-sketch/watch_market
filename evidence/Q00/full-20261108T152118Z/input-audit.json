@@ -1,0 +1,2799 @@
+{
+  "research_record_count": 46,
+  "registry_finding_count": 27,
+  "records": [
+    {
+      "agent_id": "ARB01",
+      "source_record": "evidence/ARB01/full-20261108T152118Z/record.json",
+      "record_sha256": "114ee8c537e74a451784ec7fe1562335f22dde4442f7965d0b0f542d95a584e2",
+      "source_report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "651231bd643e084f3bfb7ca644744fca7c717fc6211c1a183c65a305160a1392",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:35:07.091426+00:00",
+        "beijing": "2026-11-08T23:35:07.091426+08:00",
+        "data_time": "unknown; branch deployment snapshots not live"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
+        "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
+        "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+      ],
+      "rejections": [
+        {
+          "claim": "两个工厂不同或聚合器显示两条路线就算两个独立池且有套利",
+          "reason": "尚未核对池、资产和共享底层，更无两腿实际数量与成本；拒绝收益推断，不判定市场无机会。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+        "ARB:SUSHISWAP_V2:FACTORY:0xc35dadb65012ec5796536bd9864ed8773abc74c4"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
+        "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
+        "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
+        "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
+        "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ARB02",
+      "source_record": "evidence/ARB02/full-20261108T152118Z/record.json",
+      "record_sha256": "0a9041a8a922c62cedc98c50bc6010fe2b0ff680df1dc514d8a287796d65052d",
+      "source_report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "f524838b80f9bb09bb80bb293f3a7af3e2ced3569972c7816a3eced2b4b72bcb",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:35:29.566307+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
+        "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
+        "QuoterV2源代码quoteExactInput逐腿amountIn=_amountOut并累积内部gasEstimate，未执行本轮报价。",
+        "官方NodeInterface注释定义gasEstimate为总gas、gasEstimateForL1为其中L1分量；不能total之外重复加L1。"
+      ],
+      "rejections": [
+        {
+          "case": "三腿展示价/同数量报价拼成循环",
+          "reason": "排除把三腿独立展示价相乘、或每腿都按同一输入数量报价当闭环收益的做法。QuoterV2代码明确amountIn=_amountOut逐腿传递；其gasEstimate仍不等于完整执行/融资全费用。"
+        },
+        {
+          "case": "SDK默认quoter与QuoterV2源码混用",
+          "reason": "部署ABI版本未核对，不能把源码结构当当前地址调用结果。"
+        },
+        {
+          "case": "完整gasEstimate再加gasEstimateForL1",
+          "reason": "NodeInterface注释前者为total，后者是其中分量，需防重复扣费。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "当前池图未建立：Arbitrum RPC与DEX发现入口均代理CONNECT403，三腿实际池地址、代币地址、区块和数量全部未取得。",
+        "30天规则窗口未覆盖：只读SDK/Quoter/NodeInterface当前源码，没有治理/部署变更历史与链上生效证据。",
+        "7天真实三角交易与旧小池轮转未覆盖，没有事件扫描或交易复盘。",
+        "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
+        "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ARB03",
+      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json",
+      "record_sha256": "bdad6544671da24b696d13303fe240b3f4deee0e4a0689e8f21237746aa3ffec",
+      "source_report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "1fbd709b64cc0d58f1346d1fec289fc1166293049b26b42f004a49b2e78d9c8e",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:35:18.919313+00:00",
+        "beijing": "2026-11-08T23:35:18.919313+08:00",
+        "data_time": "静态源码/登记表抓取时间；链数据unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "asset": "wstETH",
+          "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+          "decimals_from_static_registry": 18,
+          "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+          "lines": "78-80",
+          "field": "L2 burn -> L1 outbox release after dispute window",
+          "data_kind": "static official design; not current deployment/state"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "把canonical bridge的L1 token释放写作本链ETH即时赎回",
+          "reason": "官方设计明确跨链消息与争议窗口，不是本链即时出口。"
+        },
+        {
+          "case": "假设1 wstETH=1 ETH或用ETH提款规则替代ARB规则",
+          "reason": "未核份额转换率、L2资产映射及本链出口，不能据此算折价利润。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "arb-wsteth-l1-exit-not-arb-instant-redemption"
+      ],
+      "market_ids": [
+        "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529"
+      ],
+      "asset_ids": [
+        "42161:0x5979d7b546e38e414f7e9822514be443a4800529"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
+        "7天代表性活动未覆盖，无区块/交易/事件。",
+        "链身份42161、token code、官方Lido映射、份额率未链上核验。",
+        "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
+        "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ARB04",
+      "source_record": "evidence/ARB04/full-20261108T152118Z/record.json",
+      "record_sha256": "9c6bc75138d77018c691770da06dbe54183c3f95b0151907c4ac2132bc3548d1",
+      "source_report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "38e6091b27167c8ba83dea95d2830254713eebe101105f8c2d065a88e88f7bfd",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:37:35.789019+00:00",
+        "beijing": "2026-11-08T23:37:35.789019+08:00",
+        "data_time": "unknown; static upstream snapshots only"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
+        "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
+        "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+      ],
+      "rejections": [
+        {
+          "claim": "用金库getPricePerFullShare/totalAssets显示净值作为无条件可提现价值",
+          "reason": "官方Beefy源码存在策略账面资产与实际回款差异，具体STATA还需独立核验，preview/额度/现金不能互相替代。"
+        },
+        {
+          "claim": "官方份额地址存在即有二级折价机会",
+          "reason": "无二级市场证据与报价，只列规则观察，不制造收益。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "ARB:AAVE_STATA:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc"
+      ],
+      "asset_ids": [
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
+        "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
+        "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
+        "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "AVAX01",
+      "source_record": "evidence/AVAX01/full-20261108T152118Z/record.json",
+      "record_sha256": "801cae805b4e1e4fffac2d38f1f038250488ae67fcfc61758bea35321f4ab076",
+      "source_report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "92011226ff4dab53efa00e5385efe7f940ca7fd41eb7de2eac89b504da91a75f",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:37:39.140492+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
+        "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
+        "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
+        "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+      ],
+      "rejections": [
+        {
+          "case": "USDC.e/USDC/avUSDC统记1美元",
+          "reason": "排除将Curve Avalanche配置中USDC.e=0xA7D7...与USDC=0xB97E...、以及包装avUSDC合并为同资产/同1美元现金的闭环核算；官方SDK分别列不同合约和wrapped/underlying。当前储备/兑付与汇率仍未验证。"
+        },
+        {
+          "case": "同池各独立get_dy拼成可执行循环",
+          "reason": "前腿改变储备/借贷状态，需完整路径隔离模拟，不能拼矛盾状态。"
+        },
+        {
+          "case": "ABI gas字段=本轮gas费用",
+          "reason": "ABI历史注解不是真实执行gas，gas价格及完整交易费用均unknown。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE"
+      ],
+      "market_ids": [
+        "AVAX:43114:Curve:aave:0x7f90122bf0700f9e7e1f688fe926940e8839f353"
+      ],
+      "asset_ids": [
+        "AVAX:43114:0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+        "AVAX:43114:0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "AVAX:43114:0xc7198437980c041c805a1edcba50c1ce5db95118"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
+        "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
+        "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
+        "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
+        "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "AVAX02",
+      "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json",
+      "record_sha256": "2c1e7d060eddc61ddaeadae32c412debf5dae9b3e8aa77208af0b1bc2bc8ad7a",
+      "source_report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "487c8e53b92c8f72720d86f7f7414309eb3b410ac1c3119a0da9a5adb538529d",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:37:20.904921+00:00",
+        "beijing": "2026-11-08T23:37:20.904921+08:00",
+        "data_time": "静态源码/登记表抓取时点；链上时间unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "BENQI sAVAX",
+          "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+          "decimals": 18,
+          "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
+          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
+        },
+        {
+          "protocol": "GoGoPool ggAVAX",
+          "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+          "fields": [
+            "totalAssets L182-198 reward release",
+            "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
+            "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
+          ],
+          "deployment_address": null,
+          "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "把ggAVAX的preview/totalAssets当作普通用户无条件即时AVAX退出报价",
+          "reason": "已读AVAX方法有queue角色限制，当前可提容量/用户入口未核验。"
+        },
+        {
+          "case": "把sAVAX与ggAVAX份额按1:1 AVAX或相同退出规则合并",
+          "reason": "协议/资产不同，转换率、权限和队列均需分别核对。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "avax-ggavax-withdrawqueue-role-not-public-redemption"
+      ],
+      "market_ids": [
+        "43114:benqi-savax:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be"
+      ],
+      "asset_ids": [
+        "43114:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
+        "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
+        "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
+        "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
+        "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BASE01",
+      "source_record": "evidence/BASE01/full-20261108T152118Z/record.json",
+      "record_sha256": "efb299c3338ac55df81cf7fc2662a3ff46b334d40a59d5f0e75a9b7d5171d5b7",
+      "source_report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "80a3d1a159920d73a9b74b426d83faec99f4c4d419282071012a62ffe7f49ba2",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:39:29.776385+00:00",
+        "beijing": "2026-11-08T23:39:29.776385+08:00",
+        "data_time": "unknown; static upstream branch snapshots"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
+        "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
+        "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+      ],
+      "rejections": [
+        {
+          "claim": "任何普通持币人都可用burn按1美元换回现金",
+          "reason": "静态接口本就有minter权限且burn不表示回款；当前用户/地区资格、真实出口未核验。"
+        },
+        {
+          "claim": "USDbC与原生USDC同名同价同出口",
+          "reason": "合约不同且桥接权益可能需要跨链退出，不能假定即时同链兑现。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      ],
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
+        "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
+        "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
+        "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
+        "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BASE02",
+      "source_record": "evidence/BASE02/full-20261108T152118Z/record.json",
+      "record_sha256": "5ae7103094b75df98db648624a6d0c5aac8d3fc92764e751679321c2207d6c63",
+      "source_report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "595777f9aac5f0cdfcc579eacd99a3ada1f7829e0f110bbdd420539b63c721b7",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:40:08.482699+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
+        "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
+        "没有本轮折价、可兑原生ETH数量、现金出口或锁定收益结论。"
+      ],
+      "rejections": [
+        {
+          "case": "Lido lido-l2旧README直接证明Base退出",
+          "reason": "该文本只明确Arbitrum与Optimism，不能跨链套用。"
+        },
+        {
+          "case": "Base cbETH可按某L1说明立即取回ETH",
+          "reason": "本轮未确认Base赎回合约或桥路线；出口未知不是即时现金。"
+        },
+        {
+          "case": "1cbETH=1ETH",
+          "reason": "18位小数/币名不是兑换比例证据，没有当前份额比率与报价。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [
+        "BASE:8453:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Base RPC和DEX发现API代理CONNECT403；无当前区块、资产代码/实现、实际池或数量报价。",
+        "发行方Coinbase帮助页目标被代理403，猜测GitHub仓库404；未核验当前兑换比例、赎回资格、最小额、暂停/容量/排队。",
+        "只从Superchain token list发现cbETH Base地址，未获得发行人+链上独立身份核验，不能证明当前可兑换或版本正确。",
+        "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
+        "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BASE03",
+      "source_record": "evidence/BASE03/full-20261108T152118Z/record.json",
+      "record_sha256": "abf1a53cc24d377f25e2a474a1ac9a5d705a36a0f3782ae7c7cd9fb253078d6d",
+      "source_report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "054bd31f00dfebcc9b8f576ebc07512ed78173c436809edc93826bf073748bbd",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:39:43.762988+00:00",
+        "beijing": "2026-11-08T23:39:43.762988+08:00",
+        "data_time": "源码抓取时点；Base链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+          "lines": "20,83-88",
+          "fields": "退出取决于可用流动性；withdrawQueue控制市场提款顺序",
+          "data_kind": "official protocol source; chain-agnostic"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+          "lines": "515-528,604-615,807-827",
+          "fields": "maxWithdraw/maxRedeem -> _maxWithdraw -> _simulateWithdrawMorpho；不足流动性revert",
+          "data_kind": "static implementation; no Base deployment match"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "只有源码NAV换算、没有二级池和实际退出就认定折价利润",
+          "reason": "缺真实买入成本、当前提款容量与费用，源码存在流动性不足revert。"
+        },
+        {
+          "case": "把MetaMorpho同步实现模板套到所有Base金库",
+          "reason": "当前具体部署/版本未知，异步或非标准实现需另核。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "base-metamorpho-nav-not-immediate-redemption"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Base当前chainId8453及金库代码/实现未核验，API与RPC CONNECT403。",
+        "没有真实金库地址、底层资产与可转让份额、二级市场池或报价。",
+        "30天规则/策略损失/升级窗口未覆盖。",
+        "7天活动窗口未覆盖，无区块/交易或分页游标。",
+        "owner余额/allowance、maxRedeem/maxWithdraw、真实可提现金、费用/队列及底层变现均unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BASE04",
+      "source_record": "evidence/BASE04/full-20261108T152118Z/record.json",
+      "record_sha256": "444eb79081451ea86b4ced27d12553b0eb4283c4830800012d67548d5bb4600c",
+      "source_report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "b4f5b1e1f1b1c21bc27f8cf27aee563fb05a4893c7b80aed20ff275751996704",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:41:56.518362+00:00",
+        "beijing": "2026-11-08T23:41:56.518362+08:00",
+        "data_time": "unknown; current upstream branch snapshots not deployed-state proof"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
+        "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
+        "本轮没有借款人，仓位卡为空，不将未知HF写成可清算或接近阈值。"
+      ],
+      "rejections": [
+        {
+          "claim": "按oracle抵押价值×清算奖励即可记净利润",
+          "reason": "必须扣代还本金/协议费/融资并验证抵押真实出售或赎回，不存在本轮报价。"
+        },
+        {
+          "claim": "未知或旧HF即可认定仓位可清算",
+          "reason": "必须同状态读取真实债务与规则；本轮没有借款人数据。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5"
+      ],
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0x4200000000000000000000000000000000000006"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
+        "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
+        "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
+        "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
+        "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BASE05",
+      "source_record": "evidence/BASE05/full-20261108T152118Z/record.json",
+      "record_sha256": "5bafa2bca014755ff51bb02091d69d5c13c18aea7b74fab9386a2e9715d69469",
+      "source_report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "208daa1f0c281dcb14ef25ef9ac675aa7d994cb3391579c8347a6a95c4628b75",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:42:07.492556+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "本岗位独立读取README、Pool、PoolFactory和Gauge源码，未把N-BASE静态结论当现行状态。",
+        "Pool.mint非首次用min(amount0*totalSupply/reserve0,amount1*totalSupply/reserve1)；首次锁MINIMUM_LIQUIDITY；burn按实际余额同比例返回并销毁份额。",
+        "PoolFees与核心储备分离；claimFees先更新持有人指数，不能把账面池费当全部可提核心资产。",
+        "Gauge.deposit检查isAlive并将LP转入Gauge，withdraw返回LP；_claimFees向feesVotingReward分配，不能重复计为存款人自由资产。",
+        "PoolFactory.getFee有customFee覆盖和特殊0费指示值，适用于必要swap腿；不把默认swap费机械当LP mint/burn手续费。"
+      ],
+      "rejections": [
+        {
+          "case": "铸出LP即净收益",
+          "reason": "必须扣原始底层资产并计退出、剩余LP和必要兑换；没有完整资产账本。"
+        },
+        {
+          "case": "Gauge排放+同期间全部池费双计给存款人",
+          "reason": "排除把LP入Gauge后的排放和同一期间全部池手续费同时算给存款人的假设。官方README说明让渡手续费权利，Gauge源码把持有LP的claimFees结果分配到feesVotingReward；当前用户余额和奖励仍须链上核验。"
+        },
+        {
+          "case": "所有池套默认稳定/波动费率或同一模型",
+          "reason": "池级customFee可覆盖swap费；传统Pool不能直接套Slipstream CL。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "未取得真实池、token0/token1、当前实现/字节码、reserve/balance/totalSupply；Base RPC和池发现API代理CONNECT403。",
+        "没有任何指定数量入池→出池→必要兑换报价或同状态模拟；实际LP余量/提款资产/可重复性unknown。",
+        "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
+        "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BNB01",
+      "source_record": "evidence/BNB01/full-20261108T152118Z/record.json",
+      "record_sha256": "4b71cf248f6d6273c8c6891b26b4b3671503581009ae603a41cdcb14e3e6df7c",
+      "source_report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "5166c0769ce6c48c61a9721e6649b3c9660ff59922bcf8c8078ec5aa2c2f0b2b",
+      "execution_status": "PARTIAL",
+      "status": "REJECTED",
+      "as_of": "2026-11-08T15:27:48.512703+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "Lista官方组织页发现gitbook仓库，目录→价格稳定→偿债→提款→部署表形成独立文档链。",
+        "价格稳定文档在lisUSD<1时描述借款人买入还债，而非所有持有人无条件兑换美元。",
+        "还款页指出approve不等于完成还款；文档有剩余15 lisUSD债务规则，仅为静态文档，现行参数未知。",
+        "提款页要求先还清自己的债务；文本说BNB提款7–15天、LST可即时、最低0.1 BNB，不能作为本轮已确认参数，也不是持币人的无条件现金赎回。"
+      ],
+      "rejections": [
+        {
+          "case": "lisUSD nominal peg -> public redemption",
+          "reason": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。"
+        },
+        {
+          "case": "repay own debt -> profit for every holder",
+          "reason": "偿债减少负债并释放自己的抵押物；不是凭空取得额外自由资产，更不能忽略最初抵押和债务。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION"
+      ],
+      "market_ids": [
+        "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
+      ],
+      "asset_ids": [
+        "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则变更未遍历：只读取官方Gitbook当前文本，不含可验证修改/生效时间；旧Helio链接提示需重核版本。",
+        "7天活动、历史赎回交易、当前额度/储备/权限均未覆盖，RPC目标遭代理CONNECT 403。",
+        "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
+        "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BNB02",
+      "source_record": "evidence/BNB02/full-20261108T152118Z/record.json",
+      "record_sha256": "108292972512679d5effef35fe321a7d8dbddcb15cc665a81c989470cbd88a8f",
+      "source_report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "74d886df3bf6040a8959d3a632e4605ff9bc54739d267d293b900750786ba47f",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:42:21.901356+00:00",
+        "beijing": "2026-11-08T23:42:21.901356+08:00",
+        "data_time": "官方仓库源码与部署登记抓取时点；链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Venus VAI",
+          "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+          "deployment_source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+          "identity_status": "OFFICIAL_DEPLOYMENT_RECORD_NOT_LIVE_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+          "fields": "mintVAI L101-164记录债务/额度/fee；repayVAIFresh L225-245 burn VAI与transferFrom VAI利息",
+          "implementation_match": "unknown"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "铸造VAI卖出现金全部计收益",
+          "reason": "铸造同时增加VAI债务，未计回购本金利息/抵押释放，不是闭环。"
+        },
+        {
+          "case": "默认USDT/USDC按1美元即可偿还VAI",
+          "reason": "已读repay实现消耗VAI本金和利息，需核实际接受资产并计回购。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "bnb-venus-vai-sale-proceeds-not-debt-free-profit"
+      ],
+      "market_ids": [
+        "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+      ],
+      "asset_ids": [
+        "56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天额度/费率/治理生效窗口未覆盖。",
+        "7天代表性交易未覆盖，无区块/事件或成功游标。",
+        "chainId56、token/controller/proxy代码与当前开启状态未核验。",
+        "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
+        "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BNB03",
+      "source_record": "evidence/BNB03/full-20261108T152118Z/record.json",
+      "record_sha256": "df95bdc45ee393030209f4fa390cb69b46068ce015399edf0a3dce5dd688792d",
+      "source_report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "c6b76c9c38e8edfb092617ed2ee58d45e4c4940b92b60ff0114da99338024826",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:44:27.270968+00:00",
+        "beijing": "2026-11-08T23:44:27.270968+08:00",
+        "data_time": "unknown; static token identity snapshot only"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "自主发现BNB地址书USDC/USDT具体合约，两者静态标18 decimals，与其他链常见6位不能混用。",
+        "无已核DEX池，所列USDC→USDT→USDC仅待建立测试骨架，不是报价路线。",
+        "未取得当前发行/桥接版本与兑换限制，不默认稳定币=1USD或永久在用。"
+      ],
+      "rejections": [
+        {
+          "claim": "单腿获得更多USDT或将USDC/USDT均按1美元相加就是利润",
+          "reason": "必须走完同币闭环，含费用且核对资产权益；当前没有任一腿报价。"
+        },
+        {
+          "claim": "拼接多个独立池快照可证明重复使用同池的闭环",
+          "reason": "前腿改变储备，必须体现路径依赖；本轮无模拟。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [
+        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "0x55d398326f99059fF775485246999027B3197955"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "最近30天规则/迁移/费率与7天活动未回溯，无Swap/池事件/区块/交易。",
+        "BNB RPC和DEXScreener均CONNECT 403，chainId=56、资产代码/版本、代币限制未核验。",
+        "两个Pancake raw SDK路径404，未取得当期工厂/稳定池部署，不能把路径404当DEX或链不存在。",
+        "官方Aave地址书只有稳定资产合约与18位精度线索；不是池级身份、发行担保或赎回资格证据。",
+        "无两三腿真实池地址、费用、不变量/储备、上一腿输出衔接、报价或原子模拟，净额/容量unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BNB04",
+      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json",
+      "record_sha256": "6af00eb3377305979f17bb05680c1a4a079d1b38d95208df59a5fc7d5b909d98",
+      "source_report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "f9b326522f7ca04311f4ba691acf35a25b6515e6db2ef3b7931d762ecd90495e",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:44:54.995487+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "从可读Pancake V3官方bscMainnet部署表发现PositionManager=0x46A15B0b27311cedF172AB29E4f4766fbE7F4364，仅文档身份。",
+        "mint记录tickLower/tickUpper、token0/1、fee和liquidity，不能套用普通恒定乘积LP份额公式。",
+        "decreaseLiquidity经持仓授权和deadline检查调用pool.burn，把本金和费用增长加入tokensOwed；collect另行收款且存在舍入。",
+        "burn NFT要求liquidity==0、tokensOwed0==0、tokensOwed1==0；必须核剩余资产权利，未执行本轮模拟。"
+      ],
+      "rejections": [
+        {
+          "case": "decreaseLiquidity返回值即现金到账",
+          "reason": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。"
+        },
+        {
+          "case": "新铸LP NFT/未来补贴=利润",
+          "reason": "NFT是对已投入底层资产的权利，需完整退出和自由资产账本，未收到奖励不计现金。"
+        },
+        {
+          "case": "V2/V3模型互套",
+          "reason": "本轮只取得V3集中流动性源码，无当前V2核验；不能套同一公式。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BNB-PANCAKEV3-DECREASE-VS-COLLECT"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "RPC和池发现API代理CONNECT403，无当前chainId/区块、真实池/资产/持仓tokenId、字节码或实现核验。",
+        "Pancake V2相关猜测路径共5个404，未取得V2规则或部署；本轮回退到可读官方V3资料，不把V3模型套给V2。",
+        "没有指定数量完整mint→decreaseLiquidity→collect→必要swap模拟，前/中/后状态、剩余LP/自由资产全部unknown。",
+        "30天参数/部署/费率/存取窗口变更未覆盖；7天真实加减仓交易/旧小池状态未覆盖。",
+        "真实gas、转账税/卖出限制、持仓费率/价格冲击、奖励归属与可提现容量均未核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。另见corrections.json程序性失败次数建议。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "BNB05",
+      "source_record": "evidence/BNB05/full-20261108T152118Z/record.json",
+      "record_sha256": "b01eb9effd298f843b9806c98dde686d113eab5bd4b112259ef7643d77e9b371",
+      "source_report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d80d76653dc19db56d7b10b5401711eb1f446ab0def77bcb71248492f03f55e7",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:44:36.743710+00:00",
+        "beijing": "2026-11-08T23:44:36.743710+08:00",
+        "data_time": "静态源码/部署记录抓取时点；链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Venus XVS rewards",
+          "token": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+          "identity_status": "OFFICIAL_DEPLOYMENT_JSON_NOT_LIVE_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+          "fields": "L33-60 holder accrued supplier/borrower rewards；L64-85 shortfall collateral route；L103-119 blacklist/balance/transfer checks",
+          "deployment_match": "unknown"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "公开函数直接等同人人零成本可售收入",
+          "reason": "需要已累积奖励、库存与资格；shortfall路线可成为抵押而非自由代币。"
+        },
+        {
+          "case": "把展示领取价值当实际卖出收入",
+          "reason": "无当前出口/数量报价/完整参与及退出成本。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "bnb-venus-public-claim-not-unconditional-sellable-reward"
+      ],
+      "market_ids": [
+        "56:venus-xvs-rewards:0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63"
+      ],
+      "asset_ids": [
+        "56:0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天新公开窗口/额度/规则生效未覆盖；DappBay入口CONNECT403。",
+        "7天实际领取/卖出活动未覆盖，无区块/交易或分页。",
+        "chainId56、RewardFacet当前diamond绑定/升级、XVS代码未核验。",
+        "没有普通新参与者资格与accrued余额测量，历史快照/持仓与限制unknown。",
+        "DEX发现CONNECT403，没有真实出口、可售数量或完整成本报价。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ETH01",
+      "source_record": "evidence/ETH01/full-20261108T152118Z/record.json",
+      "record_sha256": "1dcaea26205e4107226b085391c18559bdc6e0ff64a15522629238c88127cb2d",
+      "source_report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "90bac3361cbe1f35cbf99bde4e15fe66ca93de1ce092c544aa944a60b36b545f",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:27:22.066753+00:00",
+        "beijing": "2026-11-08T23:27:22.066753+08:00",
+        "data_time": "unknown: current upstream branch snapshots, not chain snapshot"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "官方Lido部署表chainId=1，取得stETH/wstETH/queue与实现地址，但缺链独立核对。",
+        "WstETH.sol:53-74 wrap/unwrap依赖shares比例，不是1wstETH=1stETH，更不是即刻1ETH。",
+        "WithdrawalQueue.sol:51-57源码边界100 stETH最小单位至1000*1e18 stETH单请求；这是源码值，不是实测可交易数量。",
+        "WithdrawalQueue.sol:218-230未最终化或已领取时claimable为0；claim需owner且已finalized。",
+        "RocketTokenRETH.sol:39-47兑换值取网络ETH余额/rETH供给；106-120 burn要求余额充足且总流动抵押>=要兑ETH。仅静态代码，无地址/链核验。"
+      ],
+      "rejections": [
+        {
+          "claim": "wstETH份额价格低于某个ETH数值即为折价套利",
+          "reason": "需先按份额比例转换并区分DEX即卖、协议即时与排队出口；无可成交报价与完整成本。"
+        },
+        {
+          "claim": "rETH getEthValue即可无条件即时兑付",
+          "reason": "静态burn源码另检查getTotalCollateral；净值不等于当前可兑流动性，当前值unknown。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT"
+      ],
+      "market_ids": [
+        "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1"
+      ],
+      "asset_ids": [
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
+        "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
+        "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
+        "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
+        "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "共用ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT；ETH05是相同queue的NFT层，按requestId避免重复计权利。"
+    },
+    {
+      "agent_id": "ETH02",
+      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json",
+      "record_sha256": "a2876dadfbf78b0cb174703d81842aac960f9c2f8c02df96f8dc88c4e6d86c78",
+      "source_report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "6fa3cafd03a19898745cbc3364c64f1efe73ac6bfb651d102d3aff472cad102e",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:46:58.517342+00:00",
+        "beijing": "2026-11-08T23:46:58.517342+08:00",
+        "data_time": "unknown; upstream branch snapshots not chain current state"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
+        "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
+        "853-855行partial hint/净债务条件不满足可取消部分赎回；名义请求量不保证全部完成。",
+        "1379-1405行赎回费是baseRate与floor计算的ETH费用，当前费率unknown；不把源码0.5%字样当本轮实际费率。"
+      ],
+      "rejections": [
+        {
+          "claim": "必须持有自己的Trove才有LUSD赎回资格，或者赎回等于自己还债",
+          "reason": "静态入口核对msg.sender LUSD余额，并遍历被赎回Troves；持币人、借款人和清算者是不同角色。当前实现仍待核。"
+        },
+        {
+          "claim": "LUSD低于1美元就能无条件拿1美元现金",
+          "reason": "没有买入报价/可赎数量与动态费率，输出ETH还需真实变现，名义锚定不保证利润。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "ETH-LIQUITY-V1-LUSD-REDEEM-ETH"
+      ],
+      "market_ids": [
+        "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2"
+      ],
+      "asset_ids": [
+        "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
+        "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
+        "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
+        "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ETH03",
+      "source_record": "evidence/ETH03/full-20261108T152118Z/record.json",
+      "record_sha256": "09227443ba33779df6f7c2c71d0e7a8b7b647f65bab0d398da9e8d10fa879781",
+      "source_report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "18bad88915b340fdcd4e029d3437dd5209f56e76b714249b9fb7ca612a8d862a",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:47:03.965320+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
+        "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
+        "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
+        "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+      ],
+      "rejections": [
+        {
+          "case": "NAV/preview=即时可提现额度",
+          "reason": "排除把显示NAV或previewRedeem当作账户可提款额度/成功保证。ERC4626规范明确preview忽略赎回限额；所读sDAI源码maxRedeem按owner余额，实际_burn还核余额/授权并调用pot.exit与daiJoin.exit。当前状态未读取。"
+        },
+        {
+          "case": "份额DSR增值或名义DAI价值=二级折价收益",
+          "reason": "没有二级池和真实买入/退出报价，不能假造折价；DSR收益也不是本岗位即时套利。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE"
+      ],
+      "market_ids": [
+        "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "asset_ids": [
+        "ETH:1:0x83f20f44975d03b1b09e64809b757c47f942beea"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
+        "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
+        "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
+        "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
+        "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ETH04",
+      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json",
+      "record_sha256": "c25c696cd81464fc2284cc03515b90d6d3069c13460f6c72040f22eb55087dee",
+      "source_report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "13e58c1e86773b4f25c37616e8d8015bb19e1a335cb5f3817f82d54774fdb32d",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:46:46.422746+00:00",
+        "beijing": "2026-11-08T23:46:46.422746+08:00",
+        "data_time": "官方静态源码/地址表抓取时点；Ethereum链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Aave V3 Ethereum",
+          "pool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          "pool_impl_static": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+          "fields": "L43 default close factor常量；L260-280按健康度/金额限制代还；L390 receiveAToken；L414协议清算费",
+          "data_kind": "static source not current Ethereum config"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "套固定close factor或奖励比例代替当前逐仓状态",
+          "reason": "已读实现按健康度/规模等分支，当前部署与配置未核。"
+        },
+        {
+          "case": "oracle奖励价值算已兑现收益",
+          "reason": "aToken/底层出口不同，缺实际出售收入与本金/融资/费用抵扣。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "eth-aave-liquidation-bonus-not-realized-profit"
+      ],
+      "market_ids": [
+        "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天清算参数/实现升级窗口未覆盖。",
+        "7天及已发生清算复盘未覆盖：无区块/交易/借款账户索引。",
+        "Ethereum链身份、proxy代码与源码实现匹配未核验，RPC CONNECT403。",
+        "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
+        "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "ETH05",
+      "source_record": "evidence/ETH05/full-20261108T152118Z/record.json",
+      "record_sha256": "e2ffb5ba679819f7f25c3e841b1486558fe9c77067105ae125f9077990c06215",
+      "source_report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "b56d2f3a9727a6b373a92fb8399581c0ca6b089aa91e349689d567349ce6652b",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:49:15.184460+00:00",
+        "beijing": "2026-11-08T23:49:15.184460+08:00",
+        "data_time": "unknown; static branch snapshots not current NFT state"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "官方部署表chainId=1、name=Lido: stETH Withdrawal NFT、symbol=unstETH，queue与实现已提取，尚未实时链核验。",
+        "ERC721源码169-175行ownerOf对claimed请求revert；230-248行_transfer拒绝已claimed并更新request.owner、清除approval。",
+        "WithdrawalQueue.sol:218-230未finalized或已claimed返回0，264-273行领取要求owner和finalized；当前无真实requestId可验证。"
+      ],
+      "rejections": [
+        {
+          "claim": "买任何unstETH NFT就能重复领取或转移后重置收益",
+          "reason": "静态源转移更新owner但不重置claimed，已claimed ownerOf/transfer拒绝；token级实际状态仍待读。"
+        },
+        {
+          "claim": "NFT地板价或显示可领取金额就是已经实现收益",
+          "reason": "没有具体tokenId、真实买单、取得成本和到账余额，不能计现金。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1"
+      ],
+      "asset_ids": [
+        "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天NFT权益/升级变更与7天请求/转移/领取活动均未回溯，无交易/事件/区块。",
+        "Lido文档与Ethereum LlamaRPC eth_chainId均CONNECT 403，当前代码/代理实现和NFT队列状态未链核验。",
+        "没有真实requestId/tokenId、当前owner/claimed/finalized/claimable，不能认定任何一件NFT仍可领取。",
+        "没有实际NFT可成交买单/卖单与取得成本、gas/等待或剩余可支付ETH，无法核算NFT买入→领取收益。",
+        "仅有官方静态部署与源码；NFT转移后的current owner逻辑需要当前实现核对，不使用地板价或显示APR计收入。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "共用ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT；ETH05是相同queue的NFT层，按requestId避免重复计权利。"
+    },
+    {
+      "agent_id": "N-ARB",
+      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json",
+      "record_sha256": "b3c055a02f138fd30b538e6e4b5adcfc8c0f73f556090bfe556efea8e9459d52",
+      "source_report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "0ea4442247a1b7ee2f4d46ce785f37ce64598b008c497243c90dd5290f81f69a",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:29:57.007506+00:00",
+        "beijing": "2026-11-08T23:29:57.007506+08:00",
+        "data_time": "unknown; source branch snapshot only"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
+        "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
+        "未确认新增市场、已生效规则、新交易结构、旧市场复活或可执行候选。"
+      ],
+      "rejections": [
+        {
+          "claim": "官方SDK/地址书中有地址即代表新的可盈利市场",
+          "reason": "它们是静态注册表，不是当前池级报价或已生效时间证据；仅列待验证监控对象。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+        "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
+        "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
+        "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
+        "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
+        "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-AVAX",
+      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json",
+      "record_sha256": "82596551c1ed6b3ba30bd2a794eaad57bf72d0b99dd9ec06ea4ca39add19a08b",
+      "source_report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "b885dfe4442e8e9b348121987347913421785d8ec508cd0cd9f7336706f6b9b8",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:32:59.855358+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
+        "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
+        "源码有setLBPairIgnored owner权限，说明quoter路由可能不包括全部工厂注册池；实际设置unknown。",
+        "AvalancheGo v1.15.3发布于2026-11-05T22:47:12Z，说明C-Chain eth_call Gas-Used头和filter API变化；不代表当前RPC已升级。"
+      ],
+      "rejections": [
+        {
+          "case": "同币名/同token对跨版本合并",
+          "reason": "V2/V2.1、binStep和工厂须分别登记，不能混用状态/费用。"
+        },
+        {
+          "case": "Gas-Used响应头=净收益全部成本",
+          "reason": "AvalancheGo v1.15.3新增C-Chain /rpc Gas-Used响应头，表示请求中已完成eth_call总gas；不能将它等同真实完整交易成本或所有买入/卖出费用。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
+        "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
+        "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
+        "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-BASE",
+      "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json",
+      "record_sha256": "4a96a6ee850120de16e28fecf462094bc5d89a18c4b3af9afed76a36ae738fa5",
+      "source_report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d6896a53480a7b78d765930bfc1285e26c0726a2aed7f0df03bcf122629ec2d4",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:30:38.025797+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
+        "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
+        "Aerodrome README列PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da及FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0。",
+        "工厂源码getFee可用customFee[pool]覆盖默认stableFee/volatileFee，特殊ZERO_FEE_INDICATOR映射0费用；不能将源码常量当实时报价。",
+        "Aerodrome README说明LP入Gauge换取排放时池手续费权利交予Gauge；提供BASE05专项线索，不在本岗位计算该策略收益。"
+      ],
+      "rejections": [
+        {
+          "case": "旧superchain目录没有8453或旧路径404",
+          "reason": "目录/来源迁移不能证明Base停链；独立官方README明确指向新维护仓库。"
+        },
+        {
+          "case": "默认stableFee或手续费奖励即利润",
+          "reason": "池可有customFee，LP存Gauge还会改变手续费权利；当前状态、负债、价格与成本均未知。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BASE-NODE-OFFICIAL-SOURCE-MIGRATION"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
+        "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
+        "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
+        "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-BNB",
+      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json",
+      "record_sha256": "d9d271a5193c897a787a50ba5407a47068d28d4ac670149f78825533ecd53bff",
+      "source_report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "7b8654bca0f73581975670d28fccffe17157f7773bac47316739a2cf49784405",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:24:45.675031+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
+        "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
+        "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+      ],
+      "rejections": [
+        {
+          "case": "BSC v1.8.2公告",
+          "reason": "不能将2026-12-08计划硬分叉或CAS20管理员条件当作本轮已生效、公众无条件可参与的机会。"
+        },
+        {
+          "case": "Pancake V3默认费率/地址",
+          "reason": "源代码和部署表不是当前工厂状态、池身份、报价或净收益证据；不列QUOTED。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BNB-JENNER-CAS20-ACTIVATION"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
+        "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
+        "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
+        "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-ETH",
+      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json",
+      "record_sha256": "51210a87e7d34ae09843948a5b26feca9c22855f2c9c6e2019f67e3d71933fcf",
+      "source_report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "c7b87f2a41e5751588955fd99f90769f4f4f33eb121904e3bd2b67460c080521",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "fetched_at_utc": "2026-11-08T15:24:52.450934+00:00",
+        "fetched_at_beijing": "2026-11-08T23:24:52.450934+08:00",
+        "source_data_time": "unknown; branch master latest snapshot, not chain current time"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
+        "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
+        "WithdrawalQueueERC721.sol第29-30行描述request铸NFT/claim销毁；第147-155行finalize有_checkResumed与FINALIZE_ROLE权限。"
+      ],
+      "rejections": [
+        {
+          "claim": "将stETH名义数量或withdrawal NFT直接计为当前自由ETH/已实现利润",
+          "reason": "请求/最终化/领取是不同状态；没有当前队列状态、报价与成本，因此拒绝该收益主张，并非证明市场无机会。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT"
+      ],
+      "market_ids": [
+        "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1"
+      ],
+      "asset_ids": [
+        "eip155:1/erc20:0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+        "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
+        "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
+        "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
+        "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
+        "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "共用ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT；ETH05是相同queue的NFT层，按requestId避免重复计权利。"
+    },
+    {
+      "agent_id": "N-OP",
+      "source_record": "evidence/N-OP/full-20261108T152118Z/record.json",
+      "record_sha256": "82646fea3b2fa0ea225ec3c48fe3e105a82bc64dcdc5bb7514e02a9af0530fd3",
+      "source_report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "3f1343f20f376a2f077902434d82aafd823529de573def85719d0b3d2ababd4e",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:29:38.443377+00:00",
+        "beijing": "2026-11-08T23:29:38.443377+08:00",
+        "data_time": "源码抓取时点；链数据时间unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Aave V3 Optimism",
+          "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+          "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Uniswap V3",
+          "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          "source_scope": "OP部署表静态登记",
+          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "把官方地址表的新抓取时间当新部署/新规则生效时间",
+          "reason": "未读历史diff或生效事件，明确排除该新发现时间主张。"
+        },
+        {
+          "case": "静态工厂部署表视作已完成新池扫描",
+          "reason": "未读取任何PoolCreated事件与当前合约代码。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
+        "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
+        "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
+        "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
+        "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-POLY",
+      "source_record": "evidence/N-POLY/full-20261108T152118Z/record.json",
+      "record_sha256": "b41c8d9555d747dc17c5d36ffe7888ff6cb702d465577a953d31f1783a85d49d",
+      "source_report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "ef2568fe88f24892079922caa8dd7413e7e841bef16526959e268881db899419",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:32:36.909343+00:00",
+        "beijing": "2026-11-08T23:32:36.909343+08:00",
+        "data_time": "unknown; upstream branch snapshots not chain current state"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
+        "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
+        "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+      ],
+      "rejections": [
+        {
+          "claim": "USDC与USDC.e名字相似就能等量互换或共用赎回资格",
+          "reason": "官方表给不同UNDERLYING合约，必须分别核验；没有当前兑付证据。"
+        },
+        {
+          "claim": "Polygon上的预测权益能自动用作同链Aave抵押品",
+          "reason": "同链共存不代表支持借贷，未读取任何该类抵押配置，拒绝这种推断。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "POLY:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+        "POLY:POLYMARKET:CTF_EXCHANGE:0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e"
+      ],
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
+        "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
+        "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
+        "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
+        "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-SOL",
+      "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json",
+      "record_sha256": "7d2d4e7473a45f02c2afcdc85dd115b799c85cf0e50da2af47d17e3ef2240d8a",
+      "source_report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "0f9cb0ec147b1540dc0008d61f28ee3c48d0c14047da2d062768eb05459c8d08",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:24:55.859069+00:00",
+        "beijing": "2026-11-08T23:24:55.859069+08:00",
+        "data_time": "GitHub原始文件抓取时点；链上数据时间unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Raydium",
+          "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+          "kind": "CLMM_PROGRAM_ID",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Raydium",
+          "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+          "kind": "CREATE_CPMM_POOL_PROGRAM",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Orca Whirlpools",
+          "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+          "kind": "README official deployment",
+          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "用Raydium/Orca源码program列表宣称已发现新池或全链机会",
+          "reason": "程序ID不是池地址，未取得当前状态与历史事件，明确排除该覆盖/收益主张。"
+        },
+        {
+          "case": "同名资产报价价差直接视为利润",
+          "reason": "mint、Token Program、转账扩展、容量和费用未知，没有报价与闭环。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "sol-whirlpool-token-interface-identity-check"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
+        "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
+        "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
+        "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
+        "旧小池退出窗口、数量报价及完整成本未核验。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "N-SONIC",
+      "source_record": "evidence/N-SONIC/full-20261108T152118Z/record.json",
+      "record_sha256": "5d4b7341ccbdc970d78166a8ca166d2dbb89caabbf4df3a44692696a31f2cfff",
+      "source_report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "7465dfdc7019412181a8bbdfeafc72b5ea154e2016097845bf6b4ce40b5139ae",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:32:35.366969+00:00",
+        "beijing": "2026-11-08T23:32:35.366969+08:00",
+        "data_time": "源码与注册表抓取时点；当前链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "source": "ethereum-lists registry",
+          "chain_id": 146,
+          "native_symbol": "S",
+          "status": "THIRD_PARTY_STATIC_NOT_LIVENESS_PROOF"
+        },
+        {
+          "source": "0xsoniclabs/sonic README",
+          "field": "genesis required",
+          "status": "OFFICIAL_SOURCE_NOT_CHAIN_LIVENESS"
+        },
+        {
+          "protocol": "Aave V3 Sonic",
+          "pool_proxy": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+          "pool_impl": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
+          "provider": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
+          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "Sonic README或chain registry仍可访问就宣布主网存活",
+          "reason": "静态文件不是增长区块证据，当前链可用性unknown。"
+        },
+        {
+          "case": "沿用Fantom历史池或同名资产作为Sonic当前市场",
+          "reason": "链146与旧网不相同；需逐地址/代码/底层资产核验。"
+        },
+        {
+          "case": "Aave源码登记表被当作新部署或收益候选",
+          "reason": "无新旧比较、当前流动性、资格或报价。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
+        "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
+        "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
+        "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
+        "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "OP01",
+      "source_record": "evidence/OP01/full-20261108T152118Z/record.json",
+      "record_sha256": "a6e53e20c0bf8f49469c167a556571c4d1aa4e5a1e3c1b6ca5a6f9d2d2552b10",
+      "source_report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d1acaf25c83f362a4a68b397c3d31cbc5efe0bdb77dadd5e52fd58045069d47e",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:49:23.421716+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "Superchain官方token-list data/USDC/data.json将OP地址列为0x0b2c639c533813f4aa9d7837caf62653d097ff85，decimals=6，描述native USDC；仅文档级线索。",
+        "Circle FiatTokenV1源码burn仅minter、非暂停/黑名单条件下销毁自有余额，总供给减少；这是源码读取，不是当前OP链上角色实测。",
+        "没有实际折价、普通账户兑付资格、储备可兑余额或现金回款证据。"
+      ],
+      "rejections": [
+        {
+          "case": "合约burn=普通持有人现金兑付",
+          "reason": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。"
+        },
+        {
+          "case": "两种USDC币名相同即同权益/1美元",
+          "reason": "必须分别核原生/桥接版的合约与真实出口，本轮桥接版身份尚缺。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "OP-USDC-BURN-AS-CASH-REDEMPTION"
+      ],
+      "market_ids": [],
+      "asset_ids": [
+        "OP:10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "OP RPC、DEX发现和Circle发行方部署页目标均代理CONNECT403；没有chainId、当前区块、真实池或按数量报价。",
+        "token-list描述原生USDC地址，但未通过发行方部署和链上代理实现独立核验；桥接USDC.e条目猜测路径404，未核其地址，不拼接记忆地址。",
+        "Circle FiatTokenV1源码是权限/销毁语义参考，不等于本轮OP部署实现；当前minter、黑名单、暂停、现金兑付资格/地域账户条件和额度均unknown。",
+        "30天发行/桥迁移/权限/费率规则变更未覆盖，7天实际兑付和交易未覆盖。",
+        "实际买入价、可兑现金/接收资产、等待与退出深度、完整L2/L1费用均未取得。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "OP02",
+      "source_record": "evidence/OP02/full-20261108T152118Z/record.json",
+      "record_sha256": "8b8a6c2cbe4f5fc64389d44c503c50ae4dd5571b4a781b7e2d423b654116d3ed",
+      "source_report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "2ee508cb8ce2a19929c589c8ed71ac31b45b999fced45f5940061ed44ba5a508",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:49:05.707031+00:00",
+        "beijing": "2026-11-08T23:49:05.707031+08:00",
+        "data_time": "源码/部署表抓取时间；实时池数据unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "protocol": "Uniswap V3 OP",
+          "factory_static": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          "quoter_static": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          "identity_status": "STATIC_FACTORY_NOT_MARKET"
+        },
+        {
+          "protocol": "Velodrome V2",
+          "source": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+          "fields": "swap L345查pause；getAmountOut L447-450扣factory.getFee；stable L458-465精度归一",
+          "identity_status": "SOURCE_ONLY_NO_LIVE_POOL_MATCH"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "工厂/路由地址直接计为可交易市场或池深",
+          "reason": "未取得任何真实池与资产储备。"
+        },
+        {
+          "case": "两个展示价格或view报价就声明闭环利润",
+          "reason": "还需当前卖出权限、第一腿实际数量、费用/精度、独立池和同状态模拟。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "op-velodrome-view-quote-not-swap-permission-proof"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天费率/迁移/流动性变化未覆盖。",
+        "7天代表性活动/价差出现前交易未覆盖，无区块/事件。",
+        "OP RPC与交易对目录CONNECT403，未核chainId10、code、真实池和资产地址。",
+        "未检验底层独立、储备真实性、转账税/封装权益与卖出/激活状态。",
+        "没有同状态两腿指定数量报价、曲线、容量、最终重报价或模拟。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "POLY01",
+      "source_record": "evidence/POLY01/full-20261108T152118Z/record.json",
+      "record_sha256": "e6a85a9e0c362173c4f2ce5a00a7386d1c217901212974dcf3a8bb1ccba76150",
+      "source_report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "adfcded121d4a6df3b4baec29013ab77765eae5d91ab6d704e45932a7eb36fc2",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:51:10.147775+00:00",
+        "beijing": "2026-11-08T23:51:10.147775+08:00",
+        "data_time": "unknown; upstream branch snapshots only"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
+        "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
+        "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+      ],
+      "rejections": [
+        {
+          "claim": "桥接币withdraw/burn成功即已在Polygon收到现金",
+          "reason": "通用官方桥源码withdraw只销毁，注释还要求根链exit；当前具体资产实现仍待核。"
+        },
+        {
+          "claim": "USDCn与USDCe均6位所以可按1:1共用兑付出口",
+          "reason": "合约、发行/桥接权益与用户资格不同，未获真实兑付证据。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "POLY:CIRCLE:USDCn:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+        "POLY:BRIDGED:USDCe:0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+      ],
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
+        "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
+        "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
+        "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
+        "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "POLY02",
+      "source_record": "evidence/POLY02/full-20261108T152118Z/record.json",
+      "record_sha256": "c79b4cfdba9a81ef0e057a2997161d66bf7d3429b9874fb728933240a78558c8",
+      "source_report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "e5cb174980b5c7476fef764fccfecdf44d984c6ad9213bbad4a997dcaa67a855",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:51:39.625601+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
+        "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
+        "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
+        "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+      ],
+      "rejections": [
+        {
+          "case": "奖金/预言机估值=可兑现净利",
+          "reason": "排除“预言机抵押价值×清算奖励即净可兑现利润”的推断。所读Aave Origin逻辑有实际代还上限/抵押可用量/协议抽成，receiveAToken与底层退出分支不同；尚须真实出售/提款和融资/交易成本。本轮无仓位。"
+        },
+        {
+          "case": "接近阈值=可清算",
+          "reason": "没有当前HF与适用规则，只能待查，不能创造仓位候选。"
+        },
+        {
+          "case": "aToken到账=底层现金到账",
+          "reason": "仍要核底层储备/提款权限/深度及价格，未验证不得现金等价。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT"
+      ],
+      "market_ids": [
+        "POLY:137:AaveV3:Pool:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
+        "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
+        "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
+        "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
+        "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "POLY03",
+      "source_record": "evidence/POLY03/full-20261108T152118Z/record.json",
+      "record_sha256": "decff360adf84f235004b2d8a40f813fda1252df481801a1d8f40df2d9cfb4e0",
+      "source_report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "b7f3f3f7c2b7829fd706faf90ea7695c447684f9c9c65be1d2e2e830e1976654",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:51:15.311322+00:00",
+        "beijing": "2026-11-08T23:51:15.311322+08:00",
+        "data_time": "源码/静态资产登记抓取时点，当前链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "asset_label": "USDCe",
+          "underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals_static": 6,
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "asset_label": "USDCn",
+          "underlying": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "decimals_static": 6,
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
+          "fields": "token0/token1 L19-20，getReserves L38-41，swap L159-162按真实储备限制",
+          "deployment_match": "unknown"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "USDCe与USDCn跨版本价格差直接计作同资产双池价差",
+          "reason": "底层合约不同，转换规则/费用未核验。"
+        },
+        {
+          "case": "QuickSwap V2源码或工厂替代当前真实独立双池",
+          "reason": "没有实际池/部署版本匹配及储备，不能据此提供池深或可交易容量。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "poly-usdc-usdce-not-identical-asset-crossdex-loop"
+      ],
+      "market_ids": [],
+      "asset_ids": [
+        "137:0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "137:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/迁移/流动性变化未覆盖。",
+        "7天代表性活动/完整历史交易复盘未覆盖。",
+        "Polygon RPC和交易对目录CONNECT403，未核chainId137、code、实际池及token部署。",
+        "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
+        "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "R-BASE",
+      "source_record": "evidence/R-BASE/full-20261108T152118Z/record.json",
+      "record_sha256": "015a4e6f1530d92ca50329e1187edddc3bfbd7a7a0b532939b200ce783d17408",
+      "source_report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d45cfa2be06978726bf7572e7cbd624fcca402e0b47e391efc558e95071ac7ab",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:54:01.784114+00:00",
+        "beijing": "2026-11-08T23:54:01.784114+08:00",
+        "data_time": "unknown; static branch snapshots"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
+        "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
+        "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
+        "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+      ],
+      "rejections": [
+        {
+          "claim": "totalAssets大于可提现金就是漏洞或可保证套利",
+          "reason": "正常借贷资产/流动性及费用队列即可形成差异，且没有当前Base比较数据。"
+        },
+        {
+          "claim": "把MetaMorpho源码机制套给名单中的Aave STATA",
+          "reason": "不同实现/协议，必须逐目标绑定代码及状态。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "BASE:AAVE_STATA:USDC:0xc768c589647798a6ee01a91fde98ef2ed046dbd6"
+      ],
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
+        "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
+        "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
+        "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
+        "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "R-BNB",
+      "source_record": "evidence/R-BNB/full-20261108T152118Z/record.json",
+      "record_sha256": "db2522e45035b476fa5a779e199e5a5f53cf172e2650774c0f8cab75f0d9fe6c",
+      "source_report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "624eb3b6c275159a7bfaaf9600b3cb45a7032eeaa4ac62ea5535a42dbfa3d34d",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:54:10.950788+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
+        "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
+        "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
+        "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+      ],
+      "rejections": [
+        {
+          "case": "任意ERC20/TEST资产可直接抵押借款获利",
+          "reason": "排除“任何自建ERC20或名字叫TEST/DAI的资产可直接抵押并无负债获利”的推断。所读Venus isolated-pools源码支持市场需PoolRegistry调用；加入市场/借款需已上市并经oracle、上限、流动性校验。代码不证明现有资产全部安全，也未确认任何当前风险敞口。"
+        },
+        {
+          "case": "只有名字DAI即1美元或TEST即无价值",
+          "reason": "必须核链/合约/发行权益与真实出口，名称不足以判定。"
+        },
+        {
+          "case": "借款已流出=无负债收益",
+          "reason": "未核债务本息、偿还和可回收资产，现金流不能当净资产。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
+        "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
+        "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
+        "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
+        "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "R-POLY",
+      "source_record": "evidence/R-POLY/full-20261108T152118Z/record.json",
+      "record_sha256": "5fa9074cb1bf216fe371f6d88b5d6c1c3be8ab4699af4e6ac7155fd0762372a9",
+      "source_report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d3b54844ef9b47371775875ce3adc0a144a94fe7a651d05420dfb5a5187b1269",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:54:30.454783+00:00",
+        "beijing": "2026-11-08T23:54:30.454783+08:00",
+        "data_time": "静态源码/部署表抓取时点；事件/链状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+          "field": "L4-5官方声明部署地址更新，指向ctf-exchange-v2",
+          "data_kind": "migration notice; effective time unverified",
+          "legacy_polygon_exchange_static": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+          "scope": "V1 README legacy exchange table; official notice says use V2; legacy liveness/retirement not read onchain"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+          "system": "Polymarket CTF Exchange V2",
+          "polygon_exchange_static": "0xE111180000d2663C0091e4f400237545B87B996B",
+          "pmct_proxy_static": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "field": "PMCT wraps USDC/USDCe, separate from outcome ERC1155",
+          "identity_status": "OFFICIAL_DEPLOYMENT_TABLE_ONLY_NOT_LIVE_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+          "fields": "reportPayouts L78-96；redeemPositions L218-254按payout vector",
+          "data_kind": "generic CTF source, deployment match unknown"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+          "field": "Aave Polygon静态池/资产登记；未取得CTF outcome wrapper接受映射",
+          "scope": "selected registry only, not exhaustive Polygon lending survey"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "把PMCT直接等同预测结果份额及可用借贷抵押",
+          "reason": "官方V2说明PMCT是现金抵押wrapper，实际借贷接受映射未建立。"
+        },
+        {
+          "case": "用旧V1地址和未结算情景宣称当前坏账/可提资金",
+          "reason": "官方提示V2迁移且当前condition/债务状态均未查链。"
+        },
+        {
+          "case": "旧oracle时间戳单独构成错误估值证明",
+          "reason": "未核固定价/兑换率/实时价设计与事件最终兑付，不作风险结论。"
+        }
+      ],
+      "corrections": [
+        {
+          "target": "N-POLY旧Polymarket/CTF发现入口",
+          "suggested_change": "将旧V1交易所入口标待重新核验，并新增V2官方源码/部署线索；不直接宣告V1已退役。",
+          "legacy_exchange": "137:0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+          "v2_exchange": "137:0xE111180000d2663C0091e4f400237545B87B996B",
+          "pmct_proxy": "137:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "rights_scope": "V1/V2是交易系统部署入口；PMCT为USDC/USDCe现金抵押wrapper；三者均不是特定condition outcome token/贷款抵押映射。",
+          "evidence": [
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+          ],
+          "verification_needed": "Q00独立复核公告与权益边界；恢复RPC核当前code/运行与迁移生效时间。"
+        }
+      ],
+      "finding_ids": [
+        "poly-pmct-not-outcome-collateral-lending-proof"
+      ],
+      "market_ids": [],
+      "asset_ids": [
+        "137:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Gamma当前事件目录与Polygon RPC CONNECT403，无condition/结果份额/区块。",
+        "30天结算/争议/版本生效窗口未覆盖；静态V2提示不是生效时间证据。",
+        "7天借贷/偿还/清算与兑付活动未覆盖，无交易或事件游标。",
+        "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
+        "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SOL01",
+      "source_record": "evidence/SOL01/full-20261108T152118Z/record.json",
+      "record_sha256": "604b752a4bfb13144e76f8cfd8f9483274bb303ef2d78cdf1ac85fdfa9b8bf82",
+      "source_report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "e57713a8e242d4aa4e17b74b774480e45bc5f81dd792d824feb5cf18da7f1a2d",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:26:47.551008+00:00",
+        "beijing": "2026-11-08T23:26:47.551008+08:00",
+        "data_time": "源码抓取时点，不是链状态时间"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "name": "raydium_pool_discovery",
+          "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+          "fetched_at_utc": "2026-11-08T15:26:42.067296+00:00",
+          "method": "GET",
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "orca_pool_discovery",
+          "url": "https://api.orca.so/v2/solana/pools",
+          "fetched_at_utc": "2026-11-08T15:26:43.085906+00:00",
+          "method": "GET",
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "rpc_identity",
+          "url": "https://api.mainnet-beta.solana.com",
+          "fetched_at_utc": "2026-11-08T15:26:44.094996+00:00",
+          "method": "POST",
+          "request": {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "getGenesisHash"
+          },
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "raydium_cpmm_curve",
+          "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/raydium/cpmm/curve/calculator.ts",
+          "fetched_at_utc": "2026-11-08T15:26:45.102552+00:00",
+          "method": "GET",
+          "http_status": 200,
+          "sha256_sample": "5b7559ec23a97cd1bb826a1005d3b9c88d536c13ea934341988c4ae57d9bd2ed",
+          "excerpts": [
+            {
+              "line": 4,
+              "text": "import { ApiV3Token } from \"../../../api/type\";"
+            },
+            {
+              "line": 7,
+              "text": "import { CpmmFee as Fee } from \"./fee\";"
+            },
+            {
+              "line": 14,
+              "text": "export type SwapWithoutFeesResult = { destinationAmountSwapped: BN };"
+            },
+            {
+              "line": 16,
+              "text": "export type TradingTokenResult = { tokenAmount0: BN; tokenAmount1: BN };"
+            },
+            {
+              "line": 18,
+              "text": "export type SwapResult = {"
+            },
+            {
+              "line": 19,
+              "text": "  newInputVaultAmount: BN;"
+            },
+            {
+              "line": 20,
+              "text": "  newOutputVaultAmount: BN;"
+            },
+            {
+              "line": 21,
+              "text": "  inputAmount: BN;"
+            },
+            {
+              "line": 22,
+              "text": "  outputAmount: BN;"
+            },
+            {
+              "line": 23,
+              "text": "  tradeFee: BN;"
+            },
+            {
+              "line": 24,
+              "text": "  protocolFee: BN;"
+            },
+            {
+              "line": 25,
+              "text": "  fundFee: BN;"
+            },
+            {
+              "line": 26,
+              "text": "  creatorFee: BN;"
+            },
+            {
+              "line": 39,
+              "text": "  static validate_supply(tokenAmount0: BN, tokenAmount1: BN): void {"
+            },
+            {
+              "line": 40,
+              "text": "    if (tokenAmount0.isZero()) throw Error(\"tokenAmount0 is zero\");"
+            },
+            {
+              "line": 41,
+              "text": "    if (tokenAmount1.isZero()) throw Error(\"tokenAmount1 is zero\");"
+            },
+            {
+              "line": 44,
+              "text": "  static swapBaseInput("
+            },
+            {
+              "line": 45,
+              "text": "    inputAmount: BN,"
+            },
+            {
+              "line": 46,
+              "text": "    inputVaultAmount: BN,"
+            },
+            {
+              "line": 47,
+              "text": "    outputVaultAmount: BN,"
+            },
+            {
+              "line": 48,
+              "text": "    tradeFeeRate: BN,"
+            },
+            {
+              "line": 49,
+              "text": "    creatorFeeRate: BN,"
+            },
+            {
+              "line": 50,
+              "text": "    protocolFeeRate: BN,"
+            },
+            {
+              "line": 51,
+              "text": "    fundFeeRate: BN,"
+            },
+            {
+              "line": 52,
+              "text": "    isCreatorFeeOnInput: boolean,"
+            },
+            {
+              "line": 53,
+              "text": "  ): SwapResult {"
+            },
+            {
+              "line": 54,
+              "text": "    let creatorFee = new BN(0);"
+            },
+            {
+              "line": 56,
+              "text": "    const tradeFee = Fee.tradingFee(inputAmount, tradeFeeRate);"
+            },
+            {
+              "line": 58,
+              "text": "    let inputAmountLessFees;"
+            },
+            {
+              "line": 59,
+              "text": "    if (isCreatorFeeOnInput) {"
+            },
+            {
+              "line": 60,
+              "text": "      creatorFee = Fee.creatorFee(inputAmount, creatorFeeRate);"
+            },
+            {
+              "line": 61,
+              "text": "      inputAmountLessFees = inputAmount.sub(tradeFee).sub(creatorFee);"
+            },
+            {
+              "line": 63,
+              "text": "      inputAmountLessFees = inputAmount.sub(tradeFee);"
+            },
+            {
+              "line": 66,
+              "text": "    const protocolFee = Fee.protocolFee(tradeFee, protocolFeeRate);"
+            },
+            {
+              "line": 67,
+              "text": "    const fundFee = Fee.protocolFee(tradeFee, fundFeeRate);"
+            }
+          ],
+          "success": true
+        },
+        {
+          "name": "orca_swap_instruction",
+          "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/swap.rs",
+          "fetched_at_utc": "2026-11-08T15:26:46.328765+00:00",
+          "method": "GET",
+          "http_status": 200,
+          "sha256_sample": "0d5b23ba9226a7c741bf1a8de949d80504c5b0cdb0d422bd9fe2b168ed8808ee",
+          "excerpts": [
+            {
+              "line": 2,
+              "text": "use anchor_spl::token::{self, Token, TokenAccount};"
+            },
+            {
+              "line": 7,
+              "text": "    manager::swap_manager::*,"
+            },
+            {
+              "line": 8,
+              "text": "    state::{OracleAccessor, Whirlpool},"
+            },
+            {
+              "line": 9,
+              "text": "    util::{to_timestamp_u64, update_and_swap_whirlpool, SparseSwapTickSequenceBuilder},"
+            },
+            {
+              "line": 13,
+              "text": "pub struct Swap<'info> {"
+            },
+            {
+              "line": 14,
+              "text": "    #[account(address = token::ID)]"
+            },
+            {
+              "line": 15,
+              "text": "    pub token_program: Program<'info, Token>,"
+            },
+            {
+              "line": 17,
+              "text": "    pub token_authority: Signer<'info>,"
+            },
+            {
+              "line": 20,
+              "text": "    pub whirlpool: Box<Account<'info, Whirlpool>>,"
+            },
+            {
+              "line": 22,
+              "text": "    #[account(mut, constraint = token_owner_account_a.mint == whirlpool.token_mint_a)]"
+            },
+            {
+              "line": 23,
+              "text": "    pub token_owner_account_a: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 24,
+              "text": "    #[account(mut, address = whirlpool.token_vault_a)]"
+            },
+            {
+              "line": 25,
+              "text": "    pub token_vault_a: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 27,
+              "text": "    #[account(mut, constraint = token_owner_account_b.mint == whirlpool.token_mint_b)]"
+            },
+            {
+              "line": 28,
+              "text": "    pub token_owner_account_b: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 29,
+              "text": "    #[account(mut, address = whirlpool.token_vault_b)]"
+            },
+            {
+              "line": 30,
+              "text": "    pub token_vault_b: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 44,
+              "text": "    #[account(seeds = [b\"oracle\", whirlpool.key().as_ref()], bump)]"
+            },
+            {
+              "line": 47,
+              "text": "    // Special notes to support pools with AdaptiveFee:"
+            },
+            {
+              "line": 48,
+              "text": "    // - For trades on pool using AdaptiveFee, pass oracle as writable accounts in the remaining accounts."
+            },
+            {
+              "line": 56,
+              "text": "    ctx: Context<Swap>,"
+            },
+            {
+              "line": 57,
+              "text": "    amount: u64,"
+            },
+            {
+              "line": 58,
+              "text": "    other_amount_threshold: u64,"
+            },
+            {
+              "line": 60,
+              "text": "    amount_specified_is_input: bool,"
+            },
+            {
+              "line": 63,
+              "text": "    let whirlpool = &mut ctx.accounts.whirlpool;"
+            },
+            {
+              "line": 68,
+              "text": "    let swap_tick_sequence_builder = SparseSwapTickSequenceBuilder::new("
+            },
+            {
+              "line": 76,
+              "text": "    let mut swap_tick_sequence = swap_tick_sequence_builder.try_build(whirlpool, a_to_b)?;"
+            },
+            {
+              "line": 78,
+              "text": "    let oracle_accessor = OracleAccessor::new(whirlpool, ctx.accounts.oracle.to_account_info())?;"
+            },
+            {
+              "line": 82,
+              "text": "    let adaptive_fee_info = oracle_accessor.get_adaptive_fee_info()?;"
+            },
+            {
+              "line": 84,
+              "text": "    let swap_update = swap("
+            },
+            {
+              "line": 85,
+              "text": "        whirlpool,"
+            },
+            {
+              "line": 86,
+              "text": "        &mut swap_tick_sequence,"
+            },
+            {
+              "line": 87,
+              "text": "        amount,"
+            },
+            {
+              "line": 89,
+              "text": "        amount_specified_is_input,"
+            },
+            {
+              "line": 92,
+              "text": "        &adaptive_fee_info,"
+            }
+          ],
+          "success": true
+        }
+      ],
+      "rejections": [
+        {
+          "case": "只比较两个DEX展示价格就宣布A→B→A获利",
+          "reason": "没有同资产身份、同slot、第二腿实际数量和费用证据，排除该利润主张。"
+        },
+        {
+          "case": "把两份源码视为两份独立池深",
+          "reason": "源码并非实时池，未确认市场独立性。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则变更窗口未覆盖：无生效事件或版本历史核查。",
+        "7天活动窗口未覆盖：无交易/slot与有限范围事件查询。",
+        "两独立DEX当前池发现API被CONNECT 403拒绝，未取得池/mint/账户owner及储备。",
+        "无法验证同mint与Token Program、底层池独立性、禁卖/激活状态、Token-2022扩展。",
+        "无同slot两腿指定数量报价、数量收益曲线、容量或完整路径模拟。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SOL02",
+      "source_record": "evidence/SOL02/full-20261108T152118Z/record.json",
+      "record_sha256": "2d3befd8681b8948288cfb84d927258062372f4f6e761c6eb887c30038f6f45c",
+      "source_report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "10dbd37059feae82a50c85cfcbc798b60bbf9a241b119d601d7452c44f764da0",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:57:28.691174+00:00",
+        "beijing": "2026-11-08T23:57:28.691174+08:00",
+        "data_time": "unknown; static sources not finalized cluster snapshot"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
+        "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
+        "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
+        "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+      ],
+      "rejections": [
+        {
+          "claim": "1mSOL必然兑1SOL且立即无费退出",
+          "reason": "mainnet源码有份额转换、退出后流动性动态费与缓冲/min_withdraw，当前数值还未知。"
+        },
+        {
+          "claim": "README TODO日期即链上规则已经生效",
+          "reason": "必须核对实际部署程序与升级slot；本轮RPC不可达。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [
+        "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"
+      ],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
+        "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
+        "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
+        "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
+        "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SOL03",
+      "source_record": "evidence/SOL03/full-20261108T152118Z/record.json",
+      "record_sha256": "256edda88e891632046dbfbf7f1b3308c5f6d66976f855fae4b480fae7eaa83a",
+      "source_report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "5d253d4ac1b3f6a06d95af2926f1d06d3d0bf50fb8c3441a0bfbefc9e51f4d40",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:57:10.826803+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
+        "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
+        "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
+        "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+      ],
+      "rejections": [
+        {
+          "case": "程序ID=mainnet集群与可清算仓位证明",
+          "reason": "排除仅见KLend程序ID就证明mainnet-beta身份或现行可清算仓位。官方README对Mainnet与Devnet列同一程序ID；必须另核genesis/slot/commitment和账户owner/ProgramData。程序文档不是仓位/报价。"
+        },
+        {
+          "case": "抵押凭证/名义奖励=已兑现利润",
+          "reason": "需区分实际repay、可选底层提款、协议费与出售/融资/交易成本。"
+        },
+        {
+          "case": "套EVM链ID/统一HF/地址规则",
+          "reason": "该链应查genesis、slot/commitment、owner/program及mint+Token Program，不能套ERC20/EVM查询。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF"
+      ],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
+        "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
+        "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
+        "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
+        "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SONIC01",
+      "source_record": "evidence/SONIC01/full-20261108T152118Z/record.json",
+      "record_sha256": "eb559d111e406217222a0ce8777d877af78af0c680d1153146e44bdc6e6dd299",
+      "source_report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "b9a40273c33c240a28b4b47d8a9c38cf2889f7142c4adefeb7338b266fc52bcf",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:56:51.722665+00:00",
+        "beijing": "2026-11-08T23:56:51.722665+08:00",
+        "data_time": "静态资产表/源码抓取时点；Sonic当前状态unknown"
+      },
+      "block_or_slot": null,
+      "observations": [
+        {
+          "asset_label_from_registry": "USDC",
+          "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+          "decimals_static": 6,
+          "chain_scope": "AaveV3Sonic.sol",
+          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
+          "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
+          "deployment_match": "unknown；未识别Sonic池"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "单腿换到更多另一稳定币就计完整循环收益",
+          "reason": "没有回到同一起始token，名义美元锚定不能替代数量核算。"
+        },
+        {
+          "case": "将Curve通用源码或Fantom历史池当Sonic当前交易市场",
+          "reason": "未取得Sonic真实池与部署对应，必须核chain146/code和资产版本。"
+        },
+        {
+          "case": "把同池前后腿独立当前快照拼成可同时成交回路",
+          "reason": "源码余额和动态费随前腿改变，必须按序模拟状态。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [
+        "146:0x29219dd400f2bf60e5a23d13be72b486d4038894"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
+        "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
+        "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
+        "30天规则/新池/迁移/费率窗口未覆盖。",
+        "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
+        "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SONIC02",
+      "source_record": "evidence/SONIC02/full-20261108T152118Z/record.json",
+      "record_sha256": "c6b597ab40e97300ece26fbffb2bc39865a679025a686bf025ce2cb02a39ddd3",
+      "source_report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "d96f29a3f847c65eb4a207c6b88828833e6bbf2b4e23f2acd35e29b90d61935a",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:59:34.134204+00:00",
+        "beijing": "2026-11-08T23:59:34.134204+08:00",
+        "data_time": "unknown; static upstream branch snapshots"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "AaveV3Sonic官方地址书给stS/wS及18 decimals；BeethovenXFi Sonic Staking官方README列出相同stS Sonic浏览器地址，静态交叉一致。",
+        "README14/110/118行描述两步退出与两周等待，46行admin可改withdrawal delay，不能将文档数值当当前固定等待。",
+        "README114-118行从pool undelegate也通过withdraw流程；不能仅见pool余额就假设普通用户即时兑付。",
+        "README119行说明validator slash可减少收到S，这是正常风险说明，不是本轮确认罚没事件。"
+      ],
+      "rejections": [
+        {
+          "claim": "stS=1S且undelegateFromPool有现金就可即时退出",
+          "reason": "份额随rate变化，README描述pool路径仍需withdraw流程与等待，当前规则须查链。"
+        },
+        {
+          "claim": "旧Fantom部署/FTM历史价格可替代Sonic当期出口",
+          "reason": "链146的具体stS部署与S权益必须独立核验，本轮未采用Fantom部署。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "SONIC-BEETS-STS-REDEEM-S"
+      ],
+      "market_ids": [
+        "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955"
+      ],
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
+        "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
+        "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
+        "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
+        "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "SONIC03",
+      "source_record": "evidence/SONIC03/full-20261108T152118Z/record.json",
+      "record_sha256": "f0834c3d8b0174ba8ec104daa7db625c1661367221ac5b801dbaadd9b5e299fe",
+      "source_report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "69bd4998b37578d5d4541d6528dffeb351662c414bda5e63de15ca4e02590a8d",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": "2026-11-08T15:59:29.121575+00:00",
+      "block_or_slot": null,
+      "observations": [
+        "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
+        "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
+        "BorrowLogic参考源码按variableBorrowIndex计算当前债务，repayAmount上限为当前userDebt；正常偿债转入同reserve的params.asset，aToken偿债另有条件。",
+        "没有实测抵押率、普通账户借款权限/额度、利息、回购成本或最终零债务状态。"
+      ],
+      "rejections": [
+        {
+          "case": "借出卖出现金增长=无负债收益",
+          "reason": "排除“借出/卖出USDC余额增加就是收益，日后可用任意面值稳定币偿债”的推断。参考BorrowLogic同步铸债务并按指数计算当前债，正常repay转入params.asset或符合规则的对应aToken；卖出后必须核真实回购/本息与抵押退出。当前部署与金额未测。"
+        },
+        {
+          "case": "Fantom/BNB同名资产和规则直接替代",
+          "reason": "Sonic链146部署、资产身份与现行参数须独立核验。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [
+        "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
+      ],
+      "market_ids": [
+        "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+      ],
+      "asset_ids": [
+        "SONIC:146:0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "SONIC:146:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38"
+      ],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
+        "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
+        "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
+        "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
+        "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "X-ARB",
+      "source_record": "evidence/X-ARB/full-20261108T152118Z/record.json",
+      "record_sha256": "5b1b99111623bb7be21ea4fabfc06954f9f97492c5f3fb3f56ab32993097ea16",
+      "source_report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "a52e03e58fa4516a84e6ae0f43ba93988e46bf76a8f5674d7e185635245bc612",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T15:59:38.477498+00:00",
+        "beijing": "2026-11-08T23:59:38.477498+08:00",
+        "data_time": "官方SDK/桥设计抓取时点；两链当前状态unknown"
+      },
+      "block_or_slot": {
+        "ethereum": null,
+        "arbitrum": null
+      },
+      "observations": [
+        {
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+          "fields": "L194-204 chainId42161,parentChainId1,confirmPeriodBlocks45818",
+          "data_kind": "static SDK default not current rollup parameter"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+          "fields": "L23-25 router token mapping；L78-80 L2退出经争议窗口/L1 Outbox；L168-221启停状态接口",
+          "data_kind": "official design; deployment/status/mapping not verified"
+        }
+      ],
+      "rejections": [
+        {
+          "case": "canonical支持列表/SDK注册证明当前可无损跨链",
+          "reason": "未取得当前token映射、暂停/额度/费用及市场出口。"
+        },
+        {
+          "case": "只比较两侧价格差即锁定跨链净利",
+          "reason": "实际迁移有等待/最终性风险，库存模式亦需取得与恢复成本，均unknown。"
+        },
+        {
+          "case": "将ARB03 wstETH桥退出当Arbitrum本链即时ETH赎回",
+          "reason": "独立读到gateway设计在L1释放托管token且有争议窗口，不是本链即时出口。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "两链RPC均CONNECT403，未核Ethereum1与Arbitrum42161当前区块/hash或网络活跃。",
+        "官方桥网页CONNECT403，仅SDK/桥设计静态资料，未建立当前部署code与token映射。",
+        "无双侧DEX具体池、同数量报价/反向报价、当前桥费/额度/暂停。",
+        "30天支持/费率/通道变更窗口未覆盖。",
+        "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
+        "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    },
+    {
+      "agent_id": "X-BASE",
+      "source_record": "evidence/X-BASE/full-20261108T152118Z/record.json",
+      "record_sha256": "57aba8cf397a3d5c98ad873df54009e1a207237f21d854c8e7af1d5f92849978",
+      "source_report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report_sha256": "865b7f08e32483cfcf428c25cad4b6b8e61691d7e1595389c3f81b4de90e3a93",
+      "execution_status": "PARTIAL",
+      "status": "UNVERIFIED",
+      "as_of": {
+        "utc": "2026-11-08T16:02:48.023654+00:00",
+        "beijing": "2026-11-09T00:02:48.023654+08:00",
+        "data_time": "unknown; static source snapshots not two-chain state"
+      },
+      "block_or_slot": null,
+      "observations": [
+        "StandardBridge.sol110-117行finalize的onlyOtherBridge检查messenger与xDomainMessageSender；309-328行发跨域消息。",
+        "239-258行finalize检查paused、金额/接收地址并向接收方发送ETH；不能由基类paused()返回false推断Base实际桥未暂停。",
+        "新官方base/base README第31行确认承接旧base/node，第5行说明Base基于Ethereum；旧registry路径404不等于停链。",
+        "无可信当前桥部署、映射、市场或报价，因此不编native/wrapped同权益映射及候选路线。"
+      ],
+      "rejections": [
+        {
+          "claim": "桥发送成功或支持列表存在就表示两链即时可用、原子套利",
+          "reason": "发送/最终化/接收/等待与当前额度需要分别验证，本轮无链状态。"
+        },
+        {
+          "claim": "两边同时买卖不用计算初始库存和恢复成本",
+          "reason": "库存模式需要预置资金及再平衡，不是凭空零本金闭环。"
+        },
+        {
+          "claim": "旧Base registry不存在可证明Base停链",
+          "reason": "当前官方base/base已确认源码迁移，404仅为旧来源不可用。"
+        }
+      ],
+      "corrections": [],
+      "finding_ids": [],
+      "market_ids": [],
+      "asset_ids": [],
+      "quote_count": 0,
+      "coverage_gaps": [
+        "30天桥映射/通道/规则变化与7天迁移活动未回溯；两链均无区块或交易证据。",
+        "Ethereum与Base RPC及Base桥文档均CONNECT 403，无法分别核验1/8453及当前两侧桥代码/实现/状态。",
+        "旧Superchain Base配置路径404；新官方base/base源码说明来源迁移，但未取得当前精确部署/资产映射，不因缺席判断停链。",
+        "通用OP StandardBridge开发分支未与Base当前桥部署绑定，不能把其接口/paused基类返回值当当前通道可用证明。",
+        "没有两侧DEX池/实际数量报价、桥额度/费用/到账/退款/最终性、库存恢复报价或初始双侧库存条件；无真实价差。"
+      ],
+      "report_prose_read": true,
+      "q00_scope_assessment": "未见把跨链/其他协议模板当已确认本岗经济机会；通用源码与目标部署对应仍待核。",
+      "q00_current_quote_assessment": "本轮quotes为空，无法检查报价过60秒；静态源抓取时间不作为市场价时效。",
+      "q00_duplicate_assessment": "按链+地址+权益+路径去重；同源码不同链不合并收益。"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+  "claim_scope": "排除任意自建ERC20/币名TEST或DAI能直接在Venus抵押并无负债获利",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S34",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+      "fetched_at": "2026-11-08T16:05:57.545658+00:00",
+      "http_status": "200",
+      "sha256": "5c47b7424c84e5027635684bfdc04df428972a51ef444796b636e314b6783323",
+      "fields_and_result": "supportMarket L1095-1096限poolRegistry；preBorrowHook需listed、oracle非零、caps和流动性检查。检查存在不证明全部资产安全。"
+    },
+    {
+      "source_id": "S35",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+      "fetched_at": "2026-11-08T16:05:58.996517+00:00",
+      "http_status": "200",
+      "sha256": "d2db0b86690bb2e4993fd1c351442785443c7df2c7cdfd2be084a29ba0f443b2",
+      "fields_and_result": "getUnderlyingPrice映射underlying；setTokenConfig由AccessControlManager授权并有pause/配置检查。没有读取当前feed值。"
+    }
+  ],
+  "missing_fields": [
+    "当前PoolRegistry/Comptroller/vToken列表与实现",
+    "具体资产发行/桥/真实退出、oracle精度/时效",
+    "实际抵押/债务敞口/回收价值和时间范围"
+  ],
+  "reasoning_summary": "上市由registry控制，借款还需oracle/cap/liquidity；名称不能证明资产价值，检查存在也不能证明所有已上市资产无风险。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "只读核真实注册资产与敞口；有异常才给RISK_ONLY，不制作利用路径。"
+}

@@ -13,7 +13,14 @@
       "status": "RUNNING"
     },
     "Q00": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 589.721,
+      "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/Q00/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/Q00.txt",
+      "prompt_sha256": "d7edaaea9aef48ee368edd2e050aa10574b0787057d15141fc448558376fc8f9"
     },
     "N-ARB": {
       "status": "PARTIAL",
@@ -492,9 +499,10 @@
       "duration_seconds": 104.685,
       "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/X-BASE/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/X-BASE.txt",
-      "prompt_sha256": "06f4ddc16578594a56e7b07459020237ddf1059a1875d111badd876c887f1952"
+      "prompt_sha256": "06f4ddc16578594a56e7b07459020237ddf1059a1875d111badd876c887f1952",
+      "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2"
     }
   },
   "batches": [
@@ -669,6 +677,15 @@
         "X-BASE"
       ],
       "merged_at": "2026-11-08T16:03:08.222335+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2"
+    },
+    {
+      "batch": 17,
+      "agents": [
+        "Q00"
+      ],
+      "merged_at": "2026-11-08T16:16:26.193141+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -784,6 +801,13 @@
       "verified_at": "2026-11-08T16:00:22.271895+00:00",
       "verified_files": 296,
       "label": "batch SONIC02 SONIC03 X-ARB"
+    },
+    {
+      "commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
+      "remote_head": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
+      "verified_at": "2026-11-08T16:03:12.869632+00:00",
+      "verified_files": 300,
+      "label": "batch X-BASE"
     }
   ]
 }

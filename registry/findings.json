@@ -62,7 +62,58 @@
           "last_observed_run": "full-20261108T152118Z",
           "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
         }
-      }
+      },
+      "q00_review": {
+        "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+        "claim_scope": "stETH/wstETH→Lido请求→unstETH→finalize→ETH领取；静态退出状态可核，当前数量和经济闭环未核",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S01",
+            "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+            "fetched_at": "2026-11-08T16:05:09.998824+00:00",
+            "http_status": "200",
+            "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+            "fields_and_result": "deployed-mainnet.json chainId=1; withdrawalQueueERC721 proxy=0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1, implementation=0xE42C659Dc09109566720EA8b2De186c2Be7D94D9; stETH/wstETH分别登记。静态部署表未证明当前代理存储。"
+          },
+          {
+            "source_id": "S02",
+            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+            "fetched_at": "2026-11-08T16:05:11.533797+00:00",
+            "http_status": "200",
+            "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+            "fields_and_result": "L149-155 finalize需resumed和FINALIZE_ROLE；L169-175 ownerOf拒绝claimed；L230-248 transfer更新owner、清approval且不重置claimed。"
+          },
+          {
+            "source_id": "S44",
+            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+            "fetched_at": "2026-11-08T16:06:11.542593+00:00",
+            "http_status": "200",
+            "sha256": "efa5a32fbc99cafdb16a38d96a9bb5b29a62e60b5610e7c317711cc58402b131",
+            "fields_and_result": "L125-134 request需resumed和金额边界；L218-230未finalized/已claimed可领取为0；claim需owner且finalized。"
+          },
+          {
+            "source_id": "S45",
+            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+            "fetched_at": "2026-11-08T16:06:12.890071+00:00",
+            "http_status": "200",
+            "sha256": "254a8bfab14c30ac30d36fbe0174fe424798a67276abb1c52e139af28899cae0",
+            "fields_and_result": "L69-74 unwrap按getPooledEthByShares返回stETH，不是ETH。"
+          }
+        ],
+        "missing_fields": [
+          "chainId/区块/当前proxy implementation",
+          "DEX真实池和数量q→买入输出",
+          "shares rate、paused、requestId/owner/finalized/claimed/claimable",
+          "完整取得→请求→领取→出售路线、gas/授权/等待/容量"
+        ],
+        "reasoning_summary": "份额转换、请求NFT与最终ETH是同一权益的阶段。主网部署表一致，但无当前代理/队列状态或买入报价，不能确认即时现金或收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先绑定主网实现；同状态分数量测现货和queue，记录requestId并与ETH05共用权益账本。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
@@ -88,7 +139,32 @@
       "review_required": true,
       "owner": "N-BNB",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+        "claim_scope": "仅确认BSC v1.8.2公告中Jenner与CAS20的计划时间/治理激活条件；不确认当前生效或参与收益",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S03",
+            "url": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+            "fetched_at": "2026-11-08T16:05:12.993947+00:00",
+            "http_status": "200",
+            "sha256": "6815d7f308adb5e1b8af4f4b77ed3463dc4d9e0a14334f836b7bb1b178ec7dc9",
+            "fields_and_result": "发布正文：Jenner计划2026-12-08 02:30 UTC；BEP-702 token creation还需governance-appointed administrator另激活。公告中的非共识改动可早于硬分叉，不能统称所有发布内容都尚未生效。"
+          }
+        ],
+        "missing_fields": [
+          "实际链上fork激活/治理任命/管理员activation",
+          "普通账户资格/成本/退出市场（若提出经济候选）"
+        ],
+        "reasoning_summary": "公告写明未来硬分叉和CAS20另行激活，本轮日期早于计划日期。非共识改动可能更早生效，应逐项区分。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "sol-whirlpool-token-interface-identity-check",
@@ -105,7 +181,33 @@
       "net_profit": null,
       "owner": "N-SOL",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "sol-whirlpool-token-interface-identity-check",
+        "claim_scope": "仅确认Orca源码mint-owner/Token Program约束；不确认新规则、当前部署或具体池可交易",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S04",
+            "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+            "fetched_at": "2026-11-08T16:05:14.958120+00:00",
+            "http_status": "200",
+            "sha256": "bfd34a554c77ffd0f735c91b8ddd18cb9c7125f83f3658790c5fb613e4397017",
+            "fields_and_result": "L55-58 token_program_a/b必须等于mint owner；L82-91分别verify_supported_token_mint。未读取ProgramData或真实mint。"
+          }
+        ],
+        "missing_fields": [
+          "genesis/finalized slot、ProgramData及升级版本",
+          "pool/mint owner、Token/Token2022扩展与真实余额",
+          "数量路线/当前报价/完整费用（若提交经济主张）"
+        ],
+        "reasoning_summary": "源码确实将token_program绑定mint.owner并验证supported mint；无真实mint和pool，规则源事实可通过，市场身份仍未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先绑定当前程序版本，再在具体已登记池检查mint owner与转账扩展。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
@@ -135,7 +237,49 @@
       "review_required": true,
       "owner": "BNB01",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB01/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BNB01/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+        "claim_scope": "排除仅凭lisUSD锚定/借款人还债文档推出公众无条件1美元现金赎回；不判定所有新模块不存在",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S05",
+            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+            "fetched_at": "2026-11-08T16:05:16.458281+00:00",
+            "http_status": "200",
+            "sha256": "66380694c96c55de0c4e022add660baccf90f269b537576b26ab77fcfe55d011",
+            "fields_and_result": "L16-19 折价时borrowers买入lisUSD偿债；文本不建立任意持有人的无条件美元兑付权。"
+          },
+          {
+            "source_id": "S06",
+            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+            "fetched_at": "2026-11-08T16:05:17.895701+00:00",
+            "http_status": "200",
+            "sha256": "c3a589eb0bbeb545205b7c3605b07f141eb266006f60aa5fe8c7ceb1250da775",
+            "fields_and_result": "L6 approve不是repayment完成；L12-18还自己的贷款。剩债文档数值不当当前参数。"
+          },
+          {
+            "source_id": "S07",
+            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+            "fetched_at": "2026-11-08T16:05:19.355525+00:00",
+            "http_status": "200",
+            "sha256": "835fadcb0122a85f6a04ace2441a463d8719388c719d29aa50b46c8e814fb992",
+            "fields_and_result": "L6 outstanding loan与提款相连，L11文档BNB等待/LST立即；不把此文档推广到公众lisUSD兑付。"
+          }
+        ],
+        "missing_fields": [
+          "当前部署/新PSM或公开兑换模块",
+          "普通持有人资格/额度/接收资产",
+          "真实买入→兑付→退出数量及gas/等待"
+        ],
+        "reasoning_summary": "文本的购买主体是借款人、用途是减债并取回自有抵押；推不出任意持有人取得额外现金的权利。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先查当前部署及新增模块；存在明确公众出口后再建立经济路线。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
@@ -156,7 +300,48 @@
       ],
       "owner": "N-BASE",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+        "claim_scope": "仅确认Base节点官方研究源迁移及v1.5.4发布描述；不确认停链或链运行状态",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S08",
+            "url": "https://raw.githubusercontent.com/base-org/node/main/README.md",
+            "fetched_at": "2026-11-08T16:05:20.860619+00:00",
+            "http_status": "200",
+            "sha256": "849e52bc6d29cb87fcb9d4a9be86dd793d994e0cfc0d75d494e6ddaf2137e612",
+            "fields_and_result": "L1-3旧仓明确archived，开发发布迁至base/base。"
+          },
+          {
+            "source_id": "S09",
+            "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+            "fetched_at": "2026-11-08T16:05:22.174039+00:00",
+            "http_status": "200",
+            "sha256": "985158a78fba796ba5bee4c0da0efd9cd5c07a560b8101057babbda7b808f941",
+            "fields_and_result": "L31新仓承接原base/node public node；不是停链或当前增长区块证据。"
+          },
+          {
+            "source_id": "S10",
+            "url": "https://github.com/base/base/releases/tag/v1.5.4",
+            "fetched_at": "2026-11-08T16:05:23.580518+00:00",
+            "http_status": "200",
+            "sha256": "e1ad7f156046d432d6ab5a7d94ec0da54835b81406d93e4db54952bb2cc920dc",
+            "fields_and_result": "发布正文200ms synchronization/propagation fixes；engine.persistence-threshold 7→70、memory-block-buffer 5→70、backpressure 16→160是软件默认值。"
+          }
+        ],
+        "missing_fields": [
+          "当前eth_chainId/最新区块及连续增长/最终性",
+          "运行版本和实际链参数（若要判断节点现状）"
+        ],
+        "reasoning_summary": "旧README直接给新维护源，新仓承接节点，停链推断无依据。发布默认值不能替代当前链配置/增长区块。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "采用base/base固定版本作源；恢复RPC后独立核运行情况。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
@@ -176,7 +361,32 @@
       ],
       "owner": "N-AVAX",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-AVAX/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+        "claim_scope": "排除C-Chain Gas-Used响应头等于完整交易经济成本",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S11",
+            "url": "https://github.com/ava-labs/avalanchego/releases/tag/v1.15.3",
+            "fetched_at": "2026-11-08T16:05:25.270110+00:00",
+            "http_status": "200",
+            "sha256": "3ead181eff2b6493ce10bece6660d27996c6eeab121d32e05783ad997a845aa9",
+            "fields_and_result": "发布正文Gas-Used是每个request中completed eth_call总gas；未包括市场费/融资等，也不是交易receipt。"
+          }
+        ],
+        "missing_fields": [
+          "节点版本和实际响应头",
+          "完整路线交易估算/receipt、gasPrice、DEX/税/融资费"
+        ],
+        "reasoning_summary": "头字段只计已完成eth_call的gas，既不是支付的gas价格乘数量，也未含所有交易腿/市场/融资费用。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "按完整交易与经济账本核费；已含费项不再重复扣。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
@@ -196,7 +406,41 @@
       ],
       "owner": "ARB02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ARB02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/ARB02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+        "claim_scope": "排除三腿独立单价或同输入拼三角收益；源码数量传递规则核查，不含实际Arbitrum路线",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S12",
+            "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/contracts/lens/QuoterV2.sol",
+            "fetched_at": "2026-11-08T16:05:26.961609+00:00",
+            "http_status": "200",
+            "sha256": "7c0a974a98e224b1ec63158bad6c13c73a659dec669dead1fd99a0b0d85418a6",
+            "fields_and_result": "quoteExactInput L170-185逐腿amountIn=_amountOut，gasEstimate为内部估计；各单腿以revert报价，不证明重用同一池后的组合状态。"
+          },
+          {
+            "source_id": "S13",
+            "url": "https://raw.githubusercontent.com/OffchainLabs/nitro-contracts/main/src/node-interface/NodeInterface.sol",
+            "fetched_at": "2026-11-08T16:05:28.268946+00:00",
+            "http_status": "200",
+            "sha256": "f42de11ff893d17ed7e490094f4d21730f9720a93dbb6e190de35a7e9481d752",
+            "fields_and_result": "L80-83 gasEstimate是total、gasEstimateForL1是其中L1分量，禁止再重复相加。"
+          }
+        ],
+        "missing_fields": [
+          "三个不同资产/三个真实池和正确Quoter部署ABI",
+          "q及各腿实际输入输出、同块状态更新",
+          "完整交易/融资偿还和L1/L2费用"
+        ],
+        "reasoning_summary": "上一输出成为下一输入；Quoter内部gas不等于整笔成本，NodeInterface total内含L1分量。重复池仍须真实状态顺序模拟。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "建立真实A→B→C→A并按序模拟；不要total外再加其L1分量。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
@@ -211,7 +455,32 @@
       "scope_limit": "仅针对该已读设计中的出口，不能推断所有其他LST或所有Arbitrum协议均无本链出口。",
       "owner": "ARB03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+        "claim_scope": "排除指定Lido canonical gateway退出等于Arbitrum本链即时ETH",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S14",
+            "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+            "fetched_at": "2026-11-08T16:05:29.718189+00:00",
+            "http_status": "200",
+            "sha256": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+            "fields_and_result": "L78-80 L2 burn→L1 message→dispute window后Outbox释放L1托管token；不是Arbitrum即时ETH。"
+          }
+        ],
+        "missing_fields": [
+          "实际gateway/token映射与代码/暂停",
+          "当前争议/确认窗口、两侧q报价/桥费"
+        ],
+        "reasoning_summary": "出口是L2烧token后经消息和争议窗口在L1释放托管token；资产、链和时间均不同于主张。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "若具体路径跨L1，交X-ARB；另行验证任何本链即时出口。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
@@ -233,7 +502,41 @@
       ],
       "owner": "AVAX01",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/AVAX01/full-20261108T152118Z/record.json"
+      "source_record": "evidence/AVAX01/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+        "claim_scope": "排除Avalanche原生USDC、USDC.e与avUSDC合并为同资产或同1美元现金节点",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S15",
+            "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+            "fetched_at": "2026-11-08T16:05:31.057747+00:00",
+            "http_status": "200",
+            "sha256": "acecf5d61ac774fec5d85b0851958ca57d60263b70b47266ed12157866c3a72d",
+            "fields_and_result": "L10 USDC.e=0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664；L12 USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E；L15 avUSDC另有地址。"
+          },
+          {
+            "source_id": "S16",
+            "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+            "fetched_at": "2026-11-08T16:05:32.535653+00:00",
+            "http_status": "200",
+            "sha256": "f1b93e0ec781fcaea907fbf2e24bc1d3b3f2d8e121c3dbfe7fe39e812d32b9cd",
+            "fields_and_result": "L23-38 aave is_lending=true；底层DAI.e/USDC.e/USDT.e与avDAI/avUSDC/avUSDT分开，精度18/6/6。"
+          }
+        ],
+        "missing_fields": [
+          "发行方/桥映射和当前代码",
+          "包装汇率/余额/兑换权限",
+          "真实循环池、q/顺序状态报价与完整成本"
+        ],
+        "reasoning_summary": "官方配置给不同地址与wrapped/underlying；没有转换和兑付证据就不能消去这条权益转换边。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "分别建资产节点，明确每条转换边后同状态测完整回路。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
@@ -248,7 +551,33 @@
       "scope_limit": "仅源码所列这两个方法；未匹配当前部署，不推断所有普通用户出口或sAVAX规则。",
       "owner": "AVAX02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+        "claim_scope": "仅排除ggAVAX两个已读AVAX方法可由任意普通账户无条件直接调用；不否定queue正常用户出口",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S17",
+            "url": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+            "fetched_at": "2026-11-08T16:05:33.848008+00:00",
+            "http_status": "200",
+            "sha256": "7c618262d5dc9b707a2a18b0a9dfd0be6d001fb048c3d365870a28b5b93b0338",
+            "fields_and_result": "L310 withdrawAVAX及L324 redeemAVAX均onlyRole(WITHDRAW_QUEUE_ROLE)；L330-332另查WAVAX流动性。未否定所有正常queue用户出口。"
+          }
+        ],
+        "missing_fields": [
+          "当前ggAVAX部署/实现",
+          "withdrawQueue部署、普通用户入口/资格/容量",
+          "q报价、预览/实际产出、等待和费用"
+        ],
+        "reasoning_summary": "两方法明确queue role，redeem另检查WAVAX现金。preview不能越过角色和资金条件；不套用sAVAX。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "沿已授权正常queue用户入口核查，并独立处理sAVAX。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "base-metamorpho-nav-not-immediate-redemption",
@@ -264,7 +593,41 @@
       "scope_limit": "源码机制反证；未确认Base具体部署，不构成某金库当下不兑付/亏损的断言。",
       "owner": "BASE03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BASE03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BASE03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "base-metamorpho-nav-not-immediate-redemption",
+        "claim_scope": "排除MetaMorpho totalAssets/份额换算保证Base即时赎回折价利润",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S18",
+            "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+            "fetched_at": "2026-11-08T16:05:35.309252+00:00",
+            "http_status": "200",
+            "sha256": "719f7a99a3e64ea62ae385a535f0197eeef671dd5168b3a67b9592eb99e0bc86",
+            "fields_and_result": "README说明退出受Morpho流动性及withdrawQueue影响；通用协议文档没有绑定Base特定vault。"
+          },
+          {
+            "source_id": "S19",
+            "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+            "fetched_at": "2026-11-08T16:05:36.840942+00:00",
+            "http_status": "200",
+            "sha256": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+            "fields_and_result": "L604-615 max扣模拟不可提额；L807-827遍历withdrawQueue后不足则NotEnoughLiquidity；L862-873受供借差额与真实loanToken余额限制。"
+          }
+        ],
+        "missing_fields": [
+          "Base vault/implementation/asset与二级池",
+          "q买入、NAV、maxWithdraw/maxRedeem、真实可提数",
+          "完整退出费/gas、等待及亏损历史"
+        ],
+        "reasoning_summary": "流动性模拟与withdrawQueue限制真实退出，缺Base目标也缺二级市场成本。不能将此源码套给Aave STATA。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先确定Base具体vault和二级池，再比较四列，不混用不同实现。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
@@ -284,7 +647,41 @@
       ],
       "owner": "BASE05",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BASE05/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BASE05/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+        "claim_scope": "排除Aerodrome同账户同时拥有Gauge排放和同期间全部LP费用的双计",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S20",
+            "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+            "fetched_at": "2026-11-08T16:05:38.180304+00:00",
+            "http_status": "200",
+            "sha256": "4a27e9c4a346d39b9d196d8d04209a1c38d707bffd7fffb7f90b852b4748417e",
+            "fields_and_result": "README L35入Gauge换排放时pool fees权利交给Gauge；L39 fees分配voters。"
+          },
+          {
+            "source_id": "S21",
+            "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/gauges/Gauge.sol",
+            "fetched_at": "2026-11-08T16:05:39.601888+00:00",
+            "http_status": "200",
+            "sha256": "329e26f581a33c0ba5c315b7e478cd717d7b79867acdaa527e7a1462f4eb5858",
+            "fields_and_result": "_claimFees调用Pool.claimFees并向feesVotingReward notify；deposit/withdraw与reward另列，不将同一费用重复归给存款人。"
+          }
+        ],
+        "missing_fields": [
+          "实际Pool/Gauge/feesVotingReward与当前部署",
+          "账户LP/Gauge/veNFT权益、accrued和已到账",
+          "q完整存取/必要兑换、gas与费"
+        ],
+        "reasoning_summary": "LP转给Gauge改变手续费归属，feesVotingReward分给投票权益。可能同时持不同身份不构成把相同费用重复列入。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "按账户和权利逐项分账，证明每份费用只分配一次。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
@@ -299,7 +696,33 @@
       "scope_limit": "基于已读官方源码；当前部署与资格未核验，不构成当前可铸或不可铸的判断。",
       "owner": "BNB02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BNB02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+        "claim_scope": "排除VAI铸造卖出金额为无负债利润或可用任意面值稳定币还款",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S22",
+            "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
+            "fetched_at": "2026-11-08T16:05:40.934432+00:00",
+            "http_status": "200",
+            "sha256": "d922c2b3805a73f8f5c6a96b42fcd74e164fa228ddd21b41d878ca0ea5d51be7",
+            "fields_and_result": "L137-148 mint更新mintedVAI债务；L225-245 repay烧VAI本金并transferFrom VAI利息；卖出余额不是无负债利润。"
+          }
+        ],
+        "missing_fields": [
+          "VAI/Controller当前实现、资格/上限/费率",
+          "q卖出与VAI回购报价",
+          "本金利息、抵押取回、gas/授权成本"
+        ],
+        "reasoning_summary": "mint同时记债，repay用VAI烧本金并支付VAI利息；须回购债务资产并释放抵押才闭环。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "测完整mint→sell→buy VAI→repay→collateral exit账本。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
@@ -318,7 +741,33 @@
       ],
       "owner": "BNB04",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+        "claim_scope": "排除PancakeV3 decreaseLiquidity返回值等于实际到账自由资产",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S23",
+            "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+            "fetched_at": "2026-11-08T16:05:42.306315+00:00",
+            "http_status": "200",
+            "sha256": "f49775d339101d0ab836bc68fb283fc87f24ddcb73d9f70a777003b6e82f3e88",
+            "fields_and_result": "L274 pool.burn后L282-299增加tokensOwed；collect另调用pool.collect，burn NFT须liquidity及tokensOwed清零。"
+          }
+        ],
+        "missing_fields": [
+          "真实position tokenId/授权、Pool与token身份",
+          "q流动性/tick/前中后余额、实际collect",
+          "完整退出/兑换费用及剩余NFT/应收"
+        ],
+        "reasoning_summary": "pool.burn结果先入tokensOwed，collect才从池收取；NFT销毁还要求余量清零。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "将liquidity、tokensOwed和已收款分别核，完整模拟确认最终余量。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
@@ -333,7 +782,33 @@
       "scope_limit": "仅已读RewardFacet源码；当前部署未核验，不代表所有BNB活动或所有XVS账户均不可领。",
       "owner": "BNB05",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB05/full-20261108T152118Z/record.json"
+      "source_record": "evidence/BNB05/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
+        "claim_scope": "排除Venus公开claim意味着所有新地址零成本取得立即可售XVS",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S24",
+            "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+            "fetched_at": "2026-11-08T16:05:43.634544+00:00",
+            "http_status": "200",
+            "sha256": "aa6556cfd5e8f48d9f987642eb9bdea4d17781d5456ae8d8bb1ed5ba01c942fc",
+            "fields_and_result": "L33-60 claim已累积供借奖励；L64-85 shortfall可转抵押；L88-119库存不足不转及黑名单约束。"
+          }
+        ],
+        "missing_fields": [
+          "当前diamond facet/XVS部署",
+          "普通账户accrued/shortfall/blacklist、库存",
+          "参与成本、claim数量/DEX实际售出/gas"
+        ],
+        "reasoning_summary": "奖励取决于累积供借权益/资金，shortfall可变抵押头寸；公开函数不创造accrued奖励。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "指定正常账户只读核资格和余额，计参与与退出成本。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
@@ -362,7 +837,42 @@
       ],
       "owner": "ETH02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+        "claim_scope": "Liquity v1持LUSD赎回ETH；静态持有人权限与输出规则可核，当前经济候选未核",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S25",
+            "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+            "fetched_at": "2026-11-08T16:05:44.961195+00:00",
+            "http_status": "200",
+            "sha256": "a1694d65c6b9800645d18cf0d3e38f5eb57af2e3545a32095c91dba952d87b36",
+            "fields_and_result": "补充独立读取JSON字段：troveManager=0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2，lusdToken=0x5f98805A4E8be255a32880FDeC7F6728C6568bA0。"
+          },
+          {
+            "source_id": "S26",
+            "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol",
+            "fetched_at": "2026-11-08T16:05:46.340651+00:00",
+            "http_status": "200",
+            "sha256": "30871ff587a8d0208340699023c2ce3f9f2279d1472cb4448770d74bf81b1c96",
+            "fields_and_result": "L948-953需maxFee/bootstrap/TCR/正数/LUSD余额；未要求赎回人有Trove；L1014-1022发送扣费后的ETH；L1387-1405动态赎回费。"
+          }
+        ],
+        "missing_fields": [
+          "chainId/block与TroveManager当前代码/版本",
+          "q LUSD买入→实际可赎ETH→ETH出售数量路线",
+          "TCR、可赎债务、baseRate/fee、hints与partial completion",
+          "gas/授权/冲击/容量和最终余额"
+        ],
+        "reasoning_summary": "持币赎回不同于赎回自己Trove；源码可向持币人发送扣费ETH，但当下TCR/可赎债务/fee/hints和二级成交均未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "绑定v1部署后同状态测普通持币人路径，实际成功赎回量与未赎LUSD分别记。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
@@ -384,7 +894,49 @@
       ],
       "owner": "ETH03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/ETH03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+        "claim_scope": "排除sDAI NAV/previewRedeem是用户提款额度或执行成功保证",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S27",
+            "url": "https://raw.githubusercontent.com/ethereum/ERCs/master/ERCS/erc-4626.md",
+            "fetched_at": "2026-11-08T16:05:47.690729+00:00",
+            "http_status": "200",
+            "sha256": "698c05bff73bfb796f59cd7c4732edccdf7e40176f9bb027c19a0bbe7251e10a",
+            "fields_and_result": "ERC4626 previewRedeem L440明确忽略maxRedeem等redemption limits；view报价不等于账户额度/执行成功。"
+          },
+          {
+            "source_id": "S28",
+            "url": "https://raw.githubusercontent.com/makerdao/sdai/665879762f8b5df5d234463f45d1d6a49bd4fbeb/src/SavingsDai.sol",
+            "fetched_at": "2026-11-08T16:05:49.079643+00:00",
+            "http_status": "200",
+            "sha256": "e82b308d37ae26155e5722242f1a9d482d803385827508b21e476a15dcec7ef0",
+            "fields_and_result": "固定部署commit：maxRedeem=owner balance；previewRedeem=convertToAssets；_burn查余额/授权并pot.exit/daiJoin.exit。"
+          },
+          {
+            "source_id": "S46",
+            "url": "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+            "fetched_at": "2026-11-08T16:06:14.329364+00:00",
+            "http_status": "200",
+            "sha256": "0a0956012536833e6147c7f453843338c2b2b9ba75f493d861ce798707ab01c4",
+            "fields_and_result": "README指部署commit 665879762f8b5df5d234463f45d1d6a49bd4fbeb及Mainnet sDAI地址。"
+          }
+        ],
+        "missing_fields": [
+          "当前sDAI代码/Pot状态/chi/rho和用户余额授权",
+          "真实二级池/q买入、max/preview/完整redeem",
+          "DAI可卖数量与gas/费用"
+        ],
+        "reasoning_summary": "标准明确preview忽略限额；指定部署源码还需余额/授权及Pot/DAIJoin实际执行。该源码没异步队列，不据此臆造排队。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先有真实二级流动性，再同状态测试账户可执行退出。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
@@ -399,7 +951,33 @@
       "scope_limit": "静态规则反证，不声称某实际仓位可清算或无利可图。",
       "owner": "ETH04",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json"
+      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+        "claim_scope": "排除Ethereum Aave oracle×清算奖励为已实现净利；不裁决任何真实仓位",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S29",
+            "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+            "fetched_at": "2026-11-08T16:05:50.424784+00:00",
+            "http_status": "200",
+            "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+            "fields_and_result": "L258-282 actualDebtToLiquidate有条件上限；L390 receiveAToken分支；L595-624按奖金部分扣协议费。未证明任何当前仓位。"
+          }
+        ],
+        "missing_fields": [
+          "当前Pool实现/borrower/block/HF/债务",
+          "q实际代还、所得抵押与卖出/提款报价",
+          "融资本息、gas/协议费、最终零负债余额"
+        ],
+        "reasoning_summary": "实际代还上限、aToken/底层分支和协议费会改变资产账本，且抵押仍要卖出或取出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先找到真实合规仓位，只读完整路径核实，不用名义奖金记利润。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
@@ -418,7 +996,33 @@
       ],
       "owner": "OP01",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/OP01/full-20261108T152118Z/record.json"
+      "source_record": "evidence/OP01/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+        "claim_scope": "排除USDC存在burn即任意OP持币人可链上按1美元拿现金",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S30",
+            "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+            "fetched_at": "2026-11-08T16:05:51.960485+00:00",
+            "http_status": "200",
+            "sha256": "423a0c805f7bfff28c89432f671a38d19717fb4b6c3e5591fa46d5d4b04f2c21",
+            "fields_and_result": "L109 onlyMinters；L363-377 burn受pause/minter/blacklist约束，减少余额和supply，不含现金支付逻辑。"
+          }
+        ],
+        "missing_fields": [
+          "OP USDC当前代理实现/原生桥接身份",
+          "发行方账户/地区/额度/实际接收资产与到账",
+          "q买入→真实兑付→退出报价和完整费"
+        ],
+        "reasoning_summary": "参考burn只是权限销毁余额/供给，没有付款；当前部署及现金渠道仍未知，不能据此否定合格客户发行方退出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "核实际发行方出口和普通合格账户条件；burn与现金分开。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
@@ -433,7 +1037,33 @@
       "scope_limit": "针对已读源码中的两方法；未证明OP某实际池暂停或对应当前部署。",
       "owner": "OP02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/OP02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/OP02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+        "claim_scope": "仅排除Velodrome getAmountOut有值就证明同状态swap权限",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S31",
+            "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+            "fetched_at": "2026-11-08T16:05:53.292511+00:00",
+            "http_status": "200",
+            "sha256": "32d040ff419fa9b1f9113f7e10d587b332a2ab9c6b6099851025cc16a4e986bb",
+            "fields_and_result": "L345 swap查factory.isPaused；L447-450 getAmountOut查reserve/fee但不查pause，不能用view证明swap权限。"
+          }
+        ],
+        "missing_fields": [
+          "真实Pool/Factory当前代码、pause与资产身份",
+          "q两腿同状态报价/组合执行",
+          "完整L1/L2/池费/转账限制"
+        ],
+        "reasoning_summary": "swap另查factory.isPaused，而view不查；未证明实际OP池处于暂停。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "在真实池同时检查当前权限与数量报价，再测双DEX路线。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
@@ -455,7 +1085,41 @@
       ],
       "owner": "POLY02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/POLY02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/POLY02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+        "claim_scope": "排除Polygon Aave预言机奖金估值为可兑现净利；不认定任何仓位可清算",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S29",
+            "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+            "fetched_at": "2026-11-08T16:05:50.424784+00:00",
+            "http_status": "200",
+            "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+            "fields_and_result": "L258-282 actualDebtToLiquidate有条件上限；L390 receiveAToken分支；L595-624按奖金部分扣协议费。未证明任何当前仓位。"
+          },
+          {
+            "source_id": "S32",
+            "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol",
+            "fetched_at": "2026-11-08T16:05:54.644194+00:00",
+            "http_status": "200",
+            "sha256": "0bfb51e54f0a8589fbf24bbc03046b12ee6f189641b7a2a6f1b2874acbb2bb45",
+            "fields_and_result": "validateLiquidationCall检查reserve active/pause、HF、grace、抵押启用及债务；仍须与本链当前部署绑定。"
+          }
+        ],
+        "missing_fields": [
+          "Polygon当前实现/reserve配置、borrower/block/HF",
+          "q实际代还→抵押/aToken→可卖/可提→融资归还",
+          "全费用/本金利息/最终自由资产"
+        ],
+        "reasoning_summary": "正常清算需当前资格并支付实际代还，抵押权利/协议费/现金退出与融资分账；与Ethereum同源码不代表相同链上仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "逐Polygon仓位同状态核验证据，不能套旧close factor或跨链仓位。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
@@ -470,7 +1134,33 @@
       "scope_limit": "静态资产登记的身份反证；不推断当前两资产价格或正常转换是否有收益。",
       "owner": "POLY03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/POLY03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/POLY03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+        "claim_scope": "排除Polygon USDCe与USDCn按名称/精度/oracle相同当同token双DEX闭环",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S33",
+            "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+            "fetched_at": "2026-11-08T16:05:55.985085+00:00",
+            "http_status": "200",
+            "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+            "fields_and_result": "L161 USDCe=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174；L542 USDCn=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359，各自aToken不同。"
+          }
+        ],
+        "missing_fields": [
+          "发行方/桥映射与链上token代码",
+          "两个真实池/资产方向和独立底层",
+          "q转换→第二腿实际输出、完整费用"
+        ],
+        "reasoning_summary": "两个underlying地址不同且aToken分开，必须显式计转换规则；不裁决其当前价格或正常转换收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "按合约地址建图，保留原生/桥接转换边后报价。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
@@ -490,7 +1180,41 @@
       ],
       "owner": "R-BNB",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/R-BNB/full-20261108T152118Z/record.json"
+      "source_record": "evidence/R-BNB/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+        "claim_scope": "排除任意自建ERC20/币名TEST或DAI能直接在Venus抵押并无负债获利",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S34",
+            "url": "https://raw.githubusercontent.com/VenusProtocol/isolated-pools/develop/contracts/Comptroller.sol",
+            "fetched_at": "2026-11-08T16:05:57.545658+00:00",
+            "http_status": "200",
+            "sha256": "5c47b7424c84e5027635684bfdc04df428972a51ef444796b636e314b6783323",
+            "fields_and_result": "supportMarket L1095-1096限poolRegistry；preBorrowHook需listed、oracle非零、caps和流动性检查。检查存在不证明全部资产安全。"
+          },
+          {
+            "source_id": "S35",
+            "url": "https://raw.githubusercontent.com/VenusProtocol/oracle/develop/contracts/ResilientOracle.sol",
+            "fetched_at": "2026-11-08T16:05:58.996517+00:00",
+            "http_status": "200",
+            "sha256": "d2db0b86690bb2e4993fd1c351442785443c7df2c7cdfd2be084a29ba0f443b2",
+            "fields_and_result": "getUnderlyingPrice映射underlying；setTokenConfig由AccessControlManager授权并有pause/配置检查。没有读取当前feed值。"
+          }
+        ],
+        "missing_fields": [
+          "当前PoolRegistry/Comptroller/vToken列表与实现",
+          "具体资产发行/桥/真实退出、oracle精度/时效",
+          "实际抵押/债务敞口/回收价值和时间范围"
+        ],
+        "reasoning_summary": "上市由registry控制，借款还需oracle/cap/liquidity；名称不能证明资产价值，检查存在也不能证明所有已上市资产无风险。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "只读核真实注册资产与敞口；有异常才给RISK_ONLY，不制作利用路径。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
@@ -507,7 +1231,74 @@
       "scope_limit": "证据不足的风险假设被排除；不声称Polygon所有相关借贷市场不存在，也不声称已有漏洞。",
       "owner": "R-POLY",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+      "source_record": "evidence/R-POLY/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
+        "claim_scope": "排除CTF或CollateralToken名称证明输方结果份额被借贷市场接受并可获利；同时复核V1→V2/PMCT权益",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S43",
+            "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+            "fetched_at": "2026-11-08T16:06:10.077868+00:00",
+            "http_status": "200",
+            "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+            "fields_and_result": "V1 README L1-5明确archived和addresses updated，指向V2；没有声称旧合约在链上销毁或已停用。"
+          },
+          {
+            "source_id": "S36",
+            "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+            "fetched_at": "2026-11-08T16:06:00.341876+00:00",
+            "http_status": "200",
+            "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c",
+            "fields_and_result": "Polygon V2 exchange=0xE111180000d2663C0091e4f400237545B87B996B，CollateralToken proxy=0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB；L113-116 PMCT是USDC/USDCe ERC20 wrapper，CTF adapter独立。"
+          },
+          {
+            "source_id": "S47",
+            "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+            "fetched_at": "2026-11-08T16:07:31.160835+00:00",
+            "http_status": "200",
+            "sha256": "03cc9570c16b591c7329447b6f95d4d44f8362fec0054d53ee679e89ab30807e",
+            "fields_and_result": "CollateralToken L111-124 name=Polymarket USD，symbol=pUSD，decimals=6；USDC/USDCE/VAULT独立immutable；wrap/unwrap需WRAPPER_ROLE，mint/burn另需MINTER_ROLE。"
+          },
+          {
+            "source_id": "S48",
+            "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralOfframp.sol",
+            "fetched_at": "2026-11-08T16:07:32.623963+00:00",
+            "http_status": "200",
+            "sha256": "ab0c945a1b7a8cf14be0d45576ba163254fcaa09668c6b62b14c22ca8b4a52af",
+            "fields_and_result": "CollateralOfframp L50-58公开unwrap先onlyUnpaused(asset)，从调用者转入抵押token再经token角色接口unwrap；角色限制不能推成普通用户无任何出口。"
+          },
+          {
+            "source_id": "S37",
+            "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+            "fetched_at": "2026-11-08T16:06:01.685244+00:00",
+            "http_status": "200",
+            "sha256": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08",
+            "fields_and_result": "reportPayouts绑定oracle与condition；redeemPositions L218-254须den>0、按payout vector与position余额烧份额；root collateral与parent position两种产出不同。"
+          },
+          {
+            "source_id": "S33",
+            "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+            "fetched_at": "2026-11-08T16:05:55.985085+00:00",
+            "http_status": "200",
+            "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+            "fields_and_result": "L161 USDCe=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174；L542 USDCn=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359，各自aToken不同。"
+          }
+        ],
+        "missing_fields": [
+          "V2/旧V1当前代码、代理实现及迁移生效时间",
+          "USDC/USDCE/VAULT、Offramp角色/allowance/余额/pause",
+          "condition/position/payout最终性→结果wrapper→真实lending market→oracle映射",
+          "当前抵押/未偿本息/可回收价值；任何经济路线q/退出报价/完整成本"
+        ],
+        "reasoning_summary": "V1已提示迁移但未证明链上退役；PMCT现金包装层源码名为pUSD，与condition结果份额分开。token角色限制经公开Offramp可衔接，不能又误判为所有普通人都无出口。无实际借贷接受映射，不能确认风险/收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先核Polygon实际部署与正常offramp，再建立具体事件/借贷映射；PMCT/pUSD不替代outcome。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
@@ -527,7 +1318,42 @@
       ],
       "owner": "SOL03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/SOL03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/SOL03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+        "claim_scope": "排除KLend program ID单独证明mainnet-beta或可清算仓位",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S38",
+            "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/README.md",
+            "fetched_at": "2026-11-08T16:06:03.074502+00:00",
+            "http_status": "200",
+            "sha256": "149201ebf3c5bf207df667d8c4eb5b5deb96a2ab0c795777b9ec83c0af2ac6c3",
+            "fields_and_result": "README L9/L11 Mainnet与Devnet同KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，单ID不证明cluster。"
+          },
+          {
+            "source_id": "S39",
+            "url": "https://raw.githubusercontent.com/Kamino-Finance/klend/master/programs/klend/src/lib.rs",
+            "fetched_at": "2026-11-08T16:06:04.407974+00:00",
+            "http_status": "200",
+            "sha256": "3ad3d1d0d5f2e25b0633d69dc9274e512d6a0c4c85b803b842a3a2dfa002a080",
+            "fields_and_result": "L30 declare_id同README，只是源声明，未读取实际ProgramData。"
+          }
+        ],
+        "missing_fields": [
+          "getGenesisHash/finalized slot/commitment",
+          "program owner/executable/ProgramData",
+          "market/reserve/obligation/mint/当前清算资格",
+          "q正常清算/退出报价及优先费/租金/融资"
+        ],
+        "reasoning_summary": "官方Mainnet/Devnet可使用同程序ID，集群需genesis和slot证明；lib declare_id不是program binary或仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "先确集群和版本，再核具体账户；不套EVM HF/地址口径。"
+      },
+      "initial_research_status": "REJECTED"
     },
     {
       "finding_id": "SONIC-BEETS-STS-REDEEM-S",
@@ -557,7 +1383,42 @@
       ],
       "owner": "SONIC02",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/SONIC02/full-20261108T152118Z/record.json"
+      "source_record": "evidence/SONIC02/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "SONIC-BEETS-STS-REDEEM-S",
+        "claim_scope": "Sonic stS→S正常退出；静态份额与两步提款可核，当前数量/等待/价差未核",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S40",
+            "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+            "fetched_at": "2026-11-08T16:06:05.765304+00:00",
+            "http_status": "200",
+            "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+            "fields_and_result": "Aave Sonic登记stS=0xE5DA20F15420aD15DE0fa650600aFc998bbE3955、USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894、wS不同。"
+          },
+          {
+            "source_id": "S41",
+            "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+            "fetched_at": "2026-11-08T16:06:07.184583+00:00",
+            "http_status": "200",
+            "sha256": "57614777e891a7e80a5d886de8dfce2d159b909eaa3ea14399b6f96242dc42b8",
+            "fields_and_result": "README L110烧stS、L114-118 pool与validator都走withdraw；L46 admin可改delay，文档two weeks不能当现行固定等待。"
+          }
+        ],
+        "missing_fields": [
+          "chainId146/block、stS当前proxy implementation",
+          "q DEX买入→按rate burn→withdraw→S可卖数量",
+          "current delay/pause/validator选择/withdrawal资金/罚没状态",
+          "退出费用、gas、等待成本与容量"
+        ],
+        "reasoning_summary": "两个静态源指向同stS；两条undelegate路径共用withdraw，admin可改等待。无当前rate/可提款额/DEX报价，文档两周不是实测。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "绑定Sonic部署后分现货/即时/异步三出口测数量；有真实等待再给盈亏平衡成本。"
+      },
+      "initial_research_status": "UNVERIFIED"
     },
     {
       "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
@@ -579,7 +1440,41 @@
       ],
       "owner": "SONIC03",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/SONIC03/full-20261108T152118Z/record.json"
+      "source_record": "evidence/SONIC03/full-20261108T152118Z/record.json",
+      "q00_review": {
+        "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
+        "claim_scope": "排除Sonic Aave借出卖出USDC余额为收入或任意面值稳定币可偿债",
+        "verdict": "REJECTED",
+        "recommended_status": "REJECTED",
+        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "independently_checked_sources": [
+          {
+            "source_id": "S40",
+            "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+            "fetched_at": "2026-11-08T16:06:05.765304+00:00",
+            "http_status": "200",
+            "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+            "fields_and_result": "Aave Sonic登记stS=0xE5DA20F15420aD15DE0fa650600aFc998bbE3955、USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894、wS不同。"
+          },
+          {
+            "source_id": "S42",
+            "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+            "fetched_at": "2026-11-08T16:06:08.723941+00:00",
+            "http_status": "200",
+            "sha256": "daf57b87b1f9b669b7103c156ac6ae192b31ec74a60d57dc69e63730345d30bc",
+            "fields_and_result": "executeBorrow mint指数债务并发底层；executeRepay按当前userDebt，L211转params.asset，aToken分支需对应资产/自身偿债等条件。"
+          }
+        ],
+        "missing_fields": [
+          "当前Sonic Pool实现、asset原生/桥接身份、借款资格/额度",
+          "q借出→卖出→取得债务资产→本息偿清→抵押取回",
+          "债务指数/利息与全程报价/gas/融资/剩债"
+        ],
+        "reasoning_summary": "借出同时铸指数债务；偿还用该reserve的asset或合规则对应aToken。回购本息与抵押退出缺一都不是自由利润。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+        "duplicate_of": null,
+        "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。"
+      },
+      "initial_research_status": "REJECTED"
     }
   ],
   "status": "BASELINE_PARTIAL",

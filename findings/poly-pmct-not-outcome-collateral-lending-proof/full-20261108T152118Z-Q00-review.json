@@ -1,0 +1,66 @@
+{
+  "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
+  "claim_scope": "排除CTF或CollateralToken名称证明输方结果份额被借贷市场接受并可获利；同时复核V1→V2/PMCT权益",
+  "verdict": "REJECTED",
+  "recommended_status": "REJECTED",
+  "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+  "independently_checked_sources": [
+    {
+      "source_id": "S43",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "fetched_at": "2026-11-08T16:06:10.077868+00:00",
+      "http_status": "200",
+      "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+      "fields_and_result": "V1 README L1-5明确archived和addresses updated，指向V2；没有声称旧合约在链上销毁或已停用。"
+    },
+    {
+      "source_id": "S36",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "fetched_at": "2026-11-08T16:06:00.341876+00:00",
+      "http_status": "200",
+      "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c",
+      "fields_and_result": "Polygon V2 exchange=0xE111180000d2663C0091e4f400237545B87B996B，CollateralToken proxy=0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB；L113-116 PMCT是USDC/USDCe ERC20 wrapper，CTF adapter独立。"
+    },
+    {
+      "source_id": "S47",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+      "fetched_at": "2026-11-08T16:07:31.160835+00:00",
+      "http_status": "200",
+      "sha256": "03cc9570c16b591c7329447b6f95d4d44f8362fec0054d53ee679e89ab30807e",
+      "fields_and_result": "CollateralToken L111-124 name=Polymarket USD，symbol=pUSD，decimals=6；USDC/USDCE/VAULT独立immutable；wrap/unwrap需WRAPPER_ROLE，mint/burn另需MINTER_ROLE。"
+    },
+    {
+      "source_id": "S48",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralOfframp.sol",
+      "fetched_at": "2026-11-08T16:07:32.623963+00:00",
+      "http_status": "200",
+      "sha256": "ab0c945a1b7a8cf14be0d45576ba163254fcaa09668c6b62b14c22ca8b4a52af",
+      "fields_and_result": "CollateralOfframp L50-58公开unwrap先onlyUnpaused(asset)，从调用者转入抵押token再经token角色接口unwrap；角色限制不能推成普通用户无任何出口。"
+    },
+    {
+      "source_id": "S37",
+      "url": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
+      "fetched_at": "2026-11-08T16:06:01.685244+00:00",
+      "http_status": "200",
+      "sha256": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08",
+      "fields_and_result": "reportPayouts绑定oracle与condition；redeemPositions L218-254须den>0、按payout vector与position余额烧份额；root collateral与parent position两种产出不同。"
+    },
+    {
+      "source_id": "S33",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "fetched_at": "2026-11-08T16:05:55.985085+00:00",
+      "http_status": "200",
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "fields_and_result": "L161 USDCe=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174；L542 USDCn=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359，各自aToken不同。"
+    }
+  ],
+  "missing_fields": [
+    "V2/旧V1当前代码、代理实现及迁移生效时间",
+    "USDC/USDCE/VAULT、Offramp角色/allowance/余额/pause",
+    "condition/position/payout最终性→结果wrapper→真实lending market→oracle映射",
+    "当前抵押/未偿本息/可回收价值；任何经济路线q/退出报价/完整成本"
+  ],
+  "reasoning_summary": "V1已提示迁移但未证明链上退役；PMCT现金包装层源码名为pUSD，与condition结果份额分开。token角色限制经公开Offramp可衔接，不能又误判为所有普通人都无出口。无实际借贷接受映射，不能确认风险/收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
+  "duplicate_of": null,
+  "next_check": "先核Polygon实际部署与正常offramp，再建立具体事件/借贷映射；PMCT/pUSD不替代outcome。"
+}
