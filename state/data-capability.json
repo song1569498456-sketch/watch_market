@@ -7,8 +7,16 @@
   "permissions": "User explicitly authorized all-domain access; wildcard update actually requested but backend returned INVALID_ARGUMENT; no additional user domain approval is needed",
   "required_configuration": "runs/data-check-20261108T163237Z/network-requirements.json",
   "pending_external_dependency": "working platform network configuration channel",
-  "storage_status": "PENDING_UPLOAD",
+  "storage_status": "REMOTE_VERIFIED",
   "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json",
   "review_verdict": "NEEDS_DATA",
-  "live_gate_passed": false
+  "live_gate_passed": false,
+  "storage_verification": {
+    "commit": "a154653b65af87efc8ee09f0435b2ea138592caa",
+    "remote_head": "a154653b65af87efc8ee09f0435b2ea138592caa",
+    "verified_files": 23,
+    "verified_at": "2026-11-08T16:56:00.988259+00:00"
+  },
+  "research_success_checkpoint_advanced": false,
+  "single_market_gate": "evidence/M00/data-check-20261108T163237Z/single-market-gate.json"
 }

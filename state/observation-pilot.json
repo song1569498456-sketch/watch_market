@@ -10,5 +10,6 @@
   "full_roster_repeat": false,
   "automatic_trigger_configured": false,
   "scope": "First complete this capability validation and report. Subsequent two distinct days reuse baseline, check only changes/gaps, record actual duration/model usage or null if unavailable. No schedule created.",
-  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json"
+  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json",
+  "last_capability_evidence_commit": "a154653b65af87efc8ee09f0435b2ea138592caa"
 }

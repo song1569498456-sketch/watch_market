@@ -20,7 +20,7 @@
   "http_requests_by_m00": 11,
   "http_count_scope": "Previous10 M00 attempts +1 fresh RPC after wildcard update; Q00 2 independent static GET; configuration tool/API traffic excluded.",
   "report": "reports/daily/2026-11-09/data-check-20261108T163237Z.md",
-  "storage_status": "PENDING_UPLOAD",
+  "storage_status": "REMOTE_VERIFIED",
   "finished_at_utc": "2026-11-08T16:54:33.064714+00:00",
   "measured_elapsed_seconds": 1315.478,
   "timing_scope": "run initialization through report assembly; initial inspection and final publication excluded",
@@ -33,5 +33,12 @@
   "live_market_monitoring_ready_count": 0,
   "explicit_http_client_attempts_total": 13,
   "authorization": "FULL_NETWORK_ACCESS_GRANTED_BY_USER",
-  "network_wildcard_update_result": "INVALID_ARGUMENT; save UNCONFIRMED; runtime unchanged"
+  "network_wildcard_update_result": "INVALID_ARGUMENT; save UNCONFIRMED; runtime unchanged",
+  "storage_verification": {
+    "commit": "a154653b65af87efc8ee09f0435b2ea138592caa",
+    "remote_head": "a154653b65af87efc8ee09f0435b2ea138592caa",
+    "verified_files": 23,
+    "verified_at": "2026-11-08T16:56:00.988259+00:00"
+  },
+  "research_success_checkpoint_advanced": false
 }
