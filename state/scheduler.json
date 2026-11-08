@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "NOT_CONFIGURED",
+  "capability_status": "BLOCKED_NO_SUPPORTED_CLOUD_SCHEDULER_INTERFACE",
+  "created": false,
+  "timezone": "Asia/Shanghai",
+  "desired_local_time": "09:00",
+  "task_id": null,
+  "scheduler_execution_environment": null,
+  "next_run_at": null,
+  "run_history_url": null,
+  "scheduled_execution_verified": false,
+  "existing_schedules_status": "UNKNOWN_NO_SCHEDULE_LIST_INTERFACE",
+  "last_capability_check": "schedule-check-20261108T162755Z",
+  "checked_at": "2026-11-08T16:27:55.152955+00:00",
+  "report": "docs/scheduling/schedule-check-20261108T162755Z.md",
+  "note": "当前手动云端研究已验证，不等于具备持久定时唤醒能力；未创建本地替代任务。"
+}
