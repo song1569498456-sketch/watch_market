@@ -13,7 +13,20 @@
     "transactions_analyzed": 0,
     "history_window_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "official_release_tag": "v1.8.2",
+      "release_published_at": "2026-11-03T02:12:36Z",
+      "factory_document_read": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+      "last_block": null,
+      "pool_events_scanned": 0,
+      "transactions_analyzed": 0,
+      "history_window_complete": false
+    },
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
     "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
@@ -28,7 +41,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:24:45.675031+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+  "record": "evidence/N-BNB/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "verified_at": "2026-11-08T15:25:36.912083+00:00",
+    "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+  }
 }

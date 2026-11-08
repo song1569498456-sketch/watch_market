@@ -1,0 +1,1474 @@
+{
+  "agent_id": "ETH01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ETH",
+  "scope": "Ethereum原生资产质押衍生品即时/排队退出，不研究稳定币等其他策略",
+  "started_at": "2026-11-08T15:26:13.313347+00:00",
+  "finished_at": "2026-11-08T15:27:22.066753+00:00",
+  "duration_seconds": 68.753,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:27:22.066753+00:00",
+    "beijing": "2026-11-08T23:27:22.066753+08:00",
+    "data_time": "unknown: current upstream branch snapshots, not chain snapshot"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1"
+  ],
+  "asset_ids": [
+    "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+  ],
+  "discovery_source": [
+    {
+      "source": "dex-discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH",
+      "retrieved_at_utc": "2026-11-08T15:26:13.313353+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "ethereum-rpc",
+      "url": "https://cloudflare-eth.com",
+      "retrieved_at_utc": "2026-11-08T15:26:14.339211+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "lido-deploy",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "retrieved_at_utc": "2026-11-08T15:26:15.347026+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+      "bytes_read": 61362,
+      "selected": {
+        "chainId": 1,
+        "stETH": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "wstETH": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "withdrawalQueue": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "withdrawalQueueImplementation": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9"
+      }
+    },
+    {
+      "source": "wsteth-source",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+      "retrieved_at_utc": "2026-11-08T15:26:16.681052+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "254a8bfab14c30ac30d36fbe0174fe424798a67276abb1c52e139af28899cae0",
+      "bytes_read": 4251,
+      "excerpts": [
+        {
+          "line": 51,
+          "text": "     * @return Amount of wstETH user receives after wrap"
+        },
+        {
+          "line": 52,
+          "text": "     */"
+        },
+        {
+          "line": 53,
+          "text": "    function wrap(uint256 _stETHAmount) external returns (uint256) {"
+        },
+        {
+          "line": 54,
+          "text": "        require(_stETHAmount > 0, \"wstETH: can't wrap zero stETH\");"
+        },
+        {
+          "line": 55,
+          "text": "        uint256 wstETHAmount = stETH.getSharesByPooledEth(_stETHAmount);"
+        },
+        {
+          "line": 56,
+          "text": "        _mint(msg.sender, wstETHAmount);"
+        },
+        {
+          "line": 57,
+          "text": "        stETH.transferFrom(msg.sender, address(this), _stETHAmount);"
+        },
+        {
+          "line": 58,
+          "text": "        return wstETHAmount;"
+        },
+        {
+          "line": 59,
+          "text": "    }"
+        },
+        {
+          "line": 60,
+          "text": ""
+        },
+        {
+          "line": 61,
+          "text": "    /**"
+        },
+        {
+          "line": 62,
+          "text": "     * @notice Exchanges wstETH to stETH"
+        },
+        {
+          "line": 63,
+          "text": "     * @param _wstETHAmount amount of wstETH to uwrap in exchange for stETH"
+        },
+        {
+          "line": 64,
+          "text": "     * @dev Requirements:"
+        },
+        {
+          "line": 65,
+          "text": "     *  - `_wstETHAmount` must be non-zero"
+        },
+        {
+          "line": 67,
+          "text": "     * @return Amount of stETH user receives after unwrap"
+        },
+        {
+          "line": 68,
+          "text": "     */"
+        },
+        {
+          "line": 69,
+          "text": "    function unwrap(uint256 _wstETHAmount) external returns (uint256) {"
+        },
+        {
+          "line": 70,
+          "text": "        require(_wstETHAmount > 0, \"wstETH: zero amount unwrap not allowed\");"
+        },
+        {
+          "line": 71,
+          "text": "        uint256 stETHAmount = stETH.getPooledEthByShares(_wstETHAmount);"
+        },
+        {
+          "line": 72,
+          "text": "        _burn(msg.sender, _wstETHAmount);"
+        },
+        {
+          "line": 73,
+          "text": "        stETH.transfer(msg.sender, stETHAmount);"
+        },
+        {
+          "line": 74,
+          "text": "        return stETHAmount;"
+        },
+        {
+          "line": 75,
+          "text": "    }"
+        },
+        {
+          "line": 76,
+          "text": ""
+        },
+        {
+          "line": 77,
+          "text": "    /**"
+        },
+        {
+          "line": 78,
+          "text": "    * @notice Shortcut to stake ETH and auto-wrap returned stETH"
+        },
+        {
+          "line": 79,
+          "text": "    */"
+        },
+        {
+          "line": 80,
+          "text": "    receive() external payable {"
+        },
+        {
+          "line": 81,
+          "text": "        uint256 shares = stETH.submit{value: msg.value}(address(0));"
+        },
+        {
+          "line": 88,
+          "text": "     * @return Amount of wstETH for a given stETH amount"
+        },
+        {
+          "line": 89,
+          "text": "     */"
+        },
+        {
+          "line": 90,
+          "text": "    function getWstETHByStETH(uint256 _stETHAmount) external view returns (uint256) {"
+        },
+        {
+          "line": 91,
+          "text": "        return stETH.getSharesByPooledEth(_stETHAmount);"
+        },
+        {
+          "line": 92,
+          "text": "    }"
+        },
+        {
+          "line": 93,
+          "text": ""
+        },
+        {
+          "line": 94,
+          "text": "    /**"
+        },
+        {
+          "line": 95,
+          "text": "     * @notice Get amount of stETH for a given amount of wstETH"
+        },
+        {
+          "line": 96,
+          "text": "     * @param _wstETHAmount amount of wstETH"
+        },
+        {
+          "line": 97,
+          "text": "     * @return Amount of stETH for a given wstETH amount"
+        },
+        {
+          "line": 98,
+          "text": "     */"
+        },
+        {
+          "line": 99,
+          "text": "    function getStETHByWstETH(uint256 _wstETHAmount) external view returns (uint256) {"
+        },
+        {
+          "line": 100,
+          "text": "        return stETH.getPooledEthByShares(_wstETHAmount);"
+        },
+        {
+          "line": 101,
+          "text": "    }"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "    /**"
+        },
+        {
+          "line": 104,
+          "text": "     * @notice Get amount of stETH for a one wstETH"
+        },
+        {
+          "line": 105,
+          "text": "     * @return Amount of stETH for 1 wstETH"
+        },
+        {
+          "line": 106,
+          "text": "     */"
+        },
+        {
+          "line": 107,
+          "text": "    function stEthPerToken() external view returns (uint256) {"
+        },
+        {
+          "line": 108,
+          "text": "        return stETH.getPooledEthByShares(1 ether);"
+        },
+        {
+          "line": 109,
+          "text": "    }"
+        },
+        {
+          "line": 110,
+          "text": ""
+        },
+        {
+          "line": 111,
+          "text": "    /**"
+        }
+      ]
+    },
+    {
+      "source": "lido-queue",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+      "retrieved_at_utc": "2026-11-08T15:26:18.048385+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "efa5a32fbc99cafdb16a38d96a9bb5b29a62e60b5610e7c317711cc58402b131",
+      "bytes_read": 19771,
+      "excerpts": [
+        {
+          "line": 25,
+          "text": "/// @dev see WstETH.sol for full docs"
+        },
+        {
+          "line": 26,
+          "text": "interface IWstETH is IERC20, IERC20Permit {"
+        },
+        {
+          "line": 27,
+          "text": "    function unwrap(uint256 _wstETHAmount) external returns (uint256);"
+        },
+        {
+          "line": 28,
+          "text": "    function getStETHByWstETH(uint256 _wstETHAmount) external view returns (uint256);"
+        },
+        {
+          "line": 29,
+          "text": "    function stETH() external view returns (IStETH);"
+        },
+        {
+          "line": 30,
+          "text": "}"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "/// @title A contract for handling stETH withdrawal request queue within the Lido protocol"
+        },
+        {
+          "line": 33,
+          "text": "/// @author folkyatina"
+        },
+        {
+          "line": 34,
+          "text": "abstract contract WithdrawalQueue is AccessControlEnumerable, PausableUntil, WithdrawalQueueBase, Versioned {"
+        },
+        {
+          "line": 35,
+          "text": "    using UnstructuredStorage for bytes32;"
+        },
+        {
+          "line": 36,
+          "text": "    using EnumerableSet for EnumerableSet.UintSet;"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "    /// Bunker mode activation timestamp"
+        },
+        {
+          "line": 39,
+          "text": "    bytes32 internal constant BUNKER_MODE_SINCE_TIMESTAMP_POSITION ="
+        },
+        {
+          "line": 40,
+          "text": "        keccak256(\"lido.WithdrawalQueue.bunkerModeSinceTimestamp\");"
+        },
+        {
+          "line": 50,
+          "text": ""
+        },
+        {
+          "line": 51,
+          "text": "    /// @notice minimal amount of stETH that is possible to withdraw"
+        },
+        {
+          "line": 52,
+          "text": "    uint256 public constant MIN_STETH_WITHDRAWAL_AMOUNT = 100;"
+        },
+        {
+          "line": 53,
+          "text": ""
+        },
+        {
+          "line": 54,
+          "text": "    /// @notice maximum amount of stETH that is possible to withdraw by a single request"
+        },
+        {
+          "line": 55,
+          "text": "    /// Prevents accumulating too much funds per single request fulfillment in the future."
+        },
+        {
+          "line": 56,
+          "text": "    /// @dev To withdraw larger amounts, it's recommended to split it to several requests"
+        },
+        {
+          "line": 57,
+          "text": "    uint256 public constant MAX_STETH_WITHDRAWAL_AMOUNT = 1000 * 1e18;"
+        },
+        {
+          "line": 58,
+          "text": ""
+        },
+        {
+          "line": 59,
+          "text": "    /// @notice Lido stETH token address"
+        },
+        {
+          "line": 60,
+          "text": "    IStETH public immutable STETH;"
+        },
+        {
+          "line": 61,
+          "text": "    /// @notice Lido wstETH token address"
+        },
+        {
+          "line": 62,
+          "text": "    IWstETH public immutable WSTETH;"
+        },
+        {
+          "line": 63,
+          "text": ""
+        },
+        {
+          "line": 64,
+          "text": "    event InitializedV1(address _admin);"
+        },
+        {
+          "line": 65,
+          "text": "    event BunkerModeEnabled(uint256 _sinceTimestamp);"
+        },
+        {
+          "line": 66,
+          "text": "    event BunkerModeDisabled();"
+        },
+        {
+          "line": 67,
+          "text": ""
+        },
+        {
+          "line": 68,
+          "text": "    error AdminZeroAddress();"
+        },
+        {
+          "line": 69,
+          "text": "    error RequestAmountTooSmall(uint256 _amountOfStETH);"
+        },
+        {
+          "line": 123,
+          "text": "    ///  If `address(0)` is passed, `msg.sender` will be used as owner."
+        },
+        {
+          "line": 124,
+          "text": "    /// @return requestIds an array of the created withdrawal request ids"
+        },
+        {
+          "line": 125,
+          "text": "    function requestWithdrawals(uint256[] calldata _amounts, address _owner)"
+        },
+        {
+          "line": 126,
+          "text": "        public"
+        },
+        {
+          "line": 127,
+          "text": "        returns (uint256[] memory requestIds)"
+        },
+        {
+          "line": 128,
+          "text": "    {"
+        },
+        {
+          "line": 129,
+          "text": "        _checkResumed();"
+        },
+        {
+          "line": 130,
+          "text": "        if (_owner == address(0)) _owner = msg.sender;"
+        },
+        {
+          "line": 131,
+          "text": "        requestIds = new uint256[](_amounts.length);"
+        },
+        {
+          "line": 132,
+          "text": "        for (uint256 i = 0; i < _amounts.length; ++i) {"
+        },
+        {
+          "line": 133,
+          "text": "            _checkWithdrawalRequestAmount(_amounts[i]);"
+        },
+        {
+          "line": 134,
+          "text": "            requestIds[i] = _requestWithdrawal(_amounts[i], _owner);"
+        },
+        {
+          "line": 135,
+          "text": "        }"
+        },
+        {
+          "line": 136,
+          "text": "    }"
+        },
+        {
+          "line": 137,
+          "text": ""
+        },
+        {
+          "line": 142,
+          "text": "    ///  If `address(0)` is passed, `msg.sender` will be used as an owner."
+        },
+        {
+          "line": 143,
+          "text": "    /// @return requestIds an array of the created withdrawal request ids"
+        },
+        {
+          "line": 144,
+          "text": "    function requestWithdrawalsWstETH(uint256[] calldata _amounts, address _owner)"
+        },
+        {
+          "line": 145,
+          "text": "        public"
+        },
+        {
+          "line": 146,
+          "text": "        returns (uint256[] memory requestIds)"
+        },
+        {
+          "line": 147,
+          "text": "    {"
+        },
+        {
+          "line": 148,
+          "text": "        _checkResumed();"
+        },
+        {
+          "line": 149,
+          "text": "        if (_owner == address(0)) _owner = msg.sender;"
+        },
+        {
+          "line": 150,
+          "text": "        requestIds = new uint256[](_amounts.length);"
+        },
+        {
+          "line": 151,
+          "text": "        for (uint256 i = 0; i < _amounts.length; ++i) {"
+        },
+        {
+          "line": 152,
+          "text": "            requestIds[i] = _requestWithdrawalWstETH(_amounts[i], _owner);"
+        },
+        {
+          "line": 153,
+          "text": "        }"
+        },
+        {
+          "line": 154,
+          "text": "    }"
+        },
+        {
+          "line": 155,
+          "text": ""
+        },
+        {
+          "line": 156,
+          "text": "    struct PermitInput {"
+        },
+        {
+          "line": 169,
+          "text": "    /// @param _permit data required for the stETH.permit() method to set the allowance"
+        },
+        {
+          "line": 170,
+          "text": "    /// @return requestIds an array of the created withdrawal request ids"
+        },
+        {
+          "line": 171,
+          "text": "    function requestWithdrawalsWithPermit(uint256[] calldata _amounts, address _owner, PermitInput calldata _permit)"
+        },
+        {
+          "line": 172,
+          "text": "        external"
+        },
+        {
+          "line": 173,
+          "text": "        returns (uint256[] memory requestIds)"
+        },
+        {
+          "line": 174,
+          "text": "    {"
+        },
+        {
+          "line": 175,
+          "text": "        STETH.permit(msg.sender, address(this), _permit.value, _permit.deadline, _permit.v, _permit.r, _permit.s);"
+        },
+        {
+          "line": 176,
+          "text": "        return requestWithdrawals(_amounts, _owner);"
+        },
+        {
+          "line": 177,
+          "text": "    }"
+        },
+        {
+          "line": 178,
+          "text": ""
+        },
+        {
+          "line": 179,
+          "text": "    /// @notice Request the batch of wstETH for withdrawal using EIP-2612 Permit"
+        },
+        {
+          "line": 180,
+          "text": "    /// @param _amounts an array of wstETH amount values"
+        },
+        {
+          "line": 181,
+          "text": "    ///  The standalone withdrawal request will be created for each item in the passed list."
+        },
+        {
+          "line": 182,
+          "text": "    /// @param _owner address that will be able to manage the created requests."
+        },
+        {
+          "line": 183,
+          "text": "    ///  If `address(0)` is passed, `msg.sender` will be used as an owner."
+        },
+        {
+          "line": 184,
+          "text": "    /// @param _permit data required for the wtETH.permit() method to set the allowance"
+        },
+        {
+          "line": 185,
+          "text": "    /// @return requestIds an array of the created withdrawal request ids"
+        },
+        {
+          "line": 186,
+          "text": "    function requestWithdrawalsWstETHWithPermit("
+        },
+        {
+          "line": 187,
+          "text": "        uint256[] calldata _amounts,"
+        },
+        {
+          "line": 188,
+          "text": "        address _owner,"
+        },
+        {
+          "line": 189,
+          "text": "        PermitInput calldata _permit"
+        },
+        {
+          "line": 190,
+          "text": "    ) external returns (uint256[] memory requestIds) {"
+        },
+        {
+          "line": 191,
+          "text": "        WSTETH.permit(msg.sender, address(this), _permit.value, _permit.deadline, _permit.v, _permit.r, _permit.s);"
+        },
+        {
+          "line": 192,
+          "text": "        return requestWithdrawalsWstETH(_amounts, _owner);"
+        },
+        {
+          "line": 193,
+          "text": "    }"
+        },
+        {
+          "line": 194,
+          "text": ""
+        },
+        {
+          "line": 195,
+          "text": "    /// @notice Returns all withdrawal requests that belongs to the `_owner` address"
+        },
+        {
+          "line": 196,
+          "text": "    ///"
+        },
+        {
+          "line": 197,
+          "text": "    /// WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed"
+        },
+        {
+          "line": 198,
+          "text": "    /// to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that"
+        },
+        {
+          "line": 205,
+          "text": "    /// @notice Returns status for requests with provided ids"
+        },
+        {
+          "line": 206,
+          "text": "    /// @param _requestIds array of withdrawal request ids"
+        },
+        {
+          "line": 207,
+          "text": "    function getWithdrawalStatus(uint256[] calldata _requestIds)"
+        },
+        {
+          "line": 208,
+          "text": "        external"
+        },
+        {
+          "line": 209,
+          "text": "        view"
+        },
+        {
+          "line": 210,
+          "text": "        returns (WithdrawalRequestStatus[] memory statuses)"
+        },
+        {
+          "line": 211,
+          "text": "    {"
+        },
+        {
+          "line": 212,
+          "text": "        statuses = new WithdrawalRequestStatus[](_requestIds.length);"
+        },
+        {
+          "line": 213,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 214,
+          "text": "            statuses[i] = _getStatus(_requestIds[i]);"
+        },
+        {
+          "line": 215,
+          "text": "        }"
+        },
+        {
+          "line": 216,
+          "text": "    }"
+        },
+        {
+          "line": 217,
+          "text": ""
+        },
+        {
+          "line": 218,
+          "text": "    /// @notice Returns amount of ether available for claim for each provided request id"
+        },
+        {
+          "line": 219,
+          "text": "    /// @param _requestIds array of request ids"
+        },
+        {
+          "line": 221,
+          "text": "    /// @return claimableEthValues amount of claimable ether for each request, amount is equal to 0 if request"
+        },
+        {
+          "line": 222,
+          "text": "    ///  is not finalized or already claimed"
+        },
+        {
+          "line": 223,
+          "text": "    function getClaimableEther(uint256[] calldata _requestIds, uint256[] calldata _hints)"
+        },
+        {
+          "line": 224,
+          "text": "        external"
+        },
+        {
+          "line": 225,
+          "text": "        view"
+        },
+        {
+          "line": 226,
+          "text": "        returns (uint256[] memory claimableEthValues)"
+        },
+        {
+          "line": 227,
+          "text": "    {"
+        },
+        {
+          "line": 228,
+          "text": "        claimableEthValues = new uint256[](_requestIds.length);"
+        },
+        {
+          "line": 229,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 230,
+          "text": "            claimableEthValues[i] = _getClaimableEther(_requestIds[i], _hints[i]);"
+        },
+        {
+          "line": 231,
+          "text": "        }"
+        },
+        {
+          "line": 232,
+          "text": "    }"
+        },
+        {
+          "line": 233,
+          "text": ""
+        },
+        {
+          "line": 234,
+          "text": "    /// @notice Claim a batch of withdrawal requests if they are finalized sending ether to `_recipient`"
+        },
+        {
+          "line": 235,
+          "text": "    /// @param _requestIds array of request ids to claim"
+        },
+        {
+          "line": 242,
+          "text": "    ///  Reverts if any request is not finalized or already claimed"
+        },
+        {
+          "line": 243,
+          "text": "    ///  Reverts if msg sender is not an owner of the requests"
+        },
+        {
+          "line": 244,
+          "text": "    function claimWithdrawalsTo(uint256[] calldata _requestIds, uint256[] calldata _hints, address _recipient)"
+        },
+        {
+          "line": 245,
+          "text": "        external"
+        },
+        {
+          "line": 246,
+          "text": "    {"
+        },
+        {
+          "line": 247,
+          "text": "        if (_recipient == address(0)) revert ZeroRecipient();"
+        },
+        {
+          "line": 248,
+          "text": "        if (_requestIds.length != _hints.length) {"
+        },
+        {
+          "line": 249,
+          "text": "            revert ArraysLengthMismatch(_requestIds.length, _hints.length);"
+        },
+        {
+          "line": 250,
+          "text": "        }"
+        },
+        {
+          "line": 251,
+          "text": ""
+        },
+        {
+          "line": 252,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 253,
+          "text": "            _claim(_requestIds[i], _hints[i], _recipient);"
+        },
+        {
+          "line": 254,
+          "text": "            _emitTransfer(msg.sender, address(0), _requestIds[i]);"
+        },
+        {
+          "line": 255,
+          "text": "        }"
+        },
+        {
+          "line": 256,
+          "text": "    }"
+        },
+        {
+          "line": 264,
+          "text": "    ///  Reverts if any request is not finalized or already claimed"
+        },
+        {
+          "line": 265,
+          "text": "    ///  Reverts if msg sender is not an owner of the requests"
+        },
+        {
+          "line": 266,
+          "text": "    function claimWithdrawals(uint256[] calldata _requestIds, uint256[] calldata _hints) external {"
+        },
+        {
+          "line": 267,
+          "text": "        if (_requestIds.length != _hints.length) {"
+        },
+        {
+          "line": 268,
+          "text": "            revert ArraysLengthMismatch(_requestIds.length, _hints.length);"
+        },
+        {
+          "line": 269,
+          "text": "        }"
+        },
+        {
+          "line": 270,
+          "text": ""
+        },
+        {
+          "line": 271,
+          "text": "        for (uint256 i = 0; i < _requestIds.length; ++i) {"
+        },
+        {
+          "line": 272,
+          "text": "            _claim(_requestIds[i], _hints[i], msg.sender);"
+        },
+        {
+          "line": 273,
+          "text": "            _emitTransfer(msg.sender, address(0), _requestIds[i]);"
+        },
+        {
+          "line": 274,
+          "text": "        }"
+        },
+        {
+          "line": 275,
+          "text": "    }"
+        },
+        {
+          "line": 276,
+          "text": ""
+        },
+        {
+          "line": 277,
+          "text": "    /// @notice Claim one`_requestId` request once finalized sending locked ether to the owner"
+        },
+        {
+          "line": 278,
+          "text": "    /// @param _requestId request id to claim"
+        },
+        {
+          "line": 394,
+          "text": ""
+        },
+        {
+          "line": 395,
+          "text": "    function _checkWithdrawalRequestAmount(uint256 _amountOfStETH) internal pure {"
+        },
+        {
+          "line": 396,
+          "text": "        if (_amountOfStETH < MIN_STETH_WITHDRAWAL_AMOUNT) {"
+        },
+        {
+          "line": 397,
+          "text": "            revert RequestAmountTooSmall(_amountOfStETH);"
+        },
+        {
+          "line": 398,
+          "text": "        }"
+        },
+        {
+          "line": 399,
+          "text": "        if (_amountOfStETH > MAX_STETH_WITHDRAWAL_AMOUNT) {"
+        },
+        {
+          "line": 400,
+          "text": "            revert RequestAmountTooLarge(_amountOfStETH);"
+        },
+        {
+          "line": 401,
+          "text": "        }"
+        },
+        {
+          "line": 402,
+          "text": "    }"
+        },
+        {
+          "line": 403,
+          "text": ""
+        },
+        {
+          "line": 404,
+          "text": "    /// @notice returns claimable ether under the request. Returns 0 if request is not finalized or claimed"
+        },
+        {
+          "line": 405,
+          "text": "    function _getClaimableEther(uint256 _requestId, uint256 _hint) internal view returns (uint256) {"
+        },
+        {
+          "line": 406,
+          "text": "        if (_requestId == 0 || _requestId > getLastRequestId()) revert InvalidRequestId(_requestId);"
+        },
+        {
+          "line": 407,
+          "text": ""
+        },
+        {
+          "line": 408,
+          "text": "        if (_requestId > getLastFinalizedRequestId()) return 0;"
+        },
+        {
+          "line": 409,
+          "text": ""
+        },
+        {
+          "line": 410,
+          "text": "        WithdrawalRequest storage request = _getQueue()[_requestId];"
+        },
+        {
+          "line": 411,
+          "text": "        if (request.claimed) return 0;"
+        }
+      ]
+    },
+    {
+      "source": "rocket-reth-source",
+      "url": "https://raw.githubusercontent.com/rocket-pool/rocketpool/master/contracts/contract/token/RocketTokenRETH.sol",
+      "retrieved_at_utc": "2026-11-08T15:26:19.426261+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "ae2d961e7ba87bf26b65ce1dcb02353393f3ef8944490e1a0f6ce941e4a25b7e",
+      "bytes_read": 8535,
+      "excerpts": [
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "    // Calculate the amount of ETH backing an amount of rETH"
+        },
+        {
+          "line": 39,
+          "text": "    function getEthValue(uint256 _rethAmount) override public view returns (uint256) {"
+        },
+        {
+          "line": 40,
+          "text": "        // Get network balances"
+        },
+        {
+          "line": 41,
+          "text": "        RocketNetworkBalancesInterface rocketNetworkBalances = RocketNetworkBalancesInterface(getContractAddress(\"rocketNetworkBalances\"));"
+        },
+        {
+          "line": 42,
+          "text": "        uint256 totalEthBalance = rocketNetworkBalances.getTotalETHBalance();"
+        },
+        {
+          "line": 43,
+          "text": "        uint256 rethSupply = rocketNetworkBalances.getTotalRETHSupply();"
+        },
+        {
+          "line": 44,
+          "text": "        // Use 1:1 ratio if no rETH is minted"
+        },
+        {
+          "line": 45,
+          "text": "        if (rethSupply == 0) { return _rethAmount; }"
+        },
+        {
+          "line": 46,
+          "text": "        // Calculate and return"
+        },
+        {
+          "line": 47,
+          "text": "        return _rethAmount.mul(totalEthBalance).div(rethSupply);"
+        },
+        {
+          "line": 48,
+          "text": "    }"
+        },
+        {
+          "line": 49,
+          "text": ""
+        },
+        {
+          "line": 50,
+          "text": "    // Calculate the amount of rETH backed by an amount of ETH"
+        },
+        {
+          "line": 51,
+          "text": "    function getRethValue(uint256 _ethAmount) override public view returns (uint256) {"
+        },
+        {
+          "line": 52,
+          "text": "        // Get network balances"
+        },
+        {
+          "line": 53,
+          "text": "        RocketNetworkBalancesInterface rocketNetworkBalances = RocketNetworkBalancesInterface(getContractAddress(\"rocketNetworkBalances\"));"
+        },
+        {
+          "line": 54,
+          "text": "        uint256 totalEthBalance = rocketNetworkBalances.getTotalETHBalance();"
+        },
+        {
+          "line": 55,
+          "text": "        uint256 rethSupply = rocketNetworkBalances.getTotalRETHSupply();"
+        },
+        {
+          "line": 56,
+          "text": "        // Use 1:1 ratio if no rETH is minted"
+        },
+        {
+          "line": 57,
+          "text": "        if (rethSupply == 0) { return _ethAmount; }"
+        },
+        {
+          "line": 58,
+          "text": "        // Check network ETH balance"
+        },
+        {
+          "line": 59,
+          "text": "        require(totalEthBalance > 0, \"Cannot calculate rETH token amount while total network balance is zero\");"
+        },
+        {
+          "line": 60,
+          "text": "        // Calculate and return"
+        },
+        {
+          "line": 61,
+          "text": "        return _ethAmount.mul(rethSupply).div(totalEthBalance);"
+        },
+        {
+          "line": 62,
+          "text": "    }"
+        },
+        {
+          "line": 63,
+          "text": ""
+        },
+        {
+          "line": 65,
+          "text": "    // Returns the amount of ETH backing 1 rETH"
+        },
+        {
+          "line": 66,
+          "text": "    function getExchangeRate() override external view returns (uint256) {"
+        },
+        {
+          "line": 67,
+          "text": "        return getEthValue(1 ether);"
+        },
+        {
+          "line": 68,
+          "text": "    }"
+        },
+        {
+          "line": 69,
+          "text": ""
+        },
+        {
+          "line": 70,
+          "text": "    // Get the total amount of collateral available"
+        },
+        {
+          "line": 71,
+          "text": "    // Includes rETH contract balance & excess deposit pool balance"
+        },
+        {
+          "line": 72,
+          "text": "    function getTotalCollateral() override public view returns (uint256) {"
+        },
+        {
+          "line": 73,
+          "text": "        RocketDepositPoolInterface rocketDepositPool = RocketDepositPoolInterface(getContractAddress(\"rocketDepositPool\"));"
+        },
+        {
+          "line": 74,
+          "text": "        return rocketDepositPool.getExcessBalance().add(address(this).balance);"
+        },
+        {
+          "line": 75,
+          "text": "    }"
+        },
+        {
+          "line": 76,
+          "text": ""
+        },
+        {
+          "line": 77,
+          "text": "    // Get the current ETH collateral rate"
+        },
+        {
+          "line": 78,
+          "text": "    // Returns the portion of rETH backed by ETH in the contract as a fraction of 1 ether"
+        },
+        {
+          "line": 79,
+          "text": "    function getCollateralRate() override public view returns (uint256) {"
+        },
+        {
+          "line": 80,
+          "text": "        uint256 totalEthValue = getEthValue(totalSupply());"
+        },
+        {
+          "line": 81,
+          "text": "        if (totalEthValue == 0) { return calcBase; }"
+        },
+        {
+          "line": 82,
+          "text": "        return calcBase.mul(address(this).balance).div(totalEthValue);"
+        },
+        {
+          "line": 83,
+          "text": "    }"
+        },
+        {
+          "line": 84,
+          "text": ""
+        },
+        {
+          "line": 85,
+          "text": "    // Deposit excess ETH from deposit pool"
+        },
+        {
+          "line": 86,
+          "text": "    // Only accepts calls from the RocketDepositPool contract"
+        },
+        {
+          "line": 87,
+          "text": "    function depositExcess() override external payable onlyLatestContract(\"rocketDepositPool\", msg.sender) {"
+        },
+        {
+          "line": 88,
+          "text": "        // Emit ether deposited event"
+        },
+        {
+          "line": 89,
+          "text": "        emit EtherDeposited(msg.sender, msg.value, block.timestamp);"
+        },
+        {
+          "line": 90,
+          "text": "    }"
+        },
+        {
+          "line": 91,
+          "text": ""
+        },
+        {
+          "line": 92,
+          "text": "    // Mint rETH"
+        },
+        {
+          "line": 94,
+          "text": "    function mint(uint256 _ethAmount, address _to) override external onlyLatestContract(\"rocketDepositPool\", msg.sender) {"
+        },
+        {
+          "line": 95,
+          "text": "        // Get rETH amount"
+        },
+        {
+          "line": 96,
+          "text": "        uint256 rethAmount = getRethValue(_ethAmount);"
+        },
+        {
+          "line": 97,
+          "text": "        // Check rETH amount"
+        },
+        {
+          "line": 98,
+          "text": "        require(rethAmount > 0, \"Invalid token mint amount\");"
+        },
+        {
+          "line": 99,
+          "text": "        // Update balance & supply"
+        },
+        {
+          "line": 100,
+          "text": "        _mint(_to, rethAmount);"
+        },
+        {
+          "line": 101,
+          "text": "        // Emit tokens minted event"
+        },
+        {
+          "line": 102,
+          "text": "        emit TokensMinted(_to, rethAmount, _ethAmount, block.timestamp);"
+        },
+        {
+          "line": 103,
+          "text": "    }"
+        },
+        {
+          "line": 104,
+          "text": ""
+        },
+        {
+          "line": 105,
+          "text": "    // Burn rETH for ETH"
+        },
+        {
+          "line": 106,
+          "text": "    function burn(uint256 _rethAmount) override external {"
+        },
+        {
+          "line": 107,
+          "text": "        // Check rETH amount"
+        },
+        {
+          "line": 108,
+          "text": "        require(_rethAmount > 0, \"Invalid token burn amount\");"
+        },
+        {
+          "line": 109,
+          "text": "        require(balanceOf(msg.sender) >= _rethAmount, \"Insufficient rETH balance\");"
+        },
+        {
+          "line": 110,
+          "text": "        // Get ETH amount"
+        },
+        {
+          "line": 111,
+          "text": "        uint256 ethAmount = getEthValue(_rethAmount);"
+        },
+        {
+          "line": 112,
+          "text": "        // Get & check ETH balance"
+        },
+        {
+          "line": 113,
+          "text": "        uint256 ethBalance = getTotalCollateral();"
+        },
+        {
+          "line": 114,
+          "text": "        require(ethBalance >= ethAmount, \"Insufficient ETH balance for exchange\");"
+        },
+        {
+          "line": 115,
+          "text": "        // Update balance & supply"
+        },
+        {
+          "line": 116,
+          "text": "        _burn(msg.sender, _rethAmount);"
+        },
+        {
+          "line": 117,
+          "text": "        // Withdraw ETH from deposit pool if required"
+        },
+        {
+          "line": 118,
+          "text": "        withdrawDepositCollateral(ethAmount);"
+        },
+        {
+          "line": 119,
+          "text": "        // Transfer ETH to sender"
+        },
+        {
+          "line": 120,
+          "text": "        msg.sender.transfer(ethAmount);"
+        },
+        {
+          "line": 121,
+          "text": "        // Emit tokens burned event"
+        },
+        {
+          "line": 122,
+          "text": "        emit TokensBurned(msg.sender, _rethAmount, ethAmount, block.timestamp);"
+        },
+        {
+          "line": 123,
+          "text": "    }"
+        },
+        {
+          "line": 124,
+          "text": ""
+        },
+        {
+          "line": 125,
+          "text": "    // Withdraw ETH from the deposit pool for collateral if required"
+        },
+        {
+          "line": 126,
+          "text": "    function withdrawDepositCollateral(uint256 _ethRequired) private {"
+        }
+      ]
+    }
+  ],
+  "mechanism": "wstETH unwrap按getPooledEthByShares换回stETH，不直接给ETH；队列request检查resumed和金额边界；getClaimableEther对未finalized或已claimed请求返回0。",
+  "observations": [
+    "官方Lido部署表chainId=1，取得stETH/wstETH/queue与实现地址，但缺链独立核对。",
+    "WstETH.sol:53-74 wrap/unwrap依赖shares比例，不是1wstETH=1stETH，更不是即刻1ETH。",
+    "WithdrawalQueue.sol:51-57源码边界100 stETH最小单位至1000*1e18 stETH单请求；这是源码值，不是实测可交易数量。",
+    "WithdrawalQueue.sol:218-230未最终化或已领取时claimable为0；claim需owner且已finalized。",
+    "RocketTokenRETH.sol:39-47兑换值取网络ETH余额/rETH供给；106-120 burn要求余额充足且总流动抵押>=要兑ETH。仅静态代码，无地址/链核验。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "ETH",
+    "type": "unverified_not_realized",
+    "unknown_costs": [
+      "DEX手续费与价格冲击",
+      "gas/授权",
+      "实际等待及资金占用",
+      "实际兑付数量/罚没风险"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "Lido请求需resumed、领取需owner与finalized；当前状态unknown",
+  "liabilities": "未交易；候选路径负债/残仓核算未模拟",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "主网实现非所读源码",
+    "队列暂停/额度或资格不满足",
+    "真实市场报价无差异",
+    "兑付等待或成本吞没差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
+    "https://raw.githubusercontent.com/rocket-pool/rocketpool/master/contracts/contract/token/RocketTokenRETH.sol"
+  ],
+  "coverage_gaps": [
+    "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
+    "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
+    "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
+    "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
+    "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
+  ],
+  "next_check": [
+    "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+    "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+    "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+    "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "chain": "ETH",
+      "protocol": "Lido WithdrawalQueueERC721",
+      "asset_ids": [
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+      ],
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+      "status": "UNVERIFIED",
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+      ],
+      "mechanism": "wstETH unwrap按getPooledEthByShares换回stETH，不直接给ETH；队列request检查resumed和金额边界；getClaimableEther对未finalized或已claimed请求返回0。",
+      "net_result": "unknown",
+      "unknown_costs": [
+        "DEX手续费与价格冲击",
+        "gas/授权",
+        "实际等待及资金占用",
+        "实际兑付数量/罚没风险"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "主网实现非所读源码",
+        "队列暂停/额度或资格不满足",
+        "真实市场报价无差异",
+        "兑付等待或成本吞没差额"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "wstETH份额价格低于某个ETH数值即为折价套利",
+      "reason": "需先按份额比例转换并区分DEX即卖、协议即时与排队出口；无可成交报价与完整成本。"
+    },
+    {
+      "claim": "rETH getEthValue即可无条件即时兑付",
+      "reason": "静态burn源码另检查getTotalCollateral；净值不等于当前可兑流动性，当前值unknown。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_SNAPSHOTS_ONLY",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-08T15:27:22.066753+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  }
+}

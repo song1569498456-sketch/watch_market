@@ -14,7 +14,21 @@
     "chain_slot": null,
     "historical_window_completed": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+        "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+        "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+      ],
+      "chain_slot": null,
+      "historical_window_completed": false
+    },
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "protocol": "Raydium",
@@ -45,7 +59,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:24:55.859069+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+  "record": "evidence/N-SOL/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "verified_at": "2026-11-08T15:25:36.912083+00:00",
+    "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+  }
 }

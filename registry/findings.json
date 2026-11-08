@@ -30,7 +30,39 @@
       ],
       "owner": "N-ETH",
       "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json",
+      "observations_by_role": {
+        "ETH01": {
+          "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+          "status": "UNVERIFIED",
+          "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+          ],
+          "mechanism": "wstETH unwrap按getPooledEthByShares换回stETH，不直接给ETH；队列request检查resumed和金额边界；getClaimableEther对未finalized或已claimed请求返回0。",
+          "net_result": "unknown",
+          "unknown_costs": [
+            "DEX手续费与价格冲击",
+            "gas/授权",
+            "实际等待及资金占用",
+            "实际兑付数量/罚没风险"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "主网实现非所读源码",
+            "队列暂停/额度或资格不满足",
+            "真实市场报价无差异",
+            "兑付等待或成本吞没差额"
+          ],
+          "owner": "ETH01",
+          "last_observed_run": "full-20261108T152118Z",
+          "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+        }
+      }
     },
     {
       "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
@@ -74,6 +106,36 @@
       "owner": "N-SOL",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "chain": "BNB",
+      "status": "REJECTED",
+      "market_ids": [
+        "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md"
+      ],
+      "mechanism": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。",
+      "scope_of_rejection": "只排除当前证据不足的公众无条件1:1赎回推断，不宣称所有当前/未来Lista兑换模块不存在。",
+      "unknown_costs": [
+        "买入/退出价格",
+        "gas",
+        "赎回资格/费用",
+        "等待与容量"
+      ],
+      "next_check": "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+      "handoff_to": [
+        "Q00",
+        "M00"
+      ],
+      "review_required": true,
+      "owner": "BNB01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB01/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

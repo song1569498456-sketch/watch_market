@@ -1,0 +1,13 @@
+{
+  "name": "rpc_identity",
+  "url": "https://api.mainnet-beta.solana.com",
+  "fetched_at_utc": "2026-11-08T15:26:44.094996+00:00",
+  "method": "POST",
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getGenesisHash"
+  },
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

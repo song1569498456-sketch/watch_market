@@ -1,13 +1,35 @@
 {
   "agent_id": "ETH01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_SNAPSHOTS_ONLY",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-08T15:27:22.066753+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方Lido部署表chainId=1，取得stETH/wstETH/queue与实现地址，但缺链独立核对。",
+    "WstETH.sol:53-74 wrap/unwrap依赖shares比例，不是1wstETH=1stETH，更不是即刻1ETH。",
+    "WithdrawalQueue.sol:51-57源码边界100 stETH最小单位至1000*1e18 stETH单请求；这是源码值，不是实测可交易数量。",
+    "WithdrawalQueue.sol:218-230未最终化或已领取时claimable为0；claim需owner且已finalized。",
+    "RocketTokenRETH.sol:39-47兑换值取网络ETH余额/rETH供给；106-120 burn要求余额充足且总流动抵押>=要兑ETH。仅静态代码，无地址/链核验。"
+  ],
+  "pending_questions": [
+    "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
+    "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
+    "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
+    "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
+    "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:27:22.066753+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ETH01/full-20261108T152118Z/record.json"
 }

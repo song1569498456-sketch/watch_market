@@ -192,8 +192,22 @@
     {
       "agent_id": "BNB01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:27:48.512703+00:00",
+      "actual_coverage": [
+        "Lista官方组织页发现gitbook仓库，目录→价格稳定→偿债→提款→部署表形成独立文档链。",
+        "价格稳定文档在lisUSD<1时描述借款人买入还债，而非所有持有人无条件兑换美元。",
+        "还款页指出approve不等于完成还款；文档有剩余15 lisUSD债务规则，仅为静态文档，现行参数未知。",
+        "提款页要求先还清自己的债务；文本说BNB提款7–15天、LST可即时、最低0.1 BNB，不能作为本轮已确认参数，也不是持币人的无条件现金赎回。"
+      ],
+      "coverage_gaps": [
+        "30天规则变更未遍历：只读取官方Gitbook当前文本，不含可验证修改/生效时间；旧Helio链接提示需重核版本。",
+        "7天活动、历史赎回交易、当前额度/储备/权限均未覆盖，RPC目标遭代理CONNECT 403。",
+        "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
+        "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。"
+      ],
+      "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "BNB02",
@@ -222,8 +236,24 @@
     {
       "agent_id": "ETH01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:27:22.066753+00:00",
+      "actual_coverage": [
+        "官方Lido部署表chainId=1，取得stETH/wstETH/queue与实现地址，但缺链独立核对。",
+        "WstETH.sol:53-74 wrap/unwrap依赖shares比例，不是1wstETH=1stETH，更不是即刻1ETH。",
+        "WithdrawalQueue.sol:51-57源码边界100 stETH最小单位至1000*1e18 stETH单请求；这是源码值，不是实测可交易数量。",
+        "WithdrawalQueue.sol:218-230未最终化或已领取时claimable为0；claim需owner且已finalized。",
+        "RocketTokenRETH.sol:39-47兑换值取网络ETH余额/rETH供给；106-120 burn要求余额充足且总流动抵押>=要兑ETH。仅静态代码，无地址/链核验。"
+      ],
+      "coverage_gaps": [
+        "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
+        "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
+        "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
+        "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
+        "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
+      ],
+      "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "ETH02",
@@ -300,8 +330,350 @@
     {
       "agent_id": "SOL01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:26:47.551008+00:00",
+      "actual_coverage": [
+        {
+          "name": "raydium_pool_discovery",
+          "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+          "fetched_at_utc": "2026-11-08T15:26:42.067296+00:00",
+          "method": "GET",
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "orca_pool_discovery",
+          "url": "https://api.orca.so/v2/solana/pools",
+          "fetched_at_utc": "2026-11-08T15:26:43.085906+00:00",
+          "method": "GET",
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "rpc_identity",
+          "url": "https://api.mainnet-beta.solana.com",
+          "fetched_at_utc": "2026-11-08T15:26:44.094996+00:00",
+          "method": "POST",
+          "request": {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "getGenesisHash"
+          },
+          "success": false,
+          "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+        },
+        {
+          "name": "raydium_cpmm_curve",
+          "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/raydium/cpmm/curve/calculator.ts",
+          "fetched_at_utc": "2026-11-08T15:26:45.102552+00:00",
+          "method": "GET",
+          "http_status": 200,
+          "sha256_sample": "5b7559ec23a97cd1bb826a1005d3b9c88d536c13ea934341988c4ae57d9bd2ed",
+          "excerpts": [
+            {
+              "line": 4,
+              "text": "import { ApiV3Token } from \"../../../api/type\";"
+            },
+            {
+              "line": 7,
+              "text": "import { CpmmFee as Fee } from \"./fee\";"
+            },
+            {
+              "line": 14,
+              "text": "export type SwapWithoutFeesResult = { destinationAmountSwapped: BN };"
+            },
+            {
+              "line": 16,
+              "text": "export type TradingTokenResult = { tokenAmount0: BN; tokenAmount1: BN };"
+            },
+            {
+              "line": 18,
+              "text": "export type SwapResult = {"
+            },
+            {
+              "line": 19,
+              "text": "  newInputVaultAmount: BN;"
+            },
+            {
+              "line": 20,
+              "text": "  newOutputVaultAmount: BN;"
+            },
+            {
+              "line": 21,
+              "text": "  inputAmount: BN;"
+            },
+            {
+              "line": 22,
+              "text": "  outputAmount: BN;"
+            },
+            {
+              "line": 23,
+              "text": "  tradeFee: BN;"
+            },
+            {
+              "line": 24,
+              "text": "  protocolFee: BN;"
+            },
+            {
+              "line": 25,
+              "text": "  fundFee: BN;"
+            },
+            {
+              "line": 26,
+              "text": "  creatorFee: BN;"
+            },
+            {
+              "line": 39,
+              "text": "  static validate_supply(tokenAmount0: BN, tokenAmount1: BN): void {"
+            },
+            {
+              "line": 40,
+              "text": "    if (tokenAmount0.isZero()) throw Error(\"tokenAmount0 is zero\");"
+            },
+            {
+              "line": 41,
+              "text": "    if (tokenAmount1.isZero()) throw Error(\"tokenAmount1 is zero\");"
+            },
+            {
+              "line": 44,
+              "text": "  static swapBaseInput("
+            },
+            {
+              "line": 45,
+              "text": "    inputAmount: BN,"
+            },
+            {
+              "line": 46,
+              "text": "    inputVaultAmount: BN,"
+            },
+            {
+              "line": 47,
+              "text": "    outputVaultAmount: BN,"
+            },
+            {
+              "line": 48,
+              "text": "    tradeFeeRate: BN,"
+            },
+            {
+              "line": 49,
+              "text": "    creatorFeeRate: BN,"
+            },
+            {
+              "line": 50,
+              "text": "    protocolFeeRate: BN,"
+            },
+            {
+              "line": 51,
+              "text": "    fundFeeRate: BN,"
+            },
+            {
+              "line": 52,
+              "text": "    isCreatorFeeOnInput: boolean,"
+            },
+            {
+              "line": 53,
+              "text": "  ): SwapResult {"
+            },
+            {
+              "line": 54,
+              "text": "    let creatorFee = new BN(0);"
+            },
+            {
+              "line": 56,
+              "text": "    const tradeFee = Fee.tradingFee(inputAmount, tradeFeeRate);"
+            },
+            {
+              "line": 58,
+              "text": "    let inputAmountLessFees;"
+            },
+            {
+              "line": 59,
+              "text": "    if (isCreatorFeeOnInput) {"
+            },
+            {
+              "line": 60,
+              "text": "      creatorFee = Fee.creatorFee(inputAmount, creatorFeeRate);"
+            },
+            {
+              "line": 61,
+              "text": "      inputAmountLessFees = inputAmount.sub(tradeFee).sub(creatorFee);"
+            },
+            {
+              "line": 63,
+              "text": "      inputAmountLessFees = inputAmount.sub(tradeFee);"
+            },
+            {
+              "line": 66,
+              "text": "    const protocolFee = Fee.protocolFee(tradeFee, protocolFeeRate);"
+            },
+            {
+              "line": 67,
+              "text": "    const fundFee = Fee.protocolFee(tradeFee, fundFeeRate);"
+            }
+          ],
+          "success": true
+        },
+        {
+          "name": "orca_swap_instruction",
+          "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/swap.rs",
+          "fetched_at_utc": "2026-11-08T15:26:46.328765+00:00",
+          "method": "GET",
+          "http_status": 200,
+          "sha256_sample": "0d5b23ba9226a7c741bf1a8de949d80504c5b0cdb0d422bd9fe2b168ed8808ee",
+          "excerpts": [
+            {
+              "line": 2,
+              "text": "use anchor_spl::token::{self, Token, TokenAccount};"
+            },
+            {
+              "line": 7,
+              "text": "    manager::swap_manager::*,"
+            },
+            {
+              "line": 8,
+              "text": "    state::{OracleAccessor, Whirlpool},"
+            },
+            {
+              "line": 9,
+              "text": "    util::{to_timestamp_u64, update_and_swap_whirlpool, SparseSwapTickSequenceBuilder},"
+            },
+            {
+              "line": 13,
+              "text": "pub struct Swap<'info> {"
+            },
+            {
+              "line": 14,
+              "text": "    #[account(address = token::ID)]"
+            },
+            {
+              "line": 15,
+              "text": "    pub token_program: Program<'info, Token>,"
+            },
+            {
+              "line": 17,
+              "text": "    pub token_authority: Signer<'info>,"
+            },
+            {
+              "line": 20,
+              "text": "    pub whirlpool: Box<Account<'info, Whirlpool>>,"
+            },
+            {
+              "line": 22,
+              "text": "    #[account(mut, constraint = token_owner_account_a.mint == whirlpool.token_mint_a)]"
+            },
+            {
+              "line": 23,
+              "text": "    pub token_owner_account_a: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 24,
+              "text": "    #[account(mut, address = whirlpool.token_vault_a)]"
+            },
+            {
+              "line": 25,
+              "text": "    pub token_vault_a: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 27,
+              "text": "    #[account(mut, constraint = token_owner_account_b.mint == whirlpool.token_mint_b)]"
+            },
+            {
+              "line": 28,
+              "text": "    pub token_owner_account_b: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 29,
+              "text": "    #[account(mut, address = whirlpool.token_vault_b)]"
+            },
+            {
+              "line": 30,
+              "text": "    pub token_vault_b: Box<Account<'info, TokenAccount>>,"
+            },
+            {
+              "line": 44,
+              "text": "    #[account(seeds = [b\"oracle\", whirlpool.key().as_ref()], bump)]"
+            },
+            {
+              "line": 47,
+              "text": "    // Special notes to support pools with AdaptiveFee:"
+            },
+            {
+              "line": 48,
+              "text": "    // - For trades on pool using AdaptiveFee, pass oracle as writable accounts in the remaining accounts."
+            },
+            {
+              "line": 56,
+              "text": "    ctx: Context<Swap>,"
+            },
+            {
+              "line": 57,
+              "text": "    amount: u64,"
+            },
+            {
+              "line": 58,
+              "text": "    other_amount_threshold: u64,"
+            },
+            {
+              "line": 60,
+              "text": "    amount_specified_is_input: bool,"
+            },
+            {
+              "line": 63,
+              "text": "    let whirlpool = &mut ctx.accounts.whirlpool;"
+            },
+            {
+              "line": 68,
+              "text": "    let swap_tick_sequence_builder = SparseSwapTickSequenceBuilder::new("
+            },
+            {
+              "line": 76,
+              "text": "    let mut swap_tick_sequence = swap_tick_sequence_builder.try_build(whirlpool, a_to_b)?;"
+            },
+            {
+              "line": 78,
+              "text": "    let oracle_accessor = OracleAccessor::new(whirlpool, ctx.accounts.oracle.to_account_info())?;"
+            },
+            {
+              "line": 82,
+              "text": "    let adaptive_fee_info = oracle_accessor.get_adaptive_fee_info()?;"
+            },
+            {
+              "line": 84,
+              "text": "    let swap_update = swap("
+            },
+            {
+              "line": 85,
+              "text": "        whirlpool,"
+            },
+            {
+              "line": 86,
+              "text": "        &mut swap_tick_sequence,"
+            },
+            {
+              "line": 87,
+              "text": "        amount,"
+            },
+            {
+              "line": 89,
+              "text": "        amount_specified_is_input,"
+            },
+            {
+              "line": 92,
+              "text": "        &adaptive_fee_info,"
+            }
+          ],
+          "success": true
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则变更窗口未覆盖：无生效事件或版本历史核查。",
+        "7天活动窗口未覆盖：无交易/slot与有限范围事件查询。",
+        "两独立DEX当前池发现API被CONNECT 403拒绝，未取得池/mint/账户owner及储备。",
+        "无法验证同mint与Token Program、底层池独立性、禁卖/激活状态、Token-2022扩展。",
+        "无同slot两腿指定数量报价、数量收益曲线、容量或完整路径模拟。"
+      ],
+      "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SOL02",

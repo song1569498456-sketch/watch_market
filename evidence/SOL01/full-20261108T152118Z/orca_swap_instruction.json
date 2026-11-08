@@ -1,0 +1,151 @@
+{
+  "name": "orca_swap_instruction",
+  "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/swap.rs",
+  "fetched_at_utc": "2026-11-08T15:26:46.328765+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "0d5b23ba9226a7c741bf1a8de949d80504c5b0cdb0d422bd9fe2b168ed8808ee",
+  "excerpts": [
+    {
+      "line": 2,
+      "text": "use anchor_spl::token::{self, Token, TokenAccount};"
+    },
+    {
+      "line": 7,
+      "text": "    manager::swap_manager::*,"
+    },
+    {
+      "line": 8,
+      "text": "    state::{OracleAccessor, Whirlpool},"
+    },
+    {
+      "line": 9,
+      "text": "    util::{to_timestamp_u64, update_and_swap_whirlpool, SparseSwapTickSequenceBuilder},"
+    },
+    {
+      "line": 13,
+      "text": "pub struct Swap<'info> {"
+    },
+    {
+      "line": 14,
+      "text": "    #[account(address = token::ID)]"
+    },
+    {
+      "line": 15,
+      "text": "    pub token_program: Program<'info, Token>,"
+    },
+    {
+      "line": 17,
+      "text": "    pub token_authority: Signer<'info>,"
+    },
+    {
+      "line": 20,
+      "text": "    pub whirlpool: Box<Account<'info, Whirlpool>>,"
+    },
+    {
+      "line": 22,
+      "text": "    #[account(mut, constraint = token_owner_account_a.mint == whirlpool.token_mint_a)]"
+    },
+    {
+      "line": 23,
+      "text": "    pub token_owner_account_a: Box<Account<'info, TokenAccount>>,"
+    },
+    {
+      "line": 24,
+      "text": "    #[account(mut, address = whirlpool.token_vault_a)]"
+    },
+    {
+      "line": 25,
+      "text": "    pub token_vault_a: Box<Account<'info, TokenAccount>>,"
+    },
+    {
+      "line": 27,
+      "text": "    #[account(mut, constraint = token_owner_account_b.mint == whirlpool.token_mint_b)]"
+    },
+    {
+      "line": 28,
+      "text": "    pub token_owner_account_b: Box<Account<'info, TokenAccount>>,"
+    },
+    {
+      "line": 29,
+      "text": "    #[account(mut, address = whirlpool.token_vault_b)]"
+    },
+    {
+      "line": 30,
+      "text": "    pub token_vault_b: Box<Account<'info, TokenAccount>>,"
+    },
+    {
+      "line": 44,
+      "text": "    #[account(seeds = [b\"oracle\", whirlpool.key().as_ref()], bump)]"
+    },
+    {
+      "line": 47,
+      "text": "    // Special notes to support pools with AdaptiveFee:"
+    },
+    {
+      "line": 48,
+      "text": "    // - For trades on pool using AdaptiveFee, pass oracle as writable accounts in the remaining accounts."
+    },
+    {
+      "line": 56,
+      "text": "    ctx: Context<Swap>,"
+    },
+    {
+      "line": 57,
+      "text": "    amount: u64,"
+    },
+    {
+      "line": 58,
+      "text": "    other_amount_threshold: u64,"
+    },
+    {
+      "line": 60,
+      "text": "    amount_specified_is_input: bool,"
+    },
+    {
+      "line": 63,
+      "text": "    let whirlpool = &mut ctx.accounts.whirlpool;"
+    },
+    {
+      "line": 68,
+      "text": "    let swap_tick_sequence_builder = SparseSwapTickSequenceBuilder::new("
+    },
+    {
+      "line": 76,
+      "text": "    let mut swap_tick_sequence = swap_tick_sequence_builder.try_build(whirlpool, a_to_b)?;"
+    },
+    {
+      "line": 78,
+      "text": "    let oracle_accessor = OracleAccessor::new(whirlpool, ctx.accounts.oracle.to_account_info())?;"
+    },
+    {
+      "line": 82,
+      "text": "    let adaptive_fee_info = oracle_accessor.get_adaptive_fee_info()?;"
+    },
+    {
+      "line": 84,
+      "text": "    let swap_update = swap("
+    },
+    {
+      "line": 85,
+      "text": "        whirlpool,"
+    },
+    {
+      "line": 86,
+      "text": "        &mut swap_tick_sequence,"
+    },
+    {
+      "line": 87,
+      "text": "        amount,"
+    },
+    {
+      "line": 89,
+      "text": "        amount_specified_is_input,"
+    },
+    {
+      "line": 92,
+      "text": "        &adaptive_fee_info,"
+    }
+  ],
+  "success": true
+}

@@ -1,0 +1,123 @@
+{
+  "started_at": "2026-11-08T15:26:08.522058+00:00",
+  "results": [
+    {
+      "name": "lista_docs",
+      "url": "https://docs.lista.org/technical-reference/mainnet-contracts",
+      "fetched_at": "2026-11-08T15:26:08.522063+00:00",
+      "method": "GET",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "bnb_rpc",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "fetched_at": "2026-11-08T15:26:09.540822+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "lista_org",
+      "url": "https://github.com/orgs/lista-dao/repositories",
+      "fetched_at": "2026-11-08T15:26:10.547141+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "repo_names": [
+        "/lista-dao/AuctionBots",
+        "/lista-dao/AuctionBots-go",
+        "/lista-dao/farming",
+        "/lista-dao/gitbook",
+        "/lista-dao/lending-sdk",
+        "/lista-dao/lista-audit",
+        "/lista-dao/lista-dao-contracts",
+        "/lista-dao/lista-eth-contracts",
+        "/lista-dao/lista-mcp-server",
+        "/lista-dao/lista-new-contracts",
+        "/lista-dao/lista-skills",
+        "/lista-dao/lista-smart-contracts_deprecated",
+        "/lista-dao/lista-token",
+        "/lista-dao/lista-v2",
+        "/lista-dao/lista-v3",
+        "/lista-dao/moolah",
+        "/lista-dao/synclub-contracts",
+        "/lista-dao/web3modal"
+      ]
+    },
+    {
+      "name": "venus_readme",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/README.md",
+      "fetched_at": "2026-11-08T15:26:12.492279+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "note": "仅发现入口读取；未深入该协议，不作为本轮稳定币赎回证据。"
+    },
+    {
+      "name": "lista_docs_index",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/SUMMARY.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:24.594034+00:00",
+      "http_status": 200,
+      "snapshot": "# Table of contents\n\n* [Overview](README.md)\n\n## GET STARTED\n\n* [Provide collateral](get-started/provide-collateral.md)\n* [Collateral options](get-started/collateral-options/README.md)\n  * [Classic collateral options](get-started/collateral-options/classic-collateral-options.md)\n  * [LST Collateral Options](get-started/collateral-options/lst-collateral-options.md)\n  * [LRT Collateral Options](get-started/collateral-options/lrt-collateral-options.md)\n* [Borrow lisUSD](get-started/borrow-lisusd.md)\n* [Farm lisUSD](get-started/farm-lisusd/README.md)\n  * [Farming on Magpie](get-started/farm-lisusd/farming-on-magpie.md)\n  * [Farming on Thena](get-started/farm-lisusd/farming-on-thena.md)\n  * [Farming on Wombat](get-started/farm-lisusd/farming-on-wombat.md)\n* [Add Liquidity to lisUSD](get-started/add-liquidity-to-lisusd/README.md)\n  * [Liquidity Pools on Uniswap](get-started/add-liquidity-to-lisusd/liquidity-pools-on-uniswap.md)\n  * [Liquidity Pools on PancakeSwap](get-started/add-liquidity-to-lisusd/liquidity-pools-on-pancakeswap.md)\n* [Boost-vault lisUSD](get-started/boost-vault-lisusd.md)\n* [Repay lisUSD](get-started/repay-lisusd.md)\n* [Withdraw collateral](get-started/withdraw-collateral.md)\n* [Using Binance Web3 Wallet](get-started/using-binance-web3-wallet/README.md)\n  * [Liquid staking BNB into slisBNB](get-started/using-binance-web3-wallet/liquid-staking-bnb-into-slisbnb.md)\n  * [Obtaining lisUSD](get-started/using-binance-web3-wallet/obtaining-lisusd.md)\n  * [Trading on APX Finance](get-started/using-binance-web3-wallet/trading-on-apx-finance.md)\n* [About slisBNB](get-started/about-slisbnb/README.md)\n  * [How to Get slisBNB](get-started/about-slisbnb/how-to-get-slisbnb.md)\n  * [How to mint slisBNB](get-started/about-slisbnb/how-to-mint-slisbnb.md)\n  * [How to redeem BNB from slisBNB](get-started/about-slisbnb/how-to-redeem-bnb-from-slisbnb.md)\n  * [Rewards and Fees](get-started/about-slisbnb/rewards-and-fees.md)\n  * [Protocol](get-started/about-slisbnb/protocol/README.md)\n    * [Security](get-started/about-slisbnb/protocol/security.md)\n    * [Mainnet deployment](get-started/about-slisbnb/protocol/mainnet-deployment.md)\n\n***\n\n* [About Lista token](about-lista-token.md)\n\n## TOKENS\n\n* [Tokenomics](tokens/tokenomics.md)\n* [LISTA distribution](tokens/lista-distribution.md)\n* [Price stability](tokens/price-stability.md)\n\n## protocol\n\n* [Loan liquidation](protocol/loan-liquidation.md)\n\n***\n\n* [Security](security.md)\n* [Roadmap](roadmap.md)\n* [FAQ](faq.md)\n\n## for-developers\n\n* [Lista mechanics](for-developers/lista-mechanics.md)\n* [Flash Loan](for-developers/flash-loan.md)\n* [Smart contracts addresses](for-developers/smart-contracts-addresses.md)\n* [Multi-Oracle](for-developers/multi-oracle.md)\n\n## Legal Disclaimer\n\n* [Legal Disclaimer](legal-disclaimer/legal-disclaimer.md)\n"
+    },
+    {
+      "name": "lista_contract_readme",
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-new-contracts/main/README.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:25.890639+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "price_stability",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:36.036567+00:00",
+      "http_status": 200,
+      "snapshot": "# Price stability\n\nIt is important to remember that destablecoins are not more prone to de-pegging or de-stabilizing than stablecoins. All stablecoins are at risk of de-pegging, and thus the word “stablecoins” have always been a misnomer. In addition, having a “peg” with fiat currencies does not guarantee stability due to inflation. Furthermore, traditional fiat-currencies also have varying reference rates and interest rate parity. Yet, most would still consider the US Dollar a stable benchmark for global currency.&#x20;\n\nThe misnaming of this asset is critical as it obscures any inherent risk to holding such an asset. Every type of asset class has its potential strengths and weaknesses, and that should be clearly reflected to investors.\n\n## lisUSD's price stability mechanism[​](https://helio.money/docs/price-stability#hays-price-stability-mechanism) <a href=\"#hays-price-stability-mechanism\" id=\"hays-price-stability-mechanism\"></a>\n\nThe Lista is able to maintain lisUSD’s $1 value with respect to USD in the following scenarios:\n\n### When lisUSD > $1, the supply of lisUSD needs to increase:\n\n* Since lisUSD is at a premium, borrowers are incentivized to borrow more lisUSD to sell for other assets for arbitrage opportunities.\n* To reduce demand for lisUSD farming, Lista will reduce lisUSD farming rewards by decreasing lisUSD borrowing interest.\n\n### When lisUSD< $1, the supply of lisUSD needs to decrease\n\n* Since lisUSD is at a discount, borrowers are incentivized to buy lisUSD from the market to pay back the debt.\n* To decrease lisUSD borrowing demand, Lista will increase lisUSD borrowing interest, which increases lisUSD farming rewards\n"
+    },
+    {
+      "name": "contracts",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:37.329396+00:00",
+      "http_status": 200,
+      "selected_rows": [
+        "   HayJoin    HayJoin     ",
+        "   lisUSD    lisUSD     ",
+        "   Interaction    Interaction     "
+      ],
+      "selected_addresses": {
+        "lisUSD": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+        "Interaction": "0xB68443Ee3e828baD1526b3e0Bdf2Dfc6b1975ec4",
+        "HayJoin": "0x4C798F81de7736620Cd8e6510158b1fE758e22F7"
+      }
+    },
+    {
+      "name": "repay",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:38.706987+00:00",
+      "http_status": 200,
+      "snapshot": "# Repay lisUSD\n\n{% hint style=\"info\" %}\n**NOTE**\n\nThe **Approve** operation does not mean the repayment is complete.&#x20;\n\n\\\nYour loan cannot go under 15 lisUSD, so you can either choose to repay it to the remainder of 15 lisUSD or in full.\n{% endhint %}\n\nTo repay back your lisUSD loan:\n\n1. On the [borrow page](https://helio.money/app/loans/), click **Repay** under **My Borrowed Funds**.\n2. On the next page, enter the amount of lisUSD you intend to repay back and click **Approve**.\n3. Confirm the action in MetaMask.\n4. After the approval is complete, click **Proceed** to submit the repaying transaction.\n5. Once the transaction completes, click **Okay** to go to the borrow page and see if the outstanding loan is repaid.\n"
+    },
+    {
+      "name": "withdraw",
+      "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:39.961261+00:00",
+      "http_status": 200,
+      "snapshot": "# Withdraw collateral\n\n{% hint style=\"info\" %}\n**Longer vs instant withdrawal**\n\nBefore withdrawing, please ensure your outstanding loan is repaid to avoid liquidation of your collateral.\n\n\\\n**BNB**\n\nBNB takes 7–15 days to be withdrawn, while withdrawing BNB LSTs (Eg. slisBNB) is immediate.\n\nslisBNB is the interest-bearing BNB staking asset and allows you either exchange it for BNB on major DEXs or hold and keep getting BNB Staking rewards that accumulate in slisBNB over time. The longer you hold, the more BNB you'll get when exchanging BNB LSTs to BNB.\n\n\n\nThe minimum amount to withdraw is 0.1 BNB.\n{% endhint %}\n\nTo withdraw your BNB:\n\n1. On the [borrow page ](https://helio.money/app/loans/), click the **-** button under **My Collateral** to withdraw your BNB.\n2. On the next page, enter the desired amount to withdraw and choose the option: BNB or BNB LSTs. Then click **Proceed**.\n3. Confirm the transaction in MetaMask to receive the withdrawn assets to the connected MetaMask wallet address.\n4. Once the transaction completes, click **Okay** to go back to the borrow page.\n"
+    },
+    {
+      "name": "lisusd_pool_discovery",
+      "url": "https://api.dexscreener.com/tokens/v1/bsc/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:26:58.929007+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

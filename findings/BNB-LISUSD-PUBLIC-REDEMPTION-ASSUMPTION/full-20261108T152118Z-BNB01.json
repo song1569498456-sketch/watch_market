@@ -1,0 +1,30 @@
+{
+  "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+  "chain": "BNB",
+  "status": "REJECTED",
+  "market_ids": [
+    "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md"
+  ],
+  "mechanism": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。",
+  "scope_of_rejection": "只排除当前证据不足的公众无条件1:1赎回推断，不宣称所有当前/未来Lista兑换模块不存在。",
+  "unknown_costs": [
+    "买入/退出价格",
+    "gas",
+    "赎回资格/费用",
+    "等待与容量"
+  ],
+  "next_check": "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+  "handoff_to": [
+    "Q00",
+    "M00"
+  ],
+  "review_required": true,
+  "owner": "BNB01",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/BNB01/full-20261108T152118Z/record.json"
+}

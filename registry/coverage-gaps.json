@@ -150,6 +150,151 @@
         "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
         "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
       ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
+      "next_check": [
+        "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+        "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+        "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+        "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
+      "next_check": [
+        "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+        "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+        "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+        "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
+      "next_check": [
+        "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+        "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+        "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+        "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
+      "next_check": [
+        "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+        "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+        "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+        "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。",
+      "next_check": [
+        "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
+        "读取getStETHByWstETH、getLastRequestId/getLastFinalizedRequestId、getWithdrawalStatus/getClaimableEther及暂停状态，逐量读取DEX同区块报价。",
+        "自主继续核验Rocket Pool主网部署后读取getEthValue/getTotalCollateral并核对当前burn条件。",
+        "取得等待天数后只给盈亏平衡年化成本=(预期ETH出/ETH入-1)*365/天数，不代填用户资金成本；等待/出额未锁定时给情景而非锁定收益。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则变更未遍历：只读取官方Gitbook当前文本，不含可验证修改/生效时间；旧Helio链接提示需重核版本。",
+      "next_check": [
+        "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+        "用可访问BNB RPC核对chainId=56并读额度、暂停、黑名单、用户资格和实际余额；补查30天变更与7天交易。",
+        "找到真实DEX池和公开出口后，以最小单位及递增数量采样，核算买入→凭证→可支配输出；无出口继续排除。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动、历史赎回交易、当前额度/储备/权限均未覆盖，RPC目标遭代理CONNECT 403。",
+      "next_check": [
+        "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+        "用可访问BNB RPC核对chainId=56并读额度、暂停、黑名单、用户资格和实际余额；补查30天变更与7天交易。",
+        "找到真实DEX池和公开出口后，以最小单位及递增数量采样，核算买入→凭证→可支配输出；无出口继续排除。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
+      "next_check": [
+        "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+        "用可访问BNB RPC核对chainId=56并读额度、暂停、黑名单、用户资格和实际余额；补查30天变更与7天交易。",
+        "找到真实DEX池和公开出口后，以最小单位及递增数量采样，核算买入→凭证→可支配输出；无出口继续排除。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。",
+      "next_check": [
+        "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+        "用可访问BNB RPC核对chainId=56并读额度、暂停、黑名单、用户资格和实际余额；补查30天变更与7天交易。",
+        "找到真实DEX池和公开出口后，以最小单位及递增数量采样，核算买入→凭证→可支配输出；无出口继续排除。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则变更窗口未覆盖：无生效事件或版本历史核查。",
+      "next_check": [
+        "允许api-v3.raydium.io、api.orca.so与api.mainnet-beta.solana.com后，发现实际独立市场并读取mint/owner/储备/slot。",
+        "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
+        "补30天规则与7天事件窗口，再判断价差来源和时效。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动窗口未覆盖：无交易/slot与有限范围事件查询。",
+      "next_check": [
+        "允许api-v3.raydium.io、api.orca.so与api.mainnet-beta.solana.com后，发现实际独立市场并读取mint/owner/储备/slot。",
+        "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
+        "补30天规则与7天事件窗口，再判断价差来源和时效。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "两独立DEX当前池发现API被CONNECT 403拒绝，未取得池/mint/账户owner及储备。",
+      "next_check": [
+        "允许api-v3.raydium.io、api.orca.so与api.mainnet-beta.solana.com后，发现实际独立市场并读取mint/owner/储备/slot。",
+        "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
+        "补30天规则与7天事件窗口，再判断价差来源和时效。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无法验证同mint与Token Program、底层池独立性、禁卖/激活状态、Token-2022扩展。",
+      "next_check": [
+        "允许api-v3.raydium.io、api.orca.so与api.mainnet-beta.solana.com后，发现实际独立市场并读取mint/owner/储备/slot。",
+        "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
+        "补30天规则与7天事件窗口，再判断价差来源和时效。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无同slot两腿指定数量报价、数量收益曲线、容量或完整路径模拟。",
+      "next_check": [
+        "允许api-v3.raydium.io、api.orca.so与api.mainnet-beta.solana.com后，发现实际独立市场并读取mint/owner/储备/slot。",
+        "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
+        "补30天规则与7天事件窗口，再判断价差来源和时效。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -30,7 +30,8 @@
       "duration_seconds": 100.268,
       "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-BNB/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
     },
     "N-ETH": {
       "status": "PARTIAL",
@@ -38,7 +39,8 @@
       "duration_seconds": 104.444,
       "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-ETH/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
     },
     "N-OP": {
       "status": "NOT_STARTED"
@@ -52,7 +54,8 @@
       "duration_seconds": 87.139,
       "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-SOL/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
     },
     "N-SONIC": {
       "status": "NOT_STARTED"
@@ -91,7 +94,12 @@
       "status": "NOT_STARTED"
     },
     "BNB01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "REJECTED",
+      "duration_seconds": 99.991,
+      "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BNB01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD"
     },
     "BNB02": {
       "status": "NOT_STARTED"
@@ -106,7 +114,12 @@
       "status": "NOT_STARTED"
     },
     "ETH01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 68.753,
+      "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ETH01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD"
     },
     "ETH02": {
       "status": "NOT_STARTED"
@@ -145,7 +158,12 @@
       "status": "NOT_STARTED"
     },
     "SOL01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 5.484,
+      "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/SOL01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD"
     },
     "SOL02": {
       "status": "NOT_STARTED"
@@ -178,6 +196,17 @@
         "N-SOL"
       ],
       "merged_at": "2026-11-08T15:25:34.230974+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
+    },
+    {
+      "batch": 2,
+      "agents": [
+        "ETH01",
+        "BNB01",
+        "SOL01"
+      ],
+      "merged_at": "2026-11-08T15:28:07.989020+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -188,6 +217,13 @@
       "verified_at": "2026-11-08T15:25:26.301474+00:00",
       "verified_files": 22,
       "label": "batch 01 N-ETH N-BNB N-SOL"
+    },
+    {
+      "commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+      "remote_head": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+      "verified_at": "2026-11-08T15:25:36.912083+00:00",
+      "verified_files": 28,
+      "label": "batch 01 complete role registry and state merge"
     }
   ]
 }

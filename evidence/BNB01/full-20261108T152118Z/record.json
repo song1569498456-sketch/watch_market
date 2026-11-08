@@ -1,0 +1,148 @@
+{
+  "agent_id": "BNB01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB Chain稳定币折价买入与真实赎回；自主发现Lista lisUSD，排除无条件公众1:1兑付假设",
+  "started_at": "2026-11-08T15:26:08.522058+00:00",
+  "finished_at": "2026-11-08T15:27:48.512703+00:00",
+  "duration_seconds": 99.991,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": "2026-11-08T15:27:48.512703+00:00",
+  "block_or_slot": null,
+  "market_ids": [
+    "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
+  ],
+  "asset_ids": [
+    "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5"
+  ],
+  "discovery_source": [
+    "https://docs.lista.org/technical-reference/mainnet-contracts",
+    "https://bsc-dataseed.bnbchain.org",
+    "https://github.com/orgs/lista-dao/repositories",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/README.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/SUMMARY.md",
+    "https://raw.githubusercontent.com/lista-dao/lista-new-contracts/main/README.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+    "https://api.dexscreener.com/tokens/v1/bsc/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5"
+  ],
+  "mechanism": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。",
+  "observations": [
+    "Lista官方组织页发现gitbook仓库，目录→价格稳定→偿债→提款→部署表形成独立文档链。",
+    "价格稳定文档在lisUSD<1时描述借款人买入还债，而非所有持有人无条件兑换美元。",
+    "还款页指出approve不等于完成还款；文档有剩余15 lisUSD债务规则，仅为静态文档，现行参数未知。",
+    "提款页要求先还清自己的债务；文本说BNB提款7–15天、LST可即时、最低0.1 BNB，不能作为本轮已确认参数，也不是持币人的无条件现金赎回。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "买入/退出价格",
+      "交易费用",
+      "gas/优先费",
+      "转账限制",
+      "赎回费用及等待成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "公开赎回资格未确认；文档所述抵押物提款依赖自己仓位与偿债",
+  "liabilities": "持有人既有债务unknown；新买入lisUSD不自动产生他人的抵押物权利",
+  "waiting_time": "unknown；7–15天仅旧文档BNB提款描述，未核验当前参数",
+  "invalidation_conditions": [
+    "发现已核验现行公众兑换模块可重开研究",
+    "当前部署/规则与文档不同",
+    "无法取得同状态报价/额度"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
+    "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md"
+  ],
+  "coverage_gaps": [
+    "30天规则变更未遍历：只读取官方Gitbook当前文本，不含可验证修改/生效时间；旧Helio链接提示需重核版本。",
+    "7天活动、历史赎回交易、当前额度/储备/权限均未覆盖，RPC目标遭代理CONNECT 403。",
+    "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
+    "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。"
+  ],
+  "next_check": [
+    "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+    "用可访问BNB RPC核对chainId=56并读额度、暂停、黑名单、用户资格和实际余额；补查30天变更与7天交易。",
+    "找到真实DEX池和公开出口后，以最小单位及递增数量采样，核算买入→凭证→可支配输出；无出口继续排除。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4",
+      "chain": "BNB",
+      "protocol": "Lista lisUSD",
+      "asset_ids": [
+        "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md"
+      ],
+      "identity_status": "DOCUMENT_ONLY_VERSION_UNCONFIRMED",
+      "next_check": "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "chain": "BNB",
+      "status": "REJECTED",
+      "market_ids": [
+        "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
+        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md"
+      ],
+      "mechanism": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。",
+      "scope_of_rejection": "只排除当前证据不足的公众无条件1:1赎回推断，不宣称所有当前/未来Lista兑换模块不存在。",
+      "unknown_costs": [
+        "买入/退出价格",
+        "gas",
+        "赎回资格/费用",
+        "等待与容量"
+      ],
+      "next_check": "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
+      "handoff_to": [
+        "Q00",
+        "M00"
+      ],
+      "review_required": true
+    }
+  ],
+  "rejections": [
+    {
+      "case": "lisUSD nominal peg -> public redemption",
+      "reason": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。"
+    },
+    {
+      "case": "repay own debt -> profit for every holder",
+      "reason": "偿债减少负债并释放自己的抵押物；不是凭空取得额外自由资产，更不能忽略最初抵押和债务。"
+    }
+  ],
+  "observed_cursor": {
+    "documents_read": [
+      "price-stability",
+      "repay-lisusd",
+      "withdraw-collateral",
+      "smart-contracts-addresses"
+    ],
+    "chain_block": null,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

@@ -1,13 +1,38 @@
 {
   "agent_id": "BNB01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "documents_read": [
+      "price-stability",
+      "repay-lisusd",
+      "withdraw-collateral",
+      "smart-contracts-addresses"
+    ],
+    "chain_block": null,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Lista官方组织页发现gitbook仓库，目录→价格稳定→偿债→提款→部署表形成独立文档链。",
+    "价格稳定文档在lisUSD<1时描述借款人买入还债，而非所有持有人无条件兑换美元。",
+    "还款页指出approve不等于完成还款；文档有剩余15 lisUSD债务规则，仅为静态文档，现行参数未知。",
+    "提款页要求先还清自己的债务；文本说BNB提款7–15天、LST可即时、最低0.1 BNB，不能作为本轮已确认参数，也不是持币人的无条件现金赎回。"
+  ],
+  "pending_questions": [
+    "30天规则变更未遍历：只读取官方Gitbook当前文本，不含可验证修改/生效时间；旧Helio链接提示需重核版本。",
+    "7天活动、历史赎回交易、当前额度/储备/权限均未覆盖，RPC目标遭代理CONNECT 403。",
+    "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
+    "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:27:48.512703+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BNB01/full-20261108T152118Z/record.json"
 }

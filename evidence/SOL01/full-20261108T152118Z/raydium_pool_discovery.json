@@ -1,0 +1,8 @@
+{
+  "name": "raydium_pool_discovery",
+  "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+  "fetched_at_utc": "2026-11-08T15:26:42.067296+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

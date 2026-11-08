@@ -1,0 +1,28 @@
+{
+  "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/chainList.json",
+  "fetched_at": "2026-11-08T15:26:44.856270+00:00",
+  "http_status": 200,
+  "total_rows": 58,
+  "selected_rows": [
+    {
+      "name": "OP Mainnet",
+      "identifier": "mainnet/op",
+      "chainId": 10,
+      "rpc": [
+        "https://mainnet.optimism.io"
+      ],
+      "explorers": [
+        "https://explorer.optimism.io"
+      ],
+      "governedByOptimism": true,
+      "dataAvailabilityType": "eth-da",
+      "parent": {
+        "type": "L2",
+        "chain": "mainnet"
+      },
+      "faultProofs": {
+        "status": "permissionless"
+      }
+    }
+  ]
+}

@@ -14,7 +14,21 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_SOURCE_SNAPSHOT_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:24:52.450934+00:00",
+      "urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol"
+      ],
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
     "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
@@ -30,7 +44,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:24:52.450934+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+  "record": "evidence/N-ETH/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "verified_at": "2026-11-08T15:25:36.912083+00:00",
+    "record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+  }
 }

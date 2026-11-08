@@ -1,0 +1,30 @@
+{
+  "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+  "status": "UNVERIFIED",
+  "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+  ],
+  "mechanism": "wstETH unwrap按getPooledEthByShares换回stETH，不直接给ETH；队列request检查resumed和金额边界；getClaimableEther对未finalized或已claimed请求返回0。",
+  "net_result": "unknown",
+  "unknown_costs": [
+    "DEX手续费与价格冲击",
+    "gas/授权",
+    "实际等待及资金占用",
+    "实际兑付数量/罚没风险"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "主网实现非所读源码",
+    "队列暂停/额度或资格不满足",
+    "真实市场报价无差异",
+    "兑付等待或成本吞没差额"
+  ],
+  "owner": "ETH01",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+}
