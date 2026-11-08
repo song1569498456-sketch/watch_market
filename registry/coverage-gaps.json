@@ -295,6 +295,160 @@
         "以真实第一腿输出询价第二腿，有限最多8档测量；核验同slot、动态费、transfer hook及完整成本。",
         "补30天规则与7天事件窗口，再判断价差来源和时效。"
       ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
+      "next_check": [
+        "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+        "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+        "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+        "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
+      "next_check": [
+        "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+        "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+        "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+        "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
+      "next_check": [
+        "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+        "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+        "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+        "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
+      "next_check": [
+        "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+        "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+        "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+        "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。",
+      "next_check": [
+        "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+        "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+        "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+        "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
+      "next_check": [
+        "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+        "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+        "对BASE05交付Aerodrome池/LP权利问题：getFee为池级覆盖时不可套默认费率；LP存gauge后手续费权利变化需专项核查。",
+        "补查30天规则、7天交易、24h工厂新增和旧小池退出状态，当前缺口保持未成功。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
+      "next_check": [
+        "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+        "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+        "对BASE05交付Aerodrome池/LP权利问题：getFee为池级覆盖时不可套默认费率；LP存gauge后手续费权利变化需专项核查。",
+        "补查30天规则、7天交易、24h工厂新增和旧小池退出状态，当前缺口保持未成功。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
+      "next_check": [
+        "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+        "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+        "对BASE05交付Aerodrome池/LP权利问题：getFee为池级覆盖时不可套默认费率；LP存gauge后手续费权利变化需专项核查。",
+        "补查30天规则、7天交易、24h工厂新增和旧小池退出状态，当前缺口保持未成功。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。",
+      "next_check": [
+        "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+        "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+        "对BASE05交付Aerodrome池/LP权利问题：getFee为池级覆盖时不可套默认费率；LP存gauge后手续费权利变化需专项核查。",
+        "补查30天规则、7天交易、24h工厂新增和旧小池退出状态，当前缺口保持未成功。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
+      "next_check": [
+        "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+        "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+        "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+        "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
+      "next_check": [
+        "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+        "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+        "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+        "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
+      "next_check": [
+        "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+        "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+        "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+        "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "full-20261108T152118Z",
+      "gap": "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
+      "next_check": [
+        "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+        "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+        "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+        "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有指定数量报价或L1数据费、L2 gas和提现等待数据。",
+      "next_check": [
+        "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+        "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+        "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+        "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+      ]
     }
   ],
   "status": "OPEN",

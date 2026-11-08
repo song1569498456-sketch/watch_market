@@ -1,0 +1,135 @@
+{
+  "agent_id": "N-BASE",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base 8453 新市场/规则/操作发现；官方来源迁移与Aerodrome工厂基线",
+  "started_at": "2026-11-08T15:28:46.920313+00:00",
+  "finished_at": "2026-11-08T15:30:38.025797+00:00",
+  "duration_seconds": 111.105,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:30:38.025797+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://mainnet.base.org",
+    "https://docs.base.org/base-chain/network-information",
+    "https://raw.githubusercontent.com/base-org/node/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://github.com/base-org/node/releases",
+    "https://raw.githubusercontent.com/base/base/main/README.md",
+    "https://github.com/base/base/releases",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+    "https://github.com/base/base/releases/tag/v1.5.2",
+    "https://github.com/base/base/releases/tag/v1.5.4"
+  ],
+  "mechanism": "分离节点软件/官方来源迁移与链上状态；Aerodrome PoolFactory按stable标识建池并允许池级费用覆盖，不能把默认费率当所有池现价。",
+  "observations": [
+    "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
+    "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
+    "Aerodrome README列PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da及FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0。",
+    "工厂源码getFee可用customFee[pool]覆盖默认stableFee/volatileFee，特殊ZERO_FEE_INDICATOR映射0费用；不能将源码常量当实时报价。",
+    "Aerodrome README说明LP入Gauge换取排放时池手续费权利交予Gauge；提供BASE05专项线索，不在本岗位计算该策略收益。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "DEX实际池费",
+      "价格冲击",
+      "L2执行费",
+      "L1数据费",
+      "授权/退出成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown，工厂注册及池状态待链上核验",
+  "liabilities": "unknown，无交易/借款",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "官方源迁移说明变化",
+    "部署与链上代码不符",
+    "链标识/状态未确认",
+    "报价过期或缺失"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/base-org/node/main/README.md",
+    "https://raw.githubusercontent.com/base/base/main/README.md",
+    "https://github.com/base/base/releases/tag/v1.5.4",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol"
+  ],
+  "coverage_gaps": [
+    "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
+    "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
+    "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
+    "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
+  ],
+  "next_check": [
+    "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+    "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+    "对BASE05交付Aerodrome池/LP权利问题：getFee为池级覆盖时不可套默认费率；LP存gauge后手续费权利变化需专项核查。",
+    "补查30天规则、7天交易、24h工厂新增和旧小池退出状态，当前缺口保持未成功。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00",
+    "BASE05"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:8453:Aerodrome:PoolFactory:0x420dd381b31aef6683db6b902084cb0ffece40da",
+      "chain": "BASE",
+      "protocol": "Aerodrome",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+      "chain": "BASE",
+      "status": "UNVERIFIED",
+      "mechanism": "官方base-org/node README明确归档并引导base/base；新仓README承接旧节点，v1.5.4发布页列200ms区块同步修复和持久化默认值改变。这证明研究来源/节点软件迁移，不证明停链、收益或任何具体链上参数已生效。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/base-org/node/main/README.md",
+        "https://raw.githubusercontent.com/base/base/main/README.md",
+        "https://github.com/base/base/releases/tag/v1.5.4"
+      ],
+      "market_ids": [],
+      "next_check": "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "旧superchain目录没有8453或旧路径404",
+      "reason": "目录/来源迁移不能证明Base停链；独立官方README明确指向新维护仓库。"
+    },
+    {
+      "case": "默认stableFee或手续费奖励即利润",
+      "reason": "池可有customFee，LP存Gauge还会改变手续费权利；当前状态、负债、价格与成本均未知。"
+    }
+  ],
+  "observed_cursor": {
+    "official_source": "base/base",
+    "official_release_tag": "v1.5.4",
+    "release_published_at": "2026-11-06T01:25:10Z",
+    "last_block": null,
+    "pool_events_scanned": 0,
+    "transactions_analyzed": 0,
+    "history_window_complete": false
+  }
+}

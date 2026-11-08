@@ -16,7 +16,23 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "documents_read": [
+        "price-stability",
+        "repay-lisusd",
+        "withdraw-collateral",
+        "smart-contracts-addresses"
+      ],
+      "chain_block": null,
+      "transactions_analyzed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Lista官方组织页发现gitbook仓库，目录→价格稳定→偿债→提款→部署表形成独立文档链。",
     "价格稳定文档在lisUSD<1时描述借款人买入还债，而非所有持有人无条件兑换美元。",
@@ -32,7 +48,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:27:48.512703+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB01/full-20261108T152118Z/record.json"
+  "record": "evidence/BNB01/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+    "verified_at": "2026-11-08T15:28:11.087298+00:00",
+    "record": "evidence/BNB01/full-20261108T152118Z/record.json"
+  }
 }

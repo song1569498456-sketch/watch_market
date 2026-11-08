@@ -1,13 +1,47 @@
 {
   "agent_id": "N-OP",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+      "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+    ],
+    "fetched_at": "2026-11-08T15:29:38.443377+00:00",
+    "chain_block": null,
+    "event_pages_completed": 0,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "Aave V3 Optimism",
+      "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+      "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Uniswap V3",
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "source_scope": "OP部署表静态登记",
+      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    }
+  ],
+  "pending_questions": [
+    "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
+    "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
+    "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
+    "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
+    "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:29:38.443377+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/N-OP/full-20261108T152118Z/record.json"
 }

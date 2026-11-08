@@ -16,8 +16,22 @@
     {
       "agent_id": "N-ARB",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:29:57.007506+00:00",
+      "actual_coverage": [
+        "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
+        "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
+        "未确认新增市场、已生效规则、新交易结构、旧市场复活或可执行候选。"
+      ],
+      "coverage_gaps": [
+        "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
+        "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
+        "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
+        "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
+        "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
+      ],
+      "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-AVAX",
@@ -28,8 +42,23 @@
     {
       "agent_id": "N-BASE",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:30:38.025797+00:00",
+      "actual_coverage": [
+        "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
+        "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
+        "Aerodrome README列PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da及FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0。",
+        "工厂源码getFee可用customFee[pool]覆盖默认stableFee/volatileFee，特殊ZERO_FEE_INDICATOR映射0费用；不能将源码常量当实时报价。",
+        "Aerodrome README说明LP入Gauge换取排放时池手续费权利交予Gauge；提供BASE05专项线索，不在本岗位计算该策略收益。"
+      ],
+      "coverage_gaps": [
+        "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
+        "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
+        "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
+        "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
+      ],
+      "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-BNB",
@@ -73,8 +102,32 @@
     {
       "agent_id": "N-OP",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:29:38.443377+00:00",
+      "actual_coverage": [
+        {
+          "protocol": "Aave V3 Optimism",
+          "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+          "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        },
+        {
+          "protocol": "Uniswap V3",
+          "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          "source_scope": "OP部署表静态登记",
+          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
+        "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
+        "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
+        "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
+        "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+      ],
+      "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "N-POLY",

@@ -1,0 +1,198 @@
+{
+  "started_at": "2026-11-08T15:28:46.920313+00:00",
+  "results": [
+    {
+      "name": "base_rpc",
+      "url": "https://mainnet.base.org",
+      "fetched_at": "2026-11-08T15:28:46.920321+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "base_docs",
+      "url": "https://docs.base.org/base-chain/network-information",
+      "fetched_at": "2026-11-08T15:28:47.945480+00:00",
+      "method": "GET",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "base_node",
+      "url": "https://raw.githubusercontent.com/base-org/node/main/README.md",
+      "fetched_at": "2026-11-08T15:28:48.951829+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "snapshot": "> [!CAUTION]\n> # This repository is archived\n> **Use [releases from `base/base`](https://github.com/base/base/releases) for all new installations and upgrades.** Development and releases have moved to [`base/base`](https://github.com/base/base); this repository is no longer maintained.\n\n![Base](logo.webp)\n\n# Base Node\n\nBase is a secure, low-cost, developer-friendly Ethereum L2 built on Optimism's [OP Stack](https://docs.optimism.io/). This repository contains a Docker build for running a Base node with `base-reth-node` and `base-consensus`.\n\n[![Website base.org](https://img.shields.io/website-up-down-green-red/https/base.org.svg)](https://base.org)\n[![Docs](https://img.shields.io/badge/docs-up-green)](https://docs.base.org/)\n[![Discord](https://img.shields.io/discord/1067165013397213286?label=discord)](https://base.org/discord)\n[![Twitter Base](https://img.shields.io/twitter/follow/Base?style=social)](https://x.com/Base)\n[![Farcaster Base](https://img.shields.io/badge/Farcaster_Base-3d8fcc)](https://farcaster.xyz/base)\n\n## Quick Start\n\n1. Ensure you have an Ethereum L1 full node RPC and beacon endpoint available.\n2. Choose your network:\n   - For mainnet: use `.env.mainnet`\n   - For testnet: use `.env.sepolia`\n3. Configure your L1 endpoints in the appropriate `.env` file:\n   ```bash\n   BASE_NODE_L1_ETH_RPC=<your-preferred-l1-rpc>\n   BASE_NODE_L1_BEACON=<your-preferred-l1-beacon>\n   ```\n4. Start the node:\n\n   ```bash\n   # For mainnet (default):\n   docker compose up --build\n\n   # For testnet:\n   NETWORK_ENV=.env.sepolia docker compose up --build\n   ```\n\n## Supported Clients\n\n- Execution: `base-reth-node`\n- Consensus: `base-consensus`\n\n## Requirements\n\n### Minimum Requirements\n\n- Modern multicore CPU\n- 32GB RAM (64GB recommended)\n- NVMe SSD drive\n- Storage: (2 * [current chain size](https://base.org/stats) + [snapshot size](https://basechaindata.vercel.app) + 20% buffer) to accommodate future growth\n- Docker and Docker Compose\n\n### Production Hardware Specifications\n\nThe following are the hardware specifications we use in production:\n\n#### Reth Archive Node (recommended)\n\n- **Instance**: AWS i7i.12xlarge\n- **Storage**: RAID 0 of all local NVMe drives (`/dev/nvme*`)\n- **Filesystem**: ext4\n\n## Configuration\n\n### Required Settings\n\n- `BASE_NODE_L1_ETH_RPC`: your Ethereum L1 node RPC endpoint\n- `BASE_NODE_L1_BEACON`: your L1 beacon node endpoint\n- `BASE_NODE_NETWORK`: `base` or `base-sepolia`\n- `RETH_CHAIN`: `base` or `base-sepolia`\n\n### Network Settings\n\n- Mainnet:\n  - `RETH_CHAIN=base`\n  - `BASE_NODE_NETWORK=base`\n  - Sequencer: `https://mainnet-sequencer.base.org`\n- Sepolia:\n  - `RETH_CHAIN=base-sepolia`\n  - `BASE_NODE_NETWORK=base-sepolia`\n  - Sequencer: `https://sepolia-sequencer.base.org`\n\n### Optional Features\n\n- Flashblocks: set `RETH_FB_WEBSOCKET_URL`. When set, the execution client runs in Flashblocks mode; otherwise it runs in vanilla mode.\n- Follow mode: set `BASE_NODE_SOURCE_L2_RPC`\n- Pruning: set `RETH_PRUNING_ARGS`\n\nFor full configuration options, see `.env.mainnet` or `.env.sepolia`.\n\n### Testing Flashblocks RPC Methods\n\nWhen running in Flashblocks mode, you can query a pending block using the Flashblocks RPC:\n\n```bash\ncurl -X POST \\\n  --data '{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBlockByNumber\",\"params\":[\"pending\", false],\"id\":1}' \\\n  http://localhost:8545\n```\n\n## Snapshots\n\nSnapshots are available to help you sync your node more quickly. See [docs.base.org](https://docs.base.org/chain/run-a-base-node#snapshots) for links and more details on how to restore from a snapshot.\n\n## Supported Networks\n\n| Network | Status |\n| ------- | ------ |\n| Mainnet | ✅ |\n| Testnet | ✅ |\n\n## Troubleshooting\n\nFor support please join our [Discord](https://discord.gg/buildonbase) and post in `🛠｜node-operators`. You can alternatively open a new GitHub issue.\n\n## Disclaimer\n\nTHE NODE SOFTWARE IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. We make no guarantees about asset protection or security. Usage is subject to applicable laws and regulations.\n\nFor more information, visit [docs.base.org](https://docs.base.org/).\n"
+    },
+    {
+      "name": "aerodrome_contracts",
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "fetched_at": "2026-11-08T15:28:50.369633+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "snapshot": "# Protocol\n\nAll contracts for the Protocol, an AMM on EVMs inspired by Solidly.\n\nSee `SPECIFICATION.md` for more detail.\n\n## Protocol Overview\n\n### AMM contracts\n\n| Filename | Description |\n| --- | --- |\n| `Pool.sol` | AMM constant-product implementation similar to Uniswap V2 liquidity pools |\n| `Router.sol` | Handles multi-pool swaps, deposit/withdrawal, similar to Uniswap V2 Router interface |\n| `PoolFees.sol` | Stores the liquidity pool trading fees, these are kept separate from the reserves |\n| `ProtocolLibrary.sol` | Provides router-related helpers, eg. for price-impact calculations |\n| `FactoryRegistry.sol` | Registry of factories approved for creation of pools, gauges, bribes and managed rewards. |\n\n### Tokenomy contracts\n\n| Filename | Description |\n| --- | --- |\n| `Aero.sol` | Protocol ERC20 token |\n| `VotingEscrow.sol` | Protocol ERC-721 (ve)NFT representing the protocol vote-escrow lock. Beyond standard ve-type functions, there is also the ability to merge, split and create managed nfts. |\n| `Minter.sol` | Protocol token minter. Distributes emissions to `Voter.sol` and rebases to `RewardsDistributor.sol`. |\n| `RewardsDistributor.sol` | Is used to handle the rebases distribution for (ve)NFTs/lockers. |\n| `VeArtProxy.sol` | (ve)NFT art proxy contract, exists for upgradability purposes |\n| `AirdropDistributor.sol` | Distributes permanently locked (ve)NFTs to the provided addresses, in the desired amounts. |\n\n### Protocol mechanics contracts\n\n| Filename | Description |\n| --- | --- |\n| `Voter.sol` | Handles votes for the current epoch, gauge and voting reward creation as well as emission distribution to `Gauge.sol` contracts. |\n| `Gauge.sol` | Gauges are attached to a Pool and based on the (ve)NFT votes it receives, it distributes proportional emissions in the form of protocol tokens. Deposits to the gauge take the form of LP tokens for the Pool. In exchange for receiving protocol emissions, claims on fees from the pool are relinquished to the gauge. Standard rewards contract. |\n| `rewards/` | |\n| `Reward.sol` | Base reward contract to be inherited for distribution of rewards to stakers.\n| `VotingReward.sol` | Rewards contracts used by `FeesVotingReward.sol` and `BribeVotingReward.sol` which inherits `Reward.sol`. Rewards are distributed in the following epoch proportionally based on the last checkpoint created by the user, and are earned through \"voting\" for a pool or gauge. |\n| `FeesVotingReward.sol` | Stores LP fees (from the gauge via `PoolFees.sol`) to be distributed for the current voting epoch to it's voters. |\n| `BribeVotingReward.sol` | Stores the users/externally provided rewards for the current voting epoch to it's voters. These are deposited externally every week. |\n| `ManagedReward.sol` | Staking implementation for managed veNFTs used by `LockedManagedReward.sol` and `FreeManagedReward.sol` which inherits `Reward.sol`.  Rewards can be earned passively by veNFTs who delegate their voting power to a \"managed\" veNFT.\n| `LockedManagedReward.sol` | Handles \"locked\" rewards (i.e. Aero rewards / rebases that are compounded) for managed NFTs. Rewards are not distributed and only returned to `VotingEscrow.sol` when the user withdraws from the managed NFT. | \n| `FreeManagedReward.sol` | Handles \"free\" (i.e. unlocked) rewards for managed NFTs. Any rewards earned by a managed NFT that a manager passes on will be distributed to the users that deposited into the managed NFT. | \n\n### Governance contracts\n\n| Filename | Description |\n| --- | --- |\n| `ProtocolGovernor.sol` | OpenZeppelin's Governor contracts used in protocol-wide access control to whitelist tokens for trade  within the protocol, update minting emissions, and create managed veNFTs. |\n| `EpochGovernor.sol` | A simple epoch-based governance contract used exclusively for adjusting emissions. |\n\n\n## Testing\n\nThis repository uses Foundry for testing and deployment. \n\nFoundry Setup\n\n```\nforge install\nforge build\nforge test\n```\n\n## Base Mainnet Fork Tests\n\nIn order to run mainnet fork tests against base, inherit `BaseTest` in `BaseTest.sol` in your new class and set the `deploymentType` variable to `Deployment.FORK`. The `BASE_RPC_URL` field must be set in `.env`. Optionally, `BLOCK_NUMBER` can be set in the `.env` file or in the test file if you wish to test against a consistent fork state (this will make tests faster).\n\n\n## Lint\n\n`yarn format` to run prettier.\n\n`yarn lint` to run solhint (currently disabled in CI).\n\n## Deployment\n\nSee `script/README.md` for more detail.\n\n### Access Control\nSee `PERMISSIONS.md` for more detail.\n\n## Licensing\n\nThis project follows the [Apache Foundation](https://infra.apache.org/licensing-howto.html)\nguideline for licensing. See LICENSE and NOTICE files.\n\n## Deployment\n\n| Name               | Address                                                                                                                               |\n| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------ |\n| ArtProxy               | [0xE9992487b2EE03b7a91241695A58E0ef3654643E](https://basescan.org/address/0xE9992487b2EE03b7a91241695A58E0ef3654643E#code) |\n| RewardsDistributor               | [0x227f65131A261548b057215bB1D5Ab2997964C7d](https://basescan.org/address/0x227f65131A261548b057215bB1D5Ab2997964C7d#code) |\n| FactoryRegistry               | [0x5C3F18F06CC09CA1910767A34a20F771039E37C0](https://basescan.org/address/0x5C3F18F06CC09CA1910767A34a20F771039E37C0#code) |\n| Forwarder               | [0x15e62707FCA7352fbE35F51a8D6b0F8066A05DCc](https://basescan.org/address/0x15e62707FCA7352fbE35F51a8D6b0F8066A05DCc#code) |\n| GaugeFactory               | [0x35f35cA5B132CaDf2916BaB57639128eAC5bbcb5](https://basescan.org/address/0x35f35cA5B132CaDf2916BaB57639128eAC5bbcb5#code) |\n| ManagedRewardsFactory               | [0xFdA1fb5A2a5B23638C7017950506a36dcFD2bDC3](https://basescan.org/address/0xFdA1fb5A2a5B23638C7017950506a36dcFD2bDC3#code) |\n| Minter               | [0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5](https://basescan.org/address/0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5#code) |\n| PoolFactory               | [0x420DD381b31aEf6683db6B902084cB0FFECe40Da](https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da#code) |\n| Router               | [0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43](https://basescan.org/address/0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43#code) |\n| AERO               | [0x940181a94A35A4569E4529A3CDfB74e38FD98631](https://basescan.org/address/0x940181a94A35A4569E4529A3CDfB74e38FD98631#code) |\n| Voter               | [0x16613524e02ad97eDfeF371bC883F2F5d6C480A5](https://basescan.org/address/0x16613524e02ad97eDfeF371bC883F2F5d6C480A5#code) |\n| VotingEscrow               | [0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4](https://basescan.org/address/0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4#code) |\n| VotingRewardsFactory               | [0x45cA74858C579E717ee29A86042E0d53B252B504](https://basescan.org/address/0x45cA74858C579E717ee29A86042E0d53B252B504#code) |\n| Pool               | [0xA4e46b4f701c62e14DF11B48dCe76A7d793CD6d7](https://basescan.org/address/0xA4e46b4f701c62e14DF11B48dCe76A7d793CD6d7#code) |\n\n"
+    },
+    {
+      "name": "base_releases",
+      "url": "https://github.com/base-org/node/releases",
+      "fetched_at": "2026-11-08T15:28:51.793019+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "release_tags": [],
+      "published_times": [
+        "2026-07-22T19:00:12Z",
+        "2026-07-22 18:57:37 UTC",
+        "2026-06-19T00:00:40Z",
+        "2026-06-18 23:19:15 UTC",
+        "2026-06-12T19:31:43Z",
+        "2026-06-12 19:18:58 UTC",
+        "2026-06-05T17:10:47Z",
+        "2026-06-05 13:20:40 UTC",
+        "2026-06-03T17:25:14Z",
+        "2026-06-03 17:23:32 UTC",
+        "2026-05-27T17:38:27Z",
+        "2026-05-27 17:36:20 UTC",
+        "2026-05-22T00:24:19Z",
+        "2026-05-21 21:45:49 UTC",
+        "2026-05-11T17:08:32Z",
+        "2026-05-09 02:40:52 UTC",
+        "2026-04-21T00:53:51Z",
+        "2026-04-21 00:26:41 UTC",
+        "2026-04-17T21:25:29Z",
+        "2026-04-17 21:23:52 UTC",
+        "2026-04-17 21:22:01 UTC"
+      ],
+      "selected_excerpts": [
+        "han download . Non-archival nodes are not supported for this command. Upgrades Reth to v2.3.0 Bug fixes and stability improvements base-consensus Fixed prune node sync : Nodes can reliably do a pruned node sync from genesis Bug fixes and stability improvements Assets 2 Loading Uh oh! There was an error while loading. Please reload this page . --> 👍 4 abayhasby, odisseus21, lidiaa14, and akinkunmi1991 reacted with thumbs up emoji ❤️ 11 haardikk21, bendenizsahin, maha",
+        "is release to fix a potential node halt. base-reth-node Beryl Support Upgrade Reth to V2.3.0 Improve Peering Reliability JS Tracer Performance Improvement base-consensus Beryl Support Assets 2 Loading Uh oh! There was an error while loading. Please reload this page . --> 👍 20 pedieth, Adexbafo, touson44, jcarlo-vs, Nik-1989, mur-me, Ram1482001, dvir1994, pearlianster, 0xRole, and 10 more reacted with thumbs up emoji 👀 3 Ram1482001, BerryBoi1, and echoo02 reacted wit",
+        "st upgrade to this release by June 25th at 18:00:00 UTC for the Beryl hardfork. See here for more information. Base Sepolia : Recommended upgrade to improve Flashblocks stability base-reth-node Beryl Support for Mainnet Fix Flashblock processing where transactions relying on the BLOCKHASH could have different execution outcomes during Flashblocks and canonical processing. base-consensus Beryl Support for Mainnet Assets 2 Loading Uh oh! There was an error while loadi",
+        "must upgrade to this release by June 18 at 18:00:00 UTC for the Beryl hardfork. See here for more information. Base Mainnet : Operators running V1.0.0 or V1.0.1 must upgrade to this release to fix a potential node halt. base-reth-node Beryl Support Upgrade Reth to V2.3.0 Improve Peering Reliability JS Tracer Performance Improvement base-consensus Beryl Support Assets 2 Loading Uh oh! There was an error while loading. Please reload this page . --> 👍 20 pedieth, Adexb",
+        "_based_billing\",\"copilot_unconfigured_is_inherited\",\"copilot_user_can_upgrade_plan_field\",\"fgpat_permissions_selector_redesign\",\"glc_code_quality_repo_settings_workflow_config\",\"global_issues_filtered_list_layout\",\"global_nav_user_menu_fetch_on_intent\",\"hyperspace_2025_logged_out_batch_1\",\"hyperspace_2025_logged_out_batch_2\",\"hyperspace_2025_logged_out_batch_3\",\"in_product_messaging_datadog_monitoring\",\"ipm_ubb_individual_budget_banner\",\"issue_fields_multi_select\",\"",
+        "n about vigilant mode . What Changed Important Base Mainnet: Required upgrade and migration by mid August. Base Sepolia: Highly recommended upgrade and migration. Migration time: Migrations may take a while, we strongly suggest you start mainnet as soon as possible. V1 Snapshots: Will be decommissioned over the next few weeks. base-reth-node Reth V2 Snapshots To benefit from V2, you must both update to 1.2.0 and update your database to use v2 storage. You can do thi",
+        "2194 Verified Learn about vigilant mode . What Changed Important Base Mainnet: Required upgrade and migration by mid August. Base Sepolia: Highly recommended upgrade and migration. Migration time: Migrations may take a while, we strongly suggest you start mainnet as soon as possible. V1 Snapshots: Will be decommissioned over the next few weeks. base-reth-node Reth V2 Snapshots To benefit from V2, you must both update to 1.2.0 and update your database to use v2 stora",
+        "2194 Verified Learn about vigilant mode . What Changed Important Base Mainnet : Operators must upgrade to this release by June 25th at 18:00:00 UTC for the Beryl hardfork. See here for more information. Base Sepolia : Recommended upgrade to improve Flashblocks stability base-reth-node Beryl Support for Mainnet Fix Flashblock processing where transactions relying on the BLOCKHASH could have different execution outcomes during Flashblocks and canonical processing. bas"
+      ]
+    },
+    {
+      "name": "base_new_readme",
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "fetched_at": "2026-11-08T15:29:09.662127+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "snapshot": "![Base](docs/assets/logo.png)\n\n# Base\n\nBase is a rollup built on Ethereum.\n\n## Why Base\n- **Cheap, fast, and open platform:** Base is a globally available platform that provides 1-second and <1-cent transactions to anyone in the world.\n- **Reach more users:** Base is committed to helping developers grow their user base by distributing their apps through official Base channels.\n- **A place to earn:** Base has delivered grants to more than 1,000 builders, with plans to continue supporting more.\n- **Access to high-quality tooling:** Builders have access to tools to build incredible onchain experiences for AI, social, media, and entertainment.\n\n## Learn More\n\n- Visit the [docs](https://docs.base.org) for information on how to:\n    - [Connect your wallet](https://docs.base.org/base-chain/quickstart/connecting-to-base)\n    - [Run a node](https://docs.base.org/base-chain/node-operators/run-a-base-node)\n    - [Deploy an app](https://docs.base.org/base-chain/quickstart/deploy-on-base)\n- The [specs](https://specs.base.org) site has an overview of the protocol, including past and upcoming upgrades.\n\n## Install Binaries\n\nUse [`baseup`](baseup/README.md) to install the GitHub release binaries for this repository:\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/base/base/main/baseup/install | bash\n```\n\n## Run a Node\n\nThis repository now hosts the public Base node previously published from [`base/node`](https://github.com/base/node). Root `docker-compose.yml` pulls `ghcr.io/base/node`. Pass `--build` to compile this tree. For local development, see [Run a Local Devnet](#run-a-local-devnet).\n\n1. Set `BASE_NODE_L1_ETH_RPC` and `BASE_NODE_L1_BEACON` in `.env.mainnet` or `.env.sepolia`.\n2. Start the node:\n\n```bash\n# Mainnet (default):\ndocker compose up --build\n\n# Testnet:\nNETWORK_ENV=.env.sepolia docker compose up --build\n\n# Pin a published image (no compile):\nNODE_TAG=v1.3.0 docker compose up\n```\n\nSee the [docs](https://docs.base.org/base-chain/node-operators/run-a-base-node) for hardware requirements, snapshots, and historical proofs.\n\n## Run a Local Devnet\n\n| Devnet | Use it for | Start |\n| --- | --- | --- |\n| Docker devnet | A fresh L1 and L2 stack: sequencing, derivation, batching, hardfork activation | `just devnet up-single` |\n| Snapshot devnet | Real Base Mainnet state and contracts, acting as any account, 200ms blocks; no L1 | `just devnet snapshot download --dir <dir>`, then `just devnet snapshot run --dir <dir>` |\n\nStart with the [Run a Local Devnet](https://docs.base.org/build-on-base/run-a-local-devnet) guide. [docs/guides/DEVNET.md](docs/guides/DEVNET.md) covers every local environment in this repository.\n\n## Base Anvil Package\n\nEvery push to `main` publishes patched `anvil` and `forge` binaries to GHCR\nas `ghcr.io/base/base-anvil`. Use immutable `sha-<commit>` tags for pinned\ndownstream tests, or `main` for the latest successful `main` build.\n\n## License\n\nLicensed under [MIT](LICENSE).\n"
+    },
+    {
+      "name": "base_new_releases",
+      "url": "https://github.com/base/base/releases",
+      "fetched_at": "2026-11-08T15:29:11.139238+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "release_tags": [
+        "v1.3.1",
+        "v1.3.2",
+        "v1.4.0",
+        "v1.4.1",
+        "v1.4.2",
+        "v1.5.0",
+        "v1.5.1",
+        "v1.5.2",
+        "v1.5.3",
+        "v1.5.4"
+      ],
+      "published_times": [
+        "2026-11-06T01:25:10Z",
+        "2026-11-06 00:23:11 UTC",
+        "2026-11-06T00:36:33Z",
+        "2026-11-06T00:36:33Z",
+        "2026-11-06T00:36:33Z",
+        "2026-11-06T00:35:28Z",
+        "2026-11-06T00:35:28Z",
+        "2026-11-06T00:35:28Z",
+        "2026-11-06T00:50:03Z",
+        "2026-11-06T00:50:03Z",
+        "2026-11-06T00:50:03Z",
+        "2026-11-06T00:46:57Z",
+        "2026-11-06T00:29:46Z",
+        "2026-11-06T00:29:46Z",
+        "2026-11-05T16:01:04Z",
+        "2026-11-05 04:52:57 UTC",
+        "2026-11-04T22:10:58Z",
+        "2026-11-04 17:11:10 UTC",
+        "2026-10-22T17:47:20Z",
+        "2026-10-22 17:25:44 UTC",
+        "2026-10-14T20:52:39Z",
+        "2026-10-14 04:02:28 UTC",
+        "2026-09-23T22:49:04Z",
+        "2026-09-23 21:14:07 UTC",
+        "2026-09-23T16:41:18Z",
+        "2026-09-21 20:43:51 UTC",
+        "2026-09-16T21:19:08Z",
+        "2026-09-16 18:47:00 UTC",
+        "2026-09-10T22:22:04Z",
+        "2026-09-10 17:19:24 UTC",
+        "2026-09-02T23:59:15Z",
+        "2026-09-02 18:38:51 UTC"
+      ],
+      "selected_excerpts": [
+        "ed Learn about vigilant mode . Operator action Network Action Deadline Why Base Mainnet Recommended None Fixes for synchronization and block propagation at 200ms block times Base Sepolia Recommended None Fixes for synchronization and block propagation at 200ms block times Applies to: all operators. Breaking changes The following engine defaults change for base , base-reth-node , and base-builder-bin : --engine.persistence-threshold : 7 → 70 blocks. --engine.memory-block-buffer-target : 5 → 70 blocks. --engine.persistence-backpressure-threshold : 16 → 160 blocks. Set these f",
+        "ed Learn about vigilant mode . Operator action Network Action Deadline Why Base Mainnet Recommended None Operators are recommended to upgrade to 1.5.3 at their earliest convenience Base Sepolia Recommended None Operators are recommended to upgrade to 1.5.3 at their earliest convenience Breaking changes None. What's changed base-reth-node Prevents a state root mismatch ( Reth#28264 ) Bug fixes and general improvements base-consensus Bug fixes and general improvements Full changelog: v1.5.2...v1.5.3 Assets 32 Loading Uh oh! There was an error while loading. Please reload this",
+        "rators must upgrade to this release by November 5 at 18:00:00 UTC for the Denim hardfork. See here for more information. Base Sepolia : Denim is already active on Base Sepolia, so there is no new activation in this release. Upgrading is recommended for the peer discovery fix and transaction pool performance improvements. The default batcher throttle thresholds have changed, and the DA backlog is now measured in estimated compressed bytes: --throttle-start-threshold from 1,000,000 to 120,000,000 and --throttle-full-threshold from 2,000,000 to 360,000,000. Batcher operators w"
+      ]
+    },
+    {
+      "name": "aerodrome_factory",
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/contracts/factories/PoolFactory.sol",
+      "fetched_at": "2026-11-08T15:29:13.380698+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "selected_excerpts": [
+        "    address public pauser;\n\n    uint256 public stableFee;\n    uint256 public volatileFee;\n    uint256 public constant MAX_FEE = 300; // 3%\n    // Override to indicate there is custom 0% fee - as a 0 value in the customFee mapping indicates\n    // that no custom fee rate has been set",
+        "\n    uint256 public stableFee;\n    uint256 public volatileFee;\n    uint256 public constant MAX_FEE = 300; // 3%\n    // Override to indicate there is custom 0% fee - as a 0 value in the customFee mapping indicates\n    // that no custom fee rate has been set\n    uint256 public constant ZERO_FEE_INDICATOR = 420;",
+        "        feeManager = msg.sender;\n        isPaused = false;\n        stableFee = 5; // 0.05%\n        volatileFee = 30; // 0.3%\n    }\n\n    /// @inheritdoc IPoolFactory",
+        "        isPaused = false;\n        stableFee = 5; // 0.05%\n        volatileFee = 30; // 0.3%\n    }\n\n    /// @inheritdoc IPoolFactory\n    function allPoolsLength() external view returns (uint256) {",
+        "        if (_fee == 0) revert ZeroFee();\n        if (_stable) {\n            stableFee = _fee;\n        } else {\n            volatileFee = _fee;\n        }\n    }",
+        "            stableFee = _fee;\n        } else {\n            volatileFee = _fee;\n        }\n    }\n\n    /// @inheritdoc IPoolFactory",
+        "\n    /// @inheritdoc IPoolFactory\n    function getFee(address pool, bool _stable) public view returns (uint256) {\n        uint256 fee = customFee[pool];\n        return fee == ZERO_FEE_INDICATOR ? 0 : fee != 0 ? fee : _stable ? stableFee : volatileFee;\n    }\n",
+        "    function getFee(address pool, bool _stable) public view returns (uint256) {\n        uint256 fee = customFee[pool];\n        return fee == ZERO_FEE_INDICATOR ? 0 : fee != 0 ? fee : _stable ? stableFee : volatileFee;\n    }\n\n    /// @inheritdoc IPoolFactory\n    function createPool(address tokenA, address tokenB, uint24 fee) external returns (address pool) {",
+        "\n    /// @inheritdoc IPoolFactory\n    function createPool(address tokenA, address tokenB, uint24 fee) external returns (address pool) {\n        if (fee > 1) revert FeeInvalid();\n        bool stable = fee == 1;\n        return createPool(tokenA, tokenB, stable);\n    }",
+        "\n    /// @inheritdoc IPoolFactory\n    function createPool(address tokenA, address tokenB, bool stable) public returns (address pool) {\n        if (tokenA == tokenB) revert SameAddress();\n        (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);\n        if (token0 == address(0)) revert ZeroAddress();\n        if (_getPool[token0][token1][stable] != address(0)) revert PoolAlreadyExists();",
+        "        allPools.push(pool);\n        _isPool[pool] = true;\n        emit PoolCreated(token0, token1, stable, pool, allPools.length);\n    }\n}"
+      ]
+    },
+    {
+      "name": "base_v1.5.2",
+      "url": "https://github.com/base/base/releases/tag/v1.5.2",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:29:35.012548+00:00",
+      "http_status": 200,
+      "published_times": [
+        "2026-11-04T22:10:58Z",
+        "2026-11-04 17:11:10 UTC"
+      ],
+      "selected_excerpts": [
+        "with GitHub’s verified signature . GPG key ID: B5690EEEBB952194 Verified Learn about vigilant mode . Operator action Network Action Deadline Why Base Mainnet Optional None Not mandatory for existing operators on 1.5.1 Base Sepolia Optional None N/A Breaking changes None. What's changed base-reth-node Fixes an issue related to state RPC calls that may cause hangs Additional fixes and general improvements base-consensus Fixes and general improvements Full changelog: v1.5.1...v1.5.2 Assets 35 Loading Uh oh! There was an error while loading. Please reload this page . --> All reactions Footer &copy; 2026 GitHub,&nbsp;Inc. Footer navigation Terms Privacy Security Status Community Docs Contact Manage cookies Do not share my personal information You can’t perform that action at this time. "
+      ]
+    },
+    {
+      "name": "base_v1.5.4",
+      "url": "https://github.com/base/base/releases/tag/v1.5.4",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:29:36.566135+00:00",
+      "http_status": 200,
+      "published_times": [
+        "2026-11-06T01:25:10Z",
+        "2026-11-06 00:23:11 UTC"
+      ],
+      "selected_excerpts": [
+        "ator action Network Action Deadline Why Base Mainnet Recommended None Fixes for synchronization and block propagation at 200ms block times Base Sepolia Recommended None Fixes for synchronization and block propagation at 200ms block times Applies to: all operators. Breaking changes The following engine defaults change for base , base-reth-node , and base-builder-bin : --engine.persistence-threshold : 7 → 70 blocks. --engine.memory-block-buffer-target : 5 → 70 blocks. --engine.persistence-backpressure-threshold : 16 → 160 blocks. Set these flags explicitly to retain the previous values. Existing overrides still apply; review custom settings together. Larger buffers can increase memory use and replay after an unclean shutdown. What's changed base-reth-node Tunes engine persistence defaults for 200ms blocks to reduce persistence-rel",
+        "dline Why Base Mainnet Recommended None Fixes for synchronization and block propagation at 200ms block times Base Sepolia Recommended None Fixes for synchronization and block propagation at 200ms block times Applies to: all operators. Breaking changes The following engine defaults change for base , base-reth-node , and base-builder-bin : --engine.persistence-threshold : 7 → 70 blocks. --engine.memory-block-buffer-target : 5 → 70 blocks. --engine.persistence-backpressure-threshold : 16 → 160 blocks. Set these flags explicitly to retain the previous values. Existing overrides still apply; review custom settings together. Larger buffers can increase memory use and replay after an unclean shutdown. What's changed base-reth-node Tunes engine persistence defaults for 200ms blocks to reduce persistence-related stalls ( #6464 ). base-co",
+        "base-reth-node , and base-builder-bin : --engine.persistence-threshold : 7 → 70 blocks. --engine.memory-block-buffer-target : 5 → 70 blocks. --engine.persistence-backpressure-threshold : 16 → 160 blocks. Set these flags explicitly to retain the previous values. Existing overrides still apply; review custom settings together. Larger buffers can increase memory use and replay after an unclean shutdown. What's changed base-reth-node Tunes engine persistence defaults for 200ms blocks to reduce persistence-related stalls ( #6464 ). base-consensus Fixes sequencer followers getting stuck catching up at 200ms block times ( #6321 ). Increases the outbound gossip queue to reduce dropped messages under bursty load ( #6454 ). Full changelog: v1.5.3...v1.5.4 Assets 20 Loading Uh oh! There was an error while loading. Please reload this page ."
+      ]
+    }
+  ]
+}

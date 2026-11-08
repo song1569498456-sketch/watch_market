@@ -11,7 +11,18 @@
     "market_pages_completed": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "source_fetch_only",
+      "fetched_at": "2026-11-08T15:26:47.551008+00:00",
+      "chain_slot": null,
+      "market_pages_completed": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "name": "raydium_pool_discovery",
@@ -355,7 +366,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:26:47.551008+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL01/full-20261108T152118Z/record.json"
+  "record": "evidence/SOL01/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+    "verified_at": "2026-11-08T15:28:11.087298+00:00",
+    "record": "evidence/SOL01/full-20261108T152118Z/record.json"
+  }
 }

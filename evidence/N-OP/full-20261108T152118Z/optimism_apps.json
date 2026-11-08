@@ -1,0 +1,8 @@
+{
+  "name": "optimism_apps",
+  "url": "https://www.optimism.io/apps",
+  "fetched_at_utc": "2026-11-08T15:28:53.077209+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

@@ -1,0 +1,123 @@
+{
+  "agent_id": "N-OP",
+  "run_id": "full-20261108T152118Z",
+  "chain": "OP",
+  "scope": "OP Mainnet链内新市场/规则/操作首次发现静态基线",
+  "started_at": "2026-11-08T15:28:53.077202+00:00",
+  "finished_at": "2026-11-08T15:29:38.443377+00:00",
+  "duration_seconds": 45.366,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:29:38.443377+00:00",
+    "beijing": "2026-11-08T23:29:38.443377+08:00",
+    "data_time": "源码抓取时点；链数据时间unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://www.optimism.io/apps",
+    "https://mainnet.optimism.io",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+  ],
+  "mechanism": "官方地址表把Aave OP池proxy与implementation、oracle和provider分开，池账面余额不等于可即时取出的现金；Uniswap部署表提供OP工厂入口，必须核对chainId及代码后才能扫PoolCreated和真实资产。两者均为静态发现入口，不是实时新池或刚生效规则。",
+  "observations": [
+    {
+      "protocol": "Aave V3 Optimism",
+      "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+      "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Uniswap V3",
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "source_scope": "OP部署表静态登记",
+      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "L1数据费",
+      "L2 gas",
+      "协议费",
+      "退出等待及容量",
+      "滑点"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown",
+  "liabilities": "unknown；无建立头寸",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "chainId或proxy代码与部署表不符",
+    "reserve/资产权益不一致",
+    "池暂停或退出容量不足"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+  ],
+  "coverage_gaps": [
+    "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
+    "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
+    "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
+    "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
+    "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+  ],
+  "next_check": [
+    "恢复mainnet.optimism.io，核对eth_chainId/最终确认区块与部署合约代码；Aave读取provider.getPool()及proxy实现。",
+    "核对Aave reserve列表、底层token和当前可提流动性；如出现稳定币兑付差异交OP01，只记录规则不推算收益。",
+    "核验Uniswap工厂代码后按有限区块范围取PoolCreated事件，具体同资产双市场交OP02。",
+    "补30天治理/规则生效及7天交易窗口，轮转旧小池与退出窗口。"
+  ],
+  "handoff_to": [
+    "M00",
+    "OP01",
+    "OP02"
+  ],
+  "markets": [
+    {
+      "market_id": "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "OP",
+      "protocol": "Aave V3 Optimism",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+        "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
+      "next_check": "读取chainId、provider.getPool、proxy code/implementation、reserve列表及可提流动性。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "case": "把官方地址表的新抓取时间当新部署/新规则生效时间",
+      "reason": "未读历史diff或生效事件，明确排除该新发现时间主张。"
+    },
+    {
+      "case": "静态工厂部署表视作已完成新池扫描",
+      "reason": "未读取任何PoolCreated事件与当前合约代码。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+      "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+    ],
+    "fetched_at": "2026-11-08T15:29:38.443377+00:00",
+    "chain_block": null,
+    "event_pages_completed": 0,
+    "history_complete": false
+  }
+}

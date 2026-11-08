@@ -1,0 +1,21 @@
+{
+  "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+  "chain": "BASE",
+  "status": "UNVERIFIED",
+  "mechanism": "官方base-org/node README明确归档并引导base/base；新仓README承接旧节点，v1.5.4发布页列200ms区块同步修复和持久化默认值改变。这证明研究来源/节点软件迁移，不证明停链、收益或任何具体链上参数已生效。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/base-org/node/main/README.md",
+    "https://raw.githubusercontent.com/base/base/main/README.md",
+    "https://github.com/base/base/releases/tag/v1.5.4"
+  ],
+  "market_ids": [],
+  "next_check": "更新Base官方研究来源至base/base并固定版本，查询当前节点/链配置，不用旧superchain目录缺席推断停链。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "N-BASE",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+}

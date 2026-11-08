@@ -1,0 +1,318 @@
+{
+  "started_at": "2026-11-08T15:28:53.077202+00:00",
+  "data_seconds": 4.86,
+  "attempts": [
+    {
+      "name": "optimism_apps",
+      "url": "https://www.optimism.io/apps",
+      "fetched_at_utc": "2026-11-08T15:28:53.077209+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "op_chain_identity",
+      "url": "https://mainnet.optimism.io",
+      "fetched_at_utc": "2026-11-08T15:28:54.099215+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "aave_op_deployment",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+      "fetched_at_utc": "2026-11-08T15:28:55.106914+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "7293779f07de26540c859635a381cb37a8f9370497fda4cb951a3cd0269092c9",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Optimism {"
+        },
+        {
+          "line": 7,
+          "text": "  // https://optimistic.etherscan.io/address/0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+        },
+        {
+          "line": 8,
+          "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+        },
+        {
+          "line": 9,
+          "text": "    IPoolAddressesProvider(0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb);"
+        },
+        {
+          "line": 11,
+          "text": "  // https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 14,
+          "text": "  // https://optimistic.etherscan.io/address/0x8145eddDf43f50276641b55bd3AD95944510021E"
+        },
+        {
+          "line": 16,
+          "text": "    IPoolConfigurator(0x8145eddDf43f50276641b55bd3AD95944510021E);"
+        },
+        {
+          "line": 18,
+          "text": "  // https://optimistic.etherscan.io/address/0xD81eb3728a631871a7eBBaD631b5f424909f0c77"
+        },
+        {
+          "line": 19,
+          "text": "  IAaveOracle internal constant ORACLE = IAaveOracle(0xD81eb3728a631871a7eBBaD631b5f424909f0c77);"
+        },
+        {
+          "line": 21,
+          "text": "  // https://optimistic.etherscan.io/address/0x746c675dAB49Bcd5BB9Dc85161f2d7Eb435009bf"
+        },
+        {
+          "line": 22,
+          "text": "  address internal constant ACL_ADMIN = 0x746c675dAB49Bcd5BB9Dc85161f2d7Eb435009bf;"
+        },
+        {
+          "line": 24,
+          "text": "  // https://optimistic.etherscan.io/address/0xa72636CbcAa8F5FF95B2cc47F3CDEe83F3294a0B"
+        },
+        {
+          "line": 26,
+          "text": "    IACLManager(0xa72636CbcAa8F5FF95B2cc47F3CDEe83F3294a0B);"
+        },
+        {
+          "line": 28,
+          "text": "  // https://optimistic.etherscan.io/address/0x243Aa95cAC2a25651eda86e80bEe66114413c43b"
+        },
+        {
+          "line": 30,
+          "text": "    IPoolDataProvider(0x243Aa95cAC2a25651eda86e80bEe66114413c43b);"
+        },
+        {
+          "line": 32,
+          "text": "  // https://optimistic.etherscan.io/address/0x66185E53343336d4FaeA5317d1Fcca103Dd4088D"
+        },
+        {
+          "line": 33,
+          "text": "  address internal constant POOL_IMPL = 0x66185E53343336d4FaeA5317d1Fcca103Dd4088D;"
+        },
+        {
+          "line": 35,
+          "text": "  // https://optimistic.etherscan.io/address/0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99"
+        },
+        {
+          "line": 36,
+          "text": "  address internal constant POOL_CONFIGURATOR_IMPL = 0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99;"
+        },
+        {
+          "line": 38,
+          "text": "  // https://optimistic.etherscan.io/address/0x929EC64c34a17401F460460D4B9390518E5B473e"
+        },
+        {
+          "line": 40,
+          "text": "    0x929EC64c34a17401F460460D4B9390518E5B473e;"
+        },
+        {
+          "line": 42,
+          "text": "  // https://optimistic.etherscan.io/address/0x048f2228D7Bf6776f99aB50cB1b1eaB4D1d4cA73"
+        },
+        {
+          "line": 43,
+          "text": "  address internal constant EMISSION_MANAGER = 0x048f2228D7Bf6776f99aB50cB1b1eaB4D1d4cA73;"
+        },
+        {
+          "line": 45,
+          "text": "  // https://optimistic.etherscan.io/address/0xB2289E329D2F85F1eD31Adbb30eA345278F21bcf"
+        },
+        {
+          "line": 46,
+          "text": "  ICollector internal constant COLLECTOR = ICollector(0xB2289E329D2F85F1eD31Adbb30eA345278F21bcf);"
+        },
+        {
+          "line": 48,
+          "text": "  // https://optimistic.etherscan.io/address/0x7c03FA1A1d195Db5690E188bd6bBFA87816995eE"
+        },
+        {
+          "line": 49,
+          "text": "  address internal constant DEFAULT_A_TOKEN_IMPL = 0x7c03FA1A1d195Db5690E188bd6bBFA87816995eE;"
+        },
+        {
+          "line": 51,
+          "text": "  // https://optimistic.etherscan.io/address/0xC0442C25FE517ac37D6a0D485446307D97d24712"
+        },
+        {
+          "line": 53,
+          "text": "    0xC0442C25FE517ac37D6a0D485446307D97d24712;"
+        },
+        {
+          "line": 55,
+          "text": "  // https://optimistic.etherscan.io/address/0x33df99d9d6F69fbe2722920883609532EFc2541d"
+        },
+        {
+          "line": 56,
+          "text": "  address internal constant RISK_STEWARD = 0x33df99d9d6F69fbe2722920883609532EFc2541d;"
+        },
+        {
+          "line": 58,
+          "text": "  // https://optimistic.etherscan.io/address/0xCb86256A994f0c505c5e15c75BF85fdFEa0F2a56"
+        },
+        {
+          "line": 59,
+          "text": "  address internal constant RISK_COUNCIL = 0xCb86256A994f0c505c5e15c75BF85fdFEa0F2a56;"
+        },
+        {
+          "line": 61,
+          "text": "  // https://optimistic.etherscan.io/address/0xE28E2c8d240dd5eBd0adcab86fbD79df7a052034"
+        },
+        {
+          "line": 62,
+          "text": "  address internal constant DEBT_SWAP_ADAPTER = 0xE28E2c8d240dd5eBd0adcab86fbD79df7a052034;"
+        },
+        {
+          "line": 64,
+          "text": "  // https://optimistic.etherscan.io/address/0x9abADECD08572e0eA5aF4d47A9C7984a5AA503dC"
+        },
+        {
+          "line": 65,
+          "text": "  address internal constant L2_ENCODER = 0x9abADECD08572e0eA5aF4d47A9C7984a5AA503dC;"
+        },
+        {
+          "line": 67,
+          "text": "  // https://optimistic.etherscan.io/address/0x3c69127D233124BC3113dE31A77C10CA3fA0e250"
+        },
+        {
+          "line": 68,
+          "text": "  address internal constant CONFIG_ENGINE = 0x3c69127D233124BC3113dE31A77C10CA3fA0e250;"
+        },
+        {
+          "line": 70,
+          "text": "  // https://optimistic.etherscan.io/address/0x770ef9f4fe897e59daCc474EF11238303F9552b6"
+        },
+        {
+          "line": 71,
+          "text": "  address internal constant POOL_ADDRESSES_PROVIDER_REGISTRY ="
+        },
+        {
+          "line": 72,
+          "text": "    0x770ef9f4fe897e59daCc474EF11238303F9552b6;"
+        },
+        {
+          "line": 74,
+          "text": "  // https://optimistic.etherscan.io/address/0x5d4D4007A4c6336550DdAa2a7c0d5e7972eebd16"
+        },
+        {
+          "line": 76,
+          "text": "    0x5d4D4007A4c6336550DdAa2a7c0d5e7972eebd16;"
+        },
+        {
+          "line": 78,
+          "text": "  // https://optimistic.etherscan.io/address/0x22D76094730fA377184100EFB8CEfC673B89B372"
+        },
+        {
+          "line": 79,
+          "text": "  address internal constant LEGACY_STATIC_A_TOKEN_FACTORY ="
+        },
+        {
+          "line": 80,
+          "text": "    0x22D76094730fA377184100EFB8CEfC673B89B372;"
+        },
+        {
+          "line": 82,
+          "text": "  // https://optimistic.etherscan.io/address/0x830C5A67a0C95D69dA5fb7801Ac1773c6fB53857"
+        },
+        {
+          "line": 83,
+          "text": "  address internal constant SWAP_COLLATERAL_ADAPTER = 0x830C5A67a0C95D69dA5fb7801Ac1773c6fB53857;"
+        },
+        {
+          "line": 85,
+          "text": "  // https://optimistic.etherscan.io/address/0x5c5228aC8BC1528482514aF3e27E692495148717"
+        },
+        {
+          "line": 86,
+          "text": "  address internal constant UI_INCENTIVE_DATA_PROVIDER = 0x5c5228aC8BC1528482514aF3e27E692495148717;"
+        },
+        {
+          "line": 88,
+          "text": "  // https://optimistic.etherscan.io/address/0x68100bD5345eA474D93577127C11F39FF8463e93"
+        },
+        {
+          "line": 89,
+          "text": "  address internal constant UI_POOL_DATA_PROVIDER = 0x68100bD5345eA474D93577127C11F39FF8463e93;"
+        },
+        {
+          "line": 91,
+          "text": "  // https://optimistic.etherscan.io/address/0xBc790382B3686abffE4be14A030A96aC6154023a"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "uniswap_deployments",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "fetched_at_utc": "2026-11-08T15:28:56.474041+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "7daa52b28d2fc15eb5888a86b5261604a7d32cb43113cde8ca8ea1516d24b8de",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "| Contract                                                                                                                                                     | Mainnet, Polygon, Optimism, Arbitrum, Testnets Address | Celo Address                                 |"
+        },
+        {
+          "line": 7,
+          "text": "| [UniswapV3Factory](https://github.com/Uniswap/uniswap-v3-core/blob/v1.0.0/contracts/UniswapV3Factory.sol)                                                    | `0x1F98431c8aD98523631AE4a59f267346ea31F984`           | `0xAfE208a311B21f13EF87E33A90049fC17A7acDEc` |"
+        },
+        {
+          "line": 8,
+          "text": "| [Multicall2](https://etherscan.io/address/0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696#code)                                                                   | `0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696`           | `0x633987602DE5C4F337e3DbF265303A1080324204` |"
+        },
+        {
+          "line": 9,
+          "text": "| [ProxyAdmin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.1-solc-0.7-2/contracts/proxy/ProxyAdmin.sol)                                   | `0xB753548F6E010e7e680BA186F9Ca1BdAB2E90cf2`           | `0xc1b262Dd7643D4B7cA9e51631bBd900a564BF49A` |"
+        },
+        {
+          "line": 10,
+          "text": "| [TickLens](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/TickLens.sol)                                                          | `0xbfd8137f7d1516D3ea5cA83523914859ec47F573`           | `0x5f115D9113F88e0a0Db1b5033D90D4a9690AcD3D` |"
+        },
+        {
+          "line": 11,
+          "text": "| [Quoter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/Quoter.sol)                                                              | `0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6`           | `0x82825d0554fA07f7FC52Ab63c961F330fdEFa8E8` |"
+        },
+        {
+          "line": 12,
+          "text": "| [SwapRouter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/SwapRouter.sol)                                                           | `0xE592427A0AEce92De3Edee1F18E0157C05861564`           | `0x5615CDAb10dc425a742d643d949a7F474C01abc4` |"
+        },
+        {
+          "line": 13,
+          "text": "| [NFTDescriptor](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/libraries/NFTDescriptor.sol)                                           | `0x42B24A95702b9986e82d421cC3568932790A48Ec`           | `0xa9Fd765d85938D278cb0b108DbE4BF7186831186` |"
+        },
+        {
+          "line": 14,
+          "text": "| [NonfungibleTokenPositionDescriptor](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/NonfungibleTokenPositionDescriptor.sol)           | `0x91ae842A5Ffd8d12023116943e72A606179294f3`           | `0x644023b316bB65175C347DE903B60a756F6dd554` |"
+        },
+        {
+          "line": 15,
+          "text": "| [TransparentUpgradeableProxy](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.1-solc-0.7-2/contracts/proxy/TransparentUpgradeableProxy.sol) | `0xEe6A57eC80ea46401049E92587E52f5Ec1c24785`           | `0x505B43c452AA4443e0a6B84bb37771494633Fde9` |"
+        },
+        {
+          "line": 16,
+          "text": "| [NonfungiblePositionManager](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/NonfungiblePositionManager.sol)                           | `0xC36442b4a4522E871399CD717aBDD847Ab11FE88`           | `0x3d79EdAaBC0EaB6F08ED885C05Fc0B014290D95A` |"
+        },
+        {
+          "line": 17,
+          "text": "| [V3Migrator](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/V3Migrator.sol)                                                           | `0xA5644E29708357803b5A882D272c41cC0dF92B34`           | `0x3cFd4d48EDfDCC53D3f173F596f621064614C582` |"
+        }
+      ],
+      "success": true
+    }
+  ]
+}

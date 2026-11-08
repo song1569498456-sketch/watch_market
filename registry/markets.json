@@ -71,6 +71,64 @@
       "owner": "BNB01",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BNB01/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "ARB",
+      "protocol": "Uniswap v3 factory (discovery registry, not a traded pool)",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "identity_status": "OFFICIAL_SDK_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+      "owner": "N-ARB",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "ARB",
+      "protocol": "Aave V3 Arbitrum pool registry",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+      "owner": "N-ARB",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BASE:8453:Aerodrome:PoolFactory:0x420dd381b31aef6683db6b902084cb0ffece40da",
+      "chain": "BASE",
+      "protocol": "Aerodrome",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "开放只读RPC后核对eth_chainId=0x2105、最新区块/时间；工厂核代码、事件和token地址，建立真实PoolCreated分页。",
+      "owner": "N-BASE",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "OP",
+      "protocol": "Aave V3 Optimism",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+        "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
+      "next_check": "读取chainId、provider.getPool、proxy code/implementation、reserve列表及可提流动性。",
+      "owner": "N-OP",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/N-OP/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

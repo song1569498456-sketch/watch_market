@@ -1,0 +1,308 @@
+{
+  "agent_id": "N-ARB",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One新市场/规则/操作发现；静态注册表基线子集",
+  "started_at": "2026-11-08T15:28:48.346068+00:00",
+  "finished_at": "2026-11-08T15:29:57.007506+00:00",
+  "duration_seconds": 68.661,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:29:57.007506+00:00",
+    "beijing": "2026-11-08T23:29:57.007506+08:00",
+    "data_time": "unknown; source branch snapshot only"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+    "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    {
+      "source": "arbitrum-ecosystem",
+      "url": "https://portal.arbitrum.io/",
+      "retrieved_at_utc": "2026-11-08T15:28:48.346074+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "arbitrum-rpc",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-08T15:28:49.364047+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-arbitrum-deploy",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "retrieved_at_utc": "2026-11-08T15:28:50.375377+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c",
+      "bytes_read": 31098,
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Arbitrum {"
+        },
+        {
+          "line": 7,
+          "text": "  // https://arbiscan.io/address/0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+        },
+        {
+          "line": 8,
+          "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+        },
+        {
+          "line": 9,
+          "text": "    IPoolAddressesProvider(0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb);"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "  // https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "  // https://arbiscan.io/address/0x8145eddDf43f50276641b55bd3AD95944510021E"
+        },
+        {
+          "line": 15,
+          "text": "  IPoolConfigurator internal constant POOL_CONFIGURATOR ="
+        },
+        {
+          "line": 16,
+          "text": "    IPoolConfigurator(0x8145eddDf43f50276641b55bd3AD95944510021E);"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "  // https://arbiscan.io/address/0xb56c2F0B653B2e0b10C9b928C8580Ac5Df02C7C7"
+        },
+        {
+          "line": 78,
+          "text": ""
+        },
+        {
+          "line": 79,
+          "text": "  // https://arbiscan.io/address/0x770ef9f4fe897e59daCc474EF11238303F9552b6"
+        },
+        {
+          "line": 80,
+          "text": "  address internal constant POOL_ADDRESSES_PROVIDER_REGISTRY ="
+        },
+        {
+          "line": 81,
+          "text": "    0x770ef9f4fe897e59daCc474EF11238303F9552b6;"
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "  // https://arbiscan.io/address/0xcC47c4Fe1F7f29ff31A8b62197023aC8553C7896"
+        },
+        {
+          "line": 84,
+          "text": "  address internal constant RATES_FACTORY = 0xcC47c4Fe1F7f29ff31A8b62197023aC8553C7896;"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "  // https://arbiscan.io/address/0xE28E2c8d240dd5eBd0adcab86fbD79df7a052034"
+        }
+      ]
+    },
+    {
+      "source": "uniswap-sdk-deploy",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-08T15:28:51.805555+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc",
+      "bytes_read": 35066,
+      "excerpts": [
+        {
+          "line": 105,
+          "text": "// Networks that share most of the same addresses i.e. Mainnet, Goerli, Optimism, Arbitrum, Polygon"
+        },
+        {
+          "line": 106,
+          "text": "const DEFAULT_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 107,
+          "text": "  v3CoreFactoryAddress: '0x1F98431c8aD98523631AE4a59f267346ea31F984',"
+        },
+        {
+          "line": 108,
+          "text": "  multicallAddress: '0x1F98415757620B543A52E61c46B32eB19261F984',"
+        },
+        {
+          "line": 109,
+          "text": "  quoterAddress: '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6',"
+        },
+        {
+          "line": 110,
+          "text": "  v3MigratorAddress: '0xA5644E29708357803b5A882D272c41cC0dF92B34',"
+        },
+        {
+          "line": 111,
+          "text": "  nonfungiblePositionManagerAddress: '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',"
+        },
+        {
+          "line": 112,
+          "text": "}"
+        },
+        {
+          "line": 140,
+          "text": "const ARBITRUM_ONE_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 141,
+          "text": "  ...DEFAULT_ADDRESSES,"
+        },
+        {
+          "line": 142,
+          "text": "  multicallAddress: '0xadF885960B47eA2CD9B55E6DAc6B42b7Cb2806dB',"
+        },
+        {
+          "line": 143,
+          "text": "  tickLensAddress: '0xbfd8137f7d1516D3ea5cA83523914859ec47F573',"
+        },
+        {
+          "line": 144,
+          "text": "  mixedRouteQuoterV2Address: '0x5c834b6cac4173bfe288c5722a38e04b9e366e30',"
+        },
+        {
+          "line": 145,
+          "text": ""
+        },
+        {
+          "line": 146,
+          "text": "  v4PoolManagerAddress: '0x360e68faccca8ca495c1b759fd9eee466db9fb32',"
+        },
+        {
+          "line": 584,
+          "text": "  [ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,"
+        }
+      ]
+    }
+  ],
+  "mechanism": "DEX工厂PoolCreated注册对象与可成交池不同；借贷Pool的可提现/清算约束不同于DEX显示价格，需分别读取状态而非按地址表推利润。",
+  "observations": [
+    "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
+    "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
+    "未确认新增市场、已生效规则、新交易结构、旧市场复活或可执行候选。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "ETH",
+    "unknown_costs": [
+      "DEX费/冲击",
+      "L2 gas与L1数据费用（避免重复计）",
+      "退出/借贷成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown; no live calls succeeded",
+  "liabilities": "not computed; no transactions executed",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "链ID/代理代码与官方源不符",
+    "工厂归属或资产身份不符",
+    "静态部署已失效或迁移",
+    "当前数量报价/状态不支持候选"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+    "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+  ],
+  "coverage_gaps": [
+    "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
+    "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
+    "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
+    "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
+    "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
+  ],
+  "next_check": [
+    "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+    "ARB02可复用经验证池身份做独立三资产闭环研究，但本轮未提供闭环或盈利线索。",
+    "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+    "恢复RPC/治理来源后补30天规则、7天代表活动与旧小池轮转；记录真实区块和分页。"
+  ],
+  "handoff_to": [
+    "ARB01",
+    "ARB02",
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "ARB",
+      "protocol": "Uniswap v3 factory (discovery registry, not a traded pool)",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "identity_status": "OFFICIAL_SDK_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。"
+    },
+    {
+      "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "ARB",
+      "protocol": "Aave V3 Arbitrum pool registry",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "官方SDK/地址书中有地址即代表新的可盈利市场",
+      "reason": "它们是静态注册表，不是当前池级报价或已生效时间证据；仅列待验证监控对象。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_ONLY",
+    "source_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null,
+    "retrieved_at_utc": "2026-11-08T15:29:57.007506+00:00"
+  }
+}

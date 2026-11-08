@@ -1,0 +1,198 @@
+{
+  "started_at": "2026-11-08T15:28:48.346068+00:00",
+  "sources": [
+    {
+      "source": "arbitrum-ecosystem",
+      "url": "https://portal.arbitrum.io/",
+      "retrieved_at_utc": "2026-11-08T15:28:48.346074+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "arbitrum-rpc",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-08T15:28:49.364047+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-arbitrum-deploy",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "retrieved_at_utc": "2026-11-08T15:28:50.375377+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c",
+      "bytes_read": 31098,
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "library AaveV3Arbitrum {"
+        },
+        {
+          "line": 7,
+          "text": "  // https://arbiscan.io/address/0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb"
+        },
+        {
+          "line": 8,
+          "text": "  IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER ="
+        },
+        {
+          "line": 9,
+          "text": "    IPoolAddressesProvider(0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb);"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "  // https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+        },
+        {
+          "line": 12,
+          "text": "  IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);"
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "  // https://arbiscan.io/address/0x8145eddDf43f50276641b55bd3AD95944510021E"
+        },
+        {
+          "line": 15,
+          "text": "  IPoolConfigurator internal constant POOL_CONFIGURATOR ="
+        },
+        {
+          "line": 16,
+          "text": "    IPoolConfigurator(0x8145eddDf43f50276641b55bd3AD95944510021E);"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "  // https://arbiscan.io/address/0xb56c2F0B653B2e0b10C9b928C8580Ac5Df02C7C7"
+        },
+        {
+          "line": 78,
+          "text": ""
+        },
+        {
+          "line": 79,
+          "text": "  // https://arbiscan.io/address/0x770ef9f4fe897e59daCc474EF11238303F9552b6"
+        },
+        {
+          "line": 80,
+          "text": "  address internal constant POOL_ADDRESSES_PROVIDER_REGISTRY ="
+        },
+        {
+          "line": 81,
+          "text": "    0x770ef9f4fe897e59daCc474EF11238303F9552b6;"
+        },
+        {
+          "line": 82,
+          "text": ""
+        },
+        {
+          "line": 83,
+          "text": "  // https://arbiscan.io/address/0xcC47c4Fe1F7f29ff31A8b62197023aC8553C7896"
+        },
+        {
+          "line": 84,
+          "text": "  address internal constant RATES_FACTORY = 0xcC47c4Fe1F7f29ff31A8b62197023aC8553C7896;"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "  // https://arbiscan.io/address/0xE28E2c8d240dd5eBd0adcab86fbD79df7a052034"
+        }
+      ]
+    },
+    {
+      "source": "uniswap-sdk-deploy",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-08T15:28:51.805555+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc",
+      "bytes_read": 35066,
+      "excerpts": [
+        {
+          "line": 105,
+          "text": "// Networks that share most of the same addresses i.e. Mainnet, Goerli, Optimism, Arbitrum, Polygon"
+        },
+        {
+          "line": 106,
+          "text": "const DEFAULT_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 107,
+          "text": "  v3CoreFactoryAddress: '0x1F98431c8aD98523631AE4a59f267346ea31F984',"
+        },
+        {
+          "line": 108,
+          "text": "  multicallAddress: '0x1F98415757620B543A52E61c46B32eB19261F984',"
+        },
+        {
+          "line": 109,
+          "text": "  quoterAddress: '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6',"
+        },
+        {
+          "line": 110,
+          "text": "  v3MigratorAddress: '0xA5644E29708357803b5A882D272c41cC0dF92B34',"
+        },
+        {
+          "line": 111,
+          "text": "  nonfungiblePositionManagerAddress: '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',"
+        },
+        {
+          "line": 112,
+          "text": "}"
+        },
+        {
+          "line": 140,
+          "text": "const ARBITRUM_ONE_ADDRESSES: ChainAddresses = {"
+        },
+        {
+          "line": 141,
+          "text": "  ...DEFAULT_ADDRESSES,"
+        },
+        {
+          "line": 142,
+          "text": "  multicallAddress: '0xadF885960B47eA2CD9B55E6DAc6B42b7Cb2806dB',"
+        },
+        {
+          "line": 143,
+          "text": "  tickLensAddress: '0xbfd8137f7d1516D3ea5cA83523914859ec47F573',"
+        },
+        {
+          "line": 144,
+          "text": "  mixedRouteQuoterV2Address: '0x5c834b6cac4173bfe288c5722a38e04b9e366e30',"
+        },
+        {
+          "line": 145,
+          "text": ""
+        },
+        {
+          "line": 146,
+          "text": "  v4PoolManagerAddress: '0x360e68faccca8ca495c1b759fd9eee466db9fb32',"
+        },
+        {
+          "line": 584,
+          "text": "  [ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,"
+        }
+      ]
+    }
+  ]
+}
