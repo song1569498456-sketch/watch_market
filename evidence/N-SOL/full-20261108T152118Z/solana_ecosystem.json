@@ -1,0 +1,9 @@
+{
+  "name": "solana_ecosystem",
+  "url": "https://solana.com/ecosystem/explore",
+  "fetched_at_utc": "2026-11-08T15:23:28.719634+00:00",
+  "method": "GET",
+  "success": false,
+  "error_type": "URLError",
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

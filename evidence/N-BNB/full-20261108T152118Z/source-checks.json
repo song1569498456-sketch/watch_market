@@ -1,0 +1,100 @@
+{
+  "started_at": "2026-11-08T15:23:05.407196+00:00",
+  "results": [
+    {
+      "name": "bnb_ecosystem",
+      "url": "https://www.bnbchain.org/en/dappbay",
+      "fetched_at": "2026-11-08T15:23:05.407203+00:00",
+      "method": "GET",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "bnb_rpc",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "fetched_at": "2026-11-08T15:23:06.430189+00:00",
+      "method": "POST",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "pancake_readme",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/README.md",
+      "fetched_at": "2026-11-08T15:23:07.437744+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "response_bytes_read": 595,
+      "last_modified": null,
+      "snapshot": "# Pancake V3\n\n\n## Deployments\n\n1. Add Key in `.env` file. It's a private key of the account that will deploy the contracts and should be gitignored.\n2. bscTestnet `KEY_TESTNET` or bsc `KEY_MAINNET`\n3. add `ETHERSCAN_API_KEY` in `.env` file. It's an API key for etherscan.\n4. `yarn` in root directory\n5. `NETWORK=$NETWORK yarn zx v3-deploy.mjs` where `$NETWORK` is either `eth`, `goerli`, `bscMainnet`, `bscTestnet` or `hardhat` (for local testing)\n6. `NETWORK=$NETWORK yarn zx v3-verify.mjs` where `$NETWORK` is either `eth`, `goerli`, `bscMainnet`, `bscTestnet` or `hardhat` (for local testing)"
+    },
+    {
+      "name": "bnb_releases",
+      "url": "https://github.com/bnb-chain/bsc/releases",
+      "fetched_at": "2026-11-08T15:23:08.833553+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "response_bytes_read": 399924,
+      "last_modified": null,
+      "selected_excerpts": [
+        "These non-consensus changes can take effect before the hard fork. Schedule(Timeline): BSC Mainnet - 2026-12-08 02:30:00 UTC ( 1796697000 ). Changelog v1.8.2 schedules the BSC Mainnet Jenner hardfork for 2026-12-08 02:30:00 UTC ( 1796697000 ). All mainnet node operators must upgrade before activation. Key Changes (Hard Fork Required) BEP-702: Compliant ",
+        "6-12-08 02:30:00 UTC ( 1796697000 ). Changelog v1.8.2 schedules the BSC Mainnet Jenner hardfork for 2026-12-08 02:30:00 UTC ( 1796697000 ). All mainnet node operators must upgrade before activation. Key Changes (Hard Fork Required) BEP-702: Compliant Asset Standard : adds CAS20 stateful precompiles. Token creation requires separate activation by a gove"
+      ]
+    },
+    {
+      "name": "pancake_deploy_script",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/v3-deploy.mjs",
+      "fetched_at": "2026-11-08T15:23:21.721382+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "snapshot": "#!/usr/bin/env zx\n// import 'zx/globals'\n\nconst networks = {\n  eth: 'eth',\n  goerli: 'goerli',\n  bscMainnet: 'bscMainnet',\n  bscTestnet: 'bscTestnet',\n  hardhat: 'hardhat',\n}\n\nlet network = process.env.NETWORK\nconsole.log(network, 'network')\nif (!network || !networks[network]) {\n  throw new Error(`env NETWORK: ${network}`)\n}\n\nawait $`yarn workspace @pancakeswap/v3-core run hardhat run scripts/deploy.ts --network ${network}`\n\nawait $`yarn workspace @pancakeswap/v3-periphery run hardhat run scripts/deploy2.ts --network ${network}`\n\nawait $`yarn workspace @pancakeswap/masterchef-v3 run hardhat run scripts/deploy2.ts --network ${network}`\n\nawait $`yarn workspace @pancakeswap/v3-lm-pool run hardhat run scripts/deploy2.ts --network ${network}`\n\nconsole.log(chalk.blue('Done!'))\n\nconst m = await fs.readJson(`./projects/masterchef-v3/deployments/${network}.json`)\nconst c = await fs.readJson(`./projects/v3-core/deployments/${network}.json`)\nconst p = await fs.readJson(`./projects/v3-periphery/deployments/${network}.json`)\nconst l = await fs.readJson(`./projects/v3-lm-pool/deployments/${network}.json`)\n\nconst addresses = {\n  ...m,\n  ...c,\n  ...p,\n  ...l,\n}\n\nconsole.log(chalk.blue('Writing to file...'))\nconsole.log(chalk.yellow(JSON.stringify(addresses, null, 2)))\n\nfs.writeJson(`./deployments/${network}.json`, addresses, { spaces: 2 })\n"
+    },
+    {
+      "name": "pancake_deployment",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+      "fetched_at": "2026-11-08T15:23:23.014831+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "snapshot": "{\n  \"MasterChefV3\": \"0x556B9306565093C855AEA9AE92A594704c2Cd59e\",\n  \"QuoterV2\": \"0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997\",\n  \"PancakeV3Factory\": \"0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865\",\n  \"PancakeV3PoolDeployer\": \"0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9\",\n  \"SwapRouter\": \"0x1b81D678ffb9C0263b24A97847620C99d213eB14\",\n  \"V3Migrator\": \"0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2\",\n  \"TickLens\": \"0x9a489505a00cE272eAa5e07Dba6491314CaE3796\",\n  \"NonfungibleTokenPositionDescriptor\": \"0x3D00CdB4785F0ef20C903A13596e0b9B2c652227\",\n  \"NonfungiblePositionManager\": \"0x46A15B0b27311cedF172AB29E4f4766fbE7F4364\",\n  \"PancakeInterfaceMulticall\": \"0xac1cE734566f390A94b00eb9bf561c2625BF44ea\",\n  \"PancakeV3LmPoolDeployer\": \"0x769449da49D1Eb1FF44A6B366BE46960fDF46Ad6\"\n}\n"
+    },
+    {
+      "name": "bsc_v182",
+      "url": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+      "fetched_at": "2026-11-08T15:23:43.457085+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "published_times": [
+        "2026-11-03T02:12:36Z",
+        "2026-11-03 02:04:27 UTC"
+      ],
+      "selected_excerpts": [
+        "RPC settings. These non-consensus changes can take effect before the hard fork. Schedule(Timeline): BSC Mainnet - 2026-12-08 02:30:00 UTC ( 1796697000 ). Changelog v1.8.2 schedules the BSC Mainnet Jenner hardfork for 2026-12-08 02:30:00 UTC ( 1796697000 ). All mainnet node operators must upgrade before activation. Key Changes (Hard Fork Required) BEP-702: Compliant Asset Standard : adds CAS20 stateful precompiles. Token creation requires separate activation by a governance-appointed administrator. BEP-703: Payment Lane : reserves 5% of block gas by default for eligible BNB transfers and transactions to listed payment contracts. The ratio and contract list can be changed through governance. BEP-706: Millisecond Timestamp ",
+        "node operators must upgrade before activation. Key Changes (Hard Fork Required) BEP-702: Compliant Asset Standard : adds CAS20 stateful precompiles. Token creation requires separate activation by a governance-appointed administrator. BEP-703: Payment Lane : reserves 5% of block gas by default for eligible BNB transfers and transactions to listed payment contracts. The ratio and contract list can be changed through governance. BEP-706: Millisecond Timestamp : exposes millisecond block time through precompile 0x70 ; block.timestamp remains in seconds. BEP-675 MEV Enhancements (No Hard Fork Required) This release also includes the MEV enhancements introduced in v1.8.1: Faster BidBlock transport: gRPC with RLP-encoded binary",
+        "rade notes for removed configuration fields, RPC changes and MEV gRPC settings. These non-consensus changes can take effect before the hard fork. Schedule(Timeline): BSC Mainnet - 2026-12-08 02:30:00 UTC ( 1796697000 ). Changelog v1.8.2 schedules the BSC Mainnet Jenner hardfork for 2026-12-08 02:30:00 UTC ( 1796697000 ). All mainnet node operators must upgrade before activation. Key Changes (Hard Fork Required) BEP-702: Compliant Asset Standard : adds CAS20 stateful precompiles. Token creation requires separate activation by a governance-appointed administrator. BEP-703: Payment Lane : reserves 5% of block gas by default for eligible BNB transfers and transactions to listed payment contracts. The ratio and contract list "
+      ]
+    },
+    {
+      "name": "factory_source",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-core/contracts/PancakeV3Factory.sol",
+      "fetched_at": "2026-11-08T15:23:45.307346+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "selected_excerpts": [
+        "        emit OwnerChanged(address(0), msg.sender);\n\n        feeAmountTickSpacing[100] = 1;\n        feeAmountTickSpacingExtraInfo[100] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});\n        emit FeeAmountEnabled(100, 1);\n        emit FeeAmountExtraInfoUpdated(100, false, true);",
+        "        emit FeeAmountEnabled(100, 1);\n        emit FeeAmountExtraInfoUpdated(100, false, true);\n        feeAmountTickSpacing[500] = 10;\n        feeAmountTickSpacingExtraInfo[500] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});\n        emit FeeAmountEnabled(500, 10);\n        emit FeeAmountExtraInfoUpdated(500, false, true);",
+        "        emit FeeAmountEnabled(500, 10);\n        emit FeeAmountExtraInfoUpdated(500, false, true);\n        feeAmountTickSpacing[2500] = 50;\n        feeAmountTickSpacingExtraInfo[2500] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});\n        emit FeeAmountEnabled(2500, 50);\n        emit FeeAmountExtraInfoUpdated(2500, false, true);",
+        "        emit FeeAmountEnabled(2500, 50);\n        emit FeeAmountExtraInfoUpdated(2500, false, true);\n        feeAmountTickSpacing[10000] = 200;\n        feeAmountTickSpacingExtraInfo[10000] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});\n        emit FeeAmountEnabled(10000, 200);\n        emit FeeAmountExtraInfoUpdated(10000, false, true);",
+        "\n    /// @inheritdoc IPancakeV3Factory\n    function createPool(\n        address tokenA,\n        address tokenB,\n        uint24 fee",
+        "        (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);\n        require(token0 != address(0));\n        int24 tickSpacing = feeAmountTickSpacing[fee];\n        TickSpacingExtraInfo memory info = feeAmountTickSpacingExtraInfo[fee];\n        require(tickSpacing != 0 && info.enabled, \"fee is not available yet\");\n        if (info.whitelistRequested) {",
+        "        // populate mapping in the reverse direction, deliberate choice to avoid the cost of comparing addresses\n        getPool[token1][token0][fee] = pool;\n        emit PoolCreated(token0, token1, fee, tickSpacing, pool);\n    }\n\n    /// @inheritdoc IPancakeV3Factory",
+        "\n    /// @inheritdoc IPancakeV3Factory\n    function enableFeeAmount(uint24 fee, int24 tickSpacing) public override onlyOwner {\n        require(fee < 1000000);\n        // tick spacing is capped at 16384 to prevent the situation where tickSpacing is so large that\n        // TickBitmap#nextInitializedTickWithinOneWord overflows int24 container from a valid tick",
+        "        // 16384 ticks represents a >5x price change with ticks of 1 bips\n        require(tickSpacing > 0 && tickSpacing < 16384);\n        require(feeAmountTickSpacing[fee] == 0);\n\n        feeAmountTickSpacing[fee] = tickSpacing;\n        feeAmountTickSpacingExtraInfo[fee] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});",
+        "        require(feeAmountTickSpacing[fee] == 0);\n\n        feeAmountTickSpacing[fee] = tickSpacing;\n        feeAmountTickSpacingExtraInfo[fee] = TickSpacingExtraInfo({whitelistRequested: false, enabled: true});\n        emit FeeAmountEnabled(fee, tickSpacing);\n        emit FeeAmountExtraInfoUpdated(fee, false, true);",
+        "        bool enabled\n    ) public override onlyOwner {\n        require(feeAmountTickSpacing[fee] != 0);\n\n        feeAmountTickSpacingExtraInfo[fee] = TickSpacingExtraInfo({\n            whitelistRequested: whitelistRequested,"
+      ]
+    }
+  ]
+}

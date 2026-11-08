@@ -1,0 +1,348 @@
+{
+  "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+  "retrieved_at_utc": "2026-11-08T15:23:51.295125+00:00",
+  "http_status": 200,
+  "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+  "excerpts": [
+    {
+      "line": 26,
+      "text": "    function constructTokenURI(uint256 _requestId) external view returns (string memory);"
+    },
+    {
+      "line": 27,
+      "text": "}"
+    },
+    {
+      "line": 28,
+      "text": ""
+    },
+    {
+      "line": 29,
+      "text": "/// @title NFT implementation on top of {WithdrawalQueue}"
+    },
+    {
+      "line": 30,
+      "text": "/// NFT is minted on every request and burned on claim"
+    },
+    {
+      "line": 31,
+      "text": "///"
+    },
+    {
+      "line": 32,
+      "text": "/// @author psirex, folkyatina"
+    },
+    {
+      "line": 33,
+      "text": "contract WithdrawalQueueERC721 is IERC721Metadata, IERC4906, WithdrawalQueue {"
+    },
+    {
+      "line": 34,
+      "text": "    using Address for address;"
+    },
+    {
+      "line": 35,
+      "text": "    using Strings for uint256;"
+    },
+    {
+      "line": 36,
+      "text": "    using EnumerableSet for EnumerableSet.UintSet;"
+    },
+    {
+      "line": 37,
+      "text": "    using UnstructuredRefStorage for bytes32;"
+    },
+    {
+      "line": 38,
+      "text": "    using UnstructuredStorage for bytes32;"
+    },
+    {
+      "line": 39,
+      "text": ""
+    },
+    {
+      "line": 40,
+      "text": "    bytes32 internal constant TOKEN_APPROVALS_POSITION = keccak256(\"lido.WithdrawalQueueERC721.tokenApprovals\");"
+    },
+    {
+      "line": 41,
+      "text": "    bytes32 internal constant OPERATOR_APPROVALS_POSITION = keccak256(\"lido.WithdrawalQueueERC721.operatorApprovals\");"
+    },
+    {
+      "line": 42,
+      "text": "    bytes32 internal constant BASE_URI_POSITION = keccak256(\"lido.WithdrawalQueueERC721.baseUri\");"
+    },
+    {
+      "line": 43,
+      "text": "    bytes32 internal constant NFT_DESCRIPTOR_ADDRESS_POSITION ="
+    },
+    {
+      "line": 143,
+      "text": "        NFT_DESCRIPTOR_ADDRESS_POSITION.setStorageAddress(_nftDescriptorAddress);"
+    },
+    {
+      "line": 144,
+      "text": "        emit NftDescriptorAddressSet(_nftDescriptorAddress);"
+    },
+    {
+      "line": 145,
+      "text": "    }"
+    },
+    {
+      "line": 146,
+      "text": ""
+    },
+    {
+      "line": 147,
+      "text": "    /// @notice Finalize requests from last finalized one up to `_lastRequestIdToBeFinalized`"
+    },
+    {
+      "line": 148,
+      "text": "    /// @dev ether to finalize all the requests should be calculated using `prefinalize()` and sent along"
+    },
+    {
+      "line": 149,
+      "text": "    function finalize(uint256 _lastRequestIdToBeFinalized, uint256 _maxShareRate) external payable {"
+    },
+    {
+      "line": 150,
+      "text": "        _checkResumed();"
+    },
+    {
+      "line": 151,
+      "text": "        _checkRole(FINALIZE_ROLE, msg.sender);"
+    },
+    {
+      "line": 152,
+      "text": ""
+    },
+    {
+      "line": 153,
+      "text": "        uint256 firstFinalizedRequestId = getLastFinalizedRequestId() + 1;"
+    },
+    {
+      "line": 154,
+      "text": ""
+    },
+    {
+      "line": 155,
+      "text": "        _finalize(_lastRequestIdToBeFinalized, msg.value, _maxShareRate);"
+    },
+    {
+      "line": 156,
+      "text": ""
+    },
+    {
+      "line": 157,
+      "text": "        // ERC4906 metadata update event"
+    },
+    {
+      "line": 158,
+      "text": "        // We are updating all unfinalized to make it look different as they move closer to finalization in the future"
+    },
+    {
+      "line": 159,
+      "text": "        emit BatchMetadataUpdate(firstFinalizedRequestId, getLastRequestId());"
+    },
+    {
+      "line": 160,
+      "text": "    }"
+    },
+    {
+      "line": 161,
+      "text": ""
+    },
+    {
+      "line": 162,
+      "text": "    /// @dev See {IERC721-balanceOf}."
+    },
+    {
+      "line": 163,
+      "text": "    function balanceOf(address _owner) external view override returns (uint256) {"
+    },
+    {
+      "line": 164,
+      "text": "        if (_owner == address(0)) revert InvalidOwnerAddress(_owner);"
+    },
+    {
+      "line": 165,
+      "text": "        return _getRequestsByOwner()[_owner].length();"
+    },
+    {
+      "line": 166,
+      "text": "    }"
+    },
+    {
+      "line": 167,
+      "text": ""
+    },
+    {
+      "line": 168,
+      "text": "    /// @dev See {IERC721-ownerOf}."
+    },
+    {
+      "line": 169,
+      "text": "    function ownerOf(uint256 _requestId) public view override returns (address) {"
+    },
+    {
+      "line": 170,
+      "text": "        if (_requestId == 0 || _requestId > getLastRequestId()) revert InvalidRequestId(_requestId);"
+    },
+    {
+      "line": 171,
+      "text": ""
+    },
+    {
+      "line": 357,
+      "text": "    function _constructTokenUri(uint256 _requestId) internal view returns (string memory) {"
+    },
+    {
+      "line": 358,
+      "text": "        string memory baseURI = _getBaseURI().value;"
+    },
+    {
+      "line": 359,
+      "text": "        if (bytes(baseURI).length == 0) return \"\";"
+    },
+    {
+      "line": 360,
+      "text": ""
+    },
+    {
+      "line": 361,
+      "text": "        // ${baseUri}/${_requestId}?requested=${amount}&created_at=${timestamp}[&finalized=${claimableAmount}]"
+    },
+    {
+      "line": 362,
+      "text": "        string memory uri = string("
+    },
+    {
+      "line": 363,
+      "text": "            // we have no string.concat in 0.8.9 yet, so we have to do it with bytes.concat"
+    },
+    {
+      "line": 364,
+      "text": "            bytes.concat("
+    },
+    {
+      "line": 365,
+      "text": "                bytes(baseURI),"
+    },
+    {
+      "line": 366,
+      "text": "                bytes(\"/\"),"
+    },
+    {
+      "line": 367,
+      "text": "                bytes(_requestId.toString()),"
+    },
+    {
+      "line": 368,
+      "text": "                bytes(\"?requested=\"),"
+    },
+    {
+      "line": 369,
+      "text": "                bytes("
+    },
+    {
+      "line": 370,
+      "text": "                    uint256(_getQueue()[_requestId].cumulativeStETH - _getQueue()[_requestId - 1].cumulativeStETH)"
+    },
+    {
+      "line": 371,
+      "text": "                        .toString()"
+    },
+    {
+      "line": 372,
+      "text": "                ),"
+    },
+    {
+      "line": 373,
+      "text": "                bytes(\"&created_at=\"),"
+    },
+    {
+      "line": 374,
+      "text": "                bytes(uint256(_getQueue()[_requestId].timestamp).toString())"
+    },
+    {
+      "line": 375,
+      "text": "            )"
+    },
+    {
+      "line": 376,
+      "text": "        );"
+    },
+    {
+      "line": 377,
+      "text": "        bool finalized = _requestId <= getLastFinalizedRequestId();"
+    },
+    {
+      "line": 378,
+      "text": ""
+    },
+    {
+      "line": 379,
+      "text": "        if (finalized) {"
+    },
+    {
+      "line": 380,
+      "text": "            uri = string("
+    },
+    {
+      "line": 381,
+      "text": "                bytes.concat("
+    },
+    {
+      "line": 382,
+      "text": "                    bytes(uri),"
+    },
+    {
+      "line": 383,
+      "text": "                    bytes(\"&finalized=\"),"
+    },
+    {
+      "line": 384,
+      "text": "                    bytes("
+    },
+    {
+      "line": 385,
+      "text": "                        _getClaimableEther(_requestId, _findCheckpointHint(_requestId, 1, getLastCheckpointIndex()))"
+    },
+    {
+      "line": 386,
+      "text": "                            .toString()"
+    },
+    {
+      "line": 387,
+      "text": "                    )"
+    },
+    {
+      "line": 388,
+      "text": "                )"
+    },
+    {
+      "line": 389,
+      "text": "            );"
+    },
+    {
+      "line": 390,
+      "text": "        }"
+    },
+    {
+      "line": 391,
+      "text": ""
+    },
+    {
+      "line": 392,
+      "text": "        return uri;"
+    },
+    {
+      "line": 393,
+      "text": "    }"
+    },
+    {
+      "line": 394,
+      "text": "}"
+    }
+  ]
+}

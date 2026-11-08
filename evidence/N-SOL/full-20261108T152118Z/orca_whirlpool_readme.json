@@ -1,0 +1,88 @@
+{
+  "name": "orca_whirlpool_readme",
+  "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:23:32.156898+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "bytes_sampled": 6436,
+  "sha256_sample": "d9414e3ebe98df6953613dd954ba8839839cd1c2ce54474090598a4cbb9ed1c7",
+  "excerpts": [
+    {
+      "line": 1,
+      "text": "# Whirlpools"
+    },
+    {
+      "line": 3,
+      "text": "Whirlpools is an open-source concentrated liquidity AMM contract on the Solana blockchain."
+    },
+    {
+      "line": 4,
+      "text": "This repository contains the Rust smart contract and SDKs to interact with a deployed program."
+    },
+    {
+      "line": 6,
+      "text": "The official deployment of the whirlpool contract can be found at the `whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc` address on:"
+    },
+    {
+      "line": 7,
+      "text": "- [Solana Mainnet](https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc)"
+    },
+    {
+      "line": 10,
+      "text": "The contract is deployed using verifiable build, so that you can ensure that the hash of the on-chain program matches the hash of the program in this codebase."
+    },
+    {
+      "line": 14,
+      "text": "The program has been audited several times by different security firms."
+    },
+    {
+      "line": 24,
+      "text": "This repository contains several libraries that can be used to interact with the Whirlpools contract. For most purposes you can use our high-level SDKs, `@orca-so/whirlpools` for Typescript projects, and `orca_whirlpools` for Rust projects."
+    },
+    {
+      "line": 27,
+      "text": "* `@orca-so/whirlpools-client` & `orca_whirlpools_client` - auto-generated client for the Whirlpools program that contains account, instruction and error parsing."
+    },
+    {
+      "line": 28,
+      "text": "* `@orca-so/whirlpools-core` & `orca_whirlpools_core` - utility, math and quoting functions used by other packages."
+    },
+    {
+      "line": 30,
+      "text": "The legacy Typescript SDK (`@orca-so/whirlpools-sdk`) remains a solid choice, and it’s currently the only option if your project uses Solana Web3.js."
+    },
+    {
+      "line": 36,
+      "text": "This monorepo contains all the code needed to build, deploy and interact with the Whirlpools contract."
+    },
+    {
+      "line": 62,
+      "text": "* Clone this repository: `git clone https://github.com/orca-so/whirlpools`"
+    },
+    {
+      "line": 70,
+      "text": "* Check if you have a valid wallet address using `solana address`."
+    },
+    {
+      "line": 81,
+      "text": "* **`/programs/*`** - Rust programs that are deployed on Solana."
+    },
+    {
+      "line": 82,
+      "text": "* **`/ts-sdk/*`** - Typescript SDKs for interacting with the programs."
+    },
+    {
+      "line": 83,
+      "text": "* **`/rust-sdk/*`** - Rust SDKs for interacting with the programs."
+    },
+    {
+      "line": 84,
+      "text": "* **`/docs/*`** - Documentation for the programs and SDKs."
+    },
+    {
+      "line": 97,
+      "text": "If you look closely, the commands just call individual commands specified in the component's `package.json` file. These commands should not be run by themselves as it will not resolve the right dependencies and will not execute the prerequisites. Instead you can specify which package to run with `yarn build programs/whirlpool`, `yarn test legacy-sdk/whirlpool`, etc."
+    }
+  ],
+  "success": true
+}

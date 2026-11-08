@@ -1,0 +1,184 @@
+{
+  "agent_id": "N-ETH",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ETH",
+  "scope": "Ethereum主网新市场/规则/新操作自主发现；本轮仅官方静态部署与机制基线",
+  "started_at": "2026-11-08T15:23:08.007280+00:00",
+  "finished_at": "2026-11-08T15:24:52.450934+00:00",
+  "duration_seconds": 104.444,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "fetched_at_utc": "2026-11-08T15:24:52.450934+00:00",
+    "fetched_at_beijing": "2026-11-08T23:24:52.450934+08:00",
+    "source_data_time": "unknown; branch master latest snapshot, not chain current time"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1"
+  ],
+  "asset_ids": [
+    "eip155:1/erc20:0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+    "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+  ],
+  "discovery_source": [
+    {
+      "source": "ethereum-ecosystem",
+      "url": "https://ethereum.org/en/dapps/",
+      "retrieved_at_utc": "2026-11-08T15:23:08.007287+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "ethereum-rpc",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T15:23:09.030633+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "uniswap-core-readme",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-core/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:23:10.039109+00:00",
+      "request": null,
+      "http_status": 200,
+      "bytes_read": 3017,
+      "sha256": "3191452e105484701019aa34b8b1c6228cff3507cab4059222696edfa9fd31cb"
+    },
+    {
+      "source": "lido-mainnet-deployment",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "retrieved_at_utc": "2026-11-08T15:23:11.477908+00:00",
+      "request": null,
+      "http_status": 200,
+      "bytes_read": 61362,
+      "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+    },
+    {
+      "source": "lido-withdrawal-docs",
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "retrieved_at_utc": "2026-11-08T15:23:12.935065+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
+  "mechanism": "官方源码在每次请求时铸造NFT、claim时销毁；finalize需FINALIZE_ROLE并检查resumed。仅表明退出为带条件的队列权益，不能将stETH名义数量直接当即刻可得ETH。",
+  "observations": [
+    "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
+    "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
+    "WithdrawalQueueERC721.sol第29-30行描述request铸NFT/claim销毁；第147-155行finalize有_checkResumed与FINALIZE_ROLE权限。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "ETH",
+    "realized": false,
+    "unknown_costs": [
+      "买入/卖出费与冲击",
+      "gas",
+      "等待机会成本",
+      "赎回差额/可兑数量"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "源码finalize受FINALIZE_ROLE约束；当前账户/暂停状态未读",
+  "liabilities": "未执行，不存在本轮新增负债；候选路径完整负债核算unknown",
+  "waiting_time": "unknown; requires finalization",
+  "invalidation_conditions": [
+    "主网代理实现与所读源码不一致",
+    "队列暂停或资格不满足",
+    "实际赎回状态/金额不支持假设",
+    "当前报价无差异或费用耗尽差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+  ],
+  "coverage_gaps": [
+    "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
+    "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
+    "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
+    "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
+    "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
+  ],
+  "next_check": [
+    "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+    "ETH01只读getLastRequestId/getLastFinalizedRequestId/getWithdrawalStatus/getClaimableEther及暂停/资格/数量边界，读取具体金额DEX退出报价并核算gas、等待。",
+    "N-ETH恢复可用RPC与官方生态/治理数据后回看30天变更、7天活动，建立经验证工厂白名单，记录分页和区块范围。",
+    "Q00独立复核静态队列凭证不等于即时ETH的反证，当前候选不得标QUOTED或盈利。"
+  ],
+  "handoff_to": [
+    "ETH01",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "chain": "ETH",
+      "protocol": "Lido WithdrawalQueueERC721",
+      "asset_ids": [
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+        "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+      "status": "UNVERIFIED",
+      "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+      "mechanism": "官方源码在每次请求时铸造NFT、claim时销毁；finalize需FINALIZE_ROLE并检查resumed。仅表明退出为带条件的队列权益，不能将stETH名义数量直接当即刻可得ETH。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "net_result": "unknown",
+      "unknown_costs": [
+        "买入/卖出费与冲击",
+        "gas",
+        "等待机会成本",
+        "赎回差额/可兑数量"
+      ],
+      "handoff_to": [
+        "ETH01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "主网代理实现与所读源码不一致",
+        "队列暂停或资格不满足",
+        "实际赎回状态/金额不支持假设",
+        "当前报价无差异或费用耗尽差额"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "将stETH名义数量或withdrawal NFT直接计为当前自由ETH/已实现利润",
+      "reason": "请求/最终化/领取是不同状态；没有当前队列状态、报价与成本，因此拒绝该收益主张，并非证明市场无机会。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_SOURCE_SNAPSHOT_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:24:52.450934+00:00",
+    "urls": [
+      "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol"
+    ],
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  }
+}

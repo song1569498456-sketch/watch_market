@@ -1,0 +1,134 @@
+{
+  "agent_id": "N-BNB",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56：新市场/规则/新操作发现，官方发布与Pancake V3注册表基线",
+  "started_at": "2026-11-08T15:23:05.407196+00:00",
+  "finished_at": "2026-11-08T15:24:45.675031+00:00",
+  "duration_seconds": 100.268,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:24:45.675031+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://www.bnbchain.org/en/dappbay",
+    "https://bsc-dataseed.bnbchain.org",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/README.md",
+    "https://github.com/bnb-chain/bsc/releases",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/v3-deploy.mjs",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-core/contracts/PancakeV3Factory.sol"
+  ],
+  "mechanism": "建立Pancake V3工厂观察入口；createPool受当前费用档启用和可选白名单约束；同时跟踪Jenner/CAS20独立激活条件。",
+  "observations": [
+    "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
+    "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
+    "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "gas",
+      "优先费",
+      "转账税",
+      "价格冲击",
+      "资格/退出费用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "CAS20管理员激活/工厂现行白名单均未链上核验",
+  "liabilities": "unknown；无操作或借款",
+  "waiting_time": "规则计划激活2026-12-08 02:30 UTC；真实生效待核查",
+  "invalidation_conditions": [
+    "发布计划改变",
+    "部署文件与链上代码不符",
+    "规则尚未激活/权限不符",
+    "缺少可兑现报价"
+  ],
+  "evidence_urls": [
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-core/contracts/PancakeV3Factory.sol"
+  ],
+  "coverage_gaps": [
+    "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
+    "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
+    "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
+    "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+  ],
+  "next_check": [
+    "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+    "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+    "按30天规则/7天活动的缺口补查，并独立核对资产原生/桥接身份、卖出限制及转账税。"
+  ],
+  "handoff_to": [
+    "M00",
+    "BNB05",
+    "R-BNB",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "BNB:56:PancakeV3Factory:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "factory_discovery_queue",
+      "next_check": "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+      "chain": "BNB",
+      "status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
+      "mechanism": "BSC v1.8.2官方发布说明计划2026-12-08 02:30 UTC激活Jenner；BEP-702 CAS20资产创建还需治理任命管理员单独激活。此为待生效规则监控，不能当当前开放铸造权益或利润。",
+      "evidence_urls": [
+        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2"
+      ],
+      "market_ids": [],
+      "unknown_costs": [
+        "发行/参与资格",
+        "gas与优先费",
+        "资产买卖/退出容量"
+      ],
+      "next_check": "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
+      "handoff_to": [
+        "M00",
+        "BNB05",
+        "R-BNB"
+      ],
+      "review_required": true
+    }
+  ],
+  "rejections": [
+    {
+      "case": "BSC v1.8.2公告",
+      "reason": "不能将2026-12-08计划硬分叉或CAS20管理员条件当作本轮已生效、公众无条件可参与的机会。"
+    },
+    {
+      "case": "Pancake V3默认费率/地址",
+      "reason": "源代码和部署表不是当前工厂状态、池身份、报价或净收益证据；不列QUOTED。"
+    }
+  ],
+  "observed_cursor": {
+    "official_release_tag": "v1.8.2",
+    "release_published_at": "2026-11-03T02:12:36Z",
+    "factory_document_read": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "last_block": null,
+    "pool_events_scanned": 0,
+    "transactions_analyzed": 0,
+    "history_window_complete": false
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs",
+  "fetched_at_utc": "2026-11-08T15:23:58.316738+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256": "bfd34a554c77ffd0f735c91b8ddd18cb9c7125f83f3658790c5fb613e4397017",
+  "excerpts": [
+    {
+      "line": 8,
+      "text": "        initialize_vault_token_account, is_non_transferable_position_required,"
+    },
+    {
+      "line": 9,
+      "text": "        verify_supported_token_mint,"
+    },
+    {
+      "line": 18,
+      "text": "    pub token_mint_a: InterfaceAccount<'info, Mint>,"
+    },
+    {
+      "line": 19,
+      "text": "    pub token_mint_b: InterfaceAccount<'info, Mint>,"
+    },
+    {
+      "line": 21,
+      "text": "    #[account(seeds = [b\"token_badge\", whirlpools_config.key().as_ref(), token_mint_a.key().as_ref()], bump)]"
+    },
+    {
+      "line": 24,
+      "text": "    #[account(seeds = [b\"token_badge\", whirlpools_config.key().as_ref(), token_mint_b.key().as_ref()], bump)]"
+    },
+    {
+      "line": 35,
+      "text": "        token_mint_a.key().as_ref(),"
+    },
+    {
+      "line": 36,
+      "text": "        token_mint_b.key().as_ref(),"
+    },
+    {
+      "line": 55,
+      "text": "    #[account(address = *token_mint_a.to_account_info().owner)]"
+    },
+    {
+      "line": 56,
+      "text": "    pub token_program_a: Interface<'info, TokenInterface>,"
+    },
+    {
+      "line": 57,
+      "text": "    #[account(address = *token_mint_b.to_account_info().owner)]"
+    },
+    {
+      "line": 58,
+      "text": "    pub token_program_b: Interface<'info, TokenInterface>,"
+    },
+    {
+      "line": 68,
+      "text": "    let token_mint_a = ctx.accounts.token_mint_a.key();"
+    },
+    {
+      "line": 69,
+      "text": "    let token_mint_b = ctx.accounts.token_mint_b.key();"
+    },
+    {
+      "line": 82,
+      "text": "    verify_supported_token_mint("
+    },
+    {
+      "line": 83,
+      "text": "        &ctx.accounts.token_mint_a,"
+    },
+    {
+      "line": 87,
+      "text": "    verify_supported_token_mint("
+    },
+    {
+      "line": 88,
+      "text": "        &ctx.accounts.token_mint_b,"
+    },
+    {
+      "line": 96,
+      "text": "        &ctx.accounts.token_mint_a.to_account_info(),"
+    },
+    {
+      "line": 98,
+      "text": "        &ctx.accounts.token_program_a,"
+    },
+    {
+      "line": 104,
+      "text": "        &ctx.accounts.token_mint_b.to_account_info(),"
+    },
+    {
+      "line": 106,
+      "text": "        &ctx.accounts.token_program_b,"
+    },
+    {
+      "line": 111,
+      "text": "    if is_non_transferable_position_required("
+    },
+    {
+      "line": 114,
+      "text": "        &ctx.accounts.token_mint_a,"
+    },
+    {
+      "line": 116,
+      "text": "        control_flags |= WhirlpoolControlFlags::REQUIRE_NON_TRANSFERABLE_POSITION;"
+    }
+  ]
+}

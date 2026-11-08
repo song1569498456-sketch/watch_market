@@ -1,0 +1,264 @@
+{
+  "started_at": "2026-11-08T15:23:28.719628+00:00",
+  "data_phase_seconds": 4.847014004999892,
+  "attempts": [
+    {
+      "name": "solana_ecosystem",
+      "url": "https://solana.com/ecosystem/explore",
+      "fetched_at_utc": "2026-11-08T15:23:28.719634+00:00",
+      "method": "GET",
+      "success": false,
+      "error_type": "URLError",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "solana_genesis",
+      "url": "https://api.mainnet-beta.solana.com",
+      "fetched_at_utc": "2026-11-08T15:23:29.745506+00:00",
+      "method": "POST",
+      "success": false,
+      "error_type": "URLError",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "raydium_program_registry",
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+      "fetched_at_utc": "2026-11-08T15:23:30.754275+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "bytes_sampled": 5316,
+      "sha256_sample": "ded5ae021aa50ee17cc36441d5fcb4d1a242676fe77fd4308b066f688f9b23b4",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "// raydium"
+        },
+        {
+          "line": 4,
+          "text": "export const FARM_PROGRAM_ID_V3 = new PublicKey(\"EhhTKczWMGQt46ynNeRX1WfeagwwJd7ufHvCDjRxjo5Q\");"
+        },
+        {
+          "line": 6,
+          "text": "export const FARM_PROGRAM_ID_V4 = new PublicKey(\"CBuCnLe26faBpcBP2fktp4rp8abpcAnTWft6ZrP5Q4T\");"
+        },
+        {
+          "line": 8,
+          "text": "export const FARM_PROGRAM_ID_V5 = new PublicKey(\"9KEPoZmtHUrBbhWN1v1KWLMkkvwY6WLtAVUCPRtRjP4z\");"
+        },
+        {
+          "line": 10,
+          "text": "export const FARM_PROGRAM_ID_V6 = new PublicKey(\"FarmqiPv5eAj3j1GMdMCMUGXqPUvmquZtMy86QH6rzhG\");"
+        },
+        {
+          "line": 14,
+          "text": "export const OPEN_BOOK_PROGRAM = new PublicKey(\"srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX\");"
+        },
+        {
+          "line": 15,
+          "text": "export const SERUM_PROGRAM_ID_V3 = new PublicKey(\"9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin\");"
+        },
+        {
+          "line": 19,
+          "text": "export const LIQUIDITY_POOL_PROGRAM_ID_V5_MODEL = new PublicKey(\"CDSr3ssLcRB6XYPJwAfFt18MZvEZp4LjHcvzBVZ45duo\");"
+        },
+        {
+          "line": 20,
+          "text": "export const CLMM_PROGRAM_ID = new PublicKey(\"CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK\");"
+        },
+        {
+          "line": 21,
+          "text": "export const CLMM_LOCK_PROGRAM_ID = new PublicKey(\"LockrWmn6K5twhz3y9w1dQERbmgSaRkfnTeTKbpofwE\");"
+        },
+        {
+          "line": 22,
+          "text": "export const CLMM_LOCK_AUTH_ID = new PublicKey(\"kN1kEznaF5Xbd8LYuqtEFcxzWSBk5Fv6ygX6SqEGJVy\");"
+        },
+        {
+          "line": 29,
+          "text": "export const CREATE_CPMM_POOL_PROGRAM = new PublicKey(\"CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C\");"
+        },
+        {
+          "line": 30,
+          "text": "export const CREATE_CPMM_POOL_AUTH = new PublicKey(\"GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL\");"
+        },
+        {
+          "line": 31,
+          "text": "export const CREATE_CPMM_POOL_FEE_ACC = new PublicKey(\"DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8\");"
+        },
+        {
+          "line": 33,
+          "text": "export const LOCK_CPMM_PROGRAM = new PublicKey(\"LockrWmn6K5twhz3y9w1dQERbmgSaRkfnTeTKbpofwE\");"
+        },
+        {
+          "line": 35,
+          "text": "export const LOCK_CPMM_AUTH = new PublicKey(\"3f7GcQFG397GAaEnv51zR6tsTVihYRydnydDD1cXekxH\");"
+        },
+        {
+          "line": 37,
+          "text": "export const LAUNCHPAD_PROGRAM = new PublicKey(\"LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj\");"
+        },
+        {
+          "line": 40,
+          "text": "export const DEV_LAUNCHPAD_PROGRAM = new PublicKey(\"DRay6fNdQ5J82H7xV6uq2aV3mNrUZ1J4PgSKsWgptcm6\");"
+        },
+        {
+          "line": 47,
+          "text": "export const ALL_PROGRAM_ID = {"
+        },
+        {
+          "line": 51,
+          "text": "  CLMM_PROGRAM_ID,"
+        },
+        {
+          "line": 52,
+          "text": "  CLMM_LOCK_PROGRAM_ID,"
+        },
+        {
+          "line": 53,
+          "text": "  CLMM_LOCK_AUTH_ID,"
+        },
+        {
+          "line": 55,
+          "text": "  FARM_PROGRAM_ID_V3,"
+        },
+        {
+          "line": 56,
+          "text": "  FARM_PROGRAM_ID_V4,"
+        },
+        {
+          "line": 57,
+          "text": "  FARM_PROGRAM_ID_V5,"
+        },
+        {
+          "line": 58,
+          "text": "  FARM_PROGRAM_ID_V6,"
+        },
+        {
+          "line": 60,
+          "text": "  OPEN_BOOK_PROGRAM,"
+        },
+        {
+          "line": 61,
+          "text": "  SERUM_PROGRAM_ID_V3,"
+        },
+        {
+          "line": 67,
+          "text": "  CREATE_CPMM_POOL_PROGRAM,"
+        },
+        {
+          "line": 68,
+          "text": "  CREATE_CPMM_POOL_AUTH,"
+        },
+        {
+          "line": 69,
+          "text": "  CREATE_CPMM_POOL_FEE_ACC,"
+        },
+        {
+          "line": 71,
+          "text": "  LOCK_CPMM_PROGRAM,"
+        },
+        {
+          "line": 72,
+          "text": "  LOCK_CPMM_AUTH,"
+        },
+        {
+          "line": 74,
+          "text": "  LAUNCHPAD_PROGRAM,"
+        },
+        {
+          "line": 85,
+          "text": "export type ProgramIdConfig = Partial<typeof ALL_PROGRAM_ID>;"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "orca_whirlpool_readme",
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+      "fetched_at_utc": "2026-11-08T15:23:32.156898+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "bytes_sampled": 6436,
+      "sha256_sample": "d9414e3ebe98df6953613dd954ba8839839cd1c2ce54474090598a4cbb9ed1c7",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Whirlpools"
+        },
+        {
+          "line": 3,
+          "text": "Whirlpools is an open-source concentrated liquidity AMM contract on the Solana blockchain."
+        },
+        {
+          "line": 4,
+          "text": "This repository contains the Rust smart contract and SDKs to interact with a deployed program."
+        },
+        {
+          "line": 6,
+          "text": "The official deployment of the whirlpool contract can be found at the `whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc` address on:"
+        },
+        {
+          "line": 7,
+          "text": "- [Solana Mainnet](https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc)"
+        },
+        {
+          "line": 10,
+          "text": "The contract is deployed using verifiable build, so that you can ensure that the hash of the on-chain program matches the hash of the program in this codebase."
+        },
+        {
+          "line": 14,
+          "text": "The program has been audited several times by different security firms."
+        },
+        {
+          "line": 24,
+          "text": "This repository contains several libraries that can be used to interact with the Whirlpools contract. For most purposes you can use our high-level SDKs, `@orca-so/whirlpools` for Typescript projects, and `orca_whirlpools` for Rust projects."
+        },
+        {
+          "line": 27,
+          "text": "* `@orca-so/whirlpools-client` & `orca_whirlpools_client` - auto-generated client for the Whirlpools program that contains account, instruction and error parsing."
+        },
+        {
+          "line": 28,
+          "text": "* `@orca-so/whirlpools-core` & `orca_whirlpools_core` - utility, math and quoting functions used by other packages."
+        },
+        {
+          "line": 30,
+          "text": "The legacy Typescript SDK (`@orca-so/whirlpools-sdk`) remains a solid choice, and it’s currently the only option if your project uses Solana Web3.js."
+        },
+        {
+          "line": 36,
+          "text": "This monorepo contains all the code needed to build, deploy and interact with the Whirlpools contract."
+        },
+        {
+          "line": 62,
+          "text": "* Clone this repository: `git clone https://github.com/orca-so/whirlpools`"
+        },
+        {
+          "line": 70,
+          "text": "* Check if you have a valid wallet address using `solana address`."
+        },
+        {
+          "line": 81,
+          "text": "* **`/programs/*`** - Rust programs that are deployed on Solana."
+        },
+        {
+          "line": 82,
+          "text": "* **`/ts-sdk/*`** - Typescript SDKs for interacting with the programs."
+        },
+        {
+          "line": 83,
+          "text": "* **`/rust-sdk/*`** - Rust SDKs for interacting with the programs."
+        },
+        {
+          "line": 84,
+          "text": "* **`/docs/*`** - Documentation for the programs and SDKs."
+        },
+        {
+          "line": 97,
+          "text": "If you look closely, the commands just call individual commands specified in the component's `package.json` file. These commands should not be run by themselves as it will not resolve the right dependencies and will not execute the prerequisites. Instead you can specify which package to run with `yarn build programs/whirlpool`, `yarn test legacy-sdk/whirlpool`, etc."
+        }
+      ],
+      "success": true
+    }
+  ]
+}

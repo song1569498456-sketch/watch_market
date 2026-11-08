@@ -1,0 +1,129 @@
+{
+  "agent_id": "N-SOL",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SOL",
+  "scope": "Solana mainnet-beta 新市场/新规则/操作发现首次静态发现基线；未完成实时扫描",
+  "started_at": "2026-11-08T15:23:28.719628+00:00",
+  "finished_at": "2026-11-08T15:24:55.859069+00:00",
+  "duration_seconds": 87.139,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:24:55.859069+00:00",
+    "beijing": "2026-11-08T23:24:55.859069+08:00",
+    "data_time": "GitHub原始文件抓取时点；链上数据时间unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://solana.com/ecosystem/explore",
+    "https://api.mainnet-beta.solana.com",
+    "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+  ],
+  "mechanism": "Orca initialize_pool_v2 读取 mint owner 并分别约束 token_program_a/b，且调用 verify_supported_token_mint；需要把同一 mint 与实际Token Program作为身份，不能只按币名比较报价。源代码规则不等于当前链上部署状态。",
+  "observations": [
+    {
+      "protocol": "Raydium",
+      "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "kind": "CLMM_PROGRAM_ID",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Raydium",
+      "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "kind": "CREATE_CPMM_POOL_PROGRAM",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    },
+    {
+      "protocol": "Orca Whirlpools",
+      "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "kind": "README official deployment",
+      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "转账费/transfer hook",
+      "优先费",
+      "账户创建与可退租金",
+      "AMM费和滑点",
+      "退出费用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown；未读mint冻结/扩展及program upgrade权限",
+  "liabilities": "unknown；未建任何头寸",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "mint或Token Program不同则不能视为同一权益",
+    "链上部署与源码不一致",
+    "转账扩展/冻结/退出限制使路径不闭合"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+  ],
+  "coverage_gaps": [
+    "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
+    "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
+    "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
+    "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
+    "旧小池退出窗口、数量报价及完整成本未核验。"
+  ],
+  "next_check": [
+    "允许 api.mainnet-beta.solana.com 后先getGenesisHash核对mainnet-beta，再getSlot(finalized)并读取上述program账户owner/executable。",
+    "在核验后的Raydium/Orca程序范围获取池账户及mint/Token Program，使用明确slot范围补7天事件。",
+    "核对程序部署版本与源码commit，然后补30天公告/规则变化是否已链上生效。",
+    "SOL01按真实池与同mint/Token Program对进行指定数量报价，报告未知费用。"
+  ],
+  "handoff_to": [
+    "M00",
+    "SOL01",
+    "Q00"
+  ],
+  "markets": [],
+  "findings": [
+    {
+      "finding_id": "sol-whirlpool-token-interface-identity-check",
+      "status": "UNVERIFIED",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "market_id": null,
+      "claim": "存在值得专项核对的mint owner/Token Program身份约束；不是盈利或新规则生效主张",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+      ],
+      "next_check": "验证部署代码和真实池mint/Token Program/扩展后才能比较取得与退出成本。",
+      "net_profit": null
+    }
+  ],
+  "rejections": [
+    {
+      "case": "用Raydium/Orca源码program列表宣称已发现新池或全链机会",
+      "reason": "程序ID不是池地址，未取得当前状态与历史事件，明确排除该覆盖/收益主张。"
+    },
+    {
+      "case": "同名资产报价价差直接视为利润",
+      "reason": "mint、Token Program、转账扩展、容量和费用未知，没有报价与闭环。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+      "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+      "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+    ],
+    "chain_slot": null,
+    "historical_window_completed": false
+  }
+}
