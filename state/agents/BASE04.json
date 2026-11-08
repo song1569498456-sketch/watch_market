@@ -10,7 +10,17 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_DEPLOYMENT_AND_RULES_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:41:56.518362+00:00",
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
     "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
@@ -26,7 +36,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:41:56.518362+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE04/full-20261108T152118Z/record.json"
+  "record": "evidence/BASE04/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+    "verified_at": "2026-11-08T15:42:39.302063+00:00",
+    "record": "evidence/BASE04/full-20261108T152118Z/record.json"
+  }
 }

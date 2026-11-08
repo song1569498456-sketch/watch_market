@@ -300,6 +300,40 @@
       "owner": "BNB02",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BNB02/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+      "chain": "BNB",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+      ],
+      "next_check": "正常持仓/模拟中区分liquidity、tokensOwed、实际collect到账、剩余NFT和余额；新铸NFT不是收益，减少流动性也不等于已收款。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "BNB04",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
+      "status": "REJECTED",
+      "chain": "BNB",
+      "market_id": "56:venus-xvs-rewards:0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63",
+      "claim": "排除“公开claim函数意味着所有新地址零成本得到可立即卖出的XVS”的主张。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol"
+      ],
+      "evidence_fields": "holder accrued rewards、shortfall collateral route、XVS库存/黑名单检查",
+      "scope_limit": "仅已读RewardFacet源码；当前部署未核验，不代表所有BNB活动或所有XVS账户均不可领。",
+      "owner": "BNB05",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB05/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

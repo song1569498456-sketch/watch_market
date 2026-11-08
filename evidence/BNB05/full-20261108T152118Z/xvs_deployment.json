@@ -1,0 +1,292 @@
+{
+  "name": "xvs_deployment",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json",
+  "fetched_at_utc": "2026-11-08T15:43:40.659400+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "136dc4dec7cfc7a75953e1d2297e6f3026ef7639dc4d16daba2ac209d25d1e95",
+  "excerpts": [
+    {
+      "line": 2,
+      "text": "  \"address\": \"0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63\","
+    },
+    {
+      "line": 7,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 9,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 21,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 23,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 27,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 29,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 34,
+      "text": "          \"name\": \"amount\","
+    },
+    {
+      "line": 46,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 48,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 52,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 54,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 58,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 60,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 71,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 73,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 102,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 104,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 108,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 110,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 113,
+      "text": "      \"name\": \"OwnershipTransferred\","
+    },
+    {
+      "line": 121,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 123,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 127,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 129,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 134,
+      "text": "          \"name\": \"amount\","
+    },
+    {
+      "line": 138,
+      "text": "      \"name\": \"Transfer\","
+    },
+    {
+      "line": 181,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 183,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 186,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 188,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 207,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 209,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 213,
+      "text": "          \"name\": \"rawAmount\","
+    },
+    {
+      "line": 233,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 235,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 238,
+      "text": "      \"name\": \"balanceOf\","
+    },
+    {
+      "line": 254,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 256,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 300,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 302,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 315,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 317,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 355,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 357,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 363,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 365,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 385,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 387,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 406,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 408,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 447,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 449,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 468,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 470,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 491,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 493,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 534,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 536,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 540,
+      "text": "          \"name\": \"rawAmount\","
+    },
+    {
+      "line": 544,
+      "text": "      \"name\": \"transfer\","
+    },
+    {
+      "line": 560,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 562,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 565,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 567,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 571,
+      "text": "          \"name\": \"rawAmount\","
+    },
+    {
+      "line": 575,
+      "text": "      \"name\": \"transferFrom\","
+    },
+    {
+      "line": 591,
+      "text": "          \"internalType\": \"address\","
+    },
+    {
+      "line": 593,
+      "text": "          \"type\": \"address\""
+    },
+    {
+      "line": 596,
+      "text": "      \"name\": \"transferOwnership\","
+    }
+  ],
+  "success": true,
+  "deployment_address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+}

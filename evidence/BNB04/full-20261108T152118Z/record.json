@@ -1,0 +1,139 @@
+{
+  "agent_id": "BNB04",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 LP正常存取差异：Pancake V3 NFT持仓机制回退基线；V2入口失败未研究",
+  "started_at": "2026-11-08T15:43:20.207820+00:00",
+  "finished_at": "2026-11-08T15:44:54.995487+00:00",
+  "duration_seconds": 94.788,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:44:54.995487+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://api.dexscreener.com/latest/dex/search?q=pancakeswap%20bsc",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/README.md",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-smart-contracts/master/projects/exchange-protocol/contracts/PancakePair.sol",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/README.md",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-swap-core/master/contracts/PancakePair.sol",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+  ],
+  "mechanism": "集中流动性持仓NFT的liquidity、应收tokensOwed、实际collect到账和清空NFT分别记账；必须按真实底层资产与全部费用算闭环。",
+  "observations": [
+    "从可读Pancake V3官方bscMainnet部署表发现PositionManager=0x46A15B0b27311cedF172AB29E4f4766fbE7F4364，仅文档身份。",
+    "mint记录tickLower/tickUpper、token0/1、fee和liquidity，不能套用普通恒定乘积LP份额公式。",
+    "decreaseLiquidity经持仓授权和deadline检查调用pool.burn，把本金和费用增长加入tokensOwed；collect另行收款且存在舍入。",
+    "burn NFT要求liquidity==0、tokensOwed0==0、tokensOwed1==0；必须核剩余资产权利，未执行本轮模拟。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "真实底层资产数量/价格",
+      "池费/冲击",
+      "gas/授权",
+      "转账税/卖出限制",
+      "NFT清理/舍入"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "需持仓owner/approval及deadline；本轮未测任何账户或资产限制",
+  "liabilities": "unknown，未建立借款/仓位",
+  "waiting_time": "unknown；未来奖励/年化未计即时收益",
+  "invalidation_conditions": [
+    "文档部署与链上实现不符",
+    "把V3持仓模型套给V2或相反",
+    "应收款当自由资产",
+    "NFT剩余份额漏记",
+    "报价/完整状态缺失"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+  ],
+  "coverage_gaps": [
+    "RPC和池发现API代理CONNECT403，无当前chainId/区块、真实池/资产/持仓tokenId、字节码或实现核验。",
+    "Pancake V2相关猜测路径共5个404，未取得V2规则或部署；本轮回退到可读官方V3资料，不把V3模型套给V2。",
+    "没有指定数量完整mint→decreaseLiquidity→collect→必要swap模拟，前/中/后状态、剩余LP/自由资产全部unknown。",
+    "30天参数/部署/费率/存取窗口变更未覆盖；7天真实加减仓交易/旧小池状态未覆盖。",
+    "真实gas、转账税/卖出限制、持仓费率/价格冲击、奖励归属与可提现容量均未核验。"
+  ],
+  "next_check": [
+    "以链ID56和当前区块核对V3工厂/PositionManager代码，独立发现真实pool(token0,token1,fee)与tick范围；单独恢复V2正确源码/部署入口。",
+    "正常持仓/模拟中区分liquidity、tokensOwed、实际collect到账、剩余NFT和余额；新铸NFT不是收益，减少流动性也不等于已收款。",
+    "固定完整路径状态逐级数量采样，对同一池前一步变化后再计算后一步，退出统一计价并扣真实费用，不计持仓年化/补贴预期。",
+    "补齐30天规则与7天活动；如果未知成本/资产身份/余量未核完，仅保留UNVERIFIED。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "BNB:56:PancakeV3:PositionManager:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 PositionManager",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "position_manager_discovery_queue_not_pool",
+      "next_check": "以链ID56和当前区块核对V3工厂/PositionManager代码，独立发现真实pool(token0,token1,fee)与tick范围；单独恢复V2正确源码/部署入口。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+      "chain": "BNB",
+      "status": "REJECTED",
+      "market_ids": [],
+      "mechanism": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+      ],
+      "next_check": "正常持仓/模拟中区分liquidity、tokensOwed、实际collect到账、剩余NFT和余额；新铸NFT不是收益，减少流动性也不等于已收款。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "decreaseLiquidity返回值即现金到账",
+      "reason": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。"
+    },
+    {
+      "case": "新铸LP NFT/未来补贴=利润",
+      "reason": "NFT是对已投入底层资产的权利，需完整退出和自由资产账本，未收到奖励不计现金。"
+    },
+    {
+      "case": "V2/V3模型互套",
+      "reason": "本轮只取得V3集中流动性源码，无当前V2核验；不能套同一公式。"
+    }
+  ],
+  "observed_cursor": {
+    "source_functions_read": [
+      "mint",
+      "decreaseLiquidity",
+      "collect",
+      "burn"
+    ],
+    "document_position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+    "actual_pools_read": 0,
+    "cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

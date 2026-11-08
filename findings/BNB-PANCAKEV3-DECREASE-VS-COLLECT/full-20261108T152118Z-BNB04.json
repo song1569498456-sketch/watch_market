@@ -1,0 +1,19 @@
+{
+  "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+  "chain": "BNB",
+  "status": "REJECTED",
+  "market_ids": [],
+  "mechanism": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+  ],
+  "next_check": "正常持仓/模拟中区分liquidity、tokensOwed、实际collect到账、剩余NFT和余额；新铸NFT不是收益，减少流动性也不等于已收款。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "BNB04",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/BNB04/full-20261108T152118Z/record.json"
+}

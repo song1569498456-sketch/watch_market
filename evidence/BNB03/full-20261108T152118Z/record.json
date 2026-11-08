@@ -1,0 +1,183 @@
+{
+  "agent_id": "BNB03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BNB",
+  "scope": "BNB稳定币2–3次兑换回到同一起始资产，不把不同稳定币按1USD合并",
+  "started_at": "2026-11-08T15:43:14.577684+00:00",
+  "finished_at": "2026-11-08T15:44:27.270968+00:00",
+  "duration_seconds": 72.693,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:44:27.270968+00:00",
+    "beijing": "2026-11-08T23:44:27.270968+08:00",
+    "data_time": "unknown; static token identity snapshot only"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "0x55d398326f99059fF775485246999027B3197955"
+  ],
+  "discovery_source": [
+    {
+      "source": "bnb-dex-discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=bsc%20USDT%20USDC",
+      "retrieved_at_utc": "2026-11-08T15:43:14.577690+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "bnb-rpc",
+      "url": "https://bsc-dataseed.binance.org",
+      "retrieved_at_utc": "2026-11-08T15:43:15.606152+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "pancake-token-list",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/tokens/src/56.ts",
+      "retrieved_at_utc": "2026-11-08T15:43:16.615104+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "pancake-v2-factory",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/packages/v2-sdk/src/constants.ts",
+      "retrieved_at_utc": "2026-11-08T15:43:17.968163+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "bnb-stable-asset-discovery-fallback",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3BNB.sol",
+      "retrieved_at_utc": "2026-11-08T15:43:40.466436+00:00",
+      "http_status": 200,
+      "bytes_read": 15562,
+      "sha256": "190523aa7f4bd0654e4155eed60a88852b374f3bc28855750a497b45f2efd36b",
+      "excerpts": [
+        {
+          "line": 202,
+          "text": "  // https://bscscan.com/address/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+        },
+        {
+          "line": 203,
+          "text": "  address internal constant USDC_UNDERLYING = 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d;"
+        },
+        {
+          "line": 204,
+          "text": ""
+        },
+        {
+          "line": 205,
+          "text": "  uint8 internal constant USDC_DECIMALS = 18;"
+        },
+        {
+          "line": 206,
+          "text": ""
+        },
+        {
+          "line": 223,
+          "text": "  // https://bscscan.com/address/0x55d398326f99059fF775485246999027B3197955"
+        },
+        {
+          "line": 224,
+          "text": "  address internal constant USDT_UNDERLYING = 0x55d398326f99059fF775485246999027B3197955;"
+        },
+        {
+          "line": 225,
+          "text": ""
+        },
+        {
+          "line": 226,
+          "text": "  uint8 internal constant USDT_DECIMALS = 18;"
+        },
+        {
+          "line": 227,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "mechanism": "同币闭环应以最终起始资产数量减初始数量和未含费用计结果；多腿若复用池需体现储备路径依赖，两个U名称或名义锚定不能替代。",
+  "observations": [
+    "自主发现BNB地址书USDC/USDT具体合约，两者静态标18 decimals，与其他链常见6位不能混用。",
+    "无已核DEX池，所列USDC→USDT→USDC仅待建立测试骨架，不是报价路线。",
+    "未取得当前发行/桥接版本与兑换限制，不默认稳定币=1USD或永久在用。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "same_starting_asset",
+    "unknown_costs": [
+      "每腿实际费率/滑点/税",
+      "授权/gas",
+      "融资费与容量",
+      "初始资产取得成本"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "暂停/黑名单/卖出限制unknown",
+  "liabilities": "未执行；融资偿还/残余负债unknown",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "token身份/精度错配",
+    "复用池未更新储备",
+    "输出未衔接输入",
+    "价格/费率过期",
+    "不可原子完成或成本吞没差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3BNB.sol",
+    "https://bscscan.com/address/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "https://bscscan.com/address/0x55d398326f99059fF775485246999027B3197955"
+  ],
+  "coverage_gaps": [
+    "最近30天规则/迁移/费率与7天活动未回溯，无Swap/池事件/区块/交易。",
+    "BNB RPC和DEXScreener均CONNECT 403，chainId=56、资产代码/版本、代币限制未核验。",
+    "两个Pancake raw SDK路径404，未取得当期工厂/稳定池部署，不能把路径404当DEX或链不存在。",
+    "官方Aave地址书只有稳定资产合约与18位精度线索；不是池级身份、发行担保或赎回资格证据。",
+    "无两三腿真实池地址、费用、不变量/储备、上一腿输出衔接、报价或原子模拟，净额/容量unknown。"
+  ],
+  "next_check": [
+    "核对56、两个确切token代码和decimals/发行桥接身份/黑名单税费，不能套其他链同名币的6位精度或兑付权。",
+    "找到当前官方Pancake/稳定池部署位置，核验工厂/池代码与tokens、费率/不变量、真实储备与可交易状态。",
+    "对有限USDC→USDT→USDC或其他2–3腿回路逐数量读取，上一腿实际输出驱动下一腿；复用池必须更新储备或完整只读模拟。",
+    "起终相同资产净数量扣未计成本后再谈差额，美元估值另列；若有具体候选再交Q00。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "单腿获得更多USDT或将USDC/USDT均按1美元相加就是利润",
+      "reason": "必须走完同币闭环，含费用且核对资产权益；当前没有任一腿报价。"
+    },
+    {
+      "claim": "拼接多个独立池快照可证明重复使用同池的闭环",
+      "reason": "前腿改变储备，必须体现路径依赖；本轮无模拟。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_TOKEN_IDENTITY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:44:27.270968+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "cycle_card": {
+    "route": "USDC→USDT→USDC (unmeasured test skeleton only)",
+    "pool_addresses": [],
+    "fee": "unknown",
+    "inputs_outputs": [],
+    "state_time": null,
+    "atomic": "unknown",
+    "historically_executed": "unknown"
+  }
+}

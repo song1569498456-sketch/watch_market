@@ -1,0 +1,618 @@
+{
+  "started_at": "2026-11-08T15:43:37.162069+00:00",
+  "data_seconds": 4.856,
+  "attempts": [
+    {
+      "name": "bnb_campaign_discovery",
+      "url": "https://dappbay.bnbchain.org/campaign",
+      "fetched_at_utc": "2026-11-08T15:43:37.162076+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "bnb_chain_identity",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "fetched_at_utc": "2026-11-08T15:43:38.186359+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "venus_reward_source",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "fetched_at_utc": "2026-11-08T15:43:39.194735+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "aa6556cfd5e8f48d9f987642eb9bdea4d17781d5456ae8d8bb1ed5ba01c942fc",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "import { IRewardFacet } from \"../interfaces/IRewardFacet.sol\";"
+        },
+        {
+          "line": 10,
+          "text": "import { XVSRewardsHelper } from \"./XVSRewardsHelper.sol\";"
+        },
+        {
+          "line": 15,
+          "text": " * @title RewardFacet"
+        },
+        {
+          "line": 17,
+          "text": " * @dev This facet contains all the methods related to the reward functionality"
+        },
+        {
+          "line": 18,
+          "text": " * @notice This facet contract provides the external functions related to all claims and rewards of the protocol"
+        },
+        {
+          "line": 20,
+          "text": "contract RewardFacet is IRewardFacet, XVSRewardsHelper {"
+        },
+        {
+          "line": 22,
+          "text": "    event VenusGranted(address indexed recipient, uint256 amount);"
+        },
+        {
+          "line": 24,
+          "text": "    /// @notice Emitted when XVS rewards are seized from the holder"
+        },
+        {
+          "line": 25,
+          "text": "    event VenusSeized(address indexed holder, uint256 amount);"
+        },
+        {
+          "line": 28,
+          "text": "    event ClaimSkipped(address indexed holder, uint256 errorCode);"
+        },
+        {
+          "line": 33,
+          "text": "     * @notice Claim all the xvs accrued by holder in all markets and VAI"
+        },
+        {
+          "line": 34,
+          "text": "     * @param holder The address to claim XVS for"
+        },
+        {
+          "line": 36,
+          "text": "    function claimVenus(address holder) public {"
+        },
+        {
+          "line": 37,
+          "text": "        return claimVenus(holder, allMarkets);"
+        },
+        {
+          "line": 41,
+          "text": "     * @notice Claim all the xvs accrued by holder in the specified markets"
+        },
+        {
+          "line": 43,
+          "text": "     * @param holder The address to claim XVS for"
+        },
+        {
+          "line": 46,
+          "text": "    function claimVenus(address holder, VToken[] memory vTokens) public {"
+        },
+        {
+          "line": 47,
+          "text": "        address[] memory holders = new address[](1);"
+        },
+        {
+          "line": 49,
+          "text": "        claimVenus(holders, vTokens, true, true);"
+        },
+        {
+          "line": 53,
+          "text": "     * @notice Claim XVS accrued by the holders across the specified markets, optionally filtering to borrower or supplier rewards"
+        },
+        {
+          "line": 54,
+          "text": "     * @param holders The addresses to claim XVS for"
+        },
+        {
+          "line": 56,
+          "text": "     * @param borrowers Whether or not to claim XVS earned by borrowing"
+        },
+        {
+          "line": 57,
+          "text": "     * @param suppliers Whether or not to claim XVS earned by supplying"
+        },
+        {
+          "line": 59,
+          "text": "    function claimVenus(address[] memory holders, VToken[] memory vTokens, bool borrowers, bool suppliers) public {"
+        },
+        {
+          "line": 60,
+          "text": "        claimVenus(holders, vTokens, borrowers, suppliers, false);"
+        },
+        {
+          "line": 64,
+          "text": "     * @notice Claim all the xvs accrued by holder in all markets. If the holder has a shortfall, the reward is"
+        },
+        {
+          "line": 65,
+          "text": "     *         deposited into the vXVS market on their behalf as collateral; otherwise XVS is transferred directly."
+        },
+        {
+          "line": 67,
+          "text": "     * @param holder The address to claim XVS for"
+        },
+        {
+          "line": 69,
+          "text": "    function claimVenusAsCollateral(address holder) external {"
+        },
+        {
+          "line": 70,
+          "text": "        address[] memory holders = new address[](1);"
+        },
+        {
+          "line": 72,
+          "text": "        claimVenus(holders, allMarkets, true, true, true);"
+        },
+        {
+          "line": 76,
+          "text": "     * @notice Claim all the xvs accrued by holder in the supplied markets. Behaves identically to"
+        },
+        {
+          "line": 77,
+          "text": "     *         `claimVenusAsCollateral(address)` but accepts a caller-supplied market list,"
+        },
+        {
+          "line": 79,
+          "text": "     * @param holder The address to claim XVS for"
+        },
+        {
+          "line": 82,
+          "text": "    function claimVenusAsCollateral(address holder, VToken[] calldata vTokens) external {"
+        },
+        {
+          "line": 83,
+          "text": "        address[] memory holders = new address[](1);"
+        },
+        {
+          "line": 85,
+          "text": "        claimVenus(holders, vTokens, true, true, true);"
+        },
+        {
+          "line": 89,
+          "text": "     * @notice Transfer XVS to the user with user's shortfall considered"
+        },
+        {
+          "line": 90,
+          "text": "     * @dev Note: If there is not enough XVS, we do not perform the transfer at all"
+        },
+        {
+          "line": 91,
+          "text": "     * @param user The address of the user to transfer XVS to"
+        },
+        {
+          "line": 92,
+          "text": "     * @param amount The amount of XVS to (possibly) transfer"
+        },
+        {
+          "line": 94,
+          "text": "     * @param collateral Whether or not we will use user's venus reward as collateral to pay off the debt"
+        },
+        {
+          "line": 95,
+          "text": "     * @return The amount of XVS which was NOT transferred to the user"
+        },
+        {
+          "line": 98,
+          "text": "        address user,"
+        },
+        {
+          "line": 99,
+          "text": "        uint256 amount,"
+        },
+        {
+          "line": 103,
+          "text": "        // If the user is blacklisted, they can't get XVS rewards"
+        },
+        {
+          "line": 114,
+          "text": "        if (amount == 0 || amount > xvs_.balanceOf(address(this))) {"
+        },
+        {
+          "line": 115,
+          "text": "            return amount;"
+        },
+        {
+          "line": 119,
+          "text": "            xvs_.safeTransfer(user, amount);"
+        },
+        {
+          "line": 123,
+          "text": "        // anything, otherwise, we will transfer the pending xvs as collateral to"
+        },
+        {
+          "line": 129,
+          "text": "        address xvsVToken_ = xvsVToken;"
+        },
+        {
+          "line": 134,
+          "text": "        xvs_.safeApprove(xvsVToken_, amount);"
+        },
+        {
+          "line": 135,
+          "text": "        require(VBep20Interface(xvsVToken_).mintBehalf(user, amount) == uint256(Error.NO_ERROR), \"mint behalf error\");"
+        },
+        {
+          "line": 137,
+          "text": "        // set venusAccrued[user] to 0"
+        },
+        {
+          "line": 146,
+          "text": "     * @notice Transfer XVS to the recipient"
+        },
+        {
+          "line": 147,
+          "text": "     * @dev Allows the contract admin to transfer XVS to any recipient, regardless of shortfall"
+        },
+        {
+          "line": 148,
+          "text": "     *      Note: If there is not enough XVS, we do not perform the transfer at all"
+        },
+        {
+          "line": 149,
+          "text": "     * @param recipient The address of the recipient to transfer XVS to"
+        },
+        {
+          "line": 150,
+          "text": "     * @param amount The amount of XVS to (possibly) transfer"
+        },
+        {
+          "line": 152,
+          "text": "    function _grantXVS(address recipient, uint256 amount) external {"
+        },
+        {
+          "line": 154,
+          "text": "        uint256 amountLeft = grantXVSInternal(recipient, amount, 0, false);"
+        },
+        {
+          "line": 155,
+          "text": "        require(amountLeft == 0, \"no xvs\");"
+        },
+        {
+          "line": 156,
+          "text": "        emit VenusGranted(recipient, amount);"
+        },
+        {
+          "line": 160,
+          "text": "     * @dev Seize XVS tokens from the specified holders and transfer to recipient"
+        },
+        {
+          "line": 161,
+          "text": "     * @notice Seize XVS rewards allocated to holders"
+        },
+        {
+          "line": 162,
+          "text": "     * @param holders Addresses of the XVS holders"
+        },
+        {
+          "line": 163,
+          "text": "     * @param recipient Address of the XVS token recipient"
+        },
+        {
+          "line": 164,
+          "text": "     * @return The total amount of XVS tokens seized and transferred to recipient"
+        },
+        {
+          "line": 166,
+          "text": "    function seizeVenus(address[] calldata holders, address recipient) external returns (uint256) {"
+        },
+        {
+          "line": 167,
+          "text": "        ensureAllowed(\"seizeVenus(address[],address)\");"
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "xvs_deployment",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json",
+      "fetched_at_utc": "2026-11-08T15:43:40.659400+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "136dc4dec7cfc7a75953e1d2297e6f3026ef7639dc4d16daba2ac209d25d1e95",
+      "excerpts": [
+        {
+          "line": 2,
+          "text": "  \"address\": \"0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63\","
+        },
+        {
+          "line": 7,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 9,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 21,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 23,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 27,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 29,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 34,
+          "text": "          \"name\": \"amount\","
+        },
+        {
+          "line": 46,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 48,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 52,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 54,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 58,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 60,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 71,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 73,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 102,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 104,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 108,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 110,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 113,
+          "text": "      \"name\": \"OwnershipTransferred\","
+        },
+        {
+          "line": 121,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 123,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 127,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 129,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 134,
+          "text": "          \"name\": \"amount\","
+        },
+        {
+          "line": 138,
+          "text": "      \"name\": \"Transfer\","
+        },
+        {
+          "line": 181,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 183,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 186,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 188,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 207,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 209,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 213,
+          "text": "          \"name\": \"rawAmount\","
+        },
+        {
+          "line": 233,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 235,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 238,
+          "text": "      \"name\": \"balanceOf\","
+        },
+        {
+          "line": 254,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 256,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 300,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 302,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 315,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 317,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 355,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 357,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 363,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 365,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 385,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 387,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 406,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 408,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 447,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 449,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 468,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 470,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 491,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 493,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 534,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 536,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 540,
+          "text": "          \"name\": \"rawAmount\","
+        },
+        {
+          "line": 544,
+          "text": "      \"name\": \"transfer\","
+        },
+        {
+          "line": 560,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 562,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 565,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 567,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 571,
+          "text": "          \"name\": \"rawAmount\","
+        },
+        {
+          "line": 575,
+          "text": "      \"name\": \"transferFrom\","
+        },
+        {
+          "line": 591,
+          "text": "          \"internalType\": \"address\","
+        },
+        {
+          "line": 593,
+          "text": "          \"type\": \"address\""
+        },
+        {
+          "line": 596,
+          "text": "      \"name\": \"transferOwnership\","
+        }
+      ],
+      "success": true,
+      "deployment_address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "method": "GET",
+      "fetched_at_utc": "2026-11-08T15:43:58.066636+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "success": false
+    }
+  ]
+}

@@ -419,6 +419,38 @@
       "owner": "BNB02",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/BNB02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3:PositionManager:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 PositionManager",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json"
+      ],
+      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "kind": "position_manager_discovery_queue_not_pool",
+      "next_check": "以链ID56和当前区块核对V3工厂/PositionManager代码，独立发现真实pool(token0,token1,fee)与tick范围；单独恢复V2正确源码/部署入口。",
+      "owner": "BNB04",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "56:venus-xvs-rewards:0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63",
+      "chain": "BNB",
+      "protocol": "Venus XVS earned rewards (not a verified current campaign)",
+      "asset_ids": [
+        "56:0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json",
+        "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+      ],
+      "identity_status": "OFFICIAL_DEPLOYMENT_JSON_ONLY_UNVERIFIED_LIVE",
+      "next_check": "核当前claim资格/accrued、Facet绑定和出口，不作人人零成本领取假设",
+      "owner": "BNB05",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BNB05/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

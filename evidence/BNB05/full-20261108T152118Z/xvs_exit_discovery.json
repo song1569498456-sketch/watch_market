@@ -1,0 +1,7 @@
+{
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+  "method": "GET",
+  "fetched_at_utc": "2026-11-08T15:43:58.066636+00:00",
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+  "success": false
+}

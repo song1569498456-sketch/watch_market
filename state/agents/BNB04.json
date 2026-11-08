@@ -1,13 +1,42 @@
 {
   "agent_id": "BNB04",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "source_functions_read": [
+      "mint",
+      "decreaseLiquidity",
+      "collect",
+      "burn"
+    ],
+    "document_position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+    "actual_pools_read": 0,
+    "cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "从可读Pancake V3官方bscMainnet部署表发现PositionManager=0x46A15B0b27311cedF172AB29E4f4766fbE7F4364，仅文档身份。",
+    "mint记录tickLower/tickUpper、token0/1、fee和liquidity，不能套用普通恒定乘积LP份额公式。",
+    "decreaseLiquidity经持仓授权和deadline检查调用pool.burn，把本金和费用增长加入tokensOwed；collect另行收款且存在舍入。",
+    "burn NFT要求liquidity==0、tokensOwed0==0、tokensOwed1==0；必须核剩余资产权利，未执行本轮模拟。"
+  ],
+  "pending_questions": [
+    "RPC和池发现API代理CONNECT403，无当前chainId/区块、真实池/资产/持仓tokenId、字节码或实现核验。",
+    "Pancake V2相关猜测路径共5个404，未取得V2规则或部署；本轮回退到可读官方V3资料，不把V3模型套给V2。",
+    "没有指定数量完整mint→decreaseLiquidity→collect→必要swap模拟，前/中/后状态、剩余LP/自由资产全部unknown。",
+    "30天参数/部署/费率/存取窗口变更未覆盖；7天真实加减仓交易/旧小池状态未覆盖。",
+    "真实gas、转账税/卖出限制、持仓费率/价格冲击、奖励归属与可提现容量均未核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:44:54.995487+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BNB04/full-20261108T152118Z/record.json"
 }

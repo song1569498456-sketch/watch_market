@@ -1,13 +1,32 @@
 {
   "agent_id": "BNB03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_TOKEN_IDENTITY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:44:27.270968+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "自主发现BNB地址书USDC/USDT具体合约，两者静态标18 decimals，与其他链常见6位不能混用。",
+    "无已核DEX池，所列USDC→USDT→USDC仅待建立测试骨架，不是报价路线。",
+    "未取得当前发行/桥接版本与兑换限制，不默认稳定币=1USD或永久在用。"
+  ],
+  "pending_questions": [
+    "最近30天规则/迁移/费率与7天活动未回溯，无Swap/池事件/区块/交易。",
+    "BNB RPC和DEXScreener均CONNECT 403，chainId=56、资产代码/版本、代币限制未核验。",
+    "两个Pancake raw SDK路径404，未取得当期工厂/稳定池部署，不能把路径404当DEX或链不存在。",
+    "官方Aave地址书只有稳定资产合约与18位精度线索；不是池级身份、发行担保或赎回资格证据。",
+    "无两三腿真实池地址、费用、不变量/储备、上一腿输出衔接、报价或原子模拟，净额/容量unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:44:27.270968+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BNB03/full-20261108T152118Z/record.json"
 }

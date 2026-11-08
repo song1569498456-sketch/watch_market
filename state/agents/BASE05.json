@@ -21,7 +21,28 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "source_functions_read": [
+        "Pool.mint",
+        "Pool.burn",
+        "Pool.claimFees",
+        "PoolFactory.getFee",
+        "Gauge.deposit",
+        "Gauge.withdraw",
+        "Gauge._claimFees"
+      ],
+      "actual_pools_read": 0,
+      "complete_cycles_simulated": 0,
+      "transactions_analyzed": 0,
+      "last_block": null,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "本岗位独立读取README、Pool、PoolFactory和Gauge源码，未把N-BASE静态结论当现行状态。",
     "Pool.mint非首次用min(amount0*totalSupply/reserve0,amount1*totalSupply/reserve1)；首次锁MINIMUM_LIQUIDITY；burn按实际余额同比例返回并销毁份额。",
@@ -38,7 +59,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:42:07.492556+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE05/full-20261108T152118Z/record.json"
+  "record": "evidence/BASE05/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+    "verified_at": "2026-11-08T15:42:39.302063+00:00",
+    "record": "evidence/BASE05/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,8 @@
+{
+  "name": "bnb_campaign_discovery",
+  "url": "https://dappbay.bnbchain.org/campaign",
+  "fetched_at_utc": "2026-11-08T15:43:37.162076+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

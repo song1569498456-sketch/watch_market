@@ -1,0 +1,291 @@
+{
+  "name": "venus_reward_source",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+  "fetched_at_utc": "2026-11-08T15:43:39.194735+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "aa6556cfd5e8f48d9f987642eb9bdea4d17781d5456ae8d8bb1ed5ba01c942fc",
+  "excerpts": [
+    {
+      "line": 9,
+      "text": "import { IRewardFacet } from \"../interfaces/IRewardFacet.sol\";"
+    },
+    {
+      "line": 10,
+      "text": "import { XVSRewardsHelper } from \"./XVSRewardsHelper.sol\";"
+    },
+    {
+      "line": 15,
+      "text": " * @title RewardFacet"
+    },
+    {
+      "line": 17,
+      "text": " * @dev This facet contains all the methods related to the reward functionality"
+    },
+    {
+      "line": 18,
+      "text": " * @notice This facet contract provides the external functions related to all claims and rewards of the protocol"
+    },
+    {
+      "line": 20,
+      "text": "contract RewardFacet is IRewardFacet, XVSRewardsHelper {"
+    },
+    {
+      "line": 22,
+      "text": "    event VenusGranted(address indexed recipient, uint256 amount);"
+    },
+    {
+      "line": 24,
+      "text": "    /// @notice Emitted when XVS rewards are seized from the holder"
+    },
+    {
+      "line": 25,
+      "text": "    event VenusSeized(address indexed holder, uint256 amount);"
+    },
+    {
+      "line": 28,
+      "text": "    event ClaimSkipped(address indexed holder, uint256 errorCode);"
+    },
+    {
+      "line": 33,
+      "text": "     * @notice Claim all the xvs accrued by holder in all markets and VAI"
+    },
+    {
+      "line": 34,
+      "text": "     * @param holder The address to claim XVS for"
+    },
+    {
+      "line": 36,
+      "text": "    function claimVenus(address holder) public {"
+    },
+    {
+      "line": 37,
+      "text": "        return claimVenus(holder, allMarkets);"
+    },
+    {
+      "line": 41,
+      "text": "     * @notice Claim all the xvs accrued by holder in the specified markets"
+    },
+    {
+      "line": 43,
+      "text": "     * @param holder The address to claim XVS for"
+    },
+    {
+      "line": 46,
+      "text": "    function claimVenus(address holder, VToken[] memory vTokens) public {"
+    },
+    {
+      "line": 47,
+      "text": "        address[] memory holders = new address[](1);"
+    },
+    {
+      "line": 49,
+      "text": "        claimVenus(holders, vTokens, true, true);"
+    },
+    {
+      "line": 53,
+      "text": "     * @notice Claim XVS accrued by the holders across the specified markets, optionally filtering to borrower or supplier rewards"
+    },
+    {
+      "line": 54,
+      "text": "     * @param holders The addresses to claim XVS for"
+    },
+    {
+      "line": 56,
+      "text": "     * @param borrowers Whether or not to claim XVS earned by borrowing"
+    },
+    {
+      "line": 57,
+      "text": "     * @param suppliers Whether or not to claim XVS earned by supplying"
+    },
+    {
+      "line": 59,
+      "text": "    function claimVenus(address[] memory holders, VToken[] memory vTokens, bool borrowers, bool suppliers) public {"
+    },
+    {
+      "line": 60,
+      "text": "        claimVenus(holders, vTokens, borrowers, suppliers, false);"
+    },
+    {
+      "line": 64,
+      "text": "     * @notice Claim all the xvs accrued by holder in all markets. If the holder has a shortfall, the reward is"
+    },
+    {
+      "line": 65,
+      "text": "     *         deposited into the vXVS market on their behalf as collateral; otherwise XVS is transferred directly."
+    },
+    {
+      "line": 67,
+      "text": "     * @param holder The address to claim XVS for"
+    },
+    {
+      "line": 69,
+      "text": "    function claimVenusAsCollateral(address holder) external {"
+    },
+    {
+      "line": 70,
+      "text": "        address[] memory holders = new address[](1);"
+    },
+    {
+      "line": 72,
+      "text": "        claimVenus(holders, allMarkets, true, true, true);"
+    },
+    {
+      "line": 76,
+      "text": "     * @notice Claim all the xvs accrued by holder in the supplied markets. Behaves identically to"
+    },
+    {
+      "line": 77,
+      "text": "     *         `claimVenusAsCollateral(address)` but accepts a caller-supplied market list,"
+    },
+    {
+      "line": 79,
+      "text": "     * @param holder The address to claim XVS for"
+    },
+    {
+      "line": 82,
+      "text": "    function claimVenusAsCollateral(address holder, VToken[] calldata vTokens) external {"
+    },
+    {
+      "line": 83,
+      "text": "        address[] memory holders = new address[](1);"
+    },
+    {
+      "line": 85,
+      "text": "        claimVenus(holders, vTokens, true, true, true);"
+    },
+    {
+      "line": 89,
+      "text": "     * @notice Transfer XVS to the user with user's shortfall considered"
+    },
+    {
+      "line": 90,
+      "text": "     * @dev Note: If there is not enough XVS, we do not perform the transfer at all"
+    },
+    {
+      "line": 91,
+      "text": "     * @param user The address of the user to transfer XVS to"
+    },
+    {
+      "line": 92,
+      "text": "     * @param amount The amount of XVS to (possibly) transfer"
+    },
+    {
+      "line": 94,
+      "text": "     * @param collateral Whether or not we will use user's venus reward as collateral to pay off the debt"
+    },
+    {
+      "line": 95,
+      "text": "     * @return The amount of XVS which was NOT transferred to the user"
+    },
+    {
+      "line": 98,
+      "text": "        address user,"
+    },
+    {
+      "line": 99,
+      "text": "        uint256 amount,"
+    },
+    {
+      "line": 103,
+      "text": "        // If the user is blacklisted, they can't get XVS rewards"
+    },
+    {
+      "line": 114,
+      "text": "        if (amount == 0 || amount > xvs_.balanceOf(address(this))) {"
+    },
+    {
+      "line": 115,
+      "text": "            return amount;"
+    },
+    {
+      "line": 119,
+      "text": "            xvs_.safeTransfer(user, amount);"
+    },
+    {
+      "line": 123,
+      "text": "        // anything, otherwise, we will transfer the pending xvs as collateral to"
+    },
+    {
+      "line": 129,
+      "text": "        address xvsVToken_ = xvsVToken;"
+    },
+    {
+      "line": 134,
+      "text": "        xvs_.safeApprove(xvsVToken_, amount);"
+    },
+    {
+      "line": 135,
+      "text": "        require(VBep20Interface(xvsVToken_).mintBehalf(user, amount) == uint256(Error.NO_ERROR), \"mint behalf error\");"
+    },
+    {
+      "line": 137,
+      "text": "        // set venusAccrued[user] to 0"
+    },
+    {
+      "line": 146,
+      "text": "     * @notice Transfer XVS to the recipient"
+    },
+    {
+      "line": 147,
+      "text": "     * @dev Allows the contract admin to transfer XVS to any recipient, regardless of shortfall"
+    },
+    {
+      "line": 148,
+      "text": "     *      Note: If there is not enough XVS, we do not perform the transfer at all"
+    },
+    {
+      "line": 149,
+      "text": "     * @param recipient The address of the recipient to transfer XVS to"
+    },
+    {
+      "line": 150,
+      "text": "     * @param amount The amount of XVS to (possibly) transfer"
+    },
+    {
+      "line": 152,
+      "text": "    function _grantXVS(address recipient, uint256 amount) external {"
+    },
+    {
+      "line": 154,
+      "text": "        uint256 amountLeft = grantXVSInternal(recipient, amount, 0, false);"
+    },
+    {
+      "line": 155,
+      "text": "        require(amountLeft == 0, \"no xvs\");"
+    },
+    {
+      "line": 156,
+      "text": "        emit VenusGranted(recipient, amount);"
+    },
+    {
+      "line": 160,
+      "text": "     * @dev Seize XVS tokens from the specified holders and transfer to recipient"
+    },
+    {
+      "line": 161,
+      "text": "     * @notice Seize XVS rewards allocated to holders"
+    },
+    {
+      "line": 162,
+      "text": "     * @param holders Addresses of the XVS holders"
+    },
+    {
+      "line": 163,
+      "text": "     * @param recipient Address of the XVS token recipient"
+    },
+    {
+      "line": 164,
+      "text": "     * @return The total amount of XVS tokens seized and transferred to recipient"
+    },
+    {
+      "line": 166,
+      "text": "    function seizeVenus(address[] calldata holders, address recipient) external returns (uint256) {"
+    },
+    {
+      "line": 167,
+      "text": "        ensureAllowed(\"seizeVenus(address[],address)\");"
+    }
+  ],
+  "success": true
+}

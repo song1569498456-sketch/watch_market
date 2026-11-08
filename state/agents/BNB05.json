@@ -1,13 +1,42 @@
 {
   "agent_id": "BNB05",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json"
+    ],
+    "chain_block": null,
+    "historical_window_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "Venus XVS rewards",
+      "token": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "identity_status": "OFFICIAL_DEPLOYMENT_JSON_NOT_LIVE_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
+      "fields": "L33-60 holder accrued supplier/borrower rewards；L64-85 shortfall collateral route；L103-119 blacklist/balance/transfer checks",
+      "deployment_match": "unknown"
+    }
+  ],
+  "pending_questions": [
+    "30天新公开窗口/额度/规则生效未覆盖；DappBay入口CONNECT403。",
+    "7天实际领取/卖出活动未覆盖，无区块/交易或分页。",
+    "chainId56、RewardFacet当前diamond绑定/升级、XVS代码未核验。",
+    "没有普通新参与者资格与accrued余额测量，历史快照/持仓与限制unknown。",
+    "DEX发现CONNECT403，没有真实出口、可售数量或完整成本报价。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:44:36.743710+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BNB05/full-20261108T152118Z/record.json"
 }
