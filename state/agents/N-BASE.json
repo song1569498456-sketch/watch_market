@@ -51,5 +51,7 @@
     "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
     "verified_at": "2026-11-08T15:30:59.022489+00:00",
     "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
-  }
+  },
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

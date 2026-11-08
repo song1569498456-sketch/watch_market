@@ -4,8 +4,24 @@
     {
       "agent_id": "M00",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "COMPLETED",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T16:17:10.111901+00:00",
+      "actual_coverage": [
+        "验证正式分支包含初始化提交；48岗位提示词齐备，合法空历史开始。",
+        "以3个真实子agent轮流承担46个研究岗位，另用新的Q00独立复核，最多同时3个。",
+        "按批合并，普通push后fetch验证提交与文件blob；证据验证后才推进有限观察游标。",
+        "主控自主读取Arbitrum SDK的parentChainId、confirmPeriodBlocks、retryableLifetimeSeconds、tokenBridge字段；这些不是实时退出额度或费用。",
+        "Superchain当前chainList读取58项包含OP、未选出Base；旧base配置404不表示停链。主控独立读取base/node的归档/迁移说明，确认官方资料入口已转base/base。",
+        "公开仓库页面标记Public已核验；未更改可见性。"
+      ],
+      "coverage_gaps": [
+        "全队存在30天规则、7天活动、实时链状态/市场身份和数量报价未覆盖，不能当作完整历史成功扫描。",
+        "管理API被代理403，完整分支保护配置未知；仅执行正常非强制推送。",
+        "TRON、Sui及其他未启用链不在当前九链范围；不作全链承诺。",
+        "本轮无云端定时或后台长期进程。"
+      ],
+      "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "Q00",

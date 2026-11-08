@@ -48,5 +48,7 @@
     "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
     "verified_at": "2026-11-08T15:28:11.087298+00:00",
     "record": "evidence/ETH01/full-20261108T152118Z/record.json"
-  }
+  },
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

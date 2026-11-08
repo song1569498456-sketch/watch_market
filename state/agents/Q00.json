@@ -42,7 +42,49 @@
     "full_30_day_window_complete": false,
     "full_7_day_window_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "independent_static_source_reads_and_bounded_failed_RPC_probes",
+      "source_fetched_at_start": "2026-11-08T16:05:08.948017+00:00",
+      "source_fetched_at_end": "2026-11-08T16:14:58.186130+00:00",
+      "read_record_count": 46,
+      "reviewed_finding_ids": [
+        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+        "BNB-JENNER-CAS20-ACTIVATION",
+        "sol-whirlpool-token-interface-identity-check",
+        "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+        "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
+        "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
+        "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
+        "arb-wsteth-l1-exit-not-arb-instant-redemption",
+        "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+        "avax-ggavax-withdrawqueue-role-not-public-redemption",
+        "base-metamorpho-nav-not-immediate-redemption",
+        "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
+        "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+        "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+        "bnb-venus-public-claim-not-unconditional-sellable-reward",
+        "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+        "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
+        "eth-aave-liquidation-bonus-not-realized-profit",
+        "OP-USDC-BURN-AS-CASH-REDEMPTION",
+        "op-velodrome-view-quote-not-swap-permission-proof",
+        "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+        "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+        "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
+        "poly-pmct-not-outcome-collateral-lending-proof",
+        "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
+        "SONIC-BEETS-STS-REDEEM-S",
+        "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
+      ],
+      "chain_block_or_slot": null,
+      "full_30_day_window_complete": false,
+      "full_7_day_window_complete": false
+    },
+    "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "review_counts": {
@@ -81,7 +123,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T16:14:58.668624+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/Q00/full-20261108T152118Z/record.json"
+  "record": "evidence/Q00/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
+    "verified_at": "2026-11-08T16:16:31.737220+00:00",
+    "record": "evidence/Q00/full-20261108T152118Z/record.json"
+  }
 }

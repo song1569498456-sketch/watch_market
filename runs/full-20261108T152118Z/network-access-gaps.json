@@ -1,0 +1,1128 @@
+{
+  "status": "NOT_FIXED",
+  "failures": [
+    {
+      "url": "https://docs.beets.fi/beets-staked-sonic",
+      "host": "docs.beets.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.beets.fi/beets-staked-sonic",
+      "host": "docs.beets.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.beefy.finance/vaults",
+      "host": "api.beefy.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.beefy.finance/vaults",
+      "host": "api.beefy.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB04/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=aerodrome",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE05/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://docs.lista.org/technical-reference/mainnet-contracts",
+      "host": "docs.lista.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/tokens/v1/bsc/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP02/full-20261108T152118Z/op_chain_identity.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP02/full-20261108T152118Z/op_pair_discovery.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/rpc_identity.json"
+    },
+    {
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "host": "api-v3.raydium.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.orca.so/v2/solana/pools",
+      "host": "api.orca.so",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.orca.so/v2/solana/pools",
+      "host": "api.orca.so",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/orca_pool_discovery.json"
+    },
+    {
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "host": "api-v3.raydium.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.orca.so/v2/solana/pools",
+      "host": "api.orca.so",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "host": "api-v3.raydium.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL01/full-20261108T152118Z/raydium_pool_discovery.json"
+    },
+    {
+      "url": "https://docs.marinade.finance/marinade-protocol/faq/faq",
+      "host": "docs.marinade.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.marinade.finance/marinade-protocol/faq/faq",
+      "host": "docs.marinade.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://www.bnbchain.org/en/dappbay",
+      "host": "www.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-BNB/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=pancakeswap%20bsc",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB04/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://aave.com/docs/developers/liquidations",
+      "host": "aave.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://aave.com/docs/developers/liquidations",
+      "host": "aave.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/aave_liquidation_docs.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH04/full-20261108T152118Z/eth_chain_identity.json"
+    },
+    {
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "host": "developers.circle.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "host": "developers.circle.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=avalanche%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://docs.liquity.org/liquity-v1/faq/lusd-redemptions",
+      "host": "docs.liquity.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/token-pairs/v1/ethereum/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.liquity.org/liquity-v1/faq/lusd-redemptions",
+      "host": "docs.liquity.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/token-pairs/v1/ethereum/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH02/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://build.avax.network/docs/quick-start/networks",
+      "host": "build.avax.network",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-AVAX/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://eth.llamarpc.com",
+      "host": "eth.llamarpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://eth.llamarpc.com",
+      "host": "eth.llamarpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH05/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.venus.io/isolated-pools/pools?chainId=56",
+      "host": "api.venus.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BNB/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://docs.base.org/base-chain/network-information",
+      "host": "docs.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-BASE/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://ethereum.org/en/dapps/",
+      "host": "ethereum.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://ethereum.org/en/dapps/",
+      "host": "ethereum.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json"
+    },
+    {
+      "url": "https://docs.lido.fi/contracts/withdrawal-queue-erc721/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ETH/full-20261108T152118Z/source-requests.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum%20WETH%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://arbitrum-one-rpc.publicnode.com",
+      "host": "arbitrum-one-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum%20WETH%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://arbitrum-one-rpc.publicnode.com",
+      "host": "arbitrum-one-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=arbitrum",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/morpho_vault_discovery.json"
+    },
+    {
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://docs.morpho.org/get-started/resources/addresses/",
+      "host": "docs.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/base_chain_identity.json"
+    },
+    {
+      "url": "https://docs.morpho.org/get-started/resources/addresses/",
+      "host": "docs.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE03/full-20261108T152118Z/morpho_deployments.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=ethereum%20sDAI",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=polygon",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/polygon_chain_identity.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=polygon",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY03/full-20261108T152118Z/polygon_pair_discovery.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.v3.aave.com/graphql",
+      "host": "api.v3.aave.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.base.org/base-chain/network-information/bridges-mainnet",
+      "host": "docs.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://docs.base.org/base-chain/network-information/bridges-mainnet",
+      "host": "docs.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-BASE/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://docs-v4.venus.io/technical-reference/reference-core-pool/vai/vai-controller",
+      "host": "docs-v4.venus.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/bnb_chain_identity.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/vai_dex_discovery.json"
+    },
+    {
+      "url": "https://docs-v4.venus.io/technical-reference/reference-core-pool/vai/vai-controller",
+      "host": "docs-v4.venus.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB02/full-20261108T152118Z/venus_vai_docs.json"
+    },
+    {
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "host": "api-v3.raydium.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/input-audit.json"
+    },
+    {
+      "url": "https://api.orca.so/v2/solana/pools",
+      "host": "api.orca.so",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/input-audit.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/input-audit.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json"
+    },
+    {
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "host": "polygon-bor-rpc.publicnode.com",
+      "failure_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "curl: (56) CONNECT tunnel failed, response 403\n     ",
+      "source_file": "evidence/Q00/full-20261108T152118Z/independent-probes.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/solana_genesis.json"
+    },
+    {
+      "url": "https://solana.com/ecosystem/explore",
+      "host": "solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://solana.com/ecosystem/explore",
+      "host": "solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SOL/full-20261108T152118Z/solana_ecosystem.json"
+    },
+    {
+      "url": "https://api.mainnet-beta.solana.com",
+      "host": "api.mainnet-beta.solana.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.kamino.finance/kamino-market",
+      "host": "api.kamino.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SOL03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://docs.lido.fi/deployed-contracts/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/arb_chain_identity.json"
+    },
+    {
+      "url": "https://docs.lido.fi/deployed-contracts/",
+      "host": "docs.lido.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ARB03/full-20261108T152118Z/lido_deployments.json"
+    },
+    {
+      "url": "https://docs.benqi.fi/liquid-staking",
+      "host": "docs.benqi.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "host": "api.avax.network",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/avax_chain_identity.json"
+    },
+    {
+      "url": "https://docs.benqi.fi/liquid-staking",
+      "host": "docs.benqi.fi",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/AVAX02/full-20261108T152118Z/benqi_official_lsd.json"
+    },
+    {
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=optimism%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "host": "developers.circle.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/OP01/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://cloudflare-eth.com",
+      "host": "cloudflare-eth.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://cloudflare-eth.com",
+      "host": "cloudflare-eth.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/ETH01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://docs.arbitrum.io/build-decentralized-apps/token-bridging/overview",
+      "host": "docs.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/arb_chain_identity.json"
+    },
+    {
+      "url": "https://ethereum-rpc.publicnode.com",
+      "host": "ethereum-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/eth_chain_identity.json"
+    },
+    {
+      "url": "https://docs.arbitrum.io/build-decentralized-apps/token-bridging/overview",
+      "host": "docs.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/X-ARB/full-20261108T152118Z/official_bridge_docs.json"
+    },
+    {
+      "url": "https://docs.base.org/base-chain/network-information/withdrawals",
+      "host": "docs.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/M00/full-20261108T152118Z/source-probes.json"
+    },
+    {
+      "url": "https://base-rpc.publicnode.com",
+      "host": "base-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.v3.aave.com/graphql",
+      "host": "api.v3.aave.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://base-rpc.publicnode.com",
+      "host": "base-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.v3.aave.com/graphql",
+      "host": "api.v3.aave.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE04/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://www.optimism.io/apps",
+      "host": "www.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://www.optimism.io/apps",
+      "host": "www.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/optimism_apps.json"
+    },
+    {
+      "url": "https://mainnet.optimism.io",
+      "host": "mainnet.optimism.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-OP/full-20261108T152118Z/op_chain_identity.json"
+    },
+    {
+      "url": "https://docs.polygon.technology/pos/reference/mapped-tokens/",
+      "host": "docs.polygon.technology",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://docs.polygon.technology/pos/reference/mapped-tokens/",
+      "host": "docs.polygon.technology",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/POLY01/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://polygon.technology/ecosystem",
+      "host": "polygon.technology",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "host": "polygon-bor-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://polygon.technology/ecosystem",
+      "host": "polygon.technology",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "host": "polygon-bor-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-POLY/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://portal.arbitrum.io/",
+      "host": "portal.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://portal.arbitrum.io/",
+      "host": "portal.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://arb1.arbitrum.io/rpc",
+      "host": "arb1.arbitrum.io",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-ARB/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://www.soniclabs.com/ecosystem",
+      "host": "www.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://sonic-rpc.publicnode.com",
+      "host": "sonic-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://www.soniclabs.com/ecosystem",
+      "host": "www.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/sonic_official_ecosystem.json"
+    },
+    {
+      "url": "https://sonic-rpc.publicnode.com",
+      "host": "sonic-rpc.publicnode.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/fallback_rpc.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/N-SONIC/full-20261108T152118Z/sonic_chain_identity.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=sonic%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC03/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.morpho.org/graphql",
+      "host": "api.morpho.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-BASE/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/xvs_exit_discovery.json"
+    },
+    {
+      "url": "https://dappbay.bnbchain.org/campaign",
+      "host": "dappbay.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "host": "bsc-dataseed.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/bnb_chain_identity.json"
+    },
+    {
+      "url": "https://dappbay.bnbchain.org/campaign",
+      "host": "dappbay.bnbchain.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB05/full-20261108T152118Z/bnb_campaign_discovery.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=bsc%20USDT%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://bsc-dataseed.binance.org",
+      "host": "bsc-dataseed.binance.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/record.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=bsc%20USDT%20USDC",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://bsc-dataseed.binance.org",
+      "host": "bsc-dataseed.binance.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BNB03/full-20261108T152118Z/sources-selected.json"
+    },
+    {
+      "url": "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+      "host": "gamma-api.polymarket.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://gamma-api.polymarket.com/markets?limit=5&active=true&closed=false",
+      "host": "gamma-api.polymarket.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/active_event_discovery.json"
+    },
+    {
+      "url": "https://polygon-rpc.com",
+      "host": "polygon-rpc.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/R-POLY/full-20261108T152118Z/polygon_chain_identity.json"
+    },
+    {
+      "url": "https://mainnet.base.org",
+      "host": "mainnet.base.org",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.dexscreener.com/latest/dex/search?q=base%20cbETH",
+      "host": "api.dexscreener.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://help.coinbase.com/en/coinbase/coinbase-staking/staking/cbeth-intro",
+      "host": "help.coinbase.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/BASE02/full-20261108T152118Z/source-checks.json"
+    },
+    {
+      "url": "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng",
+      "host": "api.curve.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/attempts.json"
+    },
+    {
+      "url": "https://rpc.soniclabs.com",
+      "host": "rpc.soniclabs.com",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/sonic_chain_identity.json"
+    },
+    {
+      "url": "https://api.curve.finance/v1/getPools/sonic/factory-stable-ng",
+      "host": "api.curve.finance",
+      "failure_excerpt": "<urlopen error Tunnel connection failed: 403 Forbidden>     ",
+      "source_file": "evidence/SONIC01/full-20261108T152118Z/sonic_curve_pool_discovery.json"
+    }
+  ],
+  "note": "只记录实际请求失败；这些不是获准新增域名。凭据/端点需按具体服务另行核验，不能只开放域名就假定数据可用。"
+}

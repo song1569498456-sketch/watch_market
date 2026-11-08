@@ -52,5 +52,7 @@
     "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
     "verified_at": "2026-11-08T15:33:32.477653+00:00",
     "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
-  }
+  },
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

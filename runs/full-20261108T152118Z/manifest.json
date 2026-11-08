@@ -10,7 +10,14 @@
   "schedule_status": "NOT_CONFIGURED",
   "agents": {
     "M00": {
-      "status": "RUNNING"
+      "status": "COMPLETED",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 3352.101,
+      "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/M00/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/M00.txt",
+      "prompt_sha256": "618b8e649c275b85467862e429f2d0656d4ecec67d68a2ce65f60459543bc742"
     },
     "Q00": {
       "status": "PARTIAL",
@@ -18,9 +25,10 @@
       "duration_seconds": 589.721,
       "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/Q00/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/Q00.txt",
-      "prompt_sha256": "d7edaaea9aef48ee368edd2e050aa10574b0787057d15141fc448558376fc8f9"
+      "prompt_sha256": "d7edaaea9aef48ee368edd2e050aa10574b0787057d15141fc448558376fc8f9",
+      "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae"
     },
     "N-ARB": {
       "status": "PARTIAL",
@@ -686,6 +694,15 @@
         "Q00"
       ],
       "merged_at": "2026-11-08T16:16:26.193141+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae"
+    },
+    {
+      "batch": 18,
+      "agents": [
+        "M00"
+      ],
+      "merged_at": "2026-11-08T16:17:10.290659+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -808,6 +825,13 @@
       "verified_at": "2026-11-08T16:03:12.869632+00:00",
       "verified_files": 300,
       "label": "batch X-BASE"
+    },
+    {
+      "commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
+      "remote_head": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
+      "verified_at": "2026-11-08T16:16:31.737220+00:00",
+      "verified_files": 341,
+      "label": "Q00 independent reviews and correction timeline"
     }
   ]
 }
