@@ -1,13 +1,32 @@
 {
   "agent_id": "POLY01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_ASSET_AND_BRIDGE_RULES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:51:10.147775+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
+    "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
+    "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+  ],
+  "pending_questions": [
+    "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
+    "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
+    "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
+    "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
+    "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:51:10.147775+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/POLY01/full-20261108T152118Z/record.json"
 }

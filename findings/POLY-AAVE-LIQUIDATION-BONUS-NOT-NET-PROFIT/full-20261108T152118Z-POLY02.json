@@ -1,0 +1,22 @@
+{
+  "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+  "chain": "POLY",
+  "status": "REJECTED",
+  "market_ids": [
+    "POLY:137:AaveV3:Pool:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+  ],
+  "mechanism": "排除“预言机抵押价值×清算奖励即净可兑现利润”的推断。所读Aave Origin逻辑有实际代还上限/抵押可用量/协议抽成，receiveAToken与底层退出分支不同；尚须真实出售/提款和融资/交易成本。本轮无仓位。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol"
+  ],
+  "next_check": "同状态测量实际代还→收到抵押权利→可卖/可提数量→融资归还，成本按账本一次扣本金；补齐30天/7天清算和退出历史。",
+  "review_required": true,
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "owner": "POLY02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/POLY02/full-20261108T152118Z/record.json"
+}

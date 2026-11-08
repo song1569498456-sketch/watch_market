@@ -1,0 +1,136 @@
+{
+  "agent_id": "POLY02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS 137 正常清算→抵押品兑现；自主发现Aave V3文档Pool，未发现可核验仓位",
+  "started_at": "2026-11-08T15:50:30.114420+00:00",
+  "finished_at": "2026-11-08T15:51:39.625601+00:00",
+  "duration_seconds": 69.511,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:51:39.625601+00:00",
+  "block_or_slot": null,
+  "market_ids": [
+    "POLY:137:AaveV3:Pool:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+  ],
+  "asset_ids": [],
+  "discovery_source": [
+    "https://polygon-rpc.com",
+    "https://api.v3.aave.com/graphql",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol"
+  ],
+  "mechanism": "正常清算资格、允许代还额、收到抵押权利与真正可出售/提取价值分别核验；奖金不是净利润，aToken不是必然即时底层现金。",
+  "observations": [
+    "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
+    "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
+    "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
+    "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "代还本金/融资费用",
+      "抵押出售冲击/DEX费",
+      "aToken退出容量",
+      "真实gas/优先费",
+      "授权及代币限制"
+    ]
+  },
+  "capacity": "unknown，无实际仓位/可代还额",
+  "permissions": "unknown，当前reserve资格/暂停/grace与普通清算账户条件未读取",
+  "liabilities": "unknown，无借款或清算执行",
+  "waiting_time": "unknown，aToken/底层变现未测",
+  "invalidation_conditions": [
+    "HF不满足现行规则",
+    "reserve暂停/宽限期",
+    "抵押无法兑付/出售",
+    "代理实现不匹配",
+    "并发清算/异状态报价",
+    "成本或融资未结清"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol"
+  ],
+  "coverage_gaps": [
+    "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
+    "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
+    "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
+    "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
+    "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+  ],
+  "next_check": [
+    "核对Polygon链ID137与区块、Pool proxy/implementation、Oracle与当前reserve配置，逐资产区别原生USDC/USDC.e及实际gas资产。",
+    "恢复已验证索引器按明确区块范围发现借款账户，只对当区块达到规则条件的仓位建候选；接近阈值仅watch。",
+    "读取每仓债务本息、抵押、current close rules/奖金/抽成/暂停和grace period，分别核receiveAToken与直接底层路径。",
+    "同状态测量实际代还→收到抵押权利→可卖/可提数量→融资归还，成本按账本一次扣本金；补齐30天/7天清算和退出历史。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "POLY:137:AaveV3:Pool:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "核对Polygon链ID137与区块、Pool proxy/implementation、Oracle与当前reserve配置，逐资产区别原生USDC/USDC.e及实际gas资产。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+      "chain": "POLY",
+      "status": "REJECTED",
+      "market_ids": [
+        "POLY:137:AaveV3:Pool:0x794a61358d6845594f94dc1db02a252b5b4814ad"
+      ],
+      "mechanism": "排除“预言机抵押价值×清算奖励即净可兑现利润”的推断。所读Aave Origin逻辑有实际代还上限/抵押可用量/协议抽成，receiveAToken与底层退出分支不同；尚须真实出售/提款和融资/交易成本。本轮无仓位。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/ValidationLogic.sol"
+      ],
+      "next_check": "同状态测量实际代还→收到抵押权利→可卖/可提数量→融资归还，成本按账本一次扣本金；补齐30天/7天清算和退出历史。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "奖金/预言机估值=可兑现净利",
+      "reason": "排除“预言机抵押价值×清算奖励即净可兑现利润”的推断。所读Aave Origin逻辑有实际代还上限/抵押可用量/协议抽成，receiveAToken与底层退出分支不同；尚须真实出售/提款和融资/交易成本。本轮无仓位。"
+    },
+    {
+      "case": "接近阈值=可清算",
+      "reason": "没有当前HF与适用规则，只能待查，不能创造仓位候选。"
+    },
+    {
+      "case": "aToken到账=底层现金到账",
+      "reason": "仍要核底层储备/提款权限/深度及价格，未验证不得现金等价。"
+    }
+  ],
+  "observed_cursor": {
+    "pool_document_address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "logic_source_read": "aave-v3-origin/main",
+    "borrowers_read": 0,
+    "liquidations_analyzed": 0,
+    "quotes_obtained": 0,
+    "current_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "agent_id": "POLY03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS137同资产对两个独立DEX A→B→A，不含跨链/三角",
+  "started_at": "2026-11-08T15:50:27.243068+00:00",
+  "finished_at": "2026-11-08T15:51:15.311322+00:00",
+  "duration_seconds": 48.068,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:51:15.311322+00:00",
+    "beijing": "2026-11-08T23:51:15.311322+08:00",
+    "data_time": "源码/静态资产登记抓取时点，当前链状态unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "137:0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    "137:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+  ],
+  "discovery_source": [
+    "https://api.dexscreener.com/latest/dex/search?q=polygon",
+    "https://polygon-rpc.com",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol"
+  ],
+  "mechanism": "自主读取Polygon官方协议资产登记发现USDCe与USDCn是不同底层token地址，即使登记相同精度及oracle也不能当作同一代币无条件闭环。QuickSwap V2源码要求token0/token1、当前reserves及swap余额不变量；静态V2规则不能套实际V3或未匹配部署。尚无真实独立双池。",
+  "observations": [
+    {
+      "asset_label": "USDCe",
+      "underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "decimals_static": 6,
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+    },
+    {
+      "asset_label": "USDCn",
+      "underlying": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "decimals_static": 6,
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
+      "fields": "token0/token1 L19-20，getReserves L38-41，swap L159-162按真实储备限制",
+      "deployment_match": "unknown"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "双腿DEX/路由费",
+      "转账税",
+      "滑点/动态费",
+      "当前原生gas费用",
+      "若非同权益需额外转换成本"
+    ]
+  },
+  "capacity": "unknown；无当前池深或数量曲线",
+  "permissions": "unknown；卖出/激活/代币限制未核",
+  "liabilities": "无建立仓位；完整闭环残余unknown",
+  "waiting_time": "unknown；两腿可组合性未核",
+  "invalidation_conditions": [
+    "用不同USDC版本伪装同一资产",
+    "两路共享同一底层池",
+    "第二腿无法卖或数量未用第一腿实际输出",
+    "实际部署版本/费率不同",
+    "不同区块或过期报价"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol"
+  ],
+  "coverage_gaps": [
+    "30天规则/迁移/流动性变化未覆盖。",
+    "7天代表性活动/完整历史交易复盘未覆盖。",
+    "Polygon RPC和交易对目录CONNECT403，未核chainId137、code、实际池及token部署。",
+    "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
+    "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
+  ],
+  "next_check": [
+    "恢复polygon-rpc.com及Polygon市场目录后核chainId0x89、token与工厂代码；取真实池而不是工厂作为市场。",
+    "按同token地址配双池，USDCe/USDCn分档；如需要转换则另核完整规则而不冒充同权益两腿。",
+    "核底层独立性/储备/激活/卖出、实际版本与动态费，再有限测两个方向第一腿真实输出→第二腿。",
+    "补30天费率/迁移和7天交易，当前gas口径从节点读取，不写死旧名称。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [],
+  "findings": [
+    {
+      "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
+      "status": "REJECTED",
+      "chain": "POLY",
+      "market_id": null,
+      "claim": "排除“USDCe和USDCn仅名称相近、精度/oracle相同就可视作同token双DEX闭环”的论证。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "evidence_fields": "USDCe_UNDERLYING L161与USDCn_UNDERLYING L542地址不同",
+      "scope_limit": "静态资产登记的身份反证；不推断当前两资产价格或正常转换是否有收益。"
+    }
+  ],
+  "rejections": [
+    {
+      "case": "USDCe与USDCn跨版本价格差直接计作同资产双池价差",
+      "reason": "底层合约不同，转换规则/费用未核验。"
+    },
+    {
+      "case": "QuickSwap V2源码或工厂替代当前真实独立双池",
+      "reason": "没有实际池/部署版本匹配及储备，不能据此提供池深或可交易容量。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol"
+    ],
+    "chain_block": null,
+    "market_pages_completed": 0,
+    "history_complete": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "polygon_asset_registry",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+  "fetched_at_utc": "2026-11-08T15:50:29.273054+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+  "excerpts": [
+    {
+      "line": 161,
+      "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+    },
+    {
+      "line": 163,
+      "text": "  uint8 internal constant USDCe_DECIMALS = 6;"
+    },
+    {
+      "line": 166,
+      "text": "  address internal constant USDCe_A_TOKEN = 0x625E7708f30cA75bfd92586e17077590C60eb4cD;"
+    },
+    {
+      "line": 169,
+      "text": "  address internal constant USDCe_V_TOKEN = 0xFCCf3cAbbe80101232d343252614b6A3eE81C989;"
+    },
+    {
+      "line": 172,
+      "text": "  address internal constant USDCe_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+    },
+    {
+      "line": 175,
+      "text": "  address internal constant USDCe_INTEREST_RATE_STRATEGY ="
+    },
+    {
+      "line": 179,
+      "text": "  address internal constant USDCe_STATIC_A_TOKEN = 0x1017F4a86Fc3A3c824346d0b8C5e96A5029bDAf9;"
+    },
+    {
+      "line": 182,
+      "text": "  address internal constant USDCe_STATA_TOKEN = 0xE1a9178Ad1815099004145eC00Eb516B54c93CEB;"
+    },
+    {
+      "line": 542,
+      "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+    },
+    {
+      "line": 544,
+      "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+    },
+    {
+      "line": 547,
+      "text": "  address internal constant USDCn_A_TOKEN = 0xA4D94019934D8333Ef880ABFFbF2FDd611C762BD;"
+    },
+    {
+      "line": 550,
+      "text": "  address internal constant USDCn_V_TOKEN = 0xE701126012EC0290822eEA17B794454d1AF8b030;"
+    },
+    {
+      "line": 553,
+      "text": "  address internal constant USDCn_ORACLE = 0x31Ebeb03223AaC82C8EB24C77624Ea40F4D849Fb;"
+    },
+    {
+      "line": 556,
+      "text": "  address internal constant USDCn_INTEREST_RATE_STRATEGY ="
+    },
+    {
+      "line": 560,
+      "text": "  address internal constant USDCn_STATIC_A_TOKEN = 0x2dCa80061632f3F87c9cA28364d1d0c30cD79a19;"
+    },
+    {
+      "line": 563,
+      "text": "  address internal constant USDCn_STATA_TOKEN = 0x79261231698B26Ed9085b59ae89d59843Ae925a8;"
+    },
+    {
+      "line": 568,
+      "text": "  uint8 internal constant DAI_USDCe_USDT0_EURS_jEUR_EURA_miMATIC_USDCn__ = 1;"
+    },
+    {
+      "line": 574,
+      "text": "  uint8 internal constant AAVE__USDT0_USDCn = 4;"
+    }
+  ],
+  "success": true
+}

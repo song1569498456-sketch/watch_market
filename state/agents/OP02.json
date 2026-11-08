@@ -14,7 +14,21 @@
     "market_pages_completed": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+        "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+      ],
+      "chain_block": null,
+      "market_pages_completed": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "protocol": "Uniswap V3 OP",
@@ -39,7 +53,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:49:05.707031+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/OP02/full-20261108T152118Z/record.json"
+  "record": "evidence/OP02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
+    "verified_at": "2026-11-08T15:49:44.821008+00:00",
+    "record": "evidence/OP02/full-20261108T152118Z/record.json"
+  }
 }

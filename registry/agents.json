@@ -768,20 +768,77 @@
     {
       "agent_id": "POLY01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:51:10.147775+00:00",
+      "actual_coverage": [
+        "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
+        "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
+        "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+      ],
+      "coverage_gaps": [
+        "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
+        "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
+        "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
+        "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
+        "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+      ],
+      "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "POLY02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:51:39.625601+00:00",
+      "actual_coverage": [
+        "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
+        "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
+        "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
+        "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+      ],
+      "coverage_gaps": [
+        "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
+        "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
+        "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
+        "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
+        "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+      ],
+      "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "POLY03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:51:15.311322+00:00",
+      "actual_coverage": [
+        {
+          "asset_label": "USDCe",
+          "underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals_static": 6,
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "asset_label": "USDCn",
+          "underlying": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+          "decimals_static": 6,
+          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
+          "fields": "token0/token1 L19-20，getReserves L38-41，swap L159-162按真实储备限制",
+          "deployment_match": "unknown"
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则/迁移/流动性变化未覆盖。",
+        "7天代表性活动/完整历史交易复盘未覆盖。",
+        "Polygon RPC和交易对目录CONNECT403，未核chainId137、code、实际池及token部署。",
+        "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
+        "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
+      ],
+      "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "R-BASE",

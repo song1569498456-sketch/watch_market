@@ -1,0 +1,398 @@
+{
+  "agent_id": "POLY01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "POLY",
+  "scope": "Polygon稳定币折价买入→正常兑现；区分原生与桥接权益",
+  "started_at": "2026-11-08T15:50:20.520929+00:00",
+  "finished_at": "2026-11-08T15:51:10.147775+00:00",
+  "duration_seconds": 49.627,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:51:10.147775+00:00",
+    "beijing": "2026-11-08T23:51:10.147775+08:00",
+    "data_time": "unknown; upstream branch snapshots only"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "POLY:CIRCLE:USDCn:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+    "POLY:BRIDGED:USDCe:0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+  ],
+  "asset_ids": [
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+  ],
+  "discovery_source": [
+    {
+      "source": "polygon-mapped-assets",
+      "url": "https://docs.polygon.technology/pos/reference/mapped-tokens/",
+      "retrieved_at_utc": "2026-11-08T15:50:20.520936+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-rpc",
+      "url": "https://polygon-rpc.com",
+      "retrieved_at_utc": "2026-11-08T15:50:21.537592+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-stable-assets",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "2026-11-08T15:50:22.546391+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "bytes_read": 30929,
+      "excerpts": [
+        {
+          "line": 160,
+          "text": "  // https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        },
+        {
+          "line": 161,
+          "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+        },
+        {
+          "line": 162,
+          "text": ""
+        },
+        {
+          "line": 163,
+          "text": "  uint8 internal constant USDCe_DECIMALS = 6;"
+        },
+        {
+          "line": 164,
+          "text": ""
+        },
+        {
+          "line": 541,
+          "text": "  // https://polygonscan.com/address/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+        },
+        {
+          "line": 542,
+          "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+        },
+        {
+          "line": 543,
+          "text": ""
+        },
+        {
+          "line": 544,
+          "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+        },
+        {
+          "line": 545,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "source": "polygon-child-token-exit",
+      "url": "https://raw.githubusercontent.com/maticnetwork/pos-portal/master/contracts/child/ChildToken/ChildERC20.sol",
+      "retrieved_at_utc": "2026-11-08T15:50:23.910354+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "e248ade802a7e65aae7979a4feafb91c79bce6ccb843d2dc7dcdf4e10129d53e",
+      "bytes_read": 2158,
+      "excerpts": [
+        {
+          "line": 15,
+          "text": "    ContextMixin"
+        },
+        {
+          "line": 16,
+          "text": "{"
+        },
+        {
+          "line": 17,
+          "text": "    bytes32 public constant DEPOSITOR_ROLE = keccak256(\"DEPOSITOR_ROLE\");"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "    constructor("
+        },
+        {
+          "line": 20,
+          "text": "        string memory name_,"
+        },
+        {
+          "line": 21,
+          "text": "        string memory symbol_,"
+        },
+        {
+          "line": 22,
+          "text": "        uint8 decimals_,"
+        },
+        {
+          "line": 23,
+          "text": "        address childChainManager"
+        },
+        {
+          "line": 24,
+          "text": "    ) public ERC20(name_, symbol_) {"
+        },
+        {
+          "line": 25,
+          "text": "        _setupContractId(\"ChildERC20\");"
+        },
+        {
+          "line": 26,
+          "text": "        _setupDecimals(decimals_);"
+        },
+        {
+          "line": 27,
+          "text": "        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());"
+        },
+        {
+          "line": 28,
+          "text": "        _setupRole(DEPOSITOR_ROLE, childChainManager);"
+        },
+        {
+          "line": 29,
+          "text": "        _initializeEIP712(name_);"
+        },
+        {
+          "line": 30,
+          "text": "    }"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    // This is to support Native meta transactions"
+        },
+        {
+          "line": 33,
+          "text": "    // never use msg.sender directly, use _msgSender() instead"
+        },
+        {
+          "line": 34,
+          "text": "    function _msgSender()"
+        },
+        {
+          "line": 35,
+          "text": "        internal"
+        },
+        {
+          "line": 36,
+          "text": "        override"
+        },
+        {
+          "line": 37,
+          "text": "        view"
+        },
+        {
+          "line": 38,
+          "text": "        returns (address payable sender)"
+        },
+        {
+          "line": 39,
+          "text": "    {"
+        },
+        {
+          "line": 49,
+          "text": "     * @param depositData abi encoded amount"
+        },
+        {
+          "line": 50,
+          "text": "     */"
+        },
+        {
+          "line": 51,
+          "text": "    function deposit(address user, bytes calldata depositData)"
+        },
+        {
+          "line": 52,
+          "text": "        external"
+        },
+        {
+          "line": 53,
+          "text": "        override"
+        },
+        {
+          "line": 54,
+          "text": "        only(DEPOSITOR_ROLE)"
+        },
+        {
+          "line": 55,
+          "text": "    {"
+        },
+        {
+          "line": 56,
+          "text": "        uint256 amount = abi.decode(depositData, (uint256));"
+        },
+        {
+          "line": 57,
+          "text": "        _mint(user, amount);"
+        },
+        {
+          "line": 58,
+          "text": "    }"
+        },
+        {
+          "line": 59,
+          "text": ""
+        },
+        {
+          "line": 60,
+          "text": "    /**"
+        },
+        {
+          "line": 61,
+          "text": "     * @notice called when user wants to withdraw tokens back to root chain"
+        },
+        {
+          "line": 62,
+          "text": "     * @dev Should burn user's tokens. This transaction will be verified when exiting on root chain"
+        },
+        {
+          "line": 63,
+          "text": "     * @param amount amount of tokens to withdraw"
+        },
+        {
+          "line": 64,
+          "text": "     */"
+        },
+        {
+          "line": 65,
+          "text": "    function withdraw(uint256 amount) external {"
+        },
+        {
+          "line": 66,
+          "text": "        _burn(_msgSender(), amount);"
+        },
+        {
+          "line": 67,
+          "text": "    }"
+        },
+        {
+          "line": 68,
+          "text": "}"
+        }
+      ]
+    }
+  ],
+  "mechanism": "原生发行币与桥接币不同权利；官方通用ChildERC20.withdraw仅burn，注释要求根链exit验证，不是本链即时现金返回。未将该通用源码当当前USDCe代理实现。",
+  "observations": [
+    "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
+    "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
+    "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "redeemed_asset_unknown",
+    "unknown_costs": [
+      "DEX费用与冲击",
+      "发行方/桥出口费",
+      "gas与接收资产变现",
+      "等待与资金占用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "原生发行方资格、桥映射/暂停/黑名单unknown",
+  "liabilities": "未执行；候选完整路径未模拟",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "资产或当前实现不符",
+    "用户无资格或地区限制",
+    "根链出口未完成",
+    "限额/资金不足",
+    "费用/等待消除差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://raw.githubusercontent.com/maticnetwork/pos-portal/master/contracts/child/ChildToken/ChildERC20.sol",
+    "https://polygonscan.com/address/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+  ],
+  "coverage_gaps": [
+    "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
+    "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
+    "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
+    "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
+    "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+  ],
+  "next_check": [
+    "先验证137、两个不同资产代码/实现与身份；不按名称合并或混用赎回规则。",
+    "原生USDCn查当前发行方规则及普通账户资格，接口可读不等于可兑现金。",
+    "桥接USDCe需核验当前实现/根链映射；若出口离开Polygon，应由M00安排独立固定链对研究，不塞给X-BASE/X-ARB或冒充同链即时兑付。",
+    "取得真实DEX买入数量和可兑额度/费用后填写六列，并补30天规则/7天代表活动；无具体候选不编Q00任务。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "POLY:CIRCLE:USDCn:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+      "chain": "POLY",
+      "protocol": "USDCn native asset watch",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item not priced redemption market",
+      "next_check": "先验证137、两个不同资产代码/实现与身份；不按名称合并或混用赎回规则。"
+    },
+    {
+      "market_id": "POLY:BRIDGED:USDCe:0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "chain": "POLY",
+      "protocol": "USDCe bridged asset watch",
+      "asset_ids": [
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item not priced redemption market",
+      "next_check": "先验证137、两个不同资产代码/实现与身份；不按名称合并或混用赎回规则。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "桥接币withdraw/burn成功即已在Polygon收到现金",
+      "reason": "通用官方桥源码withdraw只销毁，注释还要求根链exit；当前具体资产实现仍待核。"
+    },
+    {
+      "claim": "USDCn与USDCe均6位所以可按1:1共用兑付出口",
+      "reason": "合约、发行/桥接权益与用户资格不同，未获真实兑付证据。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_ASSET_AND_BRIDGE_RULES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:51:10.147775+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "redemption_six_columns": {
+    "buy_amount": "unknown",
+    "receipt_amount": "unknown",
+    "redeemable_now": "unknown",
+    "arrival_time": "unknown",
+    "exit_output": "unknown",
+    "unknowns": [
+      "identity/version",
+      "eligibility",
+      "mapping",
+      "capacity",
+      "fees",
+      "quotes"
+    ]
+  }
+}

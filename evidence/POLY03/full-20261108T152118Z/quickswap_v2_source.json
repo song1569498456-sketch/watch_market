@@ -1,0 +1,231 @@
+{
+  "name": "quickswap_v2_source",
+  "url": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
+  "fetched_at_utc": "2026-11-08T15:50:30.700432+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "43a5421b31415868367b62bfa161ca10bcee03778873faad905f5a3e2cce9cbd",
+  "excerpts": [
+    {
+      "line": 19,
+      "text": "    address public token0;"
+    },
+    {
+      "line": 20,
+      "text": "    address public token1;"
+    },
+    {
+      "line": 22,
+      "text": "    uint112 private reserve0;           // uses single storage slot, accessible via getReserves"
+    },
+    {
+      "line": 23,
+      "text": "    uint112 private reserve1;           // uses single storage slot, accessible via getReserves"
+    },
+    {
+      "line": 28,
+      "text": "    uint public kLast; // reserve0 * reserve1, as of immediately after the most recent liquidity event"
+    },
+    {
+      "line": 38,
+      "text": "    function getReserves() public view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast) {"
+    },
+    {
+      "line": 39,
+      "text": "        _reserve0 = reserve0;"
+    },
+    {
+      "line": 40,
+      "text": "        _reserve1 = reserve1;"
+    },
+    {
+      "line": 53,
+      "text": "        uint amount0In,"
+    },
+    {
+      "line": 54,
+      "text": "        uint amount1In,"
+    },
+    {
+      "line": 59,
+      "text": "    event Sync(uint112 reserve0, uint112 reserve1);"
+    },
+    {
+      "line": 66,
+      "text": "    function initialize(address _token0, address _token1) external {"
+    },
+    {
+      "line": 68,
+      "text": "        token0 = _token0;"
+    },
+    {
+      "line": 69,
+      "text": "        token1 = _token1;"
+    },
+    {
+      "line": 73,
+      "text": "    function _update(uint balance0, uint balance1, uint112 _reserve0, uint112 _reserve1) private {"
+    },
+    {
+      "line": 77,
+      "text": "        if (timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0) {"
+    },
+    {
+      "line": 79,
+      "text": "            price0CumulativeLast += uint(UQ112x112.encode(_reserve1).uqdiv(_reserve0)) * timeElapsed;"
+    },
+    {
+      "line": 80,
+      "text": "            price1CumulativeLast += uint(UQ112x112.encode(_reserve0).uqdiv(_reserve1)) * timeElapsed;"
+    },
+    {
+      "line": 82,
+      "text": "        reserve0 = uint112(balance0);"
+    },
+    {
+      "line": 83,
+      "text": "        reserve1 = uint112(balance1);"
+    },
+    {
+      "line": 85,
+      "text": "        emit Sync(reserve0, reserve1);"
+    },
+    {
+      "line": 89,
+      "text": "    function _mintFee(uint112 _reserve0, uint112 _reserve1) private returns (bool feeOn) {"
+    },
+    {
+      "line": 90,
+      "text": "        address feeTo = IUniswapV2Factory(factory).feeTo();"
+    },
+    {
+      "line": 91,
+      "text": "        feeOn = feeTo != address(0);"
+    },
+    {
+      "line": 95,
+      "text": "                uint rootK = Math.sqrt(uint(_reserve0).mul(_reserve1));"
+    },
+    {
+      "line": 101,
+      "text": "                    if (liquidity > 0) _mint(feeTo, liquidity);"
+    },
+    {
+      "line": 111,
+      "text": "        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings"
+    },
+    {
+      "line": 112,
+      "text": "        uint balance0 = IERC20(token0).balanceOf(address(this));"
+    },
+    {
+      "line": 113,
+      "text": "        uint balance1 = IERC20(token1).balanceOf(address(this));"
+    },
+    {
+      "line": 114,
+      "text": "        uint amount0 = balance0.sub(_reserve0);"
+    },
+    {
+      "line": 115,
+      "text": "        uint amount1 = balance1.sub(_reserve1);"
+    },
+    {
+      "line": 117,
+      "text": "        bool feeOn = _mintFee(_reserve0, _reserve1);"
+    },
+    {
+      "line": 123,
+      "text": "            liquidity = Math.min(amount0.mul(_totalSupply) / _reserve0, amount1.mul(_totalSupply) / _reserve1);"
+    },
+    {
+      "line": 125,
+      "text": "        require(liquidity > 0, 'UniswapV2: INSUFFICIENT_LIQUIDITY_MINTED');"
+    },
+    {
+      "line": 128,
+      "text": "        _update(balance0, balance1, _reserve0, _reserve1);"
+    },
+    {
+      "line": 129,
+      "text": "        if (feeOn) kLast = uint(reserve0).mul(reserve1); // reserve0 and reserve1 are up-to-date"
+    },
+    {
+      "line": 135,
+      "text": "        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings"
+    },
+    {
+      "line": 136,
+      "text": "        address _token0 = token0;                                // gas savings"
+    },
+    {
+      "line": 137,
+      "text": "        address _token1 = token1;                                // gas savings"
+    },
+    {
+      "line": 138,
+      "text": "        uint balance0 = IERC20(_token0).balanceOf(address(this));"
+    },
+    {
+      "line": 139,
+      "text": "        uint balance1 = IERC20(_token1).balanceOf(address(this));"
+    },
+    {
+      "line": 142,
+      "text": "        bool feeOn = _mintFee(_reserve0, _reserve1);"
+    },
+    {
+      "line": 146,
+      "text": "        require(amount0 > 0 && amount1 > 0, 'UniswapV2: INSUFFICIENT_LIQUIDITY_BURNED');"
+    },
+    {
+      "line": 148,
+      "text": "        _safeTransfer(_token0, to, amount0);"
+    },
+    {
+      "line": 149,
+      "text": "        _safeTransfer(_token1, to, amount1);"
+    },
+    {
+      "line": 150,
+      "text": "        balance0 = IERC20(_token0).balanceOf(address(this));"
+    },
+    {
+      "line": 151,
+      "text": "        balance1 = IERC20(_token1).balanceOf(address(this));"
+    },
+    {
+      "line": 153,
+      "text": "        _update(balance0, balance1, _reserve0, _reserve1);"
+    },
+    {
+      "line": 154,
+      "text": "        if (feeOn) kLast = uint(reserve0).mul(reserve1); // reserve0 and reserve1 are up-to-date"
+    },
+    {
+      "line": 159,
+      "text": "    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external lock {"
+    },
+    {
+      "line": 160,
+      "text": "        require(amount0Out > 0 || amount1Out > 0, 'UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT');"
+    },
+    {
+      "line": 161,
+      "text": "        (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings"
+    },
+    {
+      "line": 162,
+      "text": "        require(amount0Out < _reserve0 && amount1Out < _reserve1, 'UniswapV2: INSUFFICIENT_LIQUIDITY');"
+    },
+    {
+      "line": 167,
+      "text": "        address _token0 = token0;"
+    },
+    {
+      "line": 168,
+      "text": "        address _token1 = token1;"
+    }
+  ],
+  "success": true
+}

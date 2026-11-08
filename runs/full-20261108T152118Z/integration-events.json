@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MERGE_SCHEMA_ERROR_RECOVERED",
+    "phase": "batch 01",
+    "error": "registry/agents.json uses agents array; merger initially expected items, raised KeyError",
+    "intermediate_evidence_commit": "4167c76549b0dd52cca3cb070aa151deca097afc",
+    "correction_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+    "outcome": "Schema adapter corrected; three role records merged and remote readback verified before their published checkpoints advanced. No reports or remote history rewritten.",
+    "preventive_change": "Batch wrapper now stops on a failed merge before publishing; registry schema preserved."
+  }
+]

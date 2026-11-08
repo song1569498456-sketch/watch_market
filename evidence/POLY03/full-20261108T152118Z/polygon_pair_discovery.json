@@ -1,0 +1,8 @@
+{
+  "name": "polygon_pair_discovery",
+  "url": "https://api.dexscreener.com/latest/dex/search?q=polygon",
+  "fetched_at_utc": "2026-11-08T15:50:27.243077+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

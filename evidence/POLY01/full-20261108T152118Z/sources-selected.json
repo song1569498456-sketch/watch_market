@@ -1,0 +1,266 @@
+{
+  "started_at": "2026-11-08T15:50:20.520929+00:00",
+  "sources": [
+    {
+      "source": "polygon-mapped-assets",
+      "url": "https://docs.polygon.technology/pos/reference/mapped-tokens/",
+      "retrieved_at_utc": "2026-11-08T15:50:20.520936+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-rpc",
+      "url": "https://polygon-rpc.com",
+      "retrieved_at_utc": "2026-11-08T15:50:21.537592+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "polygon-stable-assets",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "2026-11-08T15:50:22.546391+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "d3cc32992452e79dff17522d99facc1f11544274563667a1321f5918a0efe37c",
+      "bytes_read": 30929,
+      "excerpts": [
+        {
+          "line": 160,
+          "text": "  // https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        },
+        {
+          "line": 161,
+          "text": "  address internal constant USDCe_UNDERLYING = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;"
+        },
+        {
+          "line": 162,
+          "text": ""
+        },
+        {
+          "line": 163,
+          "text": "  uint8 internal constant USDCe_DECIMALS = 6;"
+        },
+        {
+          "line": 164,
+          "text": ""
+        },
+        {
+          "line": 541,
+          "text": "  // https://polygonscan.com/address/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+        },
+        {
+          "line": 542,
+          "text": "  address internal constant USDCn_UNDERLYING = 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359;"
+        },
+        {
+          "line": 543,
+          "text": ""
+        },
+        {
+          "line": 544,
+          "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+        },
+        {
+          "line": 545,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "source": "polygon-child-token-exit",
+      "url": "https://raw.githubusercontent.com/maticnetwork/pos-portal/master/contracts/child/ChildToken/ChildERC20.sol",
+      "retrieved_at_utc": "2026-11-08T15:50:23.910354+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "e248ade802a7e65aae7979a4feafb91c79bce6ccb843d2dc7dcdf4e10129d53e",
+      "bytes_read": 2158,
+      "excerpts": [
+        {
+          "line": 15,
+          "text": "    ContextMixin"
+        },
+        {
+          "line": 16,
+          "text": "{"
+        },
+        {
+          "line": 17,
+          "text": "    bytes32 public constant DEPOSITOR_ROLE = keccak256(\"DEPOSITOR_ROLE\");"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "    constructor("
+        },
+        {
+          "line": 20,
+          "text": "        string memory name_,"
+        },
+        {
+          "line": 21,
+          "text": "        string memory symbol_,"
+        },
+        {
+          "line": 22,
+          "text": "        uint8 decimals_,"
+        },
+        {
+          "line": 23,
+          "text": "        address childChainManager"
+        },
+        {
+          "line": 24,
+          "text": "    ) public ERC20(name_, symbol_) {"
+        },
+        {
+          "line": 25,
+          "text": "        _setupContractId(\"ChildERC20\");"
+        },
+        {
+          "line": 26,
+          "text": "        _setupDecimals(decimals_);"
+        },
+        {
+          "line": 27,
+          "text": "        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());"
+        },
+        {
+          "line": 28,
+          "text": "        _setupRole(DEPOSITOR_ROLE, childChainManager);"
+        },
+        {
+          "line": 29,
+          "text": "        _initializeEIP712(name_);"
+        },
+        {
+          "line": 30,
+          "text": "    }"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "    // This is to support Native meta transactions"
+        },
+        {
+          "line": 33,
+          "text": "    // never use msg.sender directly, use _msgSender() instead"
+        },
+        {
+          "line": 34,
+          "text": "    function _msgSender()"
+        },
+        {
+          "line": 35,
+          "text": "        internal"
+        },
+        {
+          "line": 36,
+          "text": "        override"
+        },
+        {
+          "line": 37,
+          "text": "        view"
+        },
+        {
+          "line": 38,
+          "text": "        returns (address payable sender)"
+        },
+        {
+          "line": 39,
+          "text": "    {"
+        },
+        {
+          "line": 49,
+          "text": "     * @param depositData abi encoded amount"
+        },
+        {
+          "line": 50,
+          "text": "     */"
+        },
+        {
+          "line": 51,
+          "text": "    function deposit(address user, bytes calldata depositData)"
+        },
+        {
+          "line": 52,
+          "text": "        external"
+        },
+        {
+          "line": 53,
+          "text": "        override"
+        },
+        {
+          "line": 54,
+          "text": "        only(DEPOSITOR_ROLE)"
+        },
+        {
+          "line": 55,
+          "text": "    {"
+        },
+        {
+          "line": 56,
+          "text": "        uint256 amount = abi.decode(depositData, (uint256));"
+        },
+        {
+          "line": 57,
+          "text": "        _mint(user, amount);"
+        },
+        {
+          "line": 58,
+          "text": "    }"
+        },
+        {
+          "line": 59,
+          "text": ""
+        },
+        {
+          "line": 60,
+          "text": "    /**"
+        },
+        {
+          "line": 61,
+          "text": "     * @notice called when user wants to withdraw tokens back to root chain"
+        },
+        {
+          "line": 62,
+          "text": "     * @dev Should burn user's tokens. This transaction will be verified when exiting on root chain"
+        },
+        {
+          "line": 63,
+          "text": "     * @param amount amount of tokens to withdraw"
+        },
+        {
+          "line": 64,
+          "text": "     */"
+        },
+        {
+          "line": 65,
+          "text": "    function withdraw(uint256 amount) external {"
+        },
+        {
+          "line": 66,
+          "text": "        _burn(_msgSender(), amount);"
+        },
+        {
+          "line": 67,
+          "text": "    }"
+        },
+        {
+          "line": 68,
+          "text": "}"
+        }
+      ]
+    }
+  ]
+}

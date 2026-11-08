@@ -1,13 +1,37 @@
 {
   "agent_id": "POLY02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "pool_document_address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "logic_source_read": "aave-v3-origin/main",
+    "borrowers_read": 0,
+    "liquidations_analyzed": 0,
+    "quotes_obtained": 0,
+    "current_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
+    "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
+    "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
+    "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+  ],
+  "pending_questions": [
+    "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
+    "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
+    "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
+    "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
+    "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:51:39.625601+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/POLY02/full-20261108T152118Z/record.json"
 }
