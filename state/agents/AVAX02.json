@@ -1,13 +1,50 @@
 {
   "agent_id": "AVAX02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "chain_block": null,
+    "historical_window_complete": false,
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+      "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+    ]
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "protocol": "BENQI sAVAX",
+      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+      "decimals": 18,
+      "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
+      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
+    },
+    {
+      "protocol": "GoGoPool ggAVAX",
+      "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+      "fields": [
+        "totalAssets L182-198 reward release",
+        "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
+        "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
+      ],
+      "deployment_address": null,
+      "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
+    }
+  ],
+  "pending_questions": [
+    "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
+    "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
+    "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
+    "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
+    "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:37:20.904921+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/AVAX02/full-20261108T152118Z/record.json"
 }

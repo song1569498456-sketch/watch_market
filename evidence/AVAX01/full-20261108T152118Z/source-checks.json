@@ -1,0 +1,266 @@
+{
+  "started_at": "2026-11-08T15:36:27.655318+00:00",
+  "results": [
+    {
+      "name": "avax_rpc",
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:36:27.655325+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "dex_pool_discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=avalanche%20USDC",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:36:28.737931+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "curve_avalanche_coins",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:36:29.753468+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "    'dai.e': '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',",
+        "    'usdc.e': '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',",
+        "    'usdt.e': '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',",
+        "    'usdc': '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',",
+        "    'usdt': '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',",
+        "    'avdai': '0x47AFa96Cdc9fAb46904A55a6ad4bf6660B53c38a',",
+        "    'avusdc': '0x46A51127C3ce23fb7AB1DE06226147F446e4a857',",
+        "    'avusdt': '0x532E6537FEA298397212F09A61e03311686f548e',"
+      ]
+    },
+    {
+      "name": "curve_avalanche_pools",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:36:31.182965+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "aave: {\n        name: \"aave\",\n        full_name: \"aave\",\n        symbol: \"aave\",\n        reference_asset: 'USD',\n        swap_address: '0x7f90122BF0700F9E7e1F688fe926940E8839F353',\n        token_address: '0x1337BedC9D22ecbe766dF105c9623922A27963EC',\n        gauge_address: '0x4620D46b4db7fB04a01A75fFed228Bc027C9A899',\n        // gauge_address: '0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858',\n        // reward_contract: '0xB504b6EB06760019801a91B451d3f7BD9f027fC9',\n        is_lending: true,\n        underlying_coins: ['DAI.e', 'USDC.e', 'USDT.e'],\n        wrapped_coins: ['avDAI', 'avUSDC', 'avUSDT'],\n        underlying_coin_addresses: [\n            '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',\n            '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',\n            '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',\n        ],\n        wrapped_coin_addresses: [\n            '0x47AFa96Cdc9fAb46904A55a6ad4bf6660B53c38a',\n            '0x46A51127C3ce23fb7AB1DE06226147F446e4a857',\n            '0x532E6537FEA298397212F09A61e03311686f548e',\n        ],\n        underlying_decimals: [18, 6, 6],\n        wrapped_decimals: [18, 6, 6],\n        use_lending: [true, true, true],\n        swap_abi: aaveSwapABI,\n        gauge_abi: gaugeChildABI,\n    }"
+      ]
+    },
+    {
+      "name": "lfj_deployment_recheck",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:36:32.578635+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "export const LB_QUOTER_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x9dbf1706577636941ab5f443d2aebe251ccd1648',",
+        "export const LB_QUOTER_V21_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x64b57F4249aA99a812212cee7DAEFEDC40B203cD',",
+        "export const LB_FACTORY_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x6E77932A92582f504FF6c4BdbCef7Da6c198aEEf',",
+        "export const LB_FACTORY_V21_ADDRESS: { [chainId in ChainId]: Hex } = {\n  [ChainId.AVALANCHE]: '0x8e42f2F4101563bF679975178e880FD87d3eFd4e',"
+      ]
+    },
+    {
+      "name": "curve_aave_swap_abi",
+      "url": "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/aave/swap.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:36:48.166521+00:00",
+      "http_status": 200,
+      "selected_functions": [
+        {
+          "name": "A",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "5199"
+        },
+        {
+          "name": "balances",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "i"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2731"
+        },
+        {
+          "name": "get_dy",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "6239547"
+        },
+        {
+          "name": "get_dy_underlying",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "6239577"
+        },
+        {
+          "name": "exchange",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            },
+            {
+              "type": "uint256",
+              "name": "min_dy"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "gas": "6361682"
+        },
+        {
+          "name": "exchange_underlying",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "int128",
+              "name": "i"
+            },
+            {
+              "type": "int128",
+              "name": "j"
+            },
+            {
+              "type": "uint256",
+              "name": "dx"
+            },
+            {
+              "type": "uint256",
+              "name": "min_dy"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "gas": "6369753"
+        },
+        {
+          "name": "coins",
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2310"
+        },
+        {
+          "name": "underlying_coins",
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "arg0"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2340"
+        },
+        {
+          "name": "fee",
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "gas": "2291"
+        }
+      ]
+    }
+  ]
+}

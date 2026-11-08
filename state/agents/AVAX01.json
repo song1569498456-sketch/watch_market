@@ -1,13 +1,41 @@
 {
   "agent_id": "AVAX01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "underlying_document_addresses": [
+      "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "0xc7198437980c041c805A1EDcbA50c1Ce5db95118"
+    ],
+    "pools_chain_verified": 0,
+    "cycles_quoted": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
+    "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
+    "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
+    "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+  ],
+  "pending_questions": [
+    "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
+    "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
+    "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
+    "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
+    "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:37:39.140492+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/AVAX01/full-20261108T152118Z/record.json"
 }

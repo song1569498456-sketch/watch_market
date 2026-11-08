@@ -1,13 +1,31 @@
 {
   "agent_id": "ARB04",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_VAULT_DISCOVERY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:37:35.789019+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
+    "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
+    "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+  ],
+  "pending_questions": [
+    "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
+    "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
+    "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
+    "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:37:35.789019+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/ARB04/full-20261108T152118Z/record.json"
 }

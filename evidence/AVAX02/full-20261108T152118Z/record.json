@@ -1,0 +1,147 @@
+{
+  "agent_id": "AVAX02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "AVAX",
+  "scope": "仅Avalanche C-Chain43114质押衍生品折价与真实赎回；sAVAX与ggAVAX分开",
+  "started_at": "2026-11-08T15:36:33.541326+00:00",
+  "finished_at": "2026-11-08T15:37:20.904921+00:00",
+  "duration_seconds": 47.364,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:37:20.904921+00:00",
+    "beijing": "2026-11-08T23:37:20.904921+08:00",
+    "data_time": "静态源码/登记表抓取时点；链上时间unknown"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "43114:benqi-savax:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be"
+  ],
+  "asset_ids": [
+    "43114:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be"
+  ],
+  "discovery_source": [
+    "https://docs.benqi.fi/liquid-staking",
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+    "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+  ],
+  "mechanism": "分别发现sAVAX静态资产登记和ggAVAX项目源码。ggAVAX totalAssets涉及逐步释放奖励，withdrawAVAX/redeemAVAX两个命名AVAX退出方法明确onlyRole(WITHDRAW_QUEUE_ROLE)，不能拿其preview结果当任意普通账户即时可兑量。该结论仅针对已读源码中这些方法，不推断所有其他出口或sAVAX权限。当前部署对应性未核验。",
+  "observations": [
+    {
+      "protocol": "BENQI sAVAX",
+      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+      "decimals": 18,
+      "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
+      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
+    },
+    {
+      "protocol": "GoGoPool ggAVAX",
+      "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+      "fields": [
+        "totalAssets L182-198 reward release",
+        "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
+        "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
+      ],
+      "deployment_address": null,
+      "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "amount": null,
+    "unit": "AVAX",
+    "realized": false,
+    "unknown_costs": [
+      "DEX费与滑点",
+      "份额转换率",
+      "退出费",
+      "C-Chain gas",
+      "等待时间及资金占用成本"
+    ]
+  },
+  "capacity": {
+    "dex_sell": "unknown",
+    "protocol_immediate": "unknown",
+    "queued_or_maturity": "unknown"
+  },
+  "permissions": "ggAVAX已读两个AVAX方法有withdraw queue角色限制；当前角色成员/其他出口与sAVAX权限unknown",
+  "liabilities": "无建立仓位；路径残余负债unknown",
+  "waiting_time": "unknown；不代填资本成本",
+  "invalidation_conditions": [
+    "实际C-Chain部署不是已读源码",
+    "代币/封装/底层资产不同",
+    "退出资格或可用现金不足",
+    "排队尚未结算或汇率变动"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+    "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+  ],
+  "coverage_gaps": [
+    "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
+    "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
+    "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
+    "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
+    "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+  ],
+  "next_check": [
+    "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+    "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+    "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+    "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "43114:benqi-savax:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+      "chain": "AVAX",
+      "protocol": "BENQI sAVAX (asset discovered; pool not identified)",
+      "asset_ids": [
+        "43114:0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+        "https://snowtrace.io/address/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE"
+      ],
+      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_ONLY_UNVERIFIED_LIVE",
+      "next_check": "BENQI部署映射及chain code，份额率、三种退出与真实DEX池"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+      "status": "REJECTED",
+      "chain": "AVAX",
+      "market_id": null,
+      "claim": "排除“任意账户可直接调用已读源码withdrawAVAX/redeemAVAX取得preview数量AVAX”的主张。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+      ],
+      "evidence_fields": "L310/L324 onlyRole(WITHDRAW_QUEUE_ROLE)",
+      "scope_limit": "仅源码所列这两个方法；未匹配当前部署，不推断所有普通用户出口或sAVAX规则。"
+    }
+  ],
+  "rejections": [
+    {
+      "case": "把ggAVAX的preview/totalAssets当作普通用户无条件即时AVAX退出报价",
+      "reason": "已读AVAX方法有queue角色限制，当前可提容量/用户入口未核验。"
+    },
+    {
+      "case": "把sAVAX与ggAVAX份额按1:1 AVAX或相同退出规则合并",
+      "reason": "协议/资产不同，转换率、权限和队列均需分别核对。"
+    }
+  ],
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "chain_block": null,
+    "historical_window_complete": false,
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+      "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+    ]
+  }
+}

@@ -1,0 +1,475 @@
+{
+  "agent_id": "ARB04",
+  "run_id": "full-20261108T152118Z",
+  "chain": "ARB",
+  "scope": "Arbitrum可转让收益金库份额二级买入→正常赎回；不研究NAV操纵",
+  "started_at": "2026-11-08T15:36:29.510946+00:00",
+  "finished_at": "2026-11-08T15:37:35.789019+00:00",
+  "duration_seconds": 66.278,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:37:35.789019+00:00",
+    "beijing": "2026-11-08T23:37:35.789019+08:00",
+    "data_time": "unknown; static upstream snapshots only"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "ARB:AAVE_STATA:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc"
+  ],
+  "asset_ids": [
+    "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+  ],
+  "discovery_source": [
+    {
+      "source": "beefy-vault-discovery",
+      "url": "https://api.beefy.finance/vaults",
+      "retrieved_at_utc": "2026-11-08T15:36:29.510952+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "arbitrum-rpc",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-08T15:36:30.532287+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "beefy-arbitrum-vault-list",
+      "url": "https://raw.githubusercontent.com/beefyfinance/beefy-api/master/src/data/arbitrum_pools.json",
+      "retrieved_at_utc": "2026-11-08T15:36:31.540985+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "beefy-vault-source",
+      "url": "https://raw.githubusercontent.com/beefyfinance/beefy-contracts/master/contracts/BIFI/vaults/BeefyVaultV7.sol",
+      "retrieved_at_utc": "2026-11-08T15:36:32.898200+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "f4fc5aeedb4edce921a2678c038a26000071f060634877e3488308574729af12",
+      "bytes_read": 7648,
+      "excerpts": [
+        {
+          "line": 65,
+          "text": "     *  and the balance deployed in other contracts as part of the strategy."
+        },
+        {
+          "line": 66,
+          "text": "     */"
+        },
+        {
+          "line": 67,
+          "text": "    function balance() public view returns (uint) {"
+        },
+        {
+          "line": 68,
+          "text": "        return want().balanceOf(address(this)) + IStrategyV7(strategy).balanceOf();"
+        },
+        {
+          "line": 69,
+          "text": "    }"
+        },
+        {
+          "line": 70,
+          "text": ""
+        },
+        {
+          "line": 71,
+          "text": "    /**"
+        },
+        {
+          "line": 72,
+          "text": "     * @dev Custom logic in here for how much the vault allows to be borrowed."
+        },
+        {
+          "line": 73,
+          "text": "     * We return 100% of tokens for now. Under certain conditions we might"
+        },
+        {
+          "line": 74,
+          "text": "     * want to keep some of the system funds at hand in the vault, instead"
+        },
+        {
+          "line": 75,
+          "text": "     * of putting them to work."
+        },
+        {
+          "line": 76,
+          "text": "     */"
+        },
+        {
+          "line": 77,
+          "text": "    function available() public view returns (uint256) {"
+        },
+        {
+          "line": 78,
+          "text": "        return want().balanceOf(address(this));"
+        },
+        {
+          "line": 79,
+          "text": "    }"
+        },
+        {
+          "line": 80,
+          "text": ""
+        },
+        {
+          "line": 81,
+          "text": "    /**"
+        },
+        {
+          "line": 82,
+          "text": "     * @dev Function for various UIs to display the current value of one of our yield tokens."
+        },
+        {
+          "line": 83,
+          "text": "     * Returns an uint256 with 18 decimals of how much underlying asset one vault share represents."
+        },
+        {
+          "line": 84,
+          "text": "     */"
+        },
+        {
+          "line": 85,
+          "text": "    function getPricePerFullShare() public view returns (uint256) {"
+        },
+        {
+          "line": 86,
+          "text": "        return totalSupply() == 0 ? 1e18 : balance() * 1e18 / totalSupply();"
+        },
+        {
+          "line": 87,
+          "text": "    }"
+        },
+        {
+          "line": 88,
+          "text": ""
+        },
+        {
+          "line": 89,
+          "text": "    /**"
+        },
+        {
+          "line": 90,
+          "text": "     * @dev A helper function to call deposit() with all the sender's funds."
+        },
+        {
+          "line": 91,
+          "text": "     */"
+        },
+        {
+          "line": 92,
+          "text": "    function depositAll() external {"
+        },
+        {
+          "line": 93,
+          "text": "        deposit(want().balanceOf(msg.sender));"
+        },
+        {
+          "line": 94,
+          "text": "    }"
+        },
+        {
+          "line": 95,
+          "text": ""
+        },
+        {
+          "line": 96,
+          "text": "    /**"
+        },
+        {
+          "line": 97,
+          "text": "     * @dev The entrypoint of funds into the system. People deposit with this function"
+        },
+        {
+          "line": 98,
+          "text": "     * into the vault. The vault is then in charge of sending funds into the strategy."
+        },
+        {
+          "line": 99,
+          "text": "     */"
+        },
+        {
+          "line": 100,
+          "text": "    function deposit(uint _amount) public nonReentrant {"
+        },
+        {
+          "line": 101,
+          "text": "        strategy.beforeDeposit();"
+        },
+        {
+          "line": 102,
+          "text": ""
+        },
+        {
+          "line": 103,
+          "text": "        uint256 _pool = balance();"
+        },
+        {
+          "line": 104,
+          "text": "        want().safeTransferFrom(msg.sender, address(this), _amount);"
+        },
+        {
+          "line": 105,
+          "text": "        earn();"
+        },
+        {
+          "line": 106,
+          "text": "        uint256 _after = balance();"
+        },
+        {
+          "line": 107,
+          "text": "        _amount = _after - _pool; // Additional check for deflationary tokens"
+        },
+        {
+          "line": 137,
+          "text": "     * tokens are burned in the process."
+        },
+        {
+          "line": 138,
+          "text": "     */"
+        },
+        {
+          "line": 139,
+          "text": "    function withdraw(uint256 _shares) public {"
+        },
+        {
+          "line": 140,
+          "text": "        uint256 r = (balance() * _shares) / totalSupply();"
+        },
+        {
+          "line": 141,
+          "text": "        _burn(msg.sender, _shares);"
+        },
+        {
+          "line": 142,
+          "text": ""
+        },
+        {
+          "line": 143,
+          "text": "        uint b = want().balanceOf(address(this));"
+        },
+        {
+          "line": 144,
+          "text": "        if (b < r) {"
+        },
+        {
+          "line": 145,
+          "text": "            uint _withdraw = r - b;"
+        },
+        {
+          "line": 146,
+          "text": "            strategy.withdraw(_withdraw);"
+        },
+        {
+          "line": 147,
+          "text": "            uint _after = want().balanceOf(address(this));"
+        },
+        {
+          "line": 148,
+          "text": "            uint _diff = _after - b;"
+        },
+        {
+          "line": 149,
+          "text": "            if (_diff < _withdraw) {"
+        },
+        {
+          "line": 150,
+          "text": "                r = b + _diff;"
+        },
+        {
+          "line": 151,
+          "text": "            }"
+        },
+        {
+          "line": 152,
+          "text": "        }"
+        },
+        {
+          "line": 153,
+          "text": ""
+        },
+        {
+          "line": 154,
+          "text": "        want().safeTransfer(msg.sender, r);"
+        },
+        {
+          "line": 155,
+          "text": "    }"
+        },
+        {
+          "line": 156,
+          "text": ""
+        },
+        {
+          "line": 157,
+          "text": "    /** "
+        },
+        {
+          "line": 158,
+          "text": "     * @dev Sets the candidate for the new strat to use with this vault."
+        },
+        {
+          "line": 159,
+          "text": "     * @param _implementation The address of the candidate strategy.  "
+        },
+        {
+          "line": 160,
+          "text": "     */"
+        },
+        {
+          "line": 161,
+          "text": "    function proposeStrat(address _implementation) public onlyOwner {"
+        }
+      ]
+    },
+    {
+      "source": "arbitrum-stata-vault-discovery-fallback",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "retrieved_at_utc": "2026-11-08T15:36:52.971035+00:00",
+      "http_status": 200,
+      "sha256": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c",
+      "bytes_read": 31098,
+      "excerpts": [
+        {
+          "line": 406,
+          "text": "  // https://arbiscan.io/address/0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+        },
+        {
+          "line": 407,
+          "text": "  address internal constant USDCn_UNDERLYING = 0xaf88d065e77c8cC2239327C5EDb3A432268e5831;"
+        },
+        {
+          "line": 408,
+          "text": ""
+        },
+        {
+          "line": 409,
+          "text": "  uint8 internal constant USDCn_DECIMALS = 6;"
+        },
+        {
+          "line": 424,
+          "text": "  // https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad"
+        },
+        {
+          "line": 425,
+          "text": "  address internal constant USDCn_STATIC_A_TOKEN = 0x7CFaDFD5645B50bE87d546f42699d863648251ad;"
+        },
+        {
+          "line": 426,
+          "text": ""
+        },
+        {
+          "line": 427,
+          "text": "  // https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+        },
+        {
+          "line": 428,
+          "text": "  address internal constant USDCn_STATA_TOKEN = 0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc;"
+        },
+        {
+          "line": 429,
+          "text": ""
+        },
+        {
+          "line": 430,
+          "text": "  // https://arbiscan.io/address/0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F"
+        }
+      ]
+    }
+  ],
+  "mechanism": "份额显示净值不等于实际提现现金。独立Beefy V7源码中balance含strategy.balanceOf，available仅金库现金，withdraw可能按策略实际回款调减；该规则卡不得直接套给Aave STATA。",
+  "observations": [
+    "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
+    "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
+    "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "USDCn_not_assuming_USD_peg",
+    "unknown_costs": [
+      "二级买入费/冲击",
+      "实际退出费与策略损失",
+      "gas与L1数据费",
+      "底层变现和等待"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "份额可转让性、用户限额、暂停/升级unknown",
+  "liabilities": "未执行；完整路径负债/残余策略风险unknown",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "部署身份/底层不符",
+    "没有二级流动性",
+    "preview存在但maxRedeem/现金不支持",
+    "退出费用/损失消除差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/beefyfinance/beefy-contracts/master/contracts/BIFI/vaults/BeefyVaultV7.sol",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+    "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+  ],
+  "coverage_gaps": [
+    "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
+    "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
+    "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
+    "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+  ],
+  "next_check": [
+    "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。",
+    "从已核工厂寻找该准确份额地址的二级池；若无二级流动性只保留规则观察对象，不硬编折价。",
+    "在同状态分数量核算真实买入→正常redeem→可出售底层，费用、gas、等待及亏损逐项计入。",
+    "恢复官方列表和RPC后补30天规则/升级、7天活动；Beefy源码卡只有方法反证，不作为本链部署证明。"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "markets": [
+    {
+      "market_id": "ARB:AAVE_STATA:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "chain": "ARB",
+      "protocol": "Aave USDCn STATA wrapper candidate",
+      "asset_ids": [
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "用金库getPricePerFullShare/totalAssets显示净值作为无条件可提现价值",
+      "reason": "官方Beefy源码存在策略账面资产与实际回款差异，具体STATA还需独立核验，preview/额度/现金不能互相替代。"
+    },
+    {
+      "claim": "官方份额地址存在即有二级折价机会",
+      "reason": "无二级市场证据与报价，只列规则观察，不制造收益。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_VAULT_DISCOVERY_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:37:35.789019+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "exit_value_columns": {
+    "secondary_buy_cost": "unknown",
+    "displayed_nav": "unknown",
+    "instant_redeem_value": "unknown",
+    "async_claim_value": "unknown"
+  }
+}

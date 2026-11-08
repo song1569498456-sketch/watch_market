@@ -17,7 +17,24 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "sdk_document_read": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "code_mechanisms_read": [
+        "quoteExactInput",
+        "gasEstimateComponents"
+      ],
+      "actual_pools_read": 0,
+      "cycles_quoted": 0,
+      "transactions_analyzed": 0,
+      "last_block": null,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
     "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
@@ -34,7 +51,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:35:29.566307+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB02/full-20261108T152118Z/record.json"
+  "record": "evidence/ARB02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+    "verified_at": "2026-11-08T15:35:55.555537+00:00",
+    "record": "evidence/ARB02/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,271 @@
+{
+  "name": "ggavax_official_contract",
+  "url": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+  "fetched_at_utc": "2026-11-08T15:36:36.887340+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "7c618262d5dc9b707a2a18b0a9dfd0be6d001fb048c3d365870a28b5b93b0338",
+  "excerpts": [
+    {
+      "line": 13,
+      "text": "import {IWithdrawer} from \"../../interface/IWithdrawer.sol\";"
+    },
+    {
+      "line": 24,
+      "text": "contract TokenggAVAX is Initializable, ERC4626Upgradeable, BaseUpgradeable {"
+    },
+    {
+      "line": 36,
+      "text": "\terror WithdrawAmountTooLarge();"
+    },
+    {
+      "line": 37,
+      "text": "\terror WithdrawForStakingDisabled();"
+    },
+    {
+      "line": 40,
+      "text": "\terror InsufficientLiquidity();"
+    },
+    {
+      "line": 47,
+      "text": "\tevent WithdrawnForStaking(bytes32 indexed purpose, address indexed caller, uint256 assets);"
+    },
+    {
+      "line": 79,
+      "text": "\tuint256 public stakingTotalAssets;"
+    },
+    {
+      "line": 87,
+      "text": "\t/// @notice Role identifier for withdraw queue operations"
+    },
+    {
+      "line": 88,
+      "text": "\tbytes32 public constant WITHDRAW_QUEUE_ROLE = keccak256(\"WITHDRAW_QUEUE_ROLE\");"
+    },
+    {
+      "line": 112,
+      "text": "\t\tif (amt > 0 && getBool(keccak256(abi.encodePacked(\"contract.paused\", \"TokenggAVAX\")))) {"
+    },
+    {
+      "line": 126,
+      "text": "\t\t__ERC4626Upgradeable_init(asset, \"GoGoPool Liquid Staking Token\", \"ggAVAX\");"
+    },
+    {
+      "line": 154,
+      "text": "\t/// @notice Distributes rewards to TokenggAVAX holders. Only addresses with SYNC_REWARDS_ROLE can call."
+    },
+    {
+      "line": 165,
+      "text": "\t\tuint256 stakingTotalAssets_ = stakingTotalAssets;"
+    },
+    {
+      "line": 167,
+      "text": "\t\tuint256 nextRewardsAmt = (asset.balanceOf(address(this)) + stakingTotalAssets_) - totalReleasedAssets_ - lastRewardsAmt_;"
+    },
+    {
+      "line": 179,
+      "text": "\t/// @notice Compute the amount of tokens available to share holders."
+    },
+    {
+      "line": 181,
+      "text": "\t/// @return The amount of ggAVAX tokens available"
+    },
+    {
+      "line": 182,
+      "text": "\tfunction totalAssets() public view override returns (uint256) {"
+    },
+    {
+      "line": 190,
+      "text": "\t\t\t// no rewards or rewards are fully unlocked"
+    },
+    {
+      "line": 191,
+      "text": "\t\t\t// entire reward amount is available"
+    },
+    {
+      "line": 195,
+      "text": "\t\t// rewards are not fully unlocked"
+    },
+    {
+      "line": 196,
+      "text": "\t\t// return unlocked rewards and stored total"
+    },
+    {
+      "line": 197,
+      "text": "\t\tuint256 unlockedRewards = (lastRewardsAmt_ * (block.timestamp - lastSync_)) / (rewardsCycleEnd_ - lastSync_);"
+    },
+    {
+      "line": 198,
+      "text": "\t\treturn totalReleasedAssets_ + unlockedRewards;"
+    },
+    {
+      "line": 201,
+      "text": "\t/// @notice Returns the AVAX amount that is available for staking on minipools"
+    },
+    {
+      "line": 202,
+      "text": "\t/// @return uint256 AVAX available for staking"
+    },
+    {
+      "line": 203,
+      "text": "\tfunction amountAvailableForStaking() public view returns (uint256) {"
+    },
+    {
+      "line": 205,
+      "text": "\t\tuint256 targetCollateralRate = protocolDAO.getTargetGGAVAXReserveRate();"
+    },
+    {
+      "line": 207,
+      "text": "\t\tuint256 totalAssets_ = totalAssets();"
+    },
+    {
+      "line": 209,
+      "text": "\t\tuint256 reservedAssets = totalAssets_.mulDivDown(targetCollateralRate, 1 ether);"
+    },
+    {
+      "line": 211,
+      "text": "\t\tif (reservedAssets + stakingTotalAssets > totalAssets_) {"
+    },
+    {
+      "line": 214,
+      "text": "\t\treturn totalAssets_ - reservedAssets - stakingTotalAssets;"
+    },
+    {
+      "line": 218,
+      "text": "\t/// @param baseAmt The amount of liquid staker AVAX used to create a minipool"
+    },
+    {
+      "line": 245,
+      "text": "\t// Burn ggAVAX to increase yield for all holders"
+    },
+    {
+      "line": 262,
+      "text": "\t/// @notice Allows the MinipoolManager contract to withdraw liquid staker funds to create a minipool"
+    },
+    {
+      "line": 263,
+      "text": "\t/// @param assets The amount of AVAX to withdraw"
+    },
+    {
+      "line": 264,
+      "text": "\tfunction withdrawForStaking(uint256 assets) external onlySpecificRegisteredContract(\"MinipoolManager\", msg.sender) {"
+    },
+    {
+      "line": 265,
+      "text": "\t\temit WithdrawnForStaking(MINIPOOL_SOURCE, msg.sender, assets);"
+    },
+    {
+      "line": 267,
+      "text": "\t\tstakingTotalAssets += assets;"
+    },
+    {
+      "line": 268,
+      "text": "\t\tIWAVAX(address(asset)).withdraw(assets);"
+    },
+    {
+      "line": 269,
+      "text": "\t\tIWithdrawer withdrawer = IWithdrawer(msg.sender);"
+    },
+    {
+      "line": 270,
+      "text": "\t\twithdrawer.receiveWithdrawalAVAX{value: assets}();"
+    },
+    {
+      "line": 273,
+      "text": "\t/// @notice Allows any address with STAKER_ROLE to withdraw liquid staker funds for delegation"
+    },
+    {
+      "line": 274,
+      "text": "\t/// @param assets The amount of AVAX to withdraw"
+    },
+    {
+      "line": 275,
+      "text": "\tfunction withdrawForStaking(uint256 assets, bytes32 purpose) external onlyRole(STAKER_ROLE) {"
+    },
+    {
+      "line": 277,
+      "text": "\t\tif (!dao.getWithdrawForDelegationEnabled()) {"
+    },
+    {
+      "line": 278,
+      "text": "\t\t\trevert WithdrawForStakingDisabled();"
+    },
+    {
+      "line": 281,
+      "text": "\t\tif (assets > amountAvailableForStaking()) {"
+    },
+    {
+      "line": 282,
+      "text": "\t\t\trevert WithdrawAmountTooLarge();"
+    },
+    {
+      "line": 285,
+      "text": "\t\tstakingTotalAssets += assets;"
+    },
+    {
+      "line": 286,
+      "text": "\t\tIWAVAX(address(asset)).withdraw(assets);"
+    },
+    {
+      "line": 287,
+      "text": "\t\temit WithdrawnForStaking(purpose, msg.sender, assets);"
+    },
+    {
+      "line": 291,
+      "text": "\t/// @notice Allows users to deposit AVAX and receive ggAVAX"
+    },
+    {
+      "line": 292,
+      "text": "\t/// @return shares The amount of ggAVAX minted"
+    },
+    {
+      "line": 307,
+      "text": "\t/// @notice Allows withdraw queue to specify an amount of AVAX to withdraw from ggAVAX supply"
+    },
+    {
+      "line": 308,
+      "text": "\t/// @param assets Amount of AVAX to be withdrawn"
+    },
+    {
+      "line": 309,
+      "text": "\t/// @return shares Amount of ggAVAX burned"
+    },
+    {
+      "line": 310,
+      "text": "\tfunction withdrawAVAX(uint256 assets) public onlyRole(WITHDRAW_QUEUE_ROLE) returns (uint256 shares) {"
+    },
+    {
+      "line": 311,
+      "text": "\t\tshares = previewWithdraw(assets); // No need to check for rounding error, previewWithdraw rounds up."
+    },
+    {
+      "line": 312,
+      "text": "\t\tbeforeWithdraw(assets, shares);"
+    },
+    {
+      "line": 315,
+      "text": "\t\temit Withdraw(msg.sender, msg.sender, msg.sender, assets, shares);"
+    },
+    {
+      "line": 317,
+      "text": "\t\tIWAVAX(address(asset)).withdraw(assets);"
+    },
+    {
+      "line": 321,
+      "text": "\t/// @notice Allows withdraw queue to specify shares of ggAVAX to redeem for AVAX"
+    },
+    {
+      "line": 322,
+      "text": "\t/// @param shares Amount of ggAVAX to burn"
+    },
+    {
+      "line": 323,
+      "text": "\t/// @return assets Amount of AVAX withdrawn"
+    },
+    {
+      "line": 324,
+      "text": "\tfunction redeemAVAX(uint256 shares) public onlyRole(WITHDRAW_QUEUE_ROLE) returns (uint256 assets) {"
+    }
+  ],
+  "success": true
+}

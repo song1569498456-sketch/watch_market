@@ -768,6 +768,160 @@
         "若路径必须到L1才释放token，交X-ARB评估固定ETH+ARB流程，继续不计本链即时赎回。",
         "补30天规则与7天事件；以ETH计价并将未知等待成本留空，仅提供已证实等待天数后再算盈亏平衡成本。"
       ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
+      "next_check": [
+        "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。",
+        "从已核工厂寻找该准确份额地址的二级池；若无二级流动性只保留规则观察对象，不硬编折价。",
+        "在同状态分数量核算真实买入→正常redeem→可出售底层，费用、gas、等待及亏损逐项计入。",
+        "恢复官方列表和RPC后补30天规则/升级、7天活动；Beefy源码卡只有方法反证，不作为本链部署证明。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
+      "next_check": [
+        "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。",
+        "从已核工厂寻找该准确份额地址的二级池；若无二级流动性只保留规则观察对象，不硬编折价。",
+        "在同状态分数量核算真实买入→正常redeem→可出售底层，费用、gas、等待及亏损逐项计入。",
+        "恢复官方列表和RPC后补30天规则/升级、7天活动；Beefy源码卡只有方法反证，不作为本链部署证明。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
+      "next_check": [
+        "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。",
+        "从已核工厂寻找该准确份额地址的二级池；若无二级流动性只保留规则观察对象，不硬编折价。",
+        "在同状态分数量核算真实买入→正常redeem→可出售底层，费用、gas、等待及亏损逐项计入。",
+        "恢复官方列表和RPC后补30天规则/升级、7天活动；Beefy源码卡只有方法反证，不作为本链部署证明。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。",
+      "next_check": [
+        "核对42161与STATA代理代码、实现及asset()；确定实际标准后才读取previewRedeem/maxRedeem/maxWithdraw/totalAssets/totalSupply，不能套Beefy V7规则。",
+        "从已核工厂寻找该准确份额地址的二级池；若无二级流动性只保留规则观察对象，不硬编折价。",
+        "在同状态分数量核算真实买入→正常redeem→可出售底层，费用、gas、等待及亏损逐项计入。",
+        "恢复官方列表和RPC后补30天规则/升级、7天活动；Beefy源码卡只有方法反证，不作为本链部署证明。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
+      "next_check": [
+        "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+        "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+        "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+        "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
+      "next_check": [
+        "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+        "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+        "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+        "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
+      "next_check": [
+        "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+        "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+        "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+        "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
+      "next_check": [
+        "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+        "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+        "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+        "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "full-20261108T152118Z",
+      "gap": "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。",
+      "next_check": [
+        "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+        "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+        "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+        "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
+      "next_check": [
+        "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+        "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+        "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+        "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
+      "next_check": [
+        "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+        "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+        "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+        "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
+      "next_check": [
+        "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+        "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+        "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+        "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
+      "next_check": [
+        "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+        "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+        "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+        "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。",
+      "next_check": [
+        "恢复api.avax.network并核对0xa86a、最终确认区块及token代码；sAVAX与BENQI官方部署交叉核验。",
+        "从GoGoPool官方部署定位ggAVAX proxy/implementation与withdraw queue；核对已读onlyRole方法是否对应当前部署及普通用户入口。",
+        "分别测DEX现货退出、协议即时可兑、排队预计兑付，不能把totalAssets/preview等同即时可提余额。",
+        "补30天规则与7天交易；已知等待天数后才展示盈亏平衡年化成本，不自行设资本成本。"
+      ]
     }
   ],
   "status": "OPEN",

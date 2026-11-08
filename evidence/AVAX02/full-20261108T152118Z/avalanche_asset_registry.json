@@ -1,0 +1,55 @@
+{
+  "name": "avalanche_asset_registry",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
+  "fetched_at_utc": "2026-11-08T15:36:35.602304+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "206985a17674ac569d0534d2d2d0eccafee326cfe4776b8cb7e889de27817f19",
+  "excerpts": [
+    {
+      "line": 111,
+      "text": "  address internal constant WITHDRAW_SWAP_ADAPTER = 0x78F8Bd884C3D738B74B420540659c82f392820e0;"
+    },
+    {
+      "line": 316,
+      "text": "  address internal constant sAVAX_UNDERLYING = 0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE;"
+    },
+    {
+      "line": 318,
+      "text": "  uint8 internal constant sAVAX_DECIMALS = 18;"
+    },
+    {
+      "line": 321,
+      "text": "  address internal constant sAVAX_A_TOKEN = 0x513c7E3a9c69cA3e22550eF58AC1C0088e918FFf;"
+    },
+    {
+      "line": 324,
+      "text": "  address internal constant sAVAX_V_TOKEN = 0x77CA01483f379E58174739308945f044e1a764dc;"
+    },
+    {
+      "line": 327,
+      "text": "  address internal constant sAVAX_ORACLE = 0xB2B332f27e4B7305649a228C31Ed9858c5a6bAD9;"
+    },
+    {
+      "line": 330,
+      "text": "  address internal constant sAVAX_INTEREST_RATE_STRATEGY ="
+    },
+    {
+      "line": 334,
+      "text": "  address internal constant sAVAX_STATIC_A_TOKEN = 0x4F059cA8a2a5BF8895Ee731f2E901cCB769FB95f;"
+    },
+    {
+      "line": 337,
+      "text": "  address internal constant sAVAX_STATA_TOKEN = 0x7D0394F8898fBA73836Bf12bD606228887705895;"
+    },
+    {
+      "line": 525,
+      "text": "  uint8 internal constant WAVAX_sAVAX__WAVAX = 2;"
+    },
+    {
+      "line": 543,
+      "text": "  address internal constant LIQUIDATION_LOGIC = 0x96D5686812e33Ab509ECCDb38C89d15607B2a413;"
+    }
+  ],
+  "success": true
+}

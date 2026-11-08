@@ -14,7 +14,21 @@
     "complete_block_range": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_FACTORY_DISCOVERY_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:35:07.091426+00:00",
+      "source_urls": [
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+        "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+      ],
+      "complete_block_range": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
     "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
@@ -30,7 +44,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:35:07.091426+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB01/full-20261108T152118Z/record.json"
+  "record": "evidence/ARB01/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+    "verified_at": "2026-11-08T15:35:55.555537+00:00",
+    "record": "evidence/ARB01/full-20261108T152118Z/record.json"
+  }
 }

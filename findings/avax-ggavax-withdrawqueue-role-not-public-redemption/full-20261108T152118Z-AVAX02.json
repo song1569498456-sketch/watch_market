@@ -1,0 +1,15 @@
+{
+  "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+  "status": "REJECTED",
+  "chain": "AVAX",
+  "market_id": null,
+  "claim": "排除“任意账户可直接调用已读源码withdrawAVAX/redeemAVAX取得preview数量AVAX”的主张。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+  ],
+  "evidence_fields": "L310/L324 onlyRole(WITHDRAW_QUEUE_ROLE)",
+  "scope_limit": "仅源码所列这两个方法；未匹配当前部署，不推断所有普通用户出口或sAVAX规则。",
+  "owner": "AVAX02",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json"
+}

@@ -307,20 +307,77 @@
     {
       "agent_id": "ARB04",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:37:35.789019+00:00",
+      "actual_coverage": [
+        "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
+        "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
+        "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+      ],
+      "coverage_gaps": [
+        "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
+        "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
+        "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
+        "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+      ],
+      "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "AVAX01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:37:39.140492+00:00",
+      "actual_coverage": [
+        "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
+        "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
+        "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
+        "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+      ],
+      "coverage_gaps": [
+        "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
+        "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
+        "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
+        "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
+        "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+      ],
+      "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "AVAX02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:37:20.904921+00:00",
+      "actual_coverage": [
+        {
+          "protocol": "BENQI sAVAX",
+          "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+          "decimals": 18,
+          "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
+          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
+        },
+        {
+          "protocol": "GoGoPool ggAVAX",
+          "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
+          "fields": [
+            "totalAssets L182-198 reward release",
+            "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
+            "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
+          ],
+          "deployment_address": null,
+          "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
+        }
+      ],
+      "coverage_gaps": [
+        "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
+        "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
+        "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
+        "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
+        "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+      ],
+      "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "BASE01",

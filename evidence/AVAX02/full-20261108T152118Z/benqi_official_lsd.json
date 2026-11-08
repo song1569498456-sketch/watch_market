@@ -1,0 +1,8 @@
+{
+  "name": "benqi_official_lsd",
+  "url": "https://docs.benqi.fi/liquid-staking",
+  "fetched_at_utc": "2026-11-08T15:36:33.541333+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

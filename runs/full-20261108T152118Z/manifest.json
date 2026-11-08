@@ -102,9 +102,10 @@
       "duration_seconds": 52.947,
       "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ARB01/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ARB01.txt",
-      "prompt_sha256": "3bf0a2a87677058d53b797ad053b9f1c07034d9755bbb49172acf457ee07b762"
+      "prompt_sha256": "3bf0a2a87677058d53b797ad053b9f1c07034d9755bbb49172acf457ee07b762",
+      "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4"
     },
     "ARB02": {
       "status": "PARTIAL",
@@ -112,9 +113,10 @@
       "duration_seconds": 67.842,
       "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ARB02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ARB02.txt",
-      "prompt_sha256": "0eee277ce3382e0ba9587e40c4fa0532c1723884881a2578d4ba569e27b6bb4f"
+      "prompt_sha256": "0eee277ce3382e0ba9587e40c4fa0532c1723884881a2578d4ba569e27b6bb4f",
+      "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4"
     },
     "ARB03": {
       "status": "PARTIAL",
@@ -122,18 +124,40 @@
       "duration_seconds": 59.288,
       "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ARB03/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ARB03.txt",
-      "prompt_sha256": "df01b6791368f432b96e9f42947c0b645c487e5a6a4589bb348047fe1569c73c"
+      "prompt_sha256": "df01b6791368f432b96e9f42947c0b645c487e5a6a4589bb348047fe1569c73c",
+      "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4"
     },
     "ARB04": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 66.278,
+      "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/ARB04/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/ARB04.txt",
+      "prompt_sha256": "ca6be525dddcdbc8303a732c1f3046352647fa2309a2093d767edcc1847ff694"
     },
     "AVAX01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 71.485,
+      "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/AVAX01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/AVAX01.txt",
+      "prompt_sha256": "a1e0244393e671ab7e3d6746e05838d003e1d1f1be159472159a374f8c7ed0cc"
     },
     "AVAX02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 47.364,
+      "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/AVAX02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/AVAX02.txt",
+      "prompt_sha256": "002ffd36bcf9e7ccf6301c4c3a126869e872b38981561e9937efaa84abdc3375"
     },
     "BASE01": {
       "status": "NOT_STARTED"
@@ -300,6 +324,17 @@
         "ARB03"
       ],
       "merged_at": "2026-11-08T15:35:51.602080+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4"
+    },
+    {
+      "batch": 6,
+      "agents": [
+        "ARB04",
+        "AVAX01",
+        "AVAX02"
+      ],
+      "merged_at": "2026-11-08T15:37:58.828295+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -338,6 +373,13 @@
       "verified_at": "2026-11-08T15:33:32.477653+00:00",
       "verified_files": 85,
       "label": "batch N-POLY N-AVAX N-SONIC"
+    },
+    {
+      "commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+      "remote_head": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+      "verified_at": "2026-11-08T15:35:55.555537+00:00",
+      "verified_files": 106,
+      "label": "batch ARB01 ARB02 ARB03"
     }
   ]
 }

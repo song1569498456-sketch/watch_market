@@ -212,6 +212,43 @@
       "owner": "ARB03",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/ARB03/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+      "chain": "AVAX",
+      "status": "REJECTED",
+      "market_ids": [
+        "AVAX:43114:Curve:aave:0x7f90122bf0700f9e7e1f688fe926940e8839f353"
+      ],
+      "mechanism": "排除将Curve Avalanche配置中USDC.e=0xA7D7...与USDC=0xB97E...、以及包装avUSDC合并为同资产/同1美元现金的闭环核算；官方SDK分别列不同合约和wrapped/underlying。当前储备/兑付与汇率仍未验证。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+        "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts"
+      ],
+      "next_check": "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "AVAX01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/AVAX01/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
+      "status": "REJECTED",
+      "chain": "AVAX",
+      "market_id": null,
+      "claim": "排除“任意账户可直接调用已读源码withdrawAVAX/redeemAVAX取得preview数量AVAX”的主张。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
+      ],
+      "evidence_fields": "L310/L324 onlyRole(WITHDRAW_QUEUE_ROLE)",
+      "scope_limit": "仅源码所列这两个方法；未匹配当前部署，不推断所有普通用户出口或sAVAX规则。",
+      "owner": "AVAX02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

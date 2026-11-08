@@ -1,0 +1,149 @@
+{
+  "agent_id": "AVAX01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "AVAX",
+  "scope": "Avalanche C-Chain 43114 稳定币池2–3腿同起始资产闭环；自主发现Curve lending aave池并复核LFJ入口",
+  "started_at": "2026-11-08T15:36:27.655318+00:00",
+  "finished_at": "2026-11-08T15:37:39.140492+00:00",
+  "duration_seconds": 71.485,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:37:39.140492+00:00",
+  "block_or_slot": null,
+  "market_ids": [
+    "AVAX:43114:Curve:aave:0x7f90122bf0700f9e7e1f688fe926940e8839f353"
+  ],
+  "asset_ids": [
+    "AVAX:43114:0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+    "AVAX:43114:0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+    "AVAX:43114:0xc7198437980c041c805a1edcba50c1ce5db95118"
+  ],
+  "discovery_source": [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://api.dexscreener.com/latest/dex/search?q=avalanche%20USDC",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/aave/swap.json"
+  ],
+  "mechanism": "Curve配置将DAI.e/USDC.e/USDT.e列underlying，avDAI/avUSDC/avUSDT列wrapped；get_dy与get_dy_underlying对应不同权利。闭环需回到同合约资产且同池重用体现储备变化。",
+  "observations": [
+    "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
+    "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
+    "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
+    "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "起始资产单位（待真实选定）",
+    "realized": false,
+    "unknown_costs": [
+      "买入起始币成本",
+      "swap费/冲击",
+      "gas/授权",
+      "融资费",
+      "转账限制/退出费用"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown，当前暂停/额度/资产限制未测",
+  "liabilities": "unknown，未建立融资或借款",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "原生/桥接/包装身份混同",
+    "起终资产合约不同",
+    "多腿状态不一致",
+    "重复同池未模拟",
+    "报价或费用缺失"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/abis/aave/swap.json"
+  ],
+  "coverage_gaps": [
+    "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
+    "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
+    "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
+    "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
+    "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+  ],
+  "next_check": [
+    "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。",
+    "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+    "有限2–3腿样本逐腿用输出喂下一腿，同池重用需隔离完整模拟更新储备；取得真实结果前路线仅未测骨架。",
+    "补查30天规则与7天交易，核对LFJ各版本真实稳定币池，去重底层同池；费用用真实估算，不能用ABI gas常量。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "AVAX:43114:Curve:aave:0x7f90122bf0700f9e7e1f688fe926940e8839f353",
+      "chain": "AVAX",
+      "protocol": "Curve lending aave pool",
+      "asset_ids": [
+        "AVAX:43114:0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+        "AVAX:43114:0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "AVAX:43114:0xc7198437980c041c805a1edcba50c1ce5db95118"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts"
+      ],
+      "identity_status": "SDK_DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "以C-Chain链标识与当前区块固定状态，核对Curve池代码/coins/underlying_coins/balances/A/fee和借贷包装汇率。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
+      "chain": "AVAX",
+      "status": "REJECTED",
+      "market_ids": [
+        "AVAX:43114:Curve:aave:0x7f90122bf0700f9e7e1f688fe926940e8839f353"
+      ],
+      "mechanism": "排除将Curve Avalanche配置中USDC.e=0xA7D7...与USDC=0xB97E...、以及包装avUSDC合并为同资产/同1美元现金的闭环核算；官方SDK分别列不同合约和wrapped/underlying。当前储备/兑付与汇率仍未验证。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/coins/avalanche.ts",
+        "https://raw.githubusercontent.com/curvefi/curve-js/master/src/constants/pools/avalanche.ts"
+      ],
+      "next_check": "与发行方/桥资料确认每个asset地址，原生USDC、USDC.e、aToken分为不同节点；不默认各为1美元。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "USDC.e/USDC/avUSDC统记1美元",
+      "reason": "排除将Curve Avalanche配置中USDC.e=0xA7D7...与USDC=0xB97E...、以及包装avUSDC合并为同资产/同1美元现金的闭环核算；官方SDK分别列不同合约和wrapped/underlying。当前储备/兑付与汇率仍未验证。"
+    },
+    {
+      "case": "同池各独立get_dy拼成可执行循环",
+      "reason": "前腿改变储备/借贷状态，需完整路径隔离模拟，不能拼矛盾状态。"
+    },
+    {
+      "case": "ABI gas字段=本轮gas费用",
+      "reason": "ABI历史注解不是真实执行gas，gas价格及完整交易费用均unknown。"
+    }
+  ],
+  "observed_cursor": {
+    "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "underlying_document_addresses": [
+      "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "0xc7198437980c041c805A1EDcbA50c1Ce5db95118"
+    ],
+    "pools_chain_verified": 0,
+    "cycles_quoted": 0,
+    "transactions_analyzed": 0,
+    "last_block": null,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}
