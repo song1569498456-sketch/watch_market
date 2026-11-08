@@ -1,0 +1,318 @@
+{
+  "agent_id": "BASE01",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base稳定币二级买入→正常赎回出口；不做铸造卖出或跨链执行",
+  "started_at": "2026-11-08T15:38:37.412024+00:00",
+  "finished_at": "2026-11-08T15:39:29.776385+00:00",
+  "duration_seconds": 52.364,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:39:29.776385+00:00",
+    "beijing": "2026-11-08T23:39:29.776385+08:00",
+    "data_time": "unknown; static upstream branch snapshots"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+  ],
+  "discovery_source": [
+    {
+      "source": "circle-base-contracts",
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "retrieved_at_utc": "2026-11-08T15:38:37.412030+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-rpc",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-08T15:38:38.439704+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-official-addressbook",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "retrieved_at_utc": "2026-11-08T15:38:39.448004+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae",
+      "bytes_read": 25203,
+      "excerpts": [
+        {
+          "line": 174,
+          "text": "  // https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+        },
+        {
+          "line": 175,
+          "text": "  address internal constant USDbC_UNDERLYING = 0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA;"
+        },
+        {
+          "line": 176,
+          "text": ""
+        },
+        {
+          "line": 177,
+          "text": "  uint8 internal constant USDbC_DECIMALS = 6;"
+        },
+        {
+          "line": 222,
+          "text": "  // https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        {
+          "line": 223,
+          "text": "  address internal constant USDC_UNDERLYING = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;"
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 225,
+          "text": "  uint8 internal constant USDC_DECIMALS = 6;"
+        }
+      ]
+    },
+    {
+      "source": "circle-fiat-token-source",
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "retrieved_at_utc": "2026-11-08T15:38:40.802054+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "423a0c805f7bfff28c89432f671a38d19717fb4b6c3e5591fa46d5d4b04f2c21",
+      "bytes_read": 14508,
+      "excerpts": [
+        {
+          "line": 107,
+          "text": "     * @dev Throws if called by any account other than a minter."
+        },
+        {
+          "line": 108,
+          "text": "     */"
+        },
+        {
+          "line": 109,
+          "text": "    modifier onlyMinters() {"
+        },
+        {
+          "line": 110,
+          "text": "        require(minters[msg.sender], \"FiatToken: caller is not a minter\");"
+        },
+        {
+          "line": 111,
+          "text": "        _;"
+        },
+        {
+          "line": 112,
+          "text": "    }"
+        },
+        {
+          "line": 357,
+          "text": "    /**"
+        },
+        {
+          "line": 358,
+          "text": "     * @notice Allows a minter to burn some of its own tokens."
+        },
+        {
+          "line": 359,
+          "text": "     * @dev The caller must be a minter, must not be blacklisted, and the amount to burn"
+        },
+        {
+          "line": 360,
+          "text": "     * should be less than or equal to the account's balance."
+        },
+        {
+          "line": 361,
+          "text": "     * @param _amount the amount of tokens to be burned."
+        },
+        {
+          "line": 362,
+          "text": "     */"
+        },
+        {
+          "line": 363,
+          "text": "    function burn(uint256 _amount)"
+        },
+        {
+          "line": 364,
+          "text": "        external"
+        },
+        {
+          "line": 365,
+          "text": "        virtual"
+        },
+        {
+          "line": 366,
+          "text": "        whenNotPaused"
+        },
+        {
+          "line": 367,
+          "text": "        onlyMinters"
+        },
+        {
+          "line": 368,
+          "text": "        notBlacklisted(msg.sender)"
+        },
+        {
+          "line": 369,
+          "text": "    {"
+        },
+        {
+          "line": 370,
+          "text": "        uint256 balance = _balanceOf(msg.sender);"
+        },
+        {
+          "line": 371,
+          "text": "        require(_amount > 0, \"FiatToken: burn amount not greater than 0\");"
+        },
+        {
+          "line": 372,
+          "text": "        require(balance >= _amount, \"FiatToken: burn amount exceeds balance\");"
+        },
+        {
+          "line": 373,
+          "text": ""
+        },
+        {
+          "line": 374,
+          "text": "        totalSupply_ = totalSupply_.sub(_amount);"
+        },
+        {
+          "line": 375,
+          "text": "        _setBalance(msg.sender, balance.sub(_amount));"
+        },
+        {
+          "line": 376,
+          "text": "        emit Burn(msg.sender, _amount);"
+        },
+        {
+          "line": 377,
+          "text": "        emit Transfer(msg.sender, address(0), _amount);"
+        }
+      ]
+    }
+  ],
+  "mechanism": "稳定币合约身份不等于普通用户有赎回权；Circle静态burn接口要求minter/未暂停/未黑名单，且销毁本身不是链上回款函数。Base USDC与桥接USDbC必须按不同权益和出口分开。",
+  "observations": [
+    "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
+    "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
+    "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "redeemed_asset_unknown",
+    "unknown_costs": [
+      "DEX费/冲击",
+      "赎回费/最低额",
+      "gas及L1数据费",
+      "等待/接收资产变现"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "issuer redemption account/region/minter eligibility unknown",
+  "liabilities": "未交易；完整路径负债未模拟",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "当前代理实现不匹配",
+    "用户无赎回资格/地区受限",
+    "额度或储备不够",
+    "桥接权益误当原生发行权益",
+    "成本或等待消除差额"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+    "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+    "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+  ],
+  "coverage_gaps": [
+    "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
+    "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
+    "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
+    "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
+    "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+  ],
+  "next_check": [
+    "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。",
+    "读取官方当前用户资格与兑付规则；链上burn只能在核验实际实现和权限后分析，不能把burn成功等同银行/自由资产回款。",
+    "发现精确DEX池后以相同状态读取买入数量→凭证数量→可兑金额/到账→退出数量；所有未知费用保留unknown。",
+    "USDbC跨链退出线索交X-BASE；BASE01只负责Base稳定币买入与正常兑现规则，不执行桥转账。"
+  ],
+  "handoff_to": [
+    "M00",
+    "X-BASE"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "chain": "BASE",
+      "protocol": "Circle USDC asset watch",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
+      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。"
+    },
+    {
+      "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+      "chain": "BASE",
+      "protocol": "USDbC bridged asset watch",
+      "asset_ids": [
+        "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
+      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "claim": "任何普通持币人都可用burn按1美元换回现金",
+      "reason": "静态接口本就有minter权限且burn不表示回款；当前用户/地区资格、真实出口未核验。"
+    },
+    {
+      "claim": "USDbC与原生USDC同名同价同出口",
+      "reason": "合约不同且桥接权益可能需要跨链退出，不能假定即时同链兑现。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_ASSET_AND_PERMISSION_SOURCES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:39:29.776385+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "redemption_six_columns": {
+    "buy_amount": "unknown",
+    "received_receipt": "unknown",
+    "redeemable_now": "unknown",
+    "arrival_time": "unknown",
+    "exit_output": "unknown",
+    "unknowns": [
+      "identity/current implementation",
+      "eligibility",
+      "quota",
+      "costs",
+      "quotes"
+    ]
+  }
+}

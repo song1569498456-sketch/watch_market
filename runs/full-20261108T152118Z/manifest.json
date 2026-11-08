@@ -135,9 +135,10 @@
       "duration_seconds": 66.278,
       "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ARB04/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/ARB04.txt",
-      "prompt_sha256": "ca6be525dddcdbc8303a732c1f3046352647fa2309a2093d767edcc1847ff694"
+      "prompt_sha256": "ca6be525dddcdbc8303a732c1f3046352647fa2309a2093d767edcc1847ff694",
+      "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577"
     },
     "AVAX01": {
       "status": "PARTIAL",
@@ -145,9 +146,10 @@
       "duration_seconds": 71.485,
       "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/AVAX01/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/AVAX01.txt",
-      "prompt_sha256": "a1e0244393e671ab7e3d6746e05838d003e1d1f1be159472159a374f8c7ed0cc"
+      "prompt_sha256": "a1e0244393e671ab7e3d6746e05838d003e1d1f1be159472159a374f8c7ed0cc",
+      "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577"
     },
     "AVAX02": {
       "status": "PARTIAL",
@@ -155,18 +157,40 @@
       "duration_seconds": 47.364,
       "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/AVAX02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/AVAX02.txt",
-      "prompt_sha256": "002ffd36bcf9e7ccf6301c4c3a126869e872b38981561e9937efaa84abdc3375"
+      "prompt_sha256": "002ffd36bcf9e7ccf6301c4c3a126869e872b38981561e9937efaa84abdc3375",
+      "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577"
     },
     "BASE01": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 52.364,
+      "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BASE01/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BASE01.txt",
+      "prompt_sha256": "24539d1199443105b9def18309e7acc978ff121d70711330581c787f13fa18ef"
     },
     "BASE02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 89.118,
+      "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BASE02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BASE02.txt",
+      "prompt_sha256": "cad5b71bec2893d18981499b7c8affd9c2a5763554f20b3257b44d9c3ff35153"
     },
     "BASE03": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 58.418,
+      "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/BASE03/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/BASE03.txt",
+      "prompt_sha256": "7c2da4cded31458112404027e2485f3019579883d39b9e19de90a971108765da"
     },
     "BASE04": {
       "status": "NOT_STARTED"
@@ -335,6 +359,17 @@
         "AVAX02"
       ],
       "merged_at": "2026-11-08T15:37:58.828295+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577"
+    },
+    {
+      "batch": 7,
+      "agents": [
+        "BASE01",
+        "BASE02",
+        "BASE03"
+      ],
+      "merged_at": "2026-11-08T15:40:24.567400+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -380,6 +415,13 @@
       "verified_at": "2026-11-08T15:35:55.555537+00:00",
       "verified_files": 106,
       "label": "batch ARB01 ARB02 ARB03"
+    },
+    {
+      "commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
+      "remote_head": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
+      "verified_at": "2026-11-08T15:38:02.616211+00:00",
+      "verified_files": 124,
+      "label": "batch ARB04 AVAX01 AVAX02"
     }
   ]
 }

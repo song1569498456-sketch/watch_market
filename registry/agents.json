@@ -382,20 +382,71 @@
     {
       "agent_id": "BASE01",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:39:29.776385+00:00",
+      "actual_coverage": [
+        "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
+        "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
+        "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+      ],
+      "coverage_gaps": [
+        "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
+        "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
+        "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
+        "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
+        "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+      ],
+      "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "BASE02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:40:08.482699+00:00",
+      "actual_coverage": [
+        "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
+        "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
+        "没有本轮折价、可兑原生ETH数量、现金出口或锁定收益结论。"
+      ],
+      "coverage_gaps": [
+        "Base RPC和DEX发现API代理CONNECT403；无当前区块、资产代码/实现、实际池或数量报价。",
+        "发行方Coinbase帮助页目标被代理403，猜测GitHub仓库404；未核验当前兑换比例、赎回资格、最小额、暂停/容量/排队。",
+        "只从Superchain token list发现cbETH Base地址，未获得发行人+链上独立身份核验，不能证明当前可兑换或版本正确。",
+        "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
+        "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
+      ],
+      "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "BASE03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:39:43.762988+00:00",
+      "actual_coverage": [
+        {
+          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+          "lines": "20,83-88",
+          "fields": "退出取决于可用流动性；withdrawQueue控制市场提款顺序",
+          "data_kind": "official protocol source; chain-agnostic"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+          "lines": "515-528,604-615,807-827",
+          "fields": "maxWithdraw/maxRedeem -> _maxWithdraw -> _simulateWithdrawMorpho；不足流动性revert",
+          "data_kind": "static implementation; no Base deployment match"
+        }
+      ],
+      "coverage_gaps": [
+        "Base当前chainId8453及金库代码/实现未核验，API与RPC CONNECT403。",
+        "没有真实金库地址、底层资产与可转让份额、二级市场池或报价。",
+        "30天规则/策略损失/升级窗口未覆盖。",
+        "7天活动窗口未覆盖，无区块/交易或分页游标。",
+        "owner余额/allowance、maxRedeem/maxWithdraw、真实可提现金、费用/队列及底层变现均unknown。"
+      ],
+      "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "BASE04",

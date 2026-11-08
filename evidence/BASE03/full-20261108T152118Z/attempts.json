@@ -1,0 +1,429 @@
+{
+  "started_at": "2026-11-08T15:38:45.344702+00:00",
+  "data_seconds": 5.933,
+  "attempts": [
+    {
+      "name": "morpho_vault_discovery",
+      "url": "https://api.morpho.org/graphql",
+      "fetched_at_utc": "2026-11-08T15:38:45.344708+00:00",
+      "method": "POST",
+      "request": {
+        "query": "query { vaults(first: 5, where: {chainId_in: [8453]}) { items { address name asset { address symbol } } } }"
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "base_chain_identity",
+      "url": "https://mainnet.base.org",
+      "fetched_at_utc": "2026-11-08T15:38:46.368579+00:00",
+      "method": "POST",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "morpho_deployments",
+      "url": "https://docs.morpho.org/get-started/resources/addresses/",
+      "fetched_at_utc": "2026-11-08T15:38:47.375895+00:00",
+      "method": "GET",
+      "success": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "metamorpho_readme",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "fetched_at_utc": "2026-11-08T15:38:48.382778+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "719f7a99a3e64ea62ae385a535f0197eeef671dd5168b3a67b9592eb99e0bc86",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "It enables anyone to create a vault depositing liquidity into multiple Morpho Blue markets."
+        },
+        {
+          "line": 12,
+          "text": "Users of MetaMorpho are liquidity providers who want to earn from borrowing interest without having to actively manage the risk of their position."
+        },
+        {
+          "line": 20,
+          "text": "Users can supply or withdraw assets at any time, depending on the available liquidity on Morpho Blue."
+        },
+        {
+          "line": 44,
+          "text": "Only one address can have this role."
+        },
+        {
+          "line": 62,
+          "text": "Only one address can have this role."
+        },
+        {
+          "line": 68,
+          "text": "  - To softly remove a market after the curator has set the supply cap to 0, it is expected from the allocator role to reallocate the supplied liquidity to another enabled market and then to update the withdraw queue."
+        },
+        {
+          "line": 71,
+          "text": "  - This action is typically designed to force the removal of a market that keeps reverting thus locking the vault."
+        },
+        {
+          "line": 79,
+          "text": "Multiple addresses can have this role."
+        },
+        {
+          "line": 83,
+          "text": "- Set the `supplyQueue` and `withdrawQueue`, i.e. decide on the order of the markets to supply/withdraw from."
+        },
+        {
+          "line": 85,
+          "text": "  - Upon a withdrawal, the vault will withdraw up to the liquidity of each Morpho Blue market in the `withdrawQueue` in the order set."
+        },
+        {
+          "line": 87,
+          "text": "  - The `withdrawQueue` contains all markets that have a non-zero cap or a non-zero vault allocation."
+        },
+        {
+          "line": 88,
+          "text": "- Instantaneously reallocate funds by supplying on markets of the `withdrawQueue` and withdrawing from markets that have the same loan asset as the vault's asset."
+        },
+        {
+          "line": 95,
+          "text": "Only one address can have this role."
+        },
+        {
+          "line": 106,
+          "text": "In some cases, the vault's curator or allocators may want to keep some funds \"idle\", to guarantee lenders that some liquidity can be withdrawn from the vault (beyond the liquidity of each of the vault's markets)."
+        },
+        {
+          "line": 108,
+          "text": "To achieve this, they can deposit in markets with `address(0)` as the oracle or the collateral, ensuring that these funds can't be borrowed."
+        },
+        {
+          "line": 109,
+          "text": "They are thus guaranteed to be liquid; though they won't generate interest."
+        },
+        {
+          "line": 113,
+          "text": "- `collateralToken`: `address(0)` (not necessary since no funds will be borrowed on this market)"
+        },
+        {
+          "line": 114,
+          "text": "- `irm`: `address(0)` (Morpho Blue will skip the call to the IRM in this case, thus reducing the gas cost)"
+        },
+        {
+          "line": 115,
+          "text": "- `oracle`: `address(0)` (not necessary since no funds will be borrowed on this market)"
+        },
+        {
+          "line": 130,
+          "text": "  - Set the vault’s rewards recipient address to the created URD using `setSkimRecipient`."
+        },
+        {
+          "line": 153,
+          "text": "     To ensure that submit cap does not revert because of a pending cap, it is recommended to batch the two previous transactions, for example using the multicall function of MetaMorpho."
+        },
+        {
+          "line": 155,
+          "text": "     If there is not enough liquidity on the market, remove the maximum available liquidity with the `reallocate` function, then put the market at the beginning of the withdraw queue (with the `updateWithdrawQueue` function)."
+        },
+        {
+          "line": 156,
+          "text": "- 4. Once all the supply has been removed from the market, the market can be removed from the withdraw queue with the `updateWithdrawQueue` function."
+        },
+        {
+          "line": 161,
+          "text": "If an enabled market starts reverting notably, many of the vault functions would revert as well (because of the call to `totalAssets`)."
+        },
+        {
+          "line": 166,
+          "text": "     To ensure that submit cap does not revert because of a pending cap, it is recommended to batch the two previous transactions, for example using the multicall function of MetaMorpho."
+        },
+        {
+          "line": 169,
+          "text": "- 5. Once the timelock has elapsed, the market can be removed from the withdraw queue with the `updateWithdrawQueue` function."
+        },
+        {
+          "line": 187,
+          "text": "- 3. Set a new withdraw queue that is in line with the vault risk strategy with the `updateWithdrawQueue` function (this can also be done by the curator or the other allocators)."
+        }
+      ],
+      "success": true
+    },
+    {
+      "name": "metamorpho_contract",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "fetched_at_utc": "2026-11-08T15:38:49.813760+00:00",
+      "method": "GET",
+      "http_status": 200,
+      "sha256_sample": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "    PendingAddress,"
+        },
+        {
+          "line": 9,
+          "text": "    IMetaMorphoBase,"
+        },
+        {
+          "line": 14,
+          "text": "import {PendingUint192, PendingAddress, PendingLib} from \"./libraries/PendingLib.sol\";"
+        },
+        {
+          "line": 54,
+          "text": "    using PendingLib for PendingAddress;"
+        },
+        {
+          "line": 58,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 61,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 66,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 67,
+          "text": "    address public curator;"
+        },
+        {
+          "line": 69,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 70,
+          "text": "    mapping(address => bool) public isAllocator;"
+        },
+        {
+          "line": 72,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 73,
+          "text": "    address public guardian;"
+        },
+        {
+          "line": 78,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 82,
+          "text": "    PendingAddress public pendingGuardian;"
+        },
+        {
+          "line": 90,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 93,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 94,
+          "text": "    address public feeRecipient;"
+        },
+        {
+          "line": 96,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 97,
+          "text": "    address public skimRecipient;"
+        },
+        {
+          "line": 99,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 102,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 103,
+          "text": "    Id[] public withdrawQueue;"
+        },
+        {
+          "line": 105,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 106,
+          "text": "    uint256 public lastTotalAssets;"
+        },
+        {
+          "line": 112,
+          "text": "    /// @param morpho The address of the Morpho contract."
+        },
+        {
+          "line": 114,
+          "text": "    /// @param _asset The address of the underlying asset."
+        },
+        {
+          "line": 118,
+          "text": "        address owner,"
+        },
+        {
+          "line": 119,
+          "text": "        address morpho,"
+        },
+        {
+          "line": 121,
+          "text": "        address _asset,"
+        },
+        {
+          "line": 125,
+          "text": "        if (morpho == address(0)) revert ErrorsLib.ZeroAddress();"
+        },
+        {
+          "line": 138,
+          "text": "    /// @dev Reverts if the caller doesn't have the curator role."
+        },
+        {
+          "line": 140,
+          "text": "        address sender = _msgSender();"
+        },
+        {
+          "line": 141,
+          "text": "        if (sender != curator && sender != owner()) revert ErrorsLib.NotCuratorRole();"
+        },
+        {
+          "line": 146,
+          "text": "    /// @dev Reverts if the caller doesn't have the allocator role."
+        },
+        {
+          "line": 148,
+          "text": "        address sender = _msgSender();"
+        },
+        {
+          "line": 150,
+          "text": "            revert ErrorsLib.NotAllocatorRole();"
+        },
+        {
+          "line": 156,
+          "text": "    /// @dev Reverts if the caller doesn't have the guardian role."
+        },
+        {
+          "line": 158,
+          "text": "        if (_msgSender() != owner() && _msgSender() != guardian) revert ErrorsLib.NotGuardianRole();"
+        },
+        {
+          "line": 163,
+          "text": "    /// @dev Reverts if the caller doesn't have the curator nor the guardian role."
+        },
+        {
+          "line": 166,
+          "text": "            revert ErrorsLib.NotCuratorNorGuardianRole();"
+        },
+        {
+          "line": 173,
+          "text": "    /// @dev Reverts if:"
+        },
+        {
+          "line": 177,
+          "text": "        if (validAt == 0) revert ErrorsLib.NoPendingValue();"
+        },
+        {
+          "line": 178,
+          "text": "        if (block.timestamp < validAt) revert ErrorsLib.TimelockNotElapsed();"
+        },
+        {
+          "line": 185,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 186,
+          "text": "    function setCurator(address newCurator) external onlyOwner {"
+        },
+        {
+          "line": 187,
+          "text": "        if (newCurator == curator) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 194,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 195,
+          "text": "    function setIsAllocator(address newAllocator, bool newIsAllocator) external onlyOwner {"
+        },
+        {
+          "line": 196,
+          "text": "        if (isAllocator[newAllocator] == newIsAllocator) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 203,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 204,
+          "text": "    function setSkimRecipient(address newSkimRecipient) external onlyOwner {"
+        },
+        {
+          "line": 205,
+          "text": "        if (newSkimRecipient == skimRecipient) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 212,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 214,
+          "text": "        if (newTimelock == timelock) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 215,
+          "text": "        if (pendingTimelock.validAt != 0) revert ErrorsLib.AlreadyPending();"
+        },
+        {
+          "line": 228,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 230,
+          "text": "        if (newFee == fee) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 231,
+          "text": "        if (newFee > ConstantsLib.MAX_FEE) revert ErrorsLib.MaxFeeExceeded();"
+        },
+        {
+          "line": 232,
+          "text": "        if (newFee != 0 && feeRecipient == address(0)) revert ErrorsLib.ZeroFeeRecipient();"
+        },
+        {
+          "line": 235,
+          "text": "        _updateLastTotalAssets(_accrueFee());"
+        },
+        {
+          "line": 243,
+          "text": "    /// @inheritdoc IMetaMorphoBase"
+        },
+        {
+          "line": 244,
+          "text": "    function setFeeRecipient(address newFeeRecipient) external onlyOwner {"
+        },
+        {
+          "line": 245,
+          "text": "        if (newFeeRecipient == feeRecipient) revert ErrorsLib.AlreadySet();"
+        },
+        {
+          "line": 246,
+          "text": "        if (newFeeRecipient == address(0) && fee != 0) revert ErrorsLib.ZeroFeeRecipient();"
+        },
+        {
+          "line": 249,
+          "text": "        _updateLastTotalAssets(_accrueFee());"
+        }
+      ],
+      "success": true
+    }
+  ]
+}

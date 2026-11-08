@@ -1,13 +1,45 @@
 {
   "agent_id": "BASE03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol"
+    ],
+    "chain_block": null,
+    "discovered_market_pages": 0,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+      "lines": "20,83-88",
+      "fields": "退出取决于可用流动性；withdrawQueue控制市场提款顺序",
+      "data_kind": "official protocol source; chain-agnostic"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "lines": "515-528,604-615,807-827",
+      "fields": "maxWithdraw/maxRedeem -> _maxWithdraw -> _simulateWithdrawMorpho；不足流动性revert",
+      "data_kind": "static implementation; no Base deployment match"
+    }
+  ],
+  "pending_questions": [
+    "Base当前chainId8453及金库代码/实现未核验，API与RPC CONNECT403。",
+    "没有真实金库地址、底层资产与可转让份额、二级市场池或报价。",
+    "30天规则/策略损失/升级窗口未覆盖。",
+    "7天活动窗口未覆盖，无区块/交易或分页游标。",
+    "owner余额/allowance、maxRedeem/maxWithdraw、真实可提现金、费用/队列及底层变现均unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:39:43.762988+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BASE03/full-20261108T152118Z/record.json"
 }

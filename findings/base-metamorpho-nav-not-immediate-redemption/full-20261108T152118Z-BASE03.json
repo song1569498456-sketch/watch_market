@@ -1,0 +1,16 @@
+{
+  "finding_id": "base-metamorpho-nav-not-immediate-redemption",
+  "status": "REJECTED",
+  "chain": "BASE",
+  "market_id": null,
+  "claim": "排除“只凭totalAssets/份额转换即可保证实际即时赎回并赚取二级折价”的论证。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol"
+  ],
+  "evidence_fields": "README L20；MetaMorpho L604-615与L807-827流动性检查",
+  "scope_limit": "源码机制反证；未确认Base具体部署，不构成某金库当下不兑付/亏损的断言。",
+  "owner": "BASE03",
+  "last_observed_run": "full-20261108T152118Z",
+  "source_record": "evidence/BASE03/full-20261108T152118Z/record.json"
+}

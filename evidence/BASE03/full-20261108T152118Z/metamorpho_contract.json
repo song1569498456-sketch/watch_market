@@ -1,0 +1,271 @@
+{
+  "name": "metamorpho_contract",
+  "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+  "fetched_at_utc": "2026-11-08T15:38:49.813760+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+  "excerpts": [
+    {
+      "line": 7,
+      "text": "    PendingAddress,"
+    },
+    {
+      "line": 9,
+      "text": "    IMetaMorphoBase,"
+    },
+    {
+      "line": 14,
+      "text": "import {PendingUint192, PendingAddress, PendingLib} from \"./libraries/PendingLib.sol\";"
+    },
+    {
+      "line": 54,
+      "text": "    using PendingLib for PendingAddress;"
+    },
+    {
+      "line": 58,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 61,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 66,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 67,
+      "text": "    address public curator;"
+    },
+    {
+      "line": 69,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 70,
+      "text": "    mapping(address => bool) public isAllocator;"
+    },
+    {
+      "line": 72,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 73,
+      "text": "    address public guardian;"
+    },
+    {
+      "line": 78,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 82,
+      "text": "    PendingAddress public pendingGuardian;"
+    },
+    {
+      "line": 90,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 93,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 94,
+      "text": "    address public feeRecipient;"
+    },
+    {
+      "line": 96,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 97,
+      "text": "    address public skimRecipient;"
+    },
+    {
+      "line": 99,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 102,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 103,
+      "text": "    Id[] public withdrawQueue;"
+    },
+    {
+      "line": 105,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 106,
+      "text": "    uint256 public lastTotalAssets;"
+    },
+    {
+      "line": 112,
+      "text": "    /// @param morpho The address of the Morpho contract."
+    },
+    {
+      "line": 114,
+      "text": "    /// @param _asset The address of the underlying asset."
+    },
+    {
+      "line": 118,
+      "text": "        address owner,"
+    },
+    {
+      "line": 119,
+      "text": "        address morpho,"
+    },
+    {
+      "line": 121,
+      "text": "        address _asset,"
+    },
+    {
+      "line": 125,
+      "text": "        if (morpho == address(0)) revert ErrorsLib.ZeroAddress();"
+    },
+    {
+      "line": 138,
+      "text": "    /// @dev Reverts if the caller doesn't have the curator role."
+    },
+    {
+      "line": 140,
+      "text": "        address sender = _msgSender();"
+    },
+    {
+      "line": 141,
+      "text": "        if (sender != curator && sender != owner()) revert ErrorsLib.NotCuratorRole();"
+    },
+    {
+      "line": 146,
+      "text": "    /// @dev Reverts if the caller doesn't have the allocator role."
+    },
+    {
+      "line": 148,
+      "text": "        address sender = _msgSender();"
+    },
+    {
+      "line": 150,
+      "text": "            revert ErrorsLib.NotAllocatorRole();"
+    },
+    {
+      "line": 156,
+      "text": "    /// @dev Reverts if the caller doesn't have the guardian role."
+    },
+    {
+      "line": 158,
+      "text": "        if (_msgSender() != owner() && _msgSender() != guardian) revert ErrorsLib.NotGuardianRole();"
+    },
+    {
+      "line": 163,
+      "text": "    /// @dev Reverts if the caller doesn't have the curator nor the guardian role."
+    },
+    {
+      "line": 166,
+      "text": "            revert ErrorsLib.NotCuratorNorGuardianRole();"
+    },
+    {
+      "line": 173,
+      "text": "    /// @dev Reverts if:"
+    },
+    {
+      "line": 177,
+      "text": "        if (validAt == 0) revert ErrorsLib.NoPendingValue();"
+    },
+    {
+      "line": 178,
+      "text": "        if (block.timestamp < validAt) revert ErrorsLib.TimelockNotElapsed();"
+    },
+    {
+      "line": 185,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 186,
+      "text": "    function setCurator(address newCurator) external onlyOwner {"
+    },
+    {
+      "line": 187,
+      "text": "        if (newCurator == curator) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 194,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 195,
+      "text": "    function setIsAllocator(address newAllocator, bool newIsAllocator) external onlyOwner {"
+    },
+    {
+      "line": 196,
+      "text": "        if (isAllocator[newAllocator] == newIsAllocator) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 203,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 204,
+      "text": "    function setSkimRecipient(address newSkimRecipient) external onlyOwner {"
+    },
+    {
+      "line": 205,
+      "text": "        if (newSkimRecipient == skimRecipient) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 212,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 214,
+      "text": "        if (newTimelock == timelock) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 215,
+      "text": "        if (pendingTimelock.validAt != 0) revert ErrorsLib.AlreadyPending();"
+    },
+    {
+      "line": 228,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 230,
+      "text": "        if (newFee == fee) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 231,
+      "text": "        if (newFee > ConstantsLib.MAX_FEE) revert ErrorsLib.MaxFeeExceeded();"
+    },
+    {
+      "line": 232,
+      "text": "        if (newFee != 0 && feeRecipient == address(0)) revert ErrorsLib.ZeroFeeRecipient();"
+    },
+    {
+      "line": 235,
+      "text": "        _updateLastTotalAssets(_accrueFee());"
+    },
+    {
+      "line": 243,
+      "text": "    /// @inheritdoc IMetaMorphoBase"
+    },
+    {
+      "line": 244,
+      "text": "    function setFeeRecipient(address newFeeRecipient) external onlyOwner {"
+    },
+    {
+      "line": 245,
+      "text": "        if (newFeeRecipient == feeRecipient) revert ErrorsLib.AlreadySet();"
+    },
+    {
+      "line": 246,
+      "text": "        if (newFeeRecipient == address(0) && fee != 0) revert ErrorsLib.ZeroFeeRecipient();"
+    },
+    {
+      "line": 249,
+      "text": "        _updateLastTotalAssets(_accrueFee());"
+    }
+  ],
+  "success": true
+}

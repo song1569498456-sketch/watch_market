@@ -1,0 +1,118 @@
+{
+  "agent_id": "BASE02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "BASE",
+  "scope": "Base 8453 原生ETH质押衍生品折价赎回；自主发现cbETH地址线索，出口/身份未核验",
+  "started_at": "2026-11-08T15:38:39.364248+00:00",
+  "finished_at": "2026-11-08T15:40:08.482699+00:00",
+  "duration_seconds": 89.118,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:40:08.482699+00:00",
+  "block_or_slot": null,
+  "market_ids": [],
+  "asset_ids": [
+    "BASE:8453:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+  ],
+  "discovery_source": [
+    "https://mainnet.base.org",
+    "https://api.dexscreener.com/latest/dex/search?q=base%20cbETH",
+    "https://raw.githubusercontent.com/coinbase/wrapped-tokens/main/README.md",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/master/README.md",
+    "https://raw.githubusercontent.com/base-org/token-list/main/src/tokens/base.json",
+    "https://github.com/coinbase/wrapped-tokens",
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json",
+    "https://help.coinbase.com/en/coinbase/coinbase-staking/staking/cbeth-intro"
+  ],
+  "mechanism": "Base上LST持有权、DEX出售与协议赎回是不同边；缺少本链赎回资格/比率/容量时，不能将L1或其他L2说明套用为Base即时出口。",
+  "observations": [
+    "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
+    "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
+    "没有本轮折价、可兑原生ETH数量、现金出口或锁定收益结论。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "ETH",
+    "realized": false,
+    "unknown_costs": [
+      "买入价/冲击",
+      "赎回资格/费率",
+      "L2执行与L1数据费",
+      "等待成本",
+      "潜在跨链费"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "unknown，发行方当前资格/账户限制和Base赎回接口未读取",
+  "liabilities": "unknown，无交易/负债建立",
+  "waiting_time": "unknown，不填入其他链排队时长",
+  "invalidation_conditions": [
+    "资产/实现身份不符",
+    "只有跨链而无本链即时出口",
+    "份额比例未核验",
+    "价格/容量缺失",
+    "资格不符"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json"
+  ],
+  "coverage_gaps": [
+    "Base RPC和DEX发现API代理CONNECT403；无当前区块、资产代码/实现、实际池或数量报价。",
+    "发行方Coinbase帮助页目标被代理403，猜测GitHub仓库404；未核验当前兑换比例、赎回资格、最小额、暂停/容量/排队。",
+    "只从Superchain token list发现cbETH Base地址，未获得发行人+链上独立身份核验，不能证明当前可兑换或版本正确。",
+    "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
+    "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
+  ],
+  "next_check": [
+    "对Base cbETH文档地址eth_getCode并核对当前实现、发行方官方部署和原生/桥接身份；来源不一致则暂停该对象。",
+    "寻找本链真实DEX池，同时独立读取发行方当前兑换比率/资格与本链赎回接口；现货、协议立即、异步三出口分别记录。",
+    "若只能跨链退出，将具体资产/桥/方向交X-BASE，不在本岗位把跨链路径当本链即时兑换。",
+    "补齐30天规则和7天活动；取得真实数量与等待数据前，费用/容量保持unknown，不代填资金成本。"
+  ],
+  "handoff_to": [
+    "M00",
+    "X-BASE"
+  ],
+  "markets": [
+    {
+      "market_id": "BASE:8453:cbETH:token:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "chain": "BASE",
+      "protocol": "Coinbase cbETH（token-list发现，发行人待核验）",
+      "asset_ids": [
+        "BASE:8453:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json"
+      ],
+      "identity_status": "DISCOVERY_LIST_ONLY_NOT_ISSUER_OR_CHAIN_VERIFIED",
+      "kind": "asset_discovery_queue_not_pool",
+      "next_check": "对Base cbETH文档地址eth_getCode并核对当前实现、发行方官方部署和原生/桥接身份；来源不一致则暂停该对象。"
+    }
+  ],
+  "findings": [],
+  "rejections": [
+    {
+      "case": "Lido lido-l2旧README直接证明Base退出",
+      "reason": "该文本只明确Arbitrum与Optimism，不能跨链套用。"
+    },
+    {
+      "case": "Base cbETH可按某L1说明立即取回ETH",
+      "reason": "本轮未确认Base赎回合约或桥路线；出口未知不是即时现金。"
+    },
+    {
+      "case": "1cbETH=1ETH",
+      "reason": "18位小数/币名不是兑换比例证据，没有当前份额比率与报价。"
+    }
+  ],
+  "observed_cursor": {
+    "token_list_entry": "data/cbETH/data.json",
+    "base_token_document_address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "current_block": null,
+    "actual_pools_read": 0,
+    "quotes_obtained": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

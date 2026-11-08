@@ -1,0 +1,186 @@
+{
+  "started_at": "2026-11-08T15:38:37.412024+00:00",
+  "sources": [
+    {
+      "source": "circle-base-contracts",
+      "url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "retrieved_at_utc": "2026-11-08T15:38:37.412030+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-rpc",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-08T15:38:38.439704+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-official-addressbook",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "retrieved_at_utc": "2026-11-08T15:38:39.448004+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae",
+      "bytes_read": 25203,
+      "excerpts": [
+        {
+          "line": 174,
+          "text": "  // https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+        },
+        {
+          "line": 175,
+          "text": "  address internal constant USDbC_UNDERLYING = 0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA;"
+        },
+        {
+          "line": 176,
+          "text": ""
+        },
+        {
+          "line": 177,
+          "text": "  uint8 internal constant USDbC_DECIMALS = 6;"
+        },
+        {
+          "line": 222,
+          "text": "  // https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        {
+          "line": 223,
+          "text": "  address internal constant USDC_UNDERLYING = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913;"
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 225,
+          "text": "  uint8 internal constant USDC_DECIMALS = 6;"
+        }
+      ]
+    },
+    {
+      "source": "circle-fiat-token-source",
+      "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+      "retrieved_at_utc": "2026-11-08T15:38:40.802054+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "423a0c805f7bfff28c89432f671a38d19717fb4b6c3e5591fa46d5d4b04f2c21",
+      "bytes_read": 14508,
+      "excerpts": [
+        {
+          "line": 107,
+          "text": "     * @dev Throws if called by any account other than a minter."
+        },
+        {
+          "line": 108,
+          "text": "     */"
+        },
+        {
+          "line": 109,
+          "text": "    modifier onlyMinters() {"
+        },
+        {
+          "line": 110,
+          "text": "        require(minters[msg.sender], \"FiatToken: caller is not a minter\");"
+        },
+        {
+          "line": 111,
+          "text": "        _;"
+        },
+        {
+          "line": 112,
+          "text": "    }"
+        },
+        {
+          "line": 357,
+          "text": "    /**"
+        },
+        {
+          "line": 358,
+          "text": "     * @notice Allows a minter to burn some of its own tokens."
+        },
+        {
+          "line": 359,
+          "text": "     * @dev The caller must be a minter, must not be blacklisted, and the amount to burn"
+        },
+        {
+          "line": 360,
+          "text": "     * should be less than or equal to the account's balance."
+        },
+        {
+          "line": 361,
+          "text": "     * @param _amount the amount of tokens to be burned."
+        },
+        {
+          "line": 362,
+          "text": "     */"
+        },
+        {
+          "line": 363,
+          "text": "    function burn(uint256 _amount)"
+        },
+        {
+          "line": 364,
+          "text": "        external"
+        },
+        {
+          "line": 365,
+          "text": "        virtual"
+        },
+        {
+          "line": 366,
+          "text": "        whenNotPaused"
+        },
+        {
+          "line": 367,
+          "text": "        onlyMinters"
+        },
+        {
+          "line": 368,
+          "text": "        notBlacklisted(msg.sender)"
+        },
+        {
+          "line": 369,
+          "text": "    {"
+        },
+        {
+          "line": 370,
+          "text": "        uint256 balance = _balanceOf(msg.sender);"
+        },
+        {
+          "line": 371,
+          "text": "        require(_amount > 0, \"FiatToken: burn amount not greater than 0\");"
+        },
+        {
+          "line": 372,
+          "text": "        require(balance >= _amount, \"FiatToken: burn amount exceeds balance\");"
+        },
+        {
+          "line": 373,
+          "text": ""
+        },
+        {
+          "line": 374,
+          "text": "        totalSupply_ = totalSupply_.sub(_amount);"
+        },
+        {
+          "line": 375,
+          "text": "        _setBalance(msg.sender, balance.sub(_amount));"
+        },
+        {
+          "line": 376,
+          "text": "        emit Burn(msg.sender, _amount);"
+        },
+        {
+          "line": 377,
+          "text": "        emit Transfer(msg.sender, address(0), _amount);"
+        }
+      ]
+    }
+  ]
+}

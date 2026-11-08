@@ -1,13 +1,32 @@
 {
   "agent_id": "BASE01",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_ASSET_AND_PERMISSION_SOURCES_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:39:29.776385+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
+    "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
+    "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+  ],
+  "pending_questions": [
+    "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
+    "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
+    "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
+    "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
+    "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:39:29.776385+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/BASE01/full-20261108T152118Z/record.json"
 }

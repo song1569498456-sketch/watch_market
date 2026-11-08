@@ -1,0 +1,82 @@
+{
+  "started_at": "2026-11-08T15:38:39.364248+00:00",
+  "results": [
+    {
+      "name": "base_rpc",
+      "url": "https://mainnet.base.org",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:38:39.364255+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "dex_lsts",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=base%20cbETH",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:38:40.389615+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "coinbase_wrapped_tokens",
+      "url": "https://raw.githubusercontent.com/coinbase/wrapped-tokens/main/README.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:38:41.400245+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "lido_l2",
+      "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/master/README.md",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:38:42.736113+00:00",
+      "http_status": 200,
+      "selected_excerpt": "# Lido L2\n\nThis project contains the implementations of the L2 ERC20 token bridges for Arbitrum and Optimism chains. The current solution allows transferring ERC20 tokens between L1 and L2 chains.\n\nTo retrieve more detailed info about the bridging process, see the specifications for certain chains:\n\n- [Lido's Arbitrum Gateway](https://github.com/lidofinance/lido-l2/blob/main/contracts/arbitrum/README.md).\n- [Lido's Optimism Bridge](https://github.com/lidofinance/lido-l2/blob/main/contracts/optimism/README.md).\n\n## Project setup\n\n1. Clone the repo:\n\n```bash\ngit clone git@github.com:lidofinance/lido-l2.git\ncd ./lido-l2\n```\n\n2. Install dependenc",
+      "scope_note": "此README只明确Arbitrum与Optimism，不用于证明Base资产部署；已排除套用。"
+    },
+    {
+      "name": "base_token_list",
+      "url": "https://raw.githubusercontent.com/base-org/token-list/main/src/tokens/base.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:38:44.119482+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "coinbase_repo",
+      "url": "https://github.com/coinbase/wrapped-tokens",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:39:01.863540+00:00",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "optimism_cbeth_list",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:39:03.421380+00:00",
+      "http_status": 200,
+      "selected_fields": {
+        "name": "Coinbase Wrapped Staked ETH",
+        "symbol": "cbETH",
+        "decimals": 18,
+        "description": "To add description later",
+        "website": "https://www.coinbase.com/",
+        "tokens": {
+          "base": {
+            "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+          }
+        }
+      },
+      "note": "其他链条目未用于本岗位研究；发现表不是发行人/链上独立核验。"
+    },
+    {
+      "name": "issuer_cbeth_rules",
+      "url": "https://help.coinbase.com/en/coinbase/coinbase-staking/staking/cbeth-intro",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:39:19.882754+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

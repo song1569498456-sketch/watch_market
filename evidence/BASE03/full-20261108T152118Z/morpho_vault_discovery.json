@@ -1,0 +1,11 @@
+{
+  "name": "morpho_vault_discovery",
+  "url": "https://api.morpho.org/graphql",
+  "fetched_at_utc": "2026-11-08T15:38:45.344708+00:00",
+  "method": "POST",
+  "request": {
+    "query": "query { vaults(first: 5, where: {chainId_in: [8453]}) { items { address name asset { address symbol } } } }"
+  },
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

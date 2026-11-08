@@ -319,6 +319,55 @@
       "owner": "AVAX02",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/AVAX02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "chain": "BASE",
+      "protocol": "Circle USDC asset watch",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
+      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。",
+      "owner": "BASE01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BASE01/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+      "chain": "BASE",
+      "protocol": "USDbC bridged asset watch",
+      "asset_ids": [
+        "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
+      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。",
+      "owner": "BASE01",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BASE01/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "BASE:8453:cbETH:token:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "chain": "BASE",
+      "protocol": "Coinbase cbETH（token-list发现，发行人待核验）",
+      "asset_ids": [
+        "BASE:8453:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json"
+      ],
+      "identity_status": "DISCOVERY_LIST_ONLY_NOT_ISSUER_OR_CHAIN_VERIFIED",
+      "kind": "asset_discovery_queue_not_pool",
+      "next_check": "对Base cbETH文档地址eth_getCode并核对当前实现、发行方官方部署和原生/桥接身份；来源不一致则暂停该对象。",
+      "owner": "BASE02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/BASE02/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

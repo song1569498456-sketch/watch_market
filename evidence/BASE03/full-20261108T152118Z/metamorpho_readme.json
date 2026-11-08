@@ -1,0 +1,119 @@
+{
+  "name": "metamorpho_readme",
+  "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
+  "fetched_at_utc": "2026-11-08T15:38:48.382778+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "719f7a99a3e64ea62ae385a535f0197eeef671dd5168b3a67b9592eb99e0bc86",
+  "excerpts": [
+    {
+      "line": 9,
+      "text": "It enables anyone to create a vault depositing liquidity into multiple Morpho Blue markets."
+    },
+    {
+      "line": 12,
+      "text": "Users of MetaMorpho are liquidity providers who want to earn from borrowing interest without having to actively manage the risk of their position."
+    },
+    {
+      "line": 20,
+      "text": "Users can supply or withdraw assets at any time, depending on the available liquidity on Morpho Blue."
+    },
+    {
+      "line": 44,
+      "text": "Only one address can have this role."
+    },
+    {
+      "line": 62,
+      "text": "Only one address can have this role."
+    },
+    {
+      "line": 68,
+      "text": "  - To softly remove a market after the curator has set the supply cap to 0, it is expected from the allocator role to reallocate the supplied liquidity to another enabled market and then to update the withdraw queue."
+    },
+    {
+      "line": 71,
+      "text": "  - This action is typically designed to force the removal of a market that keeps reverting thus locking the vault."
+    },
+    {
+      "line": 79,
+      "text": "Multiple addresses can have this role."
+    },
+    {
+      "line": 83,
+      "text": "- Set the `supplyQueue` and `withdrawQueue`, i.e. decide on the order of the markets to supply/withdraw from."
+    },
+    {
+      "line": 85,
+      "text": "  - Upon a withdrawal, the vault will withdraw up to the liquidity of each Morpho Blue market in the `withdrawQueue` in the order set."
+    },
+    {
+      "line": 87,
+      "text": "  - The `withdrawQueue` contains all markets that have a non-zero cap or a non-zero vault allocation."
+    },
+    {
+      "line": 88,
+      "text": "- Instantaneously reallocate funds by supplying on markets of the `withdrawQueue` and withdrawing from markets that have the same loan asset as the vault's asset."
+    },
+    {
+      "line": 95,
+      "text": "Only one address can have this role."
+    },
+    {
+      "line": 106,
+      "text": "In some cases, the vault's curator or allocators may want to keep some funds \"idle\", to guarantee lenders that some liquidity can be withdrawn from the vault (beyond the liquidity of each of the vault's markets)."
+    },
+    {
+      "line": 108,
+      "text": "To achieve this, they can deposit in markets with `address(0)` as the oracle or the collateral, ensuring that these funds can't be borrowed."
+    },
+    {
+      "line": 109,
+      "text": "They are thus guaranteed to be liquid; though they won't generate interest."
+    },
+    {
+      "line": 113,
+      "text": "- `collateralToken`: `address(0)` (not necessary since no funds will be borrowed on this market)"
+    },
+    {
+      "line": 114,
+      "text": "- `irm`: `address(0)` (Morpho Blue will skip the call to the IRM in this case, thus reducing the gas cost)"
+    },
+    {
+      "line": 115,
+      "text": "- `oracle`: `address(0)` (not necessary since no funds will be borrowed on this market)"
+    },
+    {
+      "line": 130,
+      "text": "  - Set the vault’s rewards recipient address to the created URD using `setSkimRecipient`."
+    },
+    {
+      "line": 153,
+      "text": "     To ensure that submit cap does not revert because of a pending cap, it is recommended to batch the two previous transactions, for example using the multicall function of MetaMorpho."
+    },
+    {
+      "line": 155,
+      "text": "     If there is not enough liquidity on the market, remove the maximum available liquidity with the `reallocate` function, then put the market at the beginning of the withdraw queue (with the `updateWithdrawQueue` function)."
+    },
+    {
+      "line": 156,
+      "text": "- 4. Once all the supply has been removed from the market, the market can be removed from the withdraw queue with the `updateWithdrawQueue` function."
+    },
+    {
+      "line": 161,
+      "text": "If an enabled market starts reverting notably, many of the vault functions would revert as well (because of the call to `totalAssets`)."
+    },
+    {
+      "line": 166,
+      "text": "     To ensure that submit cap does not revert because of a pending cap, it is recommended to batch the two previous transactions, for example using the multicall function of MetaMorpho."
+    },
+    {
+      "line": 169,
+      "text": "- 5. Once the timelock has elapsed, the market can be removed from the withdraw queue with the `updateWithdrawQueue` function."
+    },
+    {
+      "line": 187,
+      "text": "- 3. Set a new withdraw queue that is in line with the vault risk strategy with the `updateWithdrawQueue` function (this can also be done by the curator or the other allocators)."
+    }
+  ],
+  "success": true
+}

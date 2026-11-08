@@ -1,0 +1,544 @@
+{
+  "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+  "fetched_at_utc": "2026-11-08T15:39:03.551709+00:00",
+  "http_status": 200,
+  "sha256": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7",
+  "excerpts": [
+    {
+      "line": 513,
+      "text": "    /// @dev Warning: May be lower than the actual amount of assets that can be withdrawn by `owner` due to conversion"
+    },
+    {
+      "line": 514,
+      "text": "    /// roundings between shares and assets."
+    },
+    {
+      "line": 515,
+      "text": "    function maxWithdraw(address owner) public view override returns (uint256 assets) {"
+    },
+    {
+      "line": 516,
+      "text": "        (assets,,) = _maxWithdraw(owner);"
+    },
+    {
+      "line": 517,
+      "text": "    }"
+    },
+    {
+      "line": 518,
+      "text": ""
+    },
+    {
+      "line": 519,
+      "text": "    /// @inheritdoc IERC4626"
+    },
+    {
+      "line": 520,
+      "text": "    /// @dev May overestimate the real result when called in the middle of a Blue callback execution. The reason is that"
+    },
+    {
+      "line": 521,
+      "text": "    /// _simulateWithdrawMorpho counts the Blue loan token balance once per market instead of once. But when not in a"
+    },
+    {
+      "line": 522,
+      "text": "    /// Blue callback, the Blue balance cannot be the limiting factor so it does not overestimate then."
+    },
+    {
+      "line": 523,
+      "text": "    /// @dev Warning: May be lower than the actual amount of shares that can be redeemed by `owner` due to conversion"
+    },
+    {
+      "line": 524,
+      "text": "    /// roundings between shares and assets."
+    },
+    {
+      "line": 525,
+      "text": "    function maxRedeem(address owner) public view override returns (uint256) {"
+    },
+    {
+      "line": 526,
+      "text": "        (uint256 assets, uint256 newTotalSupply, uint256 newTotalAssets) = _maxWithdraw(owner);"
+    },
+    {
+      "line": 527,
+      "text": ""
+    },
+    {
+      "line": 528,
+      "text": "        return _convertToSharesWithTotals(assets, newTotalSupply, newTotalAssets, Math.Rounding.Floor);"
+    },
+    {
+      "line": 529,
+      "text": "    }"
+    },
+    {
+      "line": 530,
+      "text": ""
+    },
+    {
+      "line": 531,
+      "text": "    /// @inheritdoc IERC4626"
+    },
+    {
+      "line": 532,
+      "text": "    /// @notice For tokens with 18 decimals, the protection against the inflation front-running attack is low. To"
+    },
+    {
+      "line": 533,
+      "text": "    /// protect against this attack, vault deployers should make an initial deposit of a non-trivial amount in the vault"
+    },
+    {
+      "line": 534,
+      "text": "    /// or depositors should check that the share price does not exceed a certain limit."
+    },
+    {
+      "line": 535,
+      "text": "    function deposit(uint256 assets, address receiver) public override returns (uint256 shares) {"
+    },
+    {
+      "line": 536,
+      "text": "        uint256 newTotalAssets = _accrueFee();"
+    },
+    {
+      "line": 537,
+      "text": ""
+    },
+    {
+      "line": 538,
+      "text": "        // Update `lastTotalAssets` to avoid an inconsistent state in a re-entrant context."
+    },
+    {
+      "line": 539,
+      "text": "        // It is updated again in `_deposit`."
+    },
+    {
+      "line": 540,
+      "text": "        lastTotalAssets = newTotalAssets;"
+    },
+    {
+      "line": 541,
+      "text": ""
+    },
+    {
+      "line": 542,
+      "text": "        shares = _convertToSharesWithTotals(assets, totalSupply(), newTotalAssets, Math.Rounding.Floor);"
+    },
+    {
+      "line": 543,
+      "text": ""
+    },
+    {
+      "line": 544,
+      "text": "        _deposit(_msgSender(), receiver, assets, shares);"
+    },
+    {
+      "line": 545,
+      "text": "    }"
+    },
+    {
+      "line": 546,
+      "text": ""
+    },
+    {
+      "line": 547,
+      "text": "    /// @inheritdoc IERC4626"
+    },
+    {
+      "line": 548,
+      "text": "    function mint(uint256 shares, address receiver) public override returns (uint256 assets) {"
+    },
+    {
+      "line": 602,
+      "text": "    /// @dev Returns the maximum amount of asset (`assets`) that the `owner` can withdraw from the vault, as well as the"
+    },
+    {
+      "line": 603,
+      "text": "    /// new vault's total supply (`newTotalSupply`) and total assets (`newTotalAssets`)."
+    },
+    {
+      "line": 604,
+      "text": "    function _maxWithdraw(address owner)"
+    },
+    {
+      "line": 605,
+      "text": "        internal"
+    },
+    {
+      "line": 606,
+      "text": "        view"
+    },
+    {
+      "line": 607,
+      "text": "        returns (uint256 assets, uint256 newTotalSupply, uint256 newTotalAssets)"
+    },
+    {
+      "line": 608,
+      "text": "    {"
+    },
+    {
+      "line": 609,
+      "text": "        uint256 feeShares;"
+    },
+    {
+      "line": 610,
+      "text": "        (feeShares, newTotalAssets) = _accruedFeeShares();"
+    },
+    {
+      "line": 611,
+      "text": "        newTotalSupply = totalSupply() + feeShares;"
+    },
+    {
+      "line": 612,
+      "text": ""
+    },
+    {
+      "line": 613,
+      "text": "        assets = _convertToAssetsWithTotals(balanceOf(owner), newTotalSupply, newTotalAssets, Math.Rounding.Floor);"
+    },
+    {
+      "line": 614,
+      "text": "        assets -= _simulateWithdrawMorpho(assets);"
+    },
+    {
+      "line": 615,
+      "text": "    }"
+    },
+    {
+      "line": 616,
+      "text": ""
+    },
+    {
+      "line": 617,
+      "text": "    /// @dev Returns the maximum amount of assets that the vault can supply on Morpho."
+    },
+    {
+      "line": 618,
+      "text": "    function _maxDeposit() internal view returns (uint256 totalSuppliable) {"
+    },
+    {
+      "line": 619,
+      "text": "        for (uint256 i; i < supplyQueue.length; ++i) {"
+    },
+    {
+      "line": 620,
+      "text": "            Id id = supplyQueue[i];"
+    },
+    {
+      "line": 621,
+      "text": ""
+    },
+    {
+      "line": 622,
+      "text": "            uint256 supplyCap = config[id].cap;"
+    },
+    {
+      "line": 623,
+      "text": "            if (supplyCap == 0) continue;"
+    },
+    {
+      "line": 624,
+      "text": ""
+    },
+    {
+      "line": 625,
+      "text": "            uint256 supplyShares = MORPHO.supplyShares(id, address(this));"
+    },
+    {
+      "line": 626,
+      "text": "            (uint256 totalSupplyAssets, uint256 totalSupplyShares,,) = MORPHO.expectedMarketBalances(_marketParams(id));"
+    },
+    {
+      "line": 627,
+      "text": "            // `supplyAssets` needs to be rounded up for `totalSuppliable` to be rounded down."
+    },
+    {
+      "line": 684,
+      "text": "    /// @dev Used in redeem or withdraw to withdraw the underlying asset from Morpho markets."
+    },
+    {
+      "line": 685,
+      "text": "    /// @dev Depending on 3 cases, reverts when withdrawing \"too much\" with:"
+    },
+    {
+      "line": 686,
+      "text": "    /// 1. NotEnoughLiquidity when withdrawing more than available liquidity."
+    },
+    {
+      "line": 687,
+      "text": "    /// 2. ERC20InsufficientAllowance when withdrawing more than `caller`'s allowance."
+    },
+    {
+      "line": 688,
+      "text": "    /// 3. ERC20InsufficientBalance when withdrawing more than `owner`'s balance."
+    },
+    {
+      "line": 689,
+      "text": "    function _withdraw(address caller, address receiver, address owner, uint256 assets, uint256 shares)"
+    },
+    {
+      "line": 690,
+      "text": "        internal"
+    },
+    {
+      "line": 691,
+      "text": "        override"
+    },
+    {
+      "line": 692,
+      "text": "    {"
+    },
+    {
+      "line": 693,
+      "text": "        _withdrawMorpho(assets);"
+    },
+    {
+      "line": 694,
+      "text": ""
+    },
+    {
+      "line": 695,
+      "text": "        super._withdraw(caller, receiver, owner, assets, shares);"
+    },
+    {
+      "line": 696,
+      "text": "    }"
+    },
+    {
+      "line": 697,
+      "text": ""
+    },
+    {
+      "line": 698,
+      "text": "    /* INTERNAL */"
+    },
+    {
+      "line": 699,
+      "text": ""
+    },
+    {
+      "line": 700,
+      "text": "    /// @dev Returns the market params of the market defined by `id`."
+    },
+    {
+      "line": 701,
+      "text": "    function _marketParams(Id id) internal view returns (MarketParams memory) {"
+    },
+    {
+      "line": 702,
+      "text": "        return MORPHO.idToMarketParams(id);"
+    },
+    {
+      "line": 703,
+      "text": "    }"
+    },
+    {
+      "line": 704,
+      "text": ""
+    },
+    {
+      "line": 705,
+      "text": "    /// @dev Accrues interest on Morpho Blue and returns the vault's assets & corresponding shares supplied on the"
+    },
+    {
+      "line": 706,
+      "text": "    /// market defined by `marketParams`, as well as the market's state."
+    },
+    {
+      "line": 707,
+      "text": "    /// @dev Assumes that the inputs `marketParams` and `id` match."
+    },
+    {
+      "line": 708,
+      "text": "    function _accruedSupplyBalance(MarketParams memory marketParams, Id id)"
+    },
+    {
+      "line": 709,
+      "text": "        internal"
+    },
+    {
+      "line": 805,
+      "text": ""
+    },
+    {
+      "line": 806,
+      "text": "    /// @dev Withdraws `assets` from Morpho."
+    },
+    {
+      "line": 807,
+      "text": "    function _withdrawMorpho(uint256 assets) internal {"
+    },
+    {
+      "line": 808,
+      "text": "        for (uint256 i; i < withdrawQueue.length; ++i) {"
+    },
+    {
+      "line": 809,
+      "text": "            Id id = withdrawQueue[i];"
+    },
+    {
+      "line": 810,
+      "text": "            MarketParams memory marketParams = _marketParams(id);"
+    },
+    {
+      "line": 811,
+      "text": "            (uint256 supplyAssets,, Market memory market) = _accruedSupplyBalance(marketParams, id);"
+    },
+    {
+      "line": 812,
+      "text": ""
+    },
+    {
+      "line": 813,
+      "text": "            uint256 toWithdraw = UtilsLib.min("
+    },
+    {
+      "line": 814,
+      "text": "                _withdrawable(marketParams, market.totalSupplyAssets, market.totalBorrowAssets, supplyAssets), assets"
+    },
+    {
+      "line": 815,
+      "text": "            );"
+    },
+    {
+      "line": 816,
+      "text": ""
+    },
+    {
+      "line": 817,
+      "text": "            if (toWithdraw > 0) {"
+    },
+    {
+      "line": 818,
+      "text": "                // Using try/catch to skip markets that revert."
+    },
+    {
+      "line": 819,
+      "text": "                try MORPHO.withdraw(marketParams, toWithdraw, 0, address(this), address(this)) {"
+    },
+    {
+      "line": 820,
+      "text": "                    assets -= toWithdraw;"
+    },
+    {
+      "line": 821,
+      "text": "                } catch {}"
+    },
+    {
+      "line": 822,
+      "text": "            }"
+    },
+    {
+      "line": 823,
+      "text": ""
+    },
+    {
+      "line": 824,
+      "text": "            if (assets == 0) return;"
+    },
+    {
+      "line": 825,
+      "text": "        }"
+    },
+    {
+      "line": 826,
+      "text": ""
+    },
+    {
+      "line": 827,
+      "text": "        if (assets != 0) revert ErrorsLib.NotEnoughLiquidity();"
+    },
+    {
+      "line": 828,
+      "text": "    }"
+    },
+    {
+      "line": 829,
+      "text": ""
+    },
+    {
+      "line": 830,
+      "text": "    /// @dev Simulates a withdraw of `assets` from Morpho."
+    },
+    {
+      "line": 831,
+      "text": "    /// @return The remaining assets to be withdrawn."
+    },
+    {
+      "line": 832,
+      "text": "    function _simulateWithdrawMorpho(uint256 assets) internal view returns (uint256) {"
+    },
+    {
+      "line": 833,
+      "text": "        for (uint256 i; i < withdrawQueue.length; ++i) {"
+    },
+    {
+      "line": 834,
+      "text": "            Id id = withdrawQueue[i];"
+    },
+    {
+      "line": 835,
+      "text": "            MarketParams memory marketParams = _marketParams(id);"
+    },
+    {
+      "line": 836,
+      "text": ""
+    },
+    {
+      "line": 837,
+      "text": "            uint256 supplyShares = MORPHO.supplyShares(id, address(this));"
+    },
+    {
+      "line": 838,
+      "text": "            (uint256 totalSupplyAssets, uint256 totalSupplyShares, uint256 totalBorrowAssets,) ="
+    },
+    {
+      "line": 839,
+      "text": "                MORPHO.expectedMarketBalances(marketParams);"
+    },
+    {
+      "line": 840,
+      "text": ""
+    },
+    {
+      "line": 841,
+      "text": "            // The vault withdrawing from Morpho cannot fail because:"
+    },
+    {
+      "line": 842,
+      "text": "            // 1. oracle.price() is never called (the vault doesn't borrow)"
+    },
+    {
+      "line": 843,
+      "text": "            // 2. the amount is capped to the liquidity available on Morpho"
+    },
+    {
+      "line": 844,
+      "text": "            // 3. virtually accruing interest didn't fail"
+    },
+    {
+      "line": 845,
+      "text": "            assets = assets.zeroFloorSub("
+    },
+    {
+      "line": 846,
+      "text": "                _withdrawable("
+    },
+    {
+      "line": 847,
+      "text": "                    marketParams,"
+    },
+    {
+      "line": 848,
+      "text": "                    totalSupplyAssets,"
+    },
+    {
+      "line": 849,
+      "text": "                    totalBorrowAssets,"
+    },
+    {
+      "line": 850,
+      "text": "                    supplyShares.toAssetsDown(totalSupplyAssets, totalSupplyShares)"
+    }
+  ]
+}

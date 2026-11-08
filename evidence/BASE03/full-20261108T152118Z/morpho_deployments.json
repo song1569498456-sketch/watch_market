@@ -1,0 +1,8 @@
+{
+  "name": "morpho_deployments",
+  "url": "https://docs.morpho.org/get-started/resources/addresses/",
+  "fetched_at_utc": "2026-11-08T15:38:47.375895+00:00",
+  "method": "GET",
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}
