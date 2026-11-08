@@ -16,7 +16,23 @@
     "routes_quoted": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+        "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+      ],
+      "ethereum_block": null,
+      "arbitrum_block": null,
+      "verified_token_mappings": 0,
+      "routes_quoted": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
@@ -40,7 +56,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:59:38.477498+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/X-ARB/full-20261108T152118Z/record.json"
+  "record": "evidence/X-ARB/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+    "verified_at": "2026-11-08T16:00:22.271895+00:00",
+    "record": "evidence/X-ARB/full-20261108T152118Z/record.json"
+  }
 }

@@ -1,0 +1,337 @@
+{
+  "started_at": "2026-11-08T16:01:03.338601+00:00",
+  "sources": [
+    {
+      "source": "ethereum-rpc",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-08T16:01:03.338607+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-rpc",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-08T16:01:04.363108+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-official-superchain-registry",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/base.toml",
+      "retrieved_at_utc": "2026-11-08T16:01:05.369415+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "canonical-bridge-source",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/optimism/develop/packages/contracts-bedrock/src/universal/StandardBridge.sol",
+      "retrieved_at_utc": "2026-11-08T16:01:06.752272+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "7148784212c674ccfa601d4f58c47e94c58e9020d2192731ba5ba61525d86af4",
+      "bytes_read": 22177,
+      "excerpts": [
+        {
+          "line": 110,
+          "text": "    /// @notice Ensures that the caller is a cross-chain message from the other bridge."
+        },
+        {
+          "line": 111,
+          "text": "    modifier onlyOtherBridge() {"
+        },
+        {
+          "line": 112,
+          "text": "        require("
+        },
+        {
+          "line": 113,
+          "text": "            msg.sender == address(messenger) && messenger.xDomainMessageSender() == address(otherBridge),"
+        },
+        {
+          "line": 114,
+          "text": "            \"StandardBridge: function can only be called from the other bridge\""
+        },
+        {
+          "line": 115,
+          "text": "        );"
+        },
+        {
+          "line": 116,
+          "text": "        _;"
+        },
+        {
+          "line": 117,
+          "text": "    }"
+        },
+        {
+          "line": 161,
+          "text": "    /// @notice Sends ETH to the sender's address on the other chain."
+        },
+        {
+          "line": 162,
+          "text": "    /// @param _minGasLimit Minimum amount of gas that the bridge can be relayed with."
+        },
+        {
+          "line": 163,
+          "text": "    /// @param _extraData   Extra data to be sent with the transaction. Note that the recipient will"
+        },
+        {
+          "line": 164,
+          "text": "    ///                     not be triggered with this data, but it will be emitted and can be used"
+        },
+        {
+          "line": 165,
+          "text": "    ///                     to identify the transaction."
+        },
+        {
+          "line": 166,
+          "text": "    function bridgeETH(uint32 _minGasLimit, bytes calldata _extraData) public payable onlyEOA {"
+        },
+        {
+          "line": 167,
+          "text": "        _initiateBridgeETH(msg.sender, msg.sender, msg.value, _minGasLimit, _extraData);"
+        },
+        {
+          "line": 168,
+          "text": "    }"
+        },
+        {
+          "line": 169,
+          "text": ""
+        },
+        {
+          "line": 170,
+          "text": "    /// @notice Sends ETH to a receiver's address on the other chain. Note that if ETH is sent to a"
+        },
+        {
+          "line": 171,
+          "text": "    ///         smart contract and the call fails, the ETH will be temporarily locked in the"
+        },
+        {
+          "line": 172,
+          "text": "    ///         StandardBridge on the other chain until the call is replayed. If the call cannot be"
+        },
+        {
+          "line": 173,
+          "text": "    ///         replayed with any amount of gas (call always reverts), then the ETH will be"
+        },
+        {
+          "line": 174,
+          "text": "    ///         permanently locked in the StandardBridge on the other chain. ETH will also"
+        },
+        {
+          "line": 175,
+          "text": "    ///         be locked if the receiver is the other bridge, because finalizeBridgeETH will revert"
+        },
+        {
+          "line": 239,
+          "text": "    function finalizeBridgeETH("
+        },
+        {
+          "line": 240,
+          "text": "        address _from,"
+        },
+        {
+          "line": 241,
+          "text": "        address _to,"
+        },
+        {
+          "line": 242,
+          "text": "        uint256 _amount,"
+        },
+        {
+          "line": 243,
+          "text": "        bytes calldata _extraData"
+        },
+        {
+          "line": 244,
+          "text": "    )"
+        },
+        {
+          "line": 245,
+          "text": "        public"
+        },
+        {
+          "line": 246,
+          "text": "        payable"
+        },
+        {
+          "line": 247,
+          "text": "        onlyOtherBridge"
+        },
+        {
+          "line": 248,
+          "text": "    {"
+        },
+        {
+          "line": 249,
+          "text": "        require(paused() == false, \"StandardBridge: paused\");"
+        },
+        {
+          "line": 250,
+          "text": "        require(msg.value == _amount, \"StandardBridge: amount sent does not match amount required\");"
+        },
+        {
+          "line": 251,
+          "text": "        require(_to != address(this), \"StandardBridge: cannot send to self\");"
+        },
+        {
+          "line": 252,
+          "text": "        require(_to != address(messenger), \"StandardBridge: cannot send to messenger\");"
+        },
+        {
+          "line": 253,
+          "text": ""
+        },
+        {
+          "line": 254,
+          "text": "        // Emit the correct events. By default this will be _amount, but child"
+        },
+        {
+          "line": 255,
+          "text": "        // contracts may override this function in order to emit legacy events as well."
+        },
+        {
+          "line": 256,
+          "text": "        _emitETHBridgeFinalized(_from, _to, _amount, _extraData);"
+        },
+        {
+          "line": 257,
+          "text": ""
+        },
+        {
+          "line": 258,
+          "text": "        bool success = SafeCall.call(_to, gasleft(), _amount, hex\"\");"
+        },
+        {
+          "line": 309,
+          "text": "    function _initiateBridgeETH("
+        },
+        {
+          "line": 310,
+          "text": "        address _from,"
+        },
+        {
+          "line": 311,
+          "text": "        address _to,"
+        },
+        {
+          "line": 312,
+          "text": "        uint256 _amount,"
+        },
+        {
+          "line": 313,
+          "text": "        uint32 _minGasLimit,"
+        },
+        {
+          "line": 314,
+          "text": "        bytes memory _extraData"
+        },
+        {
+          "line": 315,
+          "text": "    )"
+        },
+        {
+          "line": 316,
+          "text": "        internal"
+        },
+        {
+          "line": 317,
+          "text": "    {"
+        },
+        {
+          "line": 318,
+          "text": "        require(msg.value == _amount, \"StandardBridge: bridging ETH must include sufficient ETH value\");"
+        },
+        {
+          "line": 323,
+          "text": ""
+        },
+        {
+          "line": 324,
+          "text": "        messenger.sendMessage{ value: _amount }({"
+        },
+        {
+          "line": 325,
+          "text": "            _target: address(otherBridge),"
+        },
+        {
+          "line": 326,
+          "text": "            _message: abi.encodeWithSelector(this.finalizeBridgeETH.selector, _from, _to, _amount, _extraData),"
+        },
+        {
+          "line": 327,
+          "text": "            _minGasLimit: _minGasLimit"
+        },
+        {
+          "line": 328,
+          "text": "        });"
+        }
+      ]
+    },
+    {
+      "source": "base-canonical-bridge-docs",
+      "url": "https://docs.base.org/base-chain/network-information/bridges-mainnet",
+      "retrieved_at_utc": "2026-11-08T16:01:08.170702+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "base-current-official-node-source",
+      "url": "https://raw.githubusercontent.com/base/base/main/README.md",
+      "retrieved_at_utc": "2026-11-08T16:01:50.826551+00:00",
+      "discovered_via": "archived N-BASE source migration handoff",
+      "http_status": 200,
+      "bytes_read": 2941,
+      "sha256": "985158a78fba796ba5bee4c0da0efd9cd5c07a560b8101057babbda7b808f941",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "# Base"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Base is a rollup built on Ethereum."
+        },
+        {
+          "line": 15,
+          "text": "- Visit the [docs](https://docs.base.org) for information on how to:"
+        },
+        {
+          "line": 16,
+          "text": "    - [Connect your wallet](https://docs.base.org/base-chain/quickstart/connecting-to-base)"
+        },
+        {
+          "line": 17,
+          "text": "    - [Run a node](https://docs.base.org/base-chain/node-operators/run-a-base-node)"
+        },
+        {
+          "line": 18,
+          "text": "    - [Deploy an app](https://docs.base.org/base-chain/quickstart/deploy-on-base)"
+        },
+        {
+          "line": 19,
+          "text": "- The [specs](https://specs.base.org) site has an overview of the protocol, including past and upcoming upgrades."
+        },
+        {
+          "line": 31,
+          "text": "This repository now hosts the public Base node previously published from [`base/node`](https://github.com/base/node). Root `docker-compose.yml` pulls `ghcr.io/base/node`. Pass `--build` to compile this tree. For local development, see [Run a Local Devnet](#run-a-local-devnet)."
+        }
+      ]
+    }
+  ]
+}

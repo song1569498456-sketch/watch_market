@@ -1,13 +1,34 @@
 {
   "agent_id": "X-BASE",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_CROSS_DOMAIN_RULES_AND_SOURCE_MIGRATION_ONLY",
+    "retrieved_at_utc": "2026-11-08T16:02:48.023654+00:00",
+    "ethereum_block_range": null,
+    "base_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "StandardBridge.sol110-117行finalize的onlyOtherBridge检查messenger与xDomainMessageSender；309-328行发跨域消息。",
+    "239-258行finalize检查paused、金额/接收地址并向接收方发送ETH；不能由基类paused()返回false推断Base实际桥未暂停。",
+    "新官方base/base README第31行确认承接旧base/node，第5行说明Base基于Ethereum；旧registry路径404不等于停链。",
+    "无可信当前桥部署、映射、市场或报价，因此不编native/wrapped同权益映射及候选路线。"
+  ],
+  "pending_questions": [
+    "30天桥映射/通道/规则变化与7天迁移活动未回溯；两链均无区块或交易证据。",
+    "Ethereum与Base RPC及Base桥文档均CONNECT 403，无法分别核验1/8453及当前两侧桥代码/实现/状态。",
+    "旧Superchain Base配置路径404；新官方base/base源码说明来源迁移，但未取得当前精确部署/资产映射，不因缺席判断停链。",
+    "通用OP StandardBridge开发分支未与Base当前桥部署绑定，不能把其接口/paused基类返回值当当前通道可用证明。",
+    "没有两侧DEX池/实际数量报价、桥额度/费用/到账/退款/最终性、库存恢复报价或初始双侧库存条件；无真实价差。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T16:02:48.023654+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
 }

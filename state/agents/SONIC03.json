@@ -18,7 +18,25 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "pool_document_address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "reference_functions_read": [
+        "executeBorrow",
+        "executeRepay"
+      ],
+      "current_block": null,
+      "actual_dex_pools_read": 0,
+      "debt_positions_checked": 0,
+      "complete_cycles_simulated": 0,
+      "transactions_analyzed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
     "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
@@ -35,7 +53,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:59:29.121575+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SONIC03/full-20261108T152118Z/record.json"
+  "record": "evidence/SONIC03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+    "verified_at": "2026-11-08T16:00:22.271895+00:00",
+    "record": "evidence/SONIC03/full-20261108T152118Z/record.json"
+  }
 }
