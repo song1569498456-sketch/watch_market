@@ -113,7 +113,11 @@
         "duplicate_of": null,
         "next_check": "先绑定主网实现；同状态分数量测现货和queue，记录requestId并与ETH05共用权益账本。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:24:52.450934+00:00",
+      "last_observed_at": "2026-11-08T15:24:52.450934+00:00",
+      "last_verified_onchain_at": null,
+      "capacity": "unknown"
     },
     {
       "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
@@ -164,7 +168,10 @@
         "duplicate_of": null,
         "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "last_observed_at": "2026-11-08T15:24:45.675031+00:00",
+      "last_verified_onchain_at": null,
+      "capacity": "unknown"
     },
     {
       "finding_id": "sol-whirlpool-token-interface-identity-check",
@@ -207,7 +214,18 @@
         "duplicate_of": null,
         "next_check": "先绑定当前程序版本，再在具体已登记池检查mint owner与转账扩展。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:24:55.859069+00:00",
+      "last_observed_at": "2026-11-08T15:24:55.859069+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "转账费/transfer hook",
+        "优先费",
+        "账户创建与可退租金",
+        "AMM费和滑点",
+        "退出费用"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
@@ -279,7 +297,11 @@
         "duplicate_of": null,
         "next_check": "先查当前部署及新增模块；存在明确公众出口后再建立经济路线。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
+      "last_observed_at": "2026-11-08T15:27:48.512703+00:00",
+      "last_verified_onchain_at": null,
+      "capacity": "unknown"
     },
     {
       "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
@@ -341,7 +363,18 @@
         "duplicate_of": null,
         "next_check": "采用base/base固定版本作源；恢复RPC后独立核运行情况。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:30:38.025797+00:00",
+      "last_observed_at": "2026-11-08T15:30:38.025797+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "DEX实际池费",
+        "价格冲击",
+        "L2执行费",
+        "L1数据费",
+        "授权/退出成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
@@ -386,7 +419,18 @@
         "duplicate_of": null,
         "next_check": "按完整交易与经济账本核费；已含费项不再重复扣。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:32:59.855358+00:00",
+      "last_observed_at": "2026-11-08T15:32:59.855358+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "实际gas/优先费",
+        "池动态费用",
+        "价格冲击",
+        "资产税/限制",
+        "退出费用"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
@@ -440,7 +484,18 @@
         "duplicate_of": null,
         "next_check": "建立真实A→B→C→A并按序模拟；不要total外再加其L1分量。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:35:29.566307+00:00",
+      "last_observed_at": "2026-11-08T15:35:29.566307+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "三腿池费/价格冲击",
+        "转账税",
+        "完整L2/L1费用",
+        "部署/授权",
+        "闪电贷费用及额度"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
@@ -480,7 +535,18 @@
         "duplicate_of": null,
         "next_check": "若具体路径跨L1，交X-ARB；另行验证任何本链即时出口。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:35:18.919313+00:00",
+      "last_observed_at": "2026-11-08T15:35:18.919313+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "DEX费用及滑点",
+        "当前L2/L1费用口径",
+        "真实退出费",
+        "等待天数/机会成本",
+        "wstETH/ETH份额转换率"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
@@ -536,7 +602,18 @@
         "duplicate_of": null,
         "next_check": "分别建资产节点，明确每条转换边后同状态测完整回路。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:37:39.140492+00:00",
+      "last_observed_at": "2026-11-08T15:37:39.140492+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "买入起始币成本",
+        "swap费/冲击",
+        "gas/授权",
+        "融资费",
+        "转账限制/退出费用"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "avax-ggavax-withdrawqueue-role-not-public-redemption",
@@ -577,7 +654,18 @@
         "duplicate_of": null,
         "next_check": "沿已授权正常queue用户入口核查，并独立处理sAVAX。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:37:20.904921+00:00",
+      "last_observed_at": "2026-11-08T15:37:20.904921+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "DEX费与滑点",
+        "份额转换率",
+        "退出费",
+        "C-Chain gas",
+        "等待时间及资金占用成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "base-metamorpho-nav-not-immediate-redemption",
@@ -627,7 +715,18 @@
         "duplicate_of": null,
         "next_check": "先确定Base具体vault和二级池，再比较四列，不混用不同实现。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:39:43.762988+00:00",
+      "last_observed_at": "2026-11-08T15:39:43.762988+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "二级份额买入费/滑点",
+        "赎回与策略退出费",
+        "底层资产变现成本",
+        "L1数据费与L2 gas",
+        "等待/亏损确认"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
@@ -681,7 +780,18 @@
         "duplicate_of": null,
         "next_check": "按账户和权利逐项分账，证明每份费用只分配一次。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:42:07.492556+00:00",
+      "last_observed_at": "2026-11-08T15:42:07.492556+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "真实各资产数量/价值",
+        "LP舍入/最小流动性",
+        "必要兑换费用/冲击",
+        "L2执行/L1数据费",
+        "授权和代币限制"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
@@ -722,7 +832,19 @@
         "duplicate_of": null,
         "next_check": "测完整mint→sell→buy VAI→repay→collateral exit账本。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
+      "last_observed_at": "2026-11-08T15:42:21.901356+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "取得/回收抵押物成本",
+        "treasury铸造费",
+        "VAI回购滑点及交易费",
+        "VAI本金与当前利息",
+        "BNB gas",
+        "退出/等待成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
@@ -767,7 +889,18 @@
         "duplicate_of": null,
         "next_check": "将liquidity、tokensOwed和已收款分别核，完整模拟确认最终余量。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:44:54.995487+00:00",
+      "last_observed_at": "2026-11-08T15:44:54.995487+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "真实底层资产数量/价格",
+        "池费/冲击",
+        "gas/授权",
+        "转账税/卖出限制",
+        "NFT清理/舍入"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
@@ -808,7 +941,18 @@
         "duplicate_of": null,
         "next_check": "指定正常账户只读核资格和余额，计参与与退出成本。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:44:36.743710+00:00",
+      "last_observed_at": "2026-11-08T15:44:36.743710+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "参与供借/锁定资产及资金占用",
+        "可能的借贷利息",
+        "claim和退出gas",
+        "卖出费/税/滑点",
+        "领取额度/次数与等待"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
@@ -872,7 +1016,11 @@
         "duplicate_of": null,
         "next_check": "绑定v1部署后同状态测普通持币人路径，实际成功赎回量与未赎LUSD分别记。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
+      "last_observed_at": "2026-11-08T15:46:58.517342+00:00",
+      "last_verified_onchain_at": null,
+      "capacity": "unknown"
     },
     {
       "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
@@ -936,7 +1084,18 @@
         "duplicate_of": null,
         "next_check": "先有真实二级流动性，再同状态测试账户可执行退出。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:47:03.965320+00:00",
+      "last_observed_at": "2026-11-08T15:47:03.965320+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "二级买入价/冲击",
+        "当前赎回状态/费用",
+        "ETH gas/授权",
+        "DAI变现成本",
+        "等待与现行限制"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
@@ -977,7 +1136,19 @@
         "duplicate_of": null,
         "next_check": "先找到真实合规仓位，只读完整路径核实，不用名义奖金记利润。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:46:46.422746+00:00",
+      "last_observed_at": "2026-11-08T15:46:46.422746+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "实际代还本金",
+        "清算协议抽成",
+        "抵押品卖出/赎回费与滑点",
+        "Ethereum gas与优先费",
+        "融资费/利息",
+        "未退出抵押与残余债务"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
@@ -1022,7 +1193,18 @@
         "duplicate_of": null,
         "next_check": "核实际发行方出口和普通合格账户条件；burn与现金分开。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:49:23.421716+00:00",
+      "last_observed_at": "2026-11-08T15:49:23.421716+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "DEX买入价/冲击",
+        "兑付与账户费用",
+        "L2执行/L1数据费",
+        "等待成本",
+        "接收资产退出成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
@@ -1063,7 +1245,18 @@
         "duplicate_of": null,
         "next_check": "在真实池同时检查当前权限与数量报价，再测双DEX路线。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
+      "last_observed_at": "2026-11-08T15:49:05.707031+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "两腿池费/路由费",
+        "转账税",
+        "滑点/动态费",
+        "L2 gas与L1数据费",
+        "账户/授权前提"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
@@ -1119,7 +1312,18 @@
         "duplicate_of": null,
         "next_check": "逐Polygon仓位同状态核验证据，不能套旧close factor或跨链仓位。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:51:39.625601+00:00",
+      "last_observed_at": "2026-11-08T15:51:39.625601+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "代还本金/融资费用",
+        "抵押出售冲击/DEX费",
+        "aToken退出容量",
+        "真实gas/优先费",
+        "授权及代币限制"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "poly-usdc-usdce-not-identical-asset-crossdex-loop",
@@ -1160,7 +1364,18 @@
         "duplicate_of": null,
         "next_check": "按合约地址建图，保留原生/桥接转换边后报价。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:51:15.311322+00:00",
+      "last_observed_at": "2026-11-08T15:51:15.311322+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "双腿DEX/路由费",
+        "转账税",
+        "滑点/动态费",
+        "当前原生gas费用",
+        "若非同权益需额外转换成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
@@ -1214,7 +1429,17 @@
         "duplicate_of": null,
         "next_check": "只读核真实注册资产与敞口；有异常才给RISK_ONLY，不制作利用路径。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:54:10.950788+00:00",
+      "last_observed_at": "2026-11-08T15:54:10.950788+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "资产买卖/赎回成本",
+        "借款本息",
+        "gas",
+        "坏账/回收能力"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "poly-pmct-not-outcome-collateral-lending-proof",
@@ -1298,7 +1523,18 @@
         "duplicate_of": null,
         "next_check": "先核Polygon实际部署与正常offramp，再建立具体事件/借贷映射；PMCT/pUSD不替代outcome。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:54:30.454783+00:00",
+      "last_observed_at": "2026-11-08T15:54:30.454783+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "实际兑付/赎回成本",
+        "wrapper转换费/精度",
+        "借贷利息与退出费",
+        "当前gas",
+        "真实卖出成本"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
@@ -1353,7 +1589,18 @@
         "duplicate_of": null,
         "next_check": "先确集群和版本，再核具体账户；不套EVM HF/地址口径。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:57:10.826803+00:00",
+      "last_observed_at": "2026-11-08T15:57:10.826803+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "实际代还/融资本息",
+        "卖出冲击/费用",
+        "Token2022扩展/冻结/权限",
+        "优先费/CU费用",
+        "账户创建和可退租金"
+      ],
+      "capacity": "unknown"
     },
     {
       "finding_id": "SONIC-BEETS-STS-REDEEM-S",
@@ -1418,7 +1665,11 @@
         "duplicate_of": null,
         "next_check": "绑定Sonic部署后分现货/即时/异步三出口测数量；有真实等待再给盈亏平衡成本。"
       },
-      "initial_research_status": "UNVERIFIED"
+      "initial_research_status": "UNVERIFIED",
+      "first_seen_at": "2026-11-08T15:59:34.134204+00:00",
+      "last_observed_at": "2026-11-08T15:59:34.134204+00:00",
+      "last_verified_onchain_at": null,
+      "capacity": "unknown"
     },
     {
       "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
@@ -1474,7 +1725,18 @@
         "duplicate_of": null,
         "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。"
       },
-      "initial_research_status": "REJECTED"
+      "initial_research_status": "REJECTED",
+      "first_seen_at": "2026-11-08T15:59:29.121575+00:00",
+      "last_observed_at": "2026-11-08T15:59:29.121575+00:00",
+      "last_verified_onchain_at": null,
+      "unknown_costs": [
+        "抵押资产取得/退出",
+        "借贷利息",
+        "卖出和回购费/冲击",
+        "gas/授权",
+        "等待与清算风险"
+      ],
+      "capacity": "unknown"
     }
   ],
   "status": "BASELINE_PARTIAL",

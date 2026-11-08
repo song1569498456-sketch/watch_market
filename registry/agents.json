@@ -5,7 +5,7 @@
       "agent_id": "M00",
       "enabled": true,
       "status": "COMPLETED",
-      "last_success_at": null,
+      "last_success_at": "2026-11-08T16:17:10.111901+00:00",
       "last_attempt_at": "2026-11-08T16:17:10.111901+00:00",
       "actual_coverage": [
         "验证正式分支包含初始化提交；48岗位提示词齐备，合法空历史开始。",
@@ -21,7 +21,25 @@
         "TRON、Sui及其他未启用链不在当前九链范围；不作全链承诺。",
         "本轮无云端定时或后台长期进程。"
       ],
-      "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
+      "task": "主agent_全局发现与任务编排",
+      "chain": "CONTROL",
+      "owner": "current_cloud_main_agent",
+      "prompt": "prompts/agents/M00.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
+        "verified_at": "2026-11-08T16:17:16.006237+00:00",
+        "record": "evidence/M00/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "Q00",
@@ -64,7 +82,25 @@
         "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
         "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
       ],
-      "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
+      "task": "独立复核与假机会排除",
+      "chain": "CONTROL",
+      "owner": "independent_reviewer",
+      "prompt": "prompts/agents/Q00.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
+        "verified_at": "2026-11-08T16:16:31.737220+00:00",
+        "record": "evidence/Q00/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-ARB",
@@ -84,7 +120,25 @@
         "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
         "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
       ],
-      "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "ARB",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/N-ARB.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+        "verified_at": "2026-11-08T15:30:59.022489+00:00",
+        "record": "evidence/N-ARB/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-AVAX",
@@ -104,7 +158,25 @@
         "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
         "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
       ],
-      "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "AVAX",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/N-AVAX.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+        "verified_at": "2026-11-08T15:33:32.477653+00:00",
+        "record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-BASE",
@@ -125,7 +197,25 @@
         "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
         "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
       ],
-      "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "BASE",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/N-BASE.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+        "verified_at": "2026-11-08T15:30:59.022489+00:00",
+        "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-BNB",
@@ -144,7 +234,25 @@
         "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
         "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
       ],
-      "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "BNB",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/N-BNB.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+        "verified_at": "2026-11-08T15:25:36.912083+00:00",
+        "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-ETH",
@@ -164,7 +272,25 @@
         "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
         "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
       ],
-      "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "ETH",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/N-ETH.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+        "verified_at": "2026-11-08T15:25:36.912083+00:00",
+        "record": "evidence/N-ETH/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-OP",
@@ -194,7 +320,25 @@
         "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
         "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
       ],
-      "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "OP",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/N-OP.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+        "verified_at": "2026-11-08T15:30:59.022489+00:00",
+        "record": "evidence/N-OP/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-POLY",
@@ -214,7 +358,25 @@
         "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
         "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
       ],
-      "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "POLY",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/N-POLY.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+        "verified_at": "2026-11-08T15:33:32.477653+00:00",
+        "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-SOL",
@@ -249,7 +411,25 @@
         "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
         "旧小池退出窗口、数量报价及完整成本未核验。"
       ],
-      "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "SOL",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/N-SOL.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+        "verified_at": "2026-11-08T15:25:36.912083+00:00",
+        "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "N-SONIC",
@@ -284,7 +464,25 @@
         "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
         "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
       ],
-      "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
+      "task": "新市场、新规则与新操作发现",
+      "chain": "SONIC",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/N-SONIC.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+        "verified_at": "2026-11-08T15:33:32.477653+00:00",
+        "record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ARB01",
@@ -304,7 +502,25 @@
         "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
         "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
       ],
-      "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
+      "task": "同资产对跨DEX价差",
+      "chain": "ARB",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/ARB01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+        "verified_at": "2026-11-08T15:35:55.555537+00:00",
+        "record": "evidence/ARB01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ARB02",
@@ -325,7 +541,25 @@
         "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
         "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
       ],
-      "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
+      "task": "三资产多池闭环兑换",
+      "chain": "ARB",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/ARB02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+        "verified_at": "2026-11-08T15:35:55.555537+00:00",
+        "record": "evidence/ARB02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ARB03",
@@ -355,7 +589,25 @@
         "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
         "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
       ],
-      "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押衍生品折价赎回",
+      "chain": "ARB",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/ARB03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
+        "verified_at": "2026-11-08T15:35:55.555537+00:00",
+        "record": "evidence/ARB03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ARB04",
@@ -374,7 +626,25 @@
         "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
         "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
       ],
-      "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
+      "task": "金库份额二级折价",
+      "chain": "ARB",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/ARB04.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
+        "verified_at": "2026-11-08T15:38:02.616211+00:00",
+        "record": "evidence/ARB04/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "AVAX01",
@@ -395,7 +665,25 @@
         "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
         "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
       ],
-      "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币池闭环兑换",
+      "chain": "AVAX",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/AVAX01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
+        "verified_at": "2026-11-08T15:38:02.616211+00:00",
+        "record": "evidence/AVAX01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "AVAX02",
@@ -430,7 +718,25 @@
         "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
         "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
       ],
-      "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押衍生品折价赎回",
+      "chain": "AVAX",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/AVAX02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
+        "verified_at": "2026-11-08T15:38:02.616211+00:00",
+        "record": "evidence/AVAX02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BASE01",
@@ -450,7 +756,25 @@
         "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
         "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
       ],
-      "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币市场与赎回出口",
+      "chain": "BASE",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/BASE01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+        "verified_at": "2026-11-08T15:40:29.232589+00:00",
+        "record": "evidence/BASE01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BASE02",
@@ -470,7 +794,25 @@
         "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
         "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
       ],
-      "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押衍生品折价赎回",
+      "chain": "BASE",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/BASE02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+        "verified_at": "2026-11-08T15:40:29.232589+00:00",
+        "record": "evidence/BASE02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BASE03",
@@ -499,7 +841,25 @@
         "7天活动窗口未覆盖，无区块/交易或分页游标。",
         "owner余额/allowance、maxRedeem/maxWithdraw、真实可提现金、费用/队列及底层变现均unknown。"
       ],
-      "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
+      "task": "金库份额二级折价",
+      "chain": "BASE",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/BASE03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
+        "verified_at": "2026-11-08T15:40:29.232589+00:00",
+        "record": "evidence/BASE03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BASE04",
@@ -519,7 +879,25 @@
         "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
         "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
       ],
-      "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
+      "task": "正常借贷清算兑现",
+      "chain": "BASE",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/BASE04.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+        "verified_at": "2026-11-08T15:42:39.302063+00:00",
+        "record": "evidence/BASE04/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BASE05",
@@ -540,7 +918,25 @@
         "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
         "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。"
       ],
-      "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
+      "task": "LP份额正常存取差异",
+      "chain": "BASE",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/BASE05.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+        "verified_at": "2026-11-08T15:42:39.302063+00:00",
+        "record": "evidence/BASE05/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BNB01",
@@ -560,7 +956,25 @@
         "DEX发现接口遭403，未取得真实池地址、按数量买入/退出报价；不能声称lisUSD当前折价。",
         "未证明存在无需抵押仓位的公众赎回合约；文档地址未经本轮链上代码/代理实现核验。"
       ],
-      "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币折价买入与真实赎回",
+      "chain": "BNB",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/BNB01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+        "verified_at": "2026-11-08T15:28:11.087298+00:00",
+        "record": "evidence/BNB01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BNB02",
@@ -588,7 +1002,25 @@
         "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
         "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
       ],
-      "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
+      "task": "铸造卖出与完整偿债",
+      "chain": "BNB",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/BNB02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
+        "verified_at": "2026-11-08T15:42:39.302063+00:00",
+        "record": "evidence/BNB02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BNB03",
@@ -608,7 +1040,25 @@
         "官方Aave地址书只有稳定资产合约与18位精度线索；不是池级身份、发行担保或赎回资格证据。",
         "无两三腿真实池地址、费用、不变量/储备、上一腿输出衔接、报价或原子模拟，净额/容量unknown。"
       ],
-      "report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币池闭环兑换",
+      "chain": "BNB",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/BNB03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+        "verified_at": "2026-11-08T15:45:17.258417+00:00",
+        "record": "evidence/BNB03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BNB04",
@@ -629,7 +1079,25 @@
         "30天参数/部署/费率/存取窗口变更未覆盖；7天真实加减仓交易/旧小池状态未覆盖。",
         "真实gas、转账税/卖出限制、持仓费率/价格冲击、奖励归属与可提现容量均未核验。"
       ],
-      "report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md",
+      "task": "LP份额正常存取差异",
+      "chain": "BNB",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/BNB04.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+        "verified_at": "2026-11-08T15:45:17.258417+00:00",
+        "record": "evidence/BNB04/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "BNB05",
@@ -656,7 +1124,25 @@
         "没有普通新参与者资格与accrued余额测量，历史快照/持仓与限制unknown。",
         "DEX发现CONNECT403，没有真实出口、可售数量或完整成本报价。"
       ],
-      "report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/BNB05/2026-11-08/full-20261108T152118Z.md",
+      "task": "公开领取与铸币权益的真实成本",
+      "chain": "BNB",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/BNB05.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
+        "verified_at": "2026-11-08T15:45:17.258417+00:00",
+        "record": "evidence/BNB05/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ETH01",
@@ -678,7 +1164,25 @@
         "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
         "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
       ],
-      "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押衍生品即时与排队赎回",
+      "chain": "ETH",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/ETH01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+        "verified_at": "2026-11-08T15:28:11.087298+00:00",
+        "record": "evidence/ETH01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ETH02",
@@ -698,7 +1202,25 @@
         "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
         "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
       ],
-      "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币折价与兑付",
+      "chain": "ETH",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/ETH02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+        "verified_at": "2026-11-08T15:47:35.918126+00:00",
+        "record": "evidence/ETH02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ETH03",
@@ -719,7 +1241,25 @@
         "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
         "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
       ],
-      "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
+      "task": "金库份额折价与提款",
+      "chain": "ETH",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/ETH03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+        "verified_at": "2026-11-08T15:47:35.918126+00:00",
+        "record": "evidence/ETH03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ETH04",
@@ -747,7 +1287,25 @@
         "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
         "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。"
       ],
-      "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md",
+      "task": "正常借贷清算兑现",
+      "chain": "ETH",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/ETH04.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
+        "verified_at": "2026-11-08T15:47:35.918126+00:00",
+        "record": "evidence/ETH04/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "ETH05",
@@ -767,7 +1325,25 @@
         "没有实际NFT可成交买单/卖单与取得成本、gas/等待或剩余可支付ETH，无法核算NFT买入→领取收益。",
         "仅有官方静态部署与源码；NFT转移后的current owner逻辑需要当前实现核对，不使用地板价或显示APR计收入。"
       ],
-      "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md",
+      "task": "NFT与销毁铸造权益的兑现研究",
+      "chain": "ETH",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/ETH05.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
+        "verified_at": "2026-11-08T15:49:44.821008+00:00",
+        "record": "evidence/ETH05/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "OP01",
@@ -787,7 +1363,25 @@
         "30天发行/桥迁移/权限/费率规则变更未覆盖，7天实际兑付和交易未覆盖。",
         "实际买入价、可兑现金/接收资产、等待与退出深度、完整L2/L1费用均未取得。"
       ],
-      "report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/OP01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币折价与兑付",
+      "chain": "OP",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/OP01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
+        "verified_at": "2026-11-08T15:49:44.821008+00:00",
+        "record": "evidence/OP01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "OP02",
@@ -816,7 +1410,25 @@
         "未检验底层独立、储备真实性、转账税/封装权益与卖出/激活状态。",
         "没有同状态两腿指定数量报价、曲线、容量、最终重报价或模拟。"
       ],
-      "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
+      "task": "同资产对跨DEX价差",
+      "chain": "OP",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/OP02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
+        "verified_at": "2026-11-08T15:49:44.821008+00:00",
+        "record": "evidence/OP02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "POLY01",
@@ -836,7 +1448,25 @@
         "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
         "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
       ],
-      "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币折价与兑付",
+      "chain": "POLY",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/POLY01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+        "verified_at": "2026-11-08T15:52:19.836508+00:00",
+        "record": "evidence/POLY01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "POLY02",
@@ -857,7 +1487,25 @@
         "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
         "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
       ],
-      "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
+      "task": "正常清算与抵押品兑现",
+      "chain": "POLY",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/POLY02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+        "verified_at": "2026-11-08T15:52:19.836508+00:00",
+        "record": "evidence/POLY02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "POLY03",
@@ -891,7 +1539,25 @@
         "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
         "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
       ],
-      "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
+      "task": "同资产对跨DEX价差",
+      "chain": "POLY",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/POLY03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
+        "verified_at": "2026-11-08T15:52:19.836508+00:00",
+        "record": "evidence/POLY03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "R-BASE",
@@ -912,7 +1578,25 @@
         "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
         "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
       ],
-      "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
+      "task": "金库净值与真实可兑资产风险",
+      "chain": "BASE",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/R-BASE.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+        "verified_at": "2026-11-08T15:55:22.338512+00:00",
+        "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "R-BNB",
@@ -933,7 +1617,25 @@
         "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
         "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
       ],
-      "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
+      "task": "抵押资产资格与真实价值风险",
+      "chain": "BNB",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/R-BNB.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+        "verified_at": "2026-11-08T15:55:22.338512+00:00",
+        "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "R-POLY",
@@ -975,7 +1677,25 @@
         "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
         "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
       ],
-      "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
+      "task": "预测事件结算与借贷估值风险",
+      "chain": "POLY",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/R-POLY.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
+        "verified_at": "2026-11-08T15:55:22.338512+00:00",
+        "record": "evidence/R-POLY/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SOL01",
@@ -1323,7 +2043,25 @@
         "无法验证同mint与Token Program、底层池独立性、禁卖/激活状态、Token-2022扩展。",
         "无同slot两腿指定数量报价、数量收益曲线、容量或完整路径模拟。"
       ],
-      "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
+      "task": "同资产对跨DEX价差",
+      "chain": "SOL",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/SOL01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+        "verified_at": "2026-11-08T15:28:11.087298+00:00",
+        "record": "evidence/SOL01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SOL02",
@@ -1344,7 +2082,25 @@
         "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
         "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
       ],
-      "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押代币折价与退出",
+      "chain": "SOL",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/SOL02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+        "verified_at": "2026-11-08T15:57:47.943885+00:00",
+        "record": "evidence/SOL02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SOL03",
@@ -1365,7 +2121,25 @@
         "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
         "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
       ],
-      "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
+      "task": "正常借贷清算兑现",
+      "chain": "SOL",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/SOL03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+        "verified_at": "2026-11-08T15:57:47.943885+00:00",
+        "record": "evidence/SOL03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC01",
@@ -1395,7 +2169,25 @@
         "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
         "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
       ],
-      "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
+      "task": "稳定币完整循环核算",
+      "chain": "SONIC",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/SONIC01.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+        "verified_at": "2026-11-08T15:57:47.943885+00:00",
+        "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC02",
@@ -1416,7 +2208,25 @@
         "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
         "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
       ],
-      "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md",
+      "task": "质押凭证折价与退出",
+      "chain": "SONIC",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/SONIC02.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+        "verified_at": "2026-11-08T16:00:22.271895+00:00",
+        "record": "evidence/SONIC02/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC03",
@@ -1437,7 +2247,25 @@
         "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
         "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
       ],
-      "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
+      "task": "铸造卖出与完整偿债",
+      "chain": "SONIC",
+      "owner": "worker_b",
+      "prompt": "prompts/agents/SONIC03.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+        "verified_at": "2026-11-08T16:00:22.271895+00:00",
+        "record": "evidence/SONIC03/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "X-ARB",
@@ -1465,7 +2293,25 @@
         "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
         "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。"
       ],
-      "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
+      "task": "Ethereum与Arbitrum One的同权益跨链价差",
+      "chain": "ETH+ARB",
+      "owner": "worker_c",
+      "prompt": "prompts/agents/X-ARB.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": true,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
+        "verified_at": "2026-11-08T16:00:22.271895+00:00",
+        "record": "evidence/X-ARB/full-20261108T152118Z/record.json"
+      }
     },
     {
       "agent_id": "X-BASE",
@@ -1486,7 +2332,25 @@
         "通用OP StandardBridge开发分支未与Base当前桥部署绑定，不能把其接口/paused基类返回值当当前通道可用证明。",
         "没有两侧DEX池/实际数量报价、桥额度/费用/到账/退款/最终性、库存恢复报价或初始双侧库存条件；无真实价差。"
       ],
-      "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md"
+      "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
+      "task": "Ethereum与Base的同权益跨链价差",
+      "chain": "ETH+BASE",
+      "owner": "worker_a",
+      "prompt": "prompts/agents/X-BASE.txt",
+      "planned_frequency": "本轮手动；云端定时未建立",
+      "actual_capabilities": {
+        "public_http_requests": "see per-source evidence",
+        "current_quote_obtained": false,
+        "block_or_slot_obtained": false,
+        "broadcast_or_signing_used": false,
+        "background_schedule_created": false
+      },
+      "last_verified_attempt": {
+        "run_id": "full-20261108T152118Z",
+        "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
+        "verified_at": "2026-11-08T16:03:12.869632+00:00",
+        "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
+      }
     }
   ]
 }

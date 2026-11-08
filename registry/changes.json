@@ -1132,8 +1132,15 @@
         "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。"
       },
       "at": "2026-11-08T16:16:26.250890+00:00"
+    },
+    {
+      "run_id": "full-20261108T152118Z",
+      "type": "FIRST_BASELINE_ATTEMPT",
+      "at": "2026-11-08T16:17:38.754627+00:00",
+      "input_commit": "c269e1a674c2680dbf2ac00638206efdef0da79a",
+      "note": "合法空初始状态已用于本轮；保留preflight历史；逐岗缺口不转为虚构历史。"
     }
   ],
-  "status": "NOT_RESEARCHED",
+  "status": "BASELINE_PARTIAL",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

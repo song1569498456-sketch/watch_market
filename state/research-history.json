@@ -1,9 +1,357 @@
 {
   "schema_version": 1,
-  "status": "NOT_STARTED",
-  "completed_research_runs": [],
-  "last_completed_research_run": null,
-  "research_checkpoints": {},
+  "status": "COMPLETED_WITH_GAPS",
+  "completed_research_runs": [
+    {
+      "run_id": "full-20261108T152118Z",
+      "input_commit": "c269e1a674c2680dbf2ac00638206efdef0da79a",
+      "status": "COMPLETED_WITH_GAPS",
+      "started_at": "2026-11-08T15:21:18.018143+00:00",
+      "finished_at": "2026-11-08T16:17:38.754627+00:00",
+      "all_roles_attempted": true,
+      "full_required_history_coverage": false,
+      "manifest": "runs/full-20261108T152118Z/manifest.json"
+    }
+  ],
+  "last_completed_research_run": "full-20261108T152118Z",
+  "research_checkpoints": {
+    "M00": {
+      "run_id": "full-20261108T152118Z",
+      "status": "COMPLETED",
+      "scope": "COMPLETED_SCOPE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/M00.json"
+    },
+    "Q00": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/Q00.json"
+    },
+    "N-ARB": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-ARB.json"
+    },
+    "N-AVAX": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-AVAX.json"
+    },
+    "N-BASE": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-BASE.json"
+    },
+    "N-BNB": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-BNB.json"
+    },
+    "N-ETH": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-ETH.json"
+    },
+    "N-OP": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-OP.json"
+    },
+    "N-POLY": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-POLY.json"
+    },
+    "N-SOL": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-SOL.json"
+    },
+    "N-SONIC": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/N-SONIC.json"
+    },
+    "ARB01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ARB01.json"
+    },
+    "ARB02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ARB02.json"
+    },
+    "ARB03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ARB03.json"
+    },
+    "ARB04": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ARB04.json"
+    },
+    "AVAX01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/AVAX01.json"
+    },
+    "AVAX02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/AVAX02.json"
+    },
+    "BASE01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BASE01.json"
+    },
+    "BASE02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BASE02.json"
+    },
+    "BASE03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BASE03.json"
+    },
+    "BASE04": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BASE04.json"
+    },
+    "BASE05": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BASE05.json"
+    },
+    "BNB01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BNB01.json"
+    },
+    "BNB02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BNB02.json"
+    },
+    "BNB03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BNB03.json"
+    },
+    "BNB04": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BNB04.json"
+    },
+    "BNB05": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/BNB05.json"
+    },
+    "ETH01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ETH01.json"
+    },
+    "ETH02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ETH02.json"
+    },
+    "ETH03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ETH03.json"
+    },
+    "ETH04": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ETH04.json"
+    },
+    "ETH05": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/ETH05.json"
+    },
+    "OP01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/OP01.json"
+    },
+    "OP02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/OP02.json"
+    },
+    "POLY01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/POLY01.json"
+    },
+    "POLY02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/POLY02.json"
+    },
+    "POLY03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/POLY03.json"
+    },
+    "R-BASE": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/R-BASE.json"
+    },
+    "R-BNB": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/R-BNB.json"
+    },
+    "R-POLY": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/R-POLY.json"
+    },
+    "SOL01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SOL01.json"
+    },
+    "SOL02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SOL02.json"
+    },
+    "SOL03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SOL03.json"
+    },
+    "SONIC01": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SONIC01.json"
+    },
+    "SONIC02": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SONIC02.json"
+    },
+    "SONIC03": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/SONIC03.json"
+    },
+    "X-ARB": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/X-ARB.json"
+    },
+    "X-BASE": {
+      "run_id": "full-20261108T152118Z",
+      "status": "PARTIAL",
+      "scope": "PARTIAL_BASELINE",
+      "full_30d_7d_coverage": false,
+      "state": "state/agents/X-BASE.json"
+    }
+  },
   "known_non_research_records": [
     {
       "type": "BLOCKED_PREFLIGHT",
@@ -11,5 +359,5 @@
       "path": "preflight/20261108T151305Z.md"
     }
   ],
-  "note": "已核验材料未显示任何已完成研究；前置核验和访问测试不算研究历史。首次运行无需旧检查点。"
+  "note": "完成一次全岗位受限检查，不表示所需30天规则/7天活动回看完成。逐岗完整性与已验证证据提交见state。"
 }

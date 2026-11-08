@@ -5,7 +5,7 @@
   "start_utc": "2026-11-08T15:21:18.018143+00:00",
   "start_monotonic": 1528.526536465,
   "branch": "setup/access-check-20261108T150555Z",
-  "status": "RUNNING",
+  "status": "COMPLETED_WITH_GAPS",
   "storage_status": "REMOTE_VERIFIED_THROUGH_LAST_BATCH",
   "schedule_status": "NOT_CONFIGURED",
   "agents": {
@@ -15,9 +15,10 @@
       "duration_seconds": 3352.101,
       "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/M00/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/M00.txt",
-      "prompt_sha256": "618b8e649c275b85467862e429f2d0656d4ecec67d68a2ce65f60459543bc742"
+      "prompt_sha256": "618b8e649c275b85467862e429f2d0656d4ecec67d68a2ce65f60459543bc742",
+      "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504"
     },
     "Q00": {
       "status": "PARTIAL",
@@ -37,7 +38,9 @@
       "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-ARB/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347"
+      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+      "prompt_path": "prompts/agents/N-ARB.txt",
+      "prompt_sha256": "5b34867a8e24a4fe01eb9929df5716c1857590b0db64947d0a4870d2bf30cbb8"
     },
     "N-AVAX": {
       "status": "PARTIAL",
@@ -46,7 +49,9 @@
       "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-AVAX/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+      "prompt_path": "prompts/agents/N-AVAX.txt",
+      "prompt_sha256": "1ed539d89eb82de4c408441085757e6ccdb8e40ca74e3c5a79350f121cad08f4"
     },
     "N-BASE": {
       "status": "PARTIAL",
@@ -55,7 +60,9 @@
       "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-BASE/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347"
+      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+      "prompt_path": "prompts/agents/N-BASE.txt",
+      "prompt_sha256": "268ac7c15aca52940a4a17e56734e5f8ca666a86c7031a5e7f1877d9812eb571"
     },
     "N-BNB": {
       "status": "PARTIAL",
@@ -64,7 +71,9 @@
       "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-BNB/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+      "prompt_path": "prompts/agents/N-BNB.txt",
+      "prompt_sha256": "15bc3290d886b568cb11f02608ce7490500bc014177425d13e9bf1d4b93e24a3"
     },
     "N-ETH": {
       "status": "PARTIAL",
@@ -73,7 +82,9 @@
       "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-ETH/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+      "prompt_path": "prompts/agents/N-ETH.txt",
+      "prompt_sha256": "ae15b765e51812ce728ed3df6daa9ac63b4f6868b418d0b73d3f0246e637b3ec"
     },
     "N-OP": {
       "status": "PARTIAL",
@@ -82,7 +93,9 @@
       "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-OP/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347"
+      "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
+      "prompt_path": "prompts/agents/N-OP.txt",
+      "prompt_sha256": "423c939432baeaca4334dcf2db651bfeaf2cfce8f5241fb73ccc2487e301a8d8"
     },
     "N-POLY": {
       "status": "PARTIAL",
@@ -91,7 +104,9 @@
       "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-POLY/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+      "prompt_path": "prompts/agents/N-POLY.txt",
+      "prompt_sha256": "7bb1bafe89bc5b9946bf9e4074beb351b8d5a63e5cd854ca8347215529f45ad2"
     },
     "N-SOL": {
       "status": "PARTIAL",
@@ -100,7 +115,9 @@
       "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-SOL/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9"
+      "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
+      "prompt_path": "prompts/agents/N-SOL.txt",
+      "prompt_sha256": "b4aa3a33098f3e6d7fbb85f6a748f260b85f07fd908b329ebf84c8cde72e17a0"
     },
     "N-SONIC": {
       "status": "PARTIAL",
@@ -109,7 +126,9 @@
       "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/N-SONIC/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8"
+      "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
+      "prompt_path": "prompts/agents/N-SONIC.txt",
+      "prompt_sha256": "8afddcea713b7691adcc919f66b1630ae4f5daaf39babc8056c8228054fb4f54"
     },
     "ARB01": {
       "status": "PARTIAL",
@@ -239,7 +258,9 @@
       "report": "reports/agents/BNB01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/BNB01/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946"
+      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+      "prompt_path": "prompts/agents/BNB01.txt",
+      "prompt_sha256": "e562b8a351442b45a9c1946b58bbb9aa6b7055063795be8df5f269194b3870a2"
     },
     "BNB02": {
       "status": "PARTIAL",
@@ -292,7 +313,9 @@
       "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/ETH01/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946"
+      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+      "prompt_path": "prompts/agents/ETH01.txt",
+      "prompt_sha256": "8530f1674dcc231d583d16698381bf901dc93cf41d4decbdf0e51081524c2d8b"
     },
     "ETH02": {
       "status": "PARTIAL",
@@ -433,7 +456,9 @@
       "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/SOL01/full-20261108T152118Z/record.json",
       "storage_status": "REMOTE_VERIFIED",
-      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946"
+      "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
+      "prompt_path": "prompts/agents/SOL01.txt",
+      "prompt_sha256": "c345ac6130a290cb4abcb521524999190494f9dfe463219ec8ce1c3fd4f038bc"
     },
     "SOL02": {
       "status": "PARTIAL",
@@ -703,10 +728,18 @@
         "M00"
       ],
       "merged_at": "2026-11-08T16:17:10.290659+00:00",
-      "storage_status": "PENDING_UPLOAD"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504"
     }
   ],
   "verification_receipts": [
+    {
+      "commit": "36a2bbac31a3e8d42ad9cad97865287214f2ce22",
+      "remote_head": "36a2bbac31a3e8d42ad9cad97865287214f2ce22",
+      "verified_at": "2026-11-08T15:21:38.141670+00:00",
+      "verified_files": 2,
+      "label": "initialize full roster run; verify authoritative branch write"
+    },
     {
       "commit": "4167c76549b0dd52cca3cb070aa151deca097afc",
       "remote_head": "4167c76549b0dd52cca3cb070aa151deca097afc",
@@ -832,6 +865,40 @@
       "verified_at": "2026-11-08T16:16:31.737220+00:00",
       "verified_files": 341,
       "label": "Q00 independent reviews and correction timeline"
+    },
+    {
+      "commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
+      "remote_head": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
+      "verified_at": "2026-11-08T16:17:16.006237+00:00",
+      "verified_files": 348,
+      "label": "batch M00"
     }
-  ]
+  ],
+  "finished_at": "2026-11-08T16:17:38.754627+00:00",
+  "wall_clock_seconds": 3380.751,
+  "research_status": "ALL_ENABLED_ROLES_ATTEMPTED_WITH_DOCUMENTED_GAPS",
+  "status_counts": {
+    "COMPLETED": 1,
+    "PARTIAL": 47
+  },
+  "enabled_roles": 48,
+  "research_completed_without_gaps": 1,
+  "missing_roles": [],
+  "real_subagent_workers": 3,
+  "independent_review_subagents": 1,
+  "total_unique_research_subagents": 4,
+  "peak_research_subagent_concurrency": 3,
+  "intended_initial_lookback": {
+    "rule_changes": {
+      "from_utc": "2026-10-09T15:21:18.018143+00:00",
+      "to_utc": "2026-11-08T15:21:18.018143+00:00",
+      "coverage": "NOT_FULLY_SCANNED"
+    },
+    "representative_activity": {
+      "from_utc": "2026-11-01T15:21:18.018143+00:00",
+      "to_utc": "2026-11-08T15:21:18.018143+00:00",
+      "coverage": "NOT_FULLY_SCANNED"
+    },
+    "note": "目标窗口，不是已扫描范围；逐岗真实观察以record和state为准。"
+  }
 }

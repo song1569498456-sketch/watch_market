@@ -3,13 +3,22 @@
   "status": "COMPLETED",
   "research_started": true,
   "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_success_at": "2026-11-08T16:17:10.111901+00:00",
   "observed_cursor": {
     "scope": "control-plane-only",
     "role_attempts": 47,
     "history_scan_cursor": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "COMPLETED_SCOPE",
+    "observed": {
+      "scope": "control-plane-only",
+      "role_attempts": 47,
+      "history_scan_cursor": null
+    },
+    "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "验证正式分支包含初始化提交；48岗位提示词齐备，合法空历史开始。",
     "以3个真实子agent轮流承担46个研究岗位，另用新的Q00独立复核，最多同时3个。",
@@ -27,7 +36,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T16:17:10.111901+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/M00/full-20261108T152118Z/record.json"
+  "record": "evidence/M00/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
+    "verified_at": "2026-11-08T16:17:16.006237+00:00",
+    "record": "evidence/M00/full-20261108T152118Z/record.json"
+  }
 }
