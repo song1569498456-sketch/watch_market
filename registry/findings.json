@@ -528,6 +528,58 @@
       "owner": "SOL03",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/SOL03/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "SONIC-BEETS-STS-REDEEM-S",
+      "status": "UNVERIFIED",
+      "market_id": "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955",
+      "mechanism": "官方Sonic Staking README描述stS按当前rate表示S份额，undelegate烧份额后等待withdraw；undelegateFromPool也使用同一withdraw流程。文档两周与admin可改delay需实时核对，不能当即时赎回。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md"
+      ],
+      "net_result": "unknown",
+      "unknown_costs": [
+        "DEX费/冲击",
+        "退出/协议费",
+        "Sonic gas",
+        "等待资金占用",
+        "罚没/汇率变化"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "chainId/实现不符",
+        "提款暂停或当前delay不同",
+        "份额换算或罚没导致少于预计",
+        "退出费用与等待吞没价差"
+      ],
+      "owner": "SONIC02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/SONIC02/full-20261108T152118Z/record.json"
+    },
+    {
+      "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
+      "chain": "SONIC",
+      "status": "REJECTED",
+      "market_ids": [
+        "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+      ],
+      "mechanism": "排除“借出/卖出USDC余额增加就是收益，日后可用任意面值稳定币偿债”的推断。参考BorrowLogic同步铸债务并按指数计算当前债，正常repay转入params.asset或符合规则的对应aToken；卖出后必须核真实回购/本息与抵押退出。当前部署与金额未测。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol"
+      ],
+      "next_check": "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "owner": "SONIC03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/SONIC03/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

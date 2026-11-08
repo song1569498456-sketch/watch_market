@@ -15,7 +15,22 @@
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "document_program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+      "genesis_hash": null,
+      "slot": null,
+      "commitment": null,
+      "obligations_read": 0,
+      "liquidations_analyzed": 0,
+      "quotes_obtained": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
+    },
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
     "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
@@ -32,7 +47,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:57:10.826803+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL03/full-20261108T152118Z/record.json"
+  "record": "evidence/SOL03/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "verified_at": "2026-11-08T15:57:47.943885+00:00",
+    "record": "evidence/SOL03/full-20261108T152118Z/record.json"
+  }
 }

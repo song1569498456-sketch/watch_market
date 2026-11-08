@@ -2231,6 +2231,182 @@
         "有限构造2～3腿回到同token的回路，下一腿用实际输出；重复池模拟更新状态，核动态费/税/当前gas与融资。",
         "补30天规则与7天交易；无完整报价保留UNVERIFIED，不把稳定币名义美元值差当利润。"
       ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
+      "next_check": [
+        "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+        "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+        "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+        "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
+      "next_check": [
+        "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+        "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+        "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+        "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
+      "next_check": [
+        "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+        "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+        "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+        "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
+      "next_check": [
+        "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+        "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+        "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+        "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。",
+      "next_check": [
+        "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+        "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+        "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+        "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
+      "next_check": [
+        "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+        "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+        "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+        "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
+      "next_check": [
+        "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+        "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+        "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+        "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
+      "next_check": [
+        "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+        "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+        "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+        "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
+      "next_check": [
+        "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+        "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+        "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+        "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "full-20261108T152118Z",
+      "gap": "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。",
+      "next_check": [
+        "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+        "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+        "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+        "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "两链RPC均CONNECT403，未核Ethereum1与Arbitrum42161当前区块/hash或网络活跃。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "官方桥网页CONNECT403，仅SDK/桥设计静态资料，未建立当前部署code与token映射。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "无双侧DEX具体池、同数量报价/反向报价、当前桥费/额度/暂停。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "30天支持/费率/通道变更窗口未覆盖。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "full-20261108T152118Z",
+      "gap": "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。",
+      "next_check": [
+        "恢复两个RPC并分别核chainId1/42161、区块hash与最终确认；核canonical routers和所选token的L1/L2映射/code。",
+        "用协议原生getGateway/calculateL2TokenAddress及gateway启停字段验证具体资产通道；ARB03 wstETH交接仅作附加候选，不以名字认同权益。",
+        "分别测买入→迁移→到账卖出与双侧预置库存→恢复模式；记录桥费/两边gas/限额/退款/时间，未锁卖价只能给等待场景。",
+        "按真实路线再取反向报价与盈亏平衡价格；补30天规则/7天消息交易；不使用聚合器状态证明未覆盖的路线。"
+      ]
     }
   ],
   "status": "OPEN",

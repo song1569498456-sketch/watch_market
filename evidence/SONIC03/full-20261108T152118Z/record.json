@@ -1,0 +1,139 @@
+{
+  "agent_id": "SONIC03",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SONIC",
+  "scope": "Sonic 146 正常借出/铸造后卖出与完整偿债退出；自主发现Aave V3 Sonic文档市场，不构成已验证路径",
+  "started_at": "2026-11-08T15:58:29.465097+00:00",
+  "finished_at": "2026-11-08T15:59:29.121575+00:00",
+  "duration_seconds": 59.656,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": "2026-11-08T15:59:29.121575+00:00",
+  "block_or_slot": null,
+  "market_ids": [
+    "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+  ],
+  "asset_ids": [
+    "SONIC:146:0x29219dd400f2bf60e5a23d13be72b486d4038894",
+    "SONIC:146:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38"
+  ],
+  "discovery_source": [
+    "https://rpc.soniclabs.com",
+    "https://api.dexscreener.com/latest/dex/search?q=sonic%20USDC",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol"
+  ],
+  "mechanism": "正常借出是同时得到资产并增加债务；卖出和重新取得实际偿债资产及取回抵押必须串联。债务指数/利息不可用名义本金替代。",
+  "observations": [
+    "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
+    "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
+    "BorrowLogic参考源码按variableBorrowIndex计算当前债务，repayAmount上限为当前userDebt；正常偿债转入同reserve的params.asset，aToken偿债另有条件。",
+    "没有实测抵押率、普通账户借款权限/额度、利息、回购成本或最终零债务状态。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": [
+      "抵押资产取得/退出",
+      "借贷利息",
+      "卖出和回购费/冲击",
+      "gas/授权",
+      "等待与清算风险"
+    ]
+  },
+  "capacity": "unknown，借款/铸造额度及真实DEX深度未测",
+  "permissions": "unknown，当前reserve和普通账户借款/偿债权限未核",
+  "liabilities": "unknown；本轮未借款；潜在路径必须计本息、剩债和锁仓",
+  "waiting_time": "unknown",
+  "invalidation_conditions": [
+    "当前链/部署/资产身份不符",
+    "卖后无法取得实际偿债资产",
+    "残余债务/锁仓",
+    "当前暂停/额度不足",
+    "报价或完整成本缺失"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol"
+  ],
+  "coverage_gaps": [
+    "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
+    "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
+    "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
+    "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
+    "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
+  ],
+  "next_check": [
+    "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+    "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+    "核债务token余额/指数/利息、max repay与退出条件；同一账本区分借款现金、负债和锁仓，不把本金当收益或重复扣除。",
+    "补齐30天规则与7天已完成偿债样本；无完整模拟保持UNVERIFIED，若剩债务或锁仓则未闭环。"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+      "chain": "SONIC",
+      "protocol": "Aave V3 Sonic",
+      "asset_ids": [
+        "SONIC:146:0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "SONIC:146:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME",
+      "chain": "SONIC",
+      "status": "REJECTED",
+      "market_ids": [
+        "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3"
+      ],
+      "mechanism": "排除“借出/卖出USDC余额增加就是收益，日后可用任意面值稳定币偿债”的推断。参考BorrowLogic同步铸债务并按指数计算当前债，正常repay转入params.asset或符合规则的对应aToken；卖出后必须核真实回购/本息与抵押退出。当前部署与金额未测。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol"
+      ],
+      "next_check": "找到本链实际DEX出口，逐级数量测借出→卖出→取得实际债务资产/允许aToken→本息偿清→抵押取回及必要退出。",
+      "review_required": true,
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "case": "借出卖出现金增长=无负债收益",
+      "reason": "排除“借出/卖出USDC余额增加就是收益，日后可用任意面值稳定币偿债”的推断。参考BorrowLogic同步铸债务并按指数计算当前债，正常repay转入params.asset或符合规则的对应aToken；卖出后必须核真实回购/本息与抵押退出。当前部署与金额未测。"
+    },
+    {
+      "case": "Fantom/BNB同名资产和规则直接替代",
+      "reason": "Sonic链146部署、资产身份与现行参数须独立核验。"
+    }
+  ],
+  "observed_cursor": {
+    "pool_document_address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+    "reference_functions_read": [
+      "executeBorrow",
+      "executeRepay"
+    ],
+    "current_block": null,
+    "actual_dex_pools_read": 0,
+    "debt_positions_checked": 0,
+    "complete_cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  }
+}

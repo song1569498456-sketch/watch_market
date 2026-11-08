@@ -1,0 +1,251 @@
+{
+  "name": "lido_gateway_source",
+  "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+  "fetched_at_utc": "2026-11-08T15:58:45.922224+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+  "excerpts": [
+    {
+      "line": 1,
+      "text": "# Lido's Arbitrum Gateway"
+    },
+    {
+      "line": 3,
+      "text": "The document details implementation of the bridging of the ERC20 compatible tokens[^*] between Ethereum and Arbitrum chains via Arbitrum's “Canonical Bridge”."
+    },
+    {
+      "line": 5,
+      "text": "It's the first step of the Lido's integration into the Arbitrum protocol. The main goal of the current implementation is to be the strong foundation for the long-term goals of the Lido expansion in the Arbitrum chain. The long-run picture of the Lido's integration into L2s includes:"
+    },
+    {
+      "line": 11,
+      "text": "At this point, the implementation must provide a scalable and reliable solution for Lido to bridge ERC20 compatible tokens between Arbitrum and Ethereum chain."
+    },
+    {
+      "line": 13,
+      "text": "[^*]: The current implementation might not support the non-standard functionality of the ERC20 tokens. For example, rebasable tokens or tokens with transfers fee will work incorrectly. In case your token implements some non-typical ERC20 logic, make sure it is compatible with the gateway before usage."
+    },
+    {
+      "line": 15,
+      "text": "## Arbitrum's Bridging Flow"
+    },
+    {
+      "line": 17,
+      "text": "Arbitrum’s “Canonical Bridge” tokens-bridging architecture consists of three types of contracts:"
+    },
+    {
+      "line": 19,
+      "text": "1. **Asset contracts**: these are the token contracts themselves, i.e., an ERC20 on L1 and it's counterpart on Arbitrum."
+    },
+    {
+      "line": 23,
+      "text": "All Ethereum to Arbitrum token transfers are initiated via the `L1GatewayRouter` contract. `L1GatewayRouter` is responsible for mapping L1 token addresses to `L1Gateway`, thus acting as an L1/L2 address oracle and ensuring that each token corresponds to only one gateway. The `L1Gateway` communicates to an `L2Gateway` (typically/expectedly via retryable tickets)."
+    },
+    {
+      "line": 25,
+      "text": "Similarly, Arbitrum to Ethereum transfers are initiated via the `L2GatewayRouter` contract, which forwards calls the token's `L2Gateway`, which in turn communicates to its corresponding `L1Gateway` (typically/expectedly via sending messages to the Outbox.)"
+    },
+    {
+      "line": 27,
+      "text": "To be compatible with Arbitrum's `GatewayRouter`, both L1 and L2 gateways must conform to the `ITokenGateway` interface."
+    },
+    {
+      "line": 36,
+      "text": "  function outboundTransfer("
+    },
+    {
+      "line": 64,
+      "text": "The general process of tokens bridging via Arbitrum's `GatewayRouter` consists of next steps:"
+    },
+    {
+      "line": 68,
+      "text": "1. A user calls `L1GatewayRouter.outboundTransfer()` (with `L1Token`'s L1 address as an argument)."
+    },
+    {
+      "line": 69,
+      "text": "2. `L1GatewayRouter` looks up `L1Token`'s gateway."
+    },
+    {
+      "line": 70,
+      "text": "3. `L1GatewayRouter` calls `L1TokensGateway.outboundTransfer()`, forwarding the appropriate parameters."
+    },
+    {
+      "line": 76,
+      "text": "### Withdrawals"
+    },
+    {
+      "line": 78,
+      "text": "1. On Arbitrum, a user calls `L2GatewayRouter.outboundTransfer()`, which in turn calls `outboundTransfer` on `L2Token`'s gateway (i.e., `L2TokensGateway`)."
+    },
+    {
+      "line": 80,
+      "text": "3. After the dispute window expires and the assertion with the user's transaction is confirmed, a user can call `Outbox.executeTransaction()`, which in turn calls the encoded `L1ERC20Gateway.finalizeInboundTransfer()` message, releasing the user's tokens from the `L1TokensGateway` contract's escrow."
+    },
+    {
+      "line": 84,
+      "text": "The `L1GatewayRouter` allows registering custom gateways for certain tokens via `setGateways()` method, which might be called by the OffchainLabs team manually."
+    },
+    {
+      "line": 86,
+      "text": "The rest of the document provides a technical specification of the gateways Lido will use to transfer tokens between Arbitrum and Ethereum chains."
+    },
+    {
+      "line": 90,
+      "text": "The current implementation of the gateways provides functionality to bridge the specified type of ERC20 compatible token between Ethereum and Arbitrum chains. Additionally, the bridge provides some administrative features, like the **temporary disabling of the deposits and withdrawals**. It's necessary when bridging must be disabled fast because of the malicious usage of the bridge or vulnerability in the contracts. Also, it might be helpful in the implementation upgrade process."
+    },
+    {
+      "line": 103,
+      "text": "  - [**`L1OutboundDataParser`**](#L1OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+    },
+    {
+      "line": 104,
+      "text": "  - [**`L2OutboundDataParser`**](#L2OutboundDataParser) - a helper library to parse data passed to `outboundTransfer()` of `L2ERC20TokenGateway`."
+    },
+    {
+      "line": 111,
+      "text": "  - [**`L1CrossDomainEnabled`**](#L1CrossDomainEnabled) - helper contract for contracts performing Ethereum to Arbitrum communication process via Retryable Tickets."
+    },
+    {
+      "line": 112,
+      "text": "  - [**`L1ERC20TokenGateway`**](#L1ERC20TokenGateway) - Ethereum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains."
+    },
+    {
+      "line": 113,
+      "text": "  - [**`L2CrossDomainEnabled`**](#L2Messenger) - helper contract to simplify Arbitrum to Ethereum communication process"
+    },
+    {
+      "line": 114,
+      "text": "  - [**`L2ERC20TokenGateway`**](#L2ERC20TokenGateway) - Arbitrum's counterpart of the gateway to bridge registered ERC20 compatible tokens between Ethereum and Arbitrum chains"
+    },
+    {
+      "line": 120,
+      "text": "A helper library to parse data passed to `outboundTransfer()` of `L1ERC20TokenGateway`."
+    },
+    {
+      "line": 134,
+      "text": "> - **`router_`** - an address of the Arbitrum's `L1GatewayRouter`"
+    },
+    {
+      "line": 143,
+      "text": "A helper library to parse data passed to `outboundTransfer()` of `L2ERC20TokenGateway`."
+    },
+    {
+      "line": 157,
+      "text": "> - **`router_`** - an address of the Arbitrum's `L1GatewayRouter`"
+    },
+    {
+      "line": 168,
+      "text": "Contains administrative methods to retrieve and control the state of the bridging process. Allows to enable/disable withdrawals or deposits and check whether the gateway functionality is suspended or not. Allows granting standalone privileges to certain accounts to enable/disable deposits or withdrawals of the gateway. The rights to grant permissions have accounts with an admin role."
+    },
+    {
+      "line": 174,
+      "text": "- **WITHDRAWALS_ENABLER_ROLE** - a `bytes32` equal to a result of the `keccak256()` hashing of the string `\"BridgingManager.WITHDRAWALS_ENABLER_ROLE\"`. This role must be used when grants/revokes privileges to enable withdrawals."
+    },
+    {
+      "line": 175,
+      "text": "- **WITHDRAWALS_DISABLER_ROLE** - a `bytes32` equal to a result of the `keccak256()` hashing of the string `\"BridgingManager.WITHDRAWALS_DISABLER_ROLE\"`. This role must be used when grants/revokes privileges to disable withdrawals."
+    },
+    {
+      "line": 185,
+      "text": "    bool isWithdrawalsEnabled; // Stores the state of the withdrawals"
+    },
+    {
+      "line": 213,
+      "text": "#### `isWithdrawalsEnabled()`"
+    },
+    {
+      "line": 221,
+      "text": "Returns whether the withdrawals enabled or not."
+    },
+    {
+      "line": 231,
+      "text": "Enables the deposits if they are disabled. Reverts with the error `ErrorDepositsEnabled()` if deposits aren't enabled. Only accounts with the granted `DEPOSITS_ENABLER_ROLE` can call this method."
+    },
+    {
+      "line": 233,
+      "text": "#### `disableDeposits()`"
+    },
+    {
+      "line": 239,
+      "text": "> **Emits:** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `DepositsDisabled(address account)`"
+    },
+    {
+      "line": 241,
+      "text": "Disables the deposits if they aren't disabled yet. Reverts with the error `ErrorDepositsDisabled()` if deposits have already disabled. Only accounts with the granted `DEPOSITS_DISABLER_ROLE` can call this method."
+    },
+    {
+      "line": 243,
+      "text": "#### `enableWithdrawals()`"
+    },
+    {
+      "line": 247,
+      "text": "> **Modifiers:** &nbsp;&nbsp; [`onlyRole(WITHDRAWALS_ENABLER_ROLE)`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d4fb3a89f9d0a39c7ee6f2601d33ffbf30085322/contracts/access/AccessControl.sol#L69)"
+    },
+    {
+      "line": 249,
+      "text": "> **Emits:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `WithdrawalsEnabled(address account)`"
+    },
+    {
+      "line": 251,
+      "text": "Enables the withdrawals if they are disabled. Reverts with the error `ErrorWithdrawalsEnabled()` if withdrawals are enabled. Only accounts with the granted `WITHDRAWALS_ENABLER_ROLE` can call this method."
+    },
+    {
+      "line": 253,
+      "text": "#### `disableWithdrawals()`"
+    },
+    {
+      "line": 257,
+      "text": "> **Modifiers:** &nbsp;&nbsp; [`whenWithdrawalsEnabled`](#whenWithdrawalsEnabled)[`onlyRole(WITHDRAWALS_DISABLER_ROLE)`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/d4fb3a89f9d0a39c7ee6f2601d33ffbf30085322/contracts/access/AccessControl.sol#L69)"
+    },
+    {
+      "line": 259,
+      "text": "> **Emits:** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `WithdrawalsDisabled(address account)`"
+    },
+    {
+      "line": 261,
+      "text": "Disables the withdrawals if they aren't disabled yet. Reverts with the error `ErrorWithdrawalsDisabled()` if withdrawals have already disabled. Only accounts with the granted `WITHDRAWALS_DISABLER_ROLE` can call this method."
+    },
+    {
+      "line": 277,
+      "text": "Validates that deposits are enabled. Reverts with the error `ErrorDepositsDisabled()` when called on contract with disabled deposits."
+    },
+    {
+      "line": 279,
+      "text": "#### `whenWithdrawalsEnabled()`"
+    },
+    {
+      "line": 281,
+      "text": "Validates that withdrawals are enabled. Reverts with the error `ErrorWithdrawalsDisabled()` when called on contract with disabled withdrawals."
+    },
+    {
+      "line": 309,
+      "text": "The contract keeps logic shared among both L1 and L2 gateways, adding the methods for bridging management: enabling and disabling withdrawals/deposits."
+    },
+    {
+      "line": 334,
+      "text": "Returns an address of token, which will be minted on the Arbitrum chain, on `l1Token_` bridging. The current implementation returns the `l2Token` address when passed `l1Token_` equals to `l1Token` declared in the contract and `address(0)` in other cases."
+    },
+    {
+      "line": 350,
+      "text": "> - **`data_`** - Custom data to pass into finalizeInboundTransfer method. Unused, required to be compatible with @arbitrum/sdk package."
+    },
+    {
+      "line": 352,
+      "text": "Returns encoded transaction data to send into the corresponding gateway to finalize the tokens bridging process. The result of this method might be used to estimate the amount of ether required to pass to the `outboundTransfer()` method call. In the current implementation returns the transaction data of `finalizeInboundTransfer(token_, from_, to_, amount_)`."
+    },
+    {
+      "line": 356,
+      "text": "A helper contract for contracts performing Ethereum to Arbitrum communication process via Retryable Tickets."
+    },
+    {
+      "line": 360,
+      "text": "The contract declares one immutable variable **`inbox_`** - an address of the Arbitrum's [`Inbox`](https://developer.offchainlabs.com/docs/sol_contract_docs/md_docs/arb-bridge-eth/bridge/inbox) contract"
+    },
+    {
+      "line": 372,
+      "text": "> - **`sender_`** - an address of the sender of the message. It's also the address to credit all excess ETH from gas and call-value on the Arbitrum chain. Call-value is refunded if the retryable ticket times out or is canceled. `sender_` is also the address with the right to cancel a Retryable Ticket."
+    }
+  ],
+  "success": true
+}

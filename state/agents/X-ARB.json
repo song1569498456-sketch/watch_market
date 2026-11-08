@@ -1,13 +1,46 @@
 {
   "agent_id": "X-ARB",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "kind": "static_source_fetch_only",
+    "fetched_urls": [
+      "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+    ],
+    "ethereum_block": null,
+    "arbitrum_block": null,
+    "verified_token_mappings": 0,
+    "routes_quoted": 0,
+    "history_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    {
+      "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+      "fields": "L194-204 chainId42161,parentChainId1,confirmPeriodBlocks45818",
+      "data_kind": "static SDK default not current rollup parameter"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "fields": "L23-25 router token mapping；L78-80 L2退出经争议窗口/L1 Outbox；L168-221启停状态接口",
+      "data_kind": "official design; deployment/status/mapping not verified"
+    }
+  ],
+  "pending_questions": [
+    "两链RPC均CONNECT403，未核Ethereum1与Arbitrum42161当前区块/hash或网络活跃。",
+    "官方桥网页CONNECT403，仅SDK/桥设计静态资料，未建立当前部署code与token映射。",
+    "无双侧DEX具体池、同数量报价/反向报价、当前桥费/额度/暂停。",
+    "30天支持/费率/通道变更窗口未覆盖。",
+    "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
+    "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:59:38.477498+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/X-ARB/full-20261108T152118Z/record.json"
 }

@@ -1,13 +1,33 @@
 {
   "agent_id": "SONIC02",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "type": "STATIC_SONIC_ASSET_AND_WITHDRAWAL_DOCS_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:59:34.134204+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "AaveV3Sonic官方地址书给stS/wS及18 decimals；BeethovenXFi Sonic Staking官方README列出相同stS Sonic浏览器地址，静态交叉一致。",
+    "README14/110/118行描述两步退出与两周等待，46行admin可改withdrawal delay，不能将文档数值当当前固定等待。",
+    "README114-118行从pool undelegate也通过withdraw流程；不能仅见pool余额就假设普通用户即时兑付。",
+    "README119行说明validator slash可减少收到S，这是正常风险说明，不是本轮确认罚没事件。"
+  ],
+  "pending_questions": [
+    "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
+    "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
+    "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
+    "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
+    "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:59:34.134204+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/SONIC02/full-20261108T152118Z/record.json"
 }

@@ -661,6 +661,41 @@
       "owner": "SOL03",
       "last_observed_run": "full-20261108T152118Z",
       "source_record": "evidence/SOL03/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955",
+      "chain": "SONIC",
+      "protocol": "Beets Staked Sonic stS",
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md"
+      ],
+      "identity_status": "TWO_OFFICIAL_STATIC_SOURCES_AGREE_NOT_CHAIN_VERIFIED",
+      "next_check": "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+      "owner": "SONIC02",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/SONIC02/full-20261108T152118Z/record.json"
+    },
+    {
+      "market_id": "SONIC:146:AaveV3:Pool:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+      "chain": "SONIC",
+      "protocol": "Aave V3 Sonic",
+      "asset_ids": [
+        "SONIC:146:0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "SONIC:146:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol"
+      ],
+      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_NOT_CHAIN_VERIFIED",
+      "next_check": "先核Sonic chainId=0x92和区块、Pool代理实现，逐资产核wS和USDC身份/权限/可借额度，不把Fantom或旧链资料代替。",
+      "owner": "SONIC03",
+      "last_observed_run": "full-20261108T152118Z",
+      "source_record": "evidence/SONIC03/full-20261108T152118Z/record.json"
     }
   ],
   "status": "BASELINE_PARTIAL",

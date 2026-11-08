@@ -15,7 +15,22 @@
     "cycles_quoted": 0,
     "history_complete": false
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "kind": "static_source_fetch_only",
+      "fetched_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
+      ],
+      "chain_block": null,
+      "pool_pages_completed": 0,
+      "cycles_quoted": 0,
+      "history_complete": false
+    },
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     {
       "asset_label_from_registry": "USDC",
@@ -41,7 +56,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:56:51.722665+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
+  "record": "evidence/SONIC01/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "verified_at": "2026-11-08T15:57:47.943885+00:00",
+    "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
+  }
 }

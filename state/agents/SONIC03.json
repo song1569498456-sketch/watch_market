@@ -1,13 +1,41 @@
 {
   "agent_id": "SONIC03",
-  "status": "NOT_STARTED",
-  "research_started": false,
-  "last_research_run_id": null,
+  "status": "PARTIAL",
+  "research_started": true,
+  "last_research_run_id": "full-20261108T152118Z",
   "last_success_at": null,
-  "observed_cursor": null,
+  "observed_cursor": {
+    "pool_document_address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+    "reference_functions_read": [
+      "executeBorrow",
+      "executeRepay"
+    ],
+    "current_block": null,
+    "actual_dex_pools_read": 0,
+    "debt_positions_checked": 0,
+    "complete_cycles_simulated": 0,
+    "transactions_analyzed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
+  },
   "published_cursor": null,
-  "coverage": [],
-  "pending_questions": [],
+  "coverage": [
+    "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
+    "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
+    "BorrowLogic参考源码按variableBorrowIndex计算当前债务，repayAmount上限为当前userDebt；正常偿债转入同reserve的params.asset，aToken偿债另有条件。",
+    "没有实测抵押率、普通账户借款权限/额度、利息、回购成本或最终零债务状态。"
+  ],
+  "pending_questions": [
+    "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
+    "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
+    "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
+    "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
+    "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
+  ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
-  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。"
+  "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
+  "last_attempt_at": "2026-11-08T15:59:29.121575+00:00",
+  "last_attempt_storage": "PENDING_UPLOAD",
+  "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
+  "record": "evidence/SONIC03/full-20261108T152118Z/record.json"
 }

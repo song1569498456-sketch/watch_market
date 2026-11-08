@@ -1,0 +1,235 @@
+{
+  "started_at": "2026-11-08T15:58:26.670364+00:00",
+  "sources": [
+    {
+      "source": "beets-staked-sonic-docs",
+      "url": "https://docs.beets.fi/beets-staked-sonic",
+      "retrieved_at_utc": "2026-11-08T15:58:26.670371+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "sonic-rpc",
+      "url": "https://rpc.soniclabs.com",
+      "retrieved_at_utc": "2026-11-08T15:58:27.697271+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-sonic-assets",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "retrieved_at_utc": "2026-11-08T15:58:28.703780+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+      "bytes_read": 10704,
+      "excerpts": [
+        {
+          "line": 145,
+          "text": "  // https://sonicscan.org/address/0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+        },
+        {
+          "line": 146,
+          "text": "  address internal constant wS_UNDERLYING = 0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38;"
+        },
+        {
+          "line": 147,
+          "text": ""
+        },
+        {
+          "line": 148,
+          "text": "  uint8 internal constant wS_DECIMALS = 18;"
+        },
+        {
+          "line": 165,
+          "text": "  // https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+        },
+        {
+          "line": 166,
+          "text": "  address internal constant stS_UNDERLYING = 0xE5DA20F15420aD15DE0fa650600aFc998bbE3955;"
+        },
+        {
+          "line": 167,
+          "text": ""
+        },
+        {
+          "line": 168,
+          "text": "  uint8 internal constant stS_DECIMALS = 18;"
+        }
+      ]
+    },
+    {
+      "source": "beets-staking-readme",
+      "url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:58:30.048747+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "beethoven-staking-readme-fallback",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "retrieved_at_utc": "2026-11-08T15:58:31.424652+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "57614777e891a7e80a5d886de8dfce2d159b909eaa3ea14399b6f96242dc42b8",
+      "bytes_read": 9444,
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Sonic Staking"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "This repository includes all contracts used for the LST Staked S ($stS) by Beets."
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "In general, $stS will earn yield from delegating underlying $S to validators. Delegated $S earns rewards and a portion of transaction fees (in $S) for helping secure the network. The rewards can be claimed and will increase the amount of $S in the system hence increasing the price of $stS against $S. There is a protocol fee applied on the claimed rewards."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The general flow of this LST is the following:"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "- User deposits $S into the contract and receives $stS for it, according to the current rate."
+        },
+        {
+          "line": 10,
+          "text": "- Deposited $S will be accumulated in the \"pool\" first"
+        },
+        {
+          "line": 11,
+          "text": "- An operator delegates the deposited $S to a validator where it will earn rewards"
+        },
+        {
+          "line": 12,
+          "text": "- A claimor will claim rewards from specific validators to increase the $stS/$S rate."
+        },
+        {
+          "line": 13,
+          "text": "- A protocol fee is deducted from the rewards, the remainder is added to the pool."
+        },
+        {
+          "line": 14,
+          "text": "- A user can undelegate $stS and can withdraw the $S two weeks later."
+        },
+        {
+          "line": 23,
+          "text": "[Beets Staked Sonic - stS](https://sonicscan.org/address/0xe5da20f15420ad15de0fa650600afc998bbe3955)"
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "1. Grant/Remove roles"
+        },
+        {
+          "line": 46,
+          "text": "2. Set the withdrawal delay"
+        },
+        {
+          "line": 47,
+          "text": "3. Set treasury address"
+        },
+        {
+          "line": 48,
+          "text": "4. Set protocol fees"
+        },
+        {
+          "line": 49,
+          "text": "5. Pause/Unpause deposit"
+        },
+        {
+          "line": 50,
+          "text": "6. Pause/Unpause undelegate"
+        },
+        {
+          "line": 51,
+          "text": "7. Pause/Unpause undelegate from pool"
+        },
+        {
+          "line": 52,
+          "text": "8. Pause/Unpause withdraw"
+        },
+        {
+          "line": 108,
+          "text": "### undelegate (user function)"
+        },
+        {
+          "line": 109,
+          "text": ""
+        },
+        {
+          "line": 110,
+          "text": "If a user wants to redeem $stS for $S, this is done with a two-step withdrawal process via the Sonic Staking contract. A user calls `undelegate()` on the Sonic Staking contract. The user needs to pass how many shares and from which validator he wants to undelegate. The $stS will be burned in the process."
+        },
+        {
+          "line": 111,
+          "text": ""
+        },
+        {
+          "line": 112,
+          "text": "### undelegateFromPool (user function)"
+        },
+        {
+          "line": 113,
+          "text": ""
+        },
+        {
+          "line": 114,
+          "text": "If a user wants to redeem $stS for $S from the pool, this function is called instead of `undelegate()`. The process is the same but instead from undelegating from a validator, it will take the $S from the pool."
+        },
+        {
+          "line": 115,
+          "text": ""
+        },
+        {
+          "line": 116,
+          "text": "### withdraw (user function)"
+        },
+        {
+          "line": 117,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "After the two week unstaking period, the user can withdraw their $S by calling `withdraw()`. This will mark the withdrawal as withdrawn and send the $S to the user. This function is used for both undelegate from pool as well as undelegate from validator."
+        },
+        {
+          "line": 119,
+          "text": "If a validator acts maliciously it can be slashed by the SFC, effectively reducing its stake. This means that any delegated $S will also be reduced, effectively reducing the amount of $S a user receives when withdrawing. To allow for \"force\" withdrawals, the flag `emergency` is set to true."
+        }
+      ]
+    },
+    {
+      "source": "beets-sonic-staking-contract",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/contracts/SonicStaking.sol",
+      "retrieved_at_utc": "2026-11-08T15:58:50.919202+00:00",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

@@ -426,9 +426,10 @@
       "duration_seconds": 84.34,
       "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/SOL02/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/SOL02.txt",
-      "prompt_sha256": "241b82efd4b3905e624c8fdca483350eddb626cf14d7d5fbde738f2a226b704d"
+      "prompt_sha256": "241b82efd4b3905e624c8fdca483350eddb626cf14d7d5fbde738f2a226b704d",
+      "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab"
     },
     "SOL03": {
       "status": "PARTIAL",
@@ -436,9 +437,10 @@
       "duration_seconds": 70.266,
       "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/SOL03/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/SOL03.txt",
-      "prompt_sha256": "89a991b8a69ce0056430a584ce05882b9144ba9173898496d51570baa7e575c1"
+      "prompt_sha256": "89a991b8a69ce0056430a584ce05882b9144ba9173898496d51570baa7e575c1",
+      "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab"
     },
     "SONIC01": {
       "status": "PARTIAL",
@@ -446,18 +448,40 @@
       "duration_seconds": 47.324,
       "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
       "record": "evidence/SONIC01/full-20261108T152118Z/record.json",
-      "storage_status": "PENDING_UPLOAD",
+      "storage_status": "REMOTE_VERIFIED",
       "prompt_path": "prompts/agents/SONIC01.txt",
-      "prompt_sha256": "d0ab6c4f424fbb859fa7c198e63a8cee82c691fb4d7211a061846723792edc15"
+      "prompt_sha256": "d0ab6c4f424fbb859fa7c198e63a8cee82c691fb4d7211a061846723792edc15",
+      "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab"
     },
     "SONIC02": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 67.464,
+      "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/SONIC02/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/SONIC02.txt",
+      "prompt_sha256": "a1f8bb5072d3c4227a96b17d4e550ddc11e3f0a700dadd52a60153476503dcdd"
     },
     "SONIC03": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 59.656,
+      "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/SONIC03/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/SONIC03.txt",
+      "prompt_sha256": "4ee8ff4659cdcdf4a214ff0c8096f31c85468c70eb4fa9d9472f26b2e91966c7"
     },
     "X-ARB": {
-      "status": "NOT_STARTED"
+      "status": "PARTIAL",
+      "research_conclusion": "UNVERIFIED",
+      "duration_seconds": 57.013,
+      "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
+      "record": "evidence/X-ARB/full-20261108T152118Z/record.json",
+      "storage_status": "PENDING_UPLOAD",
+      "prompt_path": "prompts/agents/X-ARB.txt",
+      "prompt_sha256": "bae60b3b07a817b1dbcdb5fd9f1200c92b0344a07237bea004a738f6914009db"
     },
     "X-BASE": {
       "status": "NOT_STARTED"
@@ -615,6 +639,17 @@
         "SONIC01"
       ],
       "merged_at": "2026-11-08T15:57:43.481832+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab"
+    },
+    {
+      "batch": 15,
+      "agents": [
+        "SONIC02",
+        "SONIC03",
+        "X-ARB"
+      ],
+      "merged_at": "2026-11-08T16:00:16.767050+00:00",
       "storage_status": "PENDING_UPLOAD"
     }
   ],
@@ -716,6 +751,13 @@
       "verified_at": "2026-11-08T15:55:22.338512+00:00",
       "verified_files": 259,
       "label": "batch R-BASE R-BNB R-POLY"
+    },
+    {
+      "commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+      "remote_head": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+      "verified_at": "2026-11-08T15:57:47.943885+00:00",
+      "verified_files": 277,
+      "label": "batch SOL02 SOL03 SONIC01"
     }
   ]
 }

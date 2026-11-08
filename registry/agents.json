@@ -1347,20 +1347,72 @@
     {
       "agent_id": "SONIC02",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:59:34.134204+00:00",
+      "actual_coverage": [
+        "AaveV3Sonic官方地址书给stS/wS及18 decimals；BeethovenXFi Sonic Staking官方README列出相同stS Sonic浏览器地址，静态交叉一致。",
+        "README14/110/118行描述两步退出与两周等待，46行admin可改withdrawal delay，不能将文档数值当当前固定等待。",
+        "README114-118行从pool undelegate也通过withdraw流程；不能仅见pool余额就假设普通用户即时兑付。",
+        "README119行说明validator slash可减少收到S，这是正常风险说明，不是本轮确认罚没事件。"
+      ],
+      "coverage_gaps": [
+        "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
+        "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
+        "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
+        "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
+        "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
+      ],
+      "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "SONIC03",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:59:29.121575+00:00",
+      "actual_coverage": [
+        "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
+        "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
+        "BorrowLogic参考源码按variableBorrowIndex计算当前债务，repayAmount上限为当前userDebt；正常偿债转入同reserve的params.asset，aToken偿债另有条件。",
+        "没有实测抵押率、普通账户借款权限/额度、利息、回购成本或最终零债务状态。"
+      ],
+      "coverage_gaps": [
+        "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
+        "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
+        "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
+        "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
+        "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
+      ],
+      "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "X-ARB",
       "enabled": true,
-      "status": "NOT_STARTED",
-      "last_success_at": null
+      "status": "PARTIAL",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T15:59:38.477498+00:00",
+      "actual_coverage": [
+        {
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+          "fields": "L194-204 chainId42161,parentChainId1,confirmPeriodBlocks45818",
+          "data_kind": "static SDK default not current rollup parameter"
+        },
+        {
+          "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+          "fields": "L23-25 router token mapping；L78-80 L2退出经争议窗口/L1 Outbox；L168-221启停状态接口",
+          "data_kind": "official design; deployment/status/mapping not verified"
+        }
+      ],
+      "coverage_gaps": [
+        "两链RPC均CONNECT403，未核Ethereum1与Arbitrum42161当前区块/hash或网络活跃。",
+        "官方桥网页CONNECT403，仅SDK/桥设计静态资料，未建立当前部署code与token映射。",
+        "无双侧DEX具体池、同数量报价/反向报价、当前桥费/额度/暂停。",
+        "30天支持/费率/通道变更窗口未覆盖。",
+        "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
+        "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。"
+      ],
+      "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md"
     },
     {
       "agent_id": "X-BASE",

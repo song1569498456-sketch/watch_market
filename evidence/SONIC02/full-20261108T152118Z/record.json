@@ -1,0 +1,373 @@
+{
+  "agent_id": "SONIC02",
+  "run_id": "full-20261108T152118Z",
+  "chain": "SONIC",
+  "scope": "Sonic原生S质押凭证stS折价与正常退出，不研究Fantom历史部署",
+  "started_at": "2026-11-08T15:58:26.670364+00:00",
+  "finished_at": "2026-11-08T15:59:34.134204+00:00",
+  "duration_seconds": 67.464,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-08T15:59:34.134204+00:00",
+    "beijing": "2026-11-08T23:59:34.134204+08:00",
+    "data_time": "unknown; static upstream branch snapshots"
+  },
+  "block_or_slot": null,
+  "market_ids": [
+    "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955"
+  ],
+  "asset_ids": [
+    "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+    "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+  ],
+  "discovery_source": [
+    {
+      "source": "beets-staked-sonic-docs",
+      "url": "https://docs.beets.fi/beets-staked-sonic",
+      "retrieved_at_utc": "2026-11-08T15:58:26.670371+00:00",
+      "request": null,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "sonic-rpc",
+      "url": "https://rpc.soniclabs.com",
+      "retrieved_at_utc": "2026-11-08T15:58:27.697271+00:00",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "source": "aave-sonic-assets",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "retrieved_at_utc": "2026-11-08T15:58:28.703780+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+      "bytes_read": 10704,
+      "excerpts": [
+        {
+          "line": 145,
+          "text": "  // https://sonicscan.org/address/0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+        },
+        {
+          "line": 146,
+          "text": "  address internal constant wS_UNDERLYING = 0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38;"
+        },
+        {
+          "line": 147,
+          "text": ""
+        },
+        {
+          "line": 148,
+          "text": "  uint8 internal constant wS_DECIMALS = 18;"
+        },
+        {
+          "line": 165,
+          "text": "  // https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+        },
+        {
+          "line": 166,
+          "text": "  address internal constant stS_UNDERLYING = 0xE5DA20F15420aD15DE0fa650600aFc998bbE3955;"
+        },
+        {
+          "line": 167,
+          "text": ""
+        },
+        {
+          "line": 168,
+          "text": "  uint8 internal constant stS_DECIMALS = 18;"
+        }
+      ]
+    },
+    {
+      "source": "beets-staking-readme",
+      "url": "https://raw.githubusercontent.com/beets-fi/sonic-staking/main/README.md",
+      "retrieved_at_utc": "2026-11-08T15:58:30.048747+00:00",
+      "request": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "source": "beethoven-staking-readme-fallback",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+      "retrieved_at_utc": "2026-11-08T15:58:31.424652+00:00",
+      "request": null,
+      "http_status": 200,
+      "sha256": "57614777e891a7e80a5d886de8dfce2d159b909eaa3ea14399b6f96242dc42b8",
+      "bytes_read": 9444,
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Sonic Staking"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "This repository includes all contracts used for the LST Staked S ($stS) by Beets."
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "In general, $stS will earn yield from delegating underlying $S to validators. Delegated $S earns rewards and a portion of transaction fees (in $S) for helping secure the network. The rewards can be claimed and will increase the amount of $S in the system hence increasing the price of $stS against $S. There is a protocol fee applied on the claimed rewards."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The general flow of this LST is the following:"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "- User deposits $S into the contract and receives $stS for it, according to the current rate."
+        },
+        {
+          "line": 10,
+          "text": "- Deposited $S will be accumulated in the \"pool\" first"
+        },
+        {
+          "line": 11,
+          "text": "- An operator delegates the deposited $S to a validator where it will earn rewards"
+        },
+        {
+          "line": 12,
+          "text": "- A claimor will claim rewards from specific validators to increase the $stS/$S rate."
+        },
+        {
+          "line": 13,
+          "text": "- A protocol fee is deducted from the rewards, the remainder is added to the pool."
+        },
+        {
+          "line": 14,
+          "text": "- A user can undelegate $stS and can withdraw the $S two weeks later."
+        },
+        {
+          "line": 23,
+          "text": "[Beets Staked Sonic - stS](https://sonicscan.org/address/0xe5da20f15420ad15de0fa650600afc998bbe3955)"
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "1. Grant/Remove roles"
+        },
+        {
+          "line": 46,
+          "text": "2. Set the withdrawal delay"
+        },
+        {
+          "line": 47,
+          "text": "3. Set treasury address"
+        },
+        {
+          "line": 48,
+          "text": "4. Set protocol fees"
+        },
+        {
+          "line": 49,
+          "text": "5. Pause/Unpause deposit"
+        },
+        {
+          "line": 50,
+          "text": "6. Pause/Unpause undelegate"
+        },
+        {
+          "line": 51,
+          "text": "7. Pause/Unpause undelegate from pool"
+        },
+        {
+          "line": 52,
+          "text": "8. Pause/Unpause withdraw"
+        },
+        {
+          "line": 108,
+          "text": "### undelegate (user function)"
+        },
+        {
+          "line": 109,
+          "text": ""
+        },
+        {
+          "line": 110,
+          "text": "If a user wants to redeem $stS for $S, this is done with a two-step withdrawal process via the Sonic Staking contract. A user calls `undelegate()` on the Sonic Staking contract. The user needs to pass how many shares and from which validator he wants to undelegate. The $stS will be burned in the process."
+        },
+        {
+          "line": 111,
+          "text": ""
+        },
+        {
+          "line": 112,
+          "text": "### undelegateFromPool (user function)"
+        },
+        {
+          "line": 113,
+          "text": ""
+        },
+        {
+          "line": 114,
+          "text": "If a user wants to redeem $stS for $S from the pool, this function is called instead of `undelegate()`. The process is the same but instead from undelegating from a validator, it will take the $S from the pool."
+        },
+        {
+          "line": 115,
+          "text": ""
+        },
+        {
+          "line": 116,
+          "text": "### withdraw (user function)"
+        },
+        {
+          "line": 117,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "After the two week unstaking period, the user can withdraw their $S by calling `withdraw()`. This will mark the withdrawal as withdrawn and send the $S to the user. This function is used for both undelegate from pool as well as undelegate from validator."
+        },
+        {
+          "line": 119,
+          "text": "If a validator acts maliciously it can be slashed by the SFC, effectively reducing its stake. This means that any delegated $S will also be reduced, effectively reducing the amount of $S a user receives when withdrawing. To allow for \"force\" withdrawals, the flag `emergency` is set to true."
+        }
+      ]
+    },
+    {
+      "source": "beets-sonic-staking-contract",
+      "url": "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/contracts/SonicStaking.sol",
+      "retrieved_at_utc": "2026-11-08T15:58:50.919202+00:00",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "mechanism": "官方Sonic Staking README描述stS按当前rate表示S份额，undelegate烧份额后等待withdraw；undelegateFromPool也使用同一withdraw流程。文档两周与admin可改delay需实时核对，不能当即时赎回。",
+  "observations": [
+    "AaveV3Sonic官方地址书给stS/wS及18 decimals；BeethovenXFi Sonic Staking官方README列出相同stS Sonic浏览器地址，静态交叉一致。",
+    "README14/110/118行描述两步退出与两周等待，46行admin可改withdrawal delay，不能将文档数值当当前固定等待。",
+    "README114-118行从pool undelegate也通过withdraw流程；不能仅见pool余额就假设普通用户即时兑付。",
+    "README119行说明validator slash可减少收到S，这是正常风险说明，不是本轮确认罚没事件。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "S",
+    "unknown_costs": [
+      "DEX费/冲击",
+      "退出/协议费",
+      "Sonic gas",
+      "等待资金占用",
+      "罚没/汇率变化"
+    ]
+  },
+  "capacity": "unknown",
+  "permissions": "当前paused/admin/withdrawal eligibility unknown",
+  "liabilities": "未执行；延期提款权/残仓未知",
+  "waiting_time": "current unknown; README describes two weeks, admin-adjustable",
+  "invalidation_conditions": [
+    "chainId/实现不符",
+    "提款暂停或当前delay不同",
+    "份额换算或罚没导致少于预计",
+    "退出费用与等待吞没价差"
+  ],
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+    "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md",
+    "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+  ],
+  "coverage_gaps": [
+    "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
+    "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
+    "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
+    "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
+    "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
+  ],
+  "next_check": [
+    "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。",
+    "读取当前rate、withdrawalDelay、undelegate/undelegateFromPool/withdraw暂停与权限、可用pool余额、提款记录及罚没风险。",
+    "分开DEX即时卖出、协议即时出口是否存在、延期withdraw；按S计净数量和等待情景，取得延迟后列盈亏平衡资金成本而不替用户假设。",
+    "恢复数据后补30天参数/升级与7天活动，具体候选交Q00；不拿Fantom旧地址/FTM报价替代Sonic。"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "markets": [
+    {
+      "market_id": "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955",
+      "chain": "SONIC",
+      "protocol": "Beets Staked Sonic stS",
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md"
+      ],
+      "identity_status": "TWO_OFFICIAL_STATIC_SOURCES_AGREE_NOT_CHAIN_VERIFIED",
+      "next_check": "先核对146、stS代码/代理实现与当前版本，官方README和地址书交叉只是静态身份，不能替代实时链证据。"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SONIC-BEETS-STS-REDEEM-S",
+      "status": "UNVERIFIED",
+      "market_id": "SONIC:BEETS:STS:0xe5da20f15420ad15de0fa650600afc998bbe3955",
+      "mechanism": "官方Sonic Staking README描述stS按当前rate表示S份额，undelegate烧份额后等待withdraw；undelegateFromPool也使用同一withdraw流程。文档两周与admin可改delay需实时核对，不能当即时赎回。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+        "https://raw.githubusercontent.com/beethovenxfi/sonic-staking/master/README.md"
+      ],
+      "net_result": "unknown",
+      "unknown_costs": [
+        "DEX费/冲击",
+        "退出/协议费",
+        "Sonic gas",
+        "等待资金占用",
+        "罚没/汇率变化"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "chainId/实现不符",
+        "提款暂停或当前delay不同",
+        "份额换算或罚没导致少于预计",
+        "退出费用与等待吞没价差"
+      ]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "stS=1S且undelegateFromPool有现金就可即时退出",
+      "reason": "份额随rate变化，README描述pool路径仍需withdraw流程与等待，当前规则须查链。"
+    },
+    {
+      "claim": "旧Fantom部署/FTM历史价格可替代Sonic当期出口",
+      "reason": "链146的具体stS部署与S权益必须独立核验，本轮未采用Fantom部署。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "STATIC_SONIC_ASSET_AND_WITHDRAWAL_DOCS_ONLY",
+    "retrieved_at_utc": "2026-11-08T15:59:34.134204+00:00",
+    "complete_block_range": null,
+    "complete_event_time_window": null
+  },
+  "exit_columns": {
+    "dex_spot_exit": "unknown",
+    "immediate_protocol_amount": "unknown; existence of immediate route unverified",
+    "delayed_amount_and_time": "unknown; README two-week description not current measured delay"
+  }
+}

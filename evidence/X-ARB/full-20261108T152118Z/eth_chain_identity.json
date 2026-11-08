@@ -1,0 +1,14 @@
+{
+  "name": "eth_chain_identity",
+  "url": "https://ethereum-rpc.publicnode.com",
+  "fetched_at_utc": "2026-11-08T15:58:41.464451+00:00",
+  "method": "POST",
+  "request": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "eth_chainId",
+    "params": []
+  },
+  "success": false,
+  "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+}

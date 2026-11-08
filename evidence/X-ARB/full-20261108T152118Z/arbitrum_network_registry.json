@@ -1,0 +1,251 @@
+{
+  "name": "arbitrum_network_registry",
+  "url": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+  "fetched_at_utc": "2026-11-08T15:58:44.505400+00:00",
+  "method": "GET",
+  "http_status": 200,
+  "sha256_sample": "c2cb943f07a6560ef583fd965e755897bc55aa24c58b11d919e1ea11b8d51a18",
+  "excerpts": [
+    {
+      "line": 30,
+      "text": " * Represents an Arbitrum chain, e.g. Arbitrum One, Arbitrum Sepolia, or an L3 chain."
+    },
+    {
+      "line": 40,
+      "text": "  chainId: number"
+    },
+    {
+      "line": 44,
+      "text": "  parentChainId: number"
+    },
+    {
+      "line": 60,
+      "text": "  confirmPeriodBlocks: number"
+    },
+    {
+      "line": 95,
+      "text": "  Omit<ArbitrumNetwork, 'chainId' | 'parentChainId' | 'tokenBridge'> & {"
+    },
+    {
+      "line": 96,
+      "text": "    chainID: number"
+    },
+    {
+      "line": 97,
+      "text": "    partnerChainID: number"
+    },
+    {
+      "line": 132,
+      "text": "  l1GatewayRouter: string"
+    },
+    {
+      "line": 133,
+      "text": "  l2GatewayRouter: string"
+    },
+    {
+      "line": 134,
+      "text": "  l1ERC20Gateway: string"
+    },
+    {
+      "line": 135,
+      "text": "  l2ERC20Gateway: string"
+    },
+    {
+      "line": 194,
+      "text": "  42161: {"
+    },
+    {
+      "line": 195,
+      "text": "    chainId: 42161,"
+    },
+    {
+      "line": 196,
+      "text": "    name: 'Arbitrum One',"
+    },
+    {
+      "line": 197,
+      "text": "    parentChainId: 1,"
+    },
+    {
+      "line": 204,
+      "text": "    confirmPeriodBlocks: 45818,"
+    },
+    {
+      "line": 210,
+      "text": "    chainId: 42170,"
+    },
+    {
+      "line": 211,
+      "text": "    confirmPeriodBlocks: 45818,"
+    },
+    {
+      "line": 223,
+      "text": "    parentChainId: 1,"
+    },
+    {
+      "line": 245,
+      "text": "  421614: {"
+    },
+    {
+      "line": 246,
+      "text": "    chainId: 421614,"
+    },
+    {
+      "line": 247,
+      "text": "    confirmPeriodBlocks: 20,"
+    },
+    {
+      "line": 258,
+      "text": "    parentChainId: 11155111,"
+    },
+    {
+      "line": 286,
+      "text": "  parentChainOrChainId: ArbitrumNetwork | number"
+    },
+    {
+      "line": 288,
+      "text": "  const parentChainId ="
+    },
+    {
+      "line": 289,
+      "text": "    typeof parentChainOrChainId === 'number'"
+    },
+    {
+      "line": 290,
+      "text": "      ? parentChainOrChainId"
+    },
+    {
+      "line": 291,
+      "text": "      : parentChainOrChainId.chainId"
+    },
+    {
+      "line": 294,
+      "text": "  return getArbitrumNetworks().some(c => c.parentChainId === parentChainId)"
+    },
+    {
+      "line": 301,
+      "text": "  parentChainOrChainId: ArbitrumNetwork | number"
+    },
+    {
+      "line": 303,
+      "text": "  const parentChainId ="
+    },
+    {
+      "line": 304,
+      "text": "    typeof parentChainOrChainId === 'number'"
+    },
+    {
+      "line": 305,
+      "text": "      ? parentChainOrChainId"
+    },
+    {
+      "line": 306,
+      "text": "      : parentChainOrChainId.chainId"
+    },
+    {
+      "line": 309,
+      "text": "    arbitrumChain => arbitrumChain.parentChainId === parentChainId"
+    },
+    {
+      "line": 318,
+      "text": "export function getArbitrumNetwork(chainId: number): ArbitrumNetwork"
+    },
+    {
+      "line": 323,
+      "text": "  signerOrProviderOrChainId: SignerOrProvider | number"
+    },
+    {
+      "line": 325,
+      "text": "  if (typeof signerOrProviderOrChainId === 'number') {"
+    },
+    {
+      "line": 326,
+      "text": "    return getArbitrumNetworkByChainId(signerOrProviderOrChainId)"
+    },
+    {
+      "line": 328,
+      "text": "  return getArbitrumNetworkBySignerOrProvider(signerOrProviderOrChainId)"
+    },
+    {
+      "line": 331,
+      "text": "function getArbitrumNetworkByChainId(chainId: number): ArbitrumNetwork {"
+    },
+    {
+      "line": 332,
+      "text": "  const network = getArbitrumNetworks().find(n => n.chainId === chainId)"
+    },
+    {
+      "line": 334,
+      "text": "    throw new ArbSdkError(`Unrecognized network ${chainId}.`)"
+    },
+    {
+      "line": 343,
+      "text": "  const { chainId } = await provider.getNetwork()"
+    },
+    {
+      "line": 344,
+      "text": "  return getArbitrumNetworkByChainId(chainId)"
+    },
+    {
+      "line": 367,
+      "text": "  'parentChainId' | 'confirmPeriodBlocks' | 'ethBridge' | 'nativeToken'"
+    },
+    {
+      "line": 387,
+      "text": "  const [bridge, inbox, sequencerInbox, outbox, confirmPeriodBlocks] ="
+    },
+    {
+      "line": 393,
+      "text": "      rollup.confirmPeriodBlocks(),"
+    },
+    {
+      "line": 397,
+      "text": "    parentChainId: (await parentProvider.getNetwork()).chainId,"
+    },
+    {
+      "line": 398,
+      "text": "    confirmPeriodBlocks: confirmPeriodBlocks.toNumber(),"
+    },
+    {
+      "line": 425,
+      "text": "      `Custom network ${network.chainId} must have isCustom flag set to true`"
+    },
+    {
+      "line": 429,
+      "text": "  if (typeof networks[network.chainId] !== 'undefined') {"
+    },
+    {
+      "line": 430,
+      "text": "    const message = `Network ${network.chainId} already included`"
+    },
+    {
+      "line": 440,
+      "text": "  networks[network.chainId] = network"
+    },
+    {
+      "line": 460,
+      "text": "  arbitrumChainOrChainId: ArbitrumNetwork | number"
+    },
+    {
+      "line": 462,
+      "text": "  const arbitrumChainId ="
+    },
+    {
+      "line": 463,
+      "text": "    typeof arbitrumChainOrChainId === 'number'"
+    },
+    {
+      "line": 464,
+      "text": "      ? arbitrumChainOrChainId"
+    },
+    {
+      "line": 465,
+      "text": "      : arbitrumChainOrChainId.chainId"
+    },
+    {
+      "line": 467,
+      "text": "  // all networks except Arbitrum One started off with Nitro"
+    }
+  ],
+  "success": true
+}

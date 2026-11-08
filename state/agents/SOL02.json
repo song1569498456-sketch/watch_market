@@ -11,7 +11,18 @@
     "commitment": null,
     "complete_event_time_window": null
   },
-  "published_cursor": null,
+  "published_cursor": {
+    "scope": "PARTIAL_BASELINE",
+    "observed": {
+      "type": "STATIC_PROGRAM_AND_STATE_CONFIG_ONLY",
+      "retrieved_at_utc": "2026-11-08T15:57:28.691174+00:00",
+      "slot_range": null,
+      "commitment": null,
+      "complete_event_time_window": null
+    },
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "run_id": "full-20261108T152118Z"
+  },
   "coverage": [
     "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
     "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
@@ -28,7 +39,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-08T15:57:28.691174+00:00",
-  "last_attempt_storage": "PENDING_UPLOAD",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL02/full-20261108T152118Z/record.json"
+  "record": "evidence/SOL02/full-20261108T152118Z/record.json",
+  "last_verified_attempt": {
+    "run_id": "full-20261108T152118Z",
+    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
+    "verified_at": "2026-11-08T15:57:47.943885+00:00",
+    "record": "evidence/SOL02/full-20261108T152118Z/record.json"
+  }
 }

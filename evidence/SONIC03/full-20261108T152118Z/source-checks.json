@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-11-08T15:58:29.465097+00:00",
+  "results": [
+    {
+      "name": "sonic_rpc",
+      "url": "https://rpc.soniclabs.com",
+      "method": "POST",
+      "fetched_at": "2026-11-08T15:58:29.465104+00:00",
+      "request_json": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "eth_chainId",
+        "params": []
+      },
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "sonic_dex_discovery",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=sonic%20USDC",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:58:30.491932+00:00",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "name": "aave_sonic_deployments",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:58:31.499127+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "  // https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3\n  IPool internal constant POOL = IPool(0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3);\n\n  // https://sonicscan.org/address/0x50c70FEB95aBC1A92FC30b9aCc41Bd349E5dE2f0\n  IPoolConfigurator internal constant POOL_CONFIGURATOR =",
+        "  // https://sonicscan.org/address/0xD63f7658C66B2934Bd234D79D06aEF5290734B30\n  IAaveOracle internal constant ORACLE = IAaveOracle(0xD63f7658C66B2934Bd234D79D06aEF5290734B30);\n\n  // https://sonicscan.org/address/0x7b62461a3570c6AC8a9f8330421576e417B71EE7\n  address internal constant ACL_ADMIN = 0x7b62461a3570c6AC8a9f8330421576e417B71EE7;",
+        "  // https://sonicscan.org/address/0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5\n  address internal constant POOL_IMPL = 0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5;\n\n  // https://sonicscan.org/address/0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99\n  address internal constant POOL_CONFIGURATOR_IMPL = 0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99;",
+        "  // https://sonicscan.org/address/0x29219dd400f2Bf60E5a23d13Be72B486D4038894\n  address internal constant USDC_UNDERLYING = 0x29219dd400f2Bf60E5a23d13Be72B486D4038894;\n\n  uint8 internal constant USDC_DECIMALS = 6;\n",
+        "\n  uint8 internal constant USDC_DECIMALS = 6;\n\n  // https://sonicscan.org/address/0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6\n  address internal constant USDC_A_TOKEN = 0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6;",
+        "  // https://sonicscan.org/address/0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6\n  address internal constant USDC_A_TOKEN = 0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6;\n\n  // https://sonicscan.org/address/0x2273caBAd63b7D247A6b107E723c803fc49953A0\n  address internal constant USDC_V_TOKEN = 0x2273caBAd63b7D247A6b107E723c803fc49953A0;",
+        "  // https://sonicscan.org/address/0x2273caBAd63b7D247A6b107E723c803fc49953A0\n  address internal constant USDC_V_TOKEN = 0x2273caBAd63b7D247A6b107E723c803fc49953A0;\n\n  // https://sonicscan.org/address/0x7A8443a2a5D772db7f1E40DeFe32db485108F128\n  address internal constant USDC_ORACLE = 0x7A8443a2a5D772db7f1E40DeFe32db485108F128;",
+        "  // https://sonicscan.org/address/0x7A8443a2a5D772db7f1E40DeFe32db485108F128\n  address internal constant USDC_ORACLE = 0x7A8443a2a5D772db7f1E40DeFe32db485108F128;\n\n  // https://sonicscan.org/address/0xdFf435BCcf782f11187D3a4454d96702eD78e092\n  address internal constant USDC_INTEREST_RATE_STRATEGY =",
+        "  // https://sonicscan.org/address/0xdFf435BCcf782f11187D3a4454d96702eD78e092\n  address internal constant USDC_INTEREST_RATE_STRATEGY =\n    0xdFf435BCcf782f11187D3a4454d96702eD78e092;\n\n  // https://sonicscan.org/address/0x6646248971427B80ce531bdD793e2Eb859347E55",
+        "  // https://sonicscan.org/address/0x6646248971427B80ce531bdD793e2Eb859347E55\n  address internal constant USDC_STATA_TOKEN = 0x6646248971427B80ce531bdD793e2Eb859347E55;\n\n  // https://sonicscan.org/address/0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38\n  address internal constant wS_UNDERLYING = 0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38;"
+      ]
+    },
+    {
+      "name": "aave_borrow_repay",
+      "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/BorrowLogic.sol",
+      "method": "GET",
+      "fetched_at": "2026-11-08T15:58:32.599606+00:00",
+      "http_status": 200,
+      "selected_excerpts": [
+        "   * @param params The additional parameters needed to execute the borrow function\n   */\n  function executeBorrow(\n    mapping(address => DataTypes.ReserveData) storage reservesData,\n    mapping(uint256 => address) storage reservesList,\n    mapping(uint8 => DataTypes.EModeCategory) storage eModeCategories,\n    DataTypes.UserConfigurationMap storage userConfig,\n    DataTypes.ExecuteBorrowParams memory params\n  ) external {\n    DataTypes.ReserveData storage reserve = reservesData[params.asset];\n    DataTypes.ReserveCache memory reserveCache = reserve.cache();\n\n    reserve.updateState(reserveCache);\n\n    uint256 amountScaled = params.amount.getVTokenMintScaledAmount(\n      reserveCache.nextVariableBorrowIndex",
+        "   * @return The actual amount being repaid\n   */\n  function executeRepay(\n    mapping(address => DataTypes.ReserveData) storage reservesData,\n    mapping(uint256 => address) storage reservesList,\n    mapping(uint8 => DataTypes.EModeCategory) storage eModeCategories,\n    DataTypes.UserConfigurationMap storage onBehalfOfConfig,\n    DataTypes.ExecuteRepayParams memory params\n  ) external returns (uint256) {\n    DataTypes.ReserveData storage reserve = reservesData[params.asset];\n    DataTypes.ReserveCache memory reserveCache = reserve.cache();\n    reserve.updateState(reserveCache);\n\n    uint256 userDebtScaled = IVariableDebtToken(reserveCache.variableDebtTokenAddress)\n      .scaledBalanceOf(params.onBehalfOf);\n    uint256 userDebt = userDebtScaled.getVTokenBalance(reserveCache.nextVariableBorrowIndex);",
+        "    );\n\n    uint256 paybackAmount = params.amount;\n    if (params.useATokens && params.amount == type(uint256).max) {\n      // Allows a user to repay with aTokens without leaving dust from interest.\n      paybackAmount = IAToken(reserveCache.aTokenAddress)\n        .scaledBalanceOf(params.user)\n        .getATokenBalance(reserveCache.nextLiquidityIndex);\n    }\n\n    if (paybackAmount > userDebt) {\n      paybackAmount = userDebt;\n    }\n\n    bool noMoreDebt;\n    (noMoreDebt, reserveCache.nextScaledVariableDebt) = IVariableDebtToken(",
+        "\n    uint256 paybackAmount = params.amount;\n    if (params.useATokens && params.amount == type(uint256).max) {\n      // Allows a user to repay with aTokens without leaving dust from interest.\n      paybackAmount = IAToken(reserveCache.aTokenAddress)\n        .scaledBalanceOf(params.user)\n        .getATokenBalance(reserveCache.nextLiquidityIndex);\n    }\n\n    if (paybackAmount > userDebt) {\n      paybackAmount = userDebt;\n    }\n\n    bool noMoreDebt;\n    (noMoreDebt, reserveCache.nextScaledVariableDebt) = IVariableDebtToken(\n      reserveCache.variableDebtTokenAddress",
+        "    if (params.useATokens && params.amount == type(uint256).max) {\n      // Allows a user to repay with aTokens without leaving dust from interest.\n      paybackAmount = IAToken(reserveCache.aTokenAddress)\n        .scaledBalanceOf(params.user)\n        .getATokenBalance(reserveCache.nextLiquidityIndex);\n    }\n\n    if (paybackAmount > userDebt) {\n      paybackAmount = userDebt;\n    }\n\n    bool noMoreDebt;\n    (noMoreDebt, reserveCache.nextScaledVariableDebt) = IVariableDebtToken(\n      reserveCache.variableDebtTokenAddress\n    ).burn({\n        from: params.onBehalfOf,",
+        "    }\n\n    if (paybackAmount > userDebt) {\n      paybackAmount = userDebt;\n    }\n\n    bool noMoreDebt;\n    (noMoreDebt, reserveCache.nextScaledVariableDebt) = IVariableDebtToken(\n      reserveCache.variableDebtTokenAddress\n    ).burn({\n        from: params.onBehalfOf,\n        scaledAmount: paybackAmount.getVTokenBurnScaledAmount(reserveCache.nextVariableBorrowIndex),\n        index: reserveCache.nextVariableBorrowIndex\n      });\n\n    reserve.updateInterestRatesAndVirtualBalance(",
+        "\n    if (paybackAmount > userDebt) {\n      paybackAmount = userDebt;\n    }\n\n    bool noMoreDebt;\n    (noMoreDebt, reserveCache.nextScaledVariableDebt) = IVariableDebtToken(\n      reserveCache.variableDebtTokenAddress\n    ).burn({\n        from: params.onBehalfOf,\n        scaledAmount: paybackAmount.getVTokenBurnScaledAmount(reserveCache.nextVariableBorrowIndex),\n        index: reserveCache.nextVariableBorrowIndex\n      });\n\n    reserve.updateInterestRatesAndVirtualBalance(\n      reserveCache,",
+        "    ).burn({\n        from: params.onBehalfOf,\n        scaledAmount: paybackAmount.getVTokenBurnScaledAmount(reserveCache.nextVariableBorrowIndex),\n        index: reserveCache.nextVariableBorrowIndex\n      });\n\n    reserve.updateInterestRatesAndVirtualBalance(\n      reserveCache,\n      params.asset,\n      params.useATokens ? 0 : paybackAmount,\n      0,\n      params.interestRateStrategyAddress\n    );\n\n    if (noMoreDebt) {\n      onBehalfOfConfig.setBorrowing(reserve.id, false);",
+        "      reserveCache,\n      params.asset,\n      params.useATokens ? 0 : paybackAmount,\n      0,\n      params.interestRateStrategyAddress\n    );\n\n    if (noMoreDebt) {\n      onBehalfOfConfig.setBorrowing(reserve.id, false);\n    }\n\n    // in case of aToken repayment the sender must always repay on behalf of itself\n    if (params.useATokens) {\n      // As aToken.burn rounds up the burned shares, we ensure at least an equivalent of >= paybackAmount is burned.\n      bool zeroBalanceAfterBurn = IAToken(reserveCache.aTokenAddress).burn({\n        from: params.user,",
+        "\n    // in case of aToken repayment the sender must always repay on behalf of itself\n    if (params.useATokens) {\n      // As aToken.burn rounds up the burned shares, we ensure at least an equivalent of >= paybackAmount is burned.\n      bool zeroBalanceAfterBurn = IAToken(reserveCache.aTokenAddress).burn({\n        from: params.user,\n        receiverOfUnderlying: reserveCache.aTokenAddress,\n        amount: paybackAmount,\n        scaledAmount: paybackAmount.getATokenBurnScaledAmount(reserveCache.nextLiquidityIndex),\n        index: reserveCache.nextLiquidityIndex\n      });\n      if (onBehalfOfConfig.isUsingAsCollateral(reserve.id)) {\n        if (zeroBalanceAfterBurn) {\n          onBehalfOfConfig.setUsingAsCollateral(reserve.id, params.asset, params.user, false);\n        }\n",
+        "    // in case of aToken repayment the sender must always repay on behalf of itself\n    if (params.useATokens) {\n      // As aToken.burn rounds up the burned shares, we ensure at least an equivalent of >= paybackAmount is burned.\n      bool zeroBalanceAfterBurn = IAToken(reserveCache.aTokenAddress).burn({\n        from: params.user,\n        receiverOfUnderlying: reserveCache.aTokenAddress,\n        amount: paybackAmount,\n        scaledAmount: paybackAmount.getATokenBurnScaledAmount(reserveCache.nextLiquidityIndex),\n        index: reserveCache.nextLiquidityIndex\n      });\n      if (onBehalfOfConfig.isUsingAsCollateral(reserve.id)) {\n        if (zeroBalanceAfterBurn) {\n          onBehalfOfConfig.setUsingAsCollateral(reserve.id, params.asset, params.user, false);\n        }\n\n        if (onBehalfOfConfig.isBorrowingAny()) {",
+        "        from: params.user,\n        receiverOfUnderlying: reserveCache.aTokenAddress,\n        amount: paybackAmount,\n        scaledAmount: paybackAmount.getATokenBurnScaledAmount(reserveCache.nextLiquidityIndex),\n        index: reserveCache.nextLiquidityIndex\n      });\n      if (onBehalfOfConfig.isUsingAsCollateral(reserve.id)) {\n        if (zeroBalanceAfterBurn) {\n          onBehalfOfConfig.setUsingAsCollateral(reserve.id, params.asset, params.user, false);\n        }\n\n        if (onBehalfOfConfig.isBorrowingAny()) {\n          ValidationLogic.validateHealthFactor(\n            reservesData,\n            reservesList,\n            eModeCategories,",
+        "        receiverOfUnderlying: reserveCache.aTokenAddress,\n        amount: paybackAmount,\n        scaledAmount: paybackAmount.getATokenBurnScaledAmount(reserveCache.nextLiquidityIndex),\n        index: reserveCache.nextLiquidityIndex\n      });\n      if (onBehalfOfConfig.isUsingAsCollateral(reserve.id)) {\n        if (zeroBalanceAfterBurn) {\n          onBehalfOfConfig.setUsingAsCollateral(reserve.id, params.asset, params.user, false);\n        }\n\n        if (onBehalfOfConfig.isBorrowingAny()) {\n          ValidationLogic.validateHealthFactor(\n            reservesData,\n            reservesList,\n            eModeCategories,\n            onBehalfOfConfig,",
+        "      }\n    } else {\n      IERC20(params.asset).safeTransferFrom(params.user, reserveCache.aTokenAddress, paybackAmount);\n    }\n\n    emit IPool.Repay(\n      params.asset,\n      params.onBehalfOf,\n      params.user,\n      paybackAmount,\n      params.useATokens\n    );\n\n    return paybackAmount;\n  }\n}",
+        "      params.onBehalfOf,\n      params.user,\n      paybackAmount,\n      params.useATokens\n    );\n\n    return paybackAmount;\n  }\n}",
+        "      params.user,\n      paybackAmount,\n      params.useATokens\n    );\n\n    return paybackAmount;\n  }\n}",
+        "    );\n\n    return paybackAmount;\n  }\n}"
+      ]
+    }
+  ]
+}
