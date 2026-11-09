@@ -66,26 +66,70 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "source_functions_read": [
-        "Pool.mint",
-        "Pool.burn",
-        "Pool.claimFees",
-        "PoolFactory.getFee",
-        "Gauge.deposit",
-        "Gauge.withdraw",
-        "Gauge._claimFees"
-      ],
-      "actual_pools_read": 0,
-      "complete_cycles_simulated": 0,
-      "transactions_analyzed": 0,
-      "last_block": null,
+      "kind": "same_block_lp_state_plus_integer_mint_burn",
+      "run_id": "live-20261109T141903Z",
+      "chain": "base-mainnet",
+      "chain_id": 8453,
+      "latest_block": 55229594,
+      "pinned_block": 55229589,
+      "latest_block_time_utc": "2026-11-09T14:58:14+00:00",
+      "pool": {
+        "protocol": "Aerodrome vAMM",
+        "address": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+        "code_bytes": 45,
+        "token0": "USDC 0x8335…(6)",
+        "token1": "AERO 0x9401…(18)",
+        "stable": false,
+        "reserves_human": {
+          "USDC": 2304411.247121,
+          "AERO": 3976351.856502367
+        },
+        "lp_total_supply": 0.054885279670046055,
+        "factory": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+        "factory_isPool": true,
+        "factory_isPaused": false,
+        "poolFees_contract": "0x2d25a5edfd27e1f71652477e1a204726883ba402"
+      },
+      "roundtrip": {
+        "tiers_USDC": [
+          1,
+          10,
+          100
+        ],
+        "net_usdc_equiv": [
+          -1.000015e-06,
+          -1.000027e-06,
+          -1.000021e-06
+        ],
+        "method": "same-block reserves/LP supply + source mint/burn integer math（非 eth_call 模拟）"
+      },
+      "gauge": {
+        "voter": "0x16613524e02ad97edfef371bc883f2f5d6c480a5",
+        "address": "0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+        "code_bytes": 6236,
+        "rewardToken": "AERO",
+        "rewardRate_raw": "503802383290341300",
+        "periodFinish": 1792627200,
+        "periodFinish_utc": "2026-10-22T00:00:00+00:00",
+        "period_status": "已过期（当前 2026-11-09）",
+        "gauge_lp_totalSupply": 0.04460214615820615,
+        "isAlive_probe": "null（接口失败）",
+        "feesVotingReward": "0xa2eded6ee17af8debf70a1e93ac66e60dbfaaf33"
+      },
+      "fee_read": {
+        "factory_getFee": "revert/无返回",
+        "pool_fee": "revert/无返回"
+      },
+      "result": "REJECTED：正常 LP 存取无可闭环差异（仅整数取整损失），排放/池费分列不双计",
+      "complete_cycles_simulated": 1,
+      "quotes_count": 3,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x2105（8453），最新块 55,229,594（2026-11-09T14:58:14Z），池/份额/储备钉 pinned 块 55,229,589。",
@@ -106,8 +150,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:05:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE05/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BASE05/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BASE05/live-20261109T141903Z/record.json"
+  }
 }

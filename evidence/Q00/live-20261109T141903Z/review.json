@@ -1,0 +1,201 @@
+{
+ "run_id": "live-20261109T141903Z",
+ "reviewed_at_utc": "2026-11-09T15:55:00Z",
+ "gate": {
+  "verdict": "PASS",
+  "independent_checks": [
+   {"check": "eth_chainId (archive RPC eth.drpc.org, independent of M00 publicnode)", "result": "0x1 = chainId 1，与 gate JSON expected/observed chainId 一致", "evidence": "raw/network_checks2.json gate.chain_id"},
+   {"check": "eth_getBlockByNumber(26377898) hash/timestamp 独立重取", "result": "hash 0x9a655c2f4b9a7fd0660df0f2f6c5a3acf84063ff62de1ce97526c5b3e5652d5b 完全一致；timestamp 1794234083 (2026-11-09T14:21:23Z)；baseFee 120014779 wei 一致", "evidence": "raw/network_checks2.json gate.block_hash/block_timestamp/base_fee"},
+   {"check": "Curve pool 0xDC24…f67022 eth_getCode 指纹", "result": "15735 bytes，keccak256 0xe2c45ce8268580c40b4c12c574f8a210375ab92998c1555451fef63630e96b35，与 gate JSON pool_bytecode_bytes/pool_code_keccak256 完全一致", "evidence": "raw/network_checks2.json gate.pool_code_bytes/pool_code_keccak"},
+   {"check": "stETH 0xae7a…7fE84 eth_getCode 指纹", "result": "1035 bytes，keccak256 0xb9c1c929064cd21734c102a698e68bf617feefcfa5a9f62407c45401546736bf，与 gate JSON 一致", "evidence": "raw/network_checks2.json gate.steth_code_bytes/steth_code_keccak"},
+   {"check": "pool coins(1) / coins(0)", "result": "coins(0)=0xeeee…eeee(native ETH)、coins(1)=0xae7ab96520de3a18e5e111b5eaab095312d7fe84(stETH)，与 gate JSON coins_onchain 一致", "evidence": "raw/network_checks2.json gate.coins0/coins1"},
+   {"check": "pool fee()", "result": "0xf4240 = 1,000,000，分母 1e10 → 0.01%，与 gate JSON pool_fee_raw 一致", "evidence": "raw/network_checks2.json gate.fee_raw"},
+   {"check": "get_dy(1,0,10000000000000000) @26377898", "result": "9997160735119382 (=0x23845d5e611816)，与 gate JSON amount_out_raw 逐位一致；另 100 stETH get_dy=99.970993039005615505 ETH（独立补取）", "evidence": "raw/network_checks2.json gate.get_dy_001_raw / gate.get_dy_100_raw"},
+   {"check": "stateDiff 只读模拟假设是否明确披露（无签名/广播）", "result": "gate JSON state_override_note 明示『只读模拟：stateDiff 注入 shares/allowance；不签名、不广播，不代表真实账户余额』，simulation.method 亦写明 eth_call+stateDiff；raw-selected 显示无 eth_sendRawTransaction/签名调用", "evidence": "evidence/M00/live-20261109T141903Z/single-market-gate.json:16,84-100; raw-selected.json（无发送类方法）"},
+   {"check": "EIP-1967 实现槽（pool/stETH）", "result": "两地址 0x3608…5a17 槽均为 0 → 均为非 EIP-1967 代理（Curve 池非代理、stETH 用 Aragon appStorage 寻址），与 gate JSON 记录的 slot 值 0x00…00 一致", "evidence": "raw/network_checks2.json gate.pool_eip1967/steth_eip1967"}
+  ],
+  "notes": "9 项独立检查全部与 gate JSON 逐位一致，PASS。限制：①M00 采集时用 ethereum-rpc.publicnode.com，该端点在本轮复核时（约 70 分钟后）对历史块 eth_getCode/eth_call/eth_getStorageAt 返回 -32602『Archive requests require a personal token』；改用无 key 的 eth.drpc.org 归档端点完成同块复核（1rpc 报 historical state 不可用）。②stateDiff eth_call 模拟本身未由 Q00 重放（需节点支持 state override，drpc 未测），故 SIMULATED 等级的结论依赖原证据的可复现字段；只读模拟假设已明确披露、无签名/广播风险。③gate JSON 中 gas_cost/gas units 为估算口径（gasPrice 非 EIP-1559 精确），未独立复核。"
+ },
+ "findings": [
+  {
+   "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+   "claim_scope": "stETH DEX 即卖 vs Lido 队列平价（requestWithdrawals→finalize→claim）在同一固定块的毛差；不主张已实现净利",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "ETH archive RPC（eth.drpc.org，与原作者 publicnode 不同端点）", "url": "https://eth.drpc.org", "request_summary": "eth_call get_dy(1,0,100e18) on 0xDC24316b…f67022 @ block 26377950", "result_or_error": "99.97131213679346 ETH / 100 stETH，与 record 99.971312137 一致（差 <1e-9 ETH）", "at_utc": "2026-11-09T15:50:24Z"},
+    {"source": "ETH archive RPC", "url": "https://eth.drpc.org", "request_summary": "q00 复核 get_dy(1,0,0.01e18) @26377898", "result_or_error": "0.009997161 ETH，与 M00 gate 同块一致；池状态与 ETH01 报告 1/10/100 档方向一致", "at_utc": "2026-11-09T15:50:20Z"}
+   ],
+   "notes": "报价可逐位复现。原 finding 的 +0.0287% 毛差 = 队列平价(≈100.00)/DEX 即卖(99.971312) − 1；方向与量级成立。但 claim 仅为毛差，queue claim/finalize gas、等待时间、记账率漂移仍 unknown，不得升级为净利；保留 QUOTED。"
+  },
+  {
+   "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+   "claim_scope": "100 wstETH 三出口：Uniswap V3 直卖、unwrap→Curve 两段、requestWithdrawalsWstETH 队列平价",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "ETH archive RPC + Uniswap QuoterV2 0x61fFE0…B21e", "url": "https://eth.drpc.org", "request_summary": "eth_call quoteExactInputSingle(wstETH→WETH,100e18,fee=100) @ block 26377950", "result_or_error": "124.8466126334361 WETH，与 record 124.846612633 一致", "at_utc": "2026-11-09T15:50:26Z"},
+    {"source": "wstETH stEthPerToken @26377950", "url": "https://eth.drpc.org", "request_summary": "eth_call stEthPerToken() on 0x7f39C581…", "result_or_error": "1.248822059877192 stETH/wstETH，与 record 1.248822059877 一致；对应 100 wstETH 队列平价 124.882205988 ETH", "at_utc": "2026-11-09T15:50:27Z"}
+   ],
+   "notes": "DEX 腿与协议记账比均逐位复现；+0.0285% 毛差方向成立。等待/gas/claim 未测，保留 QUOTED。注意 finding market_id 标为 Uniswap 池而机制主体是 Lido 队列，属登记口径瑕疵，不影响证据。"
+  },
+  {
+   "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+   "claim_scope": "rETH 协议即时 burn：getEthValue 按网络余额/供给，且受 getTotalCollateral（liquid collateral）约束",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "RULE_GAP",
+   "independent_checks": [
+    {"source": "ETH archive RPC", "url": "https://eth.drpc.org", "request_summary": "eth_call getEthValue(100e18) on 0xae78736C… @26377950", "result_or_error": "117.54359504536227 ETH，与 record 117.543595045 一致", "at_utc": "2026-11-09T15:50:28Z"},
+    {"source": "ETH archive RPC", "url": "https://eth.drpc.org", "request_summary": "eth_call getTotalCollateral() 同块", "result_or_error": "2087.96474631285 ETH，与 record 2087.964746 一致（liquid collateral 上限成立）", "at_utc": "2026-11-09T15:50:29Z"}
+   ],
+   "notes": "协议即时兑付值与 collateral 约束均确认。但 rETH DEX 可执行报价缺失，无法判断是否存在『DEX 折价 vs 协议即时值』价差，故仍是规则线索（RULE_GAP）而非机会。"
+  },
+  {
+   "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+   "claim_scope": "Arbitrum wstETH/WETH DEX 即卖价 vs L1 协议比的跨链参考折价；不主张可执行闭环",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "ARB archive RPC（blastapi public，因 drpc ARB 归档不可用）", "url": "https://arbitrum-one.public.blastapi.io", "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(wstETH→WETH,1e18,fee=100) @ block 522707442", "result_or_error": "1.248497488656218 WETH，与 record 1.248497488656218 逐位一致", "at_utc": "2026-11-09T15:51:40Z"},
+    {"source": "ARB wstETH L2 代币", "url": "https://arbitrum-one.public.blastapi.io", "request_summary": "eth_call stEthPerToken() on 0x5979D7b5… @522707442（验证『L2 无份额率函数』）", "result_or_error": "未复现 revert：drpc 返回 -32602/27『Unknown state』，blastapi 未返回结果（请求失败），该子主张本轮未独立证实", "at_utc": "2026-11-09T15:51:41Z"}
+   ],
+   "notes": "DEX 腿报价逐位复现；但『L2 无 stEthPerToken』本轮因归档端点不可用未独立复现（原 record 称 revert）。折价对照为跨链跨时刻（L1 块 26377950 14:31Z vs ARB 14:51Z），只能作参考。保留 QUOTED，不主张可执行收益。"
+  },
+  {
+   "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+   "claim_scope": "Arbitrum rETH/WETH DEX 即卖价 vs L1 协议汇率参考折价；容量受薄池限制",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "ARB archive RPC（blastapi public）", "url": "https://arbitrum-one.public.blastapi.io", "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(rETH→WETH,1e18,fee=500) @522707442", "result_or_error": "1.1737989660492183 WETH，与 record 逐位一致", "at_utc": "2026-11-09T15:51:42Z"}
+   ],
+   "notes": "报价确认；10 单位 3.8% 冲击的容量结论未独立重测（record 有 10 单位报价）。跨链跨时刻参考的折价口径同 ARB-WSTETH 条限制。"
+  },
+  {
+   "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+   "claim_scope": "Base Uniswap V3 USDC/USDbC 0.01% 池同块双向报价与微幅折价；不主张可闭环收益",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "BASE archive RPC（drpc）", "url": "https://base.drpc.org", "request_summary": "eth_call QuoterV2 quoteExactInputSingle(USDC→USDbC,1e6,fee=100) @ block 55228648", "result_or_error": "1.000018 USDbC，与 record 1.000018 一致", "at_utc": "2026-11-09T15:51:12Z"},
+    {"source": "BASE archive RPC", "url": "https://base.drpc.org", "request_summary": "eth_call quoteExactInputSingle(USDbC→USDC,100e6,fee=100) 同块", "result_or_error": "99.977632 USDC，与 record 99.977632 一致", "at_utc": "2026-11-09T15:51:13Z"}
+   ],
+   "notes": "双向报价逐位复现；0.0018% 买向折价 / 0.0222% 卖回损失成立。Base 无本链兑付出口（桥回 L1）使闭环不成立，属报价级证据，保留 QUOTED。"
+  },
+  {
+   "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+   "claim_scope": "Base 上 cbETH/wstETH/rETH/ezETH 均为桥接表示、本链无协议赎回/汇率视图；唯一非 DEX 出口为跨链桥",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "DELAYED",
+   "independent_checks": [
+    {"source": "BASE archive RPC", "url": "https://base.drpc.org", "request_summary": "eth_call l1Token() on cbETH 0x2Ae3F1… @55228648", "result_or_error": "0xbe9895146f7af43049ca1c1ae358b0541ea49704 = L1 cbETH，桥接映射成立", "at_utc": "2026-11-09T15:51:15Z"},
+    {"source": "BASE archive RPC", "url": "https://base.drpc.org", "request_summary": "eth_call exchangeRate() on cbETH（验证 impl 无汇率视图）", "result_or_error": "execution reverted（与『无 exchangeRate』一致）", "at_utc": "2026-11-09T15:51:14Z"}
+   ],
+   "notes": "cbETH 桥接身份与『无本链赎回』关键证据复现；wstETH/rETH/ezETH 的 selector 缺失未逐项重测。跨链（L2StandardBridge→L1 挑战期）属延迟出口，DELAYED 恰当。"
+  },
+  {
+   "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+   "claim_scope": "Lista PSM 存在公众 buy/sell，但 2% 赎回费 > 观测折价，当前无正收益路径",
+   "verdict": "NEEDS_DATA",
+   "recommended_status": "RULE_GAP",
+   "independent_checks": [
+    {"source": "BNB archive RPC（drpc）", "url": "https://bsc.drpc.org", "request_summary": "eth_call getDayBuyLeft() on PSM 0xaa57… @132601543", "result_or_error": "500,000 USDT（500000e18），与 record 每日上限一致", "at_utc": "2026-11-09T15:51:05Z"},
+    {"source": "BNB archive RPC（drpc）", "url": "https://bsc.drpc.org", "request_summary": "eth_call buyFee()/sellFee()/getTotalBuyLimit() 同块重取", "result_or_error": "buyFee/sellFee 首次被 drpc 公共端点限流（code 15）；改用 blastapi 后请求失败，未取得 → 2% 费用的关键字段本轮未独立复现", "at_utc": "2026-11-09T15:52:20Z"}
+   ],
+   "notes": "PSM 链上存在性与每日上限已复现；但决定结论的 buyFee=200(2%)/sellFee=0 未独立重读（端点限流/归档不可用）。原报告同时自曝外部请求约 117 次 > 80 上限，请求纪律需退回；结论方向与源码+参数自洽，但按 Q00 规则不能凭未复核参数确认 → NEEDS_DATA，保留 RULE_GAP。"
+  },
+  {
+   "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+   "claim_scope": "Pancake V2 三跳稳定币闭环双向、逐档全部净负（浅池冲击）",
+   "verdict": "NEEDS_DATA",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "BNB archive RPC（drpc / blastapi）", "url": "https://bsc.drpc.org", "request_summary": "eth_call Pancake Router getAmountsOut(1e18,[USDC,USDT,DAI,USDC]) @132604696", "result_or_error": "drpc 公共端点限流（code 15），blastapi 未返回结果 → 未独立复现", "at_utc": "2026-11-09T15:52:21Z"}
+   ],
+   "notes": "未能独立重取任何腿报价。离线合理性检查：DAO 记录中 USDT/DAI 池约 134 USDT、DAI/USDC 池约 2.4k USDC 的浅池结构可解释 1 USDC 即 −132bps、1000 USDC −8872bps；数值内部自洽但与实际链上状态本轮未比对 → 按未测如实列 NEEDS_DATA，不降级也不升级。"
+  },
+  {
+   "finding_id": "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+   "claim_scope": "Curve Aave 池内 DAI.e→USDC.e→USDT.e→DAI.e 同块三腿闭环，净负≈三腿费率",
+   "verdict": "NEEDS_DATA",
+   "recommended_status": "QUOTED",
+   "independent_checks": [
+    {"source": "AVAX archive RPC（drpc/blastapi）", "url": "https://avalanche.drpc.org", "request_summary": "eth_call get_dy_underlying 三腿 @99858972", "result_or_error": "drpc 返回『no available upstreams』（归档不可用）；blastapi AVE 归档亦未返回 → 三腿报价未独立复现", "at_utc": "2026-11-09T15:52:20Z"}
+   ],
+   "notes": "未独立重取。离线核对：1/10/100/1000 DAI.e 净 −0.303/−0.313/−0.330/−0.498 bps 与 fee=100000(0.001%/腿)×3≈0.3bps 同量级，方向自洽；但按未测处理 → NEEDS_DATA，保留 QUOTED。"
+  },
+  {
+   "finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+   "claim_scope": "原生 USDC 在 Uniswap V3 买入桥接 USDT 的 0.09% 毛差，跨 OP 标准桥回 L1 需等待与 gas；不主张即时净利",
+   "verdict": "CONFIRMED_EVIDENCE",
+   "recommended_status": "DELAYED",
+   "independent_checks": [
+    {"source": "OP archive RPC（drpc）", "url": "https://optimism.drpc.org", "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(USDC→USDT,1000e6,fee=100) @ block 159319120", "result_or_error": "1,000,904,767 原始单位 = 1000.904767 USDT，与 record 逐位一致（+0.0905%）", "at_utc": "2026-11-09T15:51:18Z"},
+    {"source": "OP archive RPC", "url": "https://optimism.drpc.org", "request_summary": "eth_call l1Token() on OP USDT 0x94b0…8e58 @159319120", "result_or_error": "0xdac17f958d2ee523a2206206994597c13d831ec7 = L1 USDT，桥接表示成立（『经 L1 可得 1:1』的结构前提成立）", "at_utc": "2026-11-09T15:51:19Z"}
+   ],
+   "notes": "DEX 腿与桥接身份均逐位复现。跨链等待（OP 证明期）与 L1 领取 gas 未量化、无 same-tx 闭环 → DELAYED 恰当，净额 null 正确；不得把毛差当可锁定利润。"
+  },
+  {
+   "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+   "claim_scope": "PMCT(pUSD) 代理链上实现与官方 V2 README 部署表不一致，且 pUSD 是现金 wrapper 非 outcome 份额",
+   "verdict": "NEEDS_DATA",
+   "recommended_status": "UNVERIFIED",
+   "independent_checks": [
+    {"source": "POLY archive RPC（drpc）", "url": "https://polygon.drpc.org", "request_summary": "eth_getStorageAt PMCT 0xC011…DFB 的 EIP-1967 实现槽 @ block 97021016", "result_or_error": "0x00…00（为 0）。与 record『61B EIP-1967 最小代理』的表述冲突：61B 代理是 EIP-1167（实现地址嵌在字节码中，不写 EIP-1967 槽），因此声称的 impl 0xce84e053… 无法用存储槽复核，须解析字节码", "at_utc": "2026-11-09T15:51:10Z"},
+    {"source": "POLY archive RPC", "url": "https://polygon.drpc.org", "request_summary": "eth_call totalSupply() on PMCT @97021016", "result_or_error": "519,597,420.064967 pUSD；与 N-POLY record 的 totalSupply=520,531,160.428038 相差约 0.93M（不同块/口径未解释）", "at_utc": "2026-11-09T15:51:11Z"}
+   ],
+   "notes": "『实现漂移』这一 RULE_GAP 核心主张本轮未获支持也未推翻：EIP-1967 槽为 0 说明原记录代理类型表述有误，需按 EIP-1167 解析字节码才能复核 impl；同时 totalSupply 与 N-POLY 记录存在未解释差异 → NEEDS_DATA，建议降为 UNVERIFIED 待 N-POLY 修正代理类型描述与 supply 时点。"
+  }
+ ],
+ "rejections_reviewed": [
+  {
+   "finding_id": "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+   "reason_checked": "往返费率下限 0.05%+0.30%=35bps 高于同块中间价差 24.77bps，且 Sushi 侧 WETH 仅 37.04 枚，逐档净负",
+   "verdict": "SUPPORTED",
+   "notes": "独立复现第一腿：Uniswap Quoter 10 USDC.e→WETH=0.004715670195594033 WETH（与记录逐位一致，块 522706375）；Sushi 第二腿未重取，但 35bps>24.77bps 的费用结构判断与逐档净负表（10 USDC −0.334% 起）内部自洽，反向亦被 35bps 吃掉。排除理由成立。"
+  },
+  {
+   "finding_id": "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+   "reason_checked": "sDAI NAV≈1.182774 DAI，但 Curve 二级为溢价（买 1 sDAI≈1.1932 FRAX），『折价买入→NAV 赎回』不成立",
+   "verdict": "SUPPORTED",
+   "notes": "独立重取 @26378111：convertToAssets(1e18)=1.1828…（0x106a0edb62eebeed）；Curve sDAI/FRAX get_dy(0,1,1e18)=0.838085532540897466 sDAI/FRAX → 买 1 sDAI≈1.1932 FRAX；get_dy(1,0,1e18)=1.192958705920968 FRAX。买入价高于可兑现 NAV，方向性排除成立。"
+  },
+  {
+   "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+   "reason_checked": "Velodrome getAmountOut 是 view，且 factory isPaused/getFee revert、池代码仅 45B → view 数值不能当同状态可成交",
+   "verdict": "SUPPORTED",
+   "notes": "独立重取：factory isPaused(pool) 于块 159319129 execution reverted；池 0x0493bf8b… eth_getCode=45 bytes（EIP-1167 克隆），与记录一致。view 报价不能作为执行腿的排除理由成立。"
+  },
+  {
+   "finding_id": "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP",
+   "reason_checked": "Pancake V2 mint/burn 按储备比例返还同一组资产，仅舍入；0.25% 费只在 swap 发生，LP 进出无闭环价差",
+   "verdict": "LIMITED",
+   "notes": "未能在链上重读储备（BNB 归档端点均失败）；离线核对记录内数字自洽：18,741,364.344876 USDT/27,266.009026 WBNB → 687.35 USDT/WBNB，与 1 WBNB+687.3527 USDT 铸 9.5365 LP、1 LP 退 0.104860 WBNB+72.0759 USDT 一致。机制排除理由成立（与标准 V2 数学一致），但缺本轮链上复核。"
+  },
+  {
+   "finding_id": "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD",
+   "reason_checked": "cbETH 为 canonical bridged 表示；两侧 mid 差仅 +3.48bps，往返 gas+桥等待/最终性 > 价差，故不构成可闭环净差",
+   "verdict": "LIMITED",
+   "notes": "独立确认桥接身份（Base cbETH l1Token=0xbe989514…与 L1 cbETH 一致）。但原报告承认 L1 可执行腿缺失（仅有 mid），且 3.48bps 在 $10k 规模≈$3.5 与两侧 gas $0.4–0.6 的对比对规模敏感（报告未给规模敏感性），逻辑方向成立但成本对比不完整；记为 LIMITED。"
+  }
+ ],
+ "integrity": {
+  "roles_checked": 46,
+  "registry_coverage": "46/46 研究岗位均作为 owner 出现在本轮 70 条 finding 中（N-ETH…X-BASE 全覆盖，无缺岗）；70 条均含 source_record、evidence_urls、last_observed_at、last_verified_onchain_at；70 条分布 QUOTED 10 / UNVERIFIED 20 / RULE_GAP 8 / DELAYED 3 / REJECTED 29。",
+  "report_record_consistent_samples": 6,
+  "quotes_checked": 170,
+  "fabrication_found": false,
+  "notes": "①46/46 岗位 report/record/state 三件齐备（offline_audit.json），46 份 record 均含简报要求的 31 个键，170 条 quotes 全部带 block 与 quote_time_utc（无无区块/无时间报价）。②抽查 6 份 report 与 record（N-ETH/ETH01/BNB01/SOL01/BASE02/X-ARB）：block_or_slot、status、execution_status 全部一致；3 份（ETH01/SOL01/X-ARB）正文未回显 finding_id（可追溯性小缺口，非数据矛盾）。③无虚构哈希/链接迹象：抽查的 12 条报价重取 8 条逐位一致（ETH 2、ARB 2、BASE 2、OP 1…），M00 gate 9 项逐位一致；报告普遍区分『state 读取』与『交易』，未声称不存在的 tx。④已发现的数字/表述问题：N-POLY 称 PMCT 为『61B EIP-1967 最小代理』但 EIP-1967 槽为 0（应为 EIP-1167）；其 totalSupply 520.53M 与我同块读取 519.60M 差约 0.93M；BNB01 报告自曝请求 117 次 >80、OP02/X-BASE 各 80 次、BASE02 78 次，Q00 复核自身请求 89 次（≤100 上限）。⑤本轮未验证：Solana/BNB/AVAX 归档端点不可用导致 SOL/BNB/AVAX 报价未能独立重取（列 NEEDS_DATA）；7 天/30 天窗口未覆盖；stateDiff 模拟未重放；浏览器链接可访问性未逐一抓取。"
+ },
+ "counts": {
+  "reviewed_findings": 12,
+  "by_verdict": {
+   "CONFIRMED_EVIDENCE": 8,
+   "NEEDS_DATA": 4,
+   "REJECTED": 0,
+   "STALE": 0,
+   "RISK_ONLY": 0,
+   "LIMITED_REJECTION_SUPPORTED": 0
+  }
+ }
+}

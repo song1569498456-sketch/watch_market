@@ -87,18 +87,91 @@
     "history_window_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "official_source": "base/base",
-      "official_release_tag": "v1.5.4",
-      "release_published_at": "2026-11-06T01:25:10Z",
-      "last_block": null,
-      "pool_events_scanned": 0,
-      "transactions_analyzed": 0,
+      "kind": "chain_snapshot_plus_factory_index_enumeration",
+      "run_id": "live-20261109T141903Z",
+      "chain": "base-mainnet",
+      "chain_id": 8453,
+      "latest_block": 55224420,
+      "latest_block_time_utc": "2026-11-09T14:40:59+00:00",
+      "measured_block_time_approx": "0.2s",
+      "factory": {
+        "protocol": "Aerodrome",
+        "address": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+        "code_bytes": 3516,
+        "allPoolsLength": 29931,
+        "stableFee": 5,
+        "volatileFee": 30,
+        "implementation": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+        "implementation_code_bytes": 21057
+      },
+      "newest_pools_verified": [
+        {
+          "index": 29930,
+          "pool": "0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+          "tokens": [
+            "0x4200000000000000000000000000000000000006:WETH",
+            "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60:PRIME"
+          ],
+          "stable": false,
+          "clone_target": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+          "created_blocks_ago_approx": [
+            8325,
+            15300
+          ],
+          "created_time_approx_utc": "2026-11-09T13:50～14:13"
+        },
+        {
+          "index": 29929,
+          "pool": "0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+          "tokens": [
+            "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f:xUSDT",
+            "0x329105c15ac753c8d23a9105abe2c63578f6002a:bsdETH"
+          ],
+          "stable": false,
+          "created_blocks_ago_approx": [
+            9225,
+            10800
+          ],
+          "created_time_approx_utc": "2026-11-09T14:05～14:10"
+        }
+      ],
+      "queued_pool_indices": [
+        29928,
+        29927,
+        29926,
+        29925,
+        29924,
+        29923,
+        29922,
+        29921,
+        29920,
+        29919,
+        29918,
+        29917,
+        29916,
+        29915,
+        29914,
+        29913,
+        29912,
+        29911
+      ],
+      "base_releases_in_30d": [
+        "v1.5.0",
+        "v1.5.1",
+        "v1.5.2",
+        "v1.5.3",
+        "v1.5.4"
+      ],
+      "source_failures": [
+        "eth_getLogs -32011 request limit reached",
+        "base.blockscout.com/api/v2 HTTP 403 ×3"
+      ],
       "history_window_complete": false
     },
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份链上核验：eth_chainId=0x2105（8453），最新块 55,224,420（2026-11-09T14:40:59Z），base fee 0.005 gwei，实测约 0.2 秒/块。",
@@ -119,10 +192,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:45:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-BASE/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-BASE/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-BASE/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

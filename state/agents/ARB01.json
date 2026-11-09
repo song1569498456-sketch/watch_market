@@ -66,23 +66,69 @@
     "requests_this_run": 56
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "COMPLETED",
     "observed": {
       "type": "block",
       "chain_id": 42161,
+      "head_block": 522706632,
+      "head_block_time_utc": "2026-11-09T14:47:34+00:00",
       "quotes_block": 522706375,
-      "pair": "WETH/USDC.e on Uniswap V3 fee=500 vs SushiSwap V2",
-      "mid_spread_bps": -24.77,
-      "roundtrip_fee_floor_bps": 35,
-      "all_tiers_net_negative": true,
-      "min_loss_usdce": -0.033427,
-      "new_pool_checked": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
-      "requests_this_run": 56,
+      "quotes_block_time_utc": "2026-11-09T14:46:31+00:00",
+      "gas_price_wei": 20108000,
+      "pairs": {
+        "WETH_USDCe": {
+          "uniswap_v3_pool": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+          "uniswap_fee": 500,
+          "uniswap_liquidity": "21599303645811515",
+          "sushi_pair": "0x905dfcd5649217c42684f23958568e533c711aa3",
+          "sushi_reserves": {
+            "WETH": "37037187636938966194",
+            "USDCe": "78523640619"
+          },
+          "sushi_reserve_ts": 1794234929,
+          "mid_uniswap_usdce_per_weth": "2125.394044428001424726872394",
+          "mid_sushi_usdce_per_weth": "2120.129675847325988028838535",
+          "spread_bps_sushi_minus_uni": "-24.76890623871214716796462092"
+        },
+        "BLPX_USDC_new_pool": {
+          "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+          "token0": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "token1": "0xf2925a78adac85ca330643bc5584a694199afb76",
+          "fee": 3000,
+          "liquidity": "24259911431500377",
+          "quotable_100USDC_to_BLPX": "18844754615093570206089",
+          "dexscreener_pairs": 0
+        }
+      },
+      "net_results_usdce": {
+        "10": {
+          "univ3_buy_sushi_sell": -0.033427,
+          "sushi_buy_univ3_sell": -0.039273
+        },
+        "100": {
+          "univ3_buy_sushi_sell": -0.457148,
+          "sushi_buy_univ3_sell": -0.515363
+        },
+        "1000": {
+          "univ3_buy_sushi_sell": -16.719273,
+          "sushi_buy_univ3_sell": -17.259255
+        },
+        "10000": {
+          "univ3_buy_sushi_sell": -1235.149697,
+          "sushi_buy_univ3_sell": -1234.11607
+        },
+        "100000": {
+          "univ3_buy_sushi_sell": -57975.72305,
+          "sushi_buy_univ3_sell": -57909.761201
+        }
+      },
+      "chain_block": 522706632,
       "event_pages_completed": 0,
       "history_30d_complete": false,
-      "activity_7d_complete": false
+      "activity_7d_complete": false,
+      "requests_this_run": 56
     },
-    "evidence_commit": null,
+    "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -106,10 +152,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:47:44.893037+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ARB01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ARB01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ARB01/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 56,
   "data_sources_used": [
     "https://arb1.arbitrum.io/rpc",

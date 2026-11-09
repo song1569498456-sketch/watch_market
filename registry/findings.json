@@ -94,53 +94,28 @@
       },
       "q00_review": {
         "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
-        "claim_scope": "stETH/wstETH→Lido请求→unstETH→finalize→ETH领取；静态退出状态可核，当前数量和经济闭环未核",
-        "verdict": "NEEDS_DATA",
-        "recommended_status": "UNVERIFIED",
-        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "claim_scope": "stETH DEX 即卖 vs Lido 队列平价（requestWithdrawals→finalize→claim）在同一固定块的毛差；不主张已实现净利",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
         "independently_checked_sources": [
           {
-            "source_id": "S01",
-            "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-            "fetched_at": "2026-11-08T16:05:09.998824+00:00",
-            "http_status": "200",
-            "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
-            "fields_and_result": "deployed-mainnet.json chainId=1; withdrawalQueueERC721 proxy=0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1, implementation=0xE42C659Dc09109566720EA8b2De186c2Be7D94D9; stETH/wstETH分别登记。静态部署表未证明当前代理存储。"
+            "source": "ETH archive RPC（eth.drpc.org，与原作者 publicnode 不同端点）",
+            "url": "https://eth.drpc.org",
+            "request_summary": "eth_call get_dy(1,0,100e18) on 0xDC24316b…f67022 @ block 26377950",
+            "result_or_error": "99.97131213679346 ETH / 100 stETH，与 record 99.971312137 一致（差 <1e-9 ETH）",
+            "at_utc": "2026-11-09T15:50:24Z"
           },
           {
-            "source_id": "S02",
-            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
-            "fetched_at": "2026-11-08T16:05:11.533797+00:00",
-            "http_status": "200",
-            "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
-            "fields_and_result": "L149-155 finalize需resumed和FINALIZE_ROLE；L169-175 ownerOf拒绝claimed；L230-248 transfer更新owner、清approval且不重置claimed。"
-          },
-          {
-            "source_id": "S44",
-            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol",
-            "fetched_at": "2026-11-08T16:06:11.542593+00:00",
-            "http_status": "200",
-            "sha256": "efa5a32fbc99cafdb16a38d96a9bb5b29a62e60b5610e7c317711cc58402b131",
-            "fields_and_result": "L125-134 request需resumed和金额边界；L218-230未finalized/已claimed可领取为0；claim需owner且finalized。"
-          },
-          {
-            "source_id": "S45",
-            "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
-            "fetched_at": "2026-11-08T16:06:12.890071+00:00",
-            "http_status": "200",
-            "sha256": "254a8bfab14c30ac30d36fbe0174fe424798a67276abb1c52e139af28899cae0",
-            "fields_and_result": "L69-74 unwrap按getPooledEthByShares返回stETH，不是ETH。"
+            "source": "ETH archive RPC",
+            "url": "https://eth.drpc.org",
+            "request_summary": "q00 复核 get_dy(1,0,0.01e18) @26377898",
+            "result_or_error": "0.009997161 ETH，与 M00 gate 同块一致；池状态与 ETH01 报告 1/10/100 档方向一致",
+            "at_utc": "2026-11-09T15:50:20Z"
           }
         ],
-        "missing_fields": [
-          "chainId/区块/当前proxy implementation",
-          "DEX真实池和数量q→买入输出",
-          "shares rate、paused、requestId/owner/finalized/claimed/claimable",
-          "完整取得→请求→领取→出售路线、gas/授权/等待/容量"
-        ],
-        "reasoning_summary": "份额转换、请求NFT与最终ETH是同一权益的阶段。主网部署表一致，但无当前代理/队列状态或买入报价，不能确认即时现金或收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
-        "duplicate_of": null,
-        "next_check": "先绑定主网实现；同状态分数量测现货和queue，记录requestId并与ETH05共用权益账本。"
+        "notes": "报价可逐位复现。原 finding 的 +0.0287% 毛差 = 队列平价(≈100.00)/DEX 即卖(99.971312) − 1；方向与量级成立。但 claim 仅为毛差，queue claim/finalize gas、等待时间、记账率漂移仍 unknown，不得升级为净利；保留 QUOTED。",
+        "run_id": "live-20261109T141903Z"
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:52.450934+00:00",
@@ -196,7 +171,9 @@
         ],
         "reasoning_summary": "公告写明未来硬分叉和CAS20另行激活，本轮日期早于计划日期。非共识改动可能更早生效，应逐项区分。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。"
+        "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "UNVERIFIED",
       "last_observed_at": "2026-11-09T14:28:00.185784+00:00",
@@ -282,7 +259,9 @@
         ],
         "reasoning_summary": "源码确实将token_program绑定mint.owner并验证supported mint；无真实mint和pool，规则源事实可通过，市场身份仍未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先绑定当前程序版本，再在具体已登记池检查mint owner与转账扩展。"
+        "next_check": "先绑定当前程序版本，再在具体已登记池检查mint owner与转账扩展。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:55.859069+00:00",
@@ -366,44 +345,28 @@
       "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
-        "claim_scope": "排除仅凭lisUSD锚定/借款人还债文档推出公众无条件1美元现金赎回；不判定所有新模块不存在",
-        "verdict": "REJECTED",
-        "recommended_status": "REJECTED",
-        "independently_checked_at": "2026-11-08T16:14:58.668624+00:00",
+        "claim_scope": "Lista PSM 存在公众 buy/sell，但 2% 赎回费 > 观测折价，当前无正收益路径",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "RULE_GAP",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
         "independently_checked_sources": [
           {
-            "source_id": "S05",
-            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
-            "fetched_at": "2026-11-08T16:05:16.458281+00:00",
-            "http_status": "200",
-            "sha256": "66380694c96c55de0c4e022add660baccf90f269b537576b26ab77fcfe55d011",
-            "fields_and_result": "L16-19 折价时borrowers买入lisUSD偿债；文本不建立任意持有人的无条件美元兑付权。"
+            "source": "BNB archive RPC（drpc）",
+            "url": "https://bsc.drpc.org",
+            "request_summary": "eth_call getDayBuyLeft() on PSM 0xaa57… @132601543",
+            "result_or_error": "500,000 USDT（500000e18），与 record 每日上限一致",
+            "at_utc": "2026-11-09T15:51:05Z"
           },
           {
-            "source_id": "S06",
-            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
-            "fetched_at": "2026-11-08T16:05:17.895701+00:00",
-            "http_status": "200",
-            "sha256": "c3a589eb0bbeb545205b7c3605b07f141eb266006f60aa5fe8c7ceb1250da775",
-            "fields_and_result": "L6 approve不是repayment完成；L12-18还自己的贷款。剩债文档数值不当当前参数。"
-          },
-          {
-            "source_id": "S07",
-            "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md",
-            "fetched_at": "2026-11-08T16:05:19.355525+00:00",
-            "http_status": "200",
-            "sha256": "835fadcb0122a85f6a04ace2441a463d8719388c719d29aa50b46c8e814fb992",
-            "fields_and_result": "L6 outstanding loan与提款相连，L11文档BNB等待/LST立即；不把此文档推广到公众lisUSD兑付。"
+            "source": "BNB archive RPC（drpc）",
+            "url": "https://bsc.drpc.org",
+            "request_summary": "eth_call buyFee()/sellFee()/getTotalBuyLimit() 同块重取",
+            "result_or_error": "buyFee/sellFee 首次被 drpc 公共端点限流（code 15）；改用 blastapi 后请求失败，未取得 → 2% 费用的关键字段本轮未独立复现",
+            "at_utc": "2026-11-09T15:52:20Z"
           }
         ],
-        "missing_fields": [
-          "当前部署/新PSM或公开兑换模块",
-          "普通持有人资格/额度/接收资产",
-          "真实买入→兑付→退出数量及gas/等待"
-        ],
-        "reasoning_summary": "文本的购买主体是借款人、用途是减债并取回自有抵押；推不出任意持有人取得额外现金的权利。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
-        "duplicate_of": null,
-        "next_check": "先查当前部署及新增模块；存在明确公众出口后再建立经济路线。"
+        "notes": "PSM 链上存在性与每日上限已复现；但决定结论的 buyFee=200(2%)/sellFee=0 未独立重读（端点限流/归档不可用）。原报告同时自曝外部请求约 117 次 > 80 上限，请求纪律需退回；结论方向与源码+参数自洽，但按 Q00 规则不能凭未复核参数确认 → NEEDS_DATA，保留 RULE_GAP。",
+        "run_id": "live-20261109T141903Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
@@ -510,7 +473,8 @@
         ],
         "reasoning_summary": "旧README直接给新维护源，新仓承接节点，停链推断无依据。发布默认值不能替代当前链配置/增长区块。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "采用base/base固定版本作源；恢复RPC后独立核运行情况。"
+        "next_check": "采用base/base固定版本作源；恢复RPC后独立核运行情况。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:30:38.025797+00:00",
@@ -566,7 +530,8 @@
         ],
         "reasoning_summary": "头字段只计已完成eth_call的gas，既不是支付的gas价格乘数量，也未含所有交易腿/市场/融资费用。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "按完整交易与经济账本核费；已含费项不再重复扣。"
+        "next_check": "按完整交易与经济账本核费；已含费项不再重复扣。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:32:59.855358+00:00",
@@ -631,7 +596,8 @@
         ],
         "reasoning_summary": "上一输出成为下一输入；Quoter内部gas不等于整笔成本，NodeInterface total内含L1分量。重复池仍须真实状态顺序模拟。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "建立真实A→B→C→A并按序模拟；不要total外再加其L1分量。"
+        "next_check": "建立真实A→B→C→A并按序模拟；不要total外再加其L1分量。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:35:29.566307+00:00",
@@ -683,7 +649,9 @@
         ],
         "reasoning_summary": "出口是L2烧token后经消息和争议窗口在L1释放托管token；资产、链和时间均不同于主张。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "若具体路径跨L1，交X-ARB；另行验证任何本链即时出口。"
+        "next_check": "若具体路径跨L1，交X-ARB；另行验证任何本链即时出口。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:35:18.919313+00:00",
@@ -774,7 +742,8 @@
         ],
         "reasoning_summary": "官方配置给不同地址与wrapped/underlying；没有转换和兑付证据就不能消去这条权益转换边。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "分别建资产节点，明确每条转换边后同状态测完整回路。"
+        "next_check": "分别建资产节点，明确每条转换边后同状态测完整回路。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:37:39.140492+00:00",
@@ -826,7 +795,8 @@
         ],
         "reasoning_summary": "两方法明确queue role，redeem另检查WAVAX现金。preview不能越过角色和资金条件；不套用sAVAX。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "沿已授权正常queue用户入口核查，并独立处理sAVAX。"
+        "next_check": "沿已授权正常queue用户入口核查，并独立处理sAVAX。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:37:20.904921+00:00",
@@ -887,7 +857,8 @@
         ],
         "reasoning_summary": "流动性模拟与withdrawQueue限制真实退出，缺Base目标也缺二级市场成本。不能将此源码套给Aave STATA。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先确定Base具体vault和二级池，再比较四列，不混用不同实现。"
+        "next_check": "先确定Base具体vault和二级池，再比较四列，不混用不同实现。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:39:43.762988+00:00",
@@ -952,7 +923,8 @@
         ],
         "reasoning_summary": "LP转给Gauge改变手续费归属，feesVotingReward分给投票权益。可能同时持不同身份不构成把相同费用重复列入。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "按账户和权利逐项分账，证明每份费用只分配一次。"
+        "next_check": "按账户和权利逐项分账，证明每份费用只分配一次。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:42:07.492556+00:00",
@@ -1006,7 +978,9 @@
         ],
         "reasoning_summary": "mint同时记债，repay用VAI烧本金并支付VAI利息；须回购债务资产并释放抵押才闭环。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "测完整mint→sell→buy VAI→repay→collateral exit账本。"
+        "next_check": "测完整mint→sell→buy VAI→repay→collateral exit账本。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
@@ -1106,7 +1080,9 @@
         ],
         "reasoning_summary": "pool.burn结果先入tokensOwed，collect才从池收取；NFT销毁还要求余量清零。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "将liquidity、tokensOwed和已收款分别核，完整模拟确认最终余量。"
+        "next_check": "将liquidity、tokensOwed和已收款分别核，完整模拟确认最终余量。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:44:54.995487+00:00",
@@ -1179,7 +1155,8 @@
         ],
         "reasoning_summary": "奖励取决于累积供借权益/资金，shortfall可变抵押头寸；公开函数不创造accrued奖励。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "指定正常账户只读核资格和余额，计参与与退出成本。"
+        "next_check": "指定正常账户只读核资格和余额，计参与与退出成本。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:44:36.743710+00:00",
@@ -1255,7 +1232,9 @@
         ],
         "reasoning_summary": "持币赎回不同于赎回自己Trove；源码可向持币人发送扣费ETH，但当下TCR/可赎债务/fee/hints和二级成交均未知。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "绑定v1部署后同状态测普通持币人路径，实际成功赎回量与未赎LUSD分别记。"
+        "next_check": "绑定v1部署后同状态测普通持币人路径，实际成功赎回量与未赎LUSD分别记。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
@@ -1355,7 +1334,8 @@
         ],
         "reasoning_summary": "标准明确preview忽略限额；指定部署源码还需余额/授权及Pot/DAIJoin实际执行。该源码没异步队列，不据此臆造排队。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先有真实二级流动性，再同状态测试账户可执行退出。"
+        "next_check": "先有真实二级流动性，再同状态测试账户可执行退出。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:47:03.965320+00:00",
@@ -1408,7 +1388,9 @@
         ],
         "reasoning_summary": "实际代还上限、aToken/底层分支和协议费会改变资产账本，且抵押仍要卖出或取出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先找到真实合规仓位，只读完整路径核实，不用名义奖金记利润。"
+        "next_check": "先找到真实合规仓位，只读完整路径核实，不用名义奖金记利润。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:46:46.422746+00:00",
@@ -1501,7 +1483,9 @@
         ],
         "reasoning_summary": "参考burn只是权限销毁余额/供给，没有付款；当前部署及现金渠道仍未知，不能据此否定合格客户发行方退出。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "核实际发行方出口和普通合格账户条件；burn与现金分开。"
+        "next_check": "核实际发行方出口和普通合格账户条件；burn与现金分开。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:49:23.421716+00:00",
@@ -1574,7 +1558,9 @@
         ],
         "reasoning_summary": "swap另查factory.isPaused，而view不查；未证明实际OP池处于暂停。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "在真实池同时检查当前权限与数量报价，再测双DEX路线。"
+        "next_check": "在真实池同时检查当前权限与数量报价，再测双DEX路线。",
+        "run_id": "full-20261108T152118Z",
+        "note_for_current_run": "本轮被岗位更新但未进入Q00本轮12条候选复核；保留上轮复核结论作为历史，不作为本轮净收益确认。"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
@@ -1678,7 +1664,8 @@
         ],
         "reasoning_summary": "正常清算需当前资格并支付实际代还，抵押权利/协议费/现金退出与融资分账；与Ethereum同源码不代表相同链上仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "逐Polygon仓位同状态核验证据，不能套旧close factor或跨链仓位。"
+        "next_check": "逐Polygon仓位同状态核验证据，不能套旧close factor或跨链仓位。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:51:39.625601+00:00",
@@ -1730,7 +1717,8 @@
         ],
         "reasoning_summary": "两个underlying地址不同且aToken分开，必须显式计转换规则；不裁决其当前价格或正常转换收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "按合约地址建图，保留原生/桥接转换边后报价。"
+        "next_check": "按合约地址建图，保留原生/桥接转换边后报价。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:51:15.311322+00:00",
@@ -1795,7 +1783,8 @@
         ],
         "reasoning_summary": "上市由registry控制，借款还需oracle/cap/liquidity；名称不能证明资产价值，检查存在也不能证明所有已上市资产无风险。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "只读核真实注册资产与敞口；有异常才给RISK_ONLY，不制作利用路径。"
+        "next_check": "只读核真实注册资产与敞口；有异常才给RISK_ONLY，不制作利用路径。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:54:10.950788+00:00",
@@ -1889,7 +1878,8 @@
         ],
         "reasoning_summary": "V1已提示迁移但未证明链上退役；PMCT现金包装层源码名为pUSD，与condition结果份额分开。token角色限制经公开Offramp可衔接，不能又误判为所有普通人都无出口。无实际借贷接受映射，不能确认风险/收益。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先核Polygon实际部署与正常offramp，再建立具体事件/借贷映射；PMCT/pUSD不替代outcome。"
+        "next_check": "先核Polygon实际部署与正常offramp，再建立具体事件/借贷映射；PMCT/pUSD不替代outcome。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:54:30.454783+00:00",
@@ -1955,7 +1945,8 @@
         ],
         "reasoning_summary": "官方Mainnet/Devnet可使用同程序ID，集群需genesis和slot证明；lib declare_id不是program binary或仓位。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "先确集群和版本，再核具体账户；不套EVM HF/地址口径。"
+        "next_check": "先确集群和版本，再核具体账户；不套EVM HF/地址口径。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:57:10.826803+00:00",
@@ -2031,7 +2022,8 @@
         ],
         "reasoning_summary": "两个静态源指向同stS；两条undelegate路径共用withdraw，admin可改等待。无当前rate/可提款额/DEX报价，文档两周不是实测。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "绑定Sonic部署后分现货/即时/异步三出口测数量；有真实等待再给盈亏平衡成本。"
+        "next_check": "绑定Sonic部署后分现货/即时/异步三出口测数量；有真实等待再给盈亏平衡成本。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:59:34.134204+00:00",
@@ -2091,7 +2083,8 @@
         ],
         "reasoning_summary": "借出同时铸指数债务；偿还用该reserve的asset或合规则对应aToken。回购本息与抵押退出缺一都不是自由利润。 本裁决不确认当前收益、30天完整规则或7天活动覆盖。",
         "duplicate_of": null,
-        "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。"
+        "next_check": "完整同状态只读路径核账；本金只扣一次，最终债务清零须有余额证据。",
+        "run_id": "full-20261108T152118Z"
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:59:29.121575+00:00",
@@ -2446,7 +2439,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+        "claim_scope": "100 wstETH 三出口：Uniswap V3 直卖、unwrap→Curve 两段、requestWithdrawalsWstETH 队列平价",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "ETH archive RPC + Uniswap QuoterV2 0x61fFE0…B21e",
+            "url": "https://eth.drpc.org",
+            "request_summary": "eth_call quoteExactInputSingle(wstETH→WETH,100e18,fee=100) @ block 26377950",
+            "result_or_error": "124.8466126334361 WETH，与 record 124.846612633 一致",
+            "at_utc": "2026-11-09T15:50:26Z"
+          },
+          {
+            "source": "wstETH stEthPerToken @26377950",
+            "url": "https://eth.drpc.org",
+            "request_summary": "eth_call stEthPerToken() on 0x7f39C581…",
+            "result_or_error": "1.248822059877192 stETH/wstETH，与 record 1.248822059877 一致；对应 100 wstETH 队列平价 124.882205988 ETH",
+            "at_utc": "2026-11-09T15:50:27Z"
+          }
+        ],
+        "notes": "DEX 腿与协议记账比均逐位复现；+0.0285% 毛差方向成立。等待/gas/claim 未测，保留 QUOTED。注意 finding market_id 标为 Uniswap 池而机制主体是 Lido 队列，属登记口径瑕疵，不影响证据。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -2507,7 +2524,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+        "claim_scope": "rETH 协议即时 burn：getEthValue 按网络余额/供给，且受 getTotalCollateral（liquid collateral）约束",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "RULE_GAP",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "ETH archive RPC",
+            "url": "https://eth.drpc.org",
+            "request_summary": "eth_call getEthValue(100e18) on 0xae78736C… @26377950",
+            "result_or_error": "117.54359504536227 ETH，与 record 117.543595045 一致",
+            "at_utc": "2026-11-09T15:50:28Z"
+          },
+          {
+            "source": "ETH archive RPC",
+            "url": "https://eth.drpc.org",
+            "request_summary": "eth_call getTotalCollateral() 同块",
+            "result_or_error": "2087.96474631285 ETH，与 record 2087.964746 一致（liquid collateral 上限成立）",
+            "at_utc": "2026-11-09T15:50:29Z"
+          }
+        ],
+        "notes": "协议即时兑付值与 collateral 约束均确认。但 rETH DEX 可执行报价缺失，无法判断是否存在『DEX 折价 vs 协议即时值』价差，故仍是规则线索（RULE_GAP）而非机会。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "RULE_GAP"
     },
     {
@@ -3027,7 +3068,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+        "claim_scope": "PMCT(pUSD) 代理链上实现与官方 V2 README 部署表不一致，且 pUSD 是现金 wrapper 非 outcome 份额",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "UNVERIFIED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "POLY archive RPC（drpc）",
+            "url": "https://polygon.drpc.org",
+            "request_summary": "eth_getStorageAt PMCT 0xC011…DFB 的 EIP-1967 实现槽 @ block 97021016",
+            "result_or_error": "0x00…00（为 0）。与 record『61B EIP-1967 最小代理』的表述冲突：61B 代理是 EIP-1167（实现地址嵌在字节码中，不写 EIP-1967 槽），因此声称的 impl 0xce84e053… 无法用存储槽复核，须解析字节码",
+            "at_utc": "2026-11-09T15:51:10Z"
+          },
+          {
+            "source": "POLY archive RPC",
+            "url": "https://polygon.drpc.org",
+            "request_summary": "eth_call totalSupply() on PMCT @97021016",
+            "result_or_error": "519,597,420.064967 pUSD；与 N-POLY record 的 totalSupply=520,531,160.428038 相差约 0.93M（不同块/口径未解释）",
+            "at_utc": "2026-11-09T15:51:11Z"
+          }
+        ],
+        "notes": "『实现漂移』这一 RULE_GAP 核心主张本轮未获支持也未推翻：EIP-1967 槽为 0 说明原记录代理类型表述有误，需按 EIP-1167 解析字节码才能复核 impl；同时 totalSupply 与 N-POLY 记录存在未解释差异 → NEEDS_DATA，建议降为 UNVERIFIED 待 N-POLY 修正代理类型描述与 supply 时点。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "RULE_GAP"
     },
     {
@@ -3538,7 +3603,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+        "claim_scope": "Arbitrum wstETH/WETH DEX 即卖价 vs L1 协议比的跨链参考折价；不主张可执行闭环",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "ARB archive RPC（blastapi public，因 drpc ARB 归档不可用）",
+            "url": "https://arbitrum-one.public.blastapi.io",
+            "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(wstETH→WETH,1e18,fee=100) @ block 522707442",
+            "result_or_error": "1.248497488656218 WETH，与 record 1.248497488656218 逐位一致",
+            "at_utc": "2026-11-09T15:51:40Z"
+          },
+          {
+            "source": "ARB wstETH L2 代币",
+            "url": "https://arbitrum-one.public.blastapi.io",
+            "request_summary": "eth_call stEthPerToken() on 0x5979D7b5… @522707442（验证『L2 无份额率函数』）",
+            "result_or_error": "未复现 revert：drpc 返回 -32602/27『Unknown state』，blastapi 未返回结果（请求失败），该子主张本轮未独立证实",
+            "at_utc": "2026-11-09T15:51:41Z"
+          }
+        ],
+        "notes": "DEX 腿报价逐位复现；但『L2 无 stEthPerToken』本轮因归档端点不可用未独立复现（原 record 称 revert）。折价对照为跨链跨时刻（L1 块 26377950 14:31Z vs ARB 14:51Z），只能作参考。保留 QUOTED，不主张可执行收益。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -3597,7 +3686,24 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+        "claim_scope": "Arbitrum rETH/WETH DEX 即卖价 vs L1 协议汇率参考折价；容量受薄池限制",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "ARB archive RPC（blastapi public）",
+            "url": "https://arbitrum-one.public.blastapi.io",
+            "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(rETH→WETH,1e18,fee=500) @522707442",
+            "result_or_error": "1.1737989660492183 WETH，与 record 逐位一致",
+            "at_utc": "2026-11-09T15:51:42Z"
+          }
+        ],
+        "notes": "报价确认；10 单位 3.8% 冲击的容量结论未独立重测（record 有 10 单位报价）。跨链跨时刻参考的折价口径同 ARB-WSTETH 条限制。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -3804,7 +3910,24 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+        "claim_scope": "Curve Aave 池内 DAI.e→USDC.e→USDT.e→DAI.e 同块三腿闭环，净负≈三腿费率",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "AVAX archive RPC（drpc/blastapi）",
+            "url": "https://avalanche.drpc.org",
+            "request_summary": "eth_call get_dy_underlying 三腿 @99858972",
+            "result_or_error": "drpc 返回『no available upstreams』（归档不可用）；blastapi AVE 归档亦未返回 → 三腿报价未独立复现",
+            "at_utc": "2026-11-09T15:52:20Z"
+          }
+        ],
+        "notes": "未独立重取。离线核对：1/10/100/1000 DAI.e 净 −0.303/−0.313/−0.330/−0.498 bps 与 fee=100000(0.001%/腿)×3≈0.3bps 同量级，方向自洽；但按未测处理 → NEEDS_DATA，保留 QUOTED。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -4058,7 +4181,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+        "claim_scope": "Base Uniswap V3 USDC/USDbC 0.01% 池同块双向报价与微幅折价；不主张可闭环收益",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "BASE archive RPC（drpc）",
+            "url": "https://base.drpc.org",
+            "request_summary": "eth_call QuoterV2 quoteExactInputSingle(USDC→USDbC,1e6,fee=100) @ block 55228648",
+            "result_or_error": "1.000018 USDbC，与 record 1.000018 一致",
+            "at_utc": "2026-11-09T15:51:12Z"
+          },
+          {
+            "source": "BASE archive RPC",
+            "url": "https://base.drpc.org",
+            "request_summary": "eth_call quoteExactInputSingle(USDbC→USDC,100e6,fee=100) 同块",
+            "result_or_error": "99.977632 USDC，与 record 99.977632 一致",
+            "at_utc": "2026-11-09T15:51:13Z"
+          }
+        ],
+        "notes": "双向报价逐位复现；0.0018% 买向折价 / 0.0222% 卖回损失成立。Base 无本链兑付出口（桥回 L1）使闭环不成立，属报价级证据，保留 QUOTED。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -4128,7 +4275,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+        "claim_scope": "Base 上 cbETH/wstETH/rETH/ezETH 均为桥接表示、本链无协议赎回/汇率视图；唯一非 DEX 出口为跨链桥",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "DELAYED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "BASE archive RPC",
+            "url": "https://base.drpc.org",
+            "request_summary": "eth_call l1Token() on cbETH 0x2Ae3F1… @55228648",
+            "result_or_error": "0xbe9895146f7af43049ca1c1ae358b0541ea49704 = L1 cbETH，桥接映射成立",
+            "at_utc": "2026-11-09T15:51:15Z"
+          },
+          {
+            "source": "BASE archive RPC",
+            "url": "https://base.drpc.org",
+            "request_summary": "eth_call exchangeRate() on cbETH（验证 impl 无汇率视图）",
+            "result_or_error": "execution reverted（与『无 exchangeRate』一致）",
+            "at_utc": "2026-11-09T15:51:14Z"
+          }
+        ],
+        "notes": "cbETH 桥接身份与『无本链赎回』关键证据复现；wstETH/rETH/ezETH 的 selector 缺失未逐项重测。跨链（L2StandardBridge→L1 挑战期）属延迟出口，DELAYED 恰当。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "DELAYED"
     },
     {
@@ -4478,7 +4649,24 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+        "claim_scope": "Pancake V2 三跳稳定币闭环双向、逐档全部净负（浅池冲击）",
+        "verdict": "NEEDS_DATA",
+        "recommended_status": "QUOTED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "BNB archive RPC（drpc / blastapi）",
+            "url": "https://bsc.drpc.org",
+            "request_summary": "eth_call Pancake Router getAmountsOut(1e18,[USDC,USDT,DAI,USDC]) @132604696",
+            "result_or_error": "drpc 公共端点限流（code 15），blastapi 未返回结果 → 未独立复现",
+            "at_utc": "2026-11-09T15:52:21Z"
+          }
+        ],
+        "notes": "未能独立重取任何腿报价。离线合理性检查：DAO 记录中 USDT/DAI 池约 134 USDT、DAI/USDC 池约 2.4k USDC 的浅池结构可解释 1 USDC 即 −132bps、1000 USDC −8872bps；数值内部自洽但与实际链上状态本轮未比对 → 按未测如实列 NEEDS_DATA，不降级也不升级。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "QUOTED"
     },
     {
@@ -4980,7 +5168,31 @@
           ]
         }
       },
-      "q00_review": null,
+      "q00_review": {
+        "finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+        "claim_scope": "原生 USDC 在 Uniswap V3 买入桥接 USDT 的 0.09% 毛差，跨 OP 标准桥回 L1 需等待与 gas；不主张即时净利",
+        "verdict": "CONFIRMED_EVIDENCE",
+        "recommended_status": "DELAYED",
+        "independently_checked_at": "2026-11-09T15:55:00Z",
+        "independently_checked_sources": [
+          {
+            "source": "OP archive RPC（drpc）",
+            "url": "https://optimism.drpc.org",
+            "request_summary": "eth_call Uniswap Quoter v1 quoteExactInputSingle(USDC→USDT,1000e6,fee=100) @ block 159319120",
+            "result_or_error": "1,000,904,767 原始单位 = 1000.904767 USDT，与 record 逐位一致（+0.0905%）",
+            "at_utc": "2026-11-09T15:51:18Z"
+          },
+          {
+            "source": "OP archive RPC",
+            "url": "https://optimism.drpc.org",
+            "request_summary": "eth_call l1Token() on OP USDT 0x94b0…8e58 @159319120",
+            "result_or_error": "0xdac17f958d2ee523a2206206994597c13d831ec7 = L1 USDT，桥接表示成立（『经 L1 可得 1:1』的结构前提成立）",
+            "at_utc": "2026-11-09T15:51:19Z"
+          }
+        ],
+        "notes": "DEX 腿与桥接身份均逐位复现。跨链等待（OP 证明期）与 L1 领取 gas 未量化、无 same-tx 闭环 → DELAYED 恰当，净额 null 正确；不得把毛差当可锁定利润。",
+        "run_id": "live-20261109T141903Z"
+      },
       "initial_research_status": "DELAYED"
     },
     {
@@ -5965,6 +6177,6 @@
       "initial_research_status": "REJECTED"
     }
   ],
-  "status": "LIVE_ROUND_IN_PROGRESS",
+  "status": "LIVE_ROUND_COMPLETED_WITH_GAPS",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

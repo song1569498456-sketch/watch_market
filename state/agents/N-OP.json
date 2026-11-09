@@ -78,22 +78,81 @@
     "requests_this_run": 61
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "chain_id": 10,
+      "head_block": 159318330,
+      "head_block_time_utc": "2026-11-09T14:43:57+00:00",
+      "block_time_seconds": 2,
+      "aave": {
+        "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+        "impl_matches_official_addressbook": true,
+        "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+        "provider_getPool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "reserves_count": 14,
+        "pool_code_bytes": 2400,
+        "pool_code_sha256": "7a042f7fd7d51b45273edcfe5ff9984c73410e01fd41e7f0fcef2b51e1a8f610"
+      },
+      "uniswap_v3": {
+        "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "factory_code_bytes": 24535,
+        "factory_code_sha256": "fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572",
+        "owner": "0xec23cf5a1db3dcc6595385d28b2a4d9b52503be4",
+        "fee_tiers": {
+          "100": 1,
+          "500": 10,
+          "3000": 60,
+          "10000": 200
+        },
+        "known_pools": {
+          "WETH_USDC_500": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+          "WETH_USDCe_500": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+          "USDC_USDT_100": "0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+          "OP_WETH_3000": "0x68f5c0a2de713a54991e01858fd27a3832401849"
+        },
+        "poolcreated_scan": {
+          "from_block": 159313247,
+          "to_block": 159318247,
+          "count": 0,
+          "window_start_utc": "2026-11-09T11:54:31+00:00",
+          "window_end_utc": "2026-11-09T14:41:11+00:00"
+        },
+        "weth_usdc_pool_snapshot": {
+          "pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+          "pinned_block": 159318328,
+          "token0": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "token1": "0x4200000000000000000000000000000000000006",
+          "fee": 500,
+          "tick": 199733,
+          "sqrtPriceX96": "1721181472937990164490443118442909",
+          "liquidity": "11702808516554365",
+          "liquidity_L": "11702808516554365",
+          "derived_weth_per_usdc": "0.0004719480084390405618564032696"
+        }
+      },
+      "rule_window": {
+        "hardfork_last": "karst_time=1783526401（2026-07-08T16:00:01Z）",
+        "hardfork_prev": "jovian_time=1764691201（2025-12-02）",
+        "op_toml_commits_since_2026_10_10": 0,
+        "op_toml_sha256": "419779a2c50fa240b97d2e783cb356ec718072011d6d86636c9d10b922121c99",
+        "releases_30d": [
+          "op-reth/v2.8.2-rc.1 @2026-11-09T14:08:11Z",
+          "op-deployer v0.9.0-allowlist @2026-11-06T02:06:22Z",
+          "op-contracts v9.0.0+allowlist @2026-11-06T01:51:48Z",
+          "op-supernode v1.1.1 @2026-11-05T15:13:00Z",
+          "op-node v1.20.1 @2026-11-05T15:09:58Z",
+          "v1.20.1 @2026-11-05T13:59:29Z"
+        ],
+        "releases_atom_sha256": "1dd204fea1daf6e5032bdc0ee21abb82aea94c1f3012f88003615a1840645b62"
+      },
       "chain_block": 159318330,
-      "aave_pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
-      "aave_reserves_count": 14,
-      "uniswap_v3_factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-      "uniswap_poolcreated_window": "159313247-159318247",
-      "uniswap_poolcreated_count": 0,
-      "op_toml_commits_since_2026_10_10": 0,
-      "requests_this_run": 61,
       "event_pages_completed": 1,
       "history_30d_complete": false,
-      "activity_7d_complete": false
+      "activity_7d_complete": false,
+      "requests_this_run": 61
     },
-    "evidence_commit": null,
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -117,10 +176,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:44:03.579294+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-OP/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-OP/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-OP/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 61,
   "data_sources_used": [
     "https://mainnet.optimism.io",

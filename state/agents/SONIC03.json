@@ -61,23 +61,65 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "pool_document_address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
-      "reference_functions_read": [
-        "executeBorrow",
-        "executeRepay"
-      ],
-      "current_block": null,
-      "actual_dex_pools_read": 0,
-      "debt_positions_checked": 0,
-      "complete_cycles_simulated": 0,
-      "transactions_analyzed": 0,
+      "kind": "onchain_aave_reserve_params_and_loop_feasibility",
+      "run_id": "live-20261109T141903Z",
+      "chain": "sonic-mainnet",
+      "chain_id": 146,
+      "latest_block": 82308468,
+      "pinned_block": 82308463,
+      "latest_block_time_utc": "2026-11-09T15:20:30+00:00",
+      "aave_pool": {
+        "address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+        "code_bytes": 1853,
+        "eip1967_impl": "0x3ece05ac893ac406b83aea6796539464bd9d2db5",
+        "addresses_provider": "0x5c2e738f6e27bce0f7558051bf90605dd6176900",
+        "price_oracle": "0xd63f7658c66b2934bd234d79d06aef5290734b30",
+        "reserves": [
+          "0x50c42dea…",
+          "USDC 0x29219dd4…",
+          "wS 0x039e2fB6…",
+          "stS 0xE5DA20F1…"
+        ]
+      },
+      "USDC_reserve": {
+        "ltv_bps": 0,
+        "liq_threshold_bps": 7800,
+        "liq_bonus_bps": 10500,
+        "frozen": true,
+        "borrowing_enabled": true,
+        "variable_borrow_apr_pct": 21.5,
+        "aToken": "0x578ee1ca3a8e1b54554da1bf7c583506c4cd11c6",
+        "vDebt": "0x2273cabad63b7d247a6b107e723c803fc49953a0",
+        "supply": "1341456667522",
+        "borrow": "1245624723639",
+        "utilization_pct": 92.86
+      },
+      "wS_reserve": {
+        "ltv_bps": 0,
+        "liq_threshold_bps": 7000,
+        "liq_bonus_bps": 11000,
+        "frozen": true,
+        "variable_borrow_apr_pct": 5.59263423827209,
+        "aToken": "0x6c5e14a212c1c3e4baf6f871ac9b1a969918c131",
+        "vDebt": "0xf6089b790fbf8f4812a79a31cfabeb00b06ba7bd",
+        "supply": "61983549196766545256066924",
+        "borrow": "7346626087286798028248397",
+        "utilization_pct": 11.85
+      },
+      "oracle_prices_8dec": {
+        "USDC": 99976262,
+        "wS": 3772885
+      },
+      "loop_feasible": false,
+      "reason": "USDC/wS 均 frozen+LTV=0 → 新抵押借款无法发起；即便发起需 21.5%/5.59% 利息+2次DEX费+gas，无价差",
+      "result": "REJECTED：无可发起且无正收益的铸造/借出—卖出—还债闭环",
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x92（146），最新块 82,308,468（2026-11-09T15:20:30Z），读取钉 pinned 块 82,308,463。",
@@ -98,8 +140,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:27:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SONIC03/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SONIC03/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SONIC03/live-20261109T141903Z/record.json"
+  }
 }

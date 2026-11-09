@@ -23,16 +23,26 @@
     "complete_event_time_window": "单块快照；30 天规则回溯与 7 天活动窗口未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_SOURCE_SNAPSHOTS_ONLY",
-      "source_count": 6,
-      "retrieved_at_utc": "2026-11-08T15:27:22.066753+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "source_count": 5,
+      "retrieved_at_utc": "2026-11-09T14:32:54+00:00",
+      "chain_id": 1,
+      "head_block": 26377953,
+      "pinned_blocks": [
+        26377950
+      ],
+      "urls": [
+        "https://ethereum-rpc.publicnode.com",
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://api.curve.finance/api/getPools/ethereum/main"
+      ],
+      "complete_block_range": "全部状态/报价固定块 26377950（完整单块读数）；head 26377953",
+      "complete_event_time_window": "单块快照；30 天规则回溯与 7 天活动窗口未覆盖"
     },
-    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份核验：eth_chainId=0x1，head=26377953；所有状态/报价固定在块 26377950（14:31:47Z）。",
@@ -52,10 +62,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:37:30+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ETH01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ETH01/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

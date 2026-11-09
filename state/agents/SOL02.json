@@ -19,16 +19,22 @@
     "dex_onchain_quotes": 0
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_PROGRAM_AND_STATE_CONFIG_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:57:28.691174+00:00",
-      "slot_range": null,
-      "commitment": null,
-      "complete_event_time_window": null
+      "type": "FINALIZED_CLUSTER_ACCOUNT_READS",
+      "retrieved_at_utc": "2026-11-09T15:15:56+00:00",
+      "slot": 467364393,
+      "epoch": 1081,
+      "block_height": 445382306,
+      "commitment": "finalized",
+      "slot_range": "账户读取 slot 467,364,401-467,364,411（finalized）",
+      "complete_event_time_window": "单 slot 快照（2026-11-09T15:14:50-15:15:56Z）；30 天规则/7 天活动未覆盖",
+      "mints_verified": 3,
+      "stake_pool_rates_verified": 2,
+      "dex_onchain_quotes": 0
     },
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "集群身份：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（预期一致）；finalized slot=467,364,393；blockHeight=445,382,306；epoch=1081。",
@@ -51,10 +57,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:19:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SOL02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SOL02/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

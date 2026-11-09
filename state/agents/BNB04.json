@@ -26,7 +26,7 @@
     "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "source_functions_read": [
         "mint",
@@ -34,16 +34,21 @@
         "collect",
         "burn"
       ],
-      "document_position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
-      "actual_pools_read": 0,
+      "position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+      "position_manager_identity": "CHAIN_VERIFIED（代码 24,466 B / keccak 0xf64dd823…；name=Pancake V3 Positions NFT-V1；factory()=0x0bfbcf9f…；WETH9=WBNB）",
+      "actual_pools_read": 2,
+      "v2_pair": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+      "v3_pool": "0x172fcd41e0913e95784454622d1c3724f546f849",
       "cycles_simulated": 0,
-      "transactions_analyzed": 0,
-      "last_block": null,
+      "transactions_analyzed": 1,
+      "last_block": 132604847,
+      "pinned_block": 132604844,
       "history_30d_complete": false,
-      "activity_7d_complete": false
+      "activity_7d_complete": false,
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES"
     },
-    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链：eth_chainId=0x38（56），head=132,604,847（2026-11-09T15:01:45Z），固定块 132,604,844。",
@@ -64,10 +69,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:06:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB04/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BNB04/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BNB04/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

@@ -1,0 +1,208 @@
+{
+ "gate": {
+  "chain_id": 1,
+  "block_hash": "0x9a655c2f4b9a7fd0660df0f2f6c5a3acf84063ff62de1ce97526c5b3e5652d5b",
+  "block_timestamp": 1794234083,
+  "base_fee": 120014779,
+  "pool_code_bytes": 15735,
+  "pool_code_keccak": "0xe2c45ce8268580c40b4c12c574f8a210375ab92998c1555451fef63630e96b35",
+  "steth_code_bytes": 1035,
+  "steth_code_keccak": "0xb9c1c929064cd21734c102a698e68bf617feefcfa5a9f62407c45401546736bf",
+  "pool_eip1967": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "steth_eip1967": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coins0": "0x000000000000000000000000eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "coins1": "0x000000000000000000000000ae7ab96520de3a18e5e111b5eaab095312d7fe84",
+  "fee_raw": 1000000,
+  "get_dy_001_raw": 9997160735119382,
+  "get_dy_100_raw": 99970993039005615505
+ },
+ "quotes": {
+  "eth_curve_steth_100_at26377950_raw": 99971312136793464165,
+  "eth_univ3_wsteth_100_raw": 124846612633436094246,
+  "eth_wsteth_stEthPerToken_raw": 1248822059877191983,
+  "eth_reth_getEthValue100_raw": 117543595045362263258,
+  "eth_reth_totalCollateral_raw": 2087964746312849710154,
+  "base_usdc_to_usdbc_1_raw": 1000018,
+  "base_usdbc_to_usdc_100_raw": 99977632,
+  "base_cbeth_l1Token": "0x000000000000000000000000be9895146f7af43049ca1c1ae358b0541ea49704",
+  "base_cbeth_exchangeRate_err": {
+   "code": 3,
+   "message": "execution reverted"
+  },
+  "op_usdc_to_usdt_1000_raw": 1000904767,
+  "op_usdt_l1Token": "0x000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7",
+  "bnb_psm_getDayBuyLeft_raw": 500000000000000000000000,
+  "poly_pmct_impl_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "poly_pmct_totalSupply_raw": 519597420064967,
+  "arb_wsteth_1_raw": 1248497488656217911,
+  "arb_reth_1_raw": 1173798966049218304
+ },
+ "comparison": {
+  "gate_get_dy_001": {
+   "mine": 9997160735119382,
+   "their": 9997160735119382,
+   "match": true
+  },
+  "gate_fee": {
+   "mine": 1000000,
+   "their": 1000000,
+   "match": true
+  },
+  "eth_curve_steth_100": {
+   "mine": 99.97131213679346,
+   "their": 99.971312137
+  },
+  "eth_univ3_wsteth_100": {
+   "mine": 124.8466126334361,
+   "their": 124.846612633
+  },
+  "eth_stEthPerToken": {
+   "mine": 1.248822059877192,
+   "their": 1.248822059877
+  },
+  "eth_reth_getEthValue100": {
+   "mine": 117.54359504536227,
+   "their": 117.543595045
+  },
+  "eth_reth_totalCollateral": {
+   "mine": 2087.96474631285,
+   "their": 2087.964746
+  },
+  "base_usdc_to_usdbc_1": {
+   "mine": 1.000018,
+   "their": 1.000018
+  },
+  "base_usdbc_to_usdc_100": {
+   "mine": 99.977632,
+   "their": 99.977632
+  },
+  "op_usdc_to_usdt_1000": {
+   "mine": 1000.904767,
+   "their": 1000.904767
+  },
+  "arb_wsteth_1": {
+   "mine": 1.248497488656218,
+   "their": 1.248497488656218
+  },
+  "arb_reth_1": {
+   "mine": 1.1737989660492183,
+   "their": 1.1737989660492183
+  },
+  "bnb_dayBuyLeft": {
+   "mine": 500000.0,
+   "their": 500000
+  },
+  "poly_pmct_totalSupply": {
+   "mine": 519597420.064967,
+   "their": 519400000.0
+  }
+ },
+ "report_record_consistency": [
+  {
+   "role": "N-ETH",
+   "record_block": "26377930",
+   "block_in_report": true,
+   "record_status": "QUOTED",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT"
+   ],
+   "findings_in_report": true,
+   "quotes": 11,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 4635
+  },
+  {
+   "role": "ETH01",
+   "record_block": "26377950",
+   "block_in_report": true,
+   "record_status": "QUOTED",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+    "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+    "ETH-ROCKETPOOL-RETH-INSTANT-BURN"
+   ],
+   "findings_in_report": false,
+   "quotes": 10,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 5165
+  },
+  {
+   "role": "BNB01",
+   "record_block": "132601650",
+   "block_in_report": true,
+   "record_status": "RULE_GAP",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+    "BNB-LISUSD-DEEP-V3-STABLE-POOL"
+   ],
+   "findings_in_report": true,
+   "quotes": 4,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 5999
+  },
+  {
+   "role": "SOL01",
+   "record_block": "467353701",
+   "block_in_report": true,
+   "record_status": "QUOTED",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP"
+   ],
+   "findings_in_report": false,
+   "quotes": 10,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 5883
+  },
+  {
+   "role": "BASE02",
+   "record_block": "55228623",
+   "block_in_report": true,
+   "record_status": "DELAYED",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+    "BASE-CBETH-WETH-DEX-CAPACITY-THIN"
+   ],
+   "findings_in_report": true,
+   "quotes": 5,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 5818
+  },
+  {
+   "role": "X-ARB",
+   "record_block": "26378198",
+   "block_in_report": true,
+   "record_status": "DELAYED",
+   "status_in_report": true,
+   "record_exec": "PARTIAL",
+   "exec_in_report": true,
+   "finding_ids": [
+    "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD"
+   ],
+   "findings_in_report": false,
+   "quotes": 6,
+   "record_run": "live-20261109T141903Z",
+   "report_bytes": 5160
+  }
+ ],
+ "request_totals": {
+  "run1": 36,
+  "probe": 5,
+  "run2": 34,
+  "run3": 7
+ }
+}

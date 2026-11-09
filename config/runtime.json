@@ -38,8 +38,12 @@
     "request_policy": "M00 checks shared failed RPC/API access once per policy revision or deliberate diagnosis. Roles reuse archived checks; no per-role retries of known proxy-blocked domains. Q00 may independently verify selected reachable static source facts.",
     "consecutive_failure_limit_per_service": 3,
     "full_roster_repeat": false,
-    "current_mode": "SINGLE_MARKET_GATE_THEN_TWO_DAY_DELTA_ONLY_PILOT",
+    "current_mode": "TWO_DAY_DELTA_ONLY_PILOT_READY",
     "single_market_gate_required_before_live_pilot": true,
-    "network_change_is_external_platform_setting_not_this_file": true
+    "network_change_is_external_platform_setting_not_this_file": true,
+    "single_market_gate_passed": true,
+    "last_live_round": "live-20261109T141903Z",
+    "last_live_round_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+    "last_live_round_environment": "USER_LOCAL_WINDOWS_DSH_SESSION_WITH_PROXY"
   }
 }

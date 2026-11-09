@@ -34,21 +34,37 @@
     "history_window_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block",
       "chain_id": 56,
       "head_block": 132600472,
       "head_block_time_utc": "2026-11-09T14:27:51+00:00",
+      "event_scan_v3": {
+        "source": "bsc-rpc.publicnode.com eth_getLogs",
+        "factory": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "from_block": 132595236,
+        "to_block": 132600236,
+        "time_window_utc": "2026-11-09T13:48:35Z-2026-11-09T14:26:05Z",
+        "poolevent_count": 2
+      },
+      "event_scan_v2": {
+        "source": "bsc-rpc.publicnode.com eth_getLogs",
+        "factory": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+        "from_block": 132598236,
+        "to_block": 132600236,
+        "time_window_utc": "2026-11-09T14:11:05Z-2026-11-09T14:26:05Z",
+        "pairevent_count": 75
+      },
+      "quotes_block": 132600472,
       "official_release_tag": "v1.8.2",
       "release_updated_at": "2026-11-03T12:58:47Z",
-      "last_block": 132600472,
       "pool_events_scanned": 2,
       "pair_events_scanned": 75,
       "transactions_analyzed": 0,
       "history_window_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -72,10 +88,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:28:00.185784+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-BNB/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-BNB/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-BNB/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 73,
   "data_sources_used": [
     "https://bsc-dataseed.bnbchain.org",

@@ -17,20 +17,20 @@
     "complete_event_time_window": "单块快照（2026-11-09T15:17:45-15:19:38Z）；30 天规则/7 天活动未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
-        "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
-      ],
-      "chain_block": null,
-      "pool_pages_completed": 0,
+      "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "chain_id": 146,
+      "current_block": 82308367,
+      "pinned_block": 82308364,
+      "market_pages_completed": 3,
       "cycles_quoted": 0,
-      "history_complete": false
+      "history_complete": false,
+      "complete_block_range": "链/池状态固定块 82,308,364；head 82,308,367",
+      "complete_event_time_window": "单块快照（2026-11-09T15:17:45-15:19:38Z）；30 天规则/7 天活动未覆盖"
     },
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链：eth_chainId=0x92（146）；head=82,308,367（2026-11-09T15:17:45Z，hash 0xb87a949c…）；固定块 82,308,364；gasPrice=55,000,000,000 wei（55 gwei）。",
@@ -52,10 +52,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:22:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SONIC01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SONIC01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SONIC01/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

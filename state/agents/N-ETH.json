@@ -23,19 +23,26 @@
     "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-08T14:26Z～2026-11-09T14:26Z（7,200 块≈24h）；Lido core 提交 2026-10-10～2026-11-09（5 条）；30 天规则回溯与 7 天活动窗口未完整覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_SOURCE_SNAPSHOT_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:24:52.450934+00:00",
-      "urls": [
-        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol"
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "retrieved_at_utc": "2026-11-09T14:28:35+00:00",
+      "chain_id": 1,
+      "head_block": 26377933,
+      "pinned_blocks": [
+        26377918,
+        26377930
       ],
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "urls": [
+        "https://ethereum-rpc.publicnode.com",
+        "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+        "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100"
+      ],
+      "complete_block_range": "代码/存储/队列状态：块 26377918；Curve 报价：块 26377918（历史）与 26377930（新鲜）；Uniswap V3 PoolCreated 日志：26370721-26377921（26 条，完整覆盖该窗口）",
+      "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-08T14:26Z～2026-11-09T14:26Z（7,200 块≈24h）；Lido core 提交 2026-10-10～2026-11-09（5 条）；30 天规则回溯与 7 天活动窗口未完整覆盖"
     },
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份已链上核验：eth_chainId=1，head=26377933（2026-11-09T14:28:31Z）；代码/状态固定在块 26377918、报价固定在块 26377930。",
@@ -56,10 +63,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:29:35+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-ETH/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-ETH/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-ETH/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

@@ -25,19 +25,28 @@
     "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-01T13:48Z～2026-11-09T14:36Z（7.03 天）；Aave ReserveInitialized 仅 24h（按假定签名 0 条，弱证据）；30 天 Aave 规则/7 天全类活动未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_SOURCE_ONLY",
-      "source_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
-        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "source_count": 8,
+      "retrieved_at_utc": "2026-11-09T14:38:39+00:00",
+      "chain_id": 42161,
+      "head_block": 522704127,
+      "pinned_blocks": [
+        522704122,
+        522536108
       ],
-      "complete_block_range": null,
-      "complete_event_time_window": null,
-      "retrieved_at_utc": "2026-11-08T15:29:57.007506+00:00"
+      "urls": [
+        "https://arb1.arbitrum.io/rpc",
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://api.github.com/repos/bgd-labs/aave-address-book/commits/cc662ae5377f"
+      ],
+      "complete_block_range": "状态/代码：块 522,704,122；Uniswap V3 PoolCreated：520,284,927-522,704,127（17 条，完整覆盖）；新池创建块 522,536,108",
+      "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-01T13:48Z～2026-11-09T14:36Z（7.03 天）；Aave ReserveInitialized 仅 24h（按假定签名 0 条，弱证据）；30 天 Aave 规则/7 天全类活动未覆盖"
     },
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份核验：eth_chainId=0xa4b1（42161），head=522,704,127（2026-11-09T14:36:35Z），状态/代码固定块 522,704,122；L2 baseFee 0.02 gwei（不含 L1 数据费）。",
@@ -58,8 +67,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:38:45+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-ARB/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-ARB/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-ARB/live-20261109T141903Z/record.json"
+  }
 }

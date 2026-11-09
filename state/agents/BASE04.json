@@ -24,15 +24,27 @@
     "complete_event_time_window": "约 2026-11-09T12:10Z-14:57Z（5,000 块，Base ~2s/块推断）；30 天规则与 7 天清算复盘未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_DEPLOYMENT_AND_RULES_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:41:56.518362+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "source_count": 4,
+      "retrieved_at_utc": "2026-11-09T14:59:40+00:00",
+      "chain_id": 8453,
+      "head_block": 55229393,
+      "pinned_blocks": [
+        55229390
+      ],
+      "urls": [
+        "https://mainnet.base.org",
+        "https://base-rpc.publicnode.com",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+      ],
+      "complete_block_range": "身份/储备/账户/规则：块 55,229,390；Borrow 事件：55,224,393-55,229,393（5,000 块完整覆盖该窗口）；LiquidationCall 同窗口 0 条",
+      "complete_event_time_window": "约 2026-11-09T12:10Z-14:57Z（5,000 块，Base ~2s/块推断）；30 天规则与 7 天清算复盘未覆盖"
     },
-    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链：eth_chainId=0x2105（8453），head=55,229,393（2026-11-09T14:57:34Z），固定块 55,229,390；head baseFee≈5,000,000 wei（L2 部分）。",
@@ -53,10 +65,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:01:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE04/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BASE04/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BASE04/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

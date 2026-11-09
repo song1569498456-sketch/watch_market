@@ -54,16 +54,58 @@
     "historical_window_completed": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "source_fetch_only",
-      "fetched_at": "2026-11-08T15:26:47.551008+00:00",
-      "chain_slot": null,
-      "market_pages_completed": 0,
-      "history_complete": false
+      "kind": "same_slot_onchain_state_reads_plus_amount_quotes",
+      "run_id": "live-20261109T141903Z",
+      "chain": "solana-mainnet-beta",
+      "slots": [
+        467353399,
+        467353632,
+        467353701
+      ],
+      "final_quote_slot": 467353701,
+      "final_quote_blocktime_utc": "2026-11-09T14:37:30+00:00",
+      "quote_age_note_at_report": "报告落盘时已超过 60 秒，按历史证据处理，下一轮须重取",
+      "venues": [
+        {
+          "protocol": "Raydium AMM v4",
+          "market_id": "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+          "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+          "status": 6,
+          "implied_price_usdc_per_sol": "87.121469"
+        },
+        {
+          "protocol": "Orca Whirlpools",
+          "market_id": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+          "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+          "fee_rate_ppm": 400,
+          "tick_spacing": 4,
+          "tick_current": -24399,
+          "implied_price_usdc_per_sol": "87.212218"
+        }
+      ],
+      "asset_pair": {
+        "mintA": "So11111111111111111111111111111111111111112",
+        "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "token_program_both": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+      },
+      "results": {
+        "round_trip_fee_bps": 29,
+        "max_observed_spread_bps": 10.42,
+        "best_net_1_sol": "-0.001886012 SOL (D1, incl 3 tx base fees)",
+        "all_tiers_net_negative": true,
+        "tiers_tested_sol": [
+          0.1,
+          1,
+          10,
+          25
+        ]
+      },
+      "historical_window_completed": false
     },
-    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     {
@@ -118,8 +160,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:40:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SOL01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SOL01/live-20261109T141903Z/record.json"
+  }
 }

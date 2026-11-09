@@ -1,7 +1,7 @@
 {
-  "status": "AWAITING_SINGLE_MARKET_DATA_GATE",
-  "baseline_run": "full-20261108T152118Z",
-  "baseline_input_commit": "3be79c30766067e04c42295ad97218d4d0f832ae",
+  "status": "READY_FOR_TWO_DAY_DELTA_OBSERVATION",
+  "baseline_run": "live-20261109T141903Z",
+  "baseline_input_commit": "1785c02b2ee1a98c447ece4a49880b247b05d386",
   "requested_observation_days": 2,
   "completed_observation_days": 0,
   "observations": [],
@@ -9,7 +9,7 @@
   "change_only": true,
   "full_roster_repeat": false,
   "automatic_trigger_configured": false,
-  "scope": "First complete this capability validation and report. Subsequent two distinct days reuse baseline, check only changes/gaps, record actual duration/model usage or null if unavailable. No schedule created.",
-  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json",
-  "last_capability_evidence_commit": "a154653b65af87efc8ee09f0435b2ea138592caa"
+  "scope": "Gate 已通过、全岗位实网轮已完成；后续两天复用本轮基线与 registry/coverage-gaps.json，只查变化/缺口，记录实际耗时；不创建定时任务。",
+  "last_capability_review": "evidence/Q00/live-20261109T141903Z/review.json",
+  "last_capability_evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0"
 }

@@ -76,20 +76,79 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block_pair",
-      "ethereum_pinned_block": 26378203,
-      "base_pinned_block": 55237031,
-      "same_equity": "cbETH L1↔Base bridged (l1Token/bridge verified)",
-      "cross_chain_mid_gap_bps": 3.48,
-      "net_reject": true,
+      "chain_ids": [
+        1,
+        8453
+      ],
+      "ethereum": {
+        "head_block": 26378205,
+        "head_time_utc": "2026-11-09T15:22:59+00:00",
+        "pinned_block": 26378203,
+        "base_fee_wei": "715956567"
+      },
+      "base": {
+        "head_block": 55237033,
+        "head_time_utc": "2026-11-09T15:23:02+00:00",
+        "pinned_block": 55237031,
+        "base_fee_wei": "5001950"
+      },
+      "asset_mapping": {
+        "l1_cbeth": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+        "base_cbeth": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "base_cbeth_l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+        "base_cbeth_bridge": "0x4200000000000000000000000000000000000010",
+        "same_equity_verified": true,
+        "representation": "canonical_bridged_ethereum_mintable_erc20"
+      },
+      "bridges": {
+        "l1_standard_bridge": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+        "l1_paused": false,
+        "l2_standard_bridge": "0x4200000000000000000000000000000000000010",
+        "l2_paused": "unknown_not_saved"
+      },
+      "pools": {
+        "eth_cbeth_weth_fee500": {
+          "pool": "0x840deeef2f115cf50da625f7368c24af6fe74410",
+          "liquidity": "54813601813101059045947",
+          "tick": 1335,
+          "mid_weth_per_cbeth": 1.1428615673108136
+        },
+        "eth_cbeth_weth_fee100": {
+          "pool": "0x177622e79acece98c39f6e12fa78ac7fc8a8bf62",
+          "liquidity": "0",
+          "note": "in-range liquidity 0，mid/报价不可作市场价"
+        },
+        "base_cbeth_weth_fee100": {
+          "pool": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+          "liquidity": "34634396913138228087271",
+          "tick": 1338,
+          "mid_weth_per_cbeth": 1.14325952364345,
+          "quote_1cbeth_weth": "1143109911129401342",
+          "quote_10cbeth_weth": "5878203880360667797"
+        }
+      },
+      "cross_chain_spread": {
+        "mid_gap_bps": 3.48,
+        "base_higher": true,
+        "executable_legs": "Base 侧可执行；L1 可执行报价未取（gap）"
+      },
+      "costs": {
+        "bridge_protocol_fee": "0（标准桥）",
+        "estimated_gas_usd": "0.4-0.6",
+        "l1_to_l2_wait": "minutes（未实测）",
+        "l2_to_l1_wait": "7 days challenge period（机制常识，待核 portal 参数）"
+      },
+      "status": "REJECTED",
+      "no_net_edge": true,
       "requests_this_run": 80,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -113,10 +172,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:23:42.514395+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/X-BASE/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/X-BASE/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/X-BASE/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 80,
   "request_discipline_note": "两链合计外部请求 80 次（正好 ≤80 硬性上限，符合）。其中约 48 次为两次脚本 bug（getPool 空结果解析、price 类型错误）导致的无效重跑：probeA 约 29 次、probeB 约 19 次未落盘；有效落盘 probeC 30 + probeD 2。已如实披露。",
   "data_sources_used": [

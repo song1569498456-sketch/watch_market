@@ -1,0 +1,48 @@
+[
+ {
+  "name": "eth.drpc",
+  "url": "https://eth.drpc.org",
+  "block": "0x1927eaa",
+  "ok": true,
+  "bytes": 15735,
+  "err": null
+ },
+ {
+  "name": "blastapi",
+  "url": "https://eth-mainnet.public.blastapi.io",
+  "block": "0x1927eaa",
+  "ok": true,
+  "bytes": 15735,
+  "err": null
+ },
+ {
+  "name": "1rpc",
+  "url": "https://1rpc.io/eth",
+  "block": "0x1927eaa",
+  "ok": false,
+  "bytes": null,
+  "err": {
+   "code": -32000,
+   "message": "historical state 7f156a5ddfc3e6d2060d86b1a1f721effca61306c204bab96f30aee844fca9d8 is not available"
+  }
+ },
+ {
+  "name": "merkle",
+  "url": "https://eth.merkle.io",
+  "block": "0x1927eaa",
+  "ok": false,
+  "bytes": null,
+  "err": {
+   "code": -32005,
+   "message": "Rate limit exceeded"
+  }
+ },
+ {
+  "name": "publicnode-latest",
+  "url": "https://ethereum-rpc.publicnode.com",
+  "block": "latest",
+  "ok": true,
+  "bytes": 15735,
+  "err": null
+ }
+]

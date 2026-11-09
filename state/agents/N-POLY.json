@@ -24,19 +24,27 @@
     "complete_event_time_window": "Uniswap V3 新池约 2026-11-09T10:31:37Z-14:41:45Z（4.17h）；Gamma 快照 14:42:50Z；30 天规则/7 天活动未完整覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_SOURCE_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:32:36.909343+00:00",
-      "source_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "source_count": 6,
+      "retrieved_at_utc": "2026-11-09T14:43:43+00:00",
+      "chain_id": 137,
+      "head_block": 97019899,
+      "pinned_blocks": [
+        97019894
       ],
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "urls": [
+        "https://polygon-bor-rpc.publicnode.com",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+        "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"
+      ],
+      "complete_block_range": "代码/状态：块 97,019,894；Uniswap V3 新池日志：97,009,894-97,019,894（完整覆盖 10,000 块窗口）；新 condition 校验：块 97,019,894",
+      "complete_event_time_window": "Uniswap V3 新池约 2026-11-09T10:31:37Z-14:41:45Z（4.17h）；Gamma 快照 14:42:50Z；30 天规则/7 天活动未完整覆盖"
     },
-    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份核验：eth_chainId=0x89（137）；head=97,019,899（2026-11-09T14:41:45Z）；状态/代码固定块 97,019,894；baseFee=247,813,036,452 wei。",
@@ -56,10 +64,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:43:50+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-POLY/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-POLY/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-POLY/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

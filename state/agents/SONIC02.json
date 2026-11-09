@@ -74,15 +74,78 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_SONIC_ASSET_AND_WITHDRAWAL_DOCS_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:59:34.134204+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "kind": "onchain_sts_rate_plus_dex_pool_checks",
+      "run_id": "live-20261109T141903Z",
+      "chain": "sonic-mainnet",
+      "chain_id": 146,
+      "latest_block": 82308375,
+      "pinned_block": 82308370,
+      "latest_block_time_utc": "2026-11-09T15:18:13+00:00",
+      "sts": {
+        "address": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "code_bytes": 163,
+        "eip1967_impl": "0xd5f7fc8ba92756a34693baa386edcc8dd5b3f141",
+        "getRate": "1088305572999886774",
+        "convertToAssets_1e18": "1088305572999886774",
+        "rate_S_per_stS": "1.0883055730",
+        "totalAssets": "108376373299734406249132764",
+        "totalSupply": "9958266681000755630806240",
+        "is_erc4626": false,
+        "reverted": [
+          "previewRedeem(uint256)",
+          "asset()",
+          "underlying()",
+          "withdrawalDelay()",
+          "paused()"
+        ]
+      },
+      "ws": {
+        "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+        "symbol": "wS",
+        "decimals": 18,
+        "totalSupply": "146982149071217926369892881"
+      },
+      "dex": {
+        "swapx_sts_ws": {
+          "pair": "0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+          "fee": 100,
+          "dexscreener_priceNative": 1.08818,
+          "liq_usd": 22735.84,
+          "onchain_reserves_ratio_flag": "2.382 vs 1.088 矛盾，未用于结论"
+        },
+        "shadow_sts_ws": {
+          "pair": "0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95",
+          "fee": 94,
+          "priceNative": 1.08819,
+          "getReserves": "revert"
+        },
+        "beets_sts_usdc": {
+          "pair": "0x713FB5036dC70012588d77a5B066f1Dd05c712d7",
+          "priceUsd": 0.04055
+        },
+        "defive_sts_ws": {
+          "pair": "0x702CBE8B71a4237CAe9348dcEF92f4ad23911866",
+          "priceNative": 1.08788
+        }
+      },
+      "discount_bps": {
+        "swapx": -1.1,
+        "shadow": -1.05,
+        "defive": -3.9
+      },
+      "exit_paths": {
+        "dex_instant": "≈费率",
+        "protocol_instant": "not_available（非ERC4626）",
+        "delayed": "README 约2周，当前参数未链上读"
+      },
+      "result": "REJECTED：折价≈费用（−1～−4bps），协议即时赎回不可用，无可执行折价",
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x92（146），最新块 82,308,375（2026-11-09T15:18:13Z），读取钉 pinned 块 82,308,370。",
@@ -104,8 +167,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:25:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SONIC02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SONIC02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SONIC02/live-20261109T141903Z/record.json"
+  }
 }

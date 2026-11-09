@@ -44,19 +44,48 @@
     }
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
+      "kind": "onchain_point_reads_plus_api_snapshot",
+      "run_id": "live-20261109T141903Z",
+      "chain": "solana-mainnet-beta",
+      "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "solana_core": "4.4.0",
+      "slot_range": [
+        467350286,
+        467351335
+      ],
+      "primary_read_slots": [
+        467350933,
+        467351180,
+        467351194,
+        467351334,
+        467351335
+      ],
+      "retrieved_at_utc": "2026-11-09T14:24:28+00:00～2026-11-09T14:29:24+00:00",
       "fetched_urls": [
         "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
         "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
-        "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+        "https://api-v3.raydium.io/main/version",
+        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+        "https://api.orca.so/v2/solana/pools?limit=10",
+        "https://api.dexscreener.com/token-profiles/latest/v1"
       ],
-      "chain_slot": null,
-      "historical_window_completed": false
+      "chain_reads": [
+        "getGenesisHash/getVersion/getSlot(finalized)/getEpochInfo",
+        "getMultipleAccounts: 6 个程序账户 + 5 个 ProgramData + 2 Orca 池与 3 mint + Raydium CLMM 池与 2 mint + 新 CPMM 池与 2 mint",
+        "getAccountInfo: NVDAV Token-2022 mint 全量扩展 TLV",
+        "getSignaturesForAddress: Orca SOL/USDC 池 limit10、新 CPMM 池 limit3",
+        "getBlockTime: 6 个程序 last_deploy_slot + 当前 slot 参照"
+      ],
+      "historical_window_completed": false,
+      "historical_window_notes": {
+        "30d_rule_window_2026-10-10_to_2026-11-09": "PARTIAL：仅通过 last_deploy_slot/blockTime 检测到 CPMM(2026-10-31)、Token-2022(2026-10-23)、CLMM(2026-10-22)、Whirlpool(2026-10-15) 升级；未比对字节码/官方变更日志",
+        "7d_activity_window_2026-11-02_to_2026-11-09": "NOT_COMPLETED：只读两池最近签名快照（约 55 秒/2 分钟窗口），无 7 天分页"
+      }
     },
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     {
@@ -146,8 +175,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:32:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/N-SOL/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/N-SOL/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/N-SOL/live-20261109T141903Z/record.json"
+  }
 }

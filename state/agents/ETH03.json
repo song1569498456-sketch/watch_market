@@ -60,19 +60,64 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "deployment_commit_document": "665879762f8b5df5d234463f45d1d6a49bd4fbeb",
-      "vault_document_address": "0x83f20f44975d03b1b09e64809b757c47f942beea",
-      "current_block": null,
-      "actual_secondary_pools_read": 0,
-      "redeems_simulated": 0,
-      "transactions_analyzed": 0,
+      "kind": "same_block_vault_state_plus_curve_quote",
+      "run_id": "live-20261109T141903Z",
+      "chain": "ethereum-mainnet",
+      "chain_id": 1,
+      "latest_block": 26378116,
+      "pinned_block": 26378111,
+      "latest_block_time_utc": "2026-11-09T15:05:11+00:00",
+      "sdai": {
+        "address": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+        "code_bytes": 10925,
+        "totalAssets": "161887728131909223847300403",
+        "totalSupply": "136871204862920015270687896",
+        "convertToAssets_1e18": "1182774187558616813",
+        "previewRedeem_1e18": "1182774187558616813",
+        "dai_per_sdai": 1.1827741875586169,
+        "maxRedeem_dead": "4799010505457216773",
+        "maxWithdraw_dead": "5676145751677426589",
+        "pot": "0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7",
+        "pot_DAI_balance": 0
+      },
+      "morpho_top_vault": {
+        "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+        "name": "Adpend USDC",
+        "code_bytes": 19730,
+        "asset": "USDC 0xA0b86991…",
+        "symbol": "adpUSDC",
+        "totalAssets": "966621761742162",
+        "totalSupply": "905277920604455960394729",
+        "convertToAssets_1e18": "827025336",
+        "withdrawQueueLength": 30,
+        "maxRedeem_dead": 0,
+        "maxWithdraw_dead": 0,
+        "share_price_arithmetic_flag": "totalAssets/totalSupply≈1067.7 vs convertToAssets 827.03 不一致，待复核"
+      },
+      "secondary": {
+        "sdai_curve_pool": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+        "coins": [
+          "FRAX",
+          "sDAI"
+        ],
+        "A": 1500,
+        "fee": 1000000,
+        "get_dy_FRAX_to_sDAI_1e18": "838085532540897466",
+        "get_dy_sDAI_to_FRAX_1e18": "1192955870592096815",
+        "buy_1_sdai_cost_frax": 1.1932,
+        "nav_dai_per_sdai": 1.1827741875586169,
+        "implied_premium_bps_approx": 86,
+        "morpho_secondary_pairs": 0
+      },
+      "result": "REJECTED：sDAI 二级为溢价非折价；头部 Morpho 金库无二级市场",
+      "quotes_count": 2,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x1（1），最新块 26,378,116（2026-11-09T15:05:11Z），读取钉 pinned 块 26,378,111。",
@@ -93,8 +138,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:13:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH03/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ETH03/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ETH03/live-20261109T141903Z/record.json"
+  }
 }

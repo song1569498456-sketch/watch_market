@@ -67,23 +67,71 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
-      "underlying_document_addresses": [
-        "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
-        "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-        "0xc7198437980c041c805A1EDcbA50c1Ce5db95118"
-      ],
-      "pools_chain_verified": 0,
-      "cycles_quoted": 0,
-      "transactions_analyzed": 0,
-      "last_block": null,
+      "kind": "same_block_onchain_curve_quotes",
+      "run_id": "live-20261109T141903Z",
+      "chain": "avalanche-c-chain",
+      "chain_id": 43114,
+      "latest_block": 99858977,
+      "pinned_block": 99858972,
+      "latest_block_time_utc": "2026-11-09T14:50:37+00:00",
+      "base_fee_wei": 2500000000,
+      "pool": {
+        "protocol": "Curve StableSwap (Aave pool)",
+        "address": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+        "code_bytes": 20347,
+        "A": 500,
+        "fee": 100000,
+        "balances_human": {
+          "DAI.e": "543360.0741355088",
+          "USDC.e": "313627.316419",
+          "USDT.e": "442713.178736"
+        }
+      },
+      "assets": {
+        "DAI.e": "0xd586e7f844cea2f87f50152665bcbc2c279d8d70 (18, symbol DAI.e)",
+        "USDC.e": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664 (6, symbol USDC.e)",
+        "USDT.e": "0xc7198437980c041c805a1edcba50c1ce5db95118 (6, symbol USDT.e)",
+        "native_USDC_not_used": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E (6, symbol USDC)",
+        "wrapped_not_used": {
+          "avDAI": "0x47afa96cdc9fab46904a55a6ad4bf6660b53c38a",
+          "avUSDC": "0x46a51127c3ce23fb7ab1de06226147f446e4a857",
+          "avUSDT": "0x532e6537fea298397212f09a61e03311686f548e"
+        }
+      },
+      "cycle": {
+        "path": "DAI.e→USDC.e→USDT.e→DAI.e",
+        "same_pool_all_legs": true,
+        "quotes": [
+          {
+            "amount_in": "1 DAI.e",
+            "net_bps": "-0.303"
+          },
+          {
+            "amount_in": "10 DAI.e",
+            "net_bps": "-0.313"
+          },
+          {
+            "amount_in": "100 DAI.e",
+            "net_bps": "-0.330"
+          },
+          {
+            "amount_in": "1000 DAI.e",
+            "net_bps": "-0.498"
+          }
+        ],
+        "all_negative": true,
+        "caveat": "get_dy_underlying view 不更新储备；同池三腿储备影响未模拟"
+      },
+      "pools_chain_verified": 1,
+      "cycles_quoted": 1,
+      "quotes_count": 4,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0xa86a（43114），最新块 99,858,977（2026-11-09T14:50:37Z），base fee 2.5 gwei；所有报价/池状态钉在 pinned 块 99,858,972。",
@@ -103,8 +151,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:55:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/AVAX01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/AVAX01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/AVAX01/live-20261109T141903Z/record.json"
+  }
 }

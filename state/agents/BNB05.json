@@ -49,18 +49,53 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Comptroller/Diamond/facets/RewardFacet.sol",
-        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/XVS.json"
-      ],
-      "chain_block": null,
-      "historical_window_complete": false
+      "kind": "onchain_claim_function_probe_plus_token_liquidity",
+      "run_id": "live-20261109T141903Z",
+      "chain": "bnb-chain",
+      "chain_id": 56,
+      "latest_block": 132605043,
+      "pinned_block": 132605038,
+      "latest_block_time_utc": "2026-11-09T15:03:14+00:00",
+      "venus": {
+        "comptroller": "0xfD36E2c2a6789Db23113685031d7F16329158384",
+        "comptroller_code_bytes": 1508,
+        "admin": "0x939bd8d64c0a9583a7dcea9933f7b21697ab6396",
+        "claim_array_probe_from_fresh": "success 0x（公开可调用无 revert）",
+        "claim_single_probe": "revert market not listed",
+        "fresh_supplier_accrued": null,
+        "fresh_borrower_accrued": null,
+        "implementation_getter": "null（应读 comptrollerImplementation()，缺口）"
+      },
+      "xvs": {
+        "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+        "code_bytes": 12781,
+        "symbol": "XVS",
+        "decimals": 18,
+        "totalSupply": "30000000000000000000000000"
+      },
+      "xvs_liquidity": {
+        "pair": "0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+        "protocol": "Pancake V2",
+        "reserve_WBNB": 76.46391709977648,
+        "reserve_XVS": 18848.42437666829,
+        "sell_1_XVS_WBNB_gross_0.25pct": 0.004045,
+        "note": "XVS 可卖；但新参与者名义可领=0"
+      },
+      "columns": {
+        "nominal_claimable_fresh": 0,
+        "actual_sellable_fresh": 0,
+        "net_after_costs_fresh": 0,
+        "existing_holder_accrued": "unknown（接口未读通）"
+      },
+      "result": "REJECTED：公开 claim 函数存在且 XVS 可售，但普通新参与者无 accrued → 非零成本可售奖励",
+      "quotes_count": 1,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x38（56），最新块 132,605,043（2026-11-09T15:03:14Z），读取钉 pinned 块 132,605,038。",
@@ -81,8 +116,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:11:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB05/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BNB05/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BNB05/live-20261109T141903Z/record.json"
+  }
 }

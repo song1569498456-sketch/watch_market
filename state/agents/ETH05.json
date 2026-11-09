@@ -47,15 +47,51 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_NFT_RIGHTS_SOURCE_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:49:15.184460+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "kind": "onchain_nft_queue_state_plus_mechanism_identity",
+      "run_id": "live-20261109T141903Z",
+      "chain": "ethereum-mainnet",
+      "chain_id": 1,
+      "latest_block": 26378130,
+      "pinned_block": 26378125,
+      "latest_block_time_utc": "2026-11-09T15:07:59+00:00",
+      "lido_queue": {
+        "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "code_bytes": 2497,
+        "last_request_id": 141226,
+        "last_finalized_request_id": 141196,
+        "unfinalized_stETH": 4229.390613409722,
+        "isPaused": false,
+        "ownerOf_141196": "0x30115eac47c214af3d8c1c7df6026386a9de34c4",
+        "ownerOf_141226": "0xe37ef305844d71d67b75b2c364b70a802fec9e5d",
+        "eth01_delta": {
+          "last_request_delta": 2,
+          "unfinalized_stETH_delta": 225.228445409722
+        },
+        "getWithdrawalStatus_decode": "failed（claimable 未取得）"
+      },
+      "unsteth_secondary": {
+        "dexscreener_ethereum_pairs": 0,
+        "nft_marketplaces": "OpenSea/Blur 需 API key/网页，未用；无成交/深度数据"
+      },
+      "second_mechanism": {
+        "protocol": "Uniswap V3 NonfungiblePositionManager",
+        "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "code_bytes": 24384,
+        "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "WETH9()": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Uniswap V3 Positions NFT-V1",
+        "symbol": "UNI-V3-POS",
+        "token_dataset": "none（需事件索引/枚举）"
+      },
+      "result": "REJECTED：NFT 领取权真实存在但无二级市场报价/逐请求 claimable，无法证明折价；UniV3 position 无数据集",
+      "quotes_count": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x1（1），最新块 26,378,130（2026-11-09T15:07:59Z），读取钉 pinned 块 26,378,125。",
@@ -76,10 +112,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:16:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH05/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ETH05/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ETH05/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

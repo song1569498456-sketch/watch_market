@@ -118,5 +118,11 @@
     "quote_obtained": true,
     "simulation_ok": true,
     "gas_estimated": true
+  },
+  "reproduction_note": {
+    "added_by": "M00 after Q00 review",
+    "q00_gate_verdict": "PASS",
+    "q00_review": "evidence/Q00/live-20261109T141903Z/review.json",
+    "note": "Q00 在稍后用独立归档端点 eth.drpc.org 逐位复现了 chainId/block hash/pool 与 stETH code keccak/coins/fee/get_dy 共 9 项；publicnode 对约 70 分钟后的历史块返回 -32602 Archive requests require a personal token，故后续固定块复核须使用归档端点（如 eth.drpc.org、blastapi），不得用 pruned 公共端点重放。"
   }
 }

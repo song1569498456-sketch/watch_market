@@ -23,19 +23,26 @@
     "complete_event_time_window": "约 2026-11-09T14:00Z-15:05Z；30 天规则与 7 天清算复盘未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
+      "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "retrieved_at_utc": "2026-11-09T15:06:39+00:00",
+      "chain_id": 1,
+      "head_block": 26378119,
+      "pinned_block": 26378116,
       "fetched_urls": [
+        "https://ethereum-rpc.publicnode.com",
         "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
         "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
       ],
-      "chain_block": null,
-      "borrowers_indexed": 0,
-      "history_complete": false
+      "chain_block": 26378116,
+      "borrowers_indexed": 8,
+      "history_complete": false,
+      "complete_block_range": "身份/储备/借款人/规则：块 26,378,116；Borrow/LiquidationCall 窗口 26,373,119-26,378,119（5,000 块完整覆盖）",
+      "complete_event_time_window": "约 2026-11-09T14:00Z-15:05Z；30 天规则与 7 天清算复盘未覆盖"
     },
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链：eth_chainId=0x1；head=26,378,119（2026-11-09T15:05:47Z，hash 0xd19bd129…）；固定块 26,378,116；head baseFee≈419,159,764 wei。",
@@ -58,10 +65,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:09:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ETH04/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ETH04/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ETH04/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

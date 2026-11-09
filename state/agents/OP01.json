@@ -21,20 +21,24 @@
     "complete_event_time_window": "单块快照（2026-11-09T15:09:23-15:10:27Z）；30 天规则/7 天活动未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "token_list_entry": "data/USDC/data.json",
+      "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "token_list_entry": "data/USDC/data.json（200）、data/USDC.e/data.json（404 源失效）、data/USDT/data.json（200）",
       "op_token_document_address": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
-      "reference_source_read": "FiatTokenV1.burn",
-      "current_block": null,
+      "current_block": 159319123,
+      "pinned_block": 159319120,
+      "chain_id": 10,
       "cash_redemptions_verified": 0,
-      "quotes_obtained": 0,
+      "quotes_obtained": 12,
       "transactions_analyzed": 0,
       "history_30d_complete": false,
-      "activity_7d_complete": false
+      "activity_7d_complete": false,
+      "complete_block_range": "身份/池状态：块 159,319,068；最终报价：块 159,319,120；head 159,319,123",
+      "complete_event_time_window": "单块快照（2026-11-09T15:09:23-15:10:27Z）；30 天规则/7 天活动未覆盖"
     },
-    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链：eth_chainId=0xa（10）；head=159,319,123（2026-11-09T15:10:23Z）；身份/池状态固定块 159,319,068，最终报价固定块 159,319,120；baseFee=0x24f=591 wei（L2 部分）。",
@@ -55,10 +59,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:14:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/OP01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/OP01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/OP01/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

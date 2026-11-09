@@ -110,31 +110,113 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "slot",
       "cluster": "mainnet-beta",
       "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
       "slot": 467364930,
-      "programs_verified": [
-        "kamino_klend",
-        "solend",
-        "marginfi_v2"
-      ],
-      "solend_reserve_params_read": [
-        "USDC",
-        "USDT",
-        "SOL",
-        "mSOL"
-      ],
+      "slot_end": 467365246,
+      "block_height": 445382667,
+      "epoch": 1081,
+      "solana_core_version": "4.4.0",
+      "programs": {
+        "kamino_klend": {
+          "program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "executable": true,
+          "space": 36,
+          "lamports": 33141440,
+          "programdata": "9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA",
+          "programdata_space": 10485760,
+          "last_deploy_slot": 461744249,
+          "upgrade_authority": "GzFgdRJXmawPhGeBsyRCDLx4jAKPsvbUqoqitzppkzkW"
+        },
+        "solend": {
+          "program_id": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "executable": true,
+          "space": 36,
+          "lamports": 1141442,
+          "programdata": "DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR",
+          "programdata_space": 1240333,
+          "last_deploy_slot": 350614570,
+          "upgrade_authority": "RY93CZYe5g6drtG7W9PmHRPzaBLZ1uwihTzayQTmJfh"
+        },
+        "marginfi_v2": {
+          "program_id": "MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "executable": true,
+          "space": 36,
+          "programdata_read": false
+        }
+      },
+      "solend_market": {
+        "address": "4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+        "authorityAddress": "DdZR6zRFiUt4S5mg7AV1uKB2z1f1WzcNYCaTEEWPAuby",
+        "onchain_owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+        "onchain_space": 290,
+        "configs_api_reserves": 90,
+        "active_reserves_ltv_and_borrowlimit_positive": 7,
+        "reserves_verified_onchain": {
+          "CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6": {
+            "owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+            "space": 619
+          },
+          "JMBiQLjvqrKkBApAFKT1WkGY5qphQzqu4NutEkU99KK": {
+            "owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+            "space": 619
+          }
+        },
+        "reserve_params": {
+          "USDC": {
+            "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "ltv_pct": 70,
+            "liquidation_threshold_pct": 77,
+            "liquidation_bonus_pct": 3,
+            "max_liquidation_bonus_pct": 5,
+            "max_liquidation_threshold_pct": 79,
+            "borrowLimit": "25000000000000",
+            "pythOracle": "Dpw1EAVrSB1ibxiDQyTAW6Zip3J4Btk2x4SgApQCeFbX",
+            "switchboardOracle": "nu11111111111111111111111111111111111111",
+            "lastUpdateSlot": 467343196
+          },
+          "USDT": {
+            "mint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+            "ltv_pct": 70,
+            "liquidation_threshold_pct": 77,
+            "liquidation_bonus_pct": 3,
+            "max_liquidation_bonus_pct": 5,
+            "borrowLimit": "10000000000000"
+          },
+          "SOL": {
+            "mint": "So11111111111111111111111111111111111111112",
+            "ltv_pct": 65,
+            "liquidation_threshold_pct": 72,
+            "liquidation_bonus_pct": 3,
+            "max_liquidation_bonus_pct": 5,
+            "borrowLimit": "200000000000000"
+          },
+          "mSOL": {
+            "mint": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+            "ltv_pct": 69,
+            "liquidation_threshold_pct": 75,
+            "liquidation_bonus_pct": 0,
+            "max_liquidation_bonus_pct": 0,
+            "borrowLimit": "0"
+          }
+        }
+      },
+      "hf_candidates": [],
       "obligations_scanned": false,
-      "hf_candidates": 0,
+      "status": "UNVERIFIED",
+      "no_liquidatable_position_found": true,
       "requests_this_run": 24,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -159,10 +241,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:18:55.766043+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/SOL03/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/SOL03/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/SOL03/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 24,
   "request_discipline_note": "外部请求 24 次（≤80 硬性上限，符合）；probeA/B/C 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
   "data_sources_used": [

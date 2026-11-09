@@ -59,18 +59,63 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "chain_block": null,
+      "kind": "onchain_share_ratios_plus_same_block_dex_state",
+      "run_id": "live-20261109T141903Z",
+      "chain": "avalanche-c-chain",
+      "chain_id": 43114,
+      "latest_block": 99859135,
+      "pinned_block": 99859130,
+      "latest_block_time_utc": "2026-11-09T14:52:51+00:00",
+      "pinned_block_time_utc": "2026-11-09T14:52:41+00:00",
+      "savax": {
+        "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+        "code_bytes": 2141,
+        "redemption_avax_per_share": 1.2938400259821974,
+        "totalSupply": "18631299756825931271643567",
+        "totalPooledAvax": "24105921361453771611390693",
+        "withdraw_probe": "revert ROLE_WITHDRAW",
+        "redeem_probe": "revert Invalid unlock request index"
+      },
+      "ggavax": {
+        "address": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+        "code_bytes": 2583,
+        "onchain_symbol": "stAVAX",
+        "assets_per_share": 1.1964398178640625,
+        "totalAssets": "39743647584108532098419",
+        "totalSupply": "33218258863250354591799",
+        "withdrawAVAX_probe": "revert arithmetic underflow or overflow (0x11)",
+        "source_role_restriction": "withdrawAVAX/redeemAVAX onlyRole(WITHDRAW_QUEUE_ROLE)（上一轮源码）"
+      },
+      "dex_pools": {
+        "pangolin": {
+          "pair": "0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+          "spot_WAVAX_per_sAVAX": 1.2884329559801782
+        },
+        "traderjoe_v1": {
+          "pair": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+          "spot_WAVAX_per_sAVAX": 1.2885087410576301
+        },
+        "traderjoe_v21_lb": {
+          "pair": "0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+          "binStep": 5,
+          "activeId": 8389118,
+          "spot_WAVAX_per_sAVAX": 1.2903793839770088
+        }
+      },
+      "discount_pct_range": "-0.267% ～ -0.42%（spot）；小额卖出含费 -0.62% ～ -0.9%",
+      "exits": {
+        "dex_immediate": "有同块报价",
+        "protocol_immediate": "不可用（角色/解锁请求索引）",
+        "queued_or_maturity": "存在但未测生命周期/等待/容量"
+      },
+      "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353（上一轮 Curve 线索，非本岗本轮对象）",
       "historical_window_complete": false,
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
-        "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
-      ]
+      "activity_7d_complete": false
     },
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0xa86a（43114），最新块 99,859,135（2026-11-09T14:52:51Z），base fee 2.5 gwei；DEX 状态钉 pinned 块 99,859,130（14:52:41Z）。",
@@ -91,8 +136,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:59:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/AVAX02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/AVAX02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/AVAX02/live-20261109T141903Z/record.json"
+  }
 }

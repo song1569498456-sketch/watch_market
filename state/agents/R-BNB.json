@@ -61,25 +61,65 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "registry_document_address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
-      "code_mechanisms_read": [
-        "supportMarket",
-        "preBorrowHook",
-        "_addToMarket",
-        "getUnderlyingPrice",
-        "setTokenConfig"
-      ],
-      "collateral_assets_chain_checked": 0,
-      "debts_checked": 0,
-      "transactions_analyzed": 0,
-      "current_block": null,
+      "kind": "onchain_collateral_cf_oracle_sample",
+      "run_id": "live-20261109T141903Z",
+      "chain": "bnb-chain",
+      "chain_id": 56,
+      "latest_block": 132606542,
+      "pinned_block": 132606537,
+      "latest_block_time_utc": "2026-11-09T15:14:29+00:00",
+      "venus_core": {
+        "comptroller": "0xfD36E2c2a6789Db23113685031dF16329158384",
+        "comptroller_code_bytes": 1508,
+        "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
+        "markets_count": 58,
+        "sampled": 16
+      },
+      "collateral_sample": {
+        "USDC_cf_pct": 82.5,
+        "USDT_cf_pct": 80.0,
+        "XVS_cf_pct": 45.0,
+        "vBNB_cf_pct": 80.0,
+        "BTCB_cf_pct": 80.0,
+        "ETH_cf_pct": 80.0,
+        "DOT_cf_pct": 50.0,
+        "BUSD_cf_pct": 0.0,
+        "DAI_cf_pct": 0.0,
+        "zero_cf_listed_in_sample": 9
+      },
+      "oracle_prices_1e18": {
+        "USDC": "0.99979204",
+        "USDT": "0.99880252",
+        "BUSD": "1.00000000",
+        "DAI": "0.99944867",
+        "XVS": "2.78345010",
+        "vBNB": "687.879085",
+        "BTCB": "74866.795",
+        "ETH": "2126.3182",
+        "DOT": "1.0992922"
+      },
+      "borrow_sample": {
+        "vUSDT": "140449332020503175774655610",
+        "vUSDC": "30536689214166416469435405",
+        "vBTCB": "1086591315548081052436",
+        "vETH": "8487813353529699965320",
+        "vBNB": "51660287157965592858841"
+      },
+      "isolated_registry": {
+        "address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+        "code_bytes": 2739,
+        "impl": "0xc4953e157d057941a9a71273b0af4d4477ed2770",
+        "getAllPools": "8 个 uint256 池 ID（0x100…0x720），未展开"
+      },
+      "risk_only_confirmed": 0,
+      "result": "REJECTED（抽样范围内无确认异常；BUSD/DAI 上市但 CF=0 不可抵押；isolated 池未展开为主要缺口）",
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x38（56），最新块 132,606,542（2026-11-09T15:14:29Z），参数钉 pinned 块 132,606,537。",
@@ -101,8 +141,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:21:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-BNB/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/R-BNB/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/R-BNB/live-20261109T141903Z/record.json"
+  }
 }

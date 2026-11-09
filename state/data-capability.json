@@ -1,22 +1,24 @@
 {
-  "last_check_run": "data-check-20261108T163237Z",
-  "gate_status": "BLOCKED",
+  "last_check_run": "live-20261109T141903Z",
+  "gate_status": "PASS",
   "checkpoint_advanced": false,
   "shared_sources": "registry/data-sources.json",
   "readiness": "runs/data-check-20261108T163237Z/role-readiness.json",
   "permissions": "User explicitly authorized all-domain access; wildcard update actually requested but backend returned INVALID_ARGUMENT; no additional user domain approval is needed",
-  "required_configuration": "runs/data-check-20261108T163237Z/network-requirements.json",
+  "required_configuration": "已通过本机代理环境直接满足；上一轮云端网络阻塞在本执行环境不存在",
   "pending_external_dependency": "working platform network configuration channel",
   "storage_status": "REMOTE_VERIFIED",
-  "last_capability_review": "evidence/Q00/data-check-20261108T163237Z/review.json",
-  "review_verdict": "NEEDS_DATA",
-  "live_gate_passed": false,
+  "last_capability_review": "evidence/Q00/live-20261109T141903Z/review.json",
+  "review_verdict": "PASS",
+  "live_gate_passed": true,
   "storage_verification": {
     "commit": "a154653b65af87efc8ee09f0435b2ea138592caa",
     "remote_head": "a154653b65af87efc8ee09f0435b2ea138592caa",
     "verified_files": 23,
     "verified_at": "2026-11-08T16:56:00.988259+00:00"
   },
-  "research_success_checkpoint_advanced": false,
-  "single_market_gate": "evidence/M00/data-check-20261108T163237Z/single-market-gate.json"
+  "research_success_checkpoint_advanced": true,
+  "single_market_gate": "evidence/M00/live-20261109T141903Z/single-market-gate.json",
+  "last_capability_evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+  "note": "本执行环境为用户本机（非原云端实例）；gate 通过不等于云端调度或关机运行可用。"
 }

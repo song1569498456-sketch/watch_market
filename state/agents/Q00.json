@@ -2,134 +2,85 @@
   "agent_id": "Q00",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:55:00Z",
   "observed_cursor": {
-    "kind": "independent_static_source_reads_and_bounded_failed_RPC_probes",
-    "source_fetched_at_start": "2026-11-08T16:05:08.948017+00:00",
-    "source_fetched_at_end": "2026-11-08T16:14:58.186130+00:00",
+    "kind": "independent_pinned_block_archive_rechecks_and_offline_integrity_audit",
+    "source_fetched_at_start": "2026-11-09T15:36:30+00:00",
+    "source_fetched_at_end": "2026-11-09T15:55:00+00:00",
     "read_record_count": 46,
     "reviewed_finding_ids": [
       "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
-      "BNB-JENNER-CAS20-ACTIVATION",
-      "sol-whirlpool-token-interface-identity-check",
+      "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+      "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+      "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+      "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+      "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+      "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
       "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
-      "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
-      "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
-      "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
-      "arb-wsteth-l1-exit-not-arb-instant-redemption",
-      "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
-      "avax-ggavax-withdrawqueue-role-not-public-redemption",
-      "base-metamorpho-nav-not-immediate-redemption",
-      "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
-      "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
-      "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
-      "bnb-venus-public-claim-not-unconditional-sellable-reward",
-      "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
-      "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
-      "eth-aave-liquidation-bonus-not-realized-profit",
-      "OP-USDC-BURN-AS-CASH-REDEMPTION",
-      "op-velodrome-view-quote-not-swap-permission-proof",
-      "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
-      "poly-usdc-usdce-not-identical-asset-crossdex-loop",
-      "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
-      "poly-pmct-not-outcome-collateral-lending-proof",
-      "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
-      "SONIC-BEETS-STS-REDEEM-S",
-      "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
+      "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+      "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+      "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+      "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES"
     ],
-    "chain_block_or_slot": null,
+    "rejections_reviewed": [
+      "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+      "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+      "op-velodrome-view-quote-not-swap-permission-proof",
+      "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP",
+      "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD"
+    ],
+    "gate_rechecks": {
+      "pinned_block": 26377898,
+      "checks_passed": 9,
+      "checks_total": 9,
+      "provider": "https://eth.drpc.org (archive, no key)"
+    },
+    "chain_block_or_slot": "ETH 26377898/26377950; ARB 522707442; BASE 55228648; BNB 132601543; OP 159319120; POLY 97021016",
     "full_30_day_window_complete": false,
     "full_7_day_window_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "INDEPENDENT_REVIEW_OF_LIVE_ROUND",
     "observed": {
-      "kind": "independent_static_source_reads_and_bounded_failed_RPC_probes",
-      "source_fetched_at_start": "2026-11-08T16:05:08.948017+00:00",
-      "source_fetched_at_end": "2026-11-08T16:14:58.186130+00:00",
-      "read_record_count": 46,
-      "reviewed_finding_ids": [
-        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
-        "BNB-JENNER-CAS20-ACTIVATION",
-        "sol-whirlpool-token-interface-identity-check",
-        "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
-        "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
-        "AVAX-CCHAIN-ETHCALL-GAS-HEADER-COST-BOUNDARY",
-        "ARB-TRIANGLE-INDEPENDENT-QUOTE-ASSUMPTION",
-        "arb-wsteth-l1-exit-not-arb-instant-redemption",
-        "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
-        "avax-ggavax-withdrawqueue-role-not-public-redemption",
-        "base-metamorpho-nav-not-immediate-redemption",
-        "BASE-AERODROME-LP-DOUBLE-FEE-ASSUMPTION",
-        "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
-        "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
-        "bnb-venus-public-claim-not-unconditional-sellable-reward",
-        "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
-        "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
-        "eth-aave-liquidation-bonus-not-realized-profit",
-        "OP-USDC-BURN-AS-CASH-REDEMPTION",
-        "op-velodrome-view-quote-not-swap-permission-proof",
-        "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
-        "poly-usdc-usdce-not-identical-asset-crossdex-loop",
-        "BNB-VENUS-ARBITRARY-COLLATERAL-ASSUMPTION",
-        "poly-pmct-not-outcome-collateral-lending-proof",
-        "SOL-KLEND-PROGRAMID-NOT-CLUSTER-PROOF",
-        "SONIC-BEETS-STS-REDEEM-S",
-        "SONIC-AAVE-USDC-BORROW-IS-NOT-INCOME"
-      ],
-      "chain_block_or_slot": null,
-      "full_30_day_window_complete": false,
-      "full_7_day_window_complete": false
+      "kind": "live_gate_and_candidate_findings_independent_review",
+      "reviewed_findings": 12,
+      "gate_verdict": "PASS"
     },
-    "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     {
       "review_counts": {
-        "NEEDS_DATA": 3,
-        "CONFIRMED_EVIDENCE": 3,
-        "REJECTED": 21,
-        "STALE": 0,
-        "RISK_ONLY": 0
+        "reviewed_findings": 12,
+        "by_verdict": {
+          "CONFIRMED_EVIDENCE": 8,
+          "NEEDS_DATA": 4,
+          "REJECTED": 0,
+          "STALE": 0,
+          "RISK_ONLY": 0,
+          "LIMITED_REJECTION_SUPPORTED": 0
+        }
       },
-      "registry_coverage": "27/27 exactly once",
-      "research_records_read": 46,
-      "rejections_read": 102,
-      "original_correction_arrays_read": 1,
-      "original_execution_statuses": {
-        "PARTIAL": 46
-      },
-      "original_quote_count": 0,
-      "independent_official_unique_urls": 48,
-      "independent_official_http_requests": 50,
-      "independent_http_200": 49,
-      "supplemental_successful_deployment_JSON_read_without_saved_HTTP_status": 1,
-      "independent_rpc_probes": 5,
-      "independent_rpc_CONNECT_403": 5
-    },
-    "N-POLY旧源/V2现金包装层、Base迁移、Lido NFT同权益去重独立复核完成；另补pUSD命名与Offramp角色衔接。"
+      "gate_verdict": "PASS",
+      "reviewed_findings": 12,
+      "review_file": "evidence/Q00/live-20261109T141903Z/review.json"
+    }
   ],
   "pending_questions": [
-    "首次状态NOT_STARTED，无此前链上成功游标。",
-    "30天规则：本轮只重读选定官方源及三个发布页，不是全生态变更/生效完整回溯。",
-    "7天活动：未读取任何链上区块/slot、事件、交易与已完成收益样本。",
-    "Ethereum/Polygon/Base/Sonic/Solana五个只读身份探针均CONNECT403，保留真实headers与curl错误；BNB/ARB/OP/AVAX本轮未再探测，不能声称已核或可用。",
-    "所有27项缺部署/当前身份或具体经济字段见reviews.json；三项经济候选缺q/完整数量路线/当前报价/费用。",
-    "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
-    "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
+    "publicnode 对历史块需 personal token：下轮 pinned 块复核需固定归档端点（ETH eth.drpc.org 已验证；ARB arbitrum-one.public.blastapi.io 已验证）。",
+    "BNB01: buyFee/sellFee 与 Pancake 三角报价未独立复现（BNB 归档端点限流/不可用）；请求数 117 次超 80 上限。",
+    "AVAX01: Curve Aave 池三腿报价未独立复现（AVAX 归档端点 no available upstreams）。",
+    "N-POLY: PMCT 实为 EIP-1167（EIP-1967 槽为 0），impl 0xce84e053… 需字节码解析复核；totalSupply 与其记录差约 0.93M。",
+    "X-BASE: L1 可执行腿缺失、成本-规模敏感性不足；3.48bps 结论对规模敏感。",
+    "所有本轮文件待 M00 合并发布并远端读回；Q00 未操作 Git、未改 registry/config/runs。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T16:14:58.668624+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/Q00/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
-    "verified_at": "2026-11-08T16:16:31.737220+00:00",
-    "record": "evidence/Q00/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:55:00Z",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/Q00/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/Q00/live-20261109T141903Z/review.json",
+  "last_verified_attempt": null
 }

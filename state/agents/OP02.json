@@ -67,22 +67,70 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block",
       "chain_id": 10,
+      "head_block": 159319131,
+      "head_block_time_utc": "2026-11-09T15:10:39+00:00",
       "pinned_block": 159319129,
-      "pair": "WETH/USDC.e",
-      "uniswap_fee500_quote_1WETH": "2111231801",
-      "velodrome_quote_1WETH": "1870244738",
-      "velodrome_pause_fee_unreadable": true,
-      "roundtrip_negative": true,
+      "pair": "WETH/USDC.e（token0=0x4200…0006, token1=0x7F5c…）",
+      "uniswap_v3": {
+        "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "quoter_v1": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+        "fee500_pool": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+        "fee500_liquidity": "2963021199541957",
+        "fee500_tick": -199701,
+        "quote_1WETH_usdce": "2111231801",
+        "fee3000_pool": "0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+        "quote_1WETH_fee3000": "2076158997",
+        "fee100_thin_pool": "0x9595edbefc82535a02312a4c42cc91e6e9df8f67",
+        "quote_1WETH_fee100_unusable": "885216601"
+      },
+      "velodrome_v2": {
+        "factory": "0xF1046053aa5682b4F9a81b5481394DA16BE5FF5a",
+        "volatile_pool": "0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+        "pool_code_bytes": 45,
+        "pool_code_sha256": "0d8ec699b570e458378e593547d814ae86037f5f895b09963c778325b8b607cc",
+        "reserves": {
+          "WETH": "7467749311695200355",
+          "USDCe": "15878789233",
+          "ts": 1794236801
+        },
+        "isPaused_UNREADABLE": true,
+        "getFee_UNREADABLE": true,
+        "implied_mid_usdce_per_weth": "2126.3",
+        "quote_1WETH_usdce": "1870244738",
+        "quote_10WETH_usdce": "9078667540",
+        "quote_1000USDCe_weth": "441185058723120801",
+        "stable_pool": "0x825e291af3555685554a13971e731145393dc8a7"
+      },
+      "reference_pool_weth_native_usdc": {
+        "pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+        "quote_1WETH_nativeUSDC": "2117740267",
+        "quote_1000nativeUSDC_weth": "469014587568597460"
+      },
+      "roundtrip": {
+        "uni_sell_velo_buy": {
+          "net_weth": "0.87399",
+          "net_pct": -12.6
+        },
+        "velo_sell_uni_buy": {
+          "net_weth": "0.88585",
+          "net_pct": -11.42
+        },
+        "velo_fee_assumption": 0.003,
+        "velo_fee_unknown": true,
+        "spot_spread_pct": 0.016
+      },
+      "status": "REJECTED",
+      "sushi_pool": "ABSENT（getPair WETH/USDC.e 返回空）",
       "requests_this_run": 80,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -108,10 +156,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:10:59.425452+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/OP02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/OP02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/OP02/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 80,
   "request_discipline_note": "外部请求 80 次（正好 ≤80 硬性上限，符合）；probeA 与 probeB 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
   "data_sources_used": [

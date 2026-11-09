@@ -1139,8 +1139,747 @@
       "at": "2026-11-08T16:17:38.754627+00:00",
       "input_commit": "c269e1a674c2680dbf2ac00638206efdef0da79a",
       "note": "合法空初始状态已用于本轮；保留preflight历史；逐岗缺口不转为虚构历史。"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-ETH",
+      "at": "2026-11-09T14:29:35+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 26377930,
+      "quotes": 11,
+      "findings": [
+        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT"
+      ],
+      "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-BNB",
+      "at": "2026-11-09T14:28:00.185784+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 132600472,
+      "quotes": 5,
+      "findings": [
+        "BNB-JENNER-CAS20-ACTIVATION",
+        "BNB-PANCAKEV3-FEE100-NEW-POOLS",
+        "BNB-LAUNCHPAD-GRADUATION-NEW-V2-PAIR"
+      ],
+      "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-SOL",
+      "at": "2026-11-09T14:32:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 467350933,
+      "quotes": 0,
+      "findings": [
+        "sol-whirlpool-token-interface-identity-check",
+        "SOL-RAYDIUM-CPMM-NEW-POOL-TOKEN2022-EXTENSION-RULES",
+        "SOL-CORE-PROGRAM-UPGRADE-WINDOW-30D"
+      ],
+      "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ETH01",
+      "at": "2026-11-09T14:37:30+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 26377950,
+      "quotes": 10,
+      "findings": [
+        "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+        "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+        "ETH-ROCKETPOOL-RETH-INSTANT-BURN"
+      ],
+      "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BNB01",
+      "at": "2026-11-09T14:37:44.001262+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 132601650,
+      "quotes": 4,
+      "findings": [
+        "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+        "BNB-LISUSD-DEEP-V3-STABLE-POOL"
+      ],
+      "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SOL01",
+      "at": "2026-11-09T14:40:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 467353701,
+      "quotes": 10,
+      "findings": [
+        "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP"
+      ],
+      "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-ARB",
+      "at": "2026-11-09T14:38:45+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 522704122,
+      "quotes": 0,
+      "findings": [
+        "ARB-AAVE-V3-COW-ADAPTERS-20261109",
+        "ARB-UNISWAP-V3-BLPX-USDC-POOL-20261109"
+      ],
+      "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-BASE",
+      "at": "2026-11-09T14:45:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 55224420,
+      "quotes": 0,
+      "findings": [
+        "BASE-AERODROME-CLONE-FACTORY-NEW-POOLS",
+        "BASE-AERODROME-IMPLEMENTATION-UPGRADE-SURFACE"
+      ],
+      "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-OP",
+      "at": "2026-11-09T14:44:03.579294+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 159318330,
+      "quotes": 0,
+      "findings": [
+        "OP-CONTRACTS-V9-ALLOWLIST-RELEASE-NOT-ACTIVATED"
+      ],
+      "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-POLY",
+      "at": "2026-11-09T14:43:50+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 97019894,
+      "quotes": 0,
+      "findings": [
+        "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+        "POLY-POLYMARKET-NEW-MARKET-ETH-ABOVE-2040-20261109",
+        "POLY-UNISWAP-V3-NEW-POOL-20261109"
+      ],
+      "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-AVAX",
+      "at": "2026-11-09T14:50:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 99858595,
+      "quotes": 0,
+      "findings": [
+        "AVAX-LFJ-V2.1-NEWEST-PAIRS-IDENTITY",
+        "AVAX-LFJ-V2.1-PAIR-IMPLEMENTATION-SURFACE"
+      ],
+      "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "N-SONIC",
+      "at": "2026-11-09T14:48:30+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 82307306,
+      "quotes": 0,
+      "findings": [
+        "SONIC-EQUALIZER-CL-USDC-FTUSD-POOL-20261107"
+      ],
+      "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ARB01",
+      "at": "2026-11-09T14:47:44.893037+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "COMPLETED",
+      "new_status": "REJECTED",
+      "block_or_slot": 522706375,
+      "quotes": 7,
+      "findings": [
+        "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP"
+      ],
+      "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ARB02",
+      "at": "2026-11-09T14:52:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 522706717,
+      "quotes": 12,
+      "findings": [
+        "ARB-UNISWAP-V3-TRIANGLES-WETH-USDC-USD0-WBTC-NEGATIVE"
+      ],
+      "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ARB03",
+      "at": "2026-11-09T14:52:57.589409+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 522707442,
+      "quotes": 9,
+      "findings": [
+        "arb-wsteth-l1-exit-not-arb-instant-redemption",
+        "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+        "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE"
+      ],
+      "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ARB04",
+      "at": "2026-11-09T14:52:08.445534+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 522707652,
+      "quotes": 5,
+      "findings": [
+        "ARB-VAULT-SHARES-NO-SECONDARY-DISCOUNT",
+        "ARB-BEEFY-MORPHO-USDC-ZERO-IDLE-CASH"
+      ],
+      "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "AVAX01",
+      "at": "2026-11-09T14:55:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 99858972,
+      "quotes": 4,
+      "findings": [
+        "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP"
+      ],
+      "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "AVAX02",
+      "at": "2026-11-09T14:59:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "RULE_GAP",
+      "block_or_slot": 99859130,
+      "quotes": 7,
+      "findings": [
+        "AVAX-SAVAX-DEX-DISCOUNT-VS-RESTRICTED-REDEMPTION",
+        "AVAX-GGAVAX-REDEMPTION-QUEUE-ROLE"
+      ],
+      "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BASE01",
+      "at": "2026-11-09T14:56:36.062393+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 55228648,
+      "quotes": 7,
+      "findings": [
+        "BASE-USDC-VS-USDBC-TWO-ASSETS",
+        "BASE-USDC-USDbC-DEX-DISCOUNT-20261109"
+      ],
+      "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BASE02",
+      "at": "2026-11-09T14:56:24.602117+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "DELAYED",
+      "block_or_slot": 55228623,
+      "quotes": 5,
+      "findings": [
+        "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+        "BASE-CBETH-WETH-DEX-CAPACITY-THIN"
+      ],
+      "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BASE03",
+      "at": "2026-11-09T15:02:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 55228732,
+      "quotes": 0,
+      "findings": [
+        "BASE-METAMORPHO-SHARE-SECONDARY-DISCOUNT"
+      ],
+      "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BASE04",
+      "at": "2026-11-09T15:01:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 55229390,
+      "quotes": 3,
+      "findings": [
+        "BASE-AAVE-V3-LIQUIDATION-BONUS-NOT-NET-PROFIT"
+      ],
+      "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BASE05",
+      "at": "2026-11-09T15:05:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 55229589,
+      "quotes": 3,
+      "findings": [
+        "BASE-AERODROME-VAMM-LP-MINT-BURN-NO-DIFFERENCE"
+      ],
+      "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BNB02",
+      "at": "2026-11-09T15:01:44.646082+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 132604821,
+      "quotes": 4,
+      "findings": [
+        "bnb-venus-vai-sale-proceeds-not-debt-free-profit"
+      ],
+      "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BNB03",
+      "at": "2026-11-09T15:08:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 132604696,
+      "quotes": 8,
+      "findings": [
+        "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE"
+      ],
+      "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BNB04",
+      "at": "2026-11-09T15:06:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 132604844,
+      "quotes": 4,
+      "findings": [
+        "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+        "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP"
+      ],
+      "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "BNB05",
+      "at": "2026-11-09T15:11:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 132605038,
+      "quotes": 1,
+      "findings": [
+        "BNB-VENUS-XVS-REWARD-CLAIM-PUBLIC-NOT-FREE"
+      ],
+      "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ETH02",
+      "at": "2026-11-09T15:07:09.221528+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 26378114,
+      "quotes": 4,
+      "findings": [
+        "ETH-LIQUITY-V1-LUSD-REDEEM-ETH"
+      ],
+      "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ETH03",
+      "at": "2026-11-09T15:13:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 26378111,
+      "quotes": 2,
+      "findings": [
+        "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+        "ETH-MORPHO-TOP-VAULT-NO-SECONDARY-MARKET"
+      ],
+      "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ETH04",
+      "at": "2026-11-09T15:09:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 26378116,
+      "quotes": 0,
+      "findings": [
+        "eth-aave-liquidation-bonus-not-realized-profit"
+      ],
+      "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "ETH05",
+      "at": "2026-11-09T15:16:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 26378125,
+      "quotes": 0,
+      "findings": [
+        "ETH-LIDO-UNSTETH-NFT-CLAIM-RIGHTS",
+        "ETH-UNIV3-POSITION-NFT-BURN-COLLECT"
+      ],
+      "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "OP01",
+      "at": "2026-11-09T15:14:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "DELAYED",
+      "block_or_slot": 159319120,
+      "quotes": 7,
+      "findings": [
+        "OP-USDC-BURN-AS-CASH-REDEMPTION",
+        "OP-USDC-E-SAME-SYMBOL-DIFFERENT-EQUITY",
+        "OP-USDT-BRIDGE-DISCOUNT-DELAYED"
+      ],
+      "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "OP02",
+      "at": "2026-11-09T15:10:59.425452+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 159319129,
+      "quotes": 6,
+      "findings": [
+        "op-velodrome-view-quote-not-swap-permission-proof",
+        "OP-WETH-USDCe-UNIV3-VS-VELODROME-ROUNDTRIP"
+      ],
+      "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "POLY01",
+      "at": "2026-11-09T15:17:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 97021016,
+      "quotes": 8,
+      "findings": [
+        "POLY-USDCN-USDCE-USDT0-V3-TRIANGLE-NEGATIVE"
+      ],
+      "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "POLY02",
+      "at": "2026-11-09T15:19:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 97021085,
+      "quotes": 0,
+      "findings": [
+        "POLY-AAVE-V3-LIQUIDATION-PARAMS-AND-WINDOW"
+      ],
+      "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "POLY03",
+      "at": "2026-11-09T15:16:30+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "QUOTED",
+      "block_or_slot": 97021130,
+      "quotes": 10,
+      "findings": [
+        "POLY-WETH-USDC-UNI-VS-QUICKSWAP-CROSSDEX"
+      ],
+      "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "R-BASE",
+      "at": "2026-11-09T15:14:50.349059+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 55234244,
+      "quotes": 0,
+      "findings": [
+        "BASE-METAMORPHO-NAV-VS-WITHDRAWABLE-GAP"
+      ],
+      "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "R-BNB",
+      "at": "2026-11-09T15:21:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 132606537,
+      "quotes": 0,
+      "findings": [
+        "BNB-VENUS-CORE-COLLATERAL-PARAMS-SCAN"
+      ],
+      "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "R-POLY",
+      "at": "2026-11-09T15:23:30+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 97021280,
+      "quotes": 0,
+      "findings": [
+        "POLY-PREDICTION-OUTCOME-LENDING-ACCEPTANCE-ABSENT",
+        "POLY-PMCT-IMPL-DRIFT-VS-DOCS"
+      ],
+      "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SOL02",
+      "at": "2026-11-09T15:19:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 467364393,
+      "quotes": 0,
+      "findings": [
+        "SOL-JITOSOL-BSOL-PROTOCOL-RATES-20261109"
+      ],
+      "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SOL03",
+      "at": "2026-11-09T15:18:55.766043+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "UNVERIFIED",
+      "block_or_slot": 467364930,
+      "quotes": 0,
+      "findings": [
+        "SOL-LEND-PROGRAM-VERIFIED-NO-LIQ-CANDIDATE"
+      ],
+      "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SONIC01",
+      "at": "2026-11-09T15:22:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 82308364,
+      "quotes": 4,
+      "findings": [
+        "SONIC-USDC-USDT-SHADOW-CL-SINGLE-VENUE"
+      ],
+      "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SONIC02",
+      "at": "2026-11-09T15:25:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 82308370,
+      "quotes": 0,
+      "findings": [
+        "SONIC-STS-RATE-VS-DEX-DISCOUNT"
+      ],
+      "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "SONIC03",
+      "at": "2026-11-09T15:27:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": 82308463,
+      "quotes": 0,
+      "findings": [
+        "SONIC-AAVE-BORROW-SELL-REPAY-NOT-FEASIBLE"
+      ],
+      "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "X-ARB",
+      "at": "2026-11-09T15:27:00+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "DELAYED",
+      "block_or_slot": 26378198,
+      "quotes": 6,
+      "findings": [
+        "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD"
+      ],
+      "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "ROUND_STATUS_UPDATE",
+      "agent_id": "X-BASE",
+      "at": "2026-11-09T15:23:42.514395+00:00",
+      "previous_run_id": "full-20261108T152118Z",
+      "execution_status": "PARTIAL",
+      "new_status": "REJECTED",
+      "block_or_slot": "ETH 26378203 / BASE 55237031",
+      "quotes": 4,
+      "findings": [
+        "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD"
+      ],
+      "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0"
+    },
+    {
+      "run_id": "live-20261109T141903Z",
+      "type": "Q00_REVIEW_CORRECTIONS",
+      "agent_id": "Q00",
+      "at": "2026-11-09T15:32:19.159719+00:00",
+      "status": "RECORDED",
+      "corrections": [
+        {
+          "target": "M00 数据门可复现性",
+          "finding": "publicnode 对约70分钟后历史块返回 -32602；Q00 用归档端点 eth.drpc.org 逐位复现9项",
+          "action": "已在 single-market-gate.json 增加 reproduction_note，后续固定块复核改用归档端点"
+        },
+        {
+          "target": "N-POLY PMCT 代理类型",
+          "finding": "PMCT 实际是 EIP-1167 最小代理，EIP-1967 槽=0，不能按槽解析 impl；totalSupply 与 N-POLY 记录差约0.93M",
+          "action": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES 降级 UNVERIFIED/NEEDS_DATA，待 N-POLY 修正代理类型与 supply 时点"
+        },
+        {
+          "target": "请求纪律",
+          "finding": "BNB01 约117次、BNB02 约123次、OP02/X-BASE 各80次、Q00自身89次（上限100）；单岗建议上限80",
+          "action": "逐岗如实披露；下轮先离线自检再联网，硬上限执行"
+        }
+      ]
     }
   ],
-  "status": "BASELINE_PARTIAL",
+  "status": "LIVE_ROUND_COMPLETED_WITH_GAPS",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

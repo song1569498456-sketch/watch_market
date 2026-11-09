@@ -83,28 +83,86 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block",
       "chain_id": 8453,
+      "head_block": 55234561,
+      "head_block_time_utc": "2026-11-09T15:14:47+00:00",
       "pinned_block": 55234244,
-      "vaults_checked": [
-        "Gauntlet USDC Prime",
-        "Spark USDC",
-        "Aave waBasUSDC"
-      ],
-      "nav_vs_immediate_redeemable_gap_pct": {
-        "gauntlet": 47.0039,
-        "spark": 30.0706
+      "market_params_block": 55234559,
+      "morpho_blue": {
+        "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+        "code_bytes": 15623,
+        "code_sha256": "629bbc7ddbf2ee69170f5b962ef3e0fa73147ef070655cf12074bacccdf3064b",
+        "usdc_balance_shared": "283199698351356"
       },
-      "shared_morpho_usdc_balance": "283199698351356",
-      "anomaly_confirmed": false,
+      "vaults": {
+        "gauntlet_usdc_prime": {
+          "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+          "symbol": "gtUSDCp",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "totalAssets": "401170250624068",
+          "totalSupply": "358395499804048631666281620",
+          "nav_per_share_usdc": "1.119350",
+          "idle_usdc": "10002",
+          "withdrawQueueLength": 8,
+          "sum_available_upper": "212604389430325",
+          "redeemable_upper_bound": "212604389440327",
+          "immediate_redeemable_per_share": "0.593211",
+          "nav_gap_pct": 47.0039
+        },
+        "spark_usdc": {
+          "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+          "symbol": "sparkUSDC",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "totalAssets": "300549003177586",
+          "totalSupply": "276752002774186677399068558",
+          "nav_per_share_usdc": "1.085986",
+          "idle_usdc": "49154985",
+          "withdrawQueueLength": 3,
+          "sum_available_upper": "210172048772800",
+          "redeemable_upper_bound": "210172097927785",
+          "immediate_redeemable_per_share": "0.759423",
+          "nav_gap_pct": 30.0706
+        }
+      },
+      "combined": {
+        "nav_usdc": "701719253801654",
+        "redeemable_upper_usdc": "422776487368112",
+        "shared_morpho_usdc_balance": "283199698351356",
+        "simultaneous_cap_pct_of_combined_nav": 40.36
+      },
+      "market_dependencies": {
+        "top_markets": 4,
+        "collaterals": [
+          "cbBTC 0xcbb7c000…",
+          "WETH 0x4200…0006",
+          "cbETH 0x2ae3f1ec…",
+          "cbETH 0x2ae3f1ec…"
+        ],
+        "oracles_distinct": 4,
+        "oracle_code_bytes": 2598,
+        "lltv": "860000000000000000",
+        "irm": "0x46415998764c29ab2a25cbea6254146d50d22687"
+      },
+      "aave_stata": {
+        "address": "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6",
+        "symbol": "waBasUSDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "totalAssets": "222848728550",
+        "totalSupply": "193237593791",
+        "nav_per_share_usdc": "1.153236925476740380",
+        "aave_usdc_withdrawable": "17835173447495",
+        "anomaly": false
+      },
+      "risk_verdict": "NO_CONFIRMED_ANOMALY：NAV 与即时可提差异（47.0%/30.1%）可由正常借出利用率 88.65%-90.61% 与共享流动性解释；已记录风险依赖（高利用率/零 idle/共享 Morpho 现金/预言机+LLTV）",
       "requests_this_run": 71,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -128,10 +186,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:14:50.349059+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-BASE/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/R-BASE/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/R-BASE/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 71,
   "request_discipline_note": "外部请求 71 次（≤80 硬性上限，符合）；probeA/probeB 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
   "data_sources_used": [

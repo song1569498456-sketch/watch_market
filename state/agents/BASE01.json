@@ -24,15 +24,27 @@
     "complete_event_time_window": "单块快照；30 天规则/7 天活动窗口未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_ASSET_AND_PERMISSION_SOURCES_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:39:29.776385+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+      "source_count": 4,
+      "retrieved_at_utc": "2026-11-09T14:55:15+00:00",
+      "chain_id": 8453,
+      "head_block": 55228651,
+      "pinned_blocks": [
+        55228305,
+        55228648
+      ],
+      "urls": [
+        "https://mainnet.base.org",
+        "https://api.dexscreener.com/token-pairs/v1/base/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+      ],
+      "complete_block_range": "身份/代码：块 55,228,305；同块报价：块 55,228,648（完整单块读数）；head 55,228,651",
+      "complete_event_time_window": "单块快照；30 天规则/7 天活动窗口未覆盖"
     },
-    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链存活/身份核验：eth_chainId=0x2105（8453），head=55,228,651（2026-11-09T14:55:05Z）；身份/代码固定块 55,228,305，报价固定块 55,228,648。",
@@ -52,8 +64,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:56:36.062393+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BASE01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BASE01/live-20261109T141903Z/record.json"
+  }
 }

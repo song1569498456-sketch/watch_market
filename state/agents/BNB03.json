@@ -123,15 +123,127 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "type": "STATIC_TOKEN_IDENTITY_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:44:27.270968+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "same_block_pancake_v2_reserves_plus_chain_quotes",
+      "run_id": "live-20261109T141903Z",
+      "chain": "bnb-chain",
+      "chain_id": 56,
+      "latest_block": 132604701,
+      "pinned_block": 132604696,
+      "latest_block_time_utc": "2026-11-09T15:00:40+00:00",
+      "tokens": {
+        "USDC": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d (symbol USDC, 18, Binance-Peg)",
+        "USDT": "0x55d398326f99059fF775485246999027B3197955 (symbol USDT, 18, Binance-Peg)",
+        "DAI": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3 (symbol DAI, 18)",
+        "BUSD": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56 (symbol BUSD, 18, 历史资产未入闭环)"
+      },
+      "factory": {
+        "protocol": "PancakeSwap V2",
+        "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+        "code_bytes": 19084
+      },
+      "pools": [
+        {
+          "pair": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+          "tokens": [
+            "USDT",
+            "USDC"
+          ],
+          "reserves_human": {
+            "USDT": 660397.3878847071,
+            "USDC": 659044.7224190424
+          },
+          "lp_total_supply": 491250.7447437264
+        },
+        {
+          "pair": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+          "tokens": [
+            "DAI",
+            "USDT"
+          ],
+          "reserves_human": {
+            "DAI": 134.46280433477557,
+            "USDT": 134.874027603884
+          },
+          "note": "极浅",
+          "lp_total_supply": 22.70484324297838
+        },
+        {
+          "pair": "0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+          "tokens": [
+            "DAI",
+            "USDC"
+          ],
+          "reserves_human": {
+            "DAI": 2365.879111796706,
+            "USDC": 2372.95929172151
+          },
+          "note": "浅",
+          "lp_total_supply": 1640.116092266025
+        },
+        {
+          "pair": "0x2354ef4df11afacb85a5c7f98b624072eccddbb1",
+          "tokens": [
+            "USDC",
+            "BUSD"
+          ],
+          "reserves_human": {
+            "USDC": 412133.7695337397,
+            "BUSD": 412322.1918487006
+          }
+        },
+        {
+          "pair": "0x7efaef62fddcca950418312c6c91aef321375a00",
+          "tokens": [
+            "USDT",
+            "BUSD"
+          ],
+          "reserves_human": {
+            "USDT": 1467317.5127182715,
+            "BUSD": 1464204.9078384785
+          }
+        }
+      ],
+      "loops": {
+        "USDC_to_USDT_to_DAI_to_USDC": {
+          "net_bps": [
+            -132.19,
+            -775.78,
+            -4417.07,
+            -8871.57
+          ],
+          "tiers_USDC": [
+            1,
+            10,
+            100,
+            1000
+          ]
+        },
+        "USDC_to_DAI_to_USDT_to_USDC": {
+          "net_bps": [
+            -171.16,
+            -811.19,
+            -4435.0,
+            -8874.33
+          ],
+          "tiers_USDC": [
+            1,
+            10,
+            100,
+            1000
+          ]
+        },
+        "all_negative": true,
+        "fee_assumption": "Pancake V2 0.25%/腿（协议常量，未链上读）"
+      },
+      "result": "QUOTED：同 pinned 块三池闭环两方向全档净负，无可执行正收益",
+      "quotes_count": 8,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x38（56），最新块 132,604,701（2026-11-09T15:00:40Z），池状态钉 pinned 块 132,604,696。",
@@ -153,8 +265,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:08:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB03/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BNB03/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BNB03/live-20261109T141903Z/record.json"
+  }
 }

@@ -18,21 +18,21 @@
     "complete_event_time_window": "单块快照（2026-11-09T15:22:11-15:22:48Z）；30 天桥规则/7 天活动未覆盖"
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
-        "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
-      ],
-      "ethereum_block": null,
-      "arbitrum_block": null,
-      "verified_token_mappings": 0,
-      "routes_quoted": 0,
-      "history_complete": false
+      "kind": "DUAL_CHAIN_PINNED_BLOCK_QUOTES_PLUS_PUBLIC_SOURCES",
+      "retrieved_at_utc": "2026-11-09T15:22:48+00:00",
+      "ethereum_block": 26378198,
+      "arbitrum_block": 522714575,
+      "ethereum_head": 26378201,
+      "arbitrum_head": 522714578,
+      "verified_token_mappings": 3,
+      "routes_quoted": 8,
+      "complete_block_range": "ETH 26,378,198（head 26,378,201）；ARB 522,714,575（head 522,714,578）",
+      "complete_event_time_window": "单块快照（2026-11-09T15:22:11-15:22:48Z）；30 天桥规则/7 天活动未覆盖"
     },
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "两链身份：ETH chainId 0x1，head 26,378,201（15:22:11Z）；ARB chainId 0xa4b1（42161），head 522,714,578（15:22:15Z）；固定块 26,378,198 / 522,714,575（头块时差约 4 秒）。",
@@ -53,10 +53,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:27:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/X-ARB/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/X-ARB/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/X-ARB/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

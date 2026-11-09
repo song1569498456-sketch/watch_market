@@ -75,27 +75,78 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block",
       "chain_id": 8453,
       "head_block": 55228993,
+      "head_block_time_utc": "2026-11-09T14:56:14+00:00",
       "quotes_block": 55228623,
-      "assets_verified": [
-        "cbETH",
-        "wstETH",
-        "rETH",
-        "ezETH"
-      ],
-      "base_native_redemption": false,
-      "cross_chain_exit": "L2StandardBridge delated flow",
-      "dex_quotes": "cbETH/WETH 1 unit fee500 1.138295 WETH; fee100 1.143102 WETH",
+      "pool_state_block": 55228991,
+      "assets": {
+        "cbETH": {
+          "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+          "impl": "0x07a71b9b835c9eba242836704d17da0953324e1f",
+          "name": "Coinbase Wrapped Staked ETH",
+          "decimals": 18,
+          "totalSupply": "92553870426575138902330",
+          "l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+          "bridge": "0x4200000000000000000000000000000000000010",
+          "has_exchangeRate": false,
+          "has_redeem": false,
+          "has_unwrap": false,
+          "native_redemption_on_base": false
+        },
+        "wstETH": {
+          "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+          "impl": "0x69ce2505ce515c0203160450157366f927243309",
+          "decimals": 18,
+          "has_stEthPerToken": false,
+          "has_wrap_unwrap": false,
+          "native_redemption_on_base": false
+        },
+        "rETH": {
+          "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+          "decimals": 18,
+          "has_getExchangeRate": false,
+          "has_getRETHValue": false,
+          "native_redemption_on_base": false
+        },
+        "ezETH": {
+          "address": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+          "impl": "0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7",
+          "decimals": 18,
+          "has_getRate": false,
+          "has_convertToETH": false,
+          "native_redemption_on_base": false
+        }
+      },
+      "dex": {
+        "uniswap_v3_factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+        "uniswap_v3_quoter_v2": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+        "cbETH_WETH_pools": {
+          "100": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+          "500": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+          "3000": "0x7b9636266734270de5be02544c04e27046903ff8",
+          "10000": "0x6fb974dcea795d10ade524bcc3fc9e3e9d29ea87"
+        },
+        "quotes_1unit_cbeth_to_weth": {
+          "fee500": "1138295393146301056",
+          "fee100": "1143101627591641075"
+        },
+        "capacity_note": "10 cbETH quote = 10213606677197937300 WETH (-10.6% vs spot); 100 cbETH = 10397168930273174412; pool capacity ~1 cbETH"
+      },
+      "exits": {
+        "dex_instant": "AVAILABLE (Uniswap V3, fixed-block quotes)",
+        "base_native_redemption": "ABSENT",
+        "cross_chain_to_l1": "BRIDGE_ONLY_DELAYED (L2StandardBridge 0x4200000000000000000000000000000000000010)"
+      },
       "requests_this_run": 78,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -121,10 +172,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:56:24.602117+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BASE02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BASE02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BASE02/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 78,
   "data_sources_used": [
     "https://mainnet.base.org",

@@ -61,19 +61,65 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "pool_document_address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
-      "logic_source_read": "aave-v3-origin/main",
-      "borrowers_read": 0,
-      "liquidations_analyzed": 0,
-      "quotes_obtained": 0,
-      "current_block": null,
+      "kind": "onchain_aave_reserve_params_plus_limited_event_scan",
+      "run_id": "live-20261109T141903Z",
+      "chain": "polygon-pos",
+      "chain_id": 137,
+      "latest_block": 97021090,
+      "pinned_block": 97021085,
+      "latest_block_time_utc": "2026-11-09T15:11:31+00:00",
+      "pool": {
+        "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "code_bytes": 2400,
+        "eip1967_impl": "0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+        "reserves_count": 21,
+        "oracle": "0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
+      },
+      "reserve_params": {
+        "USDCn": {
+          "lt_bps": 7800,
+          "bonus_bps": 10500,
+          "ltv_bps": 0,
+          "borrowingEnabled": true,
+          "paused": false
+        },
+        "WMATIC": {
+          "lt_bps": 7300,
+          "bonus_bps": 10700,
+          "ltv_bps": 6800,
+          "borrowingEnabled": false,
+          "paused": false
+        }
+      },
+      "oracle_prices_8dec": {
+        "USDCn": 99978306,
+        "WMATIC": 9057200
+      },
+      "liquidation_scan": {
+        "topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+        "window_5000_blocks": {
+          "range": [
+            97016090,
+            97021090
+          ],
+          "events": 0
+        },
+        "window_50000_blocks": {
+          "error": "-32701 exceed maximum block range: 10000"
+        },
+        "7d_window": "NOT_COMPLETED"
+      },
+      "candidates": 0,
+      "positions_read": 0,
+      "health_factors": 0,
+      "result": "REJECTED：采样窗口内 0 条清算事件、无借款人索引器/HF，无候选；清算奖金不当净利",
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x89（137），最新块 97,021,090（2026-11-09T15:11:31Z），参数钉 pinned 块 97,021,085。",
@@ -94,8 +140,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:19:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/POLY02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/POLY02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/POLY02/live-20261109T141903Z/record.json"
+  }
 }

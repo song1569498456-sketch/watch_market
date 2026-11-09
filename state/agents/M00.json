@@ -2,22 +2,22 @@
   "agent_id": "M00",
   "status": "COMPLETED",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": "2026-11-08T16:17:10.111901+00:00",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:32:14.251492+00:00",
   "observed_cursor": {
-    "scope": "control-plane-only",
-    "role_attempts": 47,
+    "scope": "control-plane-live-round",
+    "role_attempts": 46,
+    "live_gate_passed": true,
     "history_scan_cursor": null
   },
   "published_cursor": {
-    "scope": "COMPLETED_SCOPE",
+    "scope": "COMPLETED_SCOPE_WITH_GAPS",
     "observed": {
-      "scope": "control-plane-only",
-      "role_attempts": 47,
-      "history_scan_cursor": null
+      "scope": "control-plane-live-round",
+      "role_attempts": 46
     },
-    "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "验证正式分支包含初始化提交；48岗位提示词齐备，合法空历史开始。",
@@ -35,14 +35,14 @@
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T16:17:10.111901+00:00",
+  "last_attempt_at": "2026-11-09T15:32:14.251492+00:00",
   "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/M00/full-20261108T152118Z/record.json",
+  "report": "reports/agents/M00/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/M00/live-20261109T141903Z/record.json",
   "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
-    "verified_at": "2026-11-08T16:17:16.006237+00:00",
-    "record": "evidence/M00/full-20261108T152118Z/record.json"
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/M00/live-20261109T141903Z/record.json"
   }
 }

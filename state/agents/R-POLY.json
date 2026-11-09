@@ -50,22 +50,54 @@
     "history_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
-        "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
-      ],
-      "chain_block": null,
-      "conditions_read": 0,
-      "lending_mappings_verified": 0,
+      "kind": "onchain_polymarket_settlement_plus_lending_acceptance_check",
+      "run_id": "live-20261109T141903Z",
+      "chain": "polygon-pos",
+      "chain_id": 137,
+      "latest_block": 97021285,
+      "pinned_block": 97021280,
+      "latest_block_time_utc": "2026-11-09T15:16:24+00:00",
+      "polymarket": {
+        "CTF": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045 (15,007B)",
+        "CTF_EXCHANGE_V2": "0xE111180000d2663C0091e4f400237545B87B996B (21,037B)",
+        "PMCT_pUSD": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB (61B minimal proxy; impl 0xce84e053301a82937f90ee2c2c1889cab1db25de; pUSD 6; totalSupply 519,408,783.873676)",
+        "NEGRISK_ADAPTER": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296 (17,258B)",
+        "UMA_CTF_ADAPTER": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49 (16,185B)"
+      },
+      "sample_condition": {
+        "conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+        "question": "Will the U.S. invade Iran before 2027?",
+        "payoutDenominator": 0,
+        "outcomeSlotCount": 2,
+        "payoutNumerators": [
+          0,
+          0
+        ],
+        "clob_prices": [
+          0.095,
+          0.905
+        ],
+        "interpretation": "未结算，份额不可 redeem"
+      },
+      "lending_acceptance": {
+        "aave_polygon_reserves_count": 21,
+        "pmct_in_reserves": false,
+        "ctf_erc1155_in_reserves": false,
+        "other_lending_protocols": "未扫（缺口）"
+      },
+      "pmct_impl_drift": {
+        "readme_impl": "0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f",
+        "onchain_impl": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+        "note": "文档≠链上；N-POLY 本轮核 impl 7,781B"
+      },
+      "result": "REJECTED（无借贷接受 prediction outcome / pUSD → 无已存在估值脱节敞口；PMCT impl drift 记 RULE_GAP 线索）",
+      "risk_only_confirmed": 0,
       "history_complete": false
     },
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0x89（137），最新块 97,021,285（2026-11-09T15:16:24Z），读取钉 pinned 块 97,021,280。",
@@ -87,10 +119,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:23:30+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/R-POLY/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/R-POLY/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/R-POLY/live-20261109T141903Z/record.json"
+  },
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

@@ -61,24 +61,64 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "type": "block",
       "chain_id": 56,
       "head_block": 132604823,
-      "vai_controller": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+      "head_block_time_utc": "2026-11-09T15:01:34+00:00",
       "quote_blocks": [
         132604708,
         132604821
       ],
-      "sell_1000VAI_USDT": "991548511576302296035",
-      "closed_loop_net_usdt": -0.3344,
+      "vai": {
+        "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+        "code_sha256": "62ba3262841c7bd03dac3f9b4f6e2843a659527e6978d6933de0c102a40d5dbb",
+        "symbol": "VAI",
+        "decimals": 18,
+        "totalSupply": "1193431865768353476719284",
+        "controller_vaiUnitroller": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+        "controller_impl": "0x8a1e5db8f622b97f4bccec4684697199c1b1d11b",
+        "comptroller_corepool": "0xfd36e2c2a6789db23113685031d7f16329158384",
+        "getVAIRepayRate": "504993750765910000",
+        "treasuryFee": "UNREADABLE_REVERT",
+        "vaiMintCap": "UNREADABLE_REVERT",
+        "vaiMintEnabled": "UNREADABLE_REVERT",
+        "paused": "UNREADABLE_REVERT"
+      },
+      "dex": {
+        "best_pool_pancake_v3_fee100": "0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+        "v3_pool_liquidity": "14566626494191965933080069",
+        "sell_1000VAI_USDT": "991548511576302296035",
+        "buyback_9915485USDT_VAI": "999663346299736005850",
+        "usdt_1000_to_VAI": "1008.183414436656479392",
+        "buyback_1000VAI_est_usdt": "991.883",
+        "pancake_v2_pair": "0xD94FeFc80a7d10d4708b140c7210569061a7eddb",
+        "pancake_v2_reserves": {
+          "VAI": "86444691889506924656",
+          "USDT": "85386860542393003185"
+        }
+      },
+      "closed_loop": {
+        "unit": "USDT",
+        "value": -0.3344,
+        "type": "estimated_from_same_block_quotes_not_executed",
+        "realized": false,
+        "unknown_costs": [
+          "VAI 铸造费",
+          "VAI 利息口径",
+          "gas",
+          "抵押清算风险",
+          "更大规模滑点"
+        ]
+      },
       "requests_this_run": 123,
+      "chain_block": 132604823,
       "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": null,
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -103,10 +143,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T15:01:44.646082+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BNB02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BNB02/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 123,
   "request_discipline_note": "有效落盘数据请求 71 次（probeB 39 + probeC 32）；另有约 52 次来自两次脚本 bug 崩溃/未落盘的重跑，合计约 123 次，超出 ≤80 硬性上限，属流程偏差，已在本轮报告中披露。",
   "data_sources_used": [

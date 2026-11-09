@@ -5,8 +5,8 @@
       "agent_id": "M00",
       "enabled": true,
       "status": "COMPLETED",
-      "last_success_at": "2026-11-08T16:17:10.111901+00:00",
-      "last_attempt_at": "2026-11-08T16:17:10.111901+00:00",
+      "last_success_at": "2026-11-09T15:32:14.251492+00:00",
+      "last_attempt_at": "2026-11-09T15:32:14.251492+00:00",
       "actual_coverage": [
         "验证正式分支包含初始化提交；48岗位提示词齐备，合法空历史开始。",
         "以3个真实子agent轮流承担46个研究岗位，另用新的Q00独立复核，最多同时3个。",
@@ -21,7 +21,7 @@
         "TRON、Sui及其他未启用链不在当前九链范围；不作全链承诺。",
         "本轮无云端定时或后台长期进程。"
       ],
-      "report": "reports/agents/M00/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/M00/2026-11-09/live-20261109T141903Z.md",
       "task": "主agent_全局发现与任务编排",
       "chain": "CONTROL",
       "owner": "current_cloud_main_agent",
@@ -35,18 +35,18 @@
         "background_schedule_created": false
       },
       "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "d7db2ea68485b6b2cc724dff1a877dcc4c206504",
-        "verified_at": "2026-11-08T16:17:16.006237+00:00",
-        "record": "evidence/M00/full-20261108T152118Z/record.json"
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/M00/live-20261109T141903Z/record.json"
       }
     },
     {
       "agent_id": "Q00",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T16:14:58.668624+00:00",
+      "last_success_at": "2026-11-09T15:55:00Z",
+      "last_attempt_at": "2026-11-09T15:55:00Z",
       "actual_coverage": [
         {
           "review_counts": {
@@ -82,7 +82,7 @@
         "额外102排除逐条阅读和范围审查；相关源独立复读不等于102个目标当前部署全部重验。",
         "本轮文件待M00统一合并发布和远端读回；Q00未操作Git或修改全局状态。"
       ],
-      "report": "reports/agents/Q00/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/Q00/2026-11-09/live-20261109T141903Z.md",
       "task": "独立复核与假机会排除",
       "chain": "CONTROL",
       "owner": "independent_reviewer",
@@ -96,10 +96,10 @@
         "background_schedule_created": false
       },
       "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "e1521f3cce02ee5a7ed415688ba9866d469865ae",
-        "verified_at": "2026-11-08T16:16:31.737220+00:00",
-        "record": "evidence/Q00/full-20261108T152118Z/record.json"
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/Q00/live-20261109T141903Z/review.json"
       }
     },
     {
@@ -139,7 +139,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-ARB/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-AVAX",
@@ -347,7 +352,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-AVAX/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-BASE",
@@ -527,7 +537,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-BASE/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-BNB",
@@ -568,7 +583,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-BNB/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-ETH",
@@ -607,7 +627,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-ETH/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-OP",
@@ -647,7 +672,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-OP/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-POLY",
@@ -686,7 +716,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-POLY/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-SOL",
@@ -862,7 +897,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-SOL/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "N-SONIC",
@@ -900,7 +940,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/N-SONIC/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ARB01",
@@ -940,7 +985,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ARB01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ARB02",
@@ -1155,7 +1205,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ARB02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ARB03",
@@ -1193,7 +1248,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ARB03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ARB04",
@@ -1232,7 +1292,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ARB04/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "AVAX01",
@@ -1382,7 +1447,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/AVAX01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "AVAX02",
@@ -1540,7 +1610,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/AVAX02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BASE01",
@@ -1578,7 +1653,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BASE01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BASE02",
@@ -1618,7 +1698,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BASE02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BASE03",
@@ -1743,7 +1828,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "84cb09586b78512ee128e4f35a9f418fc303637a",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BASE03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BASE04",
@@ -1781,7 +1871,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BASE04/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BASE05",
@@ -1928,7 +2023,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BASE05/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BNB01",
@@ -1969,7 +2069,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BNB01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BNB02",
@@ -2010,7 +2115,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "389baef1180ca750dd4b08206c8d528adbe86dce",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BNB02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BNB03",
@@ -2165,7 +2275,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BNB03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BNB04",
@@ -2203,7 +2318,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BNB04/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "BNB05",
@@ -2292,7 +2412,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/BNB05/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ETH01",
@@ -2331,7 +2456,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ETH01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ETH02",
@@ -2370,7 +2500,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ETH02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ETH03",
@@ -2493,7 +2628,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ETH03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ETH04",
@@ -2531,7 +2671,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ETH04/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "ETH05",
@@ -2620,7 +2765,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/ETH05/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "OP01",
@@ -2658,7 +2808,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/OP01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "OP02",
@@ -2698,7 +2853,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/OP02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "POLY01",
@@ -2837,7 +2997,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/POLY01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "POLY02",
@@ -2974,7 +3139,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/POLY02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "POLY03",
@@ -3011,7 +3181,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/POLY03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "R-BASE",
@@ -3051,7 +3226,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/R-BASE/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "R-BNB",
@@ -3199,7 +3379,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/R-BNB/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "R-POLY",
@@ -3338,7 +3523,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/R-POLY/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SOL01",
@@ -3449,7 +3639,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SOL01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SOL02",
@@ -3487,7 +3682,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SOL02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SOL03",
@@ -3527,7 +3727,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SOL03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC01",
@@ -3564,7 +3769,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SONIC01/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC02",
@@ -3716,7 +3926,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SONIC02/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "SONIC03",
@@ -3846,7 +4061,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/SONIC03/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "X-ARB",
@@ -3883,7 +4103,12 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/X-ARB/live-20261109T141903Z/record.json"
+      }
     },
     {
       "agent_id": "X-BASE",
@@ -3922,8 +4147,13 @@
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": null
+      "last_verified_attempt": {
+        "run_id": "live-20261109T141903Z",
+        "evidence_commit": "1f91d9c04294a28be637836f43544ebb0a1f68a0",
+        "verified_at": "2026-11-09T15:32:14.251492+00:00",
+        "record": "evidence/X-BASE/live-20261109T141903Z/record.json"
+      }
     }
   ],
-  "status": "LIVE_ROUND_IN_PROGRESS"
+  "status": "LIVE_ROUND_COMPLETED_WITH_GAPS"
 }

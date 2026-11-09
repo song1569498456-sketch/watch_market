@@ -70,22 +70,74 @@
     "activity_7d_complete": false
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
-      "sdk_document_read": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
-      "code_mechanisms_read": [
-        "quoteExactInput",
-        "gasEstimateComponents"
-      ],
-      "actual_pools_read": 0,
-      "cycles_quoted": 0,
-      "transactions_analyzed": 0,
-      "last_block": null,
+      "kind": "same_block_quoter_v2_path_quotes",
+      "run_id": "live-20261109T141903Z",
+      "chain": "arbitrum-one",
+      "chain_id": 42161,
+      "latest_block": 522706727,
+      "pinned_block": 522706717,
+      "latest_block_time_utc": "2026-11-09T14:47:59+00:00",
+      "quoter_v2": {
+        "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+        "code_bytes": 8273,
+        "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "WETH9()": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+      },
+      "pools": {
+        "WETH/USDC_500": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+        "USDC/USD0_100": "0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+        "USD0/WETH_500": "0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+        "WETH/USDC_3000": "0xc473e2aee3441bf9240be85eb122abb059a3b57c",
+        "USDC/WBTC_3000": "0x6985cb98ce393fce8d6272127f39013f61e36166",
+        "WBTC/WETH_3000": "0x149e36e72726e0bcea5c59d40df2c43f60f5a22d"
+      },
+      "assets": {
+        "WETH": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1 (18)",
+        "USDC": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831 (6)",
+        "USD0": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9 (6, symbol=USD₮0)",
+        "WBTC": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f (8)"
+      },
+      "triangles_quoted": {
+        "WETH-USDC-USD0": {
+          "fees": [
+            500,
+            100,
+            500
+          ],
+          "quotes": 4,
+          "best_net_bps": "-9.57",
+          "worst_net_bps": "-122.19"
+        },
+        "WETH-USDC-WBTC": {
+          "fees": [
+            500,
+            3000,
+            3000
+          ],
+          "quotes": 4,
+          "best_net_bps": "-29.86",
+          "worst_net_bps": "-1358"
+        },
+        "USDC-USD0-WETH": {
+          "fees": [
+            100,
+            500,
+            500
+          ],
+          "quotes": 4,
+          "best_net_bps": "-9.35",
+          "worst_net_bps": "-20.48"
+        }
+      },
+      "all_negative": true,
+      "quotes_count": 12,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
     "链身份：eth_chainId=0xa4b1（42161），最新块 52,270,6727（2026-11-09T14:47:59Z），pinned 报价块 52,270,6717。",
@@ -107,8 +159,13 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:52:00+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/ARB02/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/ARB02/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/ARB02/live-20261109T141903Z/record.json"
+  }
 }

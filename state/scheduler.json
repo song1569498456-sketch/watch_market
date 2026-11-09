@@ -14,5 +14,5 @@
   "last_capability_check": "schedule-check-20261108T162755Z",
   "checked_at": "2026-11-08T16:27:55.152955+00:00",
   "report": "docs/scheduling/schedule-check-20261108T162755Z.md",
-  "note": "当前手动云端研究已验证，不等于具备持久定时唤醒能力；未创建本地替代任务。"
+  "note": "当前手动本机研究已验证，不等于具备持久定时唤醒能力；本机不是云端调度，未创建本地替代任务。"
 }

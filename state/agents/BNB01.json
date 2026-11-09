@@ -49,21 +49,52 @@
     "requests_this_run": 117
   },
   "published_cursor": {
-    "scope": "PARTIAL_BASELINE",
+    "scope": "PARTIAL",
     "observed": {
       "chain_id": 56,
-      "chain_block": 132601650,
+      "block_range": "132601543-132601650（PSM/VaultManager/Venus 状态，2026-11-09T14:35:55Z-14:36:42Z）；132601210（DEX 报价，14:33:25Z）",
+      "psm": {
+        "address": "0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+        "impl": "0xf51c1d20c112aeb47a756ebfcd4789cf911abb7f",
+        "paused": false,
+        "sellFee": 0,
+        "buyFee": 200,
+        "dailyLimit": "500000000000000000000000",
+        "minSell": "1000000000000000000",
+        "minBuy": "1000000000000000000",
+        "getTotalBuyLimit": "759188555663079531236178",
+        "getTotalSellLimit": "7966093444336920704143720",
+        "getDayBuyLeft": "500000000000000000000000",
+        "getDay": 20766,
+        "lisUSD_inventory": "7966113504348073214667959",
+        "USDT_idle": "0",
+        "fees": "20060011152510524239"
+      },
+      "vault_manager": {
+        "address": "0x5763DDeB60c82684F3D0098aEa5076C0Da972ec7",
+        "getTotalNetDepositAmount": "759188555663079531236178",
+        "getTotalPoint": 100
+      },
+      "venus_adapter": {
+        "address": "0xf76D9cFD08dF91491680313B1A5b44307129CDa9",
+        "vToken": "0xfd5840Cd36d94D7229439859C0112a4185BC0255",
+        "vToken_balance_8dec": "2851647441167925",
+        "vUSDT_getCash_1e18": "26267714922431007823747133"
+      },
       "dex_quotes_block": 132601210,
-      "psm_address": "0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
-      "psm_paused": false,
-      "psm_sellFee": 0,
-      "psm_buyFee": 200,
+      "lisUSDPoolSet": {
+        "address": "0x37DB1AE9B24055D1F9fE973Aea40B7EB2995D0Bf",
+        "maxAmount": "25000000000000000000000000",
+        "withdrawDelay": 5,
+        "getRate": "1094129951279080707745733792"
+      },
+      "chain_block": 132601650,
       "transactions_analyzed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false,
       "requests_this_run": 117
     },
-    "evidence_commit": null,
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
     "run_id": "live-20261109T141903Z"
   },
   "coverage": [
@@ -87,10 +118,15 @@
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
   "last_attempt_at": "2026-11-09T14:37:44.001262+00:00",
-  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "last_attempt_storage": "REMOTE_VERIFIED",
   "report": "reports/agents/BNB01/2026-11-09/live-20261109T141903Z.md",
   "record": "evidence/BNB01/live-20261109T141903Z/record.json",
-  "last_verified_attempt": null,
+  "last_verified_attempt": {
+    "run_id": "live-20261109T141903Z",
+    "evidence_commit": "37cdebd33de2d8937fffd6ade61e385c4f09cc8e",
+    "verified_at": "2026-11-09T15:32:14.251492+00:00",
+    "record": "evidence/BNB01/live-20261109T141903Z/record.json"
+  },
   "run_request_count": 117,
   "data_sources_used": [
     "https://bsc-dataseed.bnbchain.org",
