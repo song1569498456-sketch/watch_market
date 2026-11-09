@@ -5,65 +5,60 @@
       "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
       "status": "QUOTED",
       "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
-      "mechanism": "ETH 在 Curve 换入 stETH（当前约 1.000075 stETH/ETH）→ WithdrawalQueue requestWithdrawals（转为 shares/铸 NFT 进入队列）→ finalize 后 claimWithdrawal 领取按结束质押率折算的 ETH；以协议平价兑付替代池内折价卖出，测量到约 +0.00747%（100 ETH 档）粗价差，但需等待最终化并承担记账率漂移。",
+      "mechanism": "stETH 无协议即时 ETH 出口：DEX 即卖按池价（100 stETH→99.971312 ETH），队列 requestWithdrawals→finalize→claim 按最终化记账比≈1:1 兑付；同块毛差 +0.0287%（100 stETH 档），买入→排队毛差 +0.0075%（100 ETH 档），需等待及承担记账率漂移，claim gas 未测。",
       "evidence_urls": [
+        "https://ethereum-rpc.publicnode.com",
         "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
-        "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
-        "https://ethereum-rpc.publicnode.com"
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
       ],
-      "net_result": "估算粗价差 +0.00746579 ETH/100 ETH 输入（+0.00747%），未实现；扣未测的 queue gas、等待成本与记账率风险后可能低于该值",
+      "net_result": "排队 vs 即卖估算差 +0.028687863 ETH/100 stETH（+0.0287%），未实现；买入→排队估算 +0.007466 ETH/100 ETH（+0.0075%），未实现",
       "unknown_costs": [
-        "队列 request/claim gas",
-        "等待最终化的时间/机会成本",
+        "queue claim gas",
+        "等待 finalize 机会成本",
         "记账率漂移",
-        "容量上限",
-        "NFT 等待期流动性"
+        "容量/缓冲上限"
       ],
       "handoff_to": [
-        "ETH01",
-        "Q00"
+        "Q00",
+        "N-ETH"
       ],
       "invalidation_conditions": [
-        "Curve 买方向隐含价格≥1.0 ETH/stETH",
-        "队列暂停/资格限制",
-        "finalize 等待或记账率下行抵消价差",
-        "代理实现/队列行为与官方部署不符",
-        "实际容量远小于测量档"
+        "claim gas+等待成本吞没差额",
+        "队列暂停/资格变化",
+        "汇率下行",
+        "代理实现与官方部署不符"
       ],
       "owner": "N-ETH",
       "last_observed_run": "live-20261109T141903Z",
-      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "ETH01": {
           "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
-          "status": "UNVERIFIED",
+          "status": "QUOTED",
           "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+          "mechanism": "stETH 无协议即时 ETH 出口：DEX 即卖按池价（100 stETH→99.971312 ETH），队列 requestWithdrawals→finalize→claim 按最终化记账比≈1:1 兑付；同块毛差 +0.0287%（100 stETH 档），买入→排队毛差 +0.0075%（100 ETH 档），需等待及承担记账率漂移，claim gas 未测。",
           "evidence_urls": [
+            "https://ethereum-rpc.publicnode.com",
             "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
-            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
           ],
-          "mechanism": "wstETH unwrap按getPooledEthByShares换回stETH，不直接给ETH；队列request检查resumed和金额边界；getClaimableEther对未finalized或已claimed请求返回0。",
-          "net_result": "unknown",
+          "net_result": "排队 vs 即卖估算差 +0.028687863 ETH/100 stETH（+0.0287%），未实现；买入→排队估算 +0.007466 ETH/100 ETH（+0.0075%），未实现",
           "unknown_costs": [
-            "DEX手续费与价格冲击",
-            "gas/授权",
-            "实际等待及资金占用",
-            "实际兑付数量/罚没风险"
+            "queue claim gas",
+            "等待 finalize 机会成本",
+            "记账率漂移",
+            "容量/缓冲上限"
           ],
           "handoff_to": [
-            "Q00"
+            "Q00",
+            "N-ETH"
           ],
           "invalidation_conditions": [
-            "主网实现非所读源码",
-            "队列暂停/额度或资格不满足",
-            "真实市场报价无差异",
-            "兑付等待或成本吞没差额"
-          ],
-          "owner": "ETH01",
-          "last_observed_run": "full-20261108T152118Z",
-          "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+            "claim gas+等待成本吞没差额",
+            "队列暂停/资格变化",
+            "汇率下行",
+            "代理实现与官方部署不符"
+          ]
         },
         "N-ETH": {
           "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
@@ -149,9 +144,9 @@
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:52.450934+00:00",
-      "last_observed_at": "2026-11-09T14:29:35+00:00",
-      "last_verified_onchain_at": "2026-11-09T14:29:35+00:00",
-      "capacity": "unknown；Curve view 报价支持 100 ETH 单笔（比率 1.00007466），未测逐级容量上限；队列未最终化 3969.03 stETH（25 笔），finalize 周期/单次可最终化容量未读"
+      "last_observed_at": "2026-11-09T14:37:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:37:30+00:00",
+      "capacity": "stETH/wstETH 队列：unfinalizedStETH=4004.16、25-28 笔等待最终化，buffer 未读；rETH 协议即时：liquid collateral 2087.964746 ETH（getTotalCollateral=合约 ETH 余额），因此单笔/累计即时 burn 上限约 2087.96 ETH；Curve stETH 池 100 stETH 档 view 可报价，深度上限未测；DEX rETH 容量 unknown"
     },
     {
       "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
@@ -342,32 +337,33 @@
     {
       "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
       "chain": "BNB",
-      "status": "REJECTED",
+      "status": "RULE_GAP",
       "market_ids": [
         "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4"
       ],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
-        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/repay-lisusd.md",
-        "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/withdraw-collateral.md"
+        "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js",
+        "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
       ],
-      "mechanism": "排除“买入折价lisUSD即可按1美元向协议无条件赎回”的假设。所查官方文本只说明借款人买入偿债与清偿后提取自己的抵押物，不能证明任意持有人有法币/稳定币现金兑付权。",
+      "mechanism": "Lista PSM 公开 sell（USDT→lisUSD，1:1，sellFee=0）与 buy（lisUSD→USDT，buyFee=2%，每日上限 500,000 USDT、总限额 759,188.56 USDT）。赎回费 2% 大于本轮观测的 DEX 折价（0.1%-0.3%）与 1000 USDT 实际报价成本（1.000394），因此“折价买入→按 1 美元赎回”当前无正收益路径；只有 buyFee 下调或折价扩大超过 2%+gas 时才有研究价值。",
       "scope_of_rejection": "只排除当前证据不足的公众无条件1:1赎回推断，不宣称所有当前/未来Lista兑换模块不存在。",
       "unknown_costs": [
-        "买入/退出价格",
-        "gas",
-        "赎回资格/费用",
-        "等待与容量"
+        "gas/优先费",
+        "PSM 大额赎回实际 Venus 流动性/到账",
+        "深池可执行价"
       ],
       "next_check": "核验当前Lista正式部署、代理实现及lisUSD资产身份，查是否新增PSM/公开赎回模块，不能仅凭旧文档认定没有。",
       "handoff_to": [
-        "Q00",
-        "M00"
+        "M00",
+        "R-BNB",
+        "Q00"
       ],
       "review_required": true,
       "owner": "BNB01",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB01/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
         "claim_scope": "排除仅凭lisUSD锚定/借款人还债文档推出公众无条件1美元现金赎回；不判定所有新模块不存在",
@@ -411,9 +407,50 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
-      "last_observed_at": "2026-11-08T15:27:48.512703+00:00",
-      "last_verified_onchain_at": null,
-      "capacity": "unknown"
+      "last_observed_at": "2026-11-09T14:37:44.001262+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:37:44.001262+00:00",
+      "capacity": "赎回（lisUSD→USDT）单日上限 500,000 USDT（getDayBuyLeft=500,000，day=20766），总限额 759,188.555663 USDT（=VaultManager 净存款）；铸币（USDT→lisUSD）受 PSM lisUSD 库存限制，getTotalSellLimit≈7,966,093.44；Pancake V3 fee500 池 1000 lisUSD 卖出仅得 640.92 USDT（浅池）。",
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "net_result": "-20.386 USDT / 1000 单位（估算，未成交；gas 未计）",
+      "invalidation_conditions": [
+        "buyFee 下调至低于市场折价+成本",
+        "PSM 暂停/限额改变",
+        "出现其他 1:1 公共赎回出口"
+      ],
+      "observations_by_role": {
+        "BNB01": {
+          "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+          "status": "RULE_GAP",
+          "chain": "BNB",
+          "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+          "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "evidence_revision": "2026-11-09 更正：上轮仅文档级“无公众赎回”，本轮链上找到公共 PSM（0xaa57…）；原假设“买入折价 lisUSD 按 1 美元赎回获利”仍 REJECTED，但理由是赎回费 2% 而非“无出口”。",
+          "mechanism": "Lista PSM 公开 sell（USDT→lisUSD，1:1，sellFee=0）与 buy（lisUSD→USDT，buyFee=2%，每日上限 500,000 USDT、总限额 759,188.56 USDT）。赎回费 2% 大于本轮观测的 DEX 折价（0.1%-0.3%）与 1000 USDT 实际报价成本（1.000394），因此“折价买入→按 1 美元赎回”当前无正收益路径；只有 buyFee 下调或折价扩大超过 2%+gas 时才有研究价值。",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+            "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+            "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js",
+            "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
+          ],
+          "net_result": "-20.386 USDT / 1000 单位（估算，未成交；gas 未计）",
+          "unknown_costs": [
+            "gas/优先费",
+            "PSM 大额赎回实际 Venus 流动性/到账",
+            "深池可执行价"
+          ],
+          "handoff_to": [
+            "M00",
+            "R-BNB",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "buyFee 下调至低于市场折价+成本",
+            "PSM 暂停/限额改变",
+            "出现其他 1:1 公共赎回出口"
+          ]
+        }
+      }
     },
     {
       "finding_id": "BASE-NODE-OFFICIAL-SOURCE-MIGRATION",
@@ -2129,6 +2166,275 @@
       },
       "q00_review": null,
       "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+      "first_seen_at": "2026-11-09T14:37:30+00:00",
+      "status": "QUOTED",
+      "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+      "mechanism": "wstETH 三出口：Uniswap V3 0.01% 直卖 100 wstETH→124.846612633 ETH；unwrap→Curve 两段→124.846188886 ETH；requestWithdrawalsWstETH 排队按 1.2488220599 stETH/wstETH 平价≈124.882205988 ETH。排队比直卖毛差 +0.035593 ETH（+0.0285%），等待/汇率/claim gas unknown。",
+      "evidence_urls": [
+        "https://ethereum-rpc.publicnode.com",
+        "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "net_result": "排队 vs 直卖估算差 +0.035593 ETH/100 wstETH（+0.0285%），未实现",
+      "unknown_costs": [
+        "queue request/claim gas",
+        "等待机会成本",
+        "汇率漂移",
+        "wstETH 直卖池身份确认"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "队列暂停/资格变化",
+        "直卖池实际费对不符",
+        "汇率下行吞没差额"
+      ],
+      "owner": "ETH01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:37:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:37:30+00:00",
+      "capacity": "stETH/wstETH 队列：unfinalizedStETH=4004.16、25-28 笔等待最终化，buffer 未读；rETH 协议即时：liquid collateral 2087.964746 ETH（getTotalCollateral=合约 ETH 余额），因此单笔/累计即时 burn 上限约 2087.96 ETH；Curve stETH 池 100 stETH 档 view 可报价，深度上限未测；DEX rETH 容量 unknown",
+      "observations_by_role": {
+        "ETH01": {
+          "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+          "status": "QUOTED",
+          "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+          "mechanism": "wstETH 三出口：Uniswap V3 0.01% 直卖 100 wstETH→124.846612633 ETH；unwrap→Curve 两段→124.846188886 ETH；requestWithdrawalsWstETH 排队按 1.2488220599 stETH/wstETH 平价≈124.882205988 ETH。排队比直卖毛差 +0.035593 ETH（+0.0285%），等待/汇率/claim gas unknown。",
+          "evidence_urls": [
+            "https://ethereum-rpc.publicnode.com",
+            "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+          ],
+          "net_result": "排队 vs 直卖估算差 +0.035593 ETH/100 wstETH（+0.0285%），未实现",
+          "unknown_costs": [
+            "queue request/claim gas",
+            "等待机会成本",
+            "汇率漂移",
+            "wstETH 直卖池身份确认"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "队列暂停/资格变化",
+            "直卖池实际费对不符",
+            "汇率下行吞没差额"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+      "first_seen_at": "2026-11-09T14:37:30+00:00",
+      "status": "RULE_GAP",
+      "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+      "mechanism": "rETH 有协议即时出口 burn：getEthValue 按网络余额/供给 1 rETH=1.17543595 ETH，需 getTotalCollateral≥兑付额；liquid collateral 2087.964746 ETH，100 rETH 可即时兑 117.543595 ETH。缺 rETH DEX 报价，无法判断市价折价 vs 协议即时值。",
+      "evidence_urls": [
+        "https://ethereum-rpc.publicnode.com",
+        "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"
+      ],
+      "net_result": "unknown（协议即时值已测，DEX 对照缺失）",
+      "unknown_costs": [
+        "rETH DEX 可执行报价",
+        "burn gas",
+        "Rocket Pool burn 费用",
+        "更大数量容量"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "DEX 价格不低于协议赎回值",
+        "liquid collateral 不足",
+        "官方部署身份不符"
+      ],
+      "owner": "ETH01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:37:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:37:30+00:00",
+      "capacity": "stETH/wstETH 队列：unfinalizedStETH=4004.16、25-28 笔等待最终化，buffer 未读；rETH 协议即时：liquid collateral 2087.964746 ETH（getTotalCollateral=合约 ETH 余额），因此单笔/累计即时 burn 上限约 2087.96 ETH；Curve stETH 池 100 stETH 档 view 可报价，深度上限未测；DEX rETH 容量 unknown",
+      "observations_by_role": {
+        "ETH01": {
+          "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+          "status": "RULE_GAP",
+          "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+          "mechanism": "rETH 有协议即时出口 burn：getEthValue 按网络余额/供给 1 rETH=1.17543595 ETH，需 getTotalCollateral≥兑付额；liquid collateral 2087.964746 ETH，100 rETH 可即时兑 117.543595 ETH。缺 rETH DEX 报价，无法判断市价折价 vs 协议即时值。",
+          "evidence_urls": [
+            "https://ethereum-rpc.publicnode.com",
+            "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"
+          ],
+          "net_result": "unknown（协议即时值已测，DEX 对照缺失）",
+          "unknown_costs": [
+            "rETH DEX 可执行报价",
+            "burn gas",
+            "Rocket Pool burn 费用",
+            "更大数量容量"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "DEX 价格不低于协议赎回值",
+            "liquid collateral 不足",
+            "官方部署身份不符"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "BNB-LISUSD-DEEP-V3-STABLE-POOL",
+      "first_seen_at": "2026-11-09T14:37:44.001262+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+      "mechanism": "聚合器显示 lisUSD 最大流动性场所为 V3 形态池 0x8b94363f…（token0=lisUSD/token1=USDT、fee=100、聚合器 liq≈27.93M USD、priceUsd≈0.9979、pairCreatedAt≈2026-09-18）；链上已确认 token0/token1/fee/slot0 可读，但 DEX/工厂身份与 quoter 未核验，不能把聚合器价当可执行价。它是 lisUSD 折价交易的最可能真实场所，也是与 2% 赎回费比较的关键输入。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "可执行报价/滑点",
+        "DEX 身份与信任",
+        "容量"
+      ],
+      "handoff_to": [
+        "M00",
+        "BNB04",
+        "BNB05",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "聚合器价与可执行报价不符",
+        "池流动性抽走或暂停"
+      ],
+      "owner": "BNB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:37:44.001262+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:37:44.001262+00:00",
+      "capacity": "赎回（lisUSD→USDT）单日上限 500,000 USDT（getDayBuyLeft=500,000，day=20766），总限额 759,188.555663 USDT（=VaultManager 净存款）；铸币（USDT→lisUSD）受 PSM lisUSD 库存限制，getTotalSellLimit≈7,966,093.44；Pancake V3 fee500 池 1000 lisUSD 卖出仅得 640.92 USDT（浅池）。",
+      "observations_by_role": {
+        "BNB01": {
+          "finding_id": "BNB-LISUSD-DEEP-V3-STABLE-POOL",
+          "status": "UNVERIFIED",
+          "chain": "BNB",
+          "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+          "first_seen_at": "2026-11-09T14:32:18+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "聚合器显示 lisUSD 最大流动性场所为 V3 形态池 0x8b94363f…（token0=lisUSD/token1=USDT、fee=100、聚合器 liq≈27.93M USD、priceUsd≈0.9979、pairCreatedAt≈2026-09-18）；链上已确认 token0/token1/fee/slot0 可读，但 DEX/工厂身份与 quoter 未核验，不能把聚合器价当可执行价。它是 lisUSD 折价交易的最可能真实场所，也是与 2% 赎回费比较的关键输入。",
+          "evidence_urls": [
+            "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "可执行报价/滑点",
+            "DEX 身份与信任",
+            "容量"
+          ],
+          "handoff_to": [
+            "M00",
+            "BNB04",
+            "BNB05",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "聚合器价与可执行报价不符",
+            "池流动性抽走或暂停"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP",
+      "first_seen_at": "2026-11-09T14:40:00+00:00",
+      "status": "QUOTED",
+      "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2 | SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "mechanism": "同一 WSOL/USDC 权益在 Raydium 恒定乘积池（25bps 费）与 Orca 集中流动性池（4bps 费）之间做 A→B→A：往返费率 29bps。本轮两个同 slot 快照价差 −5.22bps 与 +10.42bps（64 秒内符号翻转），按第一腿实际输出链式计算，两方向 0.1–25 SOL 全部为负（1 SOL 最优 D1 −18.7bps，D2 −39.5bps），费用吃掉价差。",
+      "evidence_urls": [
+        "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+        "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"
+      ],
+      "net_result": {
+        "value": "-0.001886012",
+        "unit": "SOL",
+        "type": "estimated_from_quotes",
+        "note": "1 SOL 最优方向；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "优先费",
+        "ATA 租金",
+        "两腿非原子风险",
+        "Orca 单 tick 近似误差",
+        "滑点设置差异"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "价差持续 >29bps 且深度足够",
+        "两腿 mint/Token Program 不同",
+        "池暂停或迁移",
+        "tick array 校验推翻单 tick 假设且误差 >18bps"
+      ],
+      "owner": "SOL01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:40:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:40:00+00:00",
+      "capacity": "在 0.1/1/10/25 SOL 四档全部实测（净额均为负）；Raydium 池储备约 99,966 SOL / 8,709,248 USDC、Orca 池 liquidity 4.58e14（同 slot 量级），25 SOL 的价格冲击 <1bps，容量不是本轮结论的约束；>25 SOL 与更深档未测。API tvl 仅指数器展示值，不作可执行容量。",
+      "observations_by_role": {
+        "SOL01": {
+          "finding_id": "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP",
+          "status": "QUOTED",
+          "chain": "SOL",
+          "protocol": "Raydium AMM v4 / Orca Whirlpools",
+          "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2 | SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+          "evidence_urls": [
+            "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+            "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+            "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"
+          ],
+          "mechanism": "同一 WSOL/USDC 权益在 Raydium 恒定乘积池（25bps 费）与 Orca 集中流动性池（4bps 费）之间做 A→B→A：往返费率 29bps。本轮两个同 slot 快照价差 −5.22bps 与 +10.42bps（64 秒内符号翻转），按第一腿实际输出链式计算，两方向 0.1–25 SOL 全部为负（1 SOL 最优 D1 −18.7bps，D2 −39.5bps），费用吃掉价差。",
+          "net_result": {
+            "value": "-0.001886012",
+            "unit": "SOL",
+            "type": "estimated_from_quotes",
+            "note": "1 SOL 最优方向；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "优先费",
+            "ATA 租金",
+            "两腿非原子风险",
+            "Orca 单 tick 近似误差",
+            "滑点设置差异"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "价差持续 >29bps 且深度足够",
+            "两腿 mint/Token Program 不同",
+            "池暂停或迁移",
+            "tick array 校验推翻单 tick 假设且误差 >18bps"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

@@ -2,14 +2,56 @@
   "agent_id": "SOL01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:37:30+00:00",
   "observed_cursor": {
-    "kind": "source_fetch_only",
-    "fetched_at": "2026-11-08T15:26:47.551008+00:00",
-    "chain_slot": null,
-    "market_pages_completed": 0,
-    "history_complete": false
+    "kind": "same_slot_onchain_state_reads_plus_amount_quotes",
+    "run_id": "live-20261109T141903Z",
+    "chain": "solana-mainnet-beta",
+    "slots": [
+      467353399,
+      467353632,
+      467353701
+    ],
+    "final_quote_slot": 467353701,
+    "final_quote_blocktime_utc": "2026-11-09T14:37:30+00:00",
+    "quote_age_note_at_report": "报告落盘时已超过 60 秒，按历史证据处理，下一轮须重取",
+    "venues": [
+      {
+        "protocol": "Raydium AMM v4",
+        "market_id": "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+        "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+        "status": 6,
+        "implied_price_usdc_per_sol": "87.121469"
+      },
+      {
+        "protocol": "Orca Whirlpools",
+        "market_id": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+        "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+        "fee_rate_ppm": 400,
+        "tick_spacing": 4,
+        "tick_current": -24399,
+        "implied_price_usdc_per_sol": "87.212218"
+      }
+    ],
+    "asset_pair": {
+      "mintA": "So11111111111111111111111111111111111111112",
+      "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "token_program_both": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+    },
+    "results": {
+      "round_trip_fee_bps": 29,
+      "max_observed_spread_bps": 10.42,
+      "best_net_1_sol": "-0.001886012 SOL (D1, incl 3 tx base fees)",
+      "all_tiers_net_negative": true,
+      "tiers_tested_sol": [
+        0.1,
+        1,
+        10,
+        25
+      ]
+    },
+    "historical_window_completed": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -25,354 +67,59 @@
   },
   "coverage": [
     {
-      "name": "raydium_pool_discovery",
-      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
-      "fetched_at_utc": "2026-11-08T15:26:42.067296+00:00",
-      "method": "GET",
-      "success": false,
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "name": "raydium_standard_pool_discovery",
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=standard&poolSortField=liquidity&sortType=desc&pageSize=100&page=1",
+      "fetched_at_utc": "2026-11-09T14:36:23+00:00",
+      "success": true,
+      "note": "第 1 页 100 条；与 Orca 池按 mint 对求交集，选出 SOL/USDC AMM v4 池 58oQChx4..."
     },
     {
       "name": "orca_pool_discovery",
-      "url": "https://api.orca.so/v2/solana/pools",
-      "fetched_at_utc": "2026-11-08T15:26:43.085906+00:00",
-      "method": "GET",
-      "success": false,
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "url": "https://api.orca.so/v2/solana/pools?limit=100",
+      "fetched_at_utc": "2026-11-09T14:36:23+00:00",
+      "success": true,
+      "note": "第 1 页 100 条；选出 SOL/USDC Whirlpool Czfq3xZZ..."
     },
     {
-      "name": "rpc_identity",
-      "url": "https://api.mainnet-beta.solana.com",
-      "fetched_at_utc": "2026-11-08T15:26:44.094996+00:00",
-      "method": "POST",
-      "request": {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "getGenesisHash"
-      },
-      "success": false,
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
-    },
-    {
-      "name": "raydium_cpmm_curve",
-      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/raydium/cpmm/curve/calculator.ts",
-      "fetched_at_utc": "2026-11-08T15:26:45.102552+00:00",
-      "method": "GET",
+      "name": "raydium_amm_v4_layout_source",
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts",
+      "fetched_at_utc": "2026-11-09T14:36:24+00:00",
       "http_status": 200,
-      "sha256_sample": "5b7559ec23a97cd1bb826a1005d3b9c88d536c13ea934341988c4ae57d9bd2ed",
-      "excerpts": [
-        {
-          "line": 4,
-          "text": "import { ApiV3Token } from \"../../../api/type\";"
-        },
-        {
-          "line": 7,
-          "text": "import { CpmmFee as Fee } from \"./fee\";"
-        },
-        {
-          "line": 14,
-          "text": "export type SwapWithoutFeesResult = { destinationAmountSwapped: BN };"
-        },
-        {
-          "line": 16,
-          "text": "export type TradingTokenResult = { tokenAmount0: BN; tokenAmount1: BN };"
-        },
-        {
-          "line": 18,
-          "text": "export type SwapResult = {"
-        },
-        {
-          "line": 19,
-          "text": "  newInputVaultAmount: BN;"
-        },
-        {
-          "line": 20,
-          "text": "  newOutputVaultAmount: BN;"
-        },
-        {
-          "line": 21,
-          "text": "  inputAmount: BN;"
-        },
-        {
-          "line": 22,
-          "text": "  outputAmount: BN;"
-        },
-        {
-          "line": 23,
-          "text": "  tradeFee: BN;"
-        },
-        {
-          "line": 24,
-          "text": "  protocolFee: BN;"
-        },
-        {
-          "line": 25,
-          "text": "  fundFee: BN;"
-        },
-        {
-          "line": 26,
-          "text": "  creatorFee: BN;"
-        },
-        {
-          "line": 39,
-          "text": "  static validate_supply(tokenAmount0: BN, tokenAmount1: BN): void {"
-        },
-        {
-          "line": 40,
-          "text": "    if (tokenAmount0.isZero()) throw Error(\"tokenAmount0 is zero\");"
-        },
-        {
-          "line": 41,
-          "text": "    if (tokenAmount1.isZero()) throw Error(\"tokenAmount1 is zero\");"
-        },
-        {
-          "line": 44,
-          "text": "  static swapBaseInput("
-        },
-        {
-          "line": 45,
-          "text": "    inputAmount: BN,"
-        },
-        {
-          "line": 46,
-          "text": "    inputVaultAmount: BN,"
-        },
-        {
-          "line": 47,
-          "text": "    outputVaultAmount: BN,"
-        },
-        {
-          "line": 48,
-          "text": "    tradeFeeRate: BN,"
-        },
-        {
-          "line": 49,
-          "text": "    creatorFeeRate: BN,"
-        },
-        {
-          "line": 50,
-          "text": "    protocolFeeRate: BN,"
-        },
-        {
-          "line": 51,
-          "text": "    fundFeeRate: BN,"
-        },
-        {
-          "line": 52,
-          "text": "    isCreatorFeeOnInput: boolean,"
-        },
-        {
-          "line": 53,
-          "text": "  ): SwapResult {"
-        },
-        {
-          "line": 54,
-          "text": "    let creatorFee = new BN(0);"
-        },
-        {
-          "line": 56,
-          "text": "    const tradeFee = Fee.tradingFee(inputAmount, tradeFeeRate);"
-        },
-        {
-          "line": 58,
-          "text": "    let inputAmountLessFees;"
-        },
-        {
-          "line": 59,
-          "text": "    if (isCreatorFeeOnInput) {"
-        },
-        {
-          "line": 60,
-          "text": "      creatorFee = Fee.creatorFee(inputAmount, creatorFeeRate);"
-        },
-        {
-          "line": 61,
-          "text": "      inputAmountLessFees = inputAmount.sub(tradeFee).sub(creatorFee);"
-        },
-        {
-          "line": 63,
-          "text": "      inputAmountLessFees = inputAmount.sub(tradeFee);"
-        },
-        {
-          "line": 66,
-          "text": "    const protocolFee = Fee.protocolFee(tradeFee, protocolFeeRate);"
-        },
-        {
-          "line": 67,
-          "text": "    const fundFee = Fee.protocolFee(tradeFee, fundFeeRate);"
-        }
-      ],
-      "success": true
+      "sha256": "cc7013da4a0288d84e0be2f8e232852b0808059b5aebd642744ae879c76bdfa0",
+      "note": "V4 layout 字段顺序；此前 2 条 raydium-sdk-V2 路径 404"
     },
     {
-      "name": "orca_swap_instruction",
-      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/swap.rs",
-      "fetched_at_utc": "2026-11-08T15:26:46.328765+00:00",
-      "method": "GET",
-      "http_status": 200,
-      "sha256_sample": "0d5b23ba9226a7c741bf1a8de949d80504c5b0cdb0d422bd9fe2b168ed8808ee",
-      "excerpts": [
-        {
-          "line": 2,
-          "text": "use anchor_spl::token::{self, Token, TokenAccount};"
-        },
-        {
-          "line": 7,
-          "text": "    manager::swap_manager::*,"
-        },
-        {
-          "line": 8,
-          "text": "    state::{OracleAccessor, Whirlpool},"
-        },
-        {
-          "line": 9,
-          "text": "    util::{to_timestamp_u64, update_and_swap_whirlpool, SparseSwapTickSequenceBuilder},"
-        },
-        {
-          "line": 13,
-          "text": "pub struct Swap<'info> {"
-        },
-        {
-          "line": 14,
-          "text": "    #[account(address = token::ID)]"
-        },
-        {
-          "line": 15,
-          "text": "    pub token_program: Program<'info, Token>,"
-        },
-        {
-          "line": 17,
-          "text": "    pub token_authority: Signer<'info>,"
-        },
-        {
-          "line": 20,
-          "text": "    pub whirlpool: Box<Account<'info, Whirlpool>>,"
-        },
-        {
-          "line": 22,
-          "text": "    #[account(mut, constraint = token_owner_account_a.mint == whirlpool.token_mint_a)]"
-        },
-        {
-          "line": 23,
-          "text": "    pub token_owner_account_a: Box<Account<'info, TokenAccount>>,"
-        },
-        {
-          "line": 24,
-          "text": "    #[account(mut, address = whirlpool.token_vault_a)]"
-        },
-        {
-          "line": 25,
-          "text": "    pub token_vault_a: Box<Account<'info, TokenAccount>>,"
-        },
-        {
-          "line": 27,
-          "text": "    #[account(mut, constraint = token_owner_account_b.mint == whirlpool.token_mint_b)]"
-        },
-        {
-          "line": 28,
-          "text": "    pub token_owner_account_b: Box<Account<'info, TokenAccount>>,"
-        },
-        {
-          "line": 29,
-          "text": "    #[account(mut, address = whirlpool.token_vault_b)]"
-        },
-        {
-          "line": 30,
-          "text": "    pub token_vault_b: Box<Account<'info, TokenAccount>>,"
-        },
-        {
-          "line": 44,
-          "text": "    #[account(seeds = [b\"oracle\", whirlpool.key().as_ref()], bump)]"
-        },
-        {
-          "line": 47,
-          "text": "    // Special notes to support pools with AdaptiveFee:"
-        },
-        {
-          "line": 48,
-          "text": "    // - For trades on pool using AdaptiveFee, pass oracle as writable accounts in the remaining accounts."
-        },
-        {
-          "line": 56,
-          "text": "    ctx: Context<Swap>,"
-        },
-        {
-          "line": 57,
-          "text": "    amount: u64,"
-        },
-        {
-          "line": 58,
-          "text": "    other_amount_threshold: u64,"
-        },
-        {
-          "line": 60,
-          "text": "    amount_specified_is_input: bool,"
-        },
-        {
-          "line": 63,
-          "text": "    let whirlpool = &mut ctx.accounts.whirlpool;"
-        },
-        {
-          "line": 68,
-          "text": "    let swap_tick_sequence_builder = SparseSwapTickSequenceBuilder::new("
-        },
-        {
-          "line": 76,
-          "text": "    let mut swap_tick_sequence = swap_tick_sequence_builder.try_build(whirlpool, a_to_b)?;"
-        },
-        {
-          "line": 78,
-          "text": "    let oracle_accessor = OracleAccessor::new(whirlpool, ctx.accounts.oracle.to_account_info())?;"
-        },
-        {
-          "line": 82,
-          "text": "    let adaptive_fee_info = oracle_accessor.get_adaptive_fee_info()?;"
-        },
-        {
-          "line": 84,
-          "text": "    let swap_update = swap("
-        },
-        {
-          "line": 85,
-          "text": "        whirlpool,"
-        },
-        {
-          "line": 86,
-          "text": "        &mut swap_tick_sequence,"
-        },
-        {
-          "line": 87,
-          "text": "        amount,"
-        },
-        {
-          "line": 89,
-          "text": "        amount_specified_is_input,"
-        },
-        {
-          "line": 92,
-          "text": "        &adaptive_fee_info,"
-        }
+      "name": "same_slot_pool_state_and_quotes",
+      "venue_a": "Raydium AMM v4 58oQChx4... (SOL/USDC)",
+      "venue_b": "Orca Whirlpool Czfq3xZZ... (SOL/USDC)",
+      "slots": [
+        467353399,
+        467353632,
+        467353701
       ],
-      "success": true
+      "success": true,
+      "note": "同 slot 读两个 vault + Orca 池 + 两 mint；0.1/1/10/25 SOL 双向链式报价，全负"
+    },
+    {
+      "name": "same_slot_quote_result",
+      "fetched_at_utc": "2026-11-09T14:37:30+00:00",
+      "success": true,
+      "note": "Raydium 87.121469 vs Orca 87.212218 USDC/SOL，spread +10.42bps < 往返费 29bps；1 SOL 最优净 -0.001886 SOL"
     }
   ],
   "pending_questions": [
-    "30天规则变更窗口未覆盖：无生效事件或版本历史核查。",
-    "7天活动窗口未覆盖：无交易/slot与有限范围事件查询。",
-    "两独立DEX当前池发现API被CONNECT 403拒绝，未取得池/mint/账户owner及储备。",
-    "无法验证同mint与Token Program、底层池独立性、禁卖/激活状态、Token-2022扩展。",
-    "无同slot两腿指定数量报价、数量收益曲线、容量或完整路径模拟。"
+    "Orca 腿单 tick 近似未用 tick arrays 校验；跨 tick 误差未量化（距 29bps 费率线仍有 18–20bps 余量）。",
+    "未做原子两腿模拟：两笔独立交易之间的价格移动/失败/MEV 风险未测。",
+    "优先费、wSOL/USDC ATA 租金（约 0.00204 SOL/个，可退）未实测；mint freeze authority 未读。",
+    "仅 2 场馆、1 交易对、2 快照（约 64 秒），无 7 天 spread 分布，不能给价差越 29bps 的频率。",
+    "未接第 3 场馆（Raydium CLMM 3ucNos4.../Meteora），未做 >25 SOL 容量；30 天规则窗口未比对（Raydium AMM v4 2026-09-10、Orca 2026-10-15 有升级）。",
+    "Raydium AMM v4 池 state=2、poolOpenTime=0 语义未查官方文档确认（按 status=6 SwapOnly 视为可交易）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:26:47.551008+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SOL01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
-    "verified_at": "2026-11-08T15:28:11.087298+00:00",
-    "record": "evidence/SOL01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:40:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SOL01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SOL01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

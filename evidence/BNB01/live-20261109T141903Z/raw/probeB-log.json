@@ -1,0 +1,243 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:33:24.538852+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:33:25.797205+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_lisUSD_impl",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:33:26.147477+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_interaction_impl",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:33:26.497863+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_deep_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:33:26.881674+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:27.329530+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:27.679978+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:28.030075+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:28.380439+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_getReserves",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:28.730678+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_coins0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:29.080890+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "deep_get_dy",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:29.431228+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_v3pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:33:29.781776+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v3pool_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:30.132031+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v3pool_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:30.482601+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v3pool_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:30.832786+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v3pool_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:31.183123+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "quote_1000USDT_to_lisUSD_fee500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:31.533348+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "quote_1000lisUSD_to_USDT_fee500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:33:31.883619+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "doc_smart_contracts_addresses",
+  "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/for-developers/smart-contracts-addresses.md",
+  "at_utc": "2026-11-09T14:33:32.204630+00:00",
+  "http_status": 200,
+  "bytes": 9739,
+  "sha256": "4abe83a3958e5abd33a257c9087022dce5c5fb14f78a838d513a31ef177e046d"
+ },
+ {
+  "n": 21,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "doc_price_stability",
+  "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/tokens/price-stability.md",
+  "at_utc": "2026-11-09T14:33:33.265268+00:00",
+  "http_status": 200,
+  "bytes": 1674,
+  "sha256": "66380694c96c55de0c4e022add660baccf90f269b537576b26ab77fcfe55d011"
+ },
+ {
+  "n": 22,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "doc_obtaining_lisusd",
+  "url": "https://raw.githubusercontent.com/lista-dao/gitbook/main/get-started/using-binance-web3-wallet/obtaining-lisusd.md",
+  "at_utc": "2026-11-09T14:33:33.737467+00:00",
+  "http_status": 200,
+  "bytes": 1442,
+  "sha256": "f20faf0f55c13683cf0f76b16577c8f870df064032a900e942d1570ebd330fea"
+ },
+ {
+  "n": 23,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "tree_lista_dao_contracts",
+  "url": "https://api.github.com/repos/lista-dao/lista-dao-contracts/git/trees/main?recursive=1",
+  "at_utc": "2026-11-09T14:33:34.326501+00:00",
+  "http_status": 200,
+  "bytes": 161777,
+  "sha256": "8b3d8810834a814a96786ac85b9fba5ff5aa990422648f927f1aee4117d548c3"
+ },
+ {
+  "n": 24,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "tree_lista_new_contracts",
+  "url": "https://api.github.com/repos/lista-dao/lista-new-contracts/git/trees/main?recursive=1",
+  "at_utc": "2026-11-09T14:33:35.507681+00:00",
+  "http_status": 404,
+  "bytes": 110,
+  "sha256": "8c177a38af7c68d455e9554231def022cc2bcf62c1d3dab3626aaf5c319a5e04"
+ }
+]

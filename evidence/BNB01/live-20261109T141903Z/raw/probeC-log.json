@@ -1,0 +1,79 @@
+[
+ {
+  "n": 1,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_addresses_bsc",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/addresses/bsc.json",
+  "at_utc": "2026-11-09T14:34:32.489336+00:00",
+  "http_status": 200,
+  "bytes": 130,
+  "sha256": "78e0ddd62f60f897ef8f32ae8dc078306c387fd85ac3d771328c1db63d3b8e5a"
+ },
+ {
+  "n": 2,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_contract_address",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/deploy/contract_address.json",
+  "at_utc": "2026-11-09T14:34:33.606251+00:00",
+  "http_status": 200,
+  "bytes": 1014,
+  "sha256": "e38e5327c2a54a868fc9bd00a2d07de4e6a9f467a6e63b5d0f492f36f0ab0567"
+ },
+ {
+  "n": 3,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_psm_sol",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+  "at_utc": "2026-11-09T14:34:34.059992+00:00",
+  "http_status": 200,
+  "bytes": 10268,
+  "sha256": "e4629bb04e9e54b667c8018e7319506f9709fece12670fc3238d2976de9b4e7d"
+ },
+ {
+  "n": 4,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_lisusd_pool_set_sol",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/LisUSDPoolSet.sol",
+  "at_utc": "2026-11-09T14:34:34.543905+00:00",
+  "http_status": 200,
+  "bytes": 13381,
+  "sha256": "b6c7c22366eea49612a90bd81115b89c871ae7ed6478f2a6716941d1a391fc18"
+ },
+ {
+  "n": 5,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_deploy_psm_js",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js",
+  "at_utc": "2026-11-09T14:34:35.044597+00:00",
+  "http_status": 200,
+  "bytes": 1487,
+  "sha256": "36b5dcd53f89a7f423c59b80f7c4e84a8721f76bf730d4eac1a0a7529cd13f22"
+ },
+ {
+  "n": 6,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_deploy_poolset_js",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_lisUSDPoolSet.js",
+  "at_utc": "2026-11-09T14:34:35.504269+00:00",
+  "http_status": 200,
+  "bytes": 2083,
+  "sha256": "c3bb06001692e96f2c63033fa0d88bf75f238594228fafdd4a6e5baebb5ee2ed"
+ },
+ {
+  "n": 7,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "raw_ilisusd_pool_sol",
+  "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/interfaces/ILisUSDPool.sol",
+  "at_utc": "2026-11-09T14:34:35.967179+00:00",
+  "http_status": 200,
+  "bytes": 164,
+  "sha256": "20b07ea919053a5a6232e4dfe813a3a582676f8a03ccbed42c880f14537bc2b0"
+ }
+]

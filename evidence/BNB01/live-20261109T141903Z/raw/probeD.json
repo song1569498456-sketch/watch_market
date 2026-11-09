@@ -1,0 +1,207 @@
+{
+ "started_at_utc": "2026-11-09T14:35:48.163036+00:00",
+ "psm_address": "0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+ "psm_source": {
+  "http_status": 200,
+  "chars": 10268,
+  "sha256": "e4629bb04e9e54b667c8018e7319506f9709fece12670fc3238d2976de9b4e7d"
+ },
+ "psm_source_key_lines": [
+  "address public vaultManager; // VaultManager address",
+  "address public token; // token address",
+  "uint256 public sellFee; // sell fee rate",
+  "uint256 public buyFee; // buy fee rate",
+  "address public feeReceiver; // fee receiver address",
+  "address public lisUSD; // lisUSD address",
+  "uint256 public dailyLimit; // daily buy limit",
+  "uint256 public minSell; // min sell amount",
+  "uint256 public minBuy; // min buy amount",
+  "uint256 public lastBuyDay; // last buy day",
+  "uint256 public dayBuyUsed; // day buy used",
+  "uint256 public fees; // total fee",
+  "uint256 public constant FEE_PRECISION = 10000;",
+  "event SetBuyFee(uint256 buyFee);",
+  "event SetSellFee(uint256 sellFee);",
+  "event SetFeeReceiver(address feeReceiver);",
+  "event BuyToken(address account, uint256 realAmount, uint256 fee);",
+  "event SellToken(address account, uint256 realAmount, uint256 fee);",
+  "event SetDailyLimit(uint256 dailyLimit);",
+  "event SetMinSell(uint256 minSell);",
+  "event SetMinBuy(uint256 minBuy);",
+  "event SetVaultManager(address vaultManager);",
+  "event EmergencyWithdraw(address token, uint256 amount);",
+  "event SetToken(address token);",
+  "event SetLisUSD(address lisUSD);",
+  "event Harvest(uint256 fees);",
+  "function sell(uint256 amount) external whenNotPaused {",
+  "function buy(uint256 amount) external whenNotPaused {",
+  "function checkBuyLimit(uint256 amount) public view returns (bool) {",
+  "function checkAndUpdateBuyUsed(uint256 amount) private {",
+  "function getDay() public view returns (uint256) {",
+  "function getTotalBuyLimit() external view returns (uint256) {",
+  "function getTotalSellLimit() public view returns (uint256) {",
+  "function getDayBuyLeft() external view returns (uint256) {",
+  "function pause() external onlyRole(PAUSER) {",
+  "function unpause() external onlyRole(MANAGER) {",
+  "function _authorizeUpgrade(address newImplementation) internal override onlyRole(DEFAULT_ADMIN_ROLE) {}"
+ ],
+ "psm_source_has_whitelist_words": [
+  "onlyRole"
+ ],
+ "psm_source_role_gated_functions": [
+  "function pause() external onlyRole(PAUSER) {",
+  "function unpause() external onlyRole(MANAGER) {",
+  "function _authorizeUpgrade(address newImplementation) internal override onlyRole(DEFAULT_ADMIN_ROLE) {}"
+ ],
+ "head_block": 132601545,
+ "head_block_time_utc": "2026-11-09T14:35:55+00:00",
+ "pinned_block": 132601543,
+ "contracts": {
+  "PSM": {
+   "address": "0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+   "code_bytes": 170,
+   "code_sha256": "ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a"
+  },
+  "VaultManager": {
+   "address": "0x5763DDeB60c82684F3D0098aEa5076C0Da972ec7",
+   "code_bytes": 170,
+   "code_sha256": "ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a"
+  },
+  "VenusAdapter": {
+   "address": "0xf76D9cFD08dF91491680313B1A5b44307129CDa9",
+   "code_bytes": 170,
+   "code_sha256": "ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a"
+  },
+  "LisUSDPoolSet": {
+   "address": "0x37DB1AE9B24055D1F9fE973Aea40B7EB2995D0Bf",
+   "code_bytes": 170,
+   "code_sha256": "ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a"
+  },
+  "EarnPool": {
+   "address": "0x66dE07893Db7492B56bA88503B4cC99bAb1796F3",
+   "code_bytes": 170,
+   "code_sha256": "ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a"
+  }
+ },
+ "PSM_impl_slot": "0x000000000000000000000000f51c1d20c112aeb47a756ebfcd4789cf911abb7f",
+ "psm_state": {
+  "paused": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "uint": "0"
+  },
+  "sellFee": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "uint": "0"
+  },
+  "buyFee": {
+   "raw": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+   "error": null,
+   "uint": "200"
+  },
+  "dailyLimit": {
+   "raw": "0x0000000000000000000000000000000000000000000069e10de76676d0800000",
+   "error": null,
+   "uint": "500000000000000000000000"
+  },
+  "minSell": {
+   "raw": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+   "error": null,
+   "uint": "1000000000000000000"
+  },
+  "minBuy": {
+   "raw": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+   "error": null,
+   "uint": "1000000000000000000"
+  },
+  "feeReceiver": {
+   "raw": "0x00000000000000000000000034b504a5cf0ff41f8a480580533b6dda687fa3da",
+   "error": null,
+   "uint": "300904359834740998031742441653917542305987797978"
+  },
+  "token": {
+   "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+   "error": null,
+   "uint": "489982930986835137684486657990555633941558688085"
+  },
+  "lisUSD": {
+   "raw": "0x0000000000000000000000000782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+   "error": null,
+   "uint": "42877960469577284990950435649528791523382804965"
+  },
+  "vaultManager": {
+   "raw": "0x0000000000000000000000005763ddeb60c82684f3d0098aea5076c0da972ec7",
+   "error": null,
+   "uint": "498909302746520843966541010243979398971127180999"
+  },
+  "getTotalBuyLimit": {
+   "raw": "0x00000000000000000000000000000000000000000000a0c3b1ae7e3670124b52",
+   "error": null,
+   "uint": "759188555663079531236178"
+  },
+  "getTotalSellLimit": {
+   "raw": "0x0000000000000000000000000000000000000000000696e2ca7a4c7c853d5168",
+   "error": null,
+   "uint": "7966093444336920704143720"
+  },
+  "getDayBuyLeft": {
+   "raw": "0x0000000000000000000000000000000000000000000069e10de76676d0800000",
+   "error": null,
+   "uint": "500000000000000000000000"
+  },
+  "getDay": {
+   "raw": "0x000000000000000000000000000000000000000000000000000000000000511e",
+   "error": null,
+   "uint": "20766"
+  }
+ },
+ "balances": {
+  "USDT_in_PSM": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "value": "0",
+   "error": null
+  },
+  "lisUSD_in_PSM": {
+   "raw": "0x0000000000000000000000000000000000000000000696e3e0ddc658dd00ecb7",
+   "value": "7966113504348073214667959",
+   "error": null
+  },
+  "USDT_in_VaultManager": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "value": "0",
+   "error": null
+  },
+  "USDT_in_VenusAdapter": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "value": "0",
+   "error": null
+  },
+  "USDT_in_LisUSDPoolSet": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "value": "0",
+   "error": null
+  },
+  "lisUSD_in_LisUSDPoolSet": {
+   "raw": "0x0000000000000000000000000000000000000000000e80f3d6bf80d673fddfad",
+   "value": "17533922417450537679970221",
+   "error": null
+  }
+ },
+ "checkBuyLimit_1000": {
+  "raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "error": null,
+  "bool_or_uint": "1"
+ },
+ "checkSellLimit_1000": {
+  "raw": null,
+  "error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  },
+  "bool_or_uint": null
+ },
+ "finished_at_utc": "2026-11-09T14:36:05.817417+00:00",
+ "request_count_this_script": 31
+}

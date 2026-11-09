@@ -1,0 +1,254 @@
+{
+  "agent_id": "SOL01",
+  "run_id": "live-20261109T141903Z",
+  "chain": "SOL",
+  "scope": "Solana mainnet-beta 同一资产对（WSOL/USDC）跨 DEX A→B→A 闭环：Raydium AMM v4 池 vs Orca Whirlpool 池，同 slot 池状态报价、数量档净额与容量；只做两市场 A→B→A，不做三角/跨链",
+  "started_at": "2026-11-09T14:35:33+00:00",
+  "finished_at": "2026-11-09T14:40:00+00:00",
+  "duration_seconds": 267,
+  "execution_status": "PARTIAL",
+  "status": "QUOTED",
+  "as_of": {
+    "utc": "2026-11-09T14:37:30+00:00",
+    "beijing": "2026-11-09T22:37:30+08:00",
+    "data_time": "2026-11-09T14:36:23Z～14:37:30Z；最终报价读 slot 467353701（区块时间 2026-11-09T14:37:30Z），对标快照 slot 467353399（14:36:26Z）；报告落盘时报价已超过 60 秒，按历史证据处理，下一轮须重取"
+  },
+  "block_or_slot": 467353701,
+  "market_ids": [
+    "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+    "SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE"
+  ],
+  "asset_ids": [
+    "So11111111111111111111111111111111111111112",
+    "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  ],
+  "discovery_source": [
+    {
+      "source": "Raydium 官方目录 API（standard 池，按流动性排序，第 1 页 100 条）",
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=standard&poolSortField=liquidity&sortType=desc&pageSize=100&page=1",
+      "retrieved_at_utc": "2026-11-09T14:36:23+00:00",
+      "http_status": 200,
+      "request": "发现 SOL/USDC AMM v4 池 58oQChx4...（program 675kPX9...，feeRate 0.0025，tvl≈17.4M）"
+    },
+    {
+      "source": "Orca 官方 API 池目录",
+      "url": "https://api.orca.so/v2/solana/pools?limit=100",
+      "retrieved_at_utc": "2026-11-09T14:36:23+00:00",
+      "http_status": 200,
+      "request": "发现 SOL/USDC Whirlpool Czfq3xZZ...（feeRate 400，tickSpacing 4）并与 Raydium 标准池按 mint 对求交集"
+    },
+    {
+      "source": "Raydium 官方 AMM v4 状态 layout 源码（raydium-io/raydium-sdk）",
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts",
+      "retrieved_at_utc": "2026-11-09T14:36:24+00:00",
+      "http_status": 200,
+      "request": "3812 字节，sha256 cc7013da4a0288d84e0be2f8e232852b0808059b5aebd642744ae879c76bdfa0；V4 layout 字段顺序用于定位 baseVault@336/quoteVault@368/baseMint@400/quoteMint@432/swapFee@176,184；先试的 2 条 raydium-sdk-V2 路径均 404"
+    },
+    {
+      "source": "Solana mainnet-beta 公共 RPC（只读）",
+      "url": "https://api.mainnet-beta.solana.com",
+      "retrieved_at_utc": "2026-11-09T14:36:25+00:00～2026-11-09T14:37:30+00:00",
+      "http_status": 200,
+      "request": "getAccountInfo（AMM v4 池状态）、getMultipleAccounts（同 slot：两 vault + Orca 池 + 两 mint）、getBlockTime；3 次刷新共 11 次 RPC 调用，均 200"
+    }
+  ],
+  "mechanism": "同一 WSOL/USDC 权益在两个独立 DEX 池中定价：Raydium AMM v4 为恒定乘积（x*y=k，swapFee 25/10000），Orca Whirlpool 为集中流动性（feeRate 400ppm，当前 liquidity/sqrtPrice/tickCurrent 从池状态读取）。闭环 A→B→A 需要：第一腿按池数学算出实际输出（扣费、计入价格冲击），第二腿以第一腿实际输出为输入再算，往返成本 = 两池费率之和约 29 bps；只有两池同 slot 隐含价差 > 29 bps 且有足够深度时才可能有净额。本轮两个快照的价差为 −5.22 bps 与 +10.42 bps（符号在 64 秒内翻转），均小于 29 bps，两个方向净额都为负。",
+  "observations": [
+    {
+      "type": "market_identity",
+      "protocol": "Raydium AMM v4",
+      "address": "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+      "fields": {"owner_program": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8", "state_bytes": 752,
+                 "status": 6, "baseDecimal": 9, "quoteDecimal": 6,
+                 "tradeFeeNumerator": 25, "tradeFeeDenominator": 10000,
+                 "swapFeeNumerator": 25, "swapFeeDenominator": 10000,
+                 "poolOpenTime": 0, "baseMint": "So11111111111111111111111111111111111111112",
+                 "quoteMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                 "lpMint": "8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu",
+                 "baseVault": "DQyrAcCrDXQ7NeoqGgDCZwBvWDcYmFCjSb9JtteuvPpz",
+                 "quoteVault": "HLmqeL62xR1QoZ1HKKbXRrdN1p3phKpxRMb2VVopvBBz"},
+      "slot": 467353701,
+      "evidence_file": "raw/refresh_quotes.json"
+    },
+    {
+      "type": "market_identity",
+      "protocol": "Orca Whirlpools",
+      "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "fields": {"owner_program": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc", "state_bytes": 653,
+                 "tick_spacing": 4, "fee_rate": 400, "protocol_fee_rate": 1300,
+                 "liquidity": "457813353850067", "sqrt_price": "5446773147748817115", "tick_current": -24399,
+                 "mint_a": "So11111111111111111111111111111111111111112",
+                 "mint_b": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"},
+      "slot": 467353701,
+      "evidence_file": "raw/refresh_quotes.json"
+    },
+    {
+      "type": "asset_identity",
+      "protocol": "SPL Token",
+      "address": "So11111111111111111111111111111111111111112 / EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "fields": {"WSOL_owner_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "WSOL_decimals": 9,
+                 "USDC_owner_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "USDC_decimals": 6,
+                 "same_token_program": true, "token_2022_extensions": "不涉及（两 mint 均为 classic Tokenkeg）"},
+      "slot": 467353399,
+      "evidence_file": "raw/state_and_quotes.json"
+    },
+    {
+      "type": "same_slot_state",
+      "protocol": "cross-venue",
+      "address": "58oQChx4... + Czfq3xZZ...",
+      "fields": {"snapshot_1_slot_467353399_blocktime_utc": "2026-11-09T14:36:26+00:00",
+                 "snapshot_1_raydium_price_usdc_per_sol": "87.148901", "snapshot_1_orca_price_usdc_per_sol": "87.103377",
+                 "snapshot_1_spread_bps": "-5.22",
+                 "snapshot_2_slot_467353701_blocktime_utc": "2026-11-09T14:37:30+00:00",
+                 "snapshot_2_raydium_price_usdc_per_sol": "87.121469", "snapshot_2_orca_price_usdc_per_sol": "87.212218",
+                 "snapshot_2_spread_bps": "+10.42",
+                 "raydium_vault_balances_slot_467353632": {"base_lamports": 99966075472039, "quote_usdc_raw": 8709248314309}},
+      "slot": 467353701,
+      "evidence_file": "raw/refresh_quotes.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...->SOL:sol-usdc:raydium-amm-v4:58oQChx4...",
+     "amount_in": "0.1 SOL", "amount_out": "0.099813839 SOL", "fees": "Orca 4bps + Raydium AMM 25bps + 3 tx 基础费 0.000015 SOL（未含优先费/ATA 租金）",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D1 先卖 Orca 再买 Raydium；净 -0.000201161 SOL（-20.1bps）"},
+    {"market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...->SOL:sol-usdc:raydium-amm-v4:58oQChx4...",
+     "amount_in": "1 SOL", "amount_out": "0.998128988 SOL", "fees": "同上；另加 3 tx 基础费 0.000015 SOL",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D1 净 -0.001871012 SOL（-18.71bps），扣交易费后 -0.001886012 SOL"},
+    {"market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...->SOL:sol-usdc:raydium-amm-v4:58oQChx4...",
+     "amount_in": "10 SOL", "amount_out": "9.980335168 SOL", "fees": "同上",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D1 净 -0.019664832 SOL（-19.66bps），扣交易费后 -0.019679832 SOL"},
+    {"market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...->SOL:sol-usdc:raydium-amm-v4:58oQChx4...",
+     "amount_in": "25 SOL", "amount_out": "24.946860372 SOL", "fees": "同上",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D1 净 -0.053139628 SOL（-21.26bps），扣交易费后 -0.053154628 SOL"},
+    {"market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4...->SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...",
+     "amount_in": "0.1 SOL", "amount_out": "0.099606220 SOL", "fees": "Raydium AMM 25bps + Orca 4bps + 3 tx 基础费 0.000015 SOL",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D2 先卖 Raydium 再买 Orca；净 -0.000408780 SOL（-40.9bps）"},
+    {"market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4...->SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...",
+     "amount_in": "1 SOL", "amount_out": "0.996052872 SOL", "fees": "同上",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D2 净 -0.003947128 SOL（-39.47bps），扣交易费后 -0.003962128 SOL"},
+    {"market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4...->SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...",
+     "amount_in": "10 SOL", "amount_out": "9.959576742 SOL", "fees": "同上",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D2 净 -0.040423258 SOL（-40.42bps），扣交易费后 -0.040438258 SOL"},
+    {"market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4...->SOL:sol-usdc:orca-whirlpool:Czfq3xZZ...",
+     "amount_in": "25 SOL", "amount_out": "24.894975793 SOL", "fees": "同上",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "D2 净 -0.105024207 SOL（-42.01bps），扣交易费后 -0.105039207 SOL"},
+    {"market_id": "SOL:sol-usdc:spot-orca:Czfq3xZZ...",
+     "amount_in": "null（现货隐含价，非数量报价）", "amount_out": "87.212218 USDC/SOL", "fees": "单腿费率 4bps",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "Orca 隐含价（sqrtPrice^2 按 decimals 调整）"},
+    {"market_id": "SOL:sol-usdc:spot-raydium-amm-v4:58oQChx4...",
+     "amount_in": "null（现货隐含价，非数量报价）", "amount_out": "87.121469 USDC/SOL", "fees": "单腿费率 25bps",
+     "block": 467353701, "quote_time_utc": "2026-11-09T14:37:30+00:00", "note": "Raydium AMM v4 隐含价（vault 储备比）"}
+  ],
+  "net_result": {
+    "value": "-0.001886012",
+    "unit": "SOL",
+    "type": "estimated_from_same_slot_quotes_not_simulated",
+    "realized": false,
+    "unknown_costs": [
+      "优先费（未测）",
+      "wSOL 临时 ATA 与 USDC ATA 创建租金（约 0.00204 SOL/个，可退；未计入净额）",
+      "两笔交易之间的价格移动与失败成本（未模拟原子执行）",
+      "Orca 单 tick 近似误差（未读 tick arrays，未量化；距盈亏线 18–20bps，不改变结论）",
+      "滑点容忍设置导致的成交差异"
+    ]
+  },
+  "capacity": "在 0.1/1/10/25 SOL 四档全部实测（净额均为负）；Raydium 池储备约 99,966 SOL / 8,709,248 USDC、Orca 池 liquidity 4.58e14（同 slot 量级），25 SOL 的价格冲击 <1bps，容量不是本轮结论的约束；>25 SOL 与更深档未测。API tvl 仅指数器展示值，不作可执行容量。",
+  "permissions": "两池当前可交易：Raydium AMM v4 池 status=6（SwapOnly）、vault mint 与池字段一致；Orca 池 owner 为 Whirlpool 程序、无暂停标志字段被核验；两 mint 均为 classic Tokenkeg（无 Token-2022 转账费/hook）；mint freeze authority 未读取（unknown）。本轮未签名、未广播、未建仓。",
+  "liabilities": "none（只读池状态与只读数学报价；未建仓、无债务、无在途资金）",
+  "waiting_time": "报价本身同 slot（0 等待）；实际执行需 2 笔独立交易（约 1–2 个 slot 确认 + 人工/程序编排），未模拟",
+  "invalidation_conditions": [
+    "两腿 mint 或 Token Program 不一致（本轮一致：WSOL/USDC 均 Tokenkeg）",
+    "池被暂停/迁移或 status 非可交易（本轮 status=6）",
+    "同 slot 价差超过往返费率 29 bps 且持续（本轮最大 +10.42 bps）",
+    "报价读取后超过 60 秒（本轮报告时已过期，按历史证据）",
+    "Orca tick array 校验显示跨 tick 边界且误差 >18 bps",
+    "实际优先费/租金使净额进一步恶化（只会更负，不改变排除结论）"
+  ],
+  "evidence_urls": [
+    "https://api-v3.raydium.io/pools/info/list?poolType=standard&poolSortField=liquidity&sortType=desc&pageSize=100&page=1",
+    "https://api.orca.so/v2/solana/pools?limit=100",
+    "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts",
+    "https://api.mainnet-beta.solana.com",
+    "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+    "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "https://solscan.io/account/DQyrAcCrDXQ7NeoqGgDCZwBvWDcYmFCjSb9JtteuvPpz",
+    "https://solscan.io/account/HLmqeL62xR1QoZ1HKKbXRrdN1p3phKpxRMb2VVopvBBz"
+  ],
+  "coverage_gaps": [
+    "Orca 腿为单 tick + 当前 liquidity 的恒定流动性公式，未读 tick arrays 校验当前区间边界；跨 tick 时实际输出会偏离（近似误差未量化；距 29bps 费率线有 18–20bps 余量）。",
+    "未做原子两腿模拟：本轮只做只读池数学，两笔交易之间的价格移动、失败与 MEV 风险未测。",
+    "优先费、wSOL/USDC ATA 创建租金、wrap/unwrap 成本未实测（只计 3 笔基础费 15,000 lamports，租金约 0.00204 SOL/个且可退未计入）。",
+    "mint freeze authority 未读取（两 mint 是否可冻结 unknown）。",
+    "仅 2 个场馆、1 个资产对、2 个快照（窗口约 64 秒），无 7 天价差分布，不能给出价差越过 29bps 的频率。",
+    "未接第 3 个场馆（Raydium CLMM 3ucNos4... 或 Meteora），未做 >25 SOL 容量曲线；30 天规则窗口（Raydium AMM v4 2026-09-10、Orca 2026-10-15 升级）未比对。",
+    "Raydium AMM v4 池 state=2 与 poolOpenTime=0 的语义未查官方文档确认（当前按 status=6 SwapOnly 视为可交易）。"
+  ],
+  "next_check": [
+    "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+    "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+    "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+    "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+    "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+      "chain": "SOL",
+      "protocol": "Raydium AMM v4",
+      "asset_ids": ["So11111111111111111111111111111111111111112", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+                        "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_STATUS_AND_VAULT_MINTS",
+      "next_check": "同 slot 重取储备与价差；确认 state=2 语义"
+    },
+    {
+      "market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": ["So11111111111111111111111111111111111111112", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+                        "https://api.orca.so/v2/solana/pools?limit=100"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINTS",
+      "next_check": "tick arrays 校验；同 slot 重取报价"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP",
+      "status": "QUOTED",
+      "chain": "SOL",
+      "protocol": "Raydium AMM v4 / Orca Whirlpools",
+      "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2 | SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "evidence_urls": ["https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+                        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+                        "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"],
+      "mechanism": "同一 WSOL/USDC 权益在 Raydium 恒定乘积池（25bps 费）与 Orca 集中流动性池（4bps 费）之间做 A→B→A：往返费率 29bps。本轮两个同 slot 快照价差 −5.22bps 与 +10.42bps（64 秒内符号翻转），按第一腿实际输出链式计算，两方向 0.1–25 SOL 全部为负（1 SOL 最优 D1 −18.7bps，D2 −39.5bps），费用吃掉价差。",
+      "net_result": {"value": "-0.001886012", "unit": "SOL", "type": "estimated_from_quotes", "note": "1 SOL 最优方向；非模拟、非收益主张"},
+      "unknown_costs": ["优先费", "ATA 租金", "两腿非原子风险", "Orca 单 tick 近似误差", "滑点设置差异"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["价差持续 >29bps 且深度足够", "两腿 mint/Token Program 不同", "池暂停或迁移", "tick array 校验推翻单 tick 假设且误差 >18bps"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "SOL/USDC 在 Raydium AMM v4 与 Orca 之间的价差可做 A→B→A 获利",
+      "reason": "同 slot 报价显示价差最大 +10.42bps（另一快照 −5.22bps），小于往返费率 29bps；两方向 0.1–25 SOL 净额全负（1 SOL 最优 −0.001886 SOL）。明确排除本轮利润主张，保留为 QUOTED 测量。"
+    },
+    {
+      "claim": "把两池展示价/spot 价差直接当利润",
+      "reason": "已按池状态与费率链式计算第一腿实际输出与第二腿输入，展示价差不等于可执行价差；且 64 秒内价差符号翻转，非持续错价。"
+    },
+    {
+      "claim": "把本次 QUOTED 当 SIMULATED 或已成交结果",
+      "reason": "未构造/签名/广播任何交易，只做只读状态读取与池数学；两腿原子性与失败成本未测。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_slot_onchain_state_reads_plus_amount_quotes",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:37:30+00:00",
+    "complete_block_range": "点读快照 slot 467353399 与 467353701（另有中间读 467353632），非连续区块范围",
+    "complete_event_time_window": "仅两次快照（相距约 64 秒）；7 天活动窗口与 30 天规则窗口均未覆盖"
+  }
+}

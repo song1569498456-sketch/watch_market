@@ -1,0 +1,282 @@
+{
+ "chain": "ETH",
+ "pinned_block": 26377950,
+ "pinned_block_hex": "0x1927ede",
+ "started_at_utc": "2026-11-09T14:33:25.271898+00:00",
+ "reth": {
+  "code": {
+   "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+   "bytecode_bytes": 8800,
+   "code_keccak256": "0xe34255314ec42825a6444800e6894665b8c74e84e9dd2f20866f7057812b3adf"
+  },
+  "exchange_rate": {
+   "raw": "0x000000000000000000000000000000000000000000000000104ffcc4eb030768",
+   "decoded": [
+    "1175435950453622632"
+   ],
+   "error": null,
+   "block": 26377950
+  },
+  "total_collateral": {
+   "raw": "0x0000000000000000000000000000000000000000000000713054ea429c025c4a",
+   "decoded": [
+    "2087964746312849710154"
+   ],
+   "error": null,
+   "block": 26377950
+  },
+  "total_supply": {
+   "raw": "0x00000000000000000000000000000000000000000000410372f4741b2f83fa01",
+   "decoded": [
+    "307017444992022818847233"
+   ],
+   "error": null,
+   "block": 26377950
+  },
+  "getEthValue_100reth": {
+   "raw": "0x0000000000000000000000000000000000000000000000065f3ebcebcd2ee4da",
+   "decoded": [
+    "117.54359504536227"
+   ],
+   "error": null,
+   "block": 26377950
+  },
+  "eth_balance": {
+   "raw": "0x713054ea429c025c4a",
+   "decoded": 2087.96474631285,
+   "error": null
+  },
+  "getContractAddress_networkBalances": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": -32602,
+    "message": "invalid argument 0: json: cannot unmarshal invalid hex string into Go struct field TransactionArgs.data of type hexutil.Bytes"
+   }
+  }
+ },
+ "wsteth": {
+  "pool_code": {
+   "address": "0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+   "bytecode_bytes": 22142
+  },
+  "unwrap_100": {
+   "wstETH_in": 100,
+   "stETH_out": 124.8822059877192,
+   "raw": "0x000000000000000000000000000000000000000000000006c516b8b10929b6af",
+   "error": null,
+   "block": 26377950
+  },
+  "quotes": [
+   {
+    "pair": "wstETH/WETH",
+    "router": "UniswapV3 QuoterV2",
+    "pool": "0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+    "fee_tier": 100,
+    "amount_in": 1,
+    "amount_out_ETH": 1.2484843300596982,
+    "ratio": 1.2484843300596982,
+    "raw": "0x000000000000000000000000000000000000000000000000115381e228d98fda00000000000000000000000000000000000000011e0eb233701e8fe9288aa7e1000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000138ca",
+    "error": null,
+    "block": 26377950,
+    "quote_time_utc": "2026-11-09T14:33:32.328253+00:00",
+    "note": "DEX 即卖（第二段报价，跨到 WETH 再视作 ETH）"
+   },
+   {
+    "pair": "wstETH/WETH",
+    "router": "UniswapV3 QuoterV2",
+    "pool": "0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+    "fee_tier": 100,
+    "amount_in": 100,
+    "amount_out_ETH": 124.8466126334361,
+    "ratio": 1.248466126334361,
+    "raw": "0x000000000000000000000000000000000000000000000006c49844b972c0ff2600000000000000000000000000000000000000011e0da0db405cf089244290f4000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000139fe",
+    "error": null,
+    "block": 26377950,
+    "quote_time_utc": "2026-11-09T14:33:33.043440+00:00",
+    "note": "DEX 即卖（第二段报价，跨到 WETH 再视作 ETH）"
+   },
+   {
+    "pair": "wstETH->stETH->ETH",
+    "router": "wstETH.unwrap + Curve stETH/ETH",
+    "amount_in": 100,
+    "intermediate_stETH": 124.8822059877192,
+    "amount_out_ETH": 124.84618888559936,
+    "ratio": 1.2484618888559935,
+    "raw": "0x000000000000000000000000000000000000000000000006c496c353f7786e6c",
+    "error": null,
+    "block": 26377950,
+    "quote_time_utc": "2026-11-09T14:33:34.468365+00:00",
+    "note": "协议即时 unwrap + DEX 立即卖出两段报价（gas 两笔）"
+   }
+  ]
+ },
+ "claimable_retry": {
+  "ids": [
+   141196,
+   141195,
+   141224
+  ],
+  "raw": null,
+  "decoded": null,
+  "error": {
+   "code": 3,
+   "message": "execution reverted",
+   "data": "0x"
+  },
+  "block": 26377950
+ },
+ "requests": [
+  {
+   "label": "getCode rETH",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.917,
+   "retrieved_at_utc": "2026-11-09T14:33:26.188528+00:00"
+  },
+  {
+   "label": "eth_call getExchangeRate()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:33:26.901370+00:00"
+  },
+  {
+   "label": "eth_call getTotalCollateral()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.379,
+   "retrieved_at_utc": "2026-11-09T14:33:27.631499+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.374,
+   "retrieved_at_utc": "2026-11-09T14:33:28.355925+00:00"
+  },
+  {
+   "label": "eth_call getEthValue(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:33:29.061764+00:00"
+  },
+  {
+   "label": "eth_getBalance rETH",
+   "method": "eth_getBalance",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:33:29.768077+00:00"
+  },
+  {
+   "label": "eth_call getContractAddress(bytes32)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32602,
+    "message": "invalid argument 0: json: cannot unmarshal invalid hex string into Go struct field TransactionArgs.data of type hexutil.Bytes"
+   },
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T14:33:30.484856+00:00"
+  },
+  {
+   "label": "getCode univ3 wstETH/WETH pool",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.437,
+   "retrieved_at_utc": "2026-11-09T14:33:31.272120+00:00"
+  },
+  {
+   "label": "quoterv2 wstETH->WETH 1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:33:31.977563+00:00"
+  },
+  {
+   "label": "quoterv2 wstETH->WETH 100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.365,
+   "retrieved_at_utc": "2026-11-09T14:33:32.693008+00:00"
+  },
+  {
+   "label": "eth_call getStETHByWstETH(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T14:33:33.412399+00:00"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:33:34.117934+00:00"
+  },
+  {
+   "label": "getLastRequestId",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.359,
+   "retrieved_at_utc": "2026-11-09T14:33:34.827498+00:00"
+  },
+  {
+   "label": "getLastFinalizedRequestId",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.354,
+   "retrieved_at_utc": "2026-11-09T14:33:35.532758+00:00"
+  },
+  {
+   "label": "getClaimableEther hints=ids",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.364,
+   "retrieved_at_utc": "2026-11-09T14:33:36.247112+00:00"
+  },
+  {
+   "label": "getWithdrawalStatus array",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.354,
+   "retrieved_at_utc": "2026-11-09T14:33:36.951397+00:00"
+  }
+ ],
+ "withdrawal_status": {
+  "ids": [
+   141196,
+   141195,
+   141224
+  ],
+  "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000402f4cfee62e80000000000000000000000000000000000000000000000000003366415083ade8f3000000000000000000000000030115eac47c214af3d8c1c7df6026386a9de34c4000000000000000000000000000000000000000000000000000000006af1955b000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ea931a691dd86930000000000000000000000000000000000000000000000000bbd92d66f5968a20000000000000000000000006ab791754298d6d6d7c182dc1572126b4ed24897000000000000000000000000000000000000000000000000000000006af18f7f00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000001bd7848f6073f2f4a00000000000000000000000000000000000000000000000164b6482fb439cc790000000000000000000000004b47e7278163c12aa2cddcadf87c32f249b71194000000000000000000000000000000000000000000000000000000006af1d95300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "decoded": {
+   "decode_error": "NonEmptyPaddingBytes(\"Padding bytes were not empty: b'\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x04\\\\x02\\\\xf4\\\\xcf\\\\xeeb\\\\xe8\\\\x00'\")",
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000402f4cfee62e80000000000000000000000000000000000000000000000000003366415083ade8f3000000000000000000000000030115eac47c214af3d"
+  },
+  "error": null,
+  "block": 26377950
+ },
+ "request_count": 16,
+ "finished_at_utc": "2026-11-09T14:33:37.302636+00:00"
+}

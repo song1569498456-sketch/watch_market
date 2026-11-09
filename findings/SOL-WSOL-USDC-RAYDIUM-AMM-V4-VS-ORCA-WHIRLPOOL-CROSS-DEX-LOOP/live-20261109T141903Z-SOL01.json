@@ -1,0 +1,39 @@
+{
+  "finding_id": "SOL-WSOL-USDC-RAYDIUM-AMM-V4-VS-ORCA-WHIRLPOOL-CROSS-DEX-LOOP",
+  "status": "QUOTED",
+  "chain": "SOL",
+  "protocol": "Raydium AMM v4 / Orca Whirlpools",
+  "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2 | SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+  "evidence_urls": [
+    "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+    "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"
+  ],
+  "mechanism": "同一 WSOL/USDC 权益在 Raydium 恒定乘积池（25bps 费）与 Orca 集中流动性池（4bps 费）之间做 A→B→A：往返费率 29bps。本轮两个同 slot 快照价差 −5.22bps 与 +10.42bps（64 秒内符号翻转），按第一腿实际输出链式计算，两方向 0.1–25 SOL 全部为负（1 SOL 最优 D1 −18.7bps，D2 −39.5bps），费用吃掉价差。",
+  "net_result": {
+    "value": "-0.001886012",
+    "unit": "SOL",
+    "type": "estimated_from_quotes",
+    "note": "1 SOL 最优方向；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "优先费",
+    "ATA 租金",
+    "两腿非原子风险",
+    "Orca 单 tick 近似误差",
+    "滑点设置差异"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "价差持续 >29bps 且深度足够",
+    "两腿 mint/Token Program 不同",
+    "池暂停或迁移",
+    "tick array 校验推翻单 tick 假设且误差 >18bps"
+  ],
+  "owner": "SOL01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/SOL01/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,34 @@
+{
+  "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+  "status": "RULE_GAP",
+  "chain": "BNB",
+  "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+  "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "evidence_revision": "2026-11-09 更正：上轮仅文档级“无公众赎回”，本轮链上找到公共 PSM（0xaa57…）；原假设“买入折价 lisUSD 按 1 美元赎回获利”仍 REJECTED，但理由是赎回费 2% 而非“无出口”。",
+  "mechanism": "Lista PSM 公开 sell（USDT→lisUSD，1:1，sellFee=0）与 buy（lisUSD→USDT，buyFee=2%，每日上限 500,000 USDT、总限额 759,188.56 USDT）。赎回费 2% 大于本轮观测的 DEX 折价（0.1%-0.3%）与 1000 USDT 实际报价成本（1.000394），因此“折价买入→按 1 美元赎回”当前无正收益路径；只有 buyFee 下调或折价扩大超过 2%+gas 时才有研究价值。",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+    "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+    "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js",
+    "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
+  ],
+  "net_result": "-20.386 USDT / 1000 单位（估算，未成交；gas 未计）",
+  "unknown_costs": [
+    "gas/优先费",
+    "PSM 大额赎回实际 Venus 流动性/到账",
+    "深池可执行价"
+  ],
+  "handoff_to": [
+    "M00",
+    "R-BNB",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "buyFee 下调至低于市场折价+成本",
+    "PSM 暂停/限额改变",
+    "出现其他 1:1 公共赎回出口"
+  ],
+  "owner": "BNB01",
+  "source_record": "evidence/BNB01/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,224 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T14:32:07.859246+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:32:09.029843+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:32:09.381427+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_lisUSD",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:32:09.731880+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:10.082010+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:10.432501+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:10.783072+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:11.134129+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:11.484547+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "lisUSD_admin_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:11.834899+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_interaction",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:32:12.185270+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "interaction_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:12.536150+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "interaction_admin_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:12.886568+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "interaction_lisUSD_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:13.236965+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "code_vai",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:32:13.587488+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:13.937730+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:14.287960+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:14.638181+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:32:14.988917+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:15.339190+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "vai_admin_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:32:15.689502+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_lisUSD_pairs",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+  "at_utc": "2026-11-09T14:32:15.948884+00:00",
+  "http_status": 200,
+  "bytes": 11446,
+  "sha256": "ace633f4f47334b3625c204c3a9cdb4edd594f959f2fb36c76362e55b75e4af7"
+ },
+ {
+  "n": 23,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "gh_lista_repos",
+  "url": "https://api.github.com/orgs/lista-dao/repos?per_page=100",
+  "at_utc": "2026-11-09T14:32:16.974389+00:00",
+  "http_status": 200,
+  "bytes": 96636,
+  "sha256": "5aec883773449b320275064cd4c902ab47791e412983852724ba055de32cef8e"
+ },
+ {
+  "n": 24,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "gh_gitbook_tree",
+  "url": "https://api.github.com/repos/lista-dao/gitbook/git/trees/main?recursive=1",
+  "at_utc": "2026-11-09T14:32:18.183150+00:00",
+  "http_status": 200,
+  "bytes": 38617,
+  "sha256": "846dc885aabe0e03b06dd30a807ee511540ef5b8c9456630607e33252f827675"
+ }
+]

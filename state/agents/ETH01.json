@@ -2,14 +2,25 @@
   "agent_id": "ETH01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "QUOTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:32:54+00:00",
   "observed_cursor": {
-    "type": "STATIC_SOURCE_SNAPSHOTS_ONLY",
-    "source_count": 6,
-    "retrieved_at_utc": "2026-11-08T15:27:22.066753+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 5,
+    "retrieved_at_utc": "2026-11-09T14:32:54+00:00",
+    "chain_id": 1,
+    "head_block": 26377953,
+    "pinned_blocks": [
+      26377950
+    ],
+    "urls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "https://api.curve.finance/api/getPools/ethereum/main"
+    ],
+    "complete_block_range": "全部状态/报价固定块 26377950（完整单块读数）；head 26377953",
+    "complete_event_time_window": "单块快照；30 天规则回溯与 7 天活动窗口未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -24,31 +35,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方Lido部署表chainId=1，取得stETH/wstETH/queue与实现地址，但缺链独立核对。",
-    "WstETH.sol:53-74 wrap/unwrap依赖shares比例，不是1wstETH=1stETH，更不是即刻1ETH。",
-    "WithdrawalQueue.sol:51-57源码边界100 stETH最小单位至1000*1e18 stETH单请求；这是源码值，不是实测可交易数量。",
-    "WithdrawalQueue.sol:218-230未最终化或已领取时claimable为0；claim需owner且已finalized。",
-    "RocketTokenRETH.sol:39-47兑换值取网络ETH余额/rETH供给；106-120 burn要求余额充足且总流动抵押>=要兑ETH。仅静态代码，无地址/链核验。"
+    "链身份核验：eth_chainId=0x1，head=26377953；所有状态/报价固定在块 26377950（14:31:47Z）。",
+    "Lido 身份链上核验：stETH/wstETH/queue 代码与 keccak；官方部署 sha256 3c05a183…、chainId=1、queue impl=0xE42C659D…；队列未暂停，last=141224/finalized=141196/unfinalized=4004.16 stETH。",
+    "stETH 两出口同块报价：DEX 即卖 100 stETH→99.971312 ETH；队列按平价估算约 100.00 ETH，毛差 +0.0287%；买入→排队 100 ETH→100.007466 stETH 再平价，毛差 +0.0075%；request gas 实测估计 223,477 单位，claim gas unknown。",
+    "wstETH 三出口同块报价：Uniswap V3 直卖 100 wstETH→124.846613 ETH；unwrap+Curve 两段 124.846189 ETH；requestWithdrawalsWstETH 平价≈124.882206 ETH（+0.0285%）。",
+    "rETH 协议即时出口核验：0xae78736C…（8800 B/keccak 0xe3425531…），getExchangeRate=1.17543595、getTotalCollateral=2087.964746 ETH（=合约余额）、totalSupply=307017.44；100 rETH burn 可得 117.543595 ETH；官方部署文件两路径 404、DEX 报价缺失。",
+    "外部请求 44 次（≤80），同 host 间隔≥0.35s；失败：getClaimableEther x2 revert、getWithdrawalStatus(uint256[]) 结构解码失败（raw 已存）、Rocket Pool 部署文件 404 x2。"
   ],
   "pending_questions": [
-    "30天规则变更未覆盖：2026-10-09至2026-11-08，无公告/治理/链事件回放。",
-    "7天活动未覆盖：2026-11-01至2026-11-08，无代表交易或区块范围。",
-    "链ID、区块、代码、代理实现和Lido/Rocket Pool当前参数均未从实时主网核验。",
-    "DEX池匹配与指定数量报价失败，当前即卖、即时协议赎回、异步兑付三出口均无数值报价。",
-    "Rocket Pool仅读到官方rETH源码，主网部署地址与版本未取得，不登记已验证市场。"
+    "getWithdrawalStatus 的正确结构字段（本轮 raw 解码失败）与 getClaimableEther revert 原因；由此无法给出现金可兑数量。",
+    "queue claimWithdrawals gas、finalize 节奏/权限、Lido buffer ETH、实测等待天数均未读。",
+    "rETH 主网官方部署清单（两路径 404）与 DEX 可执行报价（Balancer/Uniswap rETH 池）未取得；无法判断与协议即时值 1.17543595 的折溢价。",
+    "Curve API 只取第一页 49 池，未含 wstETH/rETH 池；wstETH/WETH 直卖池 token0/token1 未独立核验。",
+    "30 天（2026-10-10～2026-11-09）规则变更与 7 天代表性活动未覆盖。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:27:22.066753+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ETH01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "b6f01cc3492b28ce21f98adf961d58932c888946",
-    "verified_at": "2026-11-08T15:28:11.087298+00:00",
-    "record": "evidence/ETH01/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T14:37:30+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ETH01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ETH01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

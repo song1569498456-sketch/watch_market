@@ -1,0 +1,31 @@
+{
+  "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+  "status": "QUOTED",
+  "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+  "mechanism": "stETH 无协议即时 ETH 出口：DEX 即卖按池价（100 stETH→99.971312 ETH），队列 requestWithdrawals→finalize→claim 按最终化记账比≈1:1 兑付；同块毛差 +0.0287%（100 stETH 档），买入→排队毛差 +0.0075%（100 ETH 档），需等待及承担记账率漂移，claim gas 未测。",
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+  ],
+  "net_result": "排队 vs 即卖估算差 +0.028687863 ETH/100 stETH（+0.0287%），未实现；买入→排队估算 +0.007466 ETH/100 ETH（+0.0075%），未实现",
+  "unknown_costs": [
+    "queue claim gas",
+    "等待 finalize 机会成本",
+    "记账率漂移",
+    "容量/缓冲上限"
+  ],
+  "handoff_to": [
+    "Q00",
+    "N-ETH"
+  ],
+  "invalidation_conditions": [
+    "claim gas+等待成本吞没差额",
+    "队列暂停/资格变化",
+    "汇率下行",
+    "代理实现与官方部署不符"
+  ],
+  "owner": "ETH01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH01/live-20261109T141903Z/record.json"
+}

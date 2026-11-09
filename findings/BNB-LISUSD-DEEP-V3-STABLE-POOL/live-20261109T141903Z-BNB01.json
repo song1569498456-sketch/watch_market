@@ -1,0 +1,30 @@
+{
+  "finding_id": "BNB-LISUSD-DEEP-V3-STABLE-POOL",
+  "status": "UNVERIFIED",
+  "chain": "BNB",
+  "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+  "first_seen_at": "2026-11-09T14:32:18+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "聚合器显示 lisUSD 最大流动性场所为 V3 形态池 0x8b94363f…（token0=lisUSD/token1=USDT、fee=100、聚合器 liq≈27.93M USD、priceUsd≈0.9979、pairCreatedAt≈2026-09-18）；链上已确认 token0/token1/fee/slot0 可读，但 DEX/工厂身份与 quoter 未核验，不能把聚合器价当可执行价。它是 lisUSD 折价交易的最可能真实场所，也是与 2% 赎回费比较的关键输入。",
+  "evidence_urls": [
+    "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "可执行报价/滑点",
+    "DEX 身份与信任",
+    "容量"
+  ],
+  "handoff_to": [
+    "M00",
+    "BNB04",
+    "BNB05",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "聚合器价与可执行报价不符",
+    "池流动性抽走或暂停"
+  ],
+  "owner": "BNB01",
+  "source_record": "evidence/BNB01/live-20261109T141903Z/record.json"
+}

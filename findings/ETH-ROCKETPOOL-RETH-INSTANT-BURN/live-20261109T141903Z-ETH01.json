@@ -1,0 +1,28 @@
+{
+  "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+  "status": "RULE_GAP",
+  "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+  "mechanism": "rETH 有协议即时出口 burn：getEthValue 按网络余额/供给 1 rETH=1.17543595 ETH，需 getTotalCollateral≥兑付额；liquid collateral 2087.964746 ETH，100 rETH 可即时兑 117.543595 ETH。缺 rETH DEX 报价，无法判断市价折价 vs 协议即时值。",
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"
+  ],
+  "net_result": "unknown（协议即时值已测，DEX 对照缺失）",
+  "unknown_costs": [
+    "rETH DEX 可执行报价",
+    "burn gas",
+    "Rocket Pool burn 费用",
+    "更大数量容量"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "DEX 价格不低于协议赎回值",
+    "liquid collateral 不足",
+    "官方部署身份不符"
+  ],
+  "owner": "ETH01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH01/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,121 @@
+{
+ "refreshed_at_utc": "2026-11-09T14:37:30.377856+00:00",
+ "previous_slot": 467353399,
+ "slot": 467353701,
+ "vaults": {
+  "base": {
+   "mint": "So11111111111111111111111111111111111111112",
+   "amount": 99966404513954
+  },
+  "quote": {
+   "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "amount": 8709220011910
+  }
+ },
+ "orca": {
+  "tick_spacing": 4,
+  "fee_rate": 400,
+  "liquidity": 457055307175118,
+  "sqrt_price": 5447639847408472493,
+  "tick_current": -24396
+ },
+ "orca_owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+ "amm_fields": {
+  "status": 6,
+  "baseDecimal": 9,
+  "quoteDecimal": 6,
+  "state": 2,
+  "tradeFeeNumerator": 25,
+  "tradeFeeDenominator": 10000,
+  "swapFeeNumerator": 25,
+  "swapFeeDenominator": 10000,
+  "poolOpenTime": 0,
+  "lpReserve": 76804111322933,
+  "baseVault": "DQyrAcCrDXQ7NeoqGgDCZwBvWDcYmFCjSb9JtteuvPpz",
+  "quoteVault": "HLmqeL62xR1QoZ1HKKbXRrdN1p3phKpxRMb2VVopvBBz",
+  "baseMint": "So11111111111111111111111111111111111111112",
+  "quoteMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "lpMint": "8HoQnePLqPj4M7PUDzfw8e3Ymdwgc7NLGnaTUapubyvu"
+ },
+ "amm_state_slot": 467353704,
+ "blocktime_utc": "2026-11-09T14:37:30+00:00",
+ "spot_prices": {
+  "raydium_amm_usdc_per_sol": "87.121469",
+  "orca_usdc_per_sol": "87.212218"
+ },
+ "quote_table_refresh": [
+  {
+   "amount_in_sol": "0.1",
+   "d1_orca_then_amm": {
+    "out_sol": "0.099813839",
+    "net_sol": "-0.000186161"
+   },
+   "d2_amm_then_orca": {
+    "out_sol": "0.09960622",
+    "net_sol": "-0.00039378"
+   }
+  },
+  {
+   "amount_in_sol": "1",
+   "d1_orca_then_amm": {
+    "out_sol": "0.998128988",
+    "net_sol": "-0.001871012"
+   },
+   "d2_amm_then_orca": {
+    "out_sol": "0.996052872",
+    "net_sol": "-0.003947128"
+   }
+  },
+  {
+   "amount_in_sol": "10",
+   "d1_orca_then_amm": {
+    "out_sol": "9.980335168",
+    "net_sol": "-0.019664832"
+   },
+   "d2_amm_then_orca": {
+    "out_sol": "9.959576742",
+    "net_sol": "-0.040423258"
+   }
+  },
+  {
+   "amount_in_sol": "25",
+   "d1_orca_then_amm": {
+    "out_sol": "24.946860372",
+    "net_sol": "-0.053139628"
+   },
+   "d2_amm_then_orca": {
+    "out_sol": "24.894975793",
+    "net_sol": "-0.105024207"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getMultipleAccounts",
+   "name": "refresh_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:37:31.145981+00:00",
+   "sha256": "1951038478a32849dac5e58d93957be25720fdeec7c75195a3bcddc0159864cf",
+   "elapsed_s": 0.768
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getAccountInfo",
+   "name": "amm_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:37:31.846195+00:00",
+   "sha256": "18871cbeaf2d2726e8ecb4c5d18ec0ea8eda3f26017fa5f025bd7c7764d5eb4c",
+   "elapsed_s": 0.2
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getBlockTime",
+   "name": "refresh_blocktime",
+   "http_status": 200,
+   "at": "2026-11-09T14:37:32.039958+00:00",
+   "sha256": "fa3fa353fca7910e624afe0098cdca5acbebad8588d9a35e4e354d20a73c25ab",
+   "elapsed_s": 0.194
+  }
+ ]
+}

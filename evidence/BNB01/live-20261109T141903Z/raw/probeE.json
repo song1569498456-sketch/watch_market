@@ -1,0 +1,120 @@
+{
+ "started_at_utc": "2026-11-09T14:36:40.236302+00:00",
+ "psm_source_sell": "function sell(uint256 amount) external whenNotPaused {\n    require(amount >= minSell, \"amount smaller than minSell\");\n    // calculate fee and real amount\n    uint256 fee = Math.mulDiv(amount, sellFee, FEE_PRECISION);\n    uint256 realAmount = amount - fee;\n\n    // check sell limit\n    require(amount <= getTotalSellLimit(), \"exceed sell limit\");\n\n    // transfer token from user\n    IERC20(token).safeTransferFrom(msg.sender, address(this), amount);\n\n    // transfer lisUSD to user\n    IERC20(lisUSD).safeTransfer(msg.sender, realAmount);\n\n    // deposit token to vault manager\n    IERC20(token).safeIncreaseAllowance(vaultManager, amount);\n    IVaultManager(vaultManager).deposit(amount);\n\n    // transfer fee to fee receiver\n    if (fee > 0) {\n      fees += fee;\n    }\n    emit SellToken(msg.sender, realAmount, fee);\n  }",
+ "psm_source_buy": "function buy(uint256 amount) external whenNotPaused {\n    // check buy limit\n    checkAndUpdateBuyUsed(amount);\n\n    // calculate fee and real amount\n    uint256 fee = Math.mulDiv(amount, buyFee, FEE_PRECISION);\n    uint256 realAmount = amount - fee;\n\n    // transfer lisUSD from user and withdraw token from vault manager\n    if (realAmount > 0) {\n      IERC20(lisUSD).safeTransferFrom(msg.sender, address(this), amount);\n      IVaultManager(vaultManager).withdraw(msg.sender, realAmount);\n    }\n\n    // transfer fee to fee receiver\n    if (fee > 0) {\n      fees += fee;\n    }\n    emit BuyToken(msg.sender, realAmount, fee);\n  }",
+ "psm_source_total_sell_limit": "function getTotalSellLimit() public view returns (uint256) {\n    return IERC20(lisUSD).balanceOf(address(this)) - fees;\n  }",
+ "psm_source_check_buy_limit": "function checkBuyLimit(uint256 amount) public view returns (bool) {\n    // check min buy amount\n    if (amount < minBuy) {\n      return false;\n    }\n    // check daily buy limit\n    if (getDay() == lastBuyDay && dayBuyUsed + amount > dailyLimit) {\n      return false;\n    }\n    if (getDay() != lastBuyDay && amount > dailyLimit) {\n      return false;\n    }\n    return true;\n  }",
+ "vault_src": {
+  "http_status": 200,
+  "chars": 7942,
+  "sha256": "97f85e4e08fe01c980967f95f6524d45ee3c965f19dc8952614dcacf503bbfa2"
+ },
+ "adapter_src": {
+  "http_status": 200,
+  "chars": 6179,
+  "sha256": "f601fcbb8a681c39ce3b29ecfcd17dc527793e9c00cf70622d5394fb8dfd1aa8"
+ },
+ "poolset_src": {
+  "http_status": 200,
+  "chars": 13381,
+  "sha256": "b6c7c22366eea49612a90bd81115b89c871ae7ed6478f2a6716941d1a391fc18"
+ },
+ "head_block": 132601650,
+ "head_block_time_utc": "2026-11-09T14:36:42+00:00",
+ "pinned_block": 132601648,
+ "reads": {
+  "VaultManager": [
+   {
+    "sig": "psm()",
+    "selector": "0x04bda262",
+    "raw": "0x000000000000000000000000aa57f36dd5ef2ac471863ec46277f976f272ec0c",
+    "error": null,
+    "uint": "972489801532951684931609923307505635740087413772"
+   },
+   {
+    "sig": "token()",
+    "selector": "0xfc0c546a",
+    "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+    "error": null,
+    "uint": "489982930986835137684486657990555633941558688085"
+   }
+  ],
+  "VenusAdapter": [
+   {
+    "sig": "token()",
+    "selector": "0xfc0c546a",
+    "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+    "error": null,
+    "uint": "489982930986835137684486657990555633941558688085"
+   },
+   {
+    "sig": "vToken()",
+    "selector": "0x9bb1a99c",
+    "raw": "0x000000000000000000000000fd5840cd36d94d7229439859c0112a4185bc0255",
+    "error": null,
+    "uint": "1446342775612993556896619063637093484305099522645"
+   }
+  ],
+  "LisUSDPoolSet": [
+   {
+    "sig": "getRate()",
+    "selector": "0x679aefce",
+    "raw": "0x000000000000000000000000000000000000000003890b0782068402d9f55ca0",
+    "error": null,
+    "uint": "1094129951279080707745733792"
+   },
+   {
+    "sig": "lisUSD()",
+    "selector": "0xad15502b",
+    "raw": "0x0000000000000000000000000782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+    "error": null,
+    "uint": "42877960469577284990950435649528791523382804965"
+   },
+   {
+    "sig": "maxAmount()",
+    "selector": "0x5f48f393",
+    "raw": "0x00000000000000000000000000000000000000000014adf4b7320334b9000000",
+    "error": null,
+    "uint": "25000000000000000000000000"
+   },
+   {
+    "sig": "totalAssets()",
+    "selector": "0x01e1d114",
+    "raw": "0x0000000000000000000000000000000000000000000e762180ec2b84b7a71dd7",
+    "error": null,
+    "uint": "17482818751985839371656663"
+   },
+   {
+    "sig": "totalSupply()",
+    "selector": "0x18160ddd",
+    "raw": "0x0000000000000000000000000000000000000000000d37a1447844ccd30db419",
+    "error": null,
+    "uint": "15978740671112915285029913"
+   },
+   {
+    "sig": "withdrawDelay()",
+    "selector": "0x0288a39c",
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000005",
+    "error": null,
+    "uint": "5"
+   }
+  ]
+ },
+ "vToken_candidate": "0xfd5840cd36d94d7229439859c0112a4185bc0255",
+ "vToken_balances": {
+  "VaultManager": {
+   "vToken": "0xfd5840cd36d94d7229439859c0112a4185bc0255",
+   "raw": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "value": "0",
+   "error": null
+  },
+  "VenusAdapter": {
+   "vToken": "0xfd5840cd36d94d7229439859c0112a4185bc0255",
+   "raw": "0x000000000000000000000000000000000000000000000000000a218ee8c1663500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "value": "38234341175091820442529901194149698848490010033552136185073718054349662967802054502940451582450775891986085147700816447485268795254117941187671150022746776298545007820800",
+   "error": null
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:36:47.709546+00:00",
+ "request_count_this_script": 17
+}

@@ -1,0 +1,294 @@
+{
+ "started_at_utc": "2026-11-09T14:34:32.489322+00:00",
+ "addresses_bsc": {
+  "http_status": 200,
+  "chars": 130,
+  "sha256": "78e0ddd62f60f897ef8f32ae8dc078306c387fd85ac3d771328c1db63d3b8e5a"
+ },
+ "contract_address": {
+  "http_status": 200,
+  "chars": 1014,
+  "sha256": "e38e5327c2a54a868fc9bd00a2d07de4e6a9f467a6e63b5d0f492f36f0ab0567"
+ },
+ "psm_sol": {
+  "http_status": 200,
+  "chars": 10268,
+  "sha256": "e4629bb04e9e54b667c8018e7319506f9709fece12670fc3238d2976de9b4e7d"
+ },
+ "lisusd_pool_set_sol": {
+  "http_status": 200,
+  "chars": 13381,
+  "sha256": "b6c7c22366eea49612a90bd81115b89c871ae7ed6478f2a6716941d1a391fc18"
+ },
+ "deploy_psm_js": {
+  "http_status": 200,
+  "chars": 1487,
+  "sha256": "36b5dcd53f89a7f423c59b80f7c4e84a8721f76bf730d4eac1a0a7529cd13f22"
+ },
+ "deploy_poolset_js": {
+  "http_status": 200,
+  "chars": 2083,
+  "sha256": "c3bb06001692e96f2c63033fa0d88bf75f238594228fafdd4a6e5baebb5ee2ed"
+ },
+ "ilisusd_pool_sol": {
+  "http_status": 200,
+  "chars": 164,
+  "sha256": "20b07ea919053a5a6232e4dfe813a3a582676f8a03ccbed42c880f14537bc2b0"
+ },
+ "address_hits": {},
+ "psm_candidates": [],
+ "psm_functions": [
+  {
+   "sig": "initialize(address,address,address,address,address,address,uint256,uint256,uint256,uint256,uint256)",
+   "selector": "0x002f5fd7",
+   "view": false
+  },
+  {
+   "sig": "sell(uint256)",
+   "selector": "0xe4849b32",
+   "view": false
+  },
+  {
+   "sig": "buy(uint256)",
+   "selector": "0xd96a094a",
+   "view": false
+  },
+  {
+   "sig": "checkBuyLimit(uint256)",
+   "selector": "0x16089b8a",
+   "view": true
+  },
+  {
+   "sig": "checkAndUpdateBuyUsed(uint256)",
+   "selector": "0x48325df6",
+   "view": false
+  },
+  {
+   "sig": "getDay()",
+   "selector": "0x14ba5c09",
+   "view": true
+  },
+  {
+   "sig": "setVaultManager(address)",
+   "selector": "0xb543503e",
+   "view": false
+  },
+  {
+   "sig": "setBuyFee(uint256)",
+   "selector": "0x0cc835a3",
+   "view": false
+  },
+  {
+   "sig": "setSellFee(uint256)",
+   "selector": "0x8b4cee08",
+   "view": false
+  },
+  {
+   "sig": "setFeeReceiver(address)",
+   "selector": "0xefdcd974",
+   "view": false
+  },
+  {
+   "sig": "setDailyLimit(uint256)",
+   "selector": "0xb20d30a9",
+   "view": false
+  },
+  {
+   "sig": "setMinSell(uint256)",
+   "selector": "0xded5b7ed",
+   "view": false
+  },
+  {
+   "sig": "setMinBuy(uint256)",
+   "selector": "0x860779e7",
+   "view": false
+  },
+  {
+   "sig": "getTotalBuyLimit()",
+   "selector": "0x9696c1ed",
+   "view": true
+  },
+  {
+   "sig": "getTotalSellLimit()",
+   "selector": "0xbb2cc0d3",
+   "view": true
+  },
+  {
+   "sig": "getDayBuyLeft()",
+   "selector": "0xb3fc95bc",
+   "view": true
+  },
+  {
+   "sig": "harvest()",
+   "selector": "0x4641257d",
+   "view": false
+  },
+  {
+   "sig": "pause()",
+   "selector": "0x8456cb59",
+   "view": false
+  },
+  {
+   "sig": "unpause()",
+   "selector": "0x3f4ba83a",
+   "view": false
+  },
+  {
+   "sig": "emergencyWithdraw(address,uint256)",
+   "selector": "0x95ccea67",
+   "view": false
+  },
+  {
+   "sig": "_authorizeUpgrade(address)",
+   "selector": "0x5ec29272",
+   "view": false
+  }
+ ],
+ "poolset_functions": [
+  {
+   "sig": "initialize(address,address,address,address,address,uint256,uint256)",
+   "selector": "0xb33f9527",
+   "view": false
+  },
+  {
+   "sig": "withdraw(address[],uint256)",
+   "selector": "0xe3511faf",
+   "view": false
+  },
+  {
+   "sig": "withdrawAll(address[])",
+   "selector": "0x6568a279",
+   "view": false
+  },
+  {
+   "sig": "_withdraw(address,address[],uint256,uint256)",
+   "selector": "0x50256801",
+   "view": false
+  },
+  {
+   "sig": "assetBalanceOf(address)",
+   "selector": "0x06b3efd6",
+   "view": true
+  },
+  {
+   "sig": "totalAssets()",
+   "selector": "0x01e1d114",
+   "view": true
+  },
+  {
+   "sig": "depositFor(address,address,uint256)",
+   "selector": "0xb3db428b",
+   "view": false
+  },
+  {
+   "sig": "deposit(uint256)",
+   "selector": "0xb6b55f25",
+   "view": false
+  },
+  {
+   "sig": "_depositFor(address,address,address,uint256)",
+   "selector": "0xc4981966",
+   "view": false
+  },
+  {
+   "sig": "convertToAssets(uint256)",
+   "selector": "0x07a2d13a",
+   "view": true
+  },
+  {
+   "sig": "convertToShares(uint256)",
+   "selector": "0xc6e6f592",
+   "view": true
+  },
+  {
+   "sig": "getRate()",
+   "selector": "0x679aefce",
+   "view": true
+  },
+  {
+   "sig": "setDuty(uint256)",
+   "selector": "0xbddcd2bc",
+   "view": false
+  },
+  {
+   "sig": "setMaxDuty(uint256)",
+   "selector": "0x959c518b",
+   "view": false
+  },
+  {
+   "sig": "emergencyWithdraw(address,uint256)",
+   "selector": "0x95ccea67",
+   "view": false
+  },
+  {
+   "sig": "setEarnPool(address)",
+   "selector": "0x8f1fe005",
+   "view": false
+  },
+  {
+   "sig": "pause()",
+   "selector": "0x8456cb59",
+   "view": false
+  },
+  {
+   "sig": "unpause()",
+   "selector": "0x3f4ba83a",
+   "view": false
+  },
+  {
+   "sig": "takeSnapshot(address,address)",
+   "selector": "0x7e1c92f0",
+   "view": false
+  },
+  {
+   "sig": "setDistributor(address,address)",
+   "selector": "0xa768a98a",
+   "view": false
+  },
+  {
+   "sig": "removeDistributor(address)",
+   "selector": "0x57c1f9e2",
+   "view": false
+  },
+  {
+   "sig": "registerPool(address,address,address)",
+   "selector": "0x2c23003d",
+   "view": false
+  },
+  {
+   "sig": "removePool(address)",
+   "selector": "0x3b7d0946",
+   "view": false
+  },
+  {
+   "sig": "setMaxAmount(uint256)",
+   "selector": "0x4fe47f70",
+   "view": false
+  },
+  {
+   "sig": "decimals()",
+   "selector": "0x313ce567",
+   "view": true
+  },
+  {
+   "sig": "setWithdrawDelay(uint256)",
+   "selector": "0x72f0cb30",
+   "view": false
+  },
+  {
+   "sig": "_authorizeUpgrade(address)",
+   "selector": "0x5ec29272",
+   "view": false
+  }
+ ],
+ "psm_source_head": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\nimport \"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\";\nimport \"@openzeppelin/contracts/utils/math/Math.sol\";\nimport \"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol\";\nimport \"../interfaces/IVaultManager.sol\";\n\ncontract PSM is AccessControlUpgradeable, PausableUpgradeable, UUPSUpgradeable {\n  using SafeERC20 for IERC20;\n\n  address public vaultManager; // VaultManager address\n  address public token; // token address\n  uint256 public sellFee; // sell fee rate\n  uint256 public buyFee; // buy fee rate\n  address public feeReceiver; // fee receiver address\n  address public lisUSD; // lisUSD address\n\n  uint256 public dailyLimit; // daily buy limit\n  uint256 public minSell; // min sell amount\n  uint256 public minBuy; // min buy amount\n\n  uint256 public lastBuyDay; // last buy day\n  uint256 public dayBuyUsed; // day buy used\n\n  uint256 public fees; // total fee\n\n  uint256 public constant FEE_PRECISION = 10000;\n\n  bytes32 public constant MANAGER = keccak256(\"MANAGER\"); // manager role\n  bytes32 public constant PAUSER = keccak256(\"PAUSER\"); // pause role\n\n  event SetBuyFee(uint256 buyFee);\n  event SetSellFee(uint256 sellFee);\n  event SetFeeReceiver(address feeReceiver);\n  event BuyToken(address account, uint256 realAmount, uint256 fee);\n  event SellToken(address account, uint256 realAmount, uint256 fee);\n  event SetDailyLimit(uint256 dailyLimit);\n  event SetMinSell(uint256 minSell);\n  event SetMinBuy(uint256 minBuy);\n  event SetVaultManager(address vaultManager);\n  event EmergencyWithdraw(address token, uint256 amount);\n  event SetToken(address token);\n  event SetLisUSD(address lisUSD);\n  event Harvest(uint256 fees);\n\n  /// @custom:oz-upgrades-unsafe-allow constructor\n  constructor() {\n    _disableInitializers();\n  }\n\n  /**\n   * @dev initialize contract\n   * @param _admin admin address\n   * @param _manager manager address\n   * @param _token token address\n   * @param _feeReceiver fee receiver address\n   * @param _lisUSD lisUSD address\n   * @param _sellFee sell fee\n   * @param _buyFee buy fee\n   * @param _minSell min sell amount\n   * @param _minBuy min buy amount\n   */\n  function initialize(\n    address _admin,\n    address _manager,\n    address _pauser,\n    address _token,\n    address _feeReceiver,\n    address _lisUSD,\n    uint256 _sellFee,\n    uint256 _buyFee,\n    uint256 _dailyLimit,\n    uint256 _minSell,\n    uint256 _minBuy\n  ) public initializer {\n    require(_admin != address(0), \"admin cannot be zero address\");\n    require(_manager != address(0), \"manager cannot be zero address\");\n    require(_pauser != address(0), \"pauser cannot be zero address\");\n    require(_token != address(0), \"token cannot be zero address\");\n    require(_feeReceiver != address(0), \"feeReceiver cannot be zero address\");\n    require(_lisUSD != address(0), \"lisUSD cannot be zero address\");\n    require(_sellFee <= FEE_PRECISION, \"sellFee must be less or equal than FEE_PRECISION\");\n    require(_buyFee <= FEE_PRECISION, \"buyFee must be less or equal than FEE_PRECISION\");\n    require(_dailyLimit >= _minBuy, \"dailyLimit must be greater or equal than minBuy\");\n\n    __AccessControl_init();\n    __Pausable_init();\n    __UUPSUpgradeable_init();\n\n    _setupRole(DEFAULT_ADMIN_ROLE, _admin);\n    _setupRole(MANAGER, _manager);\n    _setupRole(PAUSER, _pauser);\n\n    token = _token;\n    sellFee = _sellFee;\n    buyFee = _buyFee;\n    feeReceiver = _feeReceiver;\n    lisUSD = _lisUSD;\n\n    dailyLimit = _dailyLimit;\n    minSell = _minSell;\n    minBuy = _minBuy;\n\n    emit SetBuyFee(_buyFee);\n    emit SetSellFee(_sellFee);\n    emit SetFeeReceiver(_feeReceiver);\n    emit SetDailyLimit(_dailyLimit);\n    emit SetMinSell(_minSell);\n    emit SetMinBuy(_minBuy);\n    emit SetToken(_token);\n    emit SetLisUSD(_lisUSD);\n  }\n\n  /**\n   * @dev sell token to get lisUSD\n   * @param amount token amount\n   */\n  function sell(uint256 amount) external whenNotPaused {\n    require(amount >= minSell, \"amount smaller than minSell\");\n    // calculate fee and real amount\n    uint256 fee = Math.mulDiv(amount, sellFee, FEE_PRECISION);\n    uint256 realAmount = amount - fee;\n\n    // check sell limit\n    require(amount <= getTotalSellLimit(), \"exceed sell limit\");\n\n    // transfer token from user\n    IERC20(token).safeTransferFrom(msg.sender, address(this), amount);\n\n    // transfer lisUSD to user\n    IERC20(lisUSD).safeTransfer(msg.sender, realAmount);\n\n    // deposit token to vault manager\n    IERC20(token).safeIncreaseAllowance(vaultManager, amount);\n    IVaultManager(vaultManager).deposit(amount);\n\n    // transfer fee to fee receiver\n    if (fee > 0) {\n      fees += fee;\n    }\n    emit SellToken(msg.sender, realAmount, fee);\n  }\n\n  /**\n   * @dev buy token with lisUSD\n   * @param amount lisUSD amount\n   */\n  function buy(uint256 amount) external whe",
+ "poolset_source_head": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\nimport \"@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\";\nimport \"@openzeppelin/contracts/utils/math/Math.sol\";\nimport \"@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol\";\nimport \"../hMath.sol\";\nimport \"../interfaces/IStakeLisUSDListaDistributor.sol\";\n\ncontract LisUSDPoolSet is AccessControlUpgradeable, ReentrancyGuardUpgradeable, PausableUpgradeable, UUPSUpgradeable {\n  using SafeERC20 for IERC20;\n\n  struct Pool {\n    address asset;\n    address distributor;\n    bool active;\n  }\n\n  address public lisUSD; // lisUSD address\n\n  string public name; // pool name\n  string public symbol; // pool symbol\n  mapping(address => uint256) public balanceOf; // user's share\n  uint256 public totalSupply; // total shares\n\n  // pool => user => emission weights\n  mapping(address => mapping(address => uint256)) public poolEmissionWeights;\n  // user => emission weights\n  mapping(address => uint256) public totalUserEmissionWeights;\n  // pool => pool info\n  mapping(address => Pool) public pools;\n\n  uint256 public rate; // share to lisUSD rate when last update\n  uint256 public lastUpdate; // last rate update time\n  uint256 public duty; // the fixed interest rate per second\n  uint256 public maxDuty; // max interest rate per second\n  address public earnPool; // earn pool address\n  uint256 public maxAmount; // max assets amount\n  // user -> last deposit time\n  mapping(address => uint256) private lastDepositTime;\n  uint256 public withdrawDelay; // withdraw delay\n\n  bytes32 public constant MANAGER = keccak256(\"MANAGER\"); // manager role\n  bytes32 public constant PAUSER = keccak256(\"PAUSER\"); // pause role\n  bytes32 public constant BOT = keccak256(\"BOT\"); // bot role\n  uint256 public constant RATE_SCALE = 10 ** 27;\n\n  event Withdraw(address account, uint256 amount);\n  event Deposit(address account, uint256 amount);\n  event SetDuty(uint256 duty);\n  event SetMaxDuty(uint256 maxDuty);\n  event RegisterPool(address pool, address asset, address distributor);\n  event RemovePool(address pool);\n  event Transfer(address indexed from, address indexed to, uint256 value);\n  event EmergencyWithdraw(address token, uint256 amount);\n  event SetLisUSD(address lisUSD);\n  event SetWithdrawDelay(uint256 withdrawDelay);\n  event SetEarnPool(address earnPool);\n  event SetDistributor(address pool, address distributor);\n  event RemoveDistributor(address pool, address distributor);\n  event SetMaxAmount(uint256 maxAmount);\n\n  /// @custom:oz-upgrades-unsafe-allow constructor\n  constructor() {\n    _disableInitializers();\n  }\n\n  modifier onlyEarnPool() {\n    require(earnPool == msg.sender, \"only earnPool can call this function\");\n    _;\n  }\n\n  /**\n   * @dev initialize contract\n   * @param _admin admin address\n   * @param _manager manager address\n   * @param _lisUSD lisUSD address\n   * @param _maxDuty max rate per second\n   */\n  function initialize(\n    address _admin,\n    address _manager,\n    address _pauser,\n    address _bot,\n    address _lisUSD,\n    uint256 _maxDuty,\n    uint256 _withdrawDelay\n  ) public initializer {\n    require(_admin != address(0), \"admin cannot be zero address\");\n    require(_manager != address(0), \"manager cannot be zero address\");\n    require(_pauser != address(0), \"pauser cannot be zero address\");\n    require(_bot != address(0), \"bot cannot be zero address\");\n    require(_lisUSD != address(0), \"lisUSD cannot be zero address\");\n    require(_maxDuty > RATE_SCALE, \"maxDuty cannot be zero\");\n\n    __AccessControl_init();\n    __ReentrancyGuard_init();\n    __UUPSUpgradeable_init();\n    __Pausable_init();\n\n    _setupRole(DEFAULT_ADMIN_ROLE, _admin);\n    _setupRole(MANAGER, _manager);\n    _setupRole(PAUSER, _pauser);\n    _setupRole(BOT, _bot);\n\n",
+ "deploy_psm_head": "const {ethers, upgrades, run} = require('hardhat')\nconst hre = require('hardhat')\n\nlet usdt = '0x55d398326f99059fF775485246999027B3197955';\nlet lisUSD = '0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5';\nlet sellFee = 0; // 0%\nlet buyFee = 200; // 2%\nlet dailyLimit = '500000000000000000000000' // 500k;\nlet minSell = '1000000000000000000'; // 1u;\nlet minBuy = '1000000000000000000'; // 1u;\nconst pauser = \"0xEEfebb1546d88EA0909435DF6f615084DD3c5Bd8\";\nconst feeReceiver = \"0x34B504A5CF0fF41F8A480580533b6Dda687fa3Da\";\n\nasync function main() {\n    const signers = await hre.ethers.getSigners();\n    const deployer = signers[0].address;\n    const admin = deployer;\n    const manager = deployer;\n    const token = usdt;\n    // deploy PSM (name)\n    const PSM = await hre.ethers.getContractFactory('PSM');\n    const psm = await upgrades.deployProxy(PSM, [\n        admin,\n        manager,\n        pauser,\n        token,\n        feeReceiver,\n        lisUSD,\n        sellFee,\n        buyFee,\n        dailyLimit,\n        minSell,\n        minBuy\n    ]);\n    await psm.waitForDeployment();\n\n    const psmAddress = await psm.getAddress();\n\n    try {\n        await run(\"verify:verify\", {\n            address: psmAddress,\n        });\n    } catch (error) {\n        console.error('error verifying contract:', error);\n    }\n\n    console.log(`PSM (USDT) deployed to:`, psmAddress);\n}\n\nmain()\n    .then(() => process.exit(0))\n    .catch((error) => {\n        console.error(error)\n        process.exit(1)\n    })\n",
+ "chain": {
+  "candidates": {}
+ },
+ "psm_target": null,
+ "psm_zero_arg_calls": [],
+ "finished_at_utc": "2026-11-09T14:34:36.456094+00:00",
+ "request_count_this_script": 7
+}

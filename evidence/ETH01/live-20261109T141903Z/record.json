@@ -1,0 +1,201 @@
+{
+ "agent_id": "ETH01",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ETH",
+ "scope": "Ethereum 原生资产质押衍生品（Lido stETH/wstETH、Rocket Pool rETH）DEX 即卖 / 协议即时赎回 / 排队兑付三出口分开报价与权限、容量、等待、费用核验",
+ "started_at": "2026-11-09T14:32:31.203182+00:00",
+ "finished_at": "2026-11-09T14:37:30+00:00",
+ "duration_seconds": 298.8,
+ "execution_status": "PARTIAL",
+ "status": "QUOTED",
+ "as_of": {
+  "utc": "2026-11-09T14:32:54+00:00",
+  "beijing": "2026-11-09T22:32:54+08:00",
+  "data_time": "全部状态/报价固定在块 26377950（block timestamp 2026-11-09T14:31:47Z，抓取 14:32:31-14:32:54Z）；head 26377953（14:32:23Z）"
+ },
+ "block_or_slot": 26377950,
+ "market_ids": [
+  "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+  "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+  "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+  "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393"
+ ],
+ "asset_ids": [
+  "eip155:1/native:ETH",
+  "eip155:1/erc20:0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+  "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+  "eip155:1/erc20:0xae78736cd615f374d3085123a210448e74fc6393",
+  "eip155:1/erc20:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+ ],
+ "discovery_source": [
+  {
+   "source": "ethereum-rpc-publicnode",
+   "url": "https://ethereum-rpc.publicnode.com",
+   "retrieved_at_utc": "2026-11-09T14:32:31.203182+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x6/eth_getBalance/eth_call x30/eth_estimateGas；44 次全部返回结果（仅 2 次 getClaimableEther revert）",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "lido-official-deployment",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+   "retrieved_at_utc": "2026-11-09T14:32:33+00:00",
+   "http_status": 200,
+   "bytes_read": 61362,
+   "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+  },
+  {
+   "source": "curve-api-pools",
+   "url": "https://api.curve.finance/api/getPools/ethereum/main",
+   "retrieved_at_utc": "2026-11-09T14:32:32+00:00",
+   "http_status": 200,
+   "request": "未认证公开 GET；第一页 49 个池，coins 中未含 wstETH/rETH（分页未取）"
+  },
+  {
+   "source": "rocketpool-official-deployment",
+   "url": "https://raw.githubusercontent.com/rocket-pool/rocketpool/master/deployed-mainnet.json",
+   "retrieved_at_utc": "2026-11-09T14:32:34+00:00",
+   "http_status": 404,
+   "error": "HTTP 404（同一路径 contracts/deployed-mainnet.json 也 404）；rETH 地址身份改用链上代码+内部一致性核验"
+  },
+  {
+   "source": "uniswap-v3-quoter2",
+   "url": "https://ethereum-rpc.publicnode.com (QuoterV2 0x61fFE014bA17989E743c5F6cB21bF9697530B21e, fee=100)",
+   "retrieved_at_utc": "2026-11-09T14:32:50+00:00",
+   "request": "eth_call quoteExactInputSingle((wstETH,WETH,amountIn,100,0)) x2",
+   "http_status": 200,
+   "error": null
+  }
+ ],
+ "mechanism": "同一底层权益的三个出口规则不同：DEX 即卖按池子当前比例结算（stETH/ETH 池卖出比率约 0.99971，wstETH/WETH 直卖 1.2484843 ETH/wstETH）；Lido 协议无即时 ETH 赎回，只有 WithdrawalQueue（requestWithdrawals 按 stETH 或 requestWithdrawalsWstETH 按 wstETH 铸 NFT 入队，finalize 后 claim 按最终化时点记账比兑付≈1:1）；Rocket Pool rETH 有真正的协议即时出口 burn：getEthValue 按网络余额/供给计算（当前 1.17543595 ETH/rETH），并要求 getTotalCollateral≥兑付额（当前 liquid collateral 2087.96 ETH）。持有份额者即卖与排队的差额约 0.028-0.029%，买入→排队约 0.0075%，均需等待/汇率风险。",
+ "observations": [
+  "链身份：eth_chainId=0x1；head=26377953（14:32:23Z）；报价/状态固定块 26377950（hash 0x75a79630e34dafae…，14:31:47Z）。",
+  "身份：stETH 0xae7ab965…（1035 B，keccak 0xb9c1c929…）、wstETH 0x7f39C581…（6492 B，0x63018188…）、queue 0x889edC2e…（2497 B，0x9bc25fa4…）、Curve stETH/ETH 池 0xDC24316b…（15735 B，0xe2c45ce8…）；Lido 官方部署本轮自取 sha256 3c05a183…、chainId=1、wq impl=0xE42C659D…。",
+  "Lido 状态（块 26377950）：lastRequestId=141224、lastFinalizedRequestId=141196、unfinalizedStETH=4004.162167834430529264、isPaused=false；stETH totalShares=7771336170045616292421829、totalPooledEther=9705016043874494454266479（stETH≈1 ETH）；wstETH stEthPerToken=1248822059877191983（1 wstETH=1.2488220599 stETH）、tokensPerStEth=800754592770677900。",
+  "stETH 出口：DEX 即卖 1/10/100 = 0.999719196/9.997186442/99.971312137 ETH；买入 100 ETH→100.007465790 stETH；协议无即时 ETH 赎回；队列按平价估算 100 stETH→约 100.00 ETH（毛差 +0.028688 ETH，0.0287%），request gas 实测估计 223,477 单位，claim gas 未测，等待 unknown。",
+  "wstETH 出口：DEX 直卖（Uniswap V3 wstETH/WETH fee=100）1/100 = 1.248484330/124.846612633 ETH；unwrap 后 Curve 卖 100 = 124.846188886 ETH；队列 requestWithdrawalsWstETH 平价估算 100 wstETH→124.882205988 ETH（毛差 +0.035593 ETH，0.0285%）。",
+  "rETH 出口：地址 0xae78736Cd615f374D3085123A210448E74Fc6393（8800 B，keccak 0xe34255314ec42825…）；getExchangeRate=1175435950453622632 wei（=1.175435950 ETH/rETH）；getEthValue(100e18)=117.543595045 ETH；getTotalCollateral=2087964746312849710154 wei（2087.964746 ETH，与合约 ETH 余额 2087.96474631285 完全一致）；totalSupply=307017.444992 rETH。协议 burn 即时可兑 100 rETH=117.543595 ETH，需 collateral≥该额（满足）；DEX 报价本轮未取得。",
+  "队列状态较 N-ETH（约 14:26Z）变化：lastRequestId 141221→141224、unfinalizedStETH 3969.03→4004.16、lastFinalized 141196 未变、仍未暂停——约 6 分钟新增 3 笔请求/35 stETH 待最终化。",
+  "失败：getWithdrawalStatus(uint256[]) 返回 raw 有数据但因结构字段/版本不符解码失败（已存 raw）；getClaimableEther 在 hint=0 与 hint=requestId 两种方案均 revert；Rocket Pool 官方部署文件两路径 404；Curve API 首页 49 池未含 wstETH/rETH（分页缺口）。",
+  "外部请求 44 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；未签名/广播/交易。"
+ ],
+ "quotes": [
+  {"market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022", "amount_in": "1 stETH", "amount_out": "0.999719196 ETH", "fees": "Curve 池费 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:42+00:00", "note": "DEX 即卖出口"},
+  {"market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022", "amount_in": "10 stETH", "amount_out": "9.997186442 ETH", "fees": "Curve 池费 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:42+00:00", "note": "DEX 即卖出口"},
+  {"market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022", "amount_in": "100 stETH", "amount_out": "99.971312137 ETH", "fees": "Curve 池费 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:42+00:00", "note": "DEX 即卖出口；与队列平价差额 +0.028688 ETH"},
+  {"market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022", "amount_in": "100 ETH", "amount_out": "100.007465790 stETH", "fees": "Curve 池费 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:42+00:00", "note": "买入方向；配 queue 平价后毛差 +0.007466 ETH/100 ETH"},
+  {"market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1", "amount_in": "100 stETH", "amount_out": "≈100.00 ETH（按 1 stETH≈1 ETH 记账比，finalize 时点折算；非成交）", "fees": "Lido 无赎回费；request gas 实测估计 223,477 单位，claim gas unknown", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:54+00:00", "note": "排队出口估算；等待时间 unknown；gas 按本块 baseFee≈0.145 gwei 折算约 3.2e-5 ETH/请求"},
+  {"market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa", "amount_in": "1 wstETH", "amount_out": "1.248484330 ETH(WETH)", "fees": "Uniswap V3 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:50+00:00", "note": "DEX 直卖出口（QuoterV2）"},
+  {"market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa", "amount_in": "100 wstETH", "amount_out": "124.846612633 ETH(WETH)", "fees": "Uniswap V3 0.01%（已含）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:50+00:00", "note": "DEX 直卖出口"},
+  {"market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1", "amount_in": "100 wstETH", "amount_out": "124.846189 ETH（unwrap 100 wstETH→124.882206 stETH 后 Curve 卖出）", "fees": "wstETH.unwrap 无费；Curve 费 0.01%（已含）；两笔 gas", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:52+00:00", "note": "协议即时 unwrap+DEX 两段出口（非直接 ETH）"},
+  {"market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1", "amount_in": "100 wstETH", "amount_out": "≈124.882206 ETH（requestWithdrawalsWstETH 平价估算）", "fees": "Lido 无赎回费；request gas 未单测（stETH 版实测 223,477 单位可参照），claim gas unknown", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:54+00:00", "note": "排队出口估算；比 DEX 直卖毛差 +0.035593 ETH（0.0285%）"},
+  {"market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393", "amount_in": "100 rETH", "amount_out": "117.543595045 ETH（协议即时 burn，getEthValue 计算）", "fees": "Rocket Pool burn 本轮未读到费率；gas unknown（未估）", "block": 26377950, "quote_time_utc": "2026-11-09T14:32:48+00:00", "note": "协议即时出口；条件 getTotalCollateral(2087.964746 ETH)≥117.54 满足；DEX 对照报价缺失"}
+ ],
+ "net_result": {
+  "value": 0.028687863,
+  "unit": "ETH",
+  "type": "DELTA_ESTIMATE_QUEUE_MINUS_DEX_PER_100_STETH_NOT_REALIZED",
+  "realized": false,
+  "unknown_costs": [
+   "queue claimWithdrawals gas（request gas 已估 223,477 单位，claim 未测）",
+   "等待 finalize 的时间/机会成本与 finalize 延迟",
+   "持有期记账率漂移（request→finalize）",
+   "队列容量/缓冲上限与可最终化节奏",
+   "rETH DEX 可执行报价（无法核算 rETH 即卖 vs 协议 burn 净差）",
+   "wstETH 队列请求 gas 未单测、直卖池 token 对未独立核验"
+  ]
+ },
+ "capacity": "stETH/wstETH 队列：unfinalizedStETH=4004.16、25-28 笔等待最终化，buffer 未读；rETH 协议即时：liquid collateral 2087.964746 ETH（getTotalCollateral=合约 ETH 余额），因此单笔/累计即时 burn 上限约 2087.96 ETH；Curve stETH 池 100 stETH 档 view 可报价，深度上限未测；DEX rETH 容量 unknown",
+ "permissions": "Lido 队列：requestWithdrawals 需 _checkResumed（当前 isPaused=false）；单请求 stETH 最小 100 wei、最大 1000e18（上一轮官方源码静态证据）；requestWithdrawalsWstETH 入口存在；claim 需持有 withdrawal NFT、已 finalize 且为 owner；FINALIZE_ROLE 权限未读。rETH burn：public，需 balanceOf≥金额且 getTotalCollateral≥ethAmount。",
+ "liabilities": "未执行任何交易、无新增负债；若执行，stETH/wstETH 转为队列 NFT 的异步应收（未领取前不是自由 ETH），rETH burn 为即时结转（无残债）",
+ "waiting_time": "unknown；Lido lastFinalizedRequestId=141196 落后 lastRequestId=141224（28 笔/4004.16 stETH 未最终化），finalize 节奏/实测等待未读；rETH 协议 burn 无需等待",
+ "invalidation_conditions": [
+  "DEX 与协议平价的差额被 claim gas、等待成本、汇率下行吞没（stETH/wstETH 排队路径）",
+  "队列暂停、请求额度或 owner/claim 资格限制变化",
+  "rETH 协议 burn 因 getTotalCollateral 不足暂停即时兑付（当前 2087.96 ETH，100 rETH 档可用）",
+  "DEX 报价在下一块消失或容量不足",
+  "wstETH 直卖池实际交易对/费率与 Quoter 假设不一致"
+ ],
+ "evidence_urls": [
+  "https://ethereum-rpc.publicnode.com",
+  "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+  "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+  "https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+  "https://etherscan.io/address/0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+  "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+  "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393",
+  "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e"
+ ],
+ "coverage_gaps": [
+  "getWithdrawalStatus(uint256[]) 返回数据按已知 7 字段结构解码失败（结构/版本待确认）；getClaimableEther 两种 hint 均 revert → 当前可兑数量、单请求状态仍 unknown。",
+  "queue claimWithdrawals gas、finalize 节奏/权限、Lido buffer ETH、实测到账等待均未读；容量只有 unfinalized 总量。",
+  "rETH 无 DEX 可执行报价：Balancer/Uniswap rETH 池地址未核验、未报价；Rocket Pool 官方部署文件两路径 404，rETH 地址身份仅有链上代码+内部一致性，无官方部署表对照。",
+  "Curve API 只取第一页 49 池，未含 wstETH/rETH 池；wstETH/WETH 直卖池 token0/token1 未独立核验（报价由 QuoterV2 按对计算）。",
+  "30 天规则变更（2026-10-10～2026-11-09）与 7 天活动窗口未覆盖；未读治理/公告/链上投票。",
+  "本轮报价均为 view/模拟输出，无成交；stETH 无协议即时 ETH 出口，未把它与队列混为同一出口。"
+ ],
+ "next_check": [
+  "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+  "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+  "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+  "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+ ],
+ "handoff_to": [
+  "Q00",
+  "N-ETH"
+ ],
+ "markets": [
+  {"market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1", "chain": "ETH", "protocol": "Lido WithdrawalQueueERC721", "asset_ids": ["0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84", "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"], "evidence_urls": ["https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json", "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"], "identity_status": "CHAIN_VERIFIED：代理代码 2497 B/keccak 0x9bc25fa4…；官方部署 chainId=1、impl 0xE42C659D…；未暂停", "next_check": "claim gas/getClaimableEther/finalize 节奏与等待；容量与缓冲"},
+  {"market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022", "chain": "ETH", "protocol": "Curve StableSwap stETH/ETH", "asset_ids": ["eip155:1/native:ETH", "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"], "evidence_urls": ["https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022"], "identity_status": "CHAIN_VERIFIED_CODE（15735 B/0xe2c45ce8…）；coins/fee 沿用上一岗位核验，本轮未重读 coins", "next_check": "容量上限与价差可持续时间；paused 字段读法"},
+  {"market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa", "chain": "ETH", "protocol": "Uniswap V3 wstETH/WETH 0.01%", "asset_ids": ["0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"], "evidence_urls": ["https://etherscan.io/address/0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa", "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e"], "identity_status": "QUOTER_QUOTE_OK+CODE_PRESENT（pool 代码 22142 B）；token0/token1 未独立核验", "next_check": "读 token0/token1/slot0 独立核验池身份；容量与冲击"},
+  {"market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393", "chain": "ETH", "protocol": "Rocket Pool rETH（RocketTokenRETH burn）", "asset_ids": ["0xae78736Cd615f374D3085123A210448E74Fc6393", "eip155:1/native:ETH"], "evidence_urls": ["https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"], "identity_status": "CHAIN_READ+INTERNAL_CONSISTENCY（8800 B/keccak 0xe3425531…；getTotalCollateral==ETH 余额 2087.964746）；官方部署文件 404 未取得", "next_check": "官方部署清单、rETH DEX 池报价与即时容量（deposit pool excess）"}
+ ],
+ "findings": [
+  {
+   "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+   "status": "QUOTED",
+   "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+   "mechanism": "stETH 无协议即时 ETH 出口：DEX 即卖按池价（100 stETH→99.971312 ETH），队列 requestWithdrawals→finalize→claim 按最终化记账比≈1:1 兑付；同块毛差 +0.0287%（100 stETH 档），买入→排队毛差 +0.0075%（100 ETH 档），需等待及承担记账率漂移，claim gas 未测。",
+   "evidence_urls": ["https://ethereum-rpc.publicnode.com", "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json", "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"],
+   "net_result": "排队 vs 即卖估算差 +0.028687863 ETH/100 stETH（+0.0287%），未实现；买入→排队估算 +0.007466 ETH/100 ETH（+0.0075%），未实现",
+   "unknown_costs": ["queue claim gas", "等待 finalize 机会成本", "记账率漂移", "容量/缓冲上限"],
+   "handoff_to": ["Q00", "N-ETH"],
+   "invalidation_conditions": ["claim gas+等待成本吞没差额", "队列暂停/资格变化", "汇率下行", "代理实现与官方部署不符"]
+  },
+  {
+   "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+   "status": "QUOTED",
+   "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+   "mechanism": "wstETH 三出口：Uniswap V3 0.01% 直卖 100 wstETH→124.846612633 ETH；unwrap→Curve 两段→124.846188886 ETH；requestWithdrawalsWstETH 排队按 1.2488220599 stETH/wstETH 平价≈124.882205988 ETH。排队比直卖毛差 +0.035593 ETH（+0.0285%），等待/汇率/claim gas unknown。",
+   "evidence_urls": ["https://ethereum-rpc.publicnode.com", "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e", "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"],
+   "net_result": "排队 vs 直卖估算差 +0.035593 ETH/100 wstETH（+0.0285%），未实现",
+   "unknown_costs": ["queue request/claim gas", "等待机会成本", "汇率漂移", "wstETH 直卖池身份确认"],
+   "handoff_to": ["Q00"],
+   "invalidation_conditions": ["队列暂停/资格变化", "直卖池实际费对不符", "汇率下行吞没差额"]
+  },
+  {
+   "finding_id": "ETH-ROCKETPOOL-RETH-INSTANT-BURN",
+   "status": "RULE_GAP",
+   "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+   "mechanism": "rETH 有协议即时出口 burn：getEthValue 按网络余额/供给 1 rETH=1.17543595 ETH，需 getTotalCollateral≥兑付额；liquid collateral 2087.964746 ETH，100 rETH 可即时兑 117.543595 ETH。缺 rETH DEX 报价，无法判断市价折价 vs 协议即时值。",
+   "evidence_urls": ["https://ethereum-rpc.publicnode.com", "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"],
+   "net_result": "unknown（协议即时值已测，DEX 对照缺失）",
+   "unknown_costs": ["rETH DEX 可执行报价", "burn gas", "Rocket Pool burn 费用", "更大数量容量"],
+   "handoff_to": ["Q00"],
+   "invalidation_conditions": ["DEX 价格不低于协议赎回值", "liquid collateral 不足", "官方部署身份不符"]
+  }
+ ],
+ "rejections": [
+  {"claim": "1 wstETH 可按 1 stETH 或 1 ETH 立即赎回", "reason": "wstETH→stETH 按 shares 比例 1.2488220599，且 unwrap 只给 stETH 不给 ETH；协议即时 ETH 出口不存在，只有 DEX 或队列。"},
+  {"claim": "rETH 的 getEthValue（1.17543595）等于无条件可即时取出的 ETH", "reason": "burn 另需 getTotalCollateral≥ethAmount（当前 2087.96 ETH）；且没有 rETH DEX 对照报价，不能据此断言折价机会。"},
+  {"claim": "getClaimableEther revert 说明队列无已最终化请求或合约异常", "reason": "lastRequestId=141224/finalized=141196/unfinalizedStETH/paused 均正常返回；revert 原因未确认，未用于任何结论。"},
+  {"claim": "本轮三个出口的差额是已实现利润", "reason": "全部为固定块 view/模拟报价，未成交；claim gas、等待时间、汇率漂移为 unknown。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 5,
+  "retrieved_at_utc": "2026-11-09T14:32:54+00:00",
+  "complete_block_range": "全部状态/报价：块 26377950（完整固定块读数）；head 26377953",
+  "complete_event_time_window": "单块快照，无历史事件窗口；30 天规则/7 天活动未覆盖"
+ }
+}

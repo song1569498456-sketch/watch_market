@@ -1,0 +1,1594 @@
+{
+ "retrieved_at_utc": "2026-11-09T14:34:21.433703+00:00",
+ "pools": [
+  {
+   "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "447504785226964",
+   "sqrtPrice": "5438003302014910464",
+   "tickCurrentIndex": -24431,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "1280639667635",
+   "sqrtPrice": "503199207981944205178",
+   "tickCurrentIndex": 66125,
+   "tokenA": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "HktfL7iwGKT5QHjywQkcDnZXScoh811k7akrMZJkCcEF",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "48321916490454",
+   "sqrtPrice": "1181631200366252593",
+   "tickCurrentIndex": -54963,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs/logo.png",
+    "name": "Ethereum (Wormhole)",
+    "symbol": "whETH",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "B5EwJVDuAauzUEEdwvbuXzbFFgEYnUqqS37TUM1c4PQA",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "2412879651654",
+   "sqrtPrice": "199451775648584793",
+   "tickCurrentIndex": -90546,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://cdn.wbtc.network/icon/WBTC-logo.png",
+    "name": "Wrapped BTC (Wormhole)",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "GTHKH8s82ZR8GTSFZ1dUu6wfdxhy59wpMShxzG5zjiPm",
+   "tokenMintA": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "6525107591643",
+   "sqrtPrice": "64350220798474531667",
+   "tickCurrentIndex": 24990,
+   "tokenA": {
+    "address": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/QSYqnmB7NYlB7n1R6rz935Y07dlRK0tIuKe2mof5Sho",
+    "name": "Zcash",
+    "symbol": "ZEC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "2TAgfogn8JRwwTnsGKUa6WUT5Xdv1iMEzfEDMor68X9C",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "31158315165809",
+   "sqrtPrice": "1557785295111569044",
+   "tickCurrentIndex": -49435,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/QSYqnmB7NYlB7n1R6rz935Y07dlRK0tIuKe2mof5Sho",
+    "name": "Zcash",
+    "symbol": "ZEC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "9tXiuRRw7kbejLhZXtxDxYs2REe43uH2e7k1kocgdM9B",
+   "tokenMintA": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "33456950999615258",
+   "sqrtPrice": "18448085716509642989",
+   "tickCurrentIndex": 1,
+   "tokenA": {
+    "address": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PYUSDLOGO.png",
+    "name": "PayPal USD",
+    "symbol": "PYUSD",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferFeeConfig",
+     "confidentialTransferMint",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "4v8ufj8Hj7UvFgtofQJAtzUud5xomwZfEqfCTHZ4wM72",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "1616936088319",
+   "sqrtPrice": "18459143769617934340",
+   "tickCurrentIndex": 13,
+   "tokenA": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://cdn.wbtc.network/icon/WBTC-logo.png",
+    "name": "Wrapped BTC (Wormhole)",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "BofA2ViUSudPBTUms2KRuG6AHNeMawjNfwqTJDgx5BKW",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "1040923947301807",
+   "sqrtPrice": "90080983579524971216",
+   "tickCurrentIndex": 31718,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/bafkreibyb3hcn7gglvdqpmklfev3fut3eqv3kje54l3to3xzxxbgpt5wjm",
+    "name": "Pump",
+    "symbol": "PUMP",
+    "decimals": 6,
+    "tags": [
+     "metadataPointer",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   }
+  },
+  {
+   "address": "3Vj5gFHtctCTLU3u6XAjncjo5mKjAiD6VYU8dSNFL4mb",
+   "tokenMintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 3000,
+   "tickSpacing": 64,
+   "liquidity": "236261754367",
+   "sqrtPrice": "243537667422430120791",
+   "tickCurrentIndex": 51610,
+   "tokenA": {
+    "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/NVDA",
+    "name": "Nvidia - Backpack Securities",
+    "symbol": "NVDA",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "CeaZcxBNLpJWtxzt58qQmfMBtJY8pQLvursXTJYGQpbN",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "7617642424767",
+   "sqrtPrice": "199195400774716414",
+   "tickCurrentIndex": -90572,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "6R4r93V5fcMzc13CL2enEepDSYcr4Qx3ptZBDwudTXCo",
+   "tokenMintA": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 200,
+   "tickSpacing": 2,
+   "liquidity": "416585105664",
+   "sqrtPrice": "24290637379030735277",
+   "tickCurrentIndex": 5504,
+   "tokenA": {
+    "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://cdn.prod.website-files.com/655f3efc4be468487052e35a/684961bfb45e3c4d777b9997_Ticker%3DNVDA%2C%20Company%20Name%3DNVIDIA%20Corp%2C%20size%3D256x256.svg",
+    "name": "NVIDIA xStock",
+    "symbol": "NVDAx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "3ndjN1nJVUKGrJBc1hhVpER6kWTZKHdyDrPyCJyX3CXK",
+   "tokenMintA": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "14200576520764",
+   "sqrtPrice": "3383668871093363707",
+   "tickCurrentIndex": -33921,
+   "tokenA": {
+    "address": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://cdn.kamino.finance/kamino.svg",
+    "name": "Kamino",
+    "symbol": "KMNO",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "31KrYUDzgEQhEgr1JSNVfHAknWACcF97CtUaU8enKQsy",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g",
+   "feeRate": 3000,
+   "tickSpacing": 64,
+   "liquidity": "502037316812527",
+   "sqrtPrice": "19980190167544249966",
+   "tickCurrentIndex": 1597,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/QBRdRop8wI4PpScSRTKyibv-fQuYBua-WOvC7tuJyJo",
+    "name": "HYPE",
+    "symbol": "HYPE",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "FXPopoKVLHeXonysHMEonZZJ4nsUdFqr4RpFuAvLUvFB",
+   "tokenMintA": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+   "tokenMintB": "DEkqHyPN7GMRJ5cArtQFAWefqbZb33Hyf6s5iCwjEonT",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "45222745542973098",
+   "sqrtPrice": "583580436528799035770",
+   "tickCurrentIndex": 69089,
+   "tokenA": {
+    "address": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PYUSDLOGO.png",
+    "name": "PayPal USD",
+    "symbol": "PYUSD",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferFeeConfig",
+     "confidentialTransferMint",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "DEkqHyPN7GMRJ5cArtQFAWefqbZb33Hyf6s5iCwjEonT",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/qeSnRm_FIyp_khPfmg8o1zQeGO4AczDaEKe8jEUOzL4",
+    "name": "USDe",
+    "symbol": "USDe",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "9RqDTfwCx2SgxsvKpspQHc38HUo3B6hRd3oR9JR966Ps",
+   "tokenMintA": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "23020830710112900",
+   "sqrtPrice": "18447191039833495894",
+   "tickCurrentIndex": 0,
+   "tokenA": {
+    "address": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/GDN-USDG-Token-512x512.png",
+    "name": "Global Dollar",
+    "symbol": "USDG",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferFeeConfig",
+     "confidentialTransferMint",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "FzG7qARL4Xnu7s55Jk7J3XJwP6NDCmttNEq62h4nYmLd",
+   "tokenMintA": "euro5sNHrZC2wu2RoLvy6xxoVMc3Qnd1vjxoWf4MftA",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "15943300424575",
+   "sqrtPrice": "19507075748187320718",
+   "tickCurrentIndex": 1117,
+   "tokenA": {
+    "address": "euro5sNHrZC2wu2RoLvy6xxoVMc3Qnd1vjxoWf4MftA",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/bafkreihgdtkjdpuck4mquass2qz5ty4qjizehoacxcg3g42oohmejdk45q",
+    "name": "EURØP",
+    "symbol": "EUROP",
+    "decimals": 6,
+    "tags": [
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "3wijQvPKm6jHQrAkfPpok5o8WjCWPm1DGG17NmeW8q1w",
+   "tokenMintA": "CASHx9KJUStyftLFWGvEVf59SGeG9sh5FfcnZMVPCASH",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "15911659089632594",
+   "sqrtPrice": "18445974333047717677",
+   "tickCurrentIndex": -1,
+   "tokenA": {
+    "address": "CASHx9KJUStyftLFWGvEVf59SGeG9sh5FfcnZMVPCASH",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://token-metadata.bridge.xyz/images/cash.png",
+    "name": "CASH",
+    "symbol": "CASH",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "5KqohoeGjTjyHAFJJywK4J7fkFuK82PfMyuseGgLKZu2",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "13040742003162",
+   "sqrtPrice": "5436775536510685192",
+   "tickCurrentIndex": -24436,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/GDN-USDG-Token-512x512.png",
+    "name": "Global Dollar",
+    "symbol": "USDG",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferFeeConfig",
+     "confidentialTransferMint",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig",
+     "transferHook"
+    ]
+   }
+  },
+  {
+   "address": "6a3m2EgFFKfsFuQtP4LJJXPcAe3TQYXNyHUjjZpUxYgd",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "19129435927988",
+   "sqrtPrice": "2677611835248247167",
+   "tickCurrentIndex": -38602,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jlp/icon.png",
+    "name": "Jupiter Perps LP",
+    "symbol": "JLP",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "7jhhyxPUKpu42hPGSYwgMXbR2dtVJHKhs8DW3sAAgAvX",
+   "tokenMintA": "5Y8NV33Vv7WbnLfq3zBcKSdYPrk7g2KoiQoe7M2tcxp5",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "26457849299953906",
+   "sqrtPrice": "628724948756921342",
+   "tickCurrentIndex": -67583,
+   "tokenA": {
+    "address": "5Y8NV33Vv7WbnLfq3zBcKSdYPrk7g2KoiQoe7M2tcxp5",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/PyZzfGP-CqzaVlxTU3sb-I5uv4ZZKwnY8aCjcWn9S1A",
+    "name": "OnRe Tokenized Reinsurance",
+    "symbol": "ONyc",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "Ge2NifxbjwtbcZhcsPCVz9vt9iAeF1TcBfNdmrVXi69C",
+   "tokenMintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 800,
+   "tickSpacing": 8,
+   "liquidity": "48162252724",
+   "sqrtPrice": "243777508274884311632",
+   "tickCurrentIndex": 51629,
+   "tokenA": {
+    "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/NVDA",
+    "name": "Nvidia - Backpack Securities",
+    "symbol": "NVDA",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "ArisQNcbjXPJD7RgPRvysatX3xcfHPTbcTkfD8kDoZ9i",
+   "tokenMintA": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tokenMintB": "HzwqbKZw8HxMN6bF2yFZNrht3c2iXXzpKcFu7uBEDKtr",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "25145827106663",
+   "sqrtPrice": "17436263793877643046",
+   "tickCurrentIndex": -1127,
+   "tokenA": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "HzwqbKZw8HxMN6bF2yFZNrht3c2iXXzpKcFu7uBEDKtr",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://www.circle.com/eurc-icon",
+    "name": "EURC",
+    "symbol": "EURC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "C1MgLojNLWBKADvu9BHdtgzz1oZX4dZ5zGdGcgvvW8Wz",
+   "tokenMintA": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+   "tokenMintB": "So11111111111111111111111111111111111111112",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "40782936812269",
+   "sqrtPrice": "30677297835197204126",
+   "tickCurrentIndex": 10173,
+   "tokenA": {
+    "address": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jup/icon.png",
+    "name": "Jupiter",
+    "symbol": "JUP",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "5BQCndqT4ZHv4PDqVX4kXD2rZNLfDb64akKd1ATrVwsz",
+   "tokenMintA": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 800,
+   "tickSpacing": 8,
+   "liquidity": "57866105528948",
+   "sqrtPrice": "136303722339790692",
+   "tickCurrentIndex": -98161,
+   "tokenA": {
+    "address": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://gateway.irys.xyz/em5twmyoeTJw9eZDj25xoKbBjHYhbeXYCcZ55o23Ztg",
+    "name": "STONK",
+    "symbol": "STONK",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "4tgA77vUnDaTADqGJYhJYT1Qf8nnukxFGohoXR3tzPau",
+   "tokenMintA": "JuprjznTrTSp2UFa3ZBUFgwdAmtZCq4MQCwysN55USD",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "3201191618599693",
+   "sqrtPrice": "18442135968183940588",
+   "tickCurrentIndex": -5,
+   "tokenA": {
+    "address": "JuprjznTrTSp2UFa3ZBUFgwdAmtZCq4MQCwysN55USD",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jupUSD/icon.png",
+    "name": "Jupiter USD",
+    "symbol": "JupUSD",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "7gkB2D1SqhUYgKrSpDU5cma4tK9efijHouYituABdJcG",
+   "tokenMintA": "DJTu7vi8norVzdVAffgvb39VP7wjKeTsgaMBJrzfxvoF",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 3000,
+   "tickSpacing": 64,
+   "liquidity": "205480400806",
+   "sqrtPrice": "36351794568280965643",
+   "tickCurrentIndex": 13567,
+   "tokenA": {
+    "address": "DJTu7vi8norVzdVAffgvb39VP7wjKeTsgaMBJrzfxvoF",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/DJT",
+    "name": "Trump Media & Technology Group Corp. Common Stock - Backpack Securities",
+    "symbol": "DJT",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "58iQRQbAKgPU2ADzRLS4QJxBS2RsdUTEd567dPpMcLHe",
+   "tokenMintA": "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb",
+   "tokenMintB": "So11111111111111111111111111111111111111112",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "211309479076",
+   "sqrtPrice": "732503064031842697960",
+   "tickCurrentIndex": 73635,
+   "tokenA": {
+    "address": "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/SPCX",
+    "name": "SpaceX - Backpack Securities",
+    "symbol": "SPCX",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "3BRFxaZBNVwz5FmYCLWjEcozJws1enVzsJvtaCY1oQH5",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "15189314947",
+   "sqrtPrice": "144197625345127069518",
+   "tickCurrentIndex": 41127,
+   "tokenA": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/QSYqnmB7NYlB7n1R6rz935Y07dlRK0tIuKe2mof5Sho",
+    "name": "Zcash",
+    "symbol": "ZEC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "45wDxVxFoN9zCtnQKpBN2eRbKSHb6oggRs84hMa4eTdW",
+   "tokenMintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "tokenMintB": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "272347816564",
+   "sqrtPrice": "184319489273270214791",
+   "tickCurrentIndex": 46037,
+   "tokenA": {
+    "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/NVDA",
+    "name": "Nvidia - Backpack Securities",
+    "symbol": "NVDA",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://cdn.prod.website-files.com/655f3efc4be468487052e35a/684961bfb45e3c4d777b9997_Ticker%3DNVDA%2C%20Company%20Name%3DNVIDIA%20Corp%2C%20size%3D256x256.svg",
+    "name": "NVIDIA xStock",
+    "symbol": "NVDAx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   }
+  },
+  {
+   "address": "8Vy5Rjb9vg5nLb8L1r4Di8p9py5BTkp8UJSMHG8AD2zs",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "1419158615843",
+   "sqrtPrice": "4115797984321795796",
+   "tickCurrentIndex": -30003,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://cdn.prod.website-files.com/655f3efc4be468487052e35a/684961bfb45e3c4d777b9997_Ticker%3DNVDA%2C%20Company%20Name%3DNVIDIA%20Corp%2C%20size%3D256x256.svg",
+    "name": "NVIDIA xStock",
+    "symbol": "NVDAx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   }
+  },
+  {
+   "address": "6fteKNvMdv7tYmBoJHhj1jx6rHcEwC6RdSEmVpyS613J",
+   "tokenMintA": "AvZZF1YaZDziPY2RCK4oJrRVrbN3mTD9NL24hPeaZeUj",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "5124057634859046",
+   "sqrtPrice": "20138915138096741072",
+   "tickCurrentIndex": 1755,
+   "tokenA": {
+    "address": "AvZZF1YaZDziPY2RCK4oJrRVrbN3mTD9NL24hPeaZeUj",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/maple-labs/maple-metadata/refs/heads/main/assets/syrupUSDC.svg",
+    "name": "Syrup USDC",
+    "symbol": "syrupUSDC",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "A4D97SV1dfCffDo58FEJtZoYycqVTaGVZiDdLiZffDNK",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "1935711551970",
+   "sqrtPrice": "4725292075363519092",
+   "tickCurrentIndex": -27241,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://xstocks-metadata.backed.fi/logos/tokens/COINx.png",
+    "name": "Coinbase xStock",
+    "symbol": "COINx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   }
+  },
+  {
+   "address": "4tJW2axbTxtT6nKbjB5pZwePtW84cB7E1B6tdCCLGfrC",
+   "tokenMintA": "5YMkXAYccHSGnHn9nob9xEvv6Pvka9DZWH7nTbotTu9E",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "411875995799142",
+   "sqrtPrice": "18447403161517707655",
+   "tickCurrentIndex": 0,
+   "tokenA": {
+    "address": "5YMkXAYccHSGnHn9nob9xEvv6Pvka9DZWH7nTbotTu9E",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://hylo-token-metadata.s3.us-east-2.amazonaws.com/hyUSD/icon.png",
+    "name": "Hylo USD",
+    "symbol": "hyUSD",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "6NUiVmsNjsi4AfsMsEiaezsaV9N4N1ZrD4jEnuWNRvyb",
+   "tokenMintA": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 200,
+   "tickSpacing": 2,
+   "liquidity": "541642875844",
+   "sqrtPrice": "37456911896225241041",
+   "tickCurrentIndex": 14166,
+   "tokenA": {
+    "address": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jlp/icon.png",
+    "name": "Jupiter Perps LP",
+    "symbol": "JLP",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "Tuy6gMupGQN7wCZ8rVP1EuLRYB132VSo9Smy4AJvQgn",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "23709960010197",
+   "sqrtPrice": "15856556870596789121",
+   "tickCurrentIndex": -3027,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmQr3Fz4h1etNsF7oLGMRHiCzhB5y9a7GjyodnF7zLHK1g",
+    "name": "Fartcoin ",
+    "symbol": "Fartcoin ",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "ASAxmEaTT1HFe3mVC3zbKDE4tuB28W7732XQrEMBM5W2",
+   "tokenMintA": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "1046399416692",
+   "sqrtPrice": "21600414851944168320",
+   "tickCurrentIndex": 3156,
+   "tokenA": {
+    "address": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://xstocks-metadata.backed.fi/logos/tokens/SPCXx.png",
+    "name": "SpaceX xStock",
+    "symbol": "SPCXx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "7XFiNgEcwiUUKw4GadjHv87kGSef3RKqh4TYmnkErtmB",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "367663412636",
+   "sqrtPrice": "247867750595248206801",
+   "tickCurrentIndex": 51962,
+   "tokenA": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jlp/icon.png",
+    "name": "Jupiter Perps LP",
+    "symbol": "JLP",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "Hp53XEtt4S8SvPCXarsLSdGfZBuUr5mMmZmX2DRNXQKp",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "44722682029273208",
+   "sqrtPrice": "16118147256969829055",
+   "tickCurrentIndex": -2699,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://storage.googleapis.com/token-metadata/JitoSOL-256.png",
+    "name": "Jito Staked SOL",
+    "symbol": "JitoSOL",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "Djdm88bGU5NLHvMEWCZqsbLGd28vL8KeS2mxejTnPzoW",
+   "tokenMintA": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 200,
+   "tickSpacing": 2,
+   "liquidity": "181853187833",
+   "sqrtPrice": "34463886422384318461",
+   "tickCurrentIndex": 12501,
+   "tokenA": {
+    "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://xstocks-metadata.backed.fi/logos/tokens/AAPLx.png",
+    "name": "Apple xStock",
+    "symbol": "AAPLx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "7ouGUDRMy4C9RJpTgPizRyfcxyJusAEe9ZbjqYv7BSqe",
+   "tokenMintA": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "331269357907",
+   "sqrtPrice": "21226362572815064285",
+   "tickCurrentIndex": 2807,
+   "tokenA": {
+    "address": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://xstocks-metadata.backed.fi/logos/tokens/COINx.png",
+    "name": "Coinbase xStock",
+    "symbol": "COINx",
+    "decimals": 8,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "DdYnRoKNkFY2E7b5KfEvcszFarofSUdseZ1k9xR6TBap",
+   "tokenMintA": "AMD8XwJXgQ9WV45Wyj9yFLejxzf2J6VM1PJY8bJEjeES",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 800,
+   "tickSpacing": 8,
+   "liquidity": "5481063553",
+   "sqrtPrice": "401516122787879849648",
+   "tickCurrentIndex": 61610,
+   "tokenA": {
+    "address": "AMD8XwJXgQ9WV45Wyj9yFLejxzf2J6VM1PJY8bJEjeES",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/AMD",
+    "name": "Advanced Micro Devices - Backpack Securities",
+    "symbol": "AMD",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "AfrddTGYwCVEQB1gxCAhR8i48o6qtxYqksdVkeLudEhg",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+   "feeRate": 6500,
+   "tickSpacing": 96,
+   "liquidity": "264010464590236",
+   "sqrtPrice": "733687316315360436589",
+   "tickCurrentIndex": 73667,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://gateway.irys.xyz/em5twmyoeTJw9eZDj25xoKbBjHYhbeXYCcZ55o23Ztg",
+    "name": "STONK",
+    "symbol": "STONK",
+    "decimals": 9,
+    "tags": []
+   }
+  },
+  {
+   "address": "9R9nmGDRdLLwWjc9raRjaRoZZNXiXQBEPGFRj6SfSkPQ",
+   "tokenMintA": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+   "tokenMintB": "3b8X44fLF9ooXaUm3hhSgjpmVs6rZZ3pPoGnGahc3Uu7",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "4854544728331226",
+   "sqrtPrice": "17842365085034256462",
+   "tickCurrentIndex": -667,
+   "tokenA": {
+    "address": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PYUSDLOGO.png",
+    "name": "PayPal USD",
+    "symbol": "PYUSD",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferFeeConfig",
+     "confidentialTransferMint",
+     "metadataPointer",
+     "mintCloseAuthority",
+     "permanentDelegate",
+     "tokenMetadata",
+     "transferFeeConfig",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "3b8X44fLF9ooXaUm3hhSgjpmVs6rZZ3pPoGnGahc3Uu7",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://storage.googleapis.com/hastra-cdn-prod/spl/primetoken.png",
+    "name": "Hastra PRIME",
+    "symbol": "PRIME",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "55BrDTCLWayM16GwrMEQU57o4PTm6ceF9wavSdNZcEiy",
+   "tokenMintA": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "32718119589",
+   "sqrtPrice": "502783440855849700565",
+   "tickCurrentIndex": 66108,
+   "tokenA": {
+    "address": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://cdn.wbtc.network/icon/WBTC-logo.png",
+    "name": "Wrapped BTC (Wormhole)",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "78QBVQz3EnpuzmY42LRcCkn7gSyuFEMmQn1m5bY1yHgw",
+   "tokenMintA": "METAewgxyPbgwsseH8T16a39CQ5VyVxZi9zXiDPY18m",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "4390470039842",
+   "sqrtPrice": "4818494836986259715",
+   "tickCurrentIndex": -26850,
+   "tokenA": {
+    "address": "METAewgxyPbgwsseH8T16a39CQ5VyVxZi9zXiDPY18m",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://arweave.net/VRKOcXIvCxqp35RZ9I0-bDGk5qNfT46OTho-2oP9iGc",
+    "name": "Metaplex",
+    "symbol": "MPLX",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "HD8i7qr1hd9ida6sN71RbkLxbWcbvZS4NA5CY6vfcDpj",
+   "tokenMintA": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "940157067090",
+   "sqrtPrice": "37451831646114163923",
+   "tickCurrentIndex": 14164,
+   "tokenA": {
+    "address": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://static.jup.ag/jlp/icon.png",
+    "name": "Jupiter Perps LP",
+    "symbol": "JLP",
+    "decimals": 6,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  },
+  {
+   "address": "5gwmcjXMy6jmWHAXS4rTcPSRbgkm92RnyYBRtMQJsREw",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "93235593281466",
+   "sqrtPrice": "93053897442079734494",
+   "tickCurrentIndex": 32367,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://coin-images.coingecko.com/coins/images/31401/large/centeredcoin_%281%29.png?1737048493",
+    "name": "SPX6900 (Wormhole)",
+    "symbol": "SPX",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "B4bn8eSGUWsETHdKj2uXUHDLW2s2zeRWrKZofBWxCMAm",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "164565267814",
+   "sqrtPrice": "199334894480322402",
+   "tickCurrentIndex": -90558,
+   "tokenA": {
+    "address": "So11111111111111111111111111111111111111112",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
+    "name": "Solana",
+    "symbol": "SOL",
+    "decimals": 9,
+    "tags": []
+   },
+   "tokenB": {
+    "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://ipfs.filebase.io/ipfs/QmZ7L8yd5j36oXXydUiYFiFsRHbi3EdgC4RuFwvM7dcqge",
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC",
+    "decimals": 8,
+    "tags": []
+   }
+  },
+  {
+   "address": "3bCkqSFZcYs7fthurTzPDRu4r9kQycq1sCUDykBuYnRB",
+   "tokenMintA": "DJTu7vi8norVzdVAffgvb39VP7wjKeTsgaMBJrzfxvoF",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "6239551846",
+   "sqrtPrice": "36334361304303588772",
+   "tickCurrentIndex": 13558,
+   "tokenA": {
+    "address": "DJTu7vi8norVzdVAffgvb39VP7wjKeTsgaMBJrzfxvoF",
+    "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "imageUrl": "https://backpack.exchange/api/stock-logo/DJT",
+    "name": "Trump Media & Technology Group Corp. Common Stock - Backpack Securities",
+    "symbol": "DJT",
+    "decimals": 6,
+    "tags": [
+     "confidentialTransferMint",
+     "defaultAccountState",
+     "metadataPointer",
+     "pausableConfig",
+     "permanentDelegate",
+     "scaledUiAmountConfig",
+     "tokenMetadata",
+     "transferHook"
+    ]
+   },
+   "tokenB": {
+    "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "imageUrl": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v/logo.png",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "decimals": 6,
+    "tags": []
+   }
+  }
+ ]
+}

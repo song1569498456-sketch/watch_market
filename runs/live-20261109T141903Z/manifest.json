@@ -130,6 +130,19 @@
         "N-SOL"
       ],
       "merged_at": "2026-11-09T14:32:59.069483+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "b9209173d6e592aead19672cd4bc05c384024894",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T14:33:30.126334+00:00"
+    },
+    {
+      "batch": 2,
+      "agents": [
+        "ETH01",
+        "BNB01",
+        "SOL01"
+      ],
+      "merged_at": "2026-11-09T14:40:22.395620+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -165,6 +178,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 1
+    "completed": 2
   }
 }

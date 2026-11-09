@@ -2841,6 +2841,252 @@
         "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
         "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
       ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "getWithdrawalStatus(uint256[]) 返回数据按已知 7 字段结构解码失败（结构/版本待确认）；getClaimableEther 两种 hint 均 revert → 当前可兑数量、单请求状态仍 unknown。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "queue claimWithdrawals gas、finalize 节奏/权限、Lido buffer ETH、实测到账等待均未读；容量只有 unfinalized 总量。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "rETH 无 DEX 可执行报价：Balancer/Uniswap rETH 池地址未核验、未报价；Rocket Pool 官方部署文件两路径 404，rETH 地址身份仅有链上代码+内部一致性，无官方部署表对照。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Curve API 只取第一页 49 池，未含 wstETH/rETH 池；wstETH/WETH 直卖池 token0/token1 未独立核验（报价由 QuoterV2 按对计算）。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则变更（2026-10-10～2026-11-09）与 7 天活动窗口未覆盖；未读治理/公告/链上投票。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "ETH01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮报价均为 view/模拟输出，无成交；stETH 无协议即时 ETH 出口，未把它与队列混为同一出口。",
+      "next_check": [
+        "读 WithdrawalQueueBase.sol 确认结构字段并重取 getWithdrawalStatus/getClaimableEther，实测 claim gas 与单笔到账等待；据此决定 stETH/wstETH finding 升级或降级。",
+        "取得 Rocket Pool 官方部署清单（换路径或 GitHub 目录）与 rETH 的 Balancer/Uniswap DEX 同块报价，和 1.17543595 ETH/rETH 协议即时值比较；读 RocketDepositPool excess 定即时容量。",
+        "取 Curve API 后续分页核验 wstETH/ETH、rETH/ETH 池；补 30 天规则/7 天活动窗口。",
+        "Q00 复核：stETH 排队 vs 即卖毛差 +0.0287%/100 stETH、买入→排队 +0.0075%/100 ETH、wstETH +0.0285%/100 wstETH；等待/汇率/claim gas 均为 unknown。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求约 117 次（探针A 24 + B 24 + C 7 + 地址重取 6 + D 31 + E 17 + F 8；含 3 次 raw.githubusercontent.com SSL 重试），超出任务 ≤80 次上限；原因是上轮 only-docs 结论需要从仓库部署脚本定位 PSM 并补链上字段。后续轮次必须压缩。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做 PSM buy()/sell() 的完整只读模拟（需要 lisUSD/USDT 余额与授权假设，且 bsc-dataseed 未验证 stateOverride 支持）；当前费用/限额由源码公式+链上参数推导，非成交或模拟价。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未测 PSM 大额赎回（接近 500,000 USDT/日）时 VaultManager 逐适配器从 Venus 提取的真实到账与滑点；vUSDT getCash 虽≈26.27M USDT，但合约级总赎回上限 759,188.56，实际单笔上限与循环提取行为未验证。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "深池 0x8b94363f…（fee=100、聚合器 liq≈27.9M）无对应 DEX quoter，未取得可执行报价，无法确认聚合器 0.9979 是否真实；该池的 DEX/工厂身份未核验。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口未遍历：只核当前 PSM/VaultManager 源码与链上参数，未查 buyFee/sellFee/限额/暂停在 2026-10-10 至 2026-11-09 的变更历史（无索引器，仅 event 主题可分段查但未做）。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动未覆盖：未查 PSM BuyToken/SellToken 事件与 DEX 交易，无法判断折价是否曾覆盖 2% 赎回费。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "LisUSDPoolSet 的 withdrawDelay=5 单位（块/天）与产品赎回规则未确认；EarnPool 状态未读。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "BNB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未检查 lisUSD 自身转账税/黑名单/暂停开关（BEP-20 合约权限）；若存在会进一步降低可执行性。",
+      "next_check": [
+        "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+        "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+        "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+        "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+        "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Orca 腿为单 tick + 当前 liquidity 的恒定流动性公式，未读 tick arrays 校验当前区间边界；跨 tick 时实际输出会偏离（近似误差未量化；距 29bps 费率线有 18–20bps 余量）。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做原子两腿模拟：本轮只做只读池数学，两笔交易之间的价格移动、失败与 MEV 风险未测。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "优先费、wSOL/USDC ATA 创建租金、wrap/unwrap 成本未实测（只计 3 笔基础费 15,000 lamports，租金约 0.00204 SOL/个且可退未计入）。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "mint freeze authority 未读取（两 mint 是否可冻结 unknown）。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅 2 个场馆、1 个资产对、2 个快照（窗口约 64 秒），无 7 天价差分布，不能给出价差越过 29bps 的频率。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未接第 3 个场馆（Raydium CLMM 3ucNos4... 或 Meteora），未做 >25 SOL 容量曲线；30 天规则窗口（Raydium AMM v4 2026-09-10、Orca 2026-10-15 升级）未比对。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
+    },
+    {
+      "agent_id": "SOL01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Raydium AMM v4 池 state=2 与 poolOpenTime=0 的语义未查官方文档确认（当前按 status=6 SwapOnly 视为可交易）。",
+      "next_check": [
+        "重取两池同 slot 状态，监控价差是否越过 29bps 往返费率；若越过，按本轮方法对 0.1/1/10/25 SOL 双向算净额并记录持续时长。",
+        "读 Orca tick arrays（getProgramAccounts memcmp filter 或 PDA 推导）验证单 tick 假设；同时确认 Raydium AMM v4 state=2/poolOpenTime=0 语义。",
+        "加第三场馆（Raydium CLMM 3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv 或 Meteora）做三方轮转；三腿路线只交 M00。",
+        "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
+        "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
+      ]
     }
   ],
   "status": "OPEN",

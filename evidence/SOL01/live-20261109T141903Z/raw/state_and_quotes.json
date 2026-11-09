@@ -1,0 +1,233 @@
+{
+ "started_at_utc": "2026-11-09T14:36:23.699974+00:00",
+ "layout_url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts",
+ "amm_state_read": {
+  "slot": 467353393,
+  "bytes": 752,
+  "owner": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
+ },
+ "mint_offsets": {
+  "wsol": [
+   400
+  ],
+  "usdc": [
+   432
+  ]
+ },
+ "derived_vaults": {
+  "base_vault": "DQyrAcCrDXQ7NeoqGgDCZwBvWDcYmFCjSb9JtteuvPpz",
+  "quote_vault": "HLmqeL62xR1QoZ1HKKbXRrdN1p3phKpxRMb2VVopvBBz"
+ },
+ "fee_candidate": {
+  "offset": 144,
+  "swapFeeNumerator": 25,
+  "swapFeeDenominator": 10000
+ },
+ "amm_raw": {
+  "status_u64_at_0": 6,
+  "state_u64_at_48": 2,
+  "poolOpenTime_candidates": []
+ },
+ "same_slot_read": {
+  "slot": 467353399,
+  "accounts": [
+   "DQyrAcCrDXQ7NeoqGgDCZwBvWDcYmFCjSb9JtteuvPpz",
+   "HLmqeL62xR1QoZ1HKKbXRrdN1p3phKpxRMb2VVopvBBz",
+   "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+   "So11111111111111111111111111111111111111112",
+   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  ],
+  "at_utc": "2026-11-09T14:36:26.701602+00:00"
+ },
+ "vaults": {
+  "base": {
+   "mint": "So11111111111111111111111111111111111111112",
+   "amount": 99950642991723,
+   "bytes": 165
+  },
+  "quote": {
+   "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "amount": 8710588667495,
+   "bytes": 165
+  }
+ },
+ "mints": {
+  "WSOL": {
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "decimals": 9
+  },
+  "USDC": {
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "decimals": 6
+  }
+ },
+ "orca_state": {
+  "tick_spacing": 4,
+  "fee_rate": 400,
+  "protocol_fee_rate": 1300,
+  "liquidity": 461202483112377,
+  "sqrt_price": "5444239474715267025",
+  "tick_current": -24408,
+  "mint_a": "So11111111111111111111111111111111111111112",
+  "vault_a": "EUuUbDcafPrmVTD5M6qoJAoyyNbihBhugADAxRMn5he9",
+  "mint_b": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "vault_b": "2WLWEuKDgkDUccTpbwYp1GToYktiSB1cXvreHUwiSUVP"
+ },
+ "orca_owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+ "identity_check": {
+  "vault_mints_match": true,
+  "orca_owner_ok": true,
+  "orca_mints_ok": true,
+  "token_programs": {
+   "WSOL": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "USDC": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  },
+  "both_token_programs_equal": true
+ },
+ "slot_blocktime_utc": "2026-11-09T14:36:26+00:00",
+ "fees": {
+  "orca_fee_ppm": 400,
+  "amm_v4_fee_num_den": [
+   25,
+   10000
+  ]
+ },
+ "quote_table": [
+  {
+   "amount_in_sol": "0.1",
+   "d1_orca_then_amm": {
+    "orca_out_usdc_raw": 8706853,
+    "orca_out_usdc": "8.706853",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "amm_out_lamports": 99657898,
+    "amm_out_sol": "0.099657898",
+    "gross_net_sol": "-0.000342102",
+    "net_after_tx_fee_sol": "-0.000357102"
+   },
+   "d2_amm_then_orca": {
+    "amm_out_usdc_raw": 8693094,
+    "amm_out_usdc": "8.693094",
+    "orca_out_lamports": 99762095,
+    "orca_out_sol": "0.099762095",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "gross_net_sol": "-0.000237905",
+    "net_after_tx_fee_sol": "-0.000252905"
+   }
+  },
+  {
+   "amount_in_sol": "1",
+   "d1_orca_then_amm": {
+    "orca_out_usdc_raw": 87068480,
+    "orca_out_usdc": "87.06848",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "amm_out_lamports": 996569564,
+    "amm_out_sol": "0.996569564",
+    "gross_net_sol": "-0.003430436",
+    "net_after_tx_fee_sol": "-0.003445436"
+   },
+   "d2_amm_then_orca": {
+    "amm_out_usdc_raw": 86930160,
+    "amm_out_usdc": "86.93016",
+    "orca_out_lamports": 997611505,
+    "orca_out_sol": "0.997611505",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "gross_net_sol": "-0.002388495",
+    "net_after_tx_fee_sol": "-0.002403495"
+   }
+  },
+  {
+   "amount_in_sol": "10",
+   "d1_orca_then_amm": {
+    "orca_out_usdc_raw": 870679791,
+    "orca_out_usdc": "870.679791",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "amm_out_lamports": 9964744208,
+    "amm_out_sol": "9.964744208",
+    "gross_net_sol": "-0.035255792",
+    "net_after_tx_fee_sol": "-0.035270792"
+   },
+   "d2_amm_then_orca": {
+    "amm_out_usdc_raw": 869223537,
+    "amm_out_usdc": "869.223537",
+    "orca_out_lamports": 9975161994,
+    "orca_out_sol": "9.975161994",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "gross_net_sol": "-0.024838006",
+    "net_after_tx_fee_sol": "-0.024853006"
+   }
+  },
+  {
+   "amount_in_sol": "25",
+   "d1_orca_then_amm": {
+    "orca_out_usdc_raw": 2176678594,
+    "orca_out_usdc": "2176.678594",
+    "orca_new_tick": -24409,
+    "orca_crossed_tick_range": false,
+    "amm_out_lamports": 24907896731,
+    "amm_out_sol": "24.907896731",
+    "gross_net_sol": "-0.092103269",
+    "net_after_tx_fee_sol": "-0.092118269"
+   },
+   "d2_amm_then_orca": {
+    "amm_out_usdc_raw": 2172733619,
+    "amm_out_usdc": "2172.733619",
+    "orca_out_lamports": 24933934067,
+    "orca_out_sol": "24.933934067",
+    "orca_new_tick": -24408,
+    "orca_crossed_tick_range": false,
+    "gross_net_sol": "-0.066065933",
+    "net_after_tx_fee_sol": "-0.066080933"
+   }
+  }
+ ],
+ "spot_prices": {
+  "raydium_amm_v4_usdc_per_sol": "87.148901",
+  "orca_whirlpool_usdc_per_sol": "87.103377",
+  "spread_bps_orca_minus_raydium": "-5.22"
+ },
+ "finished_at_utc": "2026-11-09T14:36:27.287245+00:00",
+ "requests": [
+  {
+   "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts",
+   "name": "raydium_amm_layout",
+   "http_status": 200,
+   "at": "2026-11-09T14:36:24.748876+00:00",
+   "bytes": 3812,
+   "sha256": "cc7013da4a0288d84e0be2f8e232852b0808059b5aebd642744ae879c76bdfa0",
+   "elapsed_s": 1.049
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getAccountInfo",
+   "name": "amm_pool_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:36:25.510834+00:00",
+   "sha256": "2dbe6222f26c217d9053c609e8cfe564002bc70a8e531f8eac7252616482a0f3",
+   "elapsed_s": 0.762
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getMultipleAccounts",
+   "name": "same_slot_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:36:26.701550+00:00",
+   "sha256": "a609b68827fcc3360beac3d1006671151b8e6e09a98e4126c0f83bcd1ac271f3",
+   "elapsed_s": 0.189
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "method": "getBlockTime",
+   "name": "blocktime",
+   "http_status": 200,
+   "at": "2026-11-09T14:36:27.281986+00:00",
+   "sha256": "3e7f046b3f55d18c1be196ddf77c77b6fad6a66da32cf59bc07c515582a2c617",
+   "elapsed_s": 0.18
+  }
+ ]
+}

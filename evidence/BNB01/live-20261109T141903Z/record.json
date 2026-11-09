@@ -1,0 +1,294 @@
+{
+  "agent_id": "BNB01",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 稳定币折价买入与真实赎回：Lista lisUSD PSM（buy/sell）、lisUSD DEX 池、Pancake V3 报价与容量；核验公共赎回是否存在及费用/限额/权限",
+  "started_at": "2026-11-09T14:32:07.859231+00:00",
+  "finished_at": "2026-11-09T14:37:44.001262+00:00",
+  "duration_seconds": 336.14,
+  "execution_status": "PARTIAL",
+  "status": "RULE_GAP",
+  "as_of": {
+    "utc": "2026-11-09T14:37:44+00:00",
+    "beijing": "2026-11-09T22:37:44+08:00",
+    "data_time": "PSM/VaultManager 状态块 132601543-132601650（2026-11-09T14:35:55Z-14:36:42Z）；DEX 报价块 132601210（14:33:25Z）"
+  },
+  "block_or_slot": 132601650,
+  "market_ids": [
+    "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+    "BNB:56:Lista:VaultManager:0x5763ddeb60c82684f3d0098aea5076c0da972ec7",
+    "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+    "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15"
+  ],
+  "asset_ids": [
+    "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+    "BNB:56:0x55d398326f99059ff775485246999027b3197955",
+    "BNB:56:0xfd5840cd36d94d7229439859c0112a4185bc0255"
+  ],
+  "discovery_source": [
+    {
+      "source": "Lista 官方合约仓库 lista-dao/lista-dao-contracts：contracts/psm/PSM.sol（公开 sell/buy 逻辑、费用/限额/暂停）",
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+      "retrieved_at_utc": "2026-11-09T14:35:48Z",
+      "http_status": 200,
+      "sha256": "e4629bb04e9e54b667c8018e7319506f9709fece12670fc3238d2976de9b4e7d"
+    },
+    {
+      "source": "部署地址来源：scripts/prod/psm/transfer_role.js（psmAddress=0xaa57…、vaultManager、venusAdapter、lisUSDPoolSet、earnPool）与 scripts/prod/psm/deploy_psm.js（初始化参数 sellFee=0、buyFee=200、dailyLimit=500000e18、minSell/minBuy=1e18）",
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/transfer_role.js",
+      "retrieved_at_utc": "2026-11-09T14:36:20Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "transfer_role.js 响应未单独落 sha256；同批 deploy_psm.js sha256=36b5dcd53f89a7f423c59b80f7c4e84a8721f76bf730d4eac1a0a7529cd13f22，deploy_lisUSDPoolSet.js sha256=c3bb06001692e96f2c63033fa0d88bf75f238594228fafdd4a6e5baebb5ee2ed"
+    },
+    {
+      "source": "Lista 官方合约仓库：contracts/psm/VaultManager.sol / VenusAdapter.sol / LisUSDPoolSet.sol（赎回资金路径与规则）",
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/VaultManager.sol",
+      "retrieved_at_utc": "2026-11-09T14:36:40Z",
+      "http_status": 200,
+      "sha256": "97f85e4e08fe01c980967f95f6524d45ee3c965f19dc8952614dcacf503bbfa2（VaultManager.sol）；VenusAdapter.sol=f601fcbb8a681c39ce3b29ecfcd17dc527793e9c00cf70622d5394fb8dfd1aa8；LisUSDPoolSet.sol=b6c7c22366eea49612a90bd81115b89c871ae7ed6478f2a6716941d1a391fc18"
+    },
+    {
+      "source": "Lista 合约仓库地址表与部署清单（用于交叉确认地址来源，不含 PSM 地址）",
+      "url": "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/addresses/bsc.json 与 .../scripts/deploy/contract_address.json",
+      "retrieved_at_utc": "2026-11-09T14:36:18Z",
+      "http_status": 200,
+      "sha256": "addresses/bsc.json=78e0ddd62f60f897ef8f32ae8dc078306c387fd85ac3d771328c1db63d3b8e5a；contract_address.json=e38e5327c2a54a868fc9bd00a2d07de4e6a9f467a6e63b5d0f492f36f0ab0567",
+      "note": "两份地址表都不含 PSM，PSM 地址仅出现在 prod psm 部署/权限脚本中"
+    },
+    {
+      "source": "Lista Gitbook 目录树（确认文档没有公开 PSM/赎回说明页；上轮仅文档结论的局限）",
+      "url": "https://api.github.com/repos/lista-dao/gitbook/git/trees/main?recursive=1",
+      "retrieved_at_utc": "2026-11-09T14:32:20Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Dexscreener lisUSD 交易对列表（发现入口，非独立验证）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "retrieved_at_utc": "2026-11-09T14:32:18Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "BSC 公共只读 RPC（eth_chainId/eth_blockNumber/eth_getCode/eth_getStorageAt/eth_call），bsc-dataseed.bnbchain.org",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "retrieved_at_utc": "2026-11-09T14:32:08Z-2026-11-09T14:37:40Z",
+      "request": "POST JSON-RPC 总计约 100 次（含探针A/B/D/E/F；本岗位外部请求合计约 117 次，超出 ≤80 建议上限，见 coverage_gaps）",
+      "http_status": 200
+    }
+  ],
+  "mechanism": "Lista 部署了公共 PSM（Peg Stability Module）：sell(uint256) 收 USDT 铸出 lisUSD（sellFee=0，1:1，受 PSM lisUSD 库存 getTotalSellLimit 限制）；buy(uint256) 收 lisUSD 并支付 USDT（buyFee=2%，受每日 500,000 USDT 与总限额 getTotalBuyLimit=VaultManager 净存款 759,188.56 USDT 限制），赎回资金在 VaultManager→VenusAdapter→Venus vUSDT。因此 lisUSD 存在公共赎回出口，但赎回方向成本 2%，远大于本轮观测的 DEX 折价（0.1%–0.3%）与 1000 USDT 实际报价（成本约 1.0004）。上一轮“无公开赎回模块”的文档级推断需要更正为“存在公共赎回，但 2% 费用使其不构成折价买入套利”。",
+  "observations": [
+    "链身份：eth_chainId=0x38（56）；状态读取 head=132601650（2026-11-09T14:36:42Z），DEX 报价块 132601210（14:33:25Z）。",
+    "PSM 地址 0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c 存在于链上（proxy 代码 170 bytes，sha256=ec9c737dafc40dfe31c9d46ac0f6cb1f40180d31428a9a4e96453b036170fc2a，impl=0xf51c1d20c112aeb47a756ebfcd4789cf911abb7f），且已初始化、未暂停（paused=false）。",
+    "PSM 链上参数（块 132601543）：sellFee=0，buyFee=200（FEE_PRECISION=10000，即 2%）；dailyLimit=500000e18；minSell=minBuy=1e18；feeReceiver=0x34B504A5CF0fF41F8A480580533b6Dda687fa3Da；token=USDT；lisUSD=0x0782…；vaultManager=0x5763DDeB…。",
+    "PSM 源码权限：sell(uint256)/buy(uint256) 仅 whenNotPaused，无白名单/资格检查；pause() 为 onlyRole(PAUSER)、unpause() 为 onlyRole(MANAGER)、_authorizeUpgrade 为 DEFAULT_ADMIN_ROLE；源码中无 whitelist/allowlist/KYC 字样。",
+    "PSM 方向语义（源码确认）：sell(amount)=用户付出 amount USDT、收到 amount-fee 的 lisUSD（sellFee=0 → 1:1 铸币方向）；buy(amount)=用户付出 amount lisUSD、收到 amount-fee 的 USDT（buyFee=2% → 赎回方向成本 2%）。注意不要按名字误读。",
+    "PSM 当前库存/容量：PSM 持有 lisUSD 7,966,113.504348073214667959（getTotalSellLimit 原始 7966093444336920704143720，即 ≈7,966,093.4433692070414372，已扣 fees=20.060011152510524239）；PSM 闲置 USDT=0（USDT 已存入 VaultManager）。",
+    "赎回容量（buy 方向）：getTotalBuyLimit=759,188.555663079531236178 USDT，等于 VaultManager.getTotalNetDepositAmount=759,188.555663079531236178；每日上限 500,000 USDT，当前 getDayBuyLeft=500,000（day=20766），即单日最多约 50 万 USDT 赎回。",
+    "VaultManager token=USDT、psm=0xaa57…；VenusAdapter token=USDT、vToken=0xfD5840Cd36d94D7229439859C0112a4185BC0255（Venus vUSDT）；VenusAdapter 持有 vUSDT 约 2.85e15（8 位小数，≈28,516,474 vUSDT）；vUSDT getCash≈26,267,714.92 USDT（原始 26267714922431007823747133/1e18），Venus 池有可提取 USDT，但 VaultManager 合约级赎回上限仍是 759,188.56。",
+    "DEX 真实报价（块 132601210，14:33:25Z，Pancake V3 lisUSD/USDT fee=500 池 0x12E79eb21dCc5852F9c6AC1736d977312925da33，token0=lisUSD/token1=USDT）：1000 USDT→999.605960148890363321 lisUSD（隐含成本 1.000394 USDT/lisUSD，含 0.05% 费+冲击，无折价）；反向 1000 lisUSD→640.921390120866692077 USDT（USDT 侧浅，冲击巨大）。",
+    "聚合器（仅发现入口）：lisUSD 有 10 个交易对；深池 0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15（V3 形态 fee=100，token0=lisUSD/token1=USDT，pairCreatedAt≈2026-09-18，聚合器 liquidityUsd≈27.93M、priceUsd≈0.9979）为lisUSD 主要流动性场所；Pancake V3 USDT 池 priceUsd≈0.9982、WBNB 池 0.9981，小池 0.9927。深池无对应 quoter，priceUsd 不能当可执行报价。",
+    "即使采用聚合器最优价 0.9979 买入、再走 PSM 赎回（2% 费），净结果约 -1.8%（1000 单位约 -17.9 USDT），仍为负；用本轮可核验 Pancake V3 报价则约 -2.04%（-20.39 USDT），gas 未计。",
+    "LisUSDPoolSet（0x37DB1AE9B24055D1F9fE973Aea40B7EB2995D0Bf，proxy）存在：maxAmount=25,000,000，withdrawDelay=5（单位未确认），totalAssets≈17,482,818.75，totalSupply≈15,978,740.67，getRate≈1.09413；属带延迟的独立产品，不是 1:1 即时赎回出口。",
+    "上一轮 REJECTED 的证据基础是“文档没有公众赎回”而非“链上没有模块”；本轮发现 PSM 后必须更正为“公共 PSM 存在但赎回费 2%”。这属于证据纠正，不重复造新机会。"
+  ],
+  "quotes": [
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+      "amount_in": "1000 USDT (1e21)",
+      "amount_out": "999.605960148890363321 lisUSD",
+      "fees": "pool fee=500（0.05%）已由 QuoterV2 计入；gas 未计入",
+      "block": 132601210,
+      "quote_time_utc": "2026-11-09T14:33:25Z",
+      "note": "QuoterV2 quoteExactInputSingle USDT→lisUSD；gasEstimate=404900；隐含 1 lisUSD 成本 1.000394 USDT，1000 单位下无折价"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+      "amount_in": "1000 lisUSD (1e21)",
+      "amount_out": "640.921390120866692077 USDT",
+      "fees": "pool fee=500 已计入；gas 未计入",
+      "block": 132601210,
+      "quote_time_utc": "2026-11-09T14:33:25Z",
+      "note": "反向引号；USDT 侧库存浅，1000 单位价格冲击约 35.9%，证明该池不是可扩展退出渠道"
+    },
+    {
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "amount_in": "1000 USDT",
+      "amount_out": "1000 lisUSD",
+      "fees": "sellFee=0（链上读数，FEE_PRECISION=10000）",
+      "block": 132601543,
+      "quote_time_utc": "2026-11-09T14:35:55Z",
+      "note": "非 view 报价，按源码 sell() 公式与链上 sellFee 计算；受 getTotalSellLimit≈7.97M lisUSD 约束；minSell=1e18"
+    },
+    {
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "amount_in": "1000 lisUSD",
+      "amount_out": "980 USDT",
+      "fees": "buyFee=200（2%，链上读数）",
+      "block": 132601543,
+      "quote_time_utc": "2026-11-09T14:35:55Z",
+      "note": "非 view 报价，按源码 buy() 公式与链上 buyFee 计算；每日上限 500,000 USDT、总上限 759,188.555663 USDT（=VaultManager 净存款）；赎回资金来自 Venus vUSDT"
+    }
+  ],
+  "net_result": {
+    "value": "-20.386",
+    "unit": "USDT",
+    "type": "estimated_from_onchain_quote_and_fee_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "实际 gas/优先费（两笔交易：DEX 兑换 + PSM buy）",
+      "大额 PSM 赎回时 VaultManager 从 Venus 提取的流动性与实际到账时间",
+      "PSM 每日/总限额对指定数量的实际执行顺序与滑点",
+      "深池（fee=100）无 quoter，无法取得可执行买入价"
+    ],
+    "note": "1000 USDT 经 Pancake V3 fee=500 买入 999.605960 lisUSD，再按 PSM buyFee=2% 赎回得 979.613841 USDT，毛差 -20.386 USDT（gas 未计）；改用聚合器最优价 0.9979 仍约 -1.8%。"
+  },
+  "capacity": "赎回（lisUSD→USDT）单日上限 500,000 USDT（getDayBuyLeft=500,000，day=20766），总限额 759,188.555663 USDT（=VaultManager 净存款）；铸币（USDT→lisUSD）受 PSM lisUSD 库存限制，getTotalSellLimit≈7,966,093.44；Pancake V3 fee500 池 1000 lisUSD 卖出仅得 640.92 USDT（浅池）。",
+  "permissions": "PSM sell/buy 为公开函数（无白名单/资格限制，仅 whenNotPaused）；pause 由 PAUSER 角色、unpause 由 MANAGER 角色、升级由 DEFAULT_ADMIN_ROLE 控制；当前 paused=false。",
+  "liabilities": "unknown；本轮纯只读，无仓位、无借款、无授权。",
+  "waiting_time": "PSM buy 在同一交易内由 VaultManager.withdraw 从 VenusAdapter 提取并转给用户（源码无延迟字段），但大额时实际 Venus 流动性与 tx 内循环提取未测；LisUSDPoolSet 另有 withdrawDelay=5（单位未确认），属不同产品。",
+  "invalidation_conditions": [
+    "PSM 被 pause 或 buy/sell 权限/费率被治理修改（buyFee 下调至 <市场折价时可重开研究）",
+    "getTotalBuyLimit/每日限额提高且 VaultManager/Venus 流动性充足",
+    "DEX 折价扩大到可覆盖 2% 赎回费 + gas",
+    "发现 DEX 报价实际低于 0.98（PSM 赎回价），或出现其他 1:1 公共赎回出口",
+    "深池 quoter 与可执行价格被证明与聚合器 0.9979 一致"
+  ],
+  "evidence_urls": [
+    "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+    "https://bscscan.com/address/0x5763DDeB60c82684F3D0098aEa5076C0Da972ec7",
+    "https://bscscan.com/address/0xf76D9cFD08dF91491680313B1A5b44307129CDa9",
+    "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33",
+    "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15",
+    "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+    "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/transfer_role.js",
+    "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js"
+  ],
+  "coverage_gaps": [
+    "本轮外部请求约 117 次（探针A 24 + B 24 + C 7 + 地址重取 6 + D 31 + E 17 + F 8；含 3 次 raw.githubusercontent.com SSL 重试），超出任务 ≤80 次上限；原因是上轮 only-docs 结论需要从仓库部署脚本定位 PSM 并补链上字段。后续轮次必须压缩。",
+    "未做 PSM buy()/sell() 的完整只读模拟（需要 lisUSD/USDT 余额与授权假设，且 bsc-dataseed 未验证 stateOverride 支持）；当前费用/限额由源码公式+链上参数推导，非成交或模拟价。",
+    "未测 PSM 大额赎回（接近 500,000 USDT/日）时 VaultManager 逐适配器从 Venus 提取的真实到账与滑点；vUSDT getCash 虽≈26.27M USDT，但合约级总赎回上限 759,188.56，实际单笔上限与循环提取行为未验证。",
+    "深池 0x8b94363f…（fee=100、聚合器 liq≈27.9M）无对应 DEX quoter，未取得可执行报价，无法确认聚合器 0.9979 是否真实；该池的 DEX/工厂身份未核验。",
+    "30 天规则窗口未遍历：只核当前 PSM/VaultManager 源码与链上参数，未查 buyFee/sellFee/限额/暂停在 2026-10-10 至 2026-11-09 的变更历史（无索引器，仅 event 主题可分段查但未做）。",
+    "7 天活动未覆盖：未查 PSM BuyToken/SellToken 事件与 DEX 交易，无法判断折价是否曾覆盖 2% 赎回费。",
+    "LisUSDPoolSet 的 withdrawDelay=5 单位（块/天）与产品赎回规则未确认；EarnPool 状态未读。",
+    "未检查 lisUSD 自身转账税/黑名单/暂停开关（BEP-20 合约权限）；若存在会进一步降低可执行性。"
+  ],
+  "next_check": [
+    "对 PSM buy()/sell() 做只读模拟或读取最近 7 天 BuyToken/SellToken 事件，确认实际结算数量、费用与到账；并确认 PSM 在 24h 内是否有大额赎回被拒/暂停记录。",
+    "核验深池 0x8b94363f… 的 DEX/工厂身份（读 factory/pool 事件或对比字节码），找到其 quoter 并对 10/100/1000 USDT 取可执行买入报价；若真实价≤0.98-γ 则重开折价套利研究。",
+    "监控 PSM buyFee/sellFee/dailyLimit/getTotalBuyLimit 的变化（治理事件）与 paused 状态：buyFee 降到 <1% 或折价扩大时才可能形成正差。",
+    "核验 lisUSD token 的转账限制/税/黑名单与 PSM 的 role 成员，排除资格与转账层面的隐藏成本。",
+    "补 30 天规则变更：按 BuyToken/SellToken/SetBuyFee/SetSellFee/SetDailyLimit 事件主题分段扫描（遵守 RPC 分页限制）。"
+  ],
+  "handoff_to": ["M00", "R-BNB", "BNB05", "Q00"],
+  "markets": [
+    {
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "chain": "BNB",
+      "protocol": "Lista PSM (lisUSD/USDT)",
+      "asset_ids": ["BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5", "BNB:56:0x55d398326f99059ff775485246999027b3197955"],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ACTIVE",
+      "next_check": "模拟/事件核验 buy/sell 实际结算；监控费率/限额/暂停变化"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": ["BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5", "BNB:56:0x55d398326f99059ff775485246999027b3197955"],
+      "evidence_urls": ["https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"],
+      "identity_status": "CHAIN_VERIFIED_ACTIVE",
+      "next_check": "容量太小，仅作报价对照；1000 lisUSD 反向冲击约 36%"
+    },
+    {
+      "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+      "chain": "BNB",
+      "protocol": "V3 形态 DEX（身份未核验）",
+      "asset_ids": ["BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5", "BNB:56:0x55d398326f99059ff775485246999027b3197955"],
+      "evidence_urls": ["https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"],
+      "identity_status": "TOKEN_PAIR_AND_SLOT0_CHAIN_READ_FACTORY_AND_QUOTER_UNKNOWN",
+      "next_check": "核验 DEX/工厂身份并找 quoter；对 10/100/1000 USDT 取可执行报价"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
+      "status": "RULE_GAP",
+      "chain": "BNB",
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "first_seen_at": "2026-11-08T15:27:48.512703+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "evidence_revision": "2026-11-09 更正：上轮仅文档级“无公众赎回”，本轮链上找到公共 PSM（0xaa57…）；原假设“买入折价 lisUSD 按 1 美元赎回获利”仍 REJECTED，但理由是赎回费 2% 而非“无出口”。",
+      "mechanism": "Lista PSM 公开 sell（USDT→lisUSD，1:1，sellFee=0）与 buy（lisUSD→USDT，buyFee=2%，每日上限 500,000 USDT、总限额 759,188.56 USDT）。赎回费 2% 大于本轮观测的 DEX 折价（0.1%-0.3%）与 1000 USDT 实际报价成本（1.000394），因此“折价买入→按 1 美元赎回”当前无正收益路径；只有 buyFee 下调或折价扩大超过 2%+gas 时才有研究价值。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/scripts/prod/psm/deploy_psm.js",
+        "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
+      ],
+      "net_result": "-20.386 USDT / 1000 单位（估算，未成交；gas 未计）",
+      "unknown_costs": ["gas/优先费", "PSM 大额赎回实际 Venus 流动性/到账", "深池可执行价"],
+      "handoff_to": ["M00", "R-BNB", "Q00"],
+      "invalidation_conditions": ["buyFee 下调至低于市场折价+成本", "PSM 暂停/限额改变", "出现其他 1:1 公共赎回出口"]
+    },
+    {
+      "finding_id": "BNB-LISUSD-DEEP-V3-STABLE-POOL",
+      "status": "UNVERIFIED",
+      "chain": "BNB",
+      "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+      "first_seen_at": "2026-11-09T14:32:18+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "聚合器显示 lisUSD 最大流动性场所为 V3 形态池 0x8b94363f…（token0=lisUSD/token1=USDT、fee=100、聚合器 liq≈27.93M USD、priceUsd≈0.9979、pairCreatedAt≈2026-09-18）；链上已确认 token0/token1/fee/slot0 可读，但 DEX/工厂身份与 quoter 未核验，不能把聚合器价当可执行价。它是 lisUSD 折价交易的最可能真实场所，也是与 2% 赎回费比较的关键输入。",
+      "evidence_urls": ["https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"],
+      "net_result": null,
+      "unknown_costs": ["可执行报价/滑点", "DEX 身份与信任", "容量"],
+      "handoff_to": ["M00", "BNB04", "BNB05", "Q00"],
+      "invalidation_conditions": ["聚合器价与可执行报价不符", "池流动性抽走或暂停"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "买入折价 lisUSD 后按 1 美元赎回可获利（上轮 REJECTED 的更新版）",
+      "reason": "公共 PSM 存在且未暂停，但赎回方向 buy(uint256) 的链上 buyFee=200（2%），实际兑付 0.98 USDT/lisUSD；本轮 DEX 报价 1000 USDT 买入 999.606 lisUSD（成本 1.000394），聚合器最优价仅 0.9979，均无法覆盖 2% 费用，净结果为负。",
+      "evidence": "PSM 0xaa57… buyFee=200、sellFee=0、paused=false（块 132601543）；Pancake V3 QuoterV2 报价（块 132601210）"
+    },
+    {
+      "claim": "PSM sell(uint256) 是赎回方向、可把 lisUSD 换成 USDT",
+      "reason": "源码方向相反：sell=用户付 USDT 得 lisUSD（sellFee=0）；buy=用户付 lisUSD 得 USDT（buyFee=2%）。按名字推断方向会得到错误结论。",
+      "evidence": "PSM.sol sell/buy 函数体；链上 sellFee=0、buyFee=200"
+    },
+    {
+      "claim": "Pancake V3 lisUSD/USDT fee=500 池可作为 1000 单位退出渠道",
+      "reason": "反向报价 1000 lisUSD 仅得 640.92 USDT（价格冲击约 35.9%），该池深度不足以支持该数量。",
+      "evidence": "QuoterV2 quoteExactInputSingle lisUSD→USDT，块 132601210"
+    },
+    {
+      "claim": "Dexscreener 显示 lisUSD priceUsd 0.9979 即可直接作为买入价/套利依据",
+      "reason": "聚合器为发现入口；深池无对应 quoter、未取得可执行报价，展示价与链上可执行价口径可能不同（本轮 Pancake V3 实际报价成本 1.000394，与展示折价相反）。",
+      "evidence": "Dexscreener lisUSD pairs（14:32:18Z）+ QuoterV2 报价（14:33:25Z）"
+    },
+    {
+      "claim": "LisUSDPoolSet 可作为 lisUSD 的即时 1:1 赎回出口",
+      "reason": "该合约是带 withdrawDelay=5（单位未确认）与 maxAmount=25,000,000 的独立池产品，不是 PSM 式 1:1 即时兑换；未发现其公开 1:1 赎回函数。",
+      "evidence": "LisUSDPoolSet 源码与链上 getRate/maxAmount/withdrawDelay 读取"
+    },
+    {
+      "claim": "BSC v1.8.2/Jenner 信息与本岗位混用",
+      "reason": "本岗位只做稳定币赎回；链级发布信息由 N-BNB/其他岗位维护，不在本报告重复。",
+      "evidence": "本报告 scope"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-09T14:37:44Z",
+    "complete_block_range": "132601210（DEX 报价）与 132601543-132601650（PSM/VaultManager/Venus 状态读取）",
+    "complete_event_time_window": "2026-11-09T14:33:25Z-2026-11-09T14:36:42Z"
+  }
+}

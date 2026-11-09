@@ -1,0 +1,29 @@
+{
+  "finding_id": "ETH-LIDO-WSTETH-QUEUE-VS-DEX-EXIT",
+  "status": "QUOTED",
+  "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+  "mechanism": "wstETH 三出口：Uniswap V3 0.01% 直卖 100 wstETH→124.846612633 ETH；unwrap→Curve 两段→124.846188886 ETH；requestWithdrawalsWstETH 排队按 1.2488220599 stETH/wstETH 平价≈124.882205988 ETH。排队比直卖毛差 +0.035593 ETH（+0.0285%），等待/汇率/claim gas unknown。",
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+  ],
+  "net_result": "排队 vs 直卖估算差 +0.035593 ETH/100 wstETH（+0.0285%），未实现",
+  "unknown_costs": [
+    "queue request/claim gas",
+    "等待机会成本",
+    "汇率漂移",
+    "wstETH 直卖池身份确认"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "队列暂停/资格变化",
+    "直卖池实际费对不符",
+    "汇率下行吞没差额"
+  ],
+  "owner": "ETH01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH01/live-20261109T141903Z/record.json"
+}

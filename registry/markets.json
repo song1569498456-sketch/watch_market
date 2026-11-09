@@ -4,21 +4,20 @@
     {
       "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
       "chain": "ETH",
-      "protocol": "Lido WithdrawalQueueERC721（OssifiableProxy）",
+      "protocol": "Lido WithdrawalQueueERC721",
       "asset_ids": [
         "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
         "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
       ],
       "evidence_urls": [
         "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
-        "https://ethereum-rpc.publicnode.com"
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
       ],
-      "identity_status": "CHAIN_VERIFIED：EIP-1967 impl 槽=0xE42C659D...，与官方部署清单一致；stETH Aragon kernel 槽与官方 kernel 一致；队列未暂停",
-      "next_check": "ETH01 量测 request/claim gas 与可领取额、finalize 节奏；确认等待时间与容量后推进结论等级",
-      "owner": "N-ETH",
+      "identity_status": "CHAIN_VERIFIED：代理代码 2497 B/keccak 0x9bc25fa4…；官方部署 chainId=1、impl 0xE42C659D…；未暂停",
+      "next_check": "claim gas/getClaimableEther/finalize 节奏与等待；容量与缓冲",
+      "owner": "ETH01",
       "last_observed_run": "live-20261109T141903Z",
-      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "ETH01": {
           "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
@@ -30,14 +29,10 @@
           ],
           "evidence_urls": [
             "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.6.12/WstETH.sol",
-            "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueue.sol"
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
           ],
-          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
-          "next_check": "取得可用Ethereum只读RPC：先chainId=1，再核对Lido代理代码/实现与官方源。",
-          "owner": "ETH01",
-          "last_observed_run": "full-20261108T152118Z",
-          "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+          "identity_status": "CHAIN_VERIFIED：代理代码 2497 B/keccak 0x9bc25fa4…；官方部署 chainId=1、impl 0xE42C659D…；未暂停",
+          "next_check": "claim gas/getClaimableEther/finalize 节奏与等待；容量与缓冲"
         },
         "ETH05": {
           "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
@@ -849,14 +844,13 @@
         "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
       ],
       "evidence_urls": [
-        "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
-        "https://ethereum-rpc.publicnode.com"
+        "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022"
       ],
-      "identity_status": "CHAIN_VERIFIED：code 15735 B/keccak 0xe2c45ce8...，coins[0]=native、coins[1]=stETH，fee=1000000/1e10，A=900；paused 字段 revert 未确认",
-      "next_check": "量化 100 ETH 以上档的容量上限与价差可持续时间；补 paused/管理权限读法",
-      "owner": "N-ETH",
+      "identity_status": "CHAIN_VERIFIED_CODE（15735 B/0xe2c45ce8…）；coins/fee 沿用上一岗位核验，本轮未重读 coins",
+      "next_check": "容量上限与价差可持续时间；paused 字段读法",
+      "owner": "ETH01",
       "last_observed_run": "live-20261109T141903Z",
-      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "N-ETH": {
           "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
@@ -872,6 +866,20 @@
           ],
           "identity_status": "CHAIN_VERIFIED：code 15735 B/keccak 0xe2c45ce8...，coins[0]=native、coins[1]=stETH，fee=1000000/1e10，A=900；paused 字段 revert 未确认",
           "next_check": "量化 100 ETH 以上档的容量上限与价差可持续时间；补 paused/管理权限读法"
+        },
+        "ETH01": {
+          "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+          "chain": "ETH",
+          "protocol": "Curve StableSwap stETH/ETH",
+          "asset_ids": [
+            "eip155:1/native:ETH",
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022"
+          ],
+          "identity_status": "CHAIN_VERIFIED_CODE（15735 B/0xe2c45ce8…）；coins/fee 沿用上一岗位核验，本轮未重读 coins",
+          "next_check": "容量上限与价差可持续时间；paused 字段读法"
         }
       },
       "current_onchain_verified": true,
@@ -1203,6 +1211,259 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER（owner=CAMMCzo...，space 1544）",
           "next_check": "与 Orca/CPMM 同 slot 报价比较（交 SOL01）；关注 CLMM 程序升级后的指令语义"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+      "asset_ids": [
+        "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+        "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e"
+      ],
+      "identity_status": "QUOTER_QUOTE_OK+CODE_PRESENT（pool 代码 22142 B）；token0/token1 未独立核验",
+      "next_check": "读 token0/token1/slot0 独立核验池身份；容量与冲击",
+      "owner": "ETH01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH01": {
+          "market_id": "ETH:UNISWAP_V3:WSTETH_WETH:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+          "asset_ids": [
+            "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+            "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+            "https://etherscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e"
+          ],
+          "identity_status": "QUOTER_QUOTE_OK+CODE_PRESENT（pool 代码 22142 B）；token0/token1 未独立核验",
+          "next_check": "读 token0/token1/slot0 独立核验池身份；容量与冲击"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+      "chain": "ETH",
+      "protocol": "Rocket Pool rETH（RocketTokenRETH burn）",
+      "asset_ids": [
+        "0xae78736Cd615f374D3085123A210448E74Fc6393",
+        "eip155:1/native:ETH"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"
+      ],
+      "identity_status": "CHAIN_READ+INTERNAL_CONSISTENCY（8800 B/keccak 0xe3425531…；getTotalCollateral==ETH 余额 2087.964746）；官方部署文件 404 未取得",
+      "next_check": "官方部署清单、rETH DEX 池报价与即时容量（deposit pool excess）",
+      "owner": "ETH01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH01": {
+          "market_id": "ETH:ROCKETPOOL:RETH:0xae78736cd615f374d3085123a210448e74fc6393",
+          "chain": "ETH",
+          "protocol": "Rocket Pool rETH（RocketTokenRETH burn）",
+          "asset_ids": [
+            "0xae78736Cd615f374D3085123A210448E74Fc6393",
+            "eip155:1/native:ETH"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xae78736Cd615f374D3085123A210448E74Fc6393"
+          ],
+          "identity_status": "CHAIN_READ+INTERNAL_CONSISTENCY（8800 B/keccak 0xe3425531…；getTotalCollateral==ETH 余额 2087.964746）；官方部署文件 404 未取得",
+          "next_check": "官方部署清单、rETH DEX 池报价与即时容量（deposit pool excess）"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+      "chain": "BNB",
+      "protocol": "Lista PSM (lisUSD/USDT)",
+      "asset_ids": [
+        "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+        "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ACTIVE",
+      "next_check": "模拟/事件核验 buy/sell 实际结算；监控费率/限额/暂停变化",
+      "owner": "BNB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB01": {
+          "market_id": "BNB:56:Lista:PSM:0xaa57f36dd5ef2ac471863ec46277f976f272ec0c",
+          "chain": "BNB",
+          "protocol": "Lista PSM (lisUSD/USDT)",
+          "asset_ids": [
+            "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+            "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xaa57F36DD5Ef2aC471863ec46277f976f272eC0c",
+            "https://raw.githubusercontent.com/lista-dao/lista-dao-contracts/main/contracts/psm/PSM.sol"
+          ],
+          "identity_status": "CHAIN_VERIFIED_ACTIVE",
+          "next_check": "模拟/事件核验 buy/sell 实际结算；监控费率/限额/暂停变化"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [
+        "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ACTIVE",
+      "next_check": "容量太小，仅作报价对照；1000 lisUSD 反向冲击约 36%",
+      "owner": "BNB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB01": {
+          "market_id": "BNB:56:PancakeV3Pool:0x12e79eb21dcc5852f9c6ac1736d977312925da33",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3",
+          "asset_ids": [
+            "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+            "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x12E79eb21dCc5852F9c6AC1736d977312925da33"
+          ],
+          "identity_status": "CHAIN_VERIFIED_ACTIVE",
+          "next_check": "容量太小，仅作报价对照；1000 lisUSD 反向冲击约 36%"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+      "chain": "BNB",
+      "protocol": "V3 形态 DEX（身份未核验）",
+      "asset_ids": [
+        "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"
+      ],
+      "identity_status": "TOKEN_PAIR_AND_SLOT0_CHAIN_READ_FACTORY_AND_QUOTER_UNKNOWN",
+      "next_check": "核验 DEX/工厂身份并找 quoter；对 10/100/1000 USDT 取可执行报价",
+      "owner": "BNB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB01": {
+          "market_id": "BNB:56:V3Pool:0x8b94363fbbbbcdae25832807be39e8e2c60a6e15",
+          "chain": "BNB",
+          "protocol": "V3 形态 DEX（身份未核验）",
+          "asset_ids": [
+            "BNB:56:0x0782b6d8c4551b9760e74c0545a9bcd90bdc41e5",
+            "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x8b94363fbBbBcdae25832807BE39e8e2c60a6e15"
+          ],
+          "identity_status": "TOKEN_PAIR_AND_SLOT0_CHAIN_READ_FACTORY_AND_QUOTER_UNKNOWN",
+          "next_check": "核验 DEX/工厂身份并找 quoter；对 10/100/1000 USDT 取可执行报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+      "chain": "SOL",
+      "protocol": "Raydium AMM v4",
+      "asset_ids": [
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+        "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_STATUS_AND_VAULT_MINTS",
+      "next_check": "同 slot 重取储备与价差；确认 state=2 语义",
+      "owner": "SOL01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SOL01": {
+          "market_id": "SOL:sol-usdc:raydium-amm-v4:58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+          "chain": "SOL",
+          "protocol": "Raydium AMM v4",
+          "asset_ids": [
+            "So11111111111111111111111111111111111111112",
+            "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+            "https://raw.githubusercontent.com/raydium-io/raydium-sdk/master/src/liquidity/layout.ts"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_STATUS_AND_VAULT_MINTS",
+          "next_check": "同 slot 重取储备与价差；确认 state=2 语义"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": [
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+        "https://api.orca.so/v2/solana/pools?limit=100"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINTS",
+      "next_check": "tick arrays 校验；同 slot 重取报价",
+      "owner": "SOL01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SOL01": {
+          "market_id": "SOL:sol-usdc:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+          "chain": "SOL",
+          "protocol": "Orca Whirlpools",
+          "asset_ids": [
+            "So11111111111111111111111111111111111111112",
+            "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+            "https://api.orca.so/v2/solana/pools?limit=100"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINTS",
+          "next_check": "tick arrays 校验；同 slot 重取报价"
         }
       },
       "current_onchain_verified": true,
