@@ -4127,6 +4127,229 @@
         "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
         "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
       ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "储备级清算参数未取得：getReserveConfigurationData(address) 在 mainnet.base.org 与 base-rpc.publicnode.com 均 revert（7 次调用，原因未确认），LTV/LT/bonus/协议费 unknown，不填 0。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或其他入口取得 15 个储备的 LTV/liquidationThreshold/liquidationBonus/协议费，并标明实现版本；绝不填 0。",
+        "分段扩窗补 7 天 Borrow/LiquidationCall 复盘与 30 天参数变更；对 HF<1.2 仓位建 watch，只有 HF<1 且同块规则可执行才记候选。",
+        "对候选按同块取抵押卖出报价（参考 0.8% 级冲击量级），扣代还本金/协议费/gas/L1 数据费/融资成本后报净额；无候选保持 null。",
+        "RPC 数据源限制（mainnet.base.org getLogs）记入数据源台账，交给 M00；净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天清算复盘未覆盖：仅 5,000 块（约 2.8h）窗口 LiquidationCall=0；30 天规则/参数变更未回溯。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或其他入口取得 15 个储备的 LTV/liquidationThreshold/liquidationBonus/协议费，并标明实现版本；绝不填 0。",
+        "分段扩窗补 7 天 Borrow/LiquidationCall 复盘与 30 天参数变更；对 HF<1.2 仓位建 watch，只有 HF<1 且同块规则可执行才记候选。",
+        "对候选按同块取抵押卖出报价（参考 0.8% 级冲击量级），扣代还本金/协议费/gas/L1 数据费/融资成本后报净额；无候选保持 null。",
+        "RPC 数据源限制（mainnet.base.org getLogs）记入数据源台账，交给 M00；净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "借款样本仅 4 个最近借款人，不是全量仓位队列；未按储备/账户全扫，watch 列表未建立。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或其他入口取得 15 个储备的 LTV/liquidationThreshold/liquidationBonus/协议费，并标明实现版本；绝不填 0。",
+        "分段扩窗补 7 天 Borrow/LiquidationCall 复盘与 30 天参数变更；对 HF<1.2 仓位建 watch，只有 HF<1 且同块规则可执行才记候选。",
+        "对候选按同块取抵押卖出报价（参考 0.8% 级冲击量级），扣代还本金/协议费/gas/L1 数据费/融资成本后报净额；无候选保持 null。",
+        "RPC 数据源限制（mainnet.base.org getLogs）记入数据源台账，交给 M00；净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "无候选仓位，因此未测代还→抵押→卖出的完整闭环；gas（L2+L1 数据费）、协议费、容量/冲击与融资成本未量化。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或其他入口取得 15 个储备的 LTV/liquidationThreshold/liquidationBonus/协议费，并标明实现版本；绝不填 0。",
+        "分段扩窗补 7 天 Borrow/LiquidationCall 复盘与 30 天参数变更；对 HF<1.2 仓位建 watch，只有 HF<1 且同块规则可执行才记候选。",
+        "对候选按同块取抵押卖出报价（参考 0.8% 级冲击量级），扣代还本金/协议费/gas/L1 数据费/融资成本后报净额；无候选保持 null。",
+        "RPC 数据源限制（mainnet.base.org getLogs）记入数据源台账，交给 M00；净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "BASE04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "mainnet.base.org 对 eth_getLogs 返回 request limit reached；本轮已改用 publicnode 但已接近 80 请求上限，未继续扩窗口。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或其他入口取得 15 个储备的 LTV/liquidationThreshold/liquidationBonus/协议费，并标明实现版本；绝不填 0。",
+        "分段扩窗补 7 天 Borrow/LiquidationCall 复盘与 30 天参数变更；对 HF<1.2 仓位建 watch，只有 HF<1 且同块规则可执行才记候选。",
+        "对候选按同块取抵押卖出报价（参考 0.8% 级冲击量级），扣代还本金/协议费/gas/L1 数据费/融资成本后报净额；无候选保持 null。",
+        "RPC 数据源限制（mainnet.base.org getLogs）记入数据源台账，交给 M00；净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "池费率未链上读到：factory.getFee(pool) 与 Pool.fee() 均 revert/无返回；当前按源码认为 mint/burn 不收 swap 费，但缺链上费证据。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Gauge 当前状态未完整：isAlive() 无返回，periodFinish 已过期但可能已开新周期；未读 lastTimeRewardApplicable/rewardPerToken/用户 reward。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做真实 calldata 的 mint/burn eth_call 模拟（本轮为同块状态整数公式计算），未验证取整与实现差异；gas/L1 费未计。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 PoolFees 累计/claimable 与 Gauge 内用户手续费权利（仅确认合约地址与分账机制）。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（factory customFee/暂停、池实现升级）与 7 天活动窗口（真实加减仓交易、Gauge 周期变更）未覆盖。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BASE05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未研究 Slipstream 集中流动性 NFT position 与 Uniswap V3 position 的存取/费用规则（本岗只做了 vAMM 池）。",
+      "next_check": [
+        "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+        "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+        "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+        "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+        "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求约 123 次，超出 ≤80 硬性上限：其中有效落盘数据请求 71 次（probeB 39 + probeC 32），另有 52 次来自两次因脚本 bug 崩溃/未落盘的重跑（首轮约 13 次、第二次约 39 次）。属流程偏差，已如实披露；后续需先做离线脚本自检再发请求。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口未覆盖：未查 VAI 铸造费/利息/上限的治理变更与生效时间。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动未覆盖：未读 VAI mint/repay 事件与实际交易，无法确认当前是否有地址在跑该闭环。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "VAI 铸造费（treasuryFee 调用 revert）、mintCap/vaiMintEnabled/paused 未读取——费用与额度 unknown，不填 0。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Core Pool 已 Diamond 化，旧 ABI 读 markets()/liquidationIncentive 失败；USDT 等抵押率、清算阈值、账户流动性未取，抵押要求与清算风险 unknown。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "getVAIRepayRate=5.0499e17 的计价口径未确认（年化/每块/其他基数），只知同块闭环≈0；跨日持有成本无法量化。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "DEX 只查 Pancake V3 四档 + Pancake V2 两对；未查 Thena/Uniswap 等其他 BSC DEX 的 VAI 池；>1000 VAI 的容量曲线未测。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
+    },
+    {
+      "agent_id": "BNB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做只读模拟（无真实账户/抵押），闭环为同块报价折算，不是成交或模拟结果。",
+      "next_check": [
+        "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+        "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+        "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+        "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+        "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+      ]
     }
   ],
   "status": "OPEN",

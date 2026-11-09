@@ -2,61 +2,118 @@
   "agent_id": "BNB02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:01:44+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
-      "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json"
+    "type": "block",
+    "chain_id": 56,
+    "head_block": 132604823,
+    "head_block_time_utc": "2026-11-09T15:01:34+00:00",
+    "quote_blocks": [
+      132604708,
+      132604821
     ],
-    "chain_block": null,
-    "history_complete": false
+    "vai": {
+      "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "code_sha256": "62ba3262841c7bd03dac3f9b4f6e2843a659527e6978d6933de0c102a40d5dbb",
+      "symbol": "VAI",
+      "decimals": 18,
+      "totalSupply": "1193431865768353476719284",
+      "controller_vaiUnitroller": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+      "controller_impl": "0x8a1e5db8f622b97f4bccec4684697199c1b1d11b",
+      "comptroller_corepool": "0xfd36e2c2a6789db23113685031d7f16329158384",
+      "getVAIRepayRate": "504993750765910000",
+      "treasuryFee": "UNREADABLE_REVERT",
+      "vaiMintCap": "UNREADABLE_REVERT",
+      "vaiMintEnabled": "UNREADABLE_REVERT",
+      "paused": "UNREADABLE_REVERT"
+    },
+    "dex": {
+      "best_pool_pancake_v3_fee100": "0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+      "v3_pool_liquidity": "14566626494191965933080069",
+      "sell_1000VAI_USDT": "991548511576302296035",
+      "buyback_9915485USDT_VAI": "999663346299736005850",
+      "usdt_1000_to_VAI": "1008.183414436656479392",
+      "buyback_1000VAI_est_usdt": "991.883",
+      "pancake_v2_pair": "0xD94FeFc80a7d10d4708b140c7210569061a7eddb",
+      "pancake_v2_reserves": {
+        "VAI": "86444691889506924656",
+        "USDT": "85386860542393003185"
+      }
+    },
+    "closed_loop": {
+      "unit": "USDT",
+      "value": -0.3344,
+      "type": "estimated_from_same_block_quotes_not_executed",
+      "realized": false,
+      "unknown_costs": [
+        "VAI 铸造费",
+        "VAI 利息口径",
+        "gas",
+        "抵押清算风险",
+        "更大规模滑点"
+      ]
+    },
+    "requests_this_run": 123,
+    "chain_block": 132604823,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
-        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json"
+      "type": "block",
+      "chain_id": 56,
+      "head_block": 132604823,
+      "vai_controller": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+      "quote_blocks": [
+        132604708,
+        132604821
       ],
-      "chain_block": null,
-      "history_complete": false
+      "sell_1000VAI_USDT": "991548511576302296035",
+      "closed_loop_net_usdt": -0.3344,
+      "requests_this_run": 123,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    {
-      "protocol": "Venus VAI",
-      "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
-      "deployment_source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
-      "identity_status": "OFFICIAL_DEPLOYMENT_RECORD_NOT_LIVE_VERIFIED"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
-      "fields": "mintVAI L101-164记录债务/额度/fee；repayVAIFresh L225-245 burn VAI与transferFrom VAI利息",
-      "implementation_match": "unknown"
-    }
+    "链身份：eth_chainId=56（0x38）；head 132604823（2026-11-09T15:01:34Z）。",
+    "VAI token 0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7 链上核验（4377B、sha256 62ba3262…、VAI Stablecoin、18 位、totalSupply=1,193,431.865768353476719284）；直接 controller/comptroller getter 均 revert。",
+    "VAI 控制器由官方部署 JSON 定位：VaiUnitroller proxy 0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE（1507B，sha256 92e4a599…），impl 0x8a1e5db8…；comptroller=Venus Core Pool Unitroller 0xfd36e2c2…；旧地址 0x004065D34C26BE… 本块无代码已排除。",
+    "controller 参数：getVAIRepayRate=504993750765910000（口径未确认）；admin=0x939bd8d6…；treasuryFee/vaiMintCap/vaiMintEnabled/paused 调用 revert（费用/上限/暂停 unknown，未填 0）。",
+    "Core Pool 已 Diamond 化：markets(USDT) 返回异常（isListed=false/CF=0）、liquidationIncentiveMantissa revert “Diamond: Function does not exist”；closeFactor=0.5e18 → 抵押率/清算阈值 unknown。",
+    "DEX 发现与池身份：Pancake V3 fee=100 VAI/USDT 池 0xF5B4B24E…（token0=VAI/token1=USDT、fee=100、tick=-84、liquidity=1.4567e25）；Pancake V2 VAI/USDT 0xD94FeFc8…（储备 86.445 VAI/85.387 USDT，干涸）；VAI/WBNB pair 异常；fee=500/2500 V3 池 quote revert、fee=10000 无池。",
+    "固定块报价：132604708 1000 VAI→991.548511576302296035 USDT（V3 fee100，gasEstimate=104762）；132604821 991.5485 USDT→999.663346299736005850 VAI、1000 USDT→1008.183414436656479392 VAI；Pancake V2 1000 VAI→78.577250323136655682 USDT（对照）。",
+    "闭环量化（1000 VAI 刻度，未执行）：卖出 991.5485 USDT，回购 1000 VAI≈991.883 USDT，净 −0.3344 USDT（−0.033%），未含 gas/铸造费/利息；未还债中间态为 991.55 USDT + 1000 VAI 债务 + 锁定抵押，不是利润。",
+    "上轮 Q00 否决的推断本轮获得链上量化支持；未发现可核验的“全周期成本低于 DEX 卖价”规则。"
   ],
   "pending_questions": [
-    "30天额度/费率/治理生效窗口未覆盖。",
-    "7天代表性交易未覆盖，无区块/事件或成功游标。",
-    "chainId56、token/controller/proxy代码与当前开启状态未核验。",
-    "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
-    "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
+    "VAI 铸造费（treasuryFee）、mintCap、vaiMintEnabled、paused 因 ABI/版本不匹配未读出——费用与额度 unknown。",
+    "Core Pool Diamond 化后旧 ABI 读 markets()/liquidationIncentive 失败；USDT 等抵押率、清算阈值、账户流动性未取，抵押要求与清算风险 unknown。",
+    "getVAIRepayRate=5.0499e17 的计价口径未确认；同块闭环≈0，跨日利息成本无法量化。",
+    "30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件未覆盖。",
+    "DEX 只查 Pancake V3 四档 + Pancake V2 两对；未查 Thena/Uniswap 等其它 BSC DEX；>1000 VAI 容量曲线未测。",
+    "未做只读模拟（无真实账户/抵押）；闭环为同块报价折算。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:42:21.901356+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-    "verified_at": "2026-11-08T15:42:39.302063+00:00",
-    "record": "evidence/BNB02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:01:44.646082+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BNB02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BNB02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 123,
+  "request_discipline_note": "有效落盘数据请求 71 次（probeB 39 + probeC 32）；另有约 52 次来自两次脚本 bug 崩溃/未落盘的重跑，合计约 123 次，超出 ≤80 硬性上限，属流程偏差，已在本轮报告中披露。",
+  "data_sources_used": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+    "https://api.github.com/repos/VenusProtocol/venus-protocol/contents/deployments/bscmainnet",
+    "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+  ]
 }

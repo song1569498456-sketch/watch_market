@@ -1,0 +1,205 @@
+{
+  "agent_id": "BASE05",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BASE",
+  "scope": "Base 8453 Aerodrome vAMM LP 份额正常存取差异：真实池同 pinned 块储备/份额、mint/burn 整数账本往返、PoolFees 与 Gauge 排放/手续费权利分列（不双计）；无正向闭环则 REJECTED",
+  "started_at": "2026-11-09T14:57:20+00:00",
+  "finished_at": "2026-11-09T15:05:00+00:00",
+  "duration_seconds": 460,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T14:58:48+00:00",
+    "beijing": "2026-11-09T22:58:48+08:00",
+    "data_time": "链上读取 2026-11-09T14:58:14Z～14:58:48Z；最新块 55,229,594（2026-11-09T14:58:14Z）；池/份额/储备钉 pinned 块 55,229,589；报告落盘时已超过 60 秒，按历史证据处理"
+  },
+  "block_or_slot": 55229589,
+  "market_ids": [
+    "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+    "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d"
+  ],
+  "discovery_source": [
+    {
+      "source": "DexScreener 官方 API（发现入口，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=AERO%20USDC",
+      "retrieved_at_utc": "2026-11-09T14:58:12+00:00",
+      "http_status": 200,
+      "request": "筛选 chainId=base、dexId=aerodrome，取流动性最大 AERO/USDC 对 0x6cDcb1C4…（liquidityUsd≈4,608,822）；展示价仅发现用"
+    },
+    {
+      "source": "Base 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T14:58:14+00:00～14:58:48+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（pool token0/token1/stable/totalSupply/getReserves/factory/gauge/fee/isPaused/poolFees/observationLength；factory isPool/getFee/isPaused；Voter gauges；Gauge isAlive/rewardRate/totalSupply/rewardToken/periodFinish/feesVotingReward；token symbol/decimals）；共 6 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "Aerodrome vAMM（solidly 分支）池的 LP mint 取 min(amount0*totalSupply/reserve0, amount1*totalSupply/reserve1)（首铸锁 MINIMUM_LIQUIDITY），burn 按份额占 totalSupply 比例返还 token0/token1；mint/burn 本身不收 swap 费。因此同一块状态里「按当前储备比例加流动性→立即烧掉得到的 LP」只会因整数向下取整损失微尘级数量，没有正向差异；LP 份额价值只有在储备/总份额变化（交易/价格变动）时改变，LP 凭证本身不是收益。池手续费存在独立 PoolFees 合约，LP 进 Gauge 后手续费权利让渡给 Gauge/feesVotingReward（上一轮源码）；Gauge 排放（AERO）是外部奖励，且本轮读到 periodFinish=2026-10-22 已过期，不能与池费双计或当当前可领。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "base-mainnet",
+      "fields": {"eth_chainId": "0x2105", "chain_id": 8453, "latest_block": 55229594,
+                 "latest_block_time_utc": "2026-11-09T14:58:14+00:00", "pinned_block": 55229589},
+      "evidence_file": "raw/state.json"
+    },
+    {
+      "type": "pool_identity_and_state",
+      "protocol": "Aerodrome vAMM",
+      "address": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "fields": {"code_bytes": 45, "token0": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC,6)",
+                 "token1": "0x940181a94A35A4569E4529A3CDfB74e38FD98631 (AERO,18)", "stable": false,
+                 "reserves_raw": {"USDC": "2304411247121", "AERO": "3976351856502367..."},
+                 "reserves_human": {"USDC": 2304411.247121, "AERO": 3976351.856502367},
+                 "lp_total_supply_raw": "54885279670046053", "lp_total_supply": 0.054885279670046055,
+                 "observationLength": 50155, "factory": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+                 "factory_isPool": true, "factory_isPaused": false,
+                 "poolFees_contract": "0x2d25a5edfd27e1f71652477e1a204726883ba402"},
+      "block": 55229589,
+      "evidence_file": "raw/state.json / raw/gauge_fee.json"
+    },
+    {
+      "type": "mint_burn_roundtrip",
+      "protocol": "Aerodrome vAMM",
+      "address": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "fields": {"method": "同 pinned 块储备/总份额 + 源码 mint/burn 公式整数计算（非 eth_call 模拟）",
+                 "tiers": [{"in_USDC": 1, "in_AERO": 1.72553916384074, "lp": 2.3817484721e-08, "out_USDC": 0.999999, "out_AERO": 1.7255391638142972, "net_in_USDC_equiv": -0.000001000015},
+                           {"in_USDC": 10, "in_AERO": 17.2553916384074, "lp": 2.38174847213e-07, "out_USDC": 9.999999, "out_AERO": 17.25539163836032, "net_in_USDC_equiv": -0.000001000027},
+                           {"in_USDC": 100, "in_AERO": 172.553916384074, "lp": 2.381748472136e-06, "out_USDC": 99.999999, "out_AERO": 172.55391638403788, "net_in_USDC_equiv": -0.000001000021}],
+                 "conclusion": "往返只损失整数取整；mint/burn 无 swap 费，无正向差异"},
+      "block": 55229589,
+      "evidence_file": "raw/base05_summary.json"
+    },
+    {
+      "type": "rights_split",
+      "protocol": "Aerodrome PoolFees / Gauge",
+      "fields": {"pool_fees": {"contract": "0x2d25a5edfd27e1f71652477e1a204726883ba402", "claimable_read": false,
+                               "note": "未计入净额；LP 入 Gauge 后手续费权利让渡给 Gauge/feesVotingReward（上一轮源码）"},
+                 "gauge": {"address": "0x4f09bab2f0e15e2a078a227fe1537665f55b8360", "code_bytes": 6236,
+                           "rewardToken": "0x940181a94A35A4569E4529A3CDfB74e38FD98631 (AERO)",
+                           "rewardRate_raw": "503802383290341300", "rewardRate_AERO_per_s": 0.5038023832903413,
+                           "gauge_lp_totalSupply": "44602146158206148", "gauge_lp_totalSupply_human": 0.04460214615820615,
+                           "gauge_share_of_pool_lp": 0.8126,
+                           "periodFinish": 1792627200, "periodFinish_utc": "2026-10-22T00:00:00+00:00",
+                           "period_status": "已过期（当前 2026-11-09）→ rewardRate 为历史字段，不可当当前排放",
+                           "feesVotingReward": "0xa2eded6ee17af8debf70a1e93ac66e60dbfaaf33",
+                           "isAlive_probe": "null（调用失败/接口不符）"}},
+      "block": 55229589,
+      "evidence_file": "raw/gauge_fee.json"
+    },
+    {
+      "type": "fee_read_gap",
+      "protocol": "Aerodrome Pool",
+      "fields": {"factory_getFee_pool": "revert/无返回", "pool_fee": "revert/无返回",
+                 "note": "未链上读到该池费率；按源码 mint/burn 不收 swap 费，fee() 是 swap 腿参数，不等于存取费"},
+      "block": 55229589,
+      "evidence_file": "raw/gauge_fee.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d", "amount_in": "1 USDC + 1.72553916384074 AERO", "amount_out": "0.999999 USDC + 1.7255391638142972 AERO（LP 2.3817484721e-8 立即烧回）", "fees": "mint/burn 无 swap 费；仅整数取整；gas 未计", "block": 55229589, "quote_time_utc": "2026-11-09T14:58:14+00:00", "note": "同块加/减流动性往返，净 −1.000015e-6 USDC 等值"},
+    {"market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d", "amount_in": "10 USDC + 17.2553916384074 AERO", "amount_out": "9.999999 USDC + 17.25539163836032 AERO", "fees": "同上", "block": 55229589, "quote_time_utc": "2026-11-09T14:58:14+00:00", "note": "净 −1.000027e-6 USDC 等值"},
+    {"market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d", "amount_in": "100 USDC + 172.553916384074 AERO", "amount_out": "99.999999 USDC + 172.55391638403788 AERO", "fees": "同上", "block": 55229589, "quote_time_utc": "2026-11-09T14:58:14+00:00", "note": "净 −1.000021e-6 USDC 等值"}
+  ],
+  "net_result": {
+    "value": "-0.000001000015",
+    "unit": "USDC 等值（1 USDC + 比例 AERO 档）",
+    "type": "integer_math_from_same_block_state_not_onchain_simulation",
+    "realized": false,
+    "note": "同块加/减流动性往返无正向差异，只有整数取整损失；未计 gas；Gauge 排放与池费未计入（分列）",
+    "unknown_costs": ["gas/L1 数据费（未计）", "池费率未链上读到", "Gauge 当前排放是否重启（periodFinish 已过期）", "真实 mint/burn 的链上 calldata 模拟未做"]
+  },
+  "capacity": "池状态 pinned 块：2,304,411.247121 USDC / 3,976,351.856502 AERO，LP totalSupply 0.054885279670046055；本轮只测 1/10/100 USDC 比例入池档，往返均只损失取整；无正向差异，容量对结论无影响。",
+  "permissions": "池公开、无许可加减流动性（Aerodrome vAMM public pool）；mint/burn 需 ERC20 授权（本轮未授权/未签名/未广播）；PoolFees/Gauge 权利属不同合约，本轮未读写用户余额。",
+  "liabilities": "none（只读状态与整数计算；未建仓、无债务、无在途资金）",
+  "waiting_time": "0（同块静态计算）；真实 mint/burn 需交易确认与 gas；Gauge 奖励周期已过期，无等待领取依据",
+  "invalidation_conditions": [
+    "池实现非已读 Aerodrome vAMM 源码（本轮为 45B 克隆，工厂 isPool 核验）",
+    "mint/burn 实际收取费用（本轮未读到 fee，按源码不收）",
+    "Gauge 排放周期重启（需重新读取 lastTimeRewardApplicable/rewardPerToken）",
+    "储备/总份额变化（本轮同块静态，无价格变化）",
+    "数据超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://mainnet.base.org",
+    "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+    "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+    "https://basescan.org/address/0x16613524e02ad97edfef371bc883f2f5d6c480a5",
+    "https://basescan.org/address/0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+    "https://basescan.org/address/0x2d25a5edfd27e1f71652477e1a204726883ba402"
+  ],
+  "coverage_gaps": [
+    "池费率未链上读到：factory.getFee(pool) 与 Pool.fee() 均 revert/无返回；当前按源码认为 mint/burn 不收 swap 费，但缺链上费证据。",
+    "Gauge 当前状态未完整：isAlive() 无返回，periodFinish 已过期但可能已开新周期；未读 lastTimeRewardApplicable/rewardPerToken/用户 reward。",
+    "未做真实 calldata 的 mint/burn eth_call 模拟（本轮为同块状态整数公式计算），未验证取整与实现差异；gas/L1 费未计。",
+    "未读 PoolFees 累计/claimable 与 Gauge 内用户手续费权利（仅确认合约地址与分账机制）。",
+    "30 天规则窗口（factory customFee/暂停、池实现升级）与 7 天活动窗口（真实加减仓交易、Gauge 周期变更）未覆盖。",
+    "未研究 Slipstream 集中流动性 NFT position 与 Uniswap V3 position 的存取/费用规则（本岗只做了 vAMM 池）。"
+  ],
+  "next_check": [
+    "确认 Aerodrome vAMM Pool fee/customFee 正确 ABI（或从 Pool 实现读默认费率），补固定块存取费证据。",
+    "读 Gauge isAlive/lastTimeRewardApplicable/rewardPerToken 与当前周期，确认排放是 0 还是新周期已开始；排放与池费分别核实、永不双计。",
+    "用真实 calldata 对 mint/burn 做 eth_call 模拟，验证源码公式与取整损失，并补 gas/L1 费用。",
+    "研究 Slipstream 集中流动性 position（NFT）与 Uniswap V3 position 的存取/费用规则，与 vAMM 分开建模。",
+    "补 30 天/7 天窗口：factory customFee/暂停、池升级、真实加减仓交易与 Gauge 周期变更。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "chain": "BASE",
+      "protocol": "Aerodrome vAMM (AERO/USDC volatile)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+      "evidence_urls": ["https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+                        "https://basescan.org/address/0x16613524e02ad97edfef371bc883f2f5d6c480a5"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_FACTORY_ISPOOL_AND_STATE（45B 克隆，reserves/LP supply/gauge 已读）",
+      "next_check": "费率和 Gauge 当前周期；真实 calldata 模拟；Slipstream 分开"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-AERODROME-VAMM-LP-MINT-BURN-NO-DIFFERENCE",
+      "status": "REJECTED",
+      "chain": "BASE",
+      "protocol": "Aerodrome vAMM",
+      "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "evidence_urls": ["https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+                        "https://basescan.org/address/0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+                        "https://basescan.org/address/0x2d25a5edfd27e1f71652477e1a204726883ba402"],
+      "mechanism": "同 pinned 块、按 Aerodrome vAMM 源码 mint=min(...)、burn 按比例返还：1/10/100 USDC 比例入池后立即烧回，净额仅 −1e-6 USDC 等值（整数取整），mint/burn 无 swap 费；LP 份额价值、PoolFees、Gauge 排放三类权利分列，Gauge periodFinish 已过期且不与池费双计。正常 LP 存取无可闭环差异。",
+      "net_result": {"value": "-0.000001000015", "unit": "USDC 等值", "type": "integer_math_same_block", "note": "只有取整损失；非模拟、非收益主张"},
+      "unknown_costs": ["gas/L1 费", "池费率", "Gauge 当前排放", "真实 calldata 模拟"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["实际 mint/burn 收费与源码不符", "实现升级", "Gauge 周期重启（排放仍需单列）", "数据过期需重取"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Aerodrome LP 正常加流动性→立即移除可获利（或把 LP 份额本身当收益）",
+      "reason": "同 pinned 块 mint/burn 整数账本显示往返只有取整损失（−1e-6 USDC 等值），mint/burn 不收 swap 费；LP 凭证本身不是收益，明确排除。"
+    },
+    {
+      "claim": "把 Gauge 排放与同期池手续费对同一账户双计（上轮 Q00 否决点）",
+      "reason": "本轮把 LP 份额价值变化、PoolFees（独立合约 0x2d25…）、Gauge 排放（periodFinish 2026-10-22 已过期）三类分列；LP 入 Gauge 后手续费权利让渡给 Gauge/feesVotingReward，未双计，明确排除。"
+    },
+    {
+      "claim": "按 Gauge rewardRate=0.5038 AERO/s 计入当前收益",
+      "reason": "periodFinish=2026-10-22 已过期（当前 2026-11-09），rewardRate 为历史字段；未读 lastTimeRewardApplicable/rewardPerToken 证明当前可领，排除。"
+    },
+    {
+      "claim": "把 swap 费 fee() 当 LP mint/burn 存取费",
+      "reason": "源码规则 mint/burn 不收 swap 费；fee() 是 swap 腿参数且本轮未读到（revert），不机械当存取费，排除。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_block_lp_state_plus_integer_mint_burn",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T14:58:48+00:00",
+    "complete_block_range": "pinned 单块 55,229,589（最新块 55,229,594）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

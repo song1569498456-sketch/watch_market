@@ -1,0 +1,782 @@
+{
+ "agent_id": "BASE04",
+ "chain": "BASE",
+ "rpc": "https://mainnet.base.org",
+ "started_at_utc": "2026-11-09T14:57:32.272837+00:00",
+ "observations": {
+  "chain_id": "0x2105",
+  "head_block_number": 55229393,
+  "head_block": {
+   "number": "0x34abbd1",
+   "hash": "0xf0ca7839c7fcc7703e129e3cdacdff5bc95b3d1ec22415b31f362308e42697c7",
+   "timestamp": "0x6af1df5e",
+   "baseFeePerGas": "0x4c4b40",
+   "timestamp_utc": "2026-11-09T14:57:34+00:00"
+  },
+  "pinned_block": 55229390,
+  "identity": {
+   "pool_proxy": {
+    "address": "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+    "bytecode_bytes": 1933,
+    "code_keccak256": "0xffcb26fbebbe09d9b0d8baef76a1fa218989be6c279b7acf9865d8fb6e0718ce"
+   },
+   "book_impl": {
+    "address": "0xA4AbC5FcBA6D0d7E3D144d6dbF6cb6128599dFdB",
+    "bytecode_bytes": 22442,
+    "code_keccak256": "0x46a99baf41f90e39818ded14f4d45885fe6293496e72c1cea2014e814701a994"
+   },
+   "book_oracle": {
+    "address": "0x2Cc0Fc26eD4563A5ce5e8bdcfe1A2878676Ae156",
+    "bytecode_bytes": 2766,
+    "code_keccak256": "0xabc7de2bbd6b21a5eead4ca887393fa1b311a46e89ed48d0ed4e3f12246b622b"
+   },
+   "pool_impl_slot": {
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x000000000000000000000000a4abc5fcba6d0d7e3d144d6dbf6cb6128599dfdb",
+    "error": null
+   }
+  },
+  "reserve_count": 15,
+  "reserve_configs": [
+   {
+    "asset": "0x4200000000000000000000000000000000000006",
+    "symbol": [
+     "WETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+    "symbol": [
+     "cbETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+    "symbol": [
+     "USDbC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+    "symbol": [
+     "wstETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "symbol": [
+     "USDC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x04c0599ae5a44757c0af6f9ec3b93da8976c150a",
+    "symbol": [
+     "weETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+    "symbol": [
+     "cbBTC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x2416092f143378750bb29b79ed961ab195cceea5",
+    "symbol": [
+     "ezETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x6bb7a212910682dcfdbd5bcbb3e28fb4e8da10ee",
+    "symbol": [
+     "GHO"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0xedfa23602d0ec14714057867a78d01e94176bea0",
+    "symbol": [
+     "wrsETH"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0xecac9c5f704e954931349da37f60e39f515c11c1",
+    "symbol": [
+     "LBTC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+    "symbol": [
+     "EURC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x63706e401c06ac8513145b7687a14804d17f814b",
+    "symbol": [
+     "AAVE"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x236aa50979d5f3de3bd1eeb40e81137f22ab794b",
+    "symbol": [
+     "tBTC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   },
+   {
+    "asset": "0x660975730059246a68521a3e2fbd4740173100f5",
+    "symbol": [
+     "syrupUSDC"
+    ],
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted"
+    }
+   }
+  ],
+  "pool_addresses_provider": {
+   "raw": "0x000000000000000000000000e20fcbdbffc4dd138ce8b2e6fbb6cb49777ad64d",
+   "decoded": [
+    "0xe20fcbdbffc4dd138ce8b2e6fbb6cb49777ad64d"
+   ],
+   "error": null
+  },
+  "provider_getPriceOracle": {
+   "raw": "0x0000000000000000000000002cc0fc26ed4563a5ce5e8bdcfe1a2878676ae156",
+   "decoded": [
+    "0x2cc0fc26ed4563a5ce5e8bdcfe1a2878676ae156"
+   ],
+   "error": null
+  },
+  "oracle_sources": {
+   "0x4200000000000000000000000000000000000006": {
+    "raw": "0x0000000000000000000000009da00d23465282005db222a441a663ee7b9dfcc8",
+    "decoded": [
+     "0x9da00d23465282005db222a441a663ee7b9dfcc8"
+    ],
+    "error": null
+   },
+   "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22": {
+    "raw": "0x000000000000000000000000b6e9fbba669763bd811b10a761110c449824b5bb",
+    "decoded": [
+     "0xb6e9fbba669763bd811b10a761110c449824b5bb"
+    ],
+    "error": null
+   },
+   "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca": {
+    "raw": "0x000000000000000000000000f52d010c7d4ecbfda92c2509900593ce34535d86",
+    "decoded": [
+     "0xf52d010c7d4ecbfda92c2509900593ce34535d86"
+    ],
+    "error": null
+   }
+  },
+  "liquidation_rule_source": {
+   "http_status": 200,
+   "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+   "bytes": 29642,
+   "close_factor": "uint256 internal constant DEFAULT_LIQUIDATION_CLOSE_FACTOR = 0.5e4;",
+   "hf_threshold": "uint256 public constant CLOSE_FACTOR_HF_THRESHOLD = 0.95e18;",
+   "min_base": "uint256 public constant MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD = 2000e8;"
+  },
+  "topics": {
+   "borrow": "0xb3d084820fb1a9decffb176436bd02558d15fac9b0ddfed8c465bc7359d7dce0",
+   "liquidation_call": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286"
+  },
+  "borrow_log_attempts": [
+   {
+    "blocks": 50000,
+    "from": 55179393,
+    "to": 55229393,
+    "count": null,
+    "error": {
+     "code": -32011,
+     "message": "request limit reached"
+    }
+   },
+   {
+    "blocks": 20000,
+    "from": 55209393,
+    "to": 55229393,
+    "count": null,
+    "error": {
+     "code": -32011,
+     "message": "request limit reached"
+    }
+   },
+   {
+    "blocks": 10000,
+    "from": 55219393,
+    "to": 55229393,
+    "count": null,
+    "error": {
+     "code": -32011,
+     "message": "request limit reached"
+    }
+   }
+  ],
+  "borrow_window": null,
+  "borrower_sample": [],
+  "borrowers_scanned": 0,
+  "liquidation_calls": null,
+  "collateral_sell_channel": [
+   {
+    "pair": "WETH/USDC fee500",
+    "amount_in": "1",
+    "amount_out_usdc": 2127.037087,
+    "price_usdc_per_weth": 2127.037087,
+    "error": null,
+    "block": 55229390,
+    "quote_time_utc": "2026-11-09T14:58:11.971247+00:00"
+   },
+   {
+    "pair": "WETH/USDC fee500",
+    "amount_in": "10",
+    "amount_out_usdc": 21256.707989,
+    "price_usdc_per_weth": 2125.6707988999997,
+    "error": null,
+    "block": 55229390,
+    "quote_time_utc": "2026-11-09T14:58:12.883005+00:00"
+   },
+   {
+    "pair": "WETH/USDC fee500",
+    "amount_in": "100",
+    "amount_out_usdc": 210954.870235,
+    "price_usdc_per_weth": 2109.54870235,
+    "error": null,
+    "block": 55229390,
+    "quote_time_utc": "2026-11-09T14:58:13.628820+00:00"
+   }
+  ]
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.981,
+   "retrieved_at_utc": "2026-11-09T14:57:33.254182+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.407,
+   "retrieved_at_utc": "2026-11-09T14:57:34.011494+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:57:34.759368+00:00"
+  },
+  {
+   "label": "getCode pool",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:57:35.496203+00:00"
+  },
+  {
+   "label": "getCode book impl",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.453,
+   "retrieved_at_utc": "2026-11-09T14:57:36.300311+00:00"
+  },
+  {
+   "label": "getCode book oracle",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.414,
+   "retrieved_at_utc": "2026-11-09T14:57:37.064734+00:00"
+  },
+  {
+   "label": "pool impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:57:37.805135+00:00"
+  },
+  {
+   "label": "getReservesList",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T14:57:38.553535+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T14:57:39.298970+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.383,
+   "retrieved_at_utc": "2026-11-09T14:57:40.032614+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T14:57:40.778847+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.405,
+   "retrieved_at_utc": "2026-11-09T14:57:41.534228+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.419,
+   "retrieved_at_utc": "2026-11-09T14:57:42.304249+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.382,
+   "retrieved_at_utc": "2026-11-09T14:57:43.037226+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T14:57:43.787630+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T14:57:44.536750+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.391,
+   "retrieved_at_utc": "2026-11-09T14:57:45.278124+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.405,
+   "retrieved_at_utc": "2026-11-09T14:57:46.033464+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:57:46.769915+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:57:47.547369+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:57:48.287842+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:57:49.023629+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.488,
+   "retrieved_at_utc": "2026-11-09T14:57:49.862924+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:57:50.597610+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T14:57:51.341892+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T14:57:52.081597+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.391,
+   "retrieved_at_utc": "2026-11-09T14:57:52.823239+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.409,
+   "retrieved_at_utc": "2026-11-09T14:57:53.583160+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.406,
+   "retrieved_at_utc": "2026-11-09T14:57:54.339353+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T14:57:55.077569+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.409,
+   "retrieved_at_utc": "2026-11-09T14:57:55.836941+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.393,
+   "retrieved_at_utc": "2026-11-09T14:57:56.580831+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.42,
+   "retrieved_at_utc": "2026-11-09T14:57:57.351649+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:57:58.100528+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:57:58.877664+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.449,
+   "retrieved_at_utc": "2026-11-09T14:57:59.678437+00:00"
+  },
+  {
+   "label": "reserve symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T14:58:00.453050+00:00"
+  },
+  {
+   "label": "reserve config",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.42,
+   "retrieved_at_utc": "2026-11-09T14:58:01.223770+00:00"
+  },
+  {
+   "label": "pool ADDRESSES_PROVIDER",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.416,
+   "retrieved_at_utc": "2026-11-09T14:58:01.990633+00:00"
+  },
+  {
+   "label": "provider getPriceOracle",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.629,
+   "retrieved_at_utc": "2026-11-09T14:58:03.969965+00:00"
+  },
+  {
+   "label": "oracle source",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.026,
+   "retrieved_at_utc": "2026-11-09T14:58:05.347173+00:00"
+  },
+  {
+   "label": "oracle source",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.404,
+   "retrieved_at_utc": "2026-11-09T14:58:06.101601+00:00"
+  },
+  {
+   "label": "oracle source",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.495,
+   "retrieved_at_utc": "2026-11-09T14:58:06.947086+00:00"
+  },
+  {
+   "label": "liquidation-logic-source",
+   "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.101,
+   "retrieved_at_utc": "2026-11-09T14:58:08.398916+00:00",
+   "bytes": 29642,
+   "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291"
+  },
+  {
+   "label": "getLogs borrow 50000",
+   "method": "eth_getLogs",
+   "http_status": 429,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T14:58:09.146378+00:00"
+  },
+  {
+   "label": "getLogs borrow 20000",
+   "method": "eth_getLogs",
+   "http_status": 429,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.482,
+   "retrieved_at_utc": "2026-11-09T14:58:09.978858+00:00"
+  },
+  {
+   "label": "getLogs borrow 10000",
+   "method": "eth_getLogs",
+   "http_status": 429,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.444,
+   "retrieved_at_utc": "2026-11-09T14:58:10.773573+00:00"
+  },
+  {
+   "label": "quoter WETH->USDC 1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.495,
+   "retrieved_at_utc": "2026-11-09T14:58:11.619889+00:00"
+  },
+  {
+   "label": "quoter WETH->USDC 10",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.561,
+   "retrieved_at_utc": "2026-11-09T14:58:12.532455+00:00"
+  },
+  {
+   "label": "quoter WETH->USDC 100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T14:58:13.278361+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:58:13.628837+00:00",
+ "request_count": 50
+}

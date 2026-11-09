@@ -1,0 +1,171 @@
+{
+ "started_at_utc": "2026-11-09T15:01:30.434898+00:00",
+ "deployments_files": {
+  "http_status": 200,
+  "count": 322,
+  "names": [
+   ".chainId",
+   "ComptrollerLens.json",
+   "DAI.json",
+   "SetCheckpointBscmainnet.json",
+   "VAI.json",
+   "VAIVault.json",
+   "VAIVaultProxy.json",
+   "VAIVaultProxy_Implementation.json",
+   "VAIVaultProxy_Proxy.json",
+   "VaiUnitroller.json",
+   "VaiUnitroller_Implementation.json",
+   "VaiUnitroller_Proxy.json",
+   "VenusChainlinkOracle.json",
+   "vDAI.json"
+  ]
+ },
+ "controller_file": "VaiUnitroller.json",
+ "venus_ctrl_json": {
+  "http_status": 200,
+  "fields": {
+   "address": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+   "implementation": "0x8a1e5db8f622b97f4bccec4684697199c1b1d11b"
+  }
+ },
+ "controller_candidates": [
+  "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+  "0x004065D34C26BE3244f27c8E089CC88863987fbC"
+ ],
+ "controller_choice": {
+  "address": "0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+  "code_bytes": 1507,
+  "code_sha256": "92e4a599e4d7b206273850bce4231bbffab3e4a10784e58f4b89d1c8ddf8e002"
+ },
+ "head_block": 132604823,
+ "head_block_time_utc": "2026-11-09T15:01:34+00:00",
+ "pinned_block": 132604821,
+ "controller_state": {
+  "comptroller": {
+   "raw": "0x000000000000000000000000fd36e2c2a6789db23113685031d7f16329158384",
+   "error": null,
+   "uint": "1445598658871829935137861521511601721918400856964"
+  },
+  "treasuryFee": {
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  "vaiMintCap": {
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  "getVAIRepayRate": {
+   "raw": "0x000000000000000000000000000000000000000000000000070219240831b7f0",
+   "error": null,
+   "uint": "504993750765910000"
+  },
+  "vaiMintEnabled": {
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  "paused": {
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  "admin": {
+   "raw": "0x000000000000000000000000939bd8d64c0a9583a7dcea9933f7b21697ab6396",
+   "error": null,
+   "uint": "842697147992140721101427294557851545214498071446"
+  },
+  "getMintableVAI_probe": {
+   "raw": "0x00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "uint": "231584178474632390847141970017375815706539969331281128078915168015826259279872"
+  },
+  "getVAIRepayAmount_probe": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "uint": "0"
+  },
+  "impl_slot": "0x0000000000000000000000000000000000000000000000000000000000000000"
+ },
+ "comptroller": {
+  "address": "0xfd36e2c2a6789db23113685031d7f16329158384",
+  "USDT": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "isListed": false,
+   "collateralFactorMantissa": "0",
+   "isComptroller": false
+  },
+  "VAI": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "error": null,
+   "isListed": false,
+   "collateralFactorMantissa": "0",
+   "isComptroller": false
+  },
+  "closeFactor": {
+   "raw": "0x00000000000000000000000000000000000000000000000006f05b59d3b20000",
+   "error": null,
+   "uint": "500000000000000000"
+  },
+  "liquidationIncentive": {
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Diamond: Function does not exist",
+    "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000204469616d6f6e643a2046756e6374696f6e20646f6573206e6f74206578697374"
+   },
+   "uint": null
+  }
+ },
+ "buyback_quotes": [
+  {
+   "amount_in_usdt": "991548511576302296035",
+   "block": 132604821,
+   "amount_out_vai": "999663346299736005850",
+   "error": null,
+   "gasEstimate": "104363"
+  },
+  {
+   "amount_in_usdt": "1000000000000000000000",
+   "block": 132604821,
+   "amount_out_vai": "1008183414436656479392",
+   "error": null,
+   "gasEstimate": "104363"
+  },
+  {
+   "amount_in_usdt": "1010000000000000000000",
+   "block": 132604821,
+   "amount_out_vai": "1018264546746495979221",
+   "error": null,
+   "gasEstimate": "104363"
+  }
+ ],
+ "v3_pool_state": {
+  "address": "0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+  "token0": "0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+  "token0_error": null,
+  "token1": "0x55d398326f99059ff775485246999027b3197955",
+  "token1_error": null,
+  "fee": 100,
+  "fee_error": null,
+  "slot0": {
+   "sqrtPriceX96": "78899295675146798828501926064",
+   "tick": -84
+  },
+  "slot0_error": null,
+  "liquidity": "14566626494191965933080069",
+  "liquidity_error": null
+ },
+ "finished_at_utc": "2026-11-09T15:01:44.646082+00:00",
+ "request_count_this_script": 32
+}

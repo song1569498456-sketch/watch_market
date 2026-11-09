@@ -658,22 +658,46 @@
     {
       "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
       "chain": "BASE",
-      "protocol": "Aave V3 Base",
+      "protocol": "Aave V3 Base Pool（代理）",
       "asset_ids": [
-        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        "0x4200000000000000000000000000000000000006"
+        "0x4200000000000000000000000000000000000006",
+        "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+        "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+        "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
       ],
       "evidence_urls": [
+        "https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
         "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
       ],
-      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
-      "next_check": "核对chainId=8453、Pool代码与代理实现；识别精确已部署清算规则版本及oracle精度/数据。",
+      "identity_status": "CHAIN_VERIFIED：代理 1,933 B；impl 槽=0xA4AbC5Fc…=地址书；oracle=0x2Cc0Fc26…=地址书；15 储备列表已读；储备参数未取得（revert）",
+      "next_check": "补储备级 LTV/LT/bonus/协议费；扩窗建借款人 watch；有真实 HF<1 再评估",
       "owner": "BASE04",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BASE04/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE04/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "BASE04": {
+          "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
+          "chain": "BASE",
+          "protocol": "Aave V3 Base Pool（代理）",
+          "asset_ids": [
+            "0x4200000000000000000000000000000000000006",
+            "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+            "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+            "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代理 1,933 B；impl 槽=0xA4AbC5Fc…=地址书；oracle=0x2Cc0Fc26…=地址书；15 储备列表已读；储备参数未取得（revert）",
+          "next_check": "补储备级 LTV/LT/bonus/协议费；扩窗建借款人 watch；有真实 HF<1 再评估"
+        }
+      }
     },
     {
       "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
@@ -3036,6 +3060,148 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.085985 USDC/份额；仅 1 个 $223 V4 池，未取得链上报价）",
           "next_check": "V4 池链上状态/数量报价；赎回流动性"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "chain": "BASE",
+      "protocol": "Aerodrome vAMM (AERO/USDC volatile)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+        "https://basescan.org/address/0x16613524e02ad97edfef371bc883f2f5d6c480a5"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_FACTORY_ISPOOL_AND_STATE（45B 克隆，reserves/LP supply/gauge 已读）",
+      "next_check": "费率和 Gauge 当前周期；真实 calldata 模拟；Slipstream 分开",
+      "owner": "BASE05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE05/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE05": {
+          "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+          "chain": "BASE",
+          "protocol": "Aerodrome vAMM (AERO/USDC volatile)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+            "https://basescan.org/address/0x16613524e02ad97edfef371bc883f2f5d6c480a5"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_FACTORY_ISPOOL_AND_STATE（45B 克隆，reserves/LP supply/gauge 已读）",
+          "next_check": "费率和 Gauge 当前周期；真实 calldata 模拟；Slipstream 分开"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+      "chain": "BNB",
+      "protocol": "Venus VAI (VaiUnitroller proxy, impl 0x8a1e5db8…)",
+      "asset_ids": [
+        "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL_DEPLOYMENT",
+      "next_check": "正确 ABI 读取铸造费/上限/暂停与 Core Pool 抵押参数",
+      "owner": "BNB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB02": {
+          "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+          "chain": "BNB",
+          "protocol": "Venus VAI (VaiUnitroller proxy, impl 0x8a1e5db8…)",
+          "asset_ids": [
+            "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+            "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+          ],
+          "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL_DEPLOYMENT",
+          "next_check": "正确 ABI 读取铸造费/上限/暂停与 Core Pool 抵押参数"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 VAI/USDT fee=100",
+      "asset_ids": [
+        "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "测更大规模容量曲线；监控深度与价格",
+      "owner": "BNB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB02": {
+          "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3 VAI/USDT fee=100",
+          "asset_ids": [
+            "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+            "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+          "next_check": "测更大规模容量曲线；监控深度与价格"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xd94fefc80a7d10d4708b140c7210569061a7eddb",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2 VAI/USDT（浅池）",
+      "asset_ids": [
+        "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xD94FeFc80a7d10d4708b140c7210569061a7eddb"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "不可用出口；仅作储备对照",
+      "owner": "BNB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB02": {
+          "market_id": "BNB:56:PancakeV2Pair:0xd94fefc80a7d10d4708b140c7210569061a7eddb",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2 VAI/USDT（浅池）",
+          "asset_ids": [
+            "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+            "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xD94FeFc80a7d10d4708b140c7210569061a7eddb"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+          "next_check": "不可用出口；仅作储备对照"
         }
       },
       "current_onchain_verified": true,

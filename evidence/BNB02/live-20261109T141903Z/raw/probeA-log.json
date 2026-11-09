@@ -1,0 +1,388 @@
+[
+ {
+  "n": 1,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "venus_vai_json",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+  "at_utc": "2026-11-09T14:59:53.996170+00:00",
+  "http_status": 200,
+  "sha256": "def80d492d3f65f91bf9467ff1de07a3f43ad31472f5ce8059a7d81622cda9d7",
+  "bytes": 11657
+ },
+ {
+  "n": 2,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "venus_vai_controller_json",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAIController.json",
+  "at_utc": "2026-11-09T14:59:54.763198+00:00",
+  "http_status": 404,
+  "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+  "bytes": 14
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T14:59:54.948782+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:59:56.237822+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:59:56.538579+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "code_vai",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:59:56.838702+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:57.157447+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:57.458138+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:57.758400+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:58.058585+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_getter_vaiController",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:58.358923+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "vai_getter_vaiController",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:58.634251+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_getter_controller",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:59.654523+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "vai_getter_controller",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:59:59.917095+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "vai_getter_comptroller",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:00.296155+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "vai_getter_comptroller",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:00.559503+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_getPair_VAI_USDT",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:00.952785+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_reserves_VAI_USDT",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:01.576186+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_VAI_USDT_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:01.876574+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_VAI_USDT_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:02.177095+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_getPair_VAI_WBNB",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:02.477689+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_reserves_VAI_WBNB",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:02.778131+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_VAI_WBNB_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:03.078510+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_VAI_WBNB_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:03.378787+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_getPool_VAI_USDT_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:03.679241+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_getPool_VAI_USDT_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:03.982049+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_getPool_VAI_USDT_2500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:04.282141+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_getPool_VAI_USDT_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:04.658853+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_sell_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:04.959272+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_sell_1000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:05.457179+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v2_buyback",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:05.757430+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_quote_1000VAI_fee100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:06.057626+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 33,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_quote_1000VAI_fee500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:06.358202+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error: 0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 34,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "v3_quote_1000VAI_fee500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:07.105521+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 35,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3_quote_1000VAI_fee2500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:07.513085+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error: 0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 36,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "v3_quote_1000VAI_fee2500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:00:07.877421+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 37,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_vai_pairs",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+  "at_utc": "2026-11-09T15:00:08.261025+00:00",
+  "http_status": 200,
+  "sha256": "40c5c51c7d9024b79f8e34a12b0ef472be0083ff492231529beeafc761255f0d",
+  "bytes": 10536
+ }
+]

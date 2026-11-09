@@ -1,0 +1,351 @@
+{
+ "chain": "BASE",
+ "pinned_block": 55229390,
+ "head_block": 55229393,
+ "retrieved_at_utc": "2026-11-09T14:58:52.080224+00:00",
+ "requests": [
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.955,
+   "retrieved_at_utc": "2026-11-09T14:58:53.035288+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.414,
+   "retrieved_at_utc": "2026-11-09T14:58:53.800426+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.393,
+   "retrieved_at_utc": "2026-11-09T14:58:54.544056+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.406,
+   "retrieved_at_utc": "2026-11-09T14:58:55.300158+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.406,
+   "retrieved_at_utc": "2026-11-09T14:58:56.056256+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T14:58:56.804321+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:58:57.552970+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.534,
+   "retrieved_at_utc": "2026-11-09T14:58:58.437817+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T14:58:59.190120+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.392,
+   "retrieved_at_utc": "2026-11-09T14:58:59.933344+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T14:59:00.671637+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.419,
+   "retrieved_at_utc": "2026-11-09T14:59:01.441388+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:59:02.182058+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T14:59:02.928670+00:00"
+  },
+  {
+   "label": "cfg",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T14:59:03.678698+00:00"
+  },
+  {
+   "label": "borrow 5000",
+   "method": "eth_getLogs",
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:59:04.419234+00:00"
+  },
+  {
+   "label": "borrow 2000",
+   "method": "eth_getLogs",
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T14:59:05.169857+00:00"
+  },
+  {
+   "label": "borrow 1000",
+   "method": "eth_getLogs",
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   },
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T14:59:05.915824+00:00"
+  }
+ ],
+ "reserve_configs": [
+  {
+   "asset": "0x4200000000000000000000000000000000000006",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x04c0599ae5a44757c0af6f9ec3b93da8976c150a",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x2416092f143378750bb29b79ed961ab195cceea5",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x6bb7a212910682dcfdbd5bcbb3e28fb4e8da10ee",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0xedfa23602d0ec14714057867a78d01e94176bea0",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0xecac9c5f704e954931349da37f60e39f515c11c1",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x63706e401c06ac8513145b7687a14804d17f814b",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x236aa50979d5f3de3bd1eeb40e81137f22ab794b",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "asset": "0x660975730059246a68521a3e2fbd4740173100f5",
+   "raw": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  }
+ ],
+ "borrowers": {},
+ "liquidation_calls": {},
+ "config_decode_test": null,
+ "borrow_attempts": [
+  {
+   "host": "https://mainnet.base.org",
+   "blocks": 5000,
+   "from": 55224393,
+   "to": 55229393,
+   "count": null,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   }
+  },
+  {
+   "host": "https://mainnet.base.org",
+   "blocks": 2000,
+   "from": 55227393,
+   "to": 55229393,
+   "count": null,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   }
+  },
+  {
+   "host": "https://mainnet.base.org",
+   "blocks": 1000,
+   "from": 55228393,
+   "to": 55229393,
+   "count": null,
+   "error": {
+    "code": -32011,
+    "message": "request limit reached"
+   }
+  }
+ ],
+ "borrow_window_used": null,
+ "finished_at_utc": "2026-11-09T14:59:06.266086+00:00",
+ "request_count": 18
+}

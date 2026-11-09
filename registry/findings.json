@@ -971,16 +971,18 @@
       "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
       "status": "REJECTED",
       "chain": "BNB",
-      "market_id": "56:venus-vai:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+      "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
       "claim": "排除“VAI铸造卖出现金可直接记为利润、或可随意用其他面值稳定币偿债”的推断。",
       "evidence_urls": [
-        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol"
+        "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+        "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
       ],
       "evidence_fields": "mint记录债务；repayVAIFresh L231-245使用VAI burn及transferFrom支付利息。",
       "scope_limit": "基于已读官方源码；当前部署与资格未核验，不构成当前可铸或不可铸的判断。",
       "owner": "BNB02",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB02/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB02/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
         "claim_scope": "排除VAI铸造卖出金额为无负债利润或可用任意面值稳定币还款",
@@ -1008,17 +1010,60 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
-      "last_observed_at": "2026-11-08T15:42:21.901356+00:00",
-      "last_verified_onchain_at": null,
+      "last_observed_at": "2026-11-09T15:01:44.646082+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:01:44.646082+00:00",
       "unknown_costs": [
-        "取得/回收抵押物成本",
-        "treasury铸造费",
-        "VAI回购滑点及交易费",
-        "VAI本金与当前利息",
-        "BNB gas",
-        "退出/等待成本"
+        "VAI 铸造费",
+        "VAI 利息口径",
+        "gas",
+        "抵押权/清算风险",
+        "更大规模滑点"
       ],
-      "capacity": "unknown"
+      "capacity": "VAI 最优出口为 Pancake V3 fee=100 池 0xF5B4B24E…（liquidity=1.4567e25，聚合器 liq≈36.4 万 USD）；1000 VAI 卖出报价可行，Pancake V2 VAI/USDT 池（86.4 VAI）完全不可用；更大规模（>1000 VAI）的滑点未测。VAI 铸币上限/费用因 ABI 不匹配未知。",
+      "mechanism": "上轮以官方源码排除“VAI 铸造卖出现金即利润、可用任意面值稳定币偿债”；本轮用链上固定块报价量化闭环：铸 1000 VAI → Pancake V3 fee=100 池卖出得 991.5485 USDT → 用同池回购 1000 VAI 约需 991.883 USDT → 净约 −0.3345 USDT（−0.033%），加上 gas/未知铸造费/未知利息后更负；未还债时现金 991.55 USDT 对应 1000 VAI 债务+锁定抵押，不是利润。VAI 市价约 0.9917 的折扣不能使该方向转正。",
+      "net_result": "−0.3345 USDT / 1000 VAI（估算，未成交；未含 gas/铸造费/利息）",
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "铸造费/利息/上限被治理改到足以覆盖 DEX 往返成本",
+        "出现价格显著高于面值的 VAI 出口",
+        "Venus 规则变更"
+      ],
+      "observations_by_role": {
+        "BNB02": {
+          "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+          "status": "REJECTED",
+          "chain": "BNB",
+          "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+          "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "上轮以官方源码排除“VAI 铸造卖出现金即利润、可用任意面值稳定币偿债”；本轮用链上固定块报价量化闭环：铸 1000 VAI → Pancake V3 fee=100 池卖出得 991.5485 USDT → 用同池回购 1000 VAI 约需 991.883 USDT → 净约 −0.3345 USDT（−0.033%），加上 gas/未知铸造费/未知利息后更负；未还债时现金 991.55 USDT 对应 1000 VAI 债务+锁定抵押，不是利润。VAI 市价约 0.9917 的折扣不能使该方向转正。",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+            "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+            "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+          ],
+          "net_result": "−0.3345 USDT / 1000 VAI（估算，未成交；未含 gas/铸造费/利息）",
+          "unknown_costs": [
+            "VAI 铸造费",
+            "VAI 利息口径",
+            "gas",
+            "抵押权/清算风险",
+            "更大规模滑点"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "铸造费/利息/上限被治理改到足以覆盖 DEX 往返成本",
+            "出现价格显著高于面值的 VAI 出口",
+            "Venus 规则变更"
+          ]
+        }
+      }
     },
     {
       "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
@@ -4060,6 +4105,148 @@
             "出现有真实流动性的二级池",
             "V4 小池被证实为废弃/测试",
             "金库份额转让/权限变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BASE-AAVE-V3-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+      "first_seen_at": "2026-11-09T15:01:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
+      "mechanism": "Aave 清算奖励是账面折扣权利：需真实 HF<1 仓位→代还债务→取得抵押→卖出→扣除本金/协议清算费/gas/L1 数据费/融资。本轮 4 个最近借款人 HF=1.714/10.708/3.141/1.168 均>1、5,000 块窗口 LiquidationCall=0、储备级奖励参数未取得（getReserveConfigurationData revert），因此不存在可核算的清算候选；oracle 价值×奖励比例不是利润。",
+      "evidence_urls": [
+        "https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+        "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+      ],
+      "net_result": "unknown（无候选；净额 null）",
+      "unknown_costs": [
+        "储备级奖励参数",
+        "代还本金",
+        "抵押卖出冲击",
+        "gas/L1 数据费",
+        "融资成本"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现 HF<1 真实仓位且规则可执行",
+        "储备参数/协议费与源码不符",
+        "抵押卖出通道失效"
+      ],
+      "owner": "BASE04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE04/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:01:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:01:00+00:00",
+      "capacity": "unknown；本轮无候选仓位；近块 4 个借款人 HF 均>1；无清算事件可复盘",
+      "observations_by_role": {
+        "BASE04": {
+          "finding_id": "BASE-AAVE-V3-LIQUIDATION-BONUS-NOT-NET-PROFIT",
+          "status": "REJECTED",
+          "market_id": "BASE:AAVE_V3:POOL:0xa238dd80c259a72e81d7e4664a9801593f98d1c5",
+          "mechanism": "Aave 清算奖励是账面折扣权利：需真实 HF<1 仓位→代还债务→取得抵押→卖出→扣除本金/协议清算费/gas/L1 数据费/融资。本轮 4 个最近借款人 HF=1.714/10.708/3.141/1.168 均>1、5,000 块窗口 LiquidationCall=0、储备级奖励参数未取得（getReserveConfigurationData revert），因此不存在可核算的清算候选；oracle 价值×奖励比例不是利润。",
+          "evidence_urls": [
+            "https://basescan.org/address/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+            "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+          ],
+          "net_result": "unknown（无候选；净额 null）",
+          "unknown_costs": [
+            "储备级奖励参数",
+            "代还本金",
+            "抵押卖出冲击",
+            "gas/L1 数据费",
+            "融资成本"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现 HF<1 真实仓位且规则可执行",
+            "储备参数/协议费与源码不符",
+            "抵押卖出通道失效"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BASE-AERODROME-VAMM-LP-MINT-BURN-NO-DIFFERENCE",
+      "first_seen_at": "2026-11-09T15:05:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+      "mechanism": "同 pinned 块、按 Aerodrome vAMM 源码 mint=min(...)、burn 按比例返还：1/10/100 USDC 比例入池后立即烧回，净额仅 −1e-6 USDC 等值（整数取整），mint/burn 无 swap 费；LP 份额价值、PoolFees、Gauge 排放三类权利分列，Gauge periodFinish 已过期且不与池费双计。正常 LP 存取无可闭环差异。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+        "https://basescan.org/address/0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+        "https://basescan.org/address/0x2d25a5edfd27e1f71652477e1a204726883ba402"
+      ],
+      "net_result": {
+        "value": "-0.000001000015",
+        "unit": "USDC 等值",
+        "type": "integer_math_same_block",
+        "note": "只有取整损失；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "gas/L1 费",
+        "池费率",
+        "Gauge 当前排放",
+        "真实 calldata 模拟"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "实际 mint/burn 收费与源码不符",
+        "实现升级",
+        "Gauge 周期重启（排放仍需单列）",
+        "数据过期需重取"
+      ],
+      "owner": "BASE05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE05/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:05:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:05:00+00:00",
+      "capacity": "池状态 pinned 块：2,304,411.247121 USDC / 3,976,351.856502 AERO，LP totalSupply 0.054885279670046055；本轮只测 1/10/100 USDC 比例入池档，往返均只损失取整；无正向差异，容量对结论无影响。",
+      "observations_by_role": {
+        "BASE05": {
+          "finding_id": "BASE-AERODROME-VAMM-LP-MINT-BURN-NO-DIFFERENCE",
+          "status": "REJECTED",
+          "chain": "BASE",
+          "protocol": "Aerodrome vAMM",
+          "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+          "evidence_urls": [
+            "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+            "https://basescan.org/address/0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+            "https://basescan.org/address/0x2d25a5edfd27e1f71652477e1a204726883ba402"
+          ],
+          "mechanism": "同 pinned 块、按 Aerodrome vAMM 源码 mint=min(...)、burn 按比例返还：1/10/100 USDC 比例入池后立即烧回，净额仅 −1e-6 USDC 等值（整数取整），mint/burn 无 swap 费；LP 份额价值、PoolFees、Gauge 排放三类权利分列，Gauge periodFinish 已过期且不与池费双计。正常 LP 存取无可闭环差异。",
+          "net_result": {
+            "value": "-0.000001000015",
+            "unit": "USDC 等值",
+            "type": "integer_math_same_block",
+            "note": "只有取整损失；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "gas/L1 费",
+            "池费率",
+            "Gauge 当前排放",
+            "真实 calldata 模拟"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "实际 mint/burn 收费与源码不符",
+            "实现升级",
+            "Gauge 周期重启（排放仍需单列）",
+            "数据过期需重取"
           ]
         }
       },

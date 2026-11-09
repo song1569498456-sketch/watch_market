@@ -2,13 +2,26 @@
   "agent_id": "BASE04",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "UNVERIFIED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:59:40+00:00",
   "observed_cursor": {
-    "type": "STATIC_DEPLOYMENT_AND_RULES_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:41:56.518362+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:59:40+00:00",
+    "chain_id": 8453,
+    "head_block": 55229393,
+    "pinned_blocks": [
+      55229390
+    ],
+    "urls": [
+      "https://mainnet.base.org",
+      "https://base-rpc.publicnode.com",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+    ],
+    "complete_block_range": "身份/储备/账户/规则：块 55,229,390；Borrow 事件：55,224,393-55,229,393（5,000 块完整覆盖该窗口）；LiquidationCall 同窗口 0 条",
+    "complete_event_time_window": "约 2026-11-09T12:10Z-14:57Z（5,000 块，Base ~2s/块推断）；30 天规则与 7 天清算复盘未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,27 +35,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
-    "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
-    "本轮没有借款人，仓位卡为空，不将未知HF写成可清算或接近阈值。"
+    "链：eth_chainId=0x2105（8453），head=55,229,393（2026-11-09T14:57:34Z），固定块 55,229,390；head baseFee≈5,000,000 wei（L2 部分）。",
+    "Aave V3 Base 身份链上核验：Pool 代理 0xA238Dd80…（1,933 B）；EIP-1967 impl 槽=0xA4AbC5FcBA6D0d7E3D144d6dbF6cb6128599dFdB（实现 22,442 B），与官方地址书 POOL_IMPL 一致；provider=0xe20fcbdb…，provider.getPriceOracle()=0x2Cc0Fc26…，与地址书 ORACLE 一致。",
+    "储备列表 15 个（链上 symbol）：WETH、cbETH、USDbC、wstETH、USDC、weETH、cbBTC、ezETH、GHO、wrsETH、LBTC、EURC、AAVE、tBTC、syrupUSDC；oracle getSourceOfAsset 已读 WETH/cbETH/USDbC 三个源。",
+    "清算规则静态源 sha256=5d344687…（与上一轮相同）：DEFAULT_LIQUIDATION_CLOSE_FACTOR=0.5e4、CLOSE_FACTOR_HF_THRESHOLD=0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD=2000e8；储备级 LTV/LT/bonus/协议费未取得（调用 revert）。",
+    "近块借款样本：Borrow 事件窗口 55,224,393-55,229,393（5,000 块≈2.8h）20 条；4 个最近借款人 getUserAccountData HF=1.714/10.708/3.141/1.168 均>1（无可清算仓位，最近者仅 watch）；同窗口 LiquidationCall=0。",
+    "抵押卖出通道（历史证据 >60s）：Uniswap V3 WETH/USDC 0.05% Quoter 1/10/100 WETH = 2127.037/21256.708/210954.870 USDC（100 WETH 冲击约 0.82%），仅证明通道与冲击量级。",
+    "外部请求合计 79 次（≤80 上限，未再追加）；mainnet.base.org eth_getLogs 返回 request limit reached（3 次）后改用 base-rpc.publicnode.com。"
   ],
   "pending_questions": [
-    "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
-    "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
-    "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
-    "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
-    "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
+    "储备级 LTV/liquidationThreshold/liquidationBonus/协议清算费未取得：getReserveConfigurationData(address) 在 mainnet.base.org 与 publicnode 均 revert（7 次，原因未确认），不能填 0 或套静态模板。",
+    "7 天清算复盘未覆盖（仅 2.8h 窗口 0 条 LiquidationCall）；30 天规则/参数变更未回溯。",
+    "借款样本仅 4 个最近借款人，不是全量仓位队列；未按储备/账户全扫建 watch。",
+    "无候选仓位，未做代还→抵押→卖出完整闭环；gas（L2+L1 数据费）、协议费、容量/冲击、融资成本未量化。",
+    "mainnet.base.org eth_getLogs 限制已记录；请求数已达上限，未扩窗口。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:41:56.518362+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE04/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-    "verified_at": "2026-11-08T15:42:39.302063+00:00",
-    "record": "evidence/BASE04/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:01:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BASE04/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BASE04/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

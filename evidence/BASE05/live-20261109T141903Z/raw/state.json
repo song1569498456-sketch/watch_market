@@ -1,0 +1,97 @@
+{
+ "started_at_utc": "2026-11-09T14:58:10.968048+00:00",
+ "dexscreener_aerodrome_pairs": [
+  {
+   "pair": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+   "base": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "baseSymbol": "AERO",
+   "quote": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "quoteSymbol": "USDC",
+   "priceUsd": "0.5795",
+   "priceNative": "0.5795",
+   "liquidityUsd": 4608822.49
+  },
+  {
+   "pair": "0xBE00fF35AF70E8415D0eB605a286D8A45466A4c1",
+   "base": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "baseSymbol": "AERO",
+   "quote": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "quoteSymbol": "USDC",
+   "priceUsd": "0.5758",
+   "priceNative": "0.5758",
+   "liquidityUsd": 258178.52
+  },
+  {
+   "pair": "0xCCd9cC53b63662088c738B8BC06E9078Fb8D9ad4",
+   "base": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "baseSymbol": "AERO",
+   "quote": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "quoteSymbol": "USDC",
+   "priceUsd": "0.5797",
+   "priceNative": "0.5797",
+   "liquidityUsd": 16444.38
+  },
+  {
+   "pair": "0x861Ee8B9F7e42eDCF4f1B5614c6595F71A879f3f",
+   "base": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "baseSymbol": "AERO",
+   "quote": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "quoteSymbol": "USDC",
+   "priceUsd": "0.5801",
+   "priceNative": "0.5801",
+   "liquidityUsd": 13266.75
+  },
+  {
+   "pair": "0xa4FDd479eda160671636e2eCF8f993Cbf86258a8",
+   "base": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "baseSymbol": "AERO",
+   "quote": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "quoteSymbol": "USDC",
+   "priceUsd": "0.5779",
+   "priceNative": "0.5779",
+   "liquidityUsd": 11608.51
+  },
+  {
+   "pair": "0xBd8a2492e48062F8eBFBdf33ecB0576C5C0959cA",
+   "base": "0x85483696Cc9970Ad9EdD786b2C5ef735F38D156f",
+   "baseSymbol": "USDC+",
+   "quote": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+   "quoteSymbol": "AERO",
+   "priceUsd": "1.0058",
+   "priceNative": "1.7473",
+   "liquidityUsd": 174.03
+  }
+ ],
+ "chain_id": 8453,
+ "latest_block": 55229594,
+ "latest_block_time_utc": "2026-11-09T14:58:14+00:00",
+ "pinned_block": 55229589,
+ "pool": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+ "pool_state_raw": {
+  "code_bytes": 45,
+  "token0()": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "token1()": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+  "stable()": false,
+  "totalSupply()": 54885279670046053,
+  "reserves_raw": "0x00000000000000000000000000000000000000000000000000000218899d2211000000000000000000000000000000000000000000034a06775051d990b89039000000000000000000000000000000000000000000000000000000006af1df53",
+  "factory()": "0x420dd381b31aef6683db6b902084cb0ffece40da",
+  "gauge()": null,
+  "fee()": null,
+  "isPaused()": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ "gauge": null,
+ "token_meta": {
+  "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+   "symbol": "USDC",
+   "decimals": 6
+  },
+  "0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+   "symbol": "AERO",
+   "decimals": 18
+  }
+ },
+ "gauge_state": {}
+}

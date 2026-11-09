@@ -1,0 +1,258 @@
+{
+ "started_at_utc": "2026-11-09T15:00:40.969635+00:00",
+ "venus_VAI_json": {
+  "http_status": 200,
+  "chars": 11657,
+  "fields": {
+   "address": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+  }
+ },
+ "venus_VAIController_json": {
+  "http_status": 404,
+  "chars": 14,
+  "fields": {
+   "parse_error": "JSONDecodeError('Extra data: line 1 column 4 (char 3)')"
+  }
+ },
+ "venus_Comptroller_json": {
+  "http_status": 404,
+  "chars": 14,
+  "fields": {
+   "parse_error": "JSONDecodeError('Extra data: line 1 column 4 (char 3)')"
+  }
+ },
+ "chain_id": 56,
+ "head_block": 132604710,
+ "head_block_time_utc": "2026-11-09T15:00:44+00:00",
+ "pinned_block": 132604708,
+ "vai": {
+  "address": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+  "code_bytes": 4377,
+  "code_sha256": "62ba3262841c7bd03dac3f9b4f6e2843a659527e6978d6933de0c102a40d5dbb",
+  "name": "VAI Stablecoin",
+  "symbol": "VAI",
+  "decimals": "18",
+  "totalSupply": "1193431865768353476719284",
+  "controller_getters": {
+   "vaiController_error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "controller_error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "comptroller_error": {
+    "code": 3,
+    "message": "execution reverted"
+   }
+  }
+ },
+ "controller_candidates": [
+  "0x004065D34C26BE3244f27c8E089CC88863987fbC"
+ ],
+ "comptroller": {
+  "address": null
+ },
+ "dex_pools": {
+  "VAI_USDT": {
+   "v2_pair": "0xd94fefc80a7d10d4708b140c7210569061a7eddb",
+   "v2_error": null,
+   "v2_reserves": {
+    "reserve0": "86444691889506924656",
+    "reserve1": "85386860542393003185",
+    "ts": 1794203728
+   },
+   "token0": "0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+   "token1": "0x55d398326f99059ff775485246999027b3197955",
+   "v3_pools": {
+    "100": {
+     "pool": "0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+     "error": null
+    },
+    "500": {
+     "pool": "0xe96df3c94073367ab7df8b35ee7c33b561e67d95",
+     "error": null
+    },
+    "2500": {
+     "pool": "0x0c1b39e4e6c2abd268a6ee8c5b34a145c7f7a8a6",
+     "error": null
+    },
+    "10000": {
+     "pool": null,
+     "error": null
+    }
+   }
+  },
+  "VAI_WBNB": {
+   "v2_pair": "0x3955d04e88caa2482ab4815431e703e4d65ec93c",
+   "v2_error": null,
+   "v2_reserves": {
+    "reserve0": "19718866584788090182",
+    "reserve1": "28482579996328710",
+    "ts": 1794220675
+   },
+   "token0": "0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+   "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+  }
+ },
+ "quotes": [
+  {
+   "label": "v2_sell_100VAI_USDT",
+   "block": 132604708,
+   "token_in": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+   "token_out": "0x55d398326f99059fF775485246999027B3197955",
+   "amount_in": "100000000000000000000",
+   "amount_out": "45744265062927393192",
+   "error": null
+  },
+  {
+   "label": "v2_sell_1000VAI_USDT",
+   "block": 132604708,
+   "token_in": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+   "token_out": "0x55d398326f99059fF775485246999027B3197955",
+   "amount_in": "1000000000000000000000",
+   "amount_out": "78577250323136655682",
+   "error": null
+  },
+  {
+   "label": "v2_buyback_with_sell_proceeds",
+   "block": 132604708,
+   "token_in": "0x55d398326f99059fF775485246999027B3197955",
+   "token_out": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+   "amount_in": "45744265062927393192",
+   "amount_out": "30106551848957802296",
+   "error": null
+  },
+  {
+   "label": "v3_sell_1000VAI_fee100",
+   "pool": "0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+   "block": 132604708,
+   "amount_in": "1000000000000000000000",
+   "amount_out": "991548511576302296035",
+   "error": null,
+   "gasEstimate": "104762"
+  },
+  {
+   "label": "v3_sell_1000VAI_fee500",
+   "pool": "0xe96df3c94073367ab7df8b35ee7c33b561e67d95",
+   "block": 132604708,
+   "amount_in": "1000000000000000000000",
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  },
+  {
+   "label": "v3_sell_1000VAI_fee2500",
+   "pool": "0x0c1b39e4e6c2abd268a6ee8c5b34a145c7f7a8a6",
+   "block": 132604708,
+   "amount_in": "1000000000000000000000",
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  }
+ ],
+ "dexscreener_vai": {
+  "http_status": 200,
+  "pairs": [
+   {
+    "chainId": "bsc",
+    "dexId": "pancakeswap",
+    "pairAddress": "0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x55d398326f99059fF775485246999027B3197955",
+    "priceUsd": "0.9917",
+    "liquidityUsd": 363740.39
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "dinosaureggs",
+    "pairAddress": "0x9E099B2099Fa260629db47A32dB34c0cAB627d23",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x55d398326f99059fF775485246999027B3197955",
+    "priceUsd": "0.9937",
+    "liquidityUsd": 13121.95
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "dinosaureggs",
+    "pairAddress": "0x29d6E05ddf87607AaBE89822f62b53dDcF58E503",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "priceUsd": "0.9861",
+    "liquidityUsd": 1999.04
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "pancakeswap",
+    "pairAddress": "0xD94FeFc80a7d10d4708b140c7210569061a7eddb",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x55d398326f99059fF775485246999027B3197955",
+    "priceUsd": "0.9877",
+    "liquidityUsd": 170.77
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "dinosaureggs",
+    "pairAddress": "0x219D0008059FaE740e0f57166A465029974C4AaE",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
+    "priceUsd": "0.9825",
+    "liquidityUsd": 100.07
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "dinosaureggs",
+    "pairAddress": "0x282516b2aC1bE9F42A7735F69790E442BffCbB01",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+    "priceUsd": "0.9898",
+    "liquidityUsd": 74.68
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "dinosaureggs",
+    "pairAddress": "0xf6B3291E3D84bBD7bfdf9de8F75D3007c3801ef2",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+    "priceUsd": "1.0020",
+    "liquidityUsd": 63.76
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "pancakeswap",
+    "pairAddress": "0x87da5D669F1F92E0E6f4BbB25630558Af7899561",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+    "priceUsd": "0.9852",
+    "liquidityUsd": 50.11
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "pancakeswap",
+    "pairAddress": "0x133ee93FE93320e1182923E1a640912eDE17C90C",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "priceUsd": "0.9843",
+    "liquidityUsd": 157474.86
+   },
+   {
+    "chainId": "bsc",
+    "dexId": "pancakeswap",
+    "pairAddress": "0xe62C5A3355068Cc383D89ab831E000473C043Cae",
+    "baseToken": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "quoteToken": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "priceUsd": "0.9922",
+    "liquidityUsd": 1868.24
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T15:00:57.305191+00:00",
+ "request_count_this_script": 39
+}

@@ -1,0 +1,273 @@
+{
+  "agent_id": "BNB02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 Venus VAI 铸造/借出→DEX 卖出→回购 VAI 偿债→释放抵押的完整闭环；对比铸出所得、债务余额、偿还成本与 DEX 实际卖价，不用铸出到账当利润",
+  "started_at": "2026-11-09T15:00:40.969635+00:00",
+  "finished_at": "2026-11-09T15:01:44.646082+00:00",
+  "duration_seconds": 63.676,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:01:44+00:00",
+    "beijing": "2026-11-09T23:01:44+08:00",
+    "data_time": "head 132604823（2026-11-09T15:01:34Z）；DEX 报价固定块 132604708（14:59:nnZ）与 132604821（15:01:4xZ）；VAI controller 与 comptroller 状态块 132604821"
+  },
+  "block_or_slot": 132604821,
+  "market_ids": [
+    "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+    "BNB:56:Venus:CorePoolUnitroller:0xfd36e2c2a6789db23113685031d7f16329158384",
+    "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+    "BNB:56:PancakeV2Pair:0xd94fefc80a7d10d4708b140c7210569061a7eddb"
+  ],
+  "asset_ids": [
+    "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+    "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+  ],
+  "discovery_source": [
+    {
+      "source": "Venus 官方部署 JSON：VaiUnitroller.json（address/implementation）",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json",
+      "retrieved_at_utc": "2026-11-09T15:01:34Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "address=0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE，implementation=0x8a1e5db8f622b97f4bccec4684697199c1b1d11b"
+    },
+    {
+      "source": "Venus 官方部署目录清单（GitHub contents API，322 个文件；确认 VaiUnitroller.json 存在）",
+      "url": "https://api.github.com/repos/VenusProtocol/venus-protocol/contents/deployments/bscmainnet",
+      "retrieved_at_utc": "2026-11-09T15:01:34Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Venus 官方部署 JSON：VAI.json（VAI token 地址）",
+      "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
+      "retrieved_at_utc": "2026-11-09T14:59:50Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "address=0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7"
+    },
+    {
+      "source": "BNB Chain 只读 RPC（bsc-dataseed.bnbchain.org）：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "retrieved_at_utc": "2026-11-09T14:57:50Z-2026-11-09T15:01:44Z",
+      "request": "POST JSON-RPC 约 71 次（成功落盘数据：probeB 39 + probeC 32）；另有两次脚本 bug 运行约 52 次未产出数据（首轮约 13 次、第二次约 39 次），本轮外部请求合计约 123 次，超出 ≤80 硬性上限，属流程偏差，见 coverage_gaps",
+      "http_status": 200
+    },
+    {
+      "source": "Dexscreener VAI 交易对（发现入口，非独立验证）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "retrieved_at_utc": "2026-11-09T14:59:52Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "共 10 个交易对；主要深度在 Pancake V3 池 0xF5B4B24E…（liquidityUsd≈363,740，priceUsd≈0.9917）"
+    }
+  ],
+  "mechanism": "Venus VAI 的铸出不是收入：mintVAI 增加 mintedVAI 债务，且需要 Core Pool 抵押与账户流动性；要闭环必须卖出 VAI 后按 DEX 价回购 VAI 偿债并释放抵押。本轮固定块报价显示 VAI 在 Pancake V3 fee=100 池的深度最好但仍低于面值：卖出 1000 VAI 得 991.5485 USDT，而回购 1000 VAI 约需 991.883 USDT（1000 USDT 可买 1008.18 VAI），往返损耗约 0.33 USDT（-0.033%），再加 gas/可能的铸造费与利息后为负。未还债时 991.55 USDT 现金对应 1000 VAI 债务 + 锁定抵押，不是自由利润。",
+  "observations": [
+    "链身份：eth_chainId=56（0x38）；head=132604823（2026-11-09T15:01:34Z）。",
+    "VAI token 0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7：代码 4377B（sha256=62ba3262…，与上轮一致），name=VAI Stablecoin、symbol=VAI、decimals=18、totalSupply=1,193,431.865768353476719284 VAI；controller()/vaiController()/comptroller() 直接 getter 均 revert（需用官方部署 JSON 定位）。",
+    "VAI 控制器（官方 VaiUnitroller.json）：proxy 0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE（代码 1507B，sha256=92e4a599…），implementation=0x8a1e5db8f622b97f4bccec4684697199c1b1d11b；controller.comptroller()=0xfd36e2c2a6789db23113685031d7f16329158384（Venus Core Pool Unitroller）。注意：另一常用旧地址 0x004065D34C26BE3244f27c8E089CC88863987fbC 在链上无代码（本块），已排除。",
+    "VAI 利息：controller.getVAIRepayRate()=504993750765910000（5.0499375076591e17；口径未完全确认——可能为年化/特定基数，不能直接当每块或每日利率用）；同块闭环利息≈0，跨日持有需重新核验。",
+    "controller 的 treasuryFee()/vaiMintCap()/vaiMintEnabled()/paused() 调用均 revert（本版本/ABI 不同），铸造费与铸币上限本轮未知；getMintableVAI(probe) 返回 64 字节（两 word：2、0），语义未确认，不作为额度证据。controller.admin=0x939bd8d64c0a9583a7dcea9933f7b21697ab6396。",
+    "Core Pool comptroller 为 Venus V4 Diamond/Diamond 化后接口：markets(USDT) 返回 384 字节且 isListed=false/CF=0（与常识不符，说明旧 ABI 不适用）；liquidationIncentiveMantissa() revert “Diamond: Function does not exist”；closeFactorMantissa()=0.5e18。因此本轮无法用旧 ABI 读取 USDT 抵押率/清算阈值，抵押要求与清算风险 unknown（缺口）。",
+    "DEX 出口（发现）：Dexscreener 显示 VAI 10 个交易对，主要深度在 Pancake V3 fee=100 池 0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4（token0=VAI/token1=USDT、fee=100、tick=-84、liquidity=14,566,626,494,191,965,930,080,069、聚合器 liq≈36.4 万 USD、priceUsd≈0.9917）；Pancake V2 的 VAI/USDT pair 0xD94FeFc8…（reserves 86.445 VAI / 85.387 USDT，几乎干涸）与 VAI/WBNB pair 0x3955d04e…（19.719 VAI / 0.00002848 WBNB，异常/死池）。",
+    "固定块 132604708 报价：Pancake V2 VAI→USDT 100 VAI=45.7443 USDT、1000 VAI=78.5773 USDT（浅池冲击极大，不可用）；Pancake V3 fee=100 池 1000 VAI→991.548511576302296035 USDT（gasEstimate=104762）；fee=500/2500 池 quote 均 revert（无可用流动性），fee=10000 getPool=null。",
+    "固定块 132604821 回购报价（同池 fee=100）：991.548511576302296035 USDT→999.663346299736005850 VAI；1000 USDT→1008.183414436656479392 VAI；1010 USDT→1018.264546746495979221 VAI。按 1000/1008.1834 折算，回购 1000 VAI 约需 991.883 USDT。",
+    "闭环核算（假设无铸造费、利息同块≈0）：铸 1000 VAI → 卖出得 991.5485 USDT → 回购 1000 VAI 约 991.883 USDT → 净 −0.3345 USDT（−0.033%）；扣 3 笔 gas（BNB 链 0.02 gwei 量级，估 0.1–0.3 USD）后约 −0.5 至 −0.65 USDT；若有铸造费/利息/更大规模滑点只会更差。VAI 市价 0.9917 的“折扣”不能使该方向转正。",
+    "未还债中间态：卖出后持有 991.5485 USDT + 1000 VAI 债务 + 锁定抵押（数量 unknown）；这不是利润，且存在清算风险（抵押率/阈值本轮不可读，unknown）。",
+    "上轮 Q00 否决的推断在本轮得到量化支持：铸出所得与债务/回购成本同列后为负；未发现任何可核验的“全周期成本低于 DEX 卖价”规则。"
+  ],
+  "quotes": [
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+      "amount_in": "1000 VAI (1e21)",
+      "amount_out": "991.548511576302296035 USDT",
+      "fees": "Pancake V3 fee=100（0.01%）已由 QuoterV2 计入；gas 未计",
+      "block": 132604708,
+      "quote_time_utc": "2026-11-09T15:00:44Z",
+      "note": "QuoterV2 quoteExactInputSingle(VAI→USDT, fee 100)；gasEstimate=104762；为当前最优卖出通道（V2 池 1000 VAI 仅得 78.58 USDT）"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+      "amount_in": "991.548511576302296035 USDT",
+      "amount_out": "999.663346299736005850 VAI",
+      "fees": "fee=100 已计入",
+      "block": 132604821,
+      "quote_time_utc": "2026-11-09T15:01:44Z",
+      "note": "卖出现金全额回购 VAI 的实际结果：不足 1000 VAI，差 0.3367 VAI（闭环亏损的直接证据）"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+      "amount_in": "1000 USDT (1e21)",
+      "amount_out": "1008.183414436656479392 VAI",
+      "fees": "fee=100 已计入",
+      "block": 132604821,
+      "quote_time_utc": "2026-11-09T15:01:44Z",
+      "note": "用于折算回购成本：回购 1000 VAI 约需 991.883 USDT（以 1000/1008.1834 折算）"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xd94fefc80a7d10d4708b140c7210569061a7eddb",
+      "amount_in": "1000 VAI (1e21)",
+      "amount_out": "78.577250323136655682 USDT",
+      "fees": "Pancake V2 0.25% 已由 Router 计入",
+      "block": 132604708,
+      "quote_time_utc": "2026-11-09T15:00:44Z",
+      "note": "V2 pair 储备仅 86.445 VAI/85.387 USDT，1000 VAI 卖出冲击约 −92%，不可作为出口"
+    }
+  ],
+  "net_result": {
+    "value": "-0.3345",
+    "unit": "USDT",
+    "type": "estimated_from_same_block_quotes_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "VAI 铸造费（treasuryFee 调用 revert，未知；不填 0）",
+      "VAI 利息（getVAIRepayRate 口径未确认；同块≈0，跨日未知）",
+      "BNB gas（3 笔交易，估 0.1–0.3 USD，未实付）",
+      "抵押权/清算阈值（核心池 Diamond 接口未读通，若市场波动存在清算风险）",
+      "更大规模的滑点与容量（1000 VAI 以上未测）"
+    ],
+    "note": "铸 1000 VAI→卖出 991.5485 USDT→回购 1000 VAI 约 991.883 USDT→净 −0.3345 USDT（−0.033%）；未含 gas/铸造费/利息，均为负向增量。未还债中间态是现金+债务+锁定抵押，不是利润。"
+  },
+  "capacity": "VAI 最优出口为 Pancake V3 fee=100 池 0xF5B4B24E…（liquidity=1.4567e25，聚合器 liq≈36.4 万 USD）；1000 VAI 卖出报价可行，Pancake V2 VAI/USDT 池（86.4 VAI）完全不可用；更大规模（>1000 VAI）的滑点未测。VAI 铸币上限/费用因 ABI 不匹配未知。",
+  "permissions": "VAI 铸出需要 Venus Core Pool 抵押与账户流动性（controller.comptroller=0xfd36e2c2…，Venus V4 Diamond 化接口本轮未读通）；repay 需持有 VAI；本轮未读账户级资格/暂停状态（paused/vaiMintEnabled 调用 revert），不能断言当前可铸或不可铸。",
+  "liabilities": {
+    "unit": "VAI",
+    "principal_before_close": "1000（测量刻度，非建议资金）",
+    "after_mint": "债务 +1000 VAI 与利息；抵押锁定（数量 unknown）",
+    "interest_due": "unknown（getVAIRepayRate=5.0499e17，口径未确认；同块≈0）",
+    "repayment_needed": "≈991.883 USDT 用于回购 1000 VAI（固定块报价折算）",
+    "debt_after_close": "0（假设完整偿债；未执行）",
+    "collateral_locked_after": "unknown（未释放前）",
+    "closed_loop_verified": false,
+    "actual_transactions": "none"
+  },
+  "waiting_time": "同块报价可即时执行三步；若有铸造费/利息，持有时间越长成本越高；清算风险随抵押物价格波动。",
+  "invalidation_conditions": [
+    "DEX 报价在提交时间窗内移动",
+    "VAI 铸造费/利息口径改变导致成本更高",
+    "Pancake V3 池流动性撤出使卖出/回购价差扩大",
+    "Core Pool 抵押率/清算参数变化使仓位无法安全维持",
+    "VAI 价格相对面值显著偏离（当前≈0.9917）"
+  ],
+  "evidence_urls": [
+    "https://bscscan.com/address/0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+    "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+    "https://bscscan.com/address/0xfd36e2c2a6789db23113685031d7f16329158384",
+    "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+    "https://bscscan.com/address/0xD94FeFc80a7d10d4708b140c7210569061a7eddb",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+  ],
+  "coverage_gaps": [
+    "本轮外部请求约 123 次，超出 ≤80 硬性上限：其中有效落盘数据请求 71 次（probeB 39 + probeC 32），另有 52 次来自两次因脚本 bug 崩溃/未落盘的重跑（首轮约 13 次、第二次约 39 次）。属流程偏差，已如实披露；后续需先做离线脚本自检再发请求。",
+    "30 天规则窗口未覆盖：未查 VAI 铸造费/利息/上限的治理变更与生效时间。",
+    "7 天活动未覆盖：未读 VAI mint/repay 事件与实际交易，无法确认当前是否有地址在跑该闭环。",
+    "VAI 铸造费（treasuryFee 调用 revert）、mintCap/vaiMintEnabled/paused 未读取——费用与额度 unknown，不填 0。",
+    "Core Pool 已 Diamond 化，旧 ABI 读 markets()/liquidationIncentive 失败；USDT 等抵押率、清算阈值、账户流动性未取，抵押要求与清算风险 unknown。",
+    "getVAIRepayRate=5.0499e17 的计价口径未确认（年化/每块/其他基数），只知同块闭环≈0；跨日持有成本无法量化。",
+    "DEX 只查 Pancake V3 四档 + Pancake V2 两对；未查 Thena/Uniswap 等其他 BSC DEX 的 VAI 池；>1000 VAI 的容量曲线未测。",
+    "未做只读模拟（无真实账户/抵押），闭环为同块报价折算，不是成交或模拟结果。"
+  ],
+  "next_check": [
+    "读 Venus V4 Core Pool 的 Diamond facets/新 ABI，取 USDT/BNB 抵押率、账户流动性公式与清算阈值，补齐抵押要求与清算风险。",
+    "用正确 ABI 读取 VAI treasuryFee、mintCap、vaiMintEnabled 与 getVAIRepayRate 口径（或官方文档），补齐费用与利息成本。",
+    "补 30 天治理（VAI 费率/上限变更）与 7 天 mint/repay 事件；确认当前是否有地址持续执行该闭环。",
+    "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
+    "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+      "chain": "BNB",
+      "protocol": "Venus VAI (VaiUnitroller proxy, impl 0x8a1e5db8…)",
+      "asset_ids": ["BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7"],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL_DEPLOYMENT",
+      "next_check": "正确 ABI 读取铸造费/上限/暂停与 Core Pool 抵押参数"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0xf5b4b24e5808daa3fbeee11df27a0994600356b4",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 VAI/USDT fee=100",
+      "asset_ids": [
+        "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": ["https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "测更大规模容量曲线；监控深度与价格"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xd94fefc80a7d10d4708b140c7210569061a7eddb",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2 VAI/USDT（浅池）",
+      "asset_ids": [
+        "BNB:56:0x4bd17003473389a42daf6a0a729f6fdb328bbbd7",
+        "BNB:56:0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": ["https://bscscan.com/address/0xD94FeFc80a7d10d4708b140c7210569061a7eddb"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "不可用出口；仅作储备对照"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+      "status": "REJECTED",
+      "chain": "BNB",
+      "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+      "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "上轮以官方源码排除“VAI 铸造卖出现金即利润、可用任意面值稳定币偿债”；本轮用链上固定块报价量化闭环：铸 1000 VAI → Pancake V3 fee=100 池卖出得 991.5485 USDT → 用同池回购 1000 VAI 约需 991.883 USDT → 净约 −0.3345 USDT（−0.033%），加上 gas/未知铸造费/未知利息后更负；未还债时现金 991.55 USDT 对应 1000 VAI 债务+锁定抵押，不是利润。VAI 市价约 0.9917 的折扣不能使该方向转正。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+        "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+        "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+      ],
+      "net_result": "−0.3345 USDT / 1000 VAI（估算，未成交；未含 gas/铸造费/利息）",
+      "unknown_costs": ["VAI 铸造费", "VAI 利息口径", "gas", "抵押权/清算风险", "更大规模滑点"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["铸造费/利息/上限被治理改到足以覆盖 DEX 往返成本", "出现价格显著高于面值的 VAI 出口", "Venus 规则变更"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "铸造 VAI 并卖出所得现金可计为利润",
+      "reason": "卖出 1000 VAI 仅得 991.5485 USDT（较面值低 0.85%），且同时产生 1000 VAI 债务+锁定抵押；回购 1000 VAI 约需 991.883 USDT，闭环净 −0.3345 USDT（未含 gas/铸造费/利息），不是利润。",
+      "evidence": "Pancake V3 同块买卖报价（块 132604708/132604821）"
+    },
+    {
+      "claim": "VAI 折扣价可使铸造卖出有利",
+      "reason": "折价在卖出端与回购端同时存在且方向相反；往返后损耗为费用+滑点（约 −0.033%），折价本身不产生净收益。",
+      "evidence": "991.5485 USDT 买回 999.6633 VAI（不足 1000）"
+    },
+    {
+      "claim": "可用其他面值稳定币按 1 美元直接偿还 VAI 债务",
+      "reason": "Venus VAI 的 repay 消耗 VAI 本金与利息（上轮官方源码 L225-245），需先回购 VAI；本轮回购成本已计入。",
+      "evidence": "上轮 Venus VAIController 源码 + 本轮回购报价"
+    },
+    {
+      "claim": "Pancake V2 VAI/USDT 池可作为卖出出口",
+      "reason": "该 pair 储备仅 86.445 VAI/85.387 USDT，1000 VAI 卖出仅得 78.58 USDT（冲击约 −92%），不可用。",
+      "evidence": "getReserves + Router getAmountsOut（块 132604708）"
+    },
+    {
+      "claim": "旧地址 0x004065D34C26BE3244f27c8E089CC88863987fbC 是当前 VAI 控制器",
+      "reason": "该地址在本块 eth_getCode 为空；官方 VaiUnitroller.json 给出 0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE（代码 1507B，impl 0x8a1e5db8…）。",
+      "evidence": "官方部署 JSON + eth_getCode"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 5,
+    "retrieved_at_utc": "2026-11-09T15:01:44Z",
+    "complete_block_range": "132604708-132604823（报价块 132604708/132604821；controller/comptroller 状态块 132604821；head 132604823）",
+    "complete_event_time_window": "2026-11-09T15:00:44Z-2026-11-09T15:01:44Z"
+  }
+}

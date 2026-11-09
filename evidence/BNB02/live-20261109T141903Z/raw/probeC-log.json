@@ -1,0 +1,338 @@
+[
+ {
+  "n": 1,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "gh_venus_deployments",
+  "url": "https://api.github.com/repos/VenusProtocol/venus-protocol/contents/deployments/bscmainnet",
+  "at_utc": "2026-11-09T15:01:30.434913+00:00",
+  "http_status": 200,
+  "sha256": "3f9e7155169213fafbe1e92c4ac921c7e81b565e2aab82eec82961f17ab64cdf"
+ },
+ {
+  "n": 2,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "venus_ctrl_json",
+  "url": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json",
+  "at_utc": "2026-11-09T15:01:32.459871+00:00",
+  "http_status": 200,
+  "sha256": "7134c338f2b13123bb1b5b6833cfa35238f847abc7d41ab2bff7f4fe47005c04"
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "code_ctrl_0x004065",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:01:33.824844+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:01:35.104044+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:01:35.404487+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_comptroller",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:35.719773+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_treasuryFee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:36.036103+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "ctrl_treasuryFee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:36.310906+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_vaiMintCap",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:37.272897+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "ctrl_vaiMintCap",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:37.538950+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_getVAIRepayRate",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:37.903459+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_vaiMintEnabled",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:38.203994+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "ctrl_vaiMintEnabled",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:38.480737+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_paused",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:38.854797+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: 0x",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "ctrl_paused",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:39.135578+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_admin",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:39.508144+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_getMintableVAI_probe",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:39.808724+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_getVAIRepayAmount_probe",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:40.109277+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "ctrl_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T15:01:40.409508+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "comp_markets_USDT",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:40.709833+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "comp_markets_VAI",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:41.027291+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "comp_closeFactor",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:41.327628+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "comp_liquidationIncentive",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:41.628064+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Diamond: Function does not exist: 0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000204469616d6f6e643a2046756e6374696f6e20646f6573206e6f74206578697374",
+   "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000204469616d6f6e643a2046756e6374696f6e20646f6573206e6f74206578697374"
+  }
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "bsc-publicnode",
+  "tag": "comp_liquidationIncentive",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:41.909680+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Diamond: Function does not exist",
+   "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000204469616d6f6e643a2046756e6374696f6e20646f6573206e6f74206578697374"
+  }
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "buyback_991548511576302296035",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:42.272751+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "buyback_1000000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:42.573085+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "buyback_1010000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:42.873360+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3pool_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:43.173838+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3pool_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:43.474020+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3pool_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:43.774266+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3pool_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:44.077744+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "bsc-dataseed",
+  "tag": "v3pool_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:01:44.377833+00:00",
+  "http_status": 200
+ }
+]

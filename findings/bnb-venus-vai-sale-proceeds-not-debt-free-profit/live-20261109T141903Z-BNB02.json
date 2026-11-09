@@ -1,0 +1,33 @@
+{
+  "finding_id": "bnb-venus-vai-sale-proceeds-not-debt-free-profit",
+  "status": "REJECTED",
+  "chain": "BNB",
+  "market_id": "BNB:56:Venus:VAIUnitroller:0x004065d34c6b18ce4370ced1cebde94865dbfafe",
+  "first_seen_at": "2026-11-08T15:42:21.901356+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "上轮以官方源码排除“VAI 铸造卖出现金即利润、可用任意面值稳定币偿债”；本轮用链上固定块报价量化闭环：铸 1000 VAI → Pancake V3 fee=100 池卖出得 991.5485 USDT → 用同池回购 1000 VAI 约需 991.883 USDT → 净约 −0.3345 USDT（−0.033%），加上 gas/未知铸造费/未知利息后更负；未还债时现金 991.55 USDT 对应 1000 VAI 债务+锁定抵押，不是利润。VAI 市价约 0.9917 的折扣不能使该方向转正。",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4",
+    "https://bscscan.com/address/0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE",
+    "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VaiUnitroller.json"
+  ],
+  "net_result": "−0.3345 USDT / 1000 VAI（估算，未成交；未含 gas/铸造费/利息）",
+  "unknown_costs": [
+    "VAI 铸造费",
+    "VAI 利息口径",
+    "gas",
+    "抵押权/清算风险",
+    "更大规模滑点"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "铸造费/利息/上限被治理改到足以覆盖 DEX 往返成本",
+    "出现价格显著高于面值的 VAI 出口",
+    "Venus 规则变更"
+  ],
+  "owner": "BNB02",
+  "source_record": "evidence/BNB02/live-20261109T141903Z/record.json"
+}

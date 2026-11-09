@@ -1,0 +1,38 @@
+{
+  "finding_id": "BASE-AERODROME-VAMM-LP-MINT-BURN-NO-DIFFERENCE",
+  "status": "REJECTED",
+  "chain": "BASE",
+  "protocol": "Aerodrome vAMM",
+  "market_id": "BASE:8453:aerodrome-vamm-pool:0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+  "evidence_urls": [
+    "https://basescan.org/address/0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+    "https://basescan.org/address/0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+    "https://basescan.org/address/0x2d25a5edfd27e1f71652477e1a204726883ba402"
+  ],
+  "mechanism": "同 pinned 块、按 Aerodrome vAMM 源码 mint=min(...)、burn 按比例返还：1/10/100 USDC 比例入池后立即烧回，净额仅 −1e-6 USDC 等值（整数取整），mint/burn 无 swap 费；LP 份额价值、PoolFees、Gauge 排放三类权利分列，Gauge periodFinish 已过期且不与池费双计。正常 LP 存取无可闭环差异。",
+  "net_result": {
+    "value": "-0.000001000015",
+    "unit": "USDC 等值",
+    "type": "integer_math_same_block",
+    "note": "只有取整损失；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "gas/L1 费",
+    "池费率",
+    "Gauge 当前排放",
+    "真实 calldata 模拟"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "实际 mint/burn 收费与源码不符",
+    "实现升级",
+    "Gauge 周期重启（排放仍需单列）",
+    "数据过期需重取"
+  ],
+  "owner": "BASE05",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BASE05/live-20261109T141903Z/record.json"
+}

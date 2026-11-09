@@ -1749,78 +1749,186 @@
       "agent_id": "BASE04",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:41:56.518362+00:00",
+      "last_success_at": "2026-11-09T15:01:00+00:00",
+      "last_attempt_at": "2026-11-09T15:01:00+00:00",
       "actual_coverage": [
-        "Aave官方Base地址书给Pool、Pool实现与oracle及WETH/USDC资产地址，尚未链验证。",
-        "官方LiquidationLogic源码含HF/仓位规模影响maxLiquidatableDebt、协议清算费和receiveAToken分支；不把同一公式套所有协议或未绑定版本。",
-        "本轮没有借款人，仓位卡为空，不将未知HF写成可清算或接近阈值。"
+        "链：eth_chainId=0x2105（8453）；head=55,229,393（2026-11-09T14:57:34Z，hash 0xf0ca7839…）；固定块 55,229,390；head baseFee=0x4c4b40≈5,000,000 wei（L2 部分，未计 L1 数据费）。",
+        "Aave V3 Base Pool 0xA238Dd80C259a72e81d7e4664a9801593F98d1c5：代理代码 1,933 B；EIP-1967 impl 槽=0xA4AbC5FcBA6D0d7E3D144d6dbF6cb6128599dFdB（实现代码 22,442 B），与官方地址书 POOL_IMPL 一致。",
+        "ADDRESSES_PROVIDER()=0xe20fcbdbffc4dd138ce8b2e6fbb6cb49777ad64d；provider.getPriceOracle()=0x2Cc0Fc26eD4563A5ce5e8bdcfe1A2878676Ae156，与官方地址书 ORACLE 一致。",
+        "getReservesList() 15 个储备（链上 symbol 已读）：WETH、cbETH、USDbC、wstETH、USDC、weETH、cbBTC、ezETH、GHO、wrsETH、LBTC、EURC、AAVE、tBTC、syrupUSDC；地址见 raw。",
+        "oracle getSourceOfAsset：WETH→0x9da00d23465282005db222a441a663ee7b9dfcc8、cbETH→0xb6e9fbba669763bd811b10a761110c449824b5bb、USDbC→0xf52d010c7d4ecbfda92c2509900593ce34535d86（仅规则核查，未把展示价当利润）。",
+        "清算规则静态源 sha256=5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291（与上一轮相同）：DEFAULT_LIQUIDATION_CLOSE_FACTOR=0.5e4、CLOSE_FACTOR_HF_THRESHOLD=0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD=2000e8。",
+        "储备级 getReserveConfigurationData(address) 在 mainnet.base.org 与 base-rpc.publicnode.com 均 revert（空 data），共 7 次调用失败 → LTV/liquidationThreshold/liquidationBonus/协议费 unknown，未填 0、未套静态模板。",
+        "Borrow 事件窗口 55,224,393→55,229,393（5,000 块，约 2.8h）：20 条；对 4 个最近借款人 getUserAccountData（固定块 55,229,390）：HF=1.7141 / 10.7079 / 3.1406 / 1.1685，均 >1，无可清算仓位；最接近者 1.1685 仅 watch。"
       ],
       "coverage_gaps": [
-        "30天清算规则/实现/参数变更及7天清算复盘均未回溯；无事件/区块/交易。",
-        "Base PublicNode RPC与Aave GraphQL API均CONNECT 403；未独立核对8453、Pool代码、实现和预言机源。",
-        "没有真实借款人/position、实时债务、抵押量、HF、close factor或可代还额；不会编造可清算仓位。",
-        "没有取得抵押品的可售报价/赎回额度、gas/融资费用或完整只读模拟，奖励不等于净利润。",
-        "最新源码分支不证明当前Base部署的实现版本和规则；需代码关联后才能套用具体参数。"
+        "储备级清算参数未取得：getReserveConfigurationData(address) 在 mainnet.base.org 与 base-rpc.publicnode.com 均 revert（7 次调用，原因未确认），LTV/LT/bonus/协议费 unknown，不填 0。",
+        "7 天清算复盘未覆盖：仅 5,000 块（约 2.8h）窗口 LiquidationCall=0；30 天规则/参数变更未回溯。",
+        "借款样本仅 4 个最近借款人，不是全量仓位队列；未按储备/账户全扫，watch 列表未建立。",
+        "无候选仓位，因此未测代还→抵押→卖出的完整闭环；gas（L2+L1 数据费）、协议费、容量/冲击与融资成本未量化。",
+        "mainnet.base.org 对 eth_getLogs 返回 request limit reached；本轮已改用 publicnode 但已接近 80 请求上限，未继续扩窗口。"
       ],
-      "report": "reports/agents/BASE04/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BASE04/2026-11-09/live-20261109T141903Z.md",
       "task": "正常借贷清算兑现",
       "chain": "BASE",
       "owner": "worker_a",
       "prompt": "prompts/agents/BASE04.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-        "verified_at": "2026-11-08T15:42:39.302063+00:00",
-        "record": "evidence/BASE04/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BASE05",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:42:07.492556+00:00",
+      "last_success_at": "2026-11-09T15:05:00+00:00",
+      "last_attempt_at": "2026-11-09T15:05:00+00:00",
       "actual_coverage": [
-        "本岗位独立读取README、Pool、PoolFactory和Gauge源码，未把N-BASE静态结论当现行状态。",
-        "Pool.mint非首次用min(amount0*totalSupply/reserve0,amount1*totalSupply/reserve1)；首次锁MINIMUM_LIQUIDITY；burn按实际余额同比例返回并销毁份额。",
-        "PoolFees与核心储备分离；claimFees先更新持有人指数，不能把账面池费当全部可提核心资产。",
-        "Gauge.deposit检查isAlive并将LP转入Gauge，withdraw返回LP；_claimFees向feesVotingReward分配，不能重复计为存款人自由资产。",
-        "PoolFactory.getFee有customFee覆盖和特殊0费指示值，适用于必要swap腿；不把默认swap费机械当LP mint/burn手续费。"
+        {
+          "type": "chain_identity",
+          "address": "base-mainnet",
+          "fields": {
+            "eth_chainId": "0x2105",
+            "chain_id": 8453,
+            "latest_block": 55229594,
+            "latest_block_time_utc": "2026-11-09T14:58:14+00:00",
+            "pinned_block": 55229589
+          },
+          "evidence_file": "raw/state.json"
+        },
+        {
+          "type": "pool_identity_and_state",
+          "protocol": "Aerodrome vAMM",
+          "address": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+          "fields": {
+            "code_bytes": 45,
+            "token0": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC,6)",
+            "token1": "0x940181a94A35A4569E4529A3CDfB74e38FD98631 (AERO,18)",
+            "stable": false,
+            "reserves_raw": {
+              "USDC": "2304411247121",
+              "AERO": "3976351856502367..."
+            },
+            "reserves_human": {
+              "USDC": 2304411.247121,
+              "AERO": 3976351.856502367
+            },
+            "lp_total_supply_raw": "54885279670046053",
+            "lp_total_supply": 0.054885279670046055,
+            "observationLength": 50155,
+            "factory": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+            "factory_isPool": true,
+            "factory_isPaused": false,
+            "poolFees_contract": "0x2d25a5edfd27e1f71652477e1a204726883ba402"
+          },
+          "block": 55229589,
+          "evidence_file": "raw/state.json / raw/gauge_fee.json"
+        },
+        {
+          "type": "mint_burn_roundtrip",
+          "protocol": "Aerodrome vAMM",
+          "address": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+          "fields": {
+            "method": "同 pinned 块储备/总份额 + 源码 mint/burn 公式整数计算（非 eth_call 模拟）",
+            "tiers": [
+              {
+                "in_USDC": 1,
+                "in_AERO": 1.72553916384074,
+                "lp": 2.3817484721e-08,
+                "out_USDC": 0.999999,
+                "out_AERO": 1.7255391638142972,
+                "net_in_USDC_equiv": -1.000015e-06
+              },
+              {
+                "in_USDC": 10,
+                "in_AERO": 17.2553916384074,
+                "lp": 2.38174847213e-07,
+                "out_USDC": 9.999999,
+                "out_AERO": 17.25539163836032,
+                "net_in_USDC_equiv": -1.000027e-06
+              },
+              {
+                "in_USDC": 100,
+                "in_AERO": 172.553916384074,
+                "lp": 2.381748472136e-06,
+                "out_USDC": 99.999999,
+                "out_AERO": 172.55391638403788,
+                "net_in_USDC_equiv": -1.000021e-06
+              }
+            ],
+            "conclusion": "往返只损失整数取整；mint/burn 无 swap 费，无正向差异"
+          },
+          "block": 55229589,
+          "evidence_file": "raw/base05_summary.json"
+        },
+        {
+          "type": "rights_split",
+          "protocol": "Aerodrome PoolFees / Gauge",
+          "fields": {
+            "pool_fees": {
+              "contract": "0x2d25a5edfd27e1f71652477e1a204726883ba402",
+              "claimable_read": false,
+              "note": "未计入净额；LP 入 Gauge 后手续费权利让渡给 Gauge/feesVotingReward（上一轮源码）"
+            },
+            "gauge": {
+              "address": "0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+              "code_bytes": 6236,
+              "rewardToken": "0x940181a94A35A4569E4529A3CDfB74e38FD98631 (AERO)",
+              "rewardRate_raw": "503802383290341300",
+              "rewardRate_AERO_per_s": 0.5038023832903413,
+              "gauge_lp_totalSupply": "44602146158206148",
+              "gauge_lp_totalSupply_human": 0.04460214615820615,
+              "gauge_share_of_pool_lp": 0.8126,
+              "periodFinish": 1792627200,
+              "periodFinish_utc": "2026-10-22T00:00:00+00:00",
+              "period_status": "已过期（当前 2026-11-09）→ rewardRate 为历史字段，不可当当前排放",
+              "feesVotingReward": "0xa2eded6ee17af8debf70a1e93ac66e60dbfaaf33",
+              "isAlive_probe": "null（调用失败/接口不符）"
+            }
+          },
+          "block": 55229589,
+          "evidence_file": "raw/gauge_fee.json"
+        },
+        {
+          "type": "fee_read_gap",
+          "protocol": "Aerodrome Pool",
+          "fields": {
+            "factory_getFee_pool": "revert/无返回",
+            "pool_fee": "revert/无返回",
+            "note": "未链上读到该池费率；按源码 mint/burn 不收 swap 费，fee() 是 swap 腿参数，不等于存取费"
+          },
+          "block": 55229589,
+          "evidence_file": "raw/gauge_fee.json"
+        }
       ],
       "coverage_gaps": [
-        "未取得真实池、token0/token1、当前实现/字节码、reserve/balance/totalSupply；Base RPC和池发现API代理CONNECT403。",
-        "没有任何指定数量入池→出池→必要兑换报价或同状态模拟；实际LP余量/提款资产/可重复性unknown。",
-        "30天规则、customFee调整、暂停/存取窗口变更未覆盖；7天真实完整加减仓交易与旧小池轮转未覆盖。",
-        "Gauge对象/活跃状态/奖励速率/当前费用权利余额均未链上核验；静态源不能当当前事件或可领取收益。"
+        "池费率未链上读到：factory.getFee(pool) 与 Pool.fee() 均 revert/无返回；当前按源码认为 mint/burn 不收 swap 费，但缺链上费证据。",
+        "Gauge 当前状态未完整：isAlive() 无返回，periodFinish 已过期但可能已开新周期；未读 lastTimeRewardApplicable/rewardPerToken/用户 reward。",
+        "未做真实 calldata 的 mint/burn eth_call 模拟（本轮为同块状态整数公式计算），未验证取整与实现差异；gas/L1 费未计。",
+        "未读 PoolFees 累计/claimable 与 Gauge 内用户手续费权利（仅确认合约地址与分账机制）。",
+        "30 天规则窗口（factory customFee/暂停、池实现升级）与 7 天活动窗口（真实加减仓交易、Gauge 周期变更）未覆盖。",
+        "未研究 Slipstream 集中流动性 NFT position 与 Uniswap V3 position 的存取/费用规则（本岗只做了 vAMM 池）。"
       ],
-      "report": "reports/agents/BASE05/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BASE05/2026-11-09/live-20261109T141903Z.md",
       "task": "LP份额正常存取差异",
       "chain": "BASE",
       "owner": "worker_b",
       "prompt": "prompts/agents/BASE05.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 2,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-        "verified_at": "2026-11-08T15:42:39.302063+00:00",
-        "record": "evidence/BASE05/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BNB01",
@@ -1867,47 +1975,42 @@
       "agent_id": "BNB02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:42:21.901356+00:00",
+      "last_success_at": "2026-11-09T15:01:44.646082+00:00",
+      "last_attempt_at": "2026-11-09T15:01:44.646082+00:00",
       "actual_coverage": [
-        {
-          "protocol": "Venus VAI",
-          "token": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
-          "deployment_source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/deployments/bscmainnet/VAI.json",
-          "identity_status": "OFFICIAL_DEPLOYMENT_RECORD_NOT_LIVE_VERIFIED"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/VenusProtocol/venus-protocol/develop/contracts/Tokens/VAI/VAIController.sol",
-          "fields": "mintVAI L101-164记录债务/额度/fee；repayVAIFresh L225-245 burn VAI与transferFrom VAI利息",
-          "implementation_match": "unknown"
-        }
+        "链身份：eth_chainId=56（0x38）；head=132604823（2026-11-09T15:01:34Z）。",
+        "VAI token 0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7：代码 4377B（sha256=62ba3262…，与上轮一致），name=VAI Stablecoin、symbol=VAI、decimals=18、totalSupply=1,193,431.865768353476719284 VAI；controller()/vaiController()/comptroller() 直接 getter 均 revert（需用官方部署 JSON 定位）。",
+        "VAI 控制器（官方 VaiUnitroller.json）：proxy 0x004065D34C6b18cE4370ced1CeBDE94865DbFAFE（代码 1507B，sha256=92e4a599…），implementation=0x8a1e5db8f622b97f4bccec4684697199c1b1d11b；controller.comptroller()=0xfd36e2c2a6789db23113685031d7f16329158384（Venus Core Pool Unitroller）。注意：另一常用旧地址 0x004065D34C26BE3244f27c8E089CC88863987fbC 在链上无代码（本块），已排除。",
+        "VAI 利息：controller.getVAIRepayRate()=504993750765910000（5.0499375076591e17；口径未完全确认——可能为年化/特定基数，不能直接当每块或每日利率用）；同块闭环利息≈0，跨日持有需重新核验。",
+        "controller 的 treasuryFee()/vaiMintCap()/vaiMintEnabled()/paused() 调用均 revert（本版本/ABI 不同），铸造费与铸币上限本轮未知；getMintableVAI(probe) 返回 64 字节（两 word：2、0），语义未确认，不作为额度证据。controller.admin=0x939bd8d64c0a9583a7dcea9933f7b21697ab6396。",
+        "Core Pool comptroller 为 Venus V4 Diamond/Diamond 化后接口：markets(USDT) 返回 384 字节且 isListed=false/CF=0（与常识不符，说明旧 ABI 不适用）；liquidationIncentiveMantissa() revert “Diamond: Function does not exist”；closeFactorMantissa()=0.5e18。因此本轮无法用旧 ABI 读取 USDT 抵押率/清算阈值，抵押要求与清算风险 unknown（缺口）。",
+        "DEX 出口（发现）：Dexscreener 显示 VAI 10 个交易对，主要深度在 Pancake V3 fee=100 池 0xF5B4B24E5808DAA3fBeee11DF27a0994600356b4（token0=VAI/token1=USDT、fee=100、tick=-84、liquidity=14,566,626,494,191,965,930,080,069、聚合器 liq≈36.4 万 USD、priceUsd≈0.9917）；Pancake V2 的 VAI/USDT pair 0xD94FeFc8…（reserves 86.445 VAI / 85.387 USDT，几乎干涸）与 VAI/WBNB pair 0x3955d04e…（19.719 VAI / 0.00002848 WBNB，异常/死池）。",
+        "固定块 132604708 报价：Pancake V2 VAI→USDT 100 VAI=45.7443 USDT、1000 VAI=78.5773 USDT（浅池冲击极大，不可用）；Pancake V3 fee=100 池 1000 VAI→991.548511576302296035 USDT（gasEstimate=104762）；fee=500/2500 池 quote 均 revert（无可用流动性），fee=10000 getPool=null。"
       ],
       "coverage_gaps": [
-        "30天额度/费率/治理生效窗口未覆盖。",
-        "7天代表性交易未覆盖，无区块/事件或成功游标。",
-        "chainId56、token/controller/proxy代码与当前开启状态未核验。",
-        "DEX发现API CONNECT403，无真实出口池/卖出与回购报价。",
-        "抵押物/抵押率、债务指数/利息、剩余额度、清算与提款条件unknown；完整路径模拟未执行。"
+        "本轮外部请求约 123 次，超出 ≤80 硬性上限：其中有效落盘数据请求 71 次（probeB 39 + probeC 32），另有 52 次来自两次因脚本 bug 崩溃/未落盘的重跑（首轮约 13 次、第二次约 39 次）。属流程偏差，已如实披露；后续需先做离线脚本自检再发请求。",
+        "30 天规则窗口未覆盖：未查 VAI 铸造费/利息/上限的治理变更与生效时间。",
+        "7 天活动未覆盖：未读 VAI mint/repay 事件与实际交易，无法确认当前是否有地址在跑该闭环。",
+        "VAI 铸造费（treasuryFee 调用 revert）、mintCap/vaiMintEnabled/paused 未读取——费用与额度 unknown，不填 0。",
+        "Core Pool 已 Diamond 化，旧 ABI 读 markets()/liquidationIncentive 失败；USDT 等抵押率、清算阈值、账户流动性未取，抵押要求与清算风险 unknown。",
+        "getVAIRepayRate=5.0499e17 的计价口径未确认（年化/每块/其他基数），只知同块闭环≈0；跨日持有成本无法量化。",
+        "DEX 只查 Pancake V3 四档 + Pancake V2 两对；未查 Thena/Uniswap 等其他 BSC DEX 的 VAI 池；>1000 VAI 的容量曲线未测。",
+        "未做只读模拟（无真实账户/抵押），闭环为同块报价折算，不是成交或模拟结果。"
       ],
-      "report": "reports/agents/BNB02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BNB02/2026-11-09/live-20261109T141903Z.md",
       "task": "铸造卖出与完整偿债",
       "chain": "BNB",
       "owner": "worker_c",
       "prompt": "prompts/agents/BNB02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 5,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "7d2c2729b5872181bcfcc069a41e463e831c6993",
-        "verified_at": "2026-11-08T15:42:39.302063+00:00",
-        "record": "evidence/BNB02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BNB03",

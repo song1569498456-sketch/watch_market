@@ -1,0 +1,35 @@
+{
+ "at_utc": "2026-11-09T14:58:47.717603+00:00",
+ "pinned_block": 55229589,
+ "pool": "0x6cDcb1C4A4D1C3C6d054b27AC5B77e89eAFb971d",
+ "req": {
+  "http_status": 200,
+  "n_calls": 7,
+  "sha256": "5b1f37cdca8c0f712a81dcc0ca837cc77c1faaea06274b86354d6b7939a9f552",
+  "elapsed_s": 1.023
+ },
+ "voter_code_bytes": 16912,
+ "factory_getFee_pool": null,
+ "factory_isPool_pool": "0x0000000000000000000000000000000000000000000000000000000000000001",
+ "factory_isPaused": "0x0000000000000000000000000000000000000000000000000000000000000000",
+ "voter_gauges": "0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+ "pool_poolFees_result": "0x0000000000000000000000002d25a5edfd27e1f71652477e1a204726883ba402",
+ "observationLength": 50155,
+ "gauge": "0x4f09bab2f0e15e2a078a227fe1537665f55b8360",
+ "gauge_req": {
+  "http_status": 200,
+  "n_calls": 7,
+  "sha256": "01fef7e67384d02793b04a9ebc00784b3c644c3551f80d56eb01fcac3b24bcee",
+  "elapsed_s": 0.402
+ },
+ "gauge_state": {
+  "code_bytes": 6236,
+  "isAlive()": null,
+  "rewardRate()": 503802383290341300,
+  "totalSupply()": 44602146158206148,
+  "rewardToken()": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+  "periodFinish()": 1792627200,
+  "feesVotingReward()": "0xa2eded6ee17af8debf70a1e93ac66e60dbfaaf33"
+ },
+ "finished_at_utc": "2026-11-09T14:58:48.119542+00:00"
+}
