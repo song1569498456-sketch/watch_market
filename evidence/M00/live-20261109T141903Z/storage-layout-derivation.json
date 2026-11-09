@@ -1,0 +1,36 @@
+{
+  "purpose": "为 eth_call stateDiff 覆盖 stETH shares/allowances 的存储槽推导依据（本轮固定区块模拟用）",
+  "contracts": [
+    {
+      "name": "StETH (Lido 实现合约 Lido.sol 的基类)",
+      "source_url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.4.24/StETH.sol",
+      "sha256": "63ebed0e205b602fe2e427bb09c111479f98253bd02f96ac052b38202d3713bd",
+      "relevant_declarations": [
+        "contract StETH is IERC20, Pausable {",
+        "mapping (address => uint256) private shares;   // 行 68，常规 storage 首个变量",
+        "mapping (address => mapping (address => uint256)) private allowances;   // 行 73",
+        "bytes32 internal constant TOTAL_SHARES_POSITION_LOW128 = 0x6038150aecaa250d524370a0fdcdec13f2690e0723eaf277f41d7cae26b359e6;  // 非结构化槽，不占常规槽位"
+      ]
+    },
+    {
+      "name": "Pausable (StETH 的基类)",
+      "source_url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.4.24/utils/Pausable.sol",
+      "sha256": "ae1be0a85b0171321429ad1079908c2bf89eb9551ee56bbded51f8b2cc0d1c36",
+      "relevant_declarations": [
+        "contract Pausable { using UnstructuredStorage for bytes32; ACTIVE_FLAG_POSITION 为非结构化常量 }"
+      ],
+      "conclusion": "Pausable 无常规 storage 变量；IERC20 为接口无 storage。因此 StETH 常规 storage 从 slot 0 开始：shares=0, allowances=1"
+    }
+  ],
+  "derived_slots": {
+    "shares_base_slot": 0,
+    "allowances_base_slot": 1,
+    "shares_slot_of_account": "keccak256(pad32(account) ++ pad32(0))",
+    "allowance_slot_of_owner_spender": "keccak256(pad32(spender) ++ keccak256(pad32(owner) ++ pad32(1)))"
+  },
+  "onchain_validation": {
+    "method": "读取 Curve 池在 stETH shares 槽的值，用 getPooledEthByShares 换算后与 balanceOf(pool) 比较",
+    "evidence": "evidence/M00/live-20261109T141903Z/single-market-gate.json:storage_layout_check.layout_confirmed = true",
+    "result": "换算值 20365859942647003625932 == balanceOf(pool)，布局假设成立"
+  }
+}

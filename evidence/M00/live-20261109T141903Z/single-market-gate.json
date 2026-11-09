@@ -1,0 +1,122 @@
+{
+  "verification_id": "ETH-CURVE-STETH-ETH-DATA-GATE",
+  "run_id": "live-20261109T141903Z",
+  "status": "PASS",
+  "research_grade": "SIMULATED",
+  "chain": "Ethereum",
+  "expected_chain_id": 1,
+  "market_id": "1:Curve:steth:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+  "swap_contract": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+  "measurement_amount": {
+    "human": "0.01",
+    "raw": "10000000000000000",
+    "unit": "stETH"
+  },
+  "probe_from_account": "0x00000000000000000000000000000000000AbCdE",
+  "state_override_note": "只读模拟：用 stateDiff 给测试地址临时注入 shares 与 allowance；不签名、不广播，不代表真实账户余额",
+  "started_at_utc": "2026-11-09T14:21:52.074850+00:00",
+  "observed_chain_id": 1,
+  "block_number": 26377898,
+  "block_hash": "0x9a655c2f4b9a7fd0660df0f2f6c5a3acf84063ff62de1ce97526c5b3e5652d5b",
+  "block_timestamp_utc": "2026-11-09T14:21:23+00:00",
+  "block_timestamp_beijing": "2026-11-09T22:21:23+08:00",
+  "base_fee_per_gas_wei": 120014779,
+  "latest_block_at_probe": 26377900,
+  "code_identity": {
+    "pool_bytecode_bytes": 15735,
+    "pool_code_keccak256": "0xe2c45ce8268580c40b4c12c574f8a210375ab92998c1555451fef63630e96b35",
+    "pool_eip1967_implementation_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "steth_bytecode_bytes": 1035,
+    "steth_code_keccak256": "0xb9c1c929064cd21734c102a698e68bf617feefcfa5a9f62407c45401546736bf",
+    "steth_eip1967_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coins_onchain": {
+      "0": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "1": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"
+    }
+  },
+  "asset_in": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "symbol_onchain": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000057374455448000000000000000000000000000000000000000000000000000000",
+    "decimals_onchain": 18
+  },
+  "asset_out": {
+    "kind": "native ETH",
+    "registry_sentinel": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+  },
+  "coin_identity_check": {
+    "coins_1_is_stETH": true
+  },
+  "fees": {
+    "pool_fee_raw": 1000000,
+    "fee_denominator": 10000000000,
+    "pool_fee_ratio": 0.0001,
+    "fee_denominator_basis": "Curve 源码常量 FEE_DENOMINATOR=10**10（上轮 Q00 独立复核，本轮只作换算分母）",
+    "approval_gas_units": 47720,
+    "exchange_gas_units": 150760,
+    "gas_price_wei": 131014274,
+    "priority_fee_wei": 12,
+    "gas_cost_ETH_estimate": 2.382053571768e-05,
+    "gas_cost_basis": "gasPrice 非 EIP-1559 精确；用 pinned baseFee + maxPriority，approve+exchange 两笔合计"
+  },
+  "path": {
+    "type": "single market stETH to ETH exit",
+    "view_call": "get_dy(int128,int128,uint256)",
+    "selector": "0x5e0d443f",
+    "args": [
+      1,
+      0,
+      "10000000000000000"
+    ],
+    "amount_out_raw": "9997160735119382",
+    "amount_out_human": "0.009997161",
+    "implied_ratio": 0.999716074,
+    "quote_time_utc": "2026-11-09T14:21:57.908221+00:00",
+    "pinned_block": 26377898
+  },
+  "storage_layout_check": {
+    "shares_slot_of_pool": "0xae68078d7ee25b2b7bcb7d4b9fe9acf61f251fe08ff637df07889375d8385158",
+    "pool_shares_raw": "16308055884798962965689",
+    "getPooledEthByShares_of_pool_shares": "20365859942647003625932",
+    "balanceOf_pool": "20365859942647003625932",
+    "layout_confirmed": true
+  },
+  "simulation": {
+    "method": "eth_call + geth stateDiff override on stETH shares(slot0)/allowances(slot1)",
+    "override": {
+      "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84": {
+        "stateDiff": {
+          "0xf0f4737858305f110f58e34c84fc4407191d96c60f54443a4b0fc892b50020c8": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+          "0xb915142a3c30ac70f2f4a1a39088d4d2372a5c3afc9e40c2aabed887fc7a6c19": "0x000000000000000000000000000000000000000000000000002386f26fc10000"
+        }
+      }
+    },
+    "balance_of_test_ok": true,
+    "balance_of_test": 1248822059877191983,
+    "shares_of_test": 1000000000000000000,
+    "allowance_test": 10000000000000000,
+    "exchange_call_ok": true,
+    "exchange_call_result": "0x0000000000000000000000000000000000000000000000000023845d5e611816",
+    "exchange_call_error": null
+  },
+  "lido_official_crosscheck": {
+    "steth_proxy_address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "steth_implementation": "0x028271E30a695c0527A0C50cA30603feD004cDb0",
+    "withdrawal_queue_proxy": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "matches_steth_address": true
+  },
+  "network_capability_ref": "evidence/M00/live-20261109T141903Z/capability-probes.json",
+  "finished_at_utc": "2026-11-09T14:22:02.956371+00:00",
+  "new_valid_market_finding": false,
+  "profit_claim": false,
+  "gate_checks": {
+    "chain_id_ok": true,
+    "fixed_block": true,
+    "pool_code_present": true,
+    "steth_code_present": true,
+    "coins_match": true,
+    "layout_confirmed": true,
+    "quote_obtained": true,
+    "simulation_ok": true,
+    "gas_estimated": true
+  }
+}

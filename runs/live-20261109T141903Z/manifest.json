@@ -19,11 +19,11 @@
     },
     "github_write": {
       "credential_helper": "Git Credential Manager (OAuth, account song1569498456-sketch)",
-      "verified_by": "initialization commit push + fetch readback",
-      "verified_at_utc": null
+      "verified_by": "commit 70559a343a1d1388897894ccca9d78d4a8232a9c pushed to authoritative branch; fetch readback HEAD equal; pushed file blobs equal",
+      "verified_at_utc": "2026-11-09T14:20:00Z"
     }
   },
-  "phase": "phase0_write_verification",
+  "phase": "phase3_research",
   "phases": {
     "phase0": "GitHub 写入凭据与权威分支写读回验证",
     "phase1": "共享数据能力复核（九链 RPC + 关键只读数据源）",
@@ -34,22 +34,84 @@
   },
   "enabled_roles": 48,
   "planned_batches": [
-    ["N-ETH", "N-BNB", "N-SOL"],
-    ["ETH01", "BNB01", "SOL01"],
-    ["N-ARB", "N-BASE", "N-OP"],
-    ["N-POLY", "N-AVAX", "N-SONIC"],
-    ["ARB01", "ARB02", "ARB03"],
-    ["ARB04", "AVAX01", "AVAX02"],
-    ["BASE01", "BASE02", "BASE03"],
-    ["BASE04", "BASE05", "BNB02"],
-    ["BNB03", "BNB04", "BNB05"],
-    ["ETH02", "ETH03", "ETH04"],
-    ["ETH05", "OP01", "OP02"],
-    ["POLY01", "POLY02", "POLY03"],
-    ["R-BASE", "R-BNB", "R-POLY"],
-    ["SOL02", "SOL03", "SONIC01"],
-    ["SONIC02", "SONIC03", "X-ARB"],
-    ["X-BASE"]
+    [
+      "N-ETH",
+      "N-BNB",
+      "N-SOL"
+    ],
+    [
+      "ETH01",
+      "BNB01",
+      "SOL01"
+    ],
+    [
+      "N-ARB",
+      "N-BASE",
+      "N-OP"
+    ],
+    [
+      "N-POLY",
+      "N-AVAX",
+      "N-SONIC"
+    ],
+    [
+      "ARB01",
+      "ARB02",
+      "ARB03"
+    ],
+    [
+      "ARB04",
+      "AVAX01",
+      "AVAX02"
+    ],
+    [
+      "BASE01",
+      "BASE02",
+      "BASE03"
+    ],
+    [
+      "BASE04",
+      "BASE05",
+      "BNB02"
+    ],
+    [
+      "BNB03",
+      "BNB04",
+      "BNB05"
+    ],
+    [
+      "ETH02",
+      "ETH03",
+      "ETH04"
+    ],
+    [
+      "ETH05",
+      "OP01",
+      "OP02"
+    ],
+    [
+      "POLY01",
+      "POLY02",
+      "POLY03"
+    ],
+    [
+      "R-BASE",
+      "R-BNB",
+      "R-POLY"
+    ],
+    [
+      "SOL02",
+      "SOL03",
+      "SONIC01"
+    ],
+    [
+      "SONIC02",
+      "SONIC03",
+      "X-ARB"
+    ],
+    [
+      "X-BASE"
+    ]
   ],
   "q00_batch_after_research": true,
   "constraints": [
@@ -61,5 +123,35 @@
   ],
   "batches": [],
   "started_at_utc": "2026-11-09T14:19:03Z",
-  "started_at_beijing": "2026-11-09T22:19:03+08:00"
+  "started_at_beijing": "2026-11-09T22:19:03+08:00",
+  "phases_status": {
+    "phase0_write_verification": "PASS",
+    "phase1_capability": "PASS",
+    "phase2_single_market_gate": "PASS",
+    "phase3_research": "IN_PROGRESS",
+    "phase4_q00": "PENDING",
+    "phase5_merge_report": "PENDING"
+  },
+  "capability_validation": {
+    "evm_chains_ok": "8/8",
+    "solana_ok": true,
+    "http_sources_ok": "3/3",
+    "evidence": "evidence/M00/live-20261109T141903Z/capability-probes.json",
+    "note": "上一轮 49 个域名 CONNECT403 的代理层封锁在本机不存在"
+  },
+  "single_market_gate": {
+    "status": "PASS",
+    "research_grade": "SIMULATED",
+    "market": "ETH Curve stETH/ETH 0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "pinned_block": 26377898,
+    "block_hash": "0x9a655c2f4b9a7fd0660df0f2f6c5a3acf84063ff62de1ce97526c5b3e5652d5b",
+    "quote": "0.01 stETH -> 0.009997161 ETH (get_dy at pinned block)",
+    "simulation": "eth_call exchange 成功（stateDiff 注入 shares/allowance，只读）",
+    "gas_estimate": "approve 47720 + exchange 150760 gas; 约 2.38e-5 ETH（baseFee+priority，非最终成交）",
+    "evidence": "evidence/M00/live-20261109T141903Z/single-market-gate.json"
+  },
+  "researcher_batches": {
+    "planned": 16,
+    "completed": 0
+  }
 }

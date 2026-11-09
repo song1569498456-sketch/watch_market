@@ -1,0 +1,123 @@
+{
+  "probed_at_utc": "2026-11-09T14:21:28.393546+00:00",
+  "evm": [
+    {
+      "chain": "ETH",
+      "name": "Ethereum",
+      "rpc": "https://ethereum-rpc.publicnode.com",
+      "chain_id_hex": "0x1",
+      "chain_id": 1,
+      "chain_id_ok": true,
+      "block_number": 26377898,
+      "ok": true
+    },
+    {
+      "chain": "ARB",
+      "name": "Arbitrum One",
+      "rpc": "https://arb1.arbitrum.io/rpc",
+      "chain_id_hex": "0xa4b1",
+      "chain_id": 42161,
+      "chain_id_ok": true,
+      "block_number": 522700731,
+      "ok": true
+    },
+    {
+      "chain": "OP",
+      "name": "Optimism",
+      "rpc": "https://mainnet.optimism.io",
+      "chain_id_hex": "0xa",
+      "chain_id": 10,
+      "chain_id_ok": true,
+      "block_number": 159317658,
+      "ok": true
+    },
+    {
+      "chain": "BASE",
+      "name": "Base",
+      "rpc": "https://mainnet.base.org",
+      "chain_id_hex": "0x2105",
+      "chain_id": 8453,
+      "chain_id_ok": true,
+      "block_number": 55218607,
+      "ok": true
+    },
+    {
+      "chain": "POLY",
+      "name": "Polygon PoS",
+      "rpc": "https://polygon-bor-rpc.publicnode.com",
+      "chain_id_hex": "0x89",
+      "chain_id": 137,
+      "chain_id_ok": true,
+      "block_number": 97019095,
+      "ok": true
+    },
+    {
+      "chain": "BNB",
+      "name": "BNB Chain",
+      "rpc": "https://bsc-dataseed.bnbchain.org",
+      "chain_id_hex": "0x38",
+      "chain_id": 56,
+      "chain_id_ok": true,
+      "block_number": 132599647,
+      "ok": true
+    },
+    {
+      "chain": "AVAX",
+      "name": "Avalanche C-Chain",
+      "rpc": "https://api.avax.network/ext/bc/C/rpc",
+      "chain_id_hex": "0xa86a",
+      "chain_id": 43114,
+      "chain_id_ok": true,
+      "block_number": 99857047,
+      "ok": true
+    },
+    {
+      "chain": "SONIC",
+      "name": "Sonic",
+      "rpc": "https://rpc.soniclabs.com",
+      "chain_id_hex": "0x92",
+      "chain_id": 146,
+      "chain_id_ok": true,
+      "block_number": 82306435,
+      "ok": true
+    }
+  ],
+  "solana": {
+    "chain": "SOL",
+    "name": "Solana mainnet-beta",
+    "rpc": "https://api.mainnet-beta.solana.com",
+    "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+    "genesis_ok": true,
+    "slot": 467349302,
+    "ok": true
+  },
+  "http_sources": [
+    {
+      "source": "dexscreener",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=stETH",
+      "http_status": 200,
+      "bytes": 36492,
+      "sha256": "b13baa265f71118e5c58b44fe6a90e1d506e8aafb0e5a23b0ca429f1024b9d5f",
+      "elapsed_s": 1.193,
+      "ok": true
+    },
+    {
+      "source": "curve-api",
+      "url": "https://api.curve.finance/api/getPools/ethereum/main",
+      "http_status": 200,
+      "bytes": 117032,
+      "sha256": "3bd07fa0b92c2dabda9d5532212fe546102126ecd4155c5c54bfa3519c127a0d",
+      "elapsed_s": 1.248,
+      "ok": true
+    },
+    {
+      "source": "lido-deploy",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "http_status": 200,
+      "bytes": 61362,
+      "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851",
+      "elapsed_s": 1.291,
+      "ok": true
+    }
+  ]
+}

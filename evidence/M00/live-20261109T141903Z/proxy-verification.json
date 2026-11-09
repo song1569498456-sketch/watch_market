@@ -1,0 +1,25 @@
+{
+  "pinned_block": 26377898,
+  "storage_probe": {
+    "aragonOS.appStorage.kernel": {
+      "slot": "0x4172f0f7d2289153072b0a6ca36959e0cbe2efc3afe50fc81636caa96338137b",
+      "value": "0x000000000000000000000000b8ffc3cd6e7cf5a098a1c92f48009765b24088dc"
+    },
+    "aragonOS.appStorage.appBase": {
+      "slot": "0xaaa781cf38ac2e63085ad41ec822e768f8d99487ec77abb5255ee3bcf100e6f2",
+      "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "aragonOS.appStorage.proxyAppAddress": {
+      "slot": "0x0704d4883c43a0a3bee55909b90819c20677eb46d616ab277adbc166ee9fb60e",
+      "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "candidate_kernels": [
+    {
+      "source": "aragonOS.appStorage.kernel",
+      "address": "0xb8ffc3cd6e7cf5a098a1c92f48009765b24088dc",
+      "code_bytes": 898
+    }
+  ],
+  "getApp_error": "eth_call -> {'code': 3, 'message': 'execution reverted', 'data': '0x'}"
+}
