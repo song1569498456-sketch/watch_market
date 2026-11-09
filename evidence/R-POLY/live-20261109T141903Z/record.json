@@ -1,0 +1,230 @@
+{
+  "agent_id": "R-POLY",
+  "run_id": "live-20261109T141903Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS 137 预测事件结算机制（CTF/UMA CTF Adapter/NegRiskAdapter/CTF Exchange V2/PMCT pUSD）与借贷抵押接受度：核验是否有借贷市场接受 prediction outcome 份额或 pUSD 现金 wrapper 作为抵押/计价，区分 outcome 份额、现金 wrapper、借贷抵押品；无接受则 REJECTED（不虚构估值脱节）",
+  "started_at": "2026-11-09T15:15:50+00:00",
+  "finished_at": "2026-11-09T15:23:30+00:00",
+  "duration_seconds": 460,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:16:26+00:00",
+    "beijing": "2026-11-09T23:16:26+08:00",
+    "data_time": "链上读取 2026-11-09T15:16:23Z～15:16:26Z；最新块 97,021,285（2026-11-09T15:16:24Z）；钉 pinned 块 97,021,280；报告落盘时已超过 60 秒"
+  },
+  "block_or_slot": 97021280,
+  "market_ids": [
+    "POLY:137:polymarket-ctf:0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+    "POLY:137:polymarket-ctf-exchange-v2:0xE111180000d2663C0091e4f400237545B87B996B",
+    "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+    "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+  ],
+  "asset_ids": [
+    "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+    "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+    "0xE111180000d2663C0091e4f400237545B87B996B",
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+  ],
+  "discovery_source": [
+    {
+      "source": "Polymarket 官方 README/部署表（上一轮与 N-POLY 本轮已读，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "retrieved_at_utc": "（N-POLY 本轮 15:0x；本轮用其地址做链上核验）",
+      "request": "CTF 0x4D97DCd9…、CTF Exchange V2 0xE1111800…、PMCT 0xC011a7E1…、README impl 0x6bBCef9f… 与链上 impl 0xce84e053… 不一致"
+    },
+    {
+      "source": "Polymarket Gamma 公共 API（无 key）",
+      "url": "https://gamma-api.polymarket.com/markets?limit=3&active=true&closed=false&order=volume24hr&ascending=false",
+      "retrieved_at_utc": "2026-11-09T15:16:25+00:00",
+      "http_status": 200,
+      "request": "3 个活跃事件（conditionId 0x5db999fa…、0xf0364816…、0x8676bff9…）+ outcomes/CLOB 价格；用于取真实 conditionId 做 CTF 结算状态读取"
+    },
+    {
+      "source": "Polygon PoS 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:16:23+00:00～15:16:26+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call（CTF payoutDenominator/getOutcomeSlotCount/payoutNumerators、PMCT symbol/decimals/totalSupply/underlying、Aave getReservesList）；共 3 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "Polymarket 预测市场：CTF（ERC1155，0x4D97DCd9…）为每个 condition 生成 outcome 份额，事件经 UMA CTF Adapter（0x157Ce2d6…，16,185B）+ NegRiskAdapter（0xd91E80cF…，17,258B）结算后按 payoutNumerators/payoutDenominator 兑付；CTF Exchange V2（0xE1111800…，21,037B）负责交易，PMCT（pUSD，0xC011a7E1…，61B EIP-1167 最小代理，impl 0xce84e053…）是 USDC/USDCe 的现金 wrapper 层，不是 outcome 份额。本轮样本「Will the U.S. invade Iran before 2027?」（conditionId 0x5db999fa…）链上 payoutDenominator=0、outcomeSlotCount=2、payoutNumerators=0/0 → 未结算，结果份额不可 redeem，只有 CLOB 报价（0.095/0.905）。借贷接受度：Aave V3 Polygon getReservesList()=21 个 ERC20 储备，无 CTF ERC1155 / pUSD / CtfCollateralAdapter 等 → 未发现借贷市场接受 prediction outcome 或 pUSD 作为抵押/计价，故无“抵押估值 vs 结算价值脱节”的已存在债务敞口。另：PMCT 实现漂移（README impl 0x6bBCef9f… vs 链上 0xce84e053…，N-POLY 已核 7,781B）是文档-链上规则差异线索，待下游集成核查。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "polygon-pos",
+      "fields": {"eth_chainId": "0x89", "chain_id": 137, "latest_block": 97021285,
+                 "latest_block_time_utc": "2026-11-09T15:16:24+00:00", "pinned_block": 97021280},
+      "evidence_file": "raw/rpoly_summary.json"
+    },
+    {
+      "type": "polymarket_contracts",
+      "protocol": "Polymarket / CTF",
+      "fields": {"CTF": {"address": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045", "code_bytes": 15007},
+                 "CTF_EXCHANGE_V2": {"address": "0xE111180000d2663C0091e4f400237545B87B996B", "code_bytes": 21037},
+                 "PMCT": {"address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB", "code_bytes": 61,
+                          "eip1967_impl_slot": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+                          "symbol": "pUSD", "decimals": 6, "totalSupply": "519408783873676",
+                          "underlying_getter": null,
+                          "note": "现金 wrapper，非 outcome 份额"},
+                 "NEGRISK_ADAPTER": {"address": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296", "code_bytes": 17258},
+                 "UMA_CTF_ADAPTER": {"address": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49", "code_bytes": 16185}},
+      "block": 97021280,
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "sample_condition_settlement",
+      "protocol": "Polymarket CTF",
+      "fields": {"conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+                 "question": "Will the U.S. invade Iran before 2027?",
+                 "outcomes": ["Yes", "No"], "clob_prices": [0.095, 0.905], "closed": false,
+                 "payoutDenominator": 0, "outcomeSlotCount": 2, "payoutNumerators": [0, 0],
+                 "interpretation": "未结算 → 份额不可 redeem，0.095/0.905 只是市场报价"},
+      "block": 97021280,
+      "evidence_file": "raw/rpoly_summary.json"
+    },
+    {
+      "type": "lending_acceptance_check",
+      "protocol": "Aave V3 Polygon",
+      "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "fields": {"reserves_count": 21, "reserves_sample": ["DAI", "LINK", "USDCe", "WBTC", "WETH", "USDT", "AAVE", "WMATIC", "USDCn"],
+                 "pmct_in_reserves": false, "ctf_erc1155_in_reserves": false,
+                 "note": "无预言机/抵押市场接受 prediction outcome 或 pUSD；其余借贷协议未扫（缺口）"},
+      "block": 97021280,
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "pmct_impl_drift",
+      "protocol": "Polymarket PMCT",
+      "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "fields": {"onchain_impl": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+                 "readme_impl": "0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f",
+                 "n_poly_verified_impl_code_bytes": 7781,
+                 "note": "文档实现≠链上实现（N-POLY 本轮核验），属规则接口差异；pUSD 为可升级最小代理现金层"},
+      "block": 97021280,
+      "evidence_file": "raw/identity.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "rejected_no_lending_acceptance_found",
+    "realized": false,
+    "note": "无借贷市场接受 prediction outcome / pUSD → 无已存在估值脱节债务敞口；未结算事件只记录情景，不判输赢；不把现金/借款当收益",
+    "unknown_costs": ["其余借贷协议（Morpho/Compound 等）未扫", "UMA 结算/争议规则细节", "pUSD 当前实现角色/暂停/退出", "CTF Exchange 成交量与深度", "30 天/7 天窗口"]
+  },
+  "capacity": "Aave Polygon 21 个储备无 prediction outcome/pUSD；其余借贷接受度 unknown；CTF Exchange V2 成交量/深度未测；样本 condition 未结算，无兑付容量概念。",
+  "permissions": "本轮只读：未 mint/redeem/claim/授权/签名/交易；未构建套取额度或提取路径；pUSD/CTF 的普通用户退出规则未在本轮实测。",
+  "liabilities": "none（只读；无头寸、无债务）",
+  "waiting_time": "未结算事件需等待 UMA 结算（时间 unknown）；pUSD on/off-ramp 等待时间未测",
+  "invalidation_conditions": [
+    "发现借贷协议接受 pUSD/outcome 作为抵押（则需按结算状态建估值映射）",
+    "样本 condition 结算后 payout vector 与现有报价出现规则性偏离",
+    "PMCT 实现升级改变现金层行为",
+    "结算/争议规则（UMA/NegRisk）变化"
+  ],
+  "evidence_urls": [
+    "https://polygon-bor-rpc.publicnode.com",
+    "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+    "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+    "https://polygonscan.com/address/0x157Ce2d672854c848c9b79c49a8cc6cc89176a49",
+    "https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B",
+    "https://gamma-api.polymarket.com/markets?limit=3"
+  ],
+  "coverage_gaps": [
+    "其余借贷协议未扫：仅核 Aave V3 Polygon；Morpho/Compound/其他小借贷是否接受 pUSD 或 outcome 份额未知（决定是否存在 RISK_ONLY）。",
+    "未扫 Polymarket 全部活跃 condition 结算状态与 payout vector（本轮仅 3 个 Gamma 样本 + 1 个 conditionId 链上读）；未按 30/7 天窗口看结算/争议。",
+    "未读 UMA CTF Adapter 结算/挑战规则细节与 NegRiskAdapter 兑换关系；未读 pUSD 当前实现（0xce84e053…）源码/角色/暂停/VAULT allowance。",
+    "未查 CTF Exchange V2 成交量/深度与 outcome 份额真实售价（CLOB 价仅 Gamma 显示值）。",
+    "未核 PMCT 实现升级时间/治理（archive 受限，无法按历史块定界）。"
+  ],
+  "next_check": [
+    "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+    "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+    "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+    "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+    "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "POLY:137:polymarket-ctf:0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+      "chain": "POLY", "protocol": "Polymarket CTF (ERC1155 outcome)",
+      "asset_ids": ["0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"],
+      "evidence_urls": ["https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"],
+      "identity_status": "ONCHAIN_VERIFIED_CTF_AND_UNRESOLVED_SAMPLE_CONDITION",
+      "next_check": "结算样本与 payout vector 抽样；借贷接受度（其他协议）"
+    },
+    {
+      "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "chain": "POLY", "protocol": "Polymarket PMCT (pUSD cash wrapper)",
+      "asset_ids": ["0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"],
+      "evidence_urls": ["https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"],
+      "identity_status": "ONCHAIN_VERIFIED_MINIMAL_PROXY_IMPL_DRIFT_FROM_README",
+      "next_check": "impl 源码/角色/暂停/退出；是否被借贷接受"
+    },
+    {
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "chain": "POLY", "protocol": "Aave V3 Polygon",
+      "asset_ids": ["0x794a61358D6845594F94dc1DB02A252b5b4814aD"],
+      "evidence_urls": ["https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"],
+      "identity_status": "ONCHAIN_VERIFIED_RESERVES_LIST_NO_PREDICTION_ASSETS",
+      "next_check": "其他借贷协议接受度扫描"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "POLY-PREDICTION-OUTCOME-LENDING-ACCEPTANCE-ABSENT",
+      "status": "REJECTED",
+      "chain": "POLY",
+      "protocol": "Polymarket / Aave V3 Polygon",
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "evidence_urls": ["https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+                        "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"],
+      "mechanism": "Aave V3 Polygon 21 个储备中无 CTF outcome（ERC1155）/pUSD/适配器地址；未发现借贷接受 prediction outcome 或现金 wrapper 作为抵押/计价，因此没有“抵押估值 vs 结算价值”脱节的已存在债务敞口。样本 condition 未结算（payoutDenominator=0），0.095/0.905 只是市场报价，不是兑付价值。",
+      "net_result": null,
+      "unknown_costs": ["其他借贷协议未扫", "结算/争议规则", "pUSD 角色/退出"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["发现借贷接受 pUSD/outcome", "结算后报价与 payout 规则偏离", "PMCT 升级"]
+    },
+    {
+      "finding_id": "POLY-PMCT-IMPL-DRIFT-VS-DOCS",
+      "status": "RULE_GAP",
+      "chain": "POLY",
+      "protocol": "Polymarket PMCT (pUSD)",
+      "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "evidence_urls": ["https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"],
+      "mechanism": "PMCT 为 61B EIP-1967 最小代理，链上实现 0xce84e053…（N-POLY 核 7,781B），官方 V2 README 列实现 0x6bBCef9f…（6,953B）→ 文档实现≠链上实现；pUSD 是 USDC/USDCe 现金 wrapper（6 位、totalSupply 519.4M），不是 outcome 份额。当前无借贷接受证据，暂不上报 RISK_ONLY，作为规则接口差异线索跟踪。",
+      "net_result": null,
+      "unknown_costs": ["impl 源码/角色/暂停", "升级时间/治理", "下游集成假设"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["README 与链上实现对齐", "下游借贷接受 pUSD", "实现升级改变行为"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "预测事件份额被借贷协议接受为抵押并按估值借出，存在估值脱节风险",
+      "reason": "本轮 Aave V3 Polygon 21 个储备逐一核对，无 CTF ERC1155/pUSD/适配器；未发现借贷接受 → 无已存在债务敞口，不报 RISK_ONLY（其余借贷未扫为缺口）。"
+    },
+    {
+      "claim": "PMCT pUSD 等于某个预测结果份额 wrapper",
+      "reason": "pUSD 是 USDC/USDCe 现金 wrapper（6 位、519.4M 供给、可升级最小代理），不是 outcome 份额；outcome 是 CTF ERC1155，按 payout vector 兑付。"
+    },
+    {
+      "claim": "未结算事件的 CLOB 价格（0.095/0.905）是可兑付价值",
+      "reason": "样本 condition payoutDenominator=0、numerators=0/0 → 未结算不可 redeem；报价只是市场价，不是结算现金。"
+    },
+    {
+      "claim": "README 列出的 PMCT 实现就是当前链上实现",
+      "reason": "链上代理 impl=0xce84e053…（7,781B），README impl=0x6bBCef9f…（6,953B），不一致；已作为规则差异记录，不引用 README 当现行状态。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_polymarket_settlement_plus_lending_acceptance_check",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:16:26+00:00",
+    "complete_block_range": "pinned 单块 97,021,280（最新块 97,021,285）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

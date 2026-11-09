@@ -1,0 +1,31 @@
+{
+  "finding_id": "BNB-VENUS-CORE-COLLATERAL-PARAMS-SCAN",
+  "status": "REJECTED",
+  "chain": "BNB",
+  "protocol": "Venus Core",
+  "market_id": "BNB:56:venus-core-comptroller:0xfD36E2c2a6789Db23113685031dF16329158384",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031dF16329158384",
+    "https://bscscan.com/address/0x6592b5de802159f3e74b2486b091d11a8256ab8a"
+  ],
+  "mechanism": "核心池 58 市场中抽样 16：可抵押资产为 USDC(82.5%)/USDT(80%)/XVS(45%)/vBNB(80%)/BTCB(80%)/ETH(80%)/DOT(50%)，oracle 价格与市场一致；BUSD、DAI 等 9 个上市样本 CF=0 → 不可抵押（历史停用稳定币风险被治理关闭）。抽样范围内无虚高估值/低流动性抵押/任意 ERC20 可抵押证据，故不报 RISK_ONLY；isolated 池未展开为核心缺口。",
+  "net_result": null,
+  "unknown_costs": [
+    "isolated 池",
+    "逐仓 HF/坏账",
+    "30/7 天窗口",
+    "剩余 42 市场"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "isolated 池出现 CF>0 低流动性资产",
+    "BUSD/DAI CF 恢复>0",
+    "oracle 偏离或参数变化"
+  ],
+  "owner": "R-BNB",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/R-BNB/live-20261109T141903Z/record.json"
+}

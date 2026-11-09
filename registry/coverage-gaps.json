@@ -5087,6 +5087,210 @@
         "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
         "有正差额才交 Q00 复核；本轮无收益主张。"
       ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 30 天估值/策略/实现变更与 7 天存取/异常交易历史；无外部注资/收益/费用账本，无法判断历史原因。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做实际大额 redeem 模拟或成交验证：即时可提上限为按当前市场 available 与共享余额计算的上界，未验证排队/滑点/实际到账。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读取金库 owner/curator 的升级/费率/暂停权限细节，也未读 MetaMorpho 实现升级历史。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Morpho Blue 坏账、清算、预言机价格未读取；仅读到 4 个主要市场的抵押/预言机/LLTV/IRM 地址与代码存在性。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "其它 Morpho 供应商对共享 USDC 余额的竞争未量化；共享余额会随存款/取款变化。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未覆盖全部 Base 金库（仅引用 BASE03 的两个 MetaMorpho + Aave STATA 交叉核对）。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 71 次（≤80 硬性上限，符合；离线 --check 自检后联网）。",
+      "next_check": [
+        "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+        "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+        "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+        "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+        "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+      ]
+    },
+    {
+      "agent_id": "R-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "isolated 池未展开：getAllPools() 返回 8 个 uint256 池 ID 而非地址，本轮未按 ID 取各池 Comptroller/vToken/抵押资产 → 无法排除小池低流动性/异常抵押（主要缺口）。",
+      "next_check": [
+        "解析 isolated PoolRegistry 的 8 个池 ID → 取各池 Comptroller 与 vToken 列表，逐资产读 CF/oracle price，重点找 CF>0 但 DEX 无深度/无赎回出口的低流动性抵押。",
+        "修正 getCash 读取（核对 selector/ABI）并做逐仓 HF/坏账抽样；对照 oracle 与 Pancake/主流 DEX 价格找偏离。",
+        "补 30 天窗口：新抵押上线、CF/oracle/实现/权限变更、桥暂停；7 天异常借款事件。",
+        "复核 Venus 核心全部 58 个市场（本轮仅 16 个）的 CF 与债务，找高 CF+低流动性异常。",
+        "若发现虚高估值/低流动性抵押，列 RISK_ONLY 与当前债务敞口；不提供利用调用。"
+      ]
+    },
+    {
+      "agent_id": "R-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "getCash 读取异常（返回值 ~1e163），本轮不采用；债务只用 totalBorrows（量级合理）。",
+      "next_check": [
+        "解析 isolated PoolRegistry 的 8 个池 ID → 取各池 Comptroller 与 vToken 列表，逐资产读 CF/oracle price，重点找 CF>0 但 DEX 无深度/无赎回出口的低流动性抵押。",
+        "修正 getCash 读取（核对 selector/ABI）并做逐仓 HF/坏账抽样；对照 oracle 与 Pancake/主流 DEX 价格找偏离。",
+        "补 30 天窗口：新抵押上线、CF/oracle/实现/权限变更、桥暂停；7 天异常借款事件。",
+        "复核 Venus 核心全部 58 个市场（本轮仅 16 个）的 CF 与债务，找高 CF+低流动性异常。",
+        "若发现虚高估值/低流动性抵押，列 RISK_ONLY 与当前债务敞口；不提供利用调用。"
+      ]
+    },
+    {
+      "agent_id": "R-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做逐仓 HF/坏账/清算历史；未核 30 天抵押上线/CF 调整/oracle 变更；未核 isolated 池 oracle 与资产发行/赎回/桥状态。",
+      "next_check": [
+        "解析 isolated PoolRegistry 的 8 个池 ID → 取各池 Comptroller 与 vToken 列表，逐资产读 CF/oracle price，重点找 CF>0 但 DEX 无深度/无赎回出口的低流动性抵押。",
+        "修正 getCash 读取（核对 selector/ABI）并做逐仓 HF/坏账抽样；对照 oracle 与 Pancake/主流 DEX 价格找偏离。",
+        "补 30 天窗口：新抵押上线、CF/oracle/实现/权限变更、桥暂停；7 天异常借款事件。",
+        "复核 Venus 核心全部 58 个市场（本轮仅 16 个）的 CF 与债务，找高 CF+低流动性异常。",
+        "若发现虚高估值/低流动性抵押，列 RISK_ONLY 与当前债务敞口；不提供利用调用。"
+      ]
+    },
+    {
+      "agent_id": "R-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做 DEX 深度 vs oracle 价格的系统对照（仅抽样）；未核 XVS 等治理权限/时间锁。",
+      "next_check": [
+        "解析 isolated PoolRegistry 的 8 个池 ID → 取各池 Comptroller 与 vToken 列表，逐资产读 CF/oracle price，重点找 CF>0 但 DEX 无深度/无赎回出口的低流动性抵押。",
+        "修正 getCash 读取（核对 selector/ABI）并做逐仓 HF/坏账抽样；对照 oracle 与 Pancake/主流 DEX 价格找偏离。",
+        "补 30 天窗口：新抵押上线、CF/oracle/实现/权限变更、桥暂停；7 天异常借款事件。",
+        "复核 Venus 核心全部 58 个市场（本轮仅 16 个）的 CF 与债务，找高 CF+低流动性异常。",
+        "若发现虚高估值/低流动性抵押，列 RISK_ONLY 与当前债务敞口；不提供利用调用。"
+      ]
+    },
+    {
+      "agent_id": "R-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "核心池 58 个市场中仅抽样 16 个，剩余未读；未覆盖 7 天异常借款/抵押变更事件。",
+      "next_check": [
+        "解析 isolated PoolRegistry 的 8 个池 ID → 取各池 Comptroller 与 vToken 列表，逐资产读 CF/oracle price，重点找 CF>0 但 DEX 无深度/无赎回出口的低流动性抵押。",
+        "修正 getCash 读取（核对 selector/ABI）并做逐仓 HF/坏账抽样；对照 oracle 与 Pancake/主流 DEX 价格找偏离。",
+        "补 30 天窗口：新抵押上线、CF/oracle/实现/权限变更、桥暂停；7 天异常借款事件。",
+        "复核 Venus 核心全部 58 个市场（本轮仅 16 个）的 CF 与债务，找高 CF+低流动性异常。",
+        "若发现虚高估值/低流动性抵押，列 RISK_ONLY 与当前债务敞口；不提供利用调用。"
+      ]
+    },
+    {
+      "agent_id": "R-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "其余借贷协议未扫：仅核 Aave V3 Polygon；Morpho/Compound/其他小借贷是否接受 pUSD 或 outcome 份额未知（决定是否存在 RISK_ONLY）。",
+      "next_check": [
+        "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+        "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+        "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+        "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+        "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+      ]
+    },
+    {
+      "agent_id": "R-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未扫 Polymarket 全部活跃 condition 结算状态与 payout vector（本轮仅 3 个 Gamma 样本 + 1 个 conditionId 链上读）；未按 30/7 天窗口看结算/争议。",
+      "next_check": [
+        "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+        "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+        "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+        "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+        "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+      ]
+    },
+    {
+      "agent_id": "R-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 UMA CTF Adapter 结算/挑战规则细节与 NegRiskAdapter 兑换关系；未读 pUSD 当前实现（0xce84e053…）源码/角色/暂停/VAULT allowance。",
+      "next_check": [
+        "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+        "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+        "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+        "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+        "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+      ]
+    },
+    {
+      "agent_id": "R-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未查 CTF Exchange V2 成交量/深度与 outcome 份额真实售价（CLOB 价仅 Gamma 显示值）。",
+      "next_check": [
+        "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+        "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+        "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+        "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+        "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+      ]
+    },
+    {
+      "agent_id": "R-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核 PMCT 实现升级时间/治理（archive 受限，无法按历史块定界）。",
+      "next_check": [
+        "扫 Morpho/Compound 与其他 Polygon 借贷协议市场列表，确认是否有 pUSD 或 CTF outcome 作为抵押/计价 oracle；有则按“结算状态 vs 抵押估值”建映射并算现有债务敞口（RISK_ONLY 候选）。",
+        "用 CTF Exchange V2 成交事件与 Gamma 全量 active 事件，抽样已结算事件 payout vector 与 CLOB 最后价，验证结算价值偏离是否存在。",
+        "读 PMCT 当前实现（0xce84e053…）角色/暂停/on/off ramp 与 VAULT 余额，评估“文档 impl ≠ 链上 impl”对集成方的实际影响（不虚构利用路径）。",
+        "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
+        "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -2,21 +2,61 @@
   "agent_id": "R-BNB",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:14:32+00:00",
   "observed_cursor": {
-    "registry_document_address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
-    "code_mechanisms_read": [
-      "supportMarket",
-      "preBorrowHook",
-      "_addToMarket",
-      "getUnderlyingPrice",
-      "setTokenConfig"
-    ],
-    "collateral_assets_chain_checked": 0,
-    "debts_checked": 0,
-    "transactions_analyzed": 0,
-    "current_block": null,
+    "kind": "onchain_collateral_cf_oracle_sample",
+    "run_id": "live-20261109T141903Z",
+    "chain": "bnb-chain",
+    "chain_id": 56,
+    "latest_block": 132606542,
+    "pinned_block": 132606537,
+    "latest_block_time_utc": "2026-11-09T15:14:29+00:00",
+    "venus_core": {
+      "comptroller": "0xfD36E2c2a6789Db23113685031dF16329158384",
+      "comptroller_code_bytes": 1508,
+      "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
+      "markets_count": 58,
+      "sampled": 16
+    },
+    "collateral_sample": {
+      "USDC_cf_pct": 82.5,
+      "USDT_cf_pct": 80.0,
+      "XVS_cf_pct": 45.0,
+      "vBNB_cf_pct": 80.0,
+      "BTCB_cf_pct": 80.0,
+      "ETH_cf_pct": 80.0,
+      "DOT_cf_pct": 50.0,
+      "BUSD_cf_pct": 0.0,
+      "DAI_cf_pct": 0.0,
+      "zero_cf_listed_in_sample": 9
+    },
+    "oracle_prices_1e18": {
+      "USDC": "0.99979204",
+      "USDT": "0.99880252",
+      "BUSD": "1.00000000",
+      "DAI": "0.99944867",
+      "XVS": "2.78345010",
+      "vBNB": "687.879085",
+      "BTCB": "74866.795",
+      "ETH": "2126.3182",
+      "DOT": "1.0992922"
+    },
+    "borrow_sample": {
+      "vUSDT": "140449332020503175774655610",
+      "vUSDC": "30536689214166416469435405",
+      "vBTCB": "1086591315548081052436",
+      "vETH": "8487813353529699965320",
+      "vBNB": "51660287157965592858841"
+    },
+    "isolated_registry": {
+      "address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+      "code_bytes": 2739,
+      "impl": "0xc4953e157d057941a9a71273b0af4d4477ed2770",
+      "getAllPools": "8 个 uint256 池 ID（0x100…0x720），未展开"
+    },
+    "risk_only_confirmed": 0,
+    "result": "REJECTED（抽样范围内无确认异常；BUSD/DAI 上市但 CF=0 不可抵押；isolated 池未展开为主要缺口）",
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -42,28 +82,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
-    "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
-    "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
-    "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+    "链身份：eth_chainId=0x38（56），最新块 132,606,542（2026-11-09T15:14:29Z），参数钉 pinned 块 132,606,537。",
+    "Venus 核心池 Comptroller 0xfD36E2c2…（代码 1,508B）、Oracle 0x6592b5de…；getAllMarkets=58 个 vToken，本轮抽样 16 个。",
+    "抽样抵押参数（链上 markets() 解码）：USDC CF 82.5%、USDT 80%、XVS 45%、vBNB 80%、BTCB 80%、ETH 80%、DOT 50% 可抵押；BUSD、DAI 等 9 个上市样本 CF=0（已上市但不可抵押）。",
+    "Oracle 价格（1e18）：USDC $0.99979204、USDT $0.99880252、BUSD $1.00000000、DAI $0.99944867、XVS $2.78345、BTCB $74,866.795、ETH $2,126.318、BNB $687.879、DOT $1.0992922；抽样可抵押资产价格与市场量级一致。",
+    "债务样本 totalBorrows：vUSDT≈140,449,332、vUSDC≈30,536,689、vBTCB≈1,086.59、vETH≈8,487.81、vBNB≈51,660.29；getCash 读取异常（~1e163）未采用。",
+    "Venus isolated PoolRegistry 0x9F7b01A5…（代码 2,739B、impl 0xc4953e15…）：getAllPools() 返回 8 个 uint256 池 ID（非地址），本轮未展开 → 主要缺口；不能排除小池异常抵押。",
+    "结论 REJECTED：抽样范围内无虚高估值/低流动性抵押/任意 ERC20 可抵押证据；BUSD/DAI 历史资产风险被 CF=0 关闭；未报 RISK_ONLY。",
+    "缺口：isolated 池未展开、getCash 异常、逐仓 HF/坏账未测、剩余 42 市场未读、30 天/7 天窗口未覆盖。"
   ],
   "pending_questions": [
-    "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
-    "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
-    "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
-    "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
-    "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+    "isolated PoolRegistry 的 8 个池 ID 未解析为地址，未读各池 Comptroller/vToken/CF/oracle → 无法排除小池低流动性/异常抵押。",
+    "getCash 读取异常（~1e163）待核对 selector/ABI；债务仅用 totalBorrows。",
+    "核心池剩余 42 个市场未读；未做逐仓 HF/坏账/清算历史。",
+    "未核 30 天抵押上线/CF/oracle/实现/权限变更与桥暂停；未覆盖 7 天异常借款事件。",
+    "未做 DEX 深度 vs oracle 价格系统对照；未核 Venus 治理权限/时间锁。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:54:10.950788+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-BNB/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "verified_at": "2026-11-08T15:55:22.338512+00:00",
-    "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:21:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/R-BNB/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/R-BNB/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

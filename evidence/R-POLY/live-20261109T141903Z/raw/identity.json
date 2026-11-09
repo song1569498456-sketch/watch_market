@@ -1,0 +1,59 @@
+{
+ "started_at_utc": "2026-11-09T15:16:22.884072+00:00",
+ "chain_id": 137,
+ "latest_block": 97021285,
+ "latest_block_time_utc": "2026-11-09T15:16:24+00:00",
+ "pinned_block": 97021280,
+ "contracts": {
+  "CTF": {
+   "address": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+   "code_bytes": 15007
+  },
+  "CTF_EXCHANGE_V2": {
+   "address": "0xE111180000d2663C0091e4f400237545B87B996B",
+   "code_bytes": 21037
+  },
+  "PMCT": {
+   "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+   "code_bytes": 61,
+   "impl_slot": "0x000000000000000000000000ce84e053301a82937f90ee2c2c1889cab1db25de"
+  },
+  "NEGRISK_ADAPTER": {
+   "address": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296",
+   "code_bytes": 17258
+  },
+  "UMA_CTF_ADAPTER": {
+   "address": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49",
+   "code_bytes": 16185
+  }
+ },
+ "aave_polygon_reserves": [
+  "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+  "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+  "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+  "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+  "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+  "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+  "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+  "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+  "0x172370d5cd63279efa6d502dab29171933a610af",
+  "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+  "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+  "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+  "0x85955046df4668e1dd369d2de9f3aeb98dd2a369",
+  "0xe111178a87a3bff0c8d18decba5798827539ae99",
+  "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+  "0xe0b52e49357fd4daf2c15e02058dce6bc0057db4",
+  "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
+  "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+  "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
+  "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
+  "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+ ],
+ "pmct": {
+  "symbol": "pUSD",
+  "decimals": 6,
+  "totalSupply": "519408783873676",
+  "underlying": null
+ }
+}

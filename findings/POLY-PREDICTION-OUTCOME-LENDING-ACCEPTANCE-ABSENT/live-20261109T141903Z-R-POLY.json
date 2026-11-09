@@ -1,0 +1,30 @@
+{
+  "finding_id": "POLY-PREDICTION-OUTCOME-LENDING-ACCEPTANCE-ABSENT",
+  "status": "REJECTED",
+  "chain": "POLY",
+  "protocol": "Polymarket / Aave V3 Polygon",
+  "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+  ],
+  "mechanism": "Aave V3 Polygon 21 个储备中无 CTF outcome（ERC1155）/pUSD/适配器地址；未发现借贷接受 prediction outcome 或现金 wrapper 作为抵押/计价，因此没有“抵押估值 vs 结算价值”脱节的已存在债务敞口。样本 condition 未结算（payoutDenominator=0），0.095/0.905 只是市场报价，不是兑付价值。",
+  "net_result": null,
+  "unknown_costs": [
+    "其他借贷协议未扫",
+    "结算/争议规则",
+    "pUSD 角色/退出"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "发现借贷接受 pUSD/outcome",
+    "结算后报价与 payout 规则偏离",
+    "PMCT 升级"
+  ],
+  "owner": "R-POLY",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json"
+}

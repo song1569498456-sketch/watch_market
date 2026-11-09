@@ -2,19 +2,51 @@
   "agent_id": "R-POLY",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:16:26+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
-      "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-      "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
-    ],
-    "chain_block": null,
-    "conditions_read": 0,
-    "lending_mappings_verified": 0,
+    "kind": "onchain_polymarket_settlement_plus_lending_acceptance_check",
+    "run_id": "live-20261109T141903Z",
+    "chain": "polygon-pos",
+    "chain_id": 137,
+    "latest_block": 97021285,
+    "pinned_block": 97021280,
+    "latest_block_time_utc": "2026-11-09T15:16:24+00:00",
+    "polymarket": {
+      "CTF": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045 (15,007B)",
+      "CTF_EXCHANGE_V2": "0xE111180000d2663C0091e4f400237545B87B996B (21,037B)",
+      "PMCT_pUSD": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB (61B minimal proxy; impl 0xce84e053301a82937f90ee2c2c1889cab1db25de; pUSD 6; totalSupply 519,408,783.873676)",
+      "NEGRISK_ADAPTER": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296 (17,258B)",
+      "UMA_CTF_ADAPTER": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49 (16,185B)"
+    },
+    "sample_condition": {
+      "conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+      "question": "Will the U.S. invade Iran before 2027?",
+      "payoutDenominator": 0,
+      "outcomeSlotCount": 2,
+      "payoutNumerators": [
+        0,
+        0
+      ],
+      "clob_prices": [
+        0.095,
+        0.905
+      ],
+      "interpretation": "未结算，份额不可 redeem"
+    },
+    "lending_acceptance": {
+      "aave_polygon_reserves_count": 21,
+      "pmct_in_reserves": false,
+      "ctf_erc1155_in_reserves": false,
+      "other_lending_protocols": "未扫（缺口）"
+    },
+    "pmct_impl_drift": {
+      "readme_impl": "0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f",
+      "onchain_impl": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+      "note": "文档≠链上；N-POLY 本轮核 impl 7,781B"
+    },
+    "result": "REJECTED（无借贷接受 prediction outcome / pUSD → 无已存在估值脱节敞口；PMCT impl drift 记 RULE_GAP 线索）",
+    "risk_only_confirmed": 0,
     "history_complete": false
   },
   "published_cursor": {
@@ -36,51 +68,29 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
-      "field": "L4-5官方声明部署地址更新，指向ctf-exchange-v2",
-      "data_kind": "migration notice; effective time unverified",
-      "legacy_polygon_exchange_static": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
-      "scope": "V1 README legacy exchange table; official notice says use V2; legacy liveness/retirement not read onchain"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
-      "system": "Polymarket CTF Exchange V2",
-      "polygon_exchange_static": "0xE111180000d2663C0091e4f400237545B87B996B",
-      "pmct_proxy_static": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
-      "field": "PMCT wraps USDC/USDCe, separate from outcome ERC1155",
-      "identity_status": "OFFICIAL_DEPLOYMENT_TABLE_ONLY_NOT_LIVE_VERIFIED"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
-      "fields": "reportPayouts L78-96；redeemPositions L218-254按payout vector",
-      "data_kind": "generic CTF source, deployment match unknown"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-      "field": "Aave Polygon静态池/资产登记；未取得CTF outcome wrapper接受映射",
-      "scope": "selected registry only, not exhaustive Polygon lending survey"
-    }
+    "链身份：eth_chainId=0x89（137），最新块 97,021,285（2026-11-09T15:16:24Z），读取钉 pinned 块 97,021,280。",
+    "Polymarket 合约链上核验：CTF 0x4D97DCd9…（15,007B）、CTF Exchange V2 0xE1111800…（21,037B）、PMCT 代理 0xC011a7E1…（61B EIP-1167，impl=0xce84e053…，pUSD 6 位、totalSupply 519,408,783.873676）、NegRiskAdapter 0xd91E80cF…（17,258B）、UMA CTF Adapter 0x157Ce2d6…（16,185B）。",
+    "真实事件结算状态：Gamma 取 conditionId 0x5db999fa…（US invade Iran before 2027），CTF payoutDenominator=0、slots=2、numerators=0/0 → 未结算；CLOB 价 0.095/0.905 只是市场报价，不是兑付价值。",
+    "借贷接受度：Aave V3 Polygon getReservesList()=21 个 ERC20 储备，无 CTF ERC1155/pUSD/适配器 → 未发现借贷接受 prediction outcome 或现金 wrapper 作为抵押/计价；不存在已存在“抵押估值 vs 结算价值”脱节敞口。",
+    "PMCT 实现漂移（引用 N-POLY 本轮）：README impl 0x6bBCef9f…（6,953B）≠ 链上 impl 0xce84e053…（7,781B）；pUSD 是可升级最小代理现金层，不是 outcome。",
+    "三类资产分开：outcome=CTF ERC1155（payout vector 兑付，未结算=不可 redeem）；现金 wrapper=pUSD（USDC/USDCe on/off-ramp）；借贷抵押=Aave ERC20 储备（不含上述）。",
+    "结论 REJECTED：无借贷接受 → 不上报 RISK_ONLY；PMCT impl drift 作为 RULE_GAP 线索跟踪；未给套取/提取路径。",
+    "缺口：其余借贷协议未扫、全部活跃 condition 未扫、UMA/NegRisk 规则细节未读、PMCT 当前实现角色/暂停未读、30 天/7 天窗口未覆盖。"
   ],
   "pending_questions": [
-    "Gamma当前事件目录与Polygon RPC CONNECT403，无condition/结果份额/区块。",
-    "30天结算/争议/版本生效窗口未覆盖；静态V2提示不是生效时间证据。",
-    "7天借贷/偿还/清算与兑付活动未覆盖，无交易或事件游标。",
-    "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
-    "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
+    "其余借贷协议未扫：仅核 Aave V3 Polygon；Morpho/Compound/其他小借贷是否接受 pUSD 或 outcome 份额未知（决定是否存在 RISK_ONLY）。",
+    "未扫 Polymarket 全部活跃 condition 结算状态与 payout vector（本轮仅 3 个 Gamma 样本 + 1 个 conditionId 链上读）。",
+    "未读 UMA CTF Adapter 结算/挑战规则细节与 NegRiskAdapter 兑换关系；未读 pUSD 当前实现（0xce84e053…）源码/角色/暂停/VAULT allowance。",
+    "未查 CTF Exchange V2 成交量/深度与 outcome 份额真实售价（CLOB 价仅 Gamma 显示值）。",
+    "未核 PMCT 实现升级时间/治理（archive 受限）；30 天/7 天窗口未覆盖。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:54:30.454783+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-POLY/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "verified_at": "2026-11-08T15:55:22.338512+00:00",
-    "record": "evidence/R-POLY/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T15:23:30+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/R-POLY/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/R-POLY/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

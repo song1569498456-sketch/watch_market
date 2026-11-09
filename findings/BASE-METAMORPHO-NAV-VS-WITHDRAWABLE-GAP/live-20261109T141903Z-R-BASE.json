@@ -1,0 +1,33 @@
+{
+  "finding_id": "BASE-METAMORPHO-NAV-VS-WITHDRAWABLE-GAP",
+  "status": "UNVERIFIED",
+  "chain": "BASE",
+  "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+  "first_seen_at": "2026-11-09T15:14:50+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "MetaMorpho totalAssets 计入 withdrawQueue 各 Morpho Blue 市场 expectedSupplyAssets（含借出），可提现金受每市场 min(供给-借出, MORPHO 共享余额) 与队列限制。块 55234244 量化：Gauntlet USDC Prime NAV 401.17M、即时可提上限 212.60M（gap 47.00%），8 个市场利用率 88.65%-90.61%；Spark USDC NAV 300.55M、即时可提上限 210.17M（gap 30.07%），市场利用率 89.11%/89.03%/0%；两金库合计 NAV 701.72M，但 Morpho Blue 共享 USDC 余额 283.20M → 同时可提受共享余额约束（约合计 NAV 的 40.4%，且需与其它供应商竞争）。差异可由正常借出与流动性结构解释，未发现无法解释的估值偏差；作为风险依赖记录（利用率和共享余额需持续监控），未列为已确认异常。",
+  "evidence_urls": [
+    "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "https://basescan.org/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+  ],
+  "net_result": "not_a_trade；风险度量：NAV 中 47.0%/30.1% 非即时可提（正常借出解释）",
+  "unknown_costs": [
+    "大额赎回实际排队/滑点",
+    "借款人还款行为",
+    "预言机/LLTV 变化",
+    "30d/7d 历史"
+  ],
+  "handoff_to": [
+    "M00",
+    "BASE03",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "利用率降至低水平且共享余额充足",
+    "出现无法由借出解释的 NAV 偏差",
+    "坏账/预言机异常"
+  ],
+  "owner": "R-BASE",
+  "source_record": "evidence/R-BASE/live-20261109T141903Z/record.json"
+}

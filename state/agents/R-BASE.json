@@ -2,48 +2,142 @@
   "agent_id": "R-BASE",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:14:50+00:00",
   "observed_cursor": {
-    "type": "STATIC_DEPLOYMENT_AND_RULE_OBSERVATION_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:54:01.784114+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "block",
+    "chain_id": 8453,
+    "head_block": 55234561,
+    "head_block_time_utc": "2026-11-09T15:14:47+00:00",
+    "pinned_block": 55234244,
+    "market_params_block": 55234559,
+    "morpho_blue": {
+      "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+      "code_bytes": 15623,
+      "code_sha256": "629bbc7ddbf2ee69170f5b962ef3e0fa73147ef070655cf12074bacccdf3064b",
+      "usdc_balance_shared": "283199698351356"
+    },
+    "vaults": {
+      "gauntlet_usdc_prime": {
+        "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+        "symbol": "gtUSDCp",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "totalAssets": "401170250624068",
+        "totalSupply": "358395499804048631666281620",
+        "nav_per_share_usdc": "1.119350",
+        "idle_usdc": "10002",
+        "withdrawQueueLength": 8,
+        "sum_available_upper": "212604389430325",
+        "redeemable_upper_bound": "212604389440327",
+        "immediate_redeemable_per_share": "0.593211",
+        "nav_gap_pct": 47.0039
+      },
+      "spark_usdc": {
+        "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+        "symbol": "sparkUSDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "totalAssets": "300549003177586",
+        "totalSupply": "276752002774186677399068558",
+        "nav_per_share_usdc": "1.085986",
+        "idle_usdc": "49154985",
+        "withdrawQueueLength": 3,
+        "sum_available_upper": "210172048772800",
+        "redeemable_upper_bound": "210172097927785",
+        "immediate_redeemable_per_share": "0.759423",
+        "nav_gap_pct": 30.0706
+      }
+    },
+    "combined": {
+      "nav_usdc": "701719253801654",
+      "redeemable_upper_usdc": "422776487368112",
+      "shared_morpho_usdc_balance": "283199698351356",
+      "simultaneous_cap_pct_of_combined_nav": 40.36
+    },
+    "market_dependencies": {
+      "top_markets": 4,
+      "collaterals": [
+        "cbBTC 0xcbb7c000…",
+        "WETH 0x4200…0006",
+        "cbETH 0x2ae3f1ec…",
+        "cbETH 0x2ae3f1ec…"
+      ],
+      "oracles_distinct": 4,
+      "oracle_code_bytes": 2598,
+      "lltv": "860000000000000000",
+      "irm": "0x46415998764c29ab2a25cbea6254146d50d22687"
+    },
+    "aave_stata": {
+      "address": "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6",
+      "symbol": "waBasUSDC",
+      "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "totalAssets": "222848728550",
+      "totalSupply": "193237593791",
+      "nav_per_share_usdc": "1.153236925476740380",
+      "aave_usdc_withdrawable": "17835173447495",
+      "anomaly": false
+    },
+    "risk_verdict": "NO_CONFIRMED_ANOMALY：NAV 与即时可提差异（47.0%/30.1%）可由正常借出利用率 88.65%-90.61% 与共享流动性解释；已记录风险依赖（高利用率/零 idle/共享 Morpho 现金/预言机+LLTV）",
+    "requests_this_run": 71,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "type": "STATIC_DEPLOYMENT_AND_RULE_OBSERVATION_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:54:01.784114+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "block",
+      "chain_id": 8453,
+      "pinned_block": 55234244,
+      "vaults_checked": [
+        "Gauntlet USDC Prime",
+        "Spark USDC",
+        "Aave waBasUSDC"
+      ],
+      "nav_vs_immediate_redeemable_gap_pct": {
+        "gauntlet": 47.0039,
+        "spark": 30.0706
+      },
+      "shared_morpho_usdc_balance": "283199698351356",
+      "anomaly_confirmed": false,
+      "requests_this_run": 71,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
-    "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
-    "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
-    "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+    "链身份：eth_chainId=8453（0x2105）；head 55,234,561（2026-11-09T15:14:47Z）；状态块 55,234,244。",
+    "Gauntlet USDC Prime 0xeE8F4eC5…：链上读取 name/symbol/decimals/asset/curator/owner/totalAssets/totalSupply/idle；NAV/份额=1.119350；withdrawQueue 8 市场，利用率 0%/88.65%-90.61%；即时可提上限 212,604,389.44 USDC（NAV 的 53.00%），gap 47.00%。",
+    "Spark USDC Vault 0x7BfA7C4f…：链上读取同上；NAV/份额=1.085986；withdrawQueue 3 市场，利用率 89.11%/89.03%/0%；即时可提上限 210,172,097.93 USDC（NAV 的 69.93%），gap 30.07%。",
+    "共享流动性：Morpho Blue 的 USDC 余额 283,199,698.35 USDC；两金库合计 NAV 701,719,253.80，可提上限合计 422,776,487.37 > 共享余额 → 同时提款上限约 283.2M（合计 NAV 的 40.4%），需与其它供应商竞争。",
+    "市场依赖：Gauntlet 4 个主要市场抵押分别为 cbBTC/WETH/cbETH/cbETH，4 个独立 oracle（各 2,598B 代码）、LLTV 均 86%、IRM 均 0x46415998…；NAV/可提性依赖逐市场预言机与抵押物价格。",
+    "Aave waBasUSDC 0xC768c589…：totalAssets=222,848.728550、totalSupply=193,237.593791、NAV/份额=1.153236925476740380；Aave Base USDC 可提现金=17,835,173.447495 >> 其资产 → 未发现异常（maxRedeem(0x…dEaD)=0 与无份额一致）。",
+    "风险判读：NAV 与即时可提差异完全可由正常借出（利用率 88.65%-90.61%）/队列/共享流动性解释；未发现无法解释的估值偏差，不列 RISK_ONLY 漏洞；风险依赖已记录。",
+    "上轮仅静态规则/地址基线，本轮升级为链上金库净值、withdrawQueue、市场级流动性与共享余额核验。"
   ],
   "pending_questions": [
-    "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
-    "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
-    "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
-    "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
-    "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+    "未覆盖 30 天估值/策略/实现变更与 7 天存取/异常交易历史；无外部注资/收益/费用账本。",
+    "未做实际大额 redeem 模拟或成交验证；可提上限是按当前市场 available 与共享余额计算的上界，未验证排队/实际到账。",
+    "未读金库 owner/curator 的升级/费率/暂停权限细节与实现升级历史。",
+    "Morpho Blue 坏账/清算/预言机价格未读取；仅读到 4 个主要市场的抵押/预言机/LLTV/IRM 地址与代码存在性。",
+    "其它 Morpho 供应商对共享 USDC 余额的竞争未量化；共享余额随存取变化。",
+    "未覆盖全部 Base 金库（仅 BASE03 两个 MetaMorpho + Aave STATA 交叉核对）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:54:01.784114+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/R-BASE/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-    "verified_at": "2026-11-08T15:55:22.338512+00:00",
-    "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:14:50.349059+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/R-BASE/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/R-BASE/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 71,
+  "request_discipline_note": "外部请求 71 次（≤80 硬性上限，符合）；probeA/probeB 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
+  "data_sources_used": [
+    "https://mainnet.base.org",
+    "evidence/BASE03/live-20261109T141903Z/record.json（引用其已核验金库地址，避免重复）",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol（上轮已读规则）",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol（上轮已读地址）"
+  ]
 }

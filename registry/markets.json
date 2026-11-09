@@ -4153,19 +4153,16 @@
       "chain": "POLY",
       "protocol": "Aave V3 Polygon",
       "asset_ids": [
-        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+        "0x794a61358D6845594F94dc1DB02A252b5b4814aD"
       ],
       "evidence_urls": [
         "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
       ],
-      "identity_status": "ONCHAIN_VERIFIED_POOL_PROXY_IMPL_ORACLE_AND_RESERVE_PARAMS",
-      "next_check": "借款人索引/HF 枚举；7 天分页扫描；receiveAToken 与退出深度",
-      "owner": "POLY02",
+      "identity_status": "ONCHAIN_VERIFIED_RESERVES_LIST_NO_PREDICTION_ASSETS",
+      "next_check": "其他借贷协议接受度扫描",
+      "owner": "R-POLY",
       "last_observed_run": "live-20261109T141903Z",
-      "source_record": "evidence/POLY02/live-20261109T141903Z/record.json",
+      "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "POLY02": {
           "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
@@ -4182,6 +4179,19 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_POOL_PROXY_IMPL_ORACLE_AND_RESERVE_PARAMS",
           "next_check": "借款人索引/HF 枚举；7 天分页扫描；receiveAToken 与退出深度"
+        },
+        "R-POLY": {
+          "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "chain": "POLY",
+          "protocol": "Aave V3 Polygon",
+          "asset_ids": [
+            "0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_RESERVES_LIST_NO_PREDICTION_ASSETS",
+          "next_check": "其他借贷协议接受度扫描"
         }
       },
       "current_onchain_verified": true,
@@ -4252,6 +4262,239 @@
           ],
           "identity_status": "CHAIN_VERIFIED：factory.getPair 读得；token0=USDC/token1=WETH；储备 12,041.603462 USDC/5.656215359 WETH（薄池）",
           "next_check": "流动性变化与失衡来源复盘"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+      ],
+      "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+      "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟",
+      "owner": "R-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-BASE": {
+          "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+          "chain": "BASE",
+          "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+          ],
+          "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+          "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Spark USDC Vault)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+      ],
+      "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+      "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟",
+      "owner": "R-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-BASE": {
+          "market_id": "BASE:8453:metamorpho-vault:0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a",
+          "chain": "BASE",
+          "protocol": "MetaMorpho (Spark USDC Vault)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+          ],
+          "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+          "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:aave-stata:usdc:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+      "chain": "BASE",
+      "protocol": "Aave STATA v2 (waBasUSDC)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+      ],
+      "identity_status": "CHAIN_VERIFIED_NO_ANOMALY_FOUND",
+      "next_check": "跟随 Aave Base USDC 流动性变化",
+      "owner": "R-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-BASE": {
+          "market_id": "BASE:8453:aave-stata:usdc:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+          "chain": "BASE",
+          "protocol": "Aave STATA v2 (waBasUSDC)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+          ],
+          "identity_status": "CHAIN_VERIFIED_NO_ANOMALY_FOUND",
+          "next_check": "跟随 Aave Base USDC 流动性变化"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:venus-core-comptroller:0xfD36E2c2a6789Db23113685031dF16329158384",
+      "chain": "BNB",
+      "protocol": "Venus Core",
+      "asset_ids": [
+        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "0x55d398326f99059fF775485246999027B3197955",
+        "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+        "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031dF16329158384"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_COMPTROLLER_ORACLE_AND_SAMPLED_CFS",
+      "next_check": "全部 58 市场 CF；逐仓 HF/坏账；DEX 深度对照",
+      "owner": "R-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-BNB": {
+          "market_id": "BNB:56:venus-core-comptroller:0xfD36E2c2a6789Db23113685031dF16329158384",
+          "chain": "BNB",
+          "protocol": "Venus Core",
+          "asset_ids": [
+            "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+            "0x55d398326f99059fF775485246999027B3197955",
+            "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+            "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031dF16329158384"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_COMPTROLLER_ORACLE_AND_SAMPLED_CFS",
+          "next_check": "全部 58 市场 CF；逐仓 HF/坏账；DEX 深度对照"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:venus-isolated-poolregistry:0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+      "chain": "BNB",
+      "protocol": "Venus Isolated Pools",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x9F7b01A536aFA00EF10310A162877fd792cD0666"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_REGISTRY_IMPL（getAllPools 为池 ID，未展开）",
+      "next_check": "按池 ID 展开各池 vToken/CF/oracle",
+      "owner": "R-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-BNB": {
+          "market_id": "BNB:56:venus-isolated-poolregistry:0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+          "chain": "BNB",
+          "protocol": "Venus Isolated Pools",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x9F7b01A536aFA00EF10310A162877fd792cD0666"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_REGISTRY_IMPL（getAllPools 为池 ID，未展开）",
+          "next_check": "按池 ID 展开各池 vToken/CF/oracle"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:polymarket-ctf:0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+      "chain": "POLY",
+      "protocol": "Polymarket CTF (ERC1155 outcome)",
+      "asset_ids": [
+        "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_CTF_AND_UNRESOLVED_SAMPLE_CONDITION",
+      "next_check": "结算样本与 payout vector 抽样；借贷接受度（其他协议）",
+      "owner": "R-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-POLY": {
+          "market_id": "POLY:137:polymarket-ctf:0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+          "chain": "POLY",
+          "protocol": "Polymarket CTF (ERC1155 outcome)",
+          "asset_ids": [
+            "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_CTF_AND_UNRESOLVED_SAMPLE_CONDITION",
+          "next_check": "结算样本与 payout vector 抽样；借贷接受度（其他协议）"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "chain": "POLY",
+      "protocol": "Polymarket PMCT (pUSD cash wrapper)",
+      "asset_ids": [
+        "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_MINIMAL_PROXY_IMPL_DRIFT_FROM_README",
+      "next_check": "impl 源码/角色/暂停/退出；是否被借贷接受",
+      "owner": "R-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "R-POLY": {
+          "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "chain": "POLY",
+          "protocol": "Polymarket PMCT (pUSD cash wrapper)",
+          "asset_ids": [
+            "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_MINIMAL_PROXY_IMPL_DRIFT_FROM_README",
+          "next_check": "impl 源码/角色/暂停/退出；是否被借贷接受"
         }
       },
       "current_onchain_verified": true,

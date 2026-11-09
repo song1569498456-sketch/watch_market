@@ -1,0 +1,29 @@
+{
+  "finding_id": "POLY-PMCT-IMPL-DRIFT-VS-DOCS",
+  "status": "RULE_GAP",
+  "chain": "POLY",
+  "protocol": "Polymarket PMCT (pUSD)",
+  "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+  ],
+  "mechanism": "PMCT 为 61B EIP-1967 最小代理，链上实现 0xce84e053…（N-POLY 核 7,781B），官方 V2 README 列实现 0x6bBCef9f…（6,953B）→ 文档实现≠链上实现；pUSD 是 USDC/USDCe 现金 wrapper（6 位、totalSupply 519.4M），不是 outcome 份额。当前无借贷接受证据，暂不上报 RISK_ONLY，作为规则接口差异线索跟踪。",
+  "net_result": null,
+  "unknown_costs": [
+    "impl 源码/角色/暂停",
+    "升级时间/治理",
+    "下游集成假设"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "README 与链上实现对齐",
+    "下游借贷接受 pUSD",
+    "实现升级改变行为"
+  ],
+  "owner": "R-POLY",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json"
+}

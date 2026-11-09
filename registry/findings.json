@@ -5251,6 +5251,265 @@
       },
       "q00_review": null,
       "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BASE-METAMORPHO-NAV-VS-WITHDRAWABLE-GAP",
+      "first_seen_at": "2026-11-09T15:14:50.349059+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+      "mechanism": "MetaMorpho totalAssets 计入 withdrawQueue 各 Morpho Blue 市场 expectedSupplyAssets（含借出），可提现金受每市场 min(供给-借出, MORPHO 共享余额) 与队列限制。块 55234244 量化：Gauntlet USDC Prime NAV 401.17M、即时可提上限 212.60M（gap 47.00%），8 个市场利用率 88.65%-90.61%；Spark USDC NAV 300.55M、即时可提上限 210.17M（gap 30.07%），市场利用率 89.11%/89.03%/0%；两金库合计 NAV 701.72M，但 Morpho Blue 共享 USDC 余额 283.20M → 同时可提受共享余额约束（约合计 NAV 的 40.4%，且需与其它供应商竞争）。差异可由正常借出与流动性结构解释，未发现无法解释的估值偏差；作为风险依赖记录（利用率和共享余额需持续监控），未列为已确认异常。",
+      "evidence_urls": [
+        "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+        "https://basescan.org/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+      ],
+      "net_result": "not_a_trade；风险度量：NAV 中 47.0%/30.1% 非即时可提（正常借出解释）",
+      "unknown_costs": [
+        "大额赎回实际排队/滑点",
+        "借款人还款行为",
+        "预言机/LLTV 变化",
+        "30d/7d 历史"
+      ],
+      "handoff_to": [
+        "M00",
+        "BASE03",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "利用率降至低水平且共享余额充足",
+        "出现无法由借出解释的 NAV 偏差",
+        "坏账/预言机异常"
+      ],
+      "owner": "R-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BASE/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:14:50.349059+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:14:50.349059+00:00",
+      "capacity": "Gauntlet 金库即时可提上限≈212,604,389 USDC（NAV 401,170,251，约 53%）；Spark 金库≈210,172,098 USDC（NAV 300,549,003，约 70%）；两者受 Morpho Blue 共享 USDC 余额 283,199,698 约束，合计同时可提不超该余额（约为两金库合计 NAV 的 40.4%），且需与其它供应商竞争；Aave STATA 侧即时现金 17,835,173 USDC > 其资产 222,849。",
+      "observations_by_role": {
+        "R-BASE": {
+          "finding_id": "BASE-METAMORPHO-NAV-VS-WITHDRAWABLE-GAP",
+          "status": "UNVERIFIED",
+          "chain": "BASE",
+          "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+          "first_seen_at": "2026-11-09T15:14:50+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "MetaMorpho totalAssets 计入 withdrawQueue 各 Morpho Blue 市场 expectedSupplyAssets（含借出），可提现金受每市场 min(供给-借出, MORPHO 共享余额) 与队列限制。块 55234244 量化：Gauntlet USDC Prime NAV 401.17M、即时可提上限 212.60M（gap 47.00%），8 个市场利用率 88.65%-90.61%；Spark USDC NAV 300.55M、即时可提上限 210.17M（gap 30.07%），市场利用率 89.11%/89.03%/0%；两金库合计 NAV 701.72M，但 Morpho Blue 共享 USDC 余额 283.20M → 同时可提受共享余额约束（约合计 NAV 的 40.4%，且需与其它供应商竞争）。差异可由正常借出与流动性结构解释，未发现无法解释的估值偏差；作为风险依赖记录（利用率和共享余额需持续监控），未列为已确认异常。",
+          "evidence_urls": [
+            "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+            "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+            "https://basescan.org/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+          ],
+          "net_result": "not_a_trade；风险度量：NAV 中 47.0%/30.1% 非即时可提（正常借出解释）",
+          "unknown_costs": [
+            "大额赎回实际排队/滑点",
+            "借款人还款行为",
+            "预言机/LLTV 变化",
+            "30d/7d 历史"
+          ],
+          "handoff_to": [
+            "M00",
+            "BASE03",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "利用率降至低水平且共享余额充足",
+            "出现无法由借出解释的 NAV 偏差",
+            "坏账/预言机异常"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BNB-VENUS-CORE-COLLATERAL-PARAMS-SCAN",
+      "first_seen_at": "2026-11-09T15:21:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BNB:56:venus-core-comptroller:0xfD36E2c2a6789Db23113685031dF16329158384",
+      "mechanism": "核心池 58 市场中抽样 16：可抵押资产为 USDC(82.5%)/USDT(80%)/XVS(45%)/vBNB(80%)/BTCB(80%)/ETH(80%)/DOT(50%)，oracle 价格与市场一致；BUSD、DAI 等 9 个上市样本 CF=0 → 不可抵押（历史停用稳定币风险被治理关闭）。抽样范围内无虚高估值/低流动性抵押/任意 ERC20 可抵押证据，故不报 RISK_ONLY；isolated 池未展开为核心缺口。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031dF16329158384",
+        "https://bscscan.com/address/0x6592b5de802159f3e74b2486b091d11a8256ab8a"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "isolated 池",
+        "逐仓 HF/坏账",
+        "30/7 天窗口",
+        "剩余 42 市场"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "isolated 池出现 CF>0 低流动性资产",
+        "BUSD/DAI CF 恢复>0",
+        "oracle 偏离或参数变化"
+      ],
+      "owner": "R-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-BNB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:21:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:21:00+00:00",
+      "capacity": "核心池抽样 16/58 个市场；isolated 池 8 个池 ID 未展开 → 覆盖不足；未量化任何异常抵押敞口。",
+      "observations_by_role": {
+        "R-BNB": {
+          "finding_id": "BNB-VENUS-CORE-COLLATERAL-PARAMS-SCAN",
+          "status": "REJECTED",
+          "chain": "BNB",
+          "protocol": "Venus Core",
+          "market_id": "BNB:56:venus-core-comptroller:0xfD36E2c2a6789Db23113685031dF16329158384",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031dF16329158384",
+            "https://bscscan.com/address/0x6592b5de802159f3e74b2486b091d11a8256ab8a"
+          ],
+          "mechanism": "核心池 58 市场中抽样 16：可抵押资产为 USDC(82.5%)/USDT(80%)/XVS(45%)/vBNB(80%)/BTCB(80%)/ETH(80%)/DOT(50%)，oracle 价格与市场一致；BUSD、DAI 等 9 个上市样本 CF=0 → 不可抵押（历史停用稳定币风险被治理关闭）。抽样范围内无虚高估值/低流动性抵押/任意 ERC20 可抵押证据，故不报 RISK_ONLY；isolated 池未展开为核心缺口。",
+          "net_result": null,
+          "unknown_costs": [
+            "isolated 池",
+            "逐仓 HF/坏账",
+            "30/7 天窗口",
+            "剩余 42 市场"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "isolated 池出现 CF>0 低流动性资产",
+            "BUSD/DAI CF 恢复>0",
+            "oracle 偏离或参数变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "POLY-PREDICTION-OUTCOME-LENDING-ACCEPTANCE-ABSENT",
+      "first_seen_at": "2026-11-09T15:23:30+00:00",
+      "status": "REJECTED",
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "mechanism": "Aave V3 Polygon 21 个储备中无 CTF outcome（ERC1155）/pUSD/适配器地址；未发现借贷接受 prediction outcome 或现金 wrapper 作为抵押/计价，因此没有“抵押估值 vs 结算价值”脱节的已存在债务敞口。样本 condition 未结算（payoutDenominator=0），0.095/0.905 只是市场报价，不是兑付价值。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "其他借贷协议未扫",
+        "结算/争议规则",
+        "pUSD 角色/退出"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "发现借贷接受 pUSD/outcome",
+        "结算后报价与 payout 规则偏离",
+        "PMCT 升级"
+      ],
+      "owner": "R-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:23:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:23:30+00:00",
+      "capacity": "Aave Polygon 21 个储备无 prediction outcome/pUSD；其余借贷接受度 unknown；CTF Exchange V2 成交量/深度未测；样本 condition 未结算，无兑付容量概念。",
+      "observations_by_role": {
+        "R-POLY": {
+          "finding_id": "POLY-PREDICTION-OUTCOME-LENDING-ACCEPTANCE-ABSENT",
+          "status": "REJECTED",
+          "chain": "POLY",
+          "protocol": "Polymarket / Aave V3 Polygon",
+          "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+            "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+          ],
+          "mechanism": "Aave V3 Polygon 21 个储备中无 CTF outcome（ERC1155）/pUSD/适配器地址；未发现借贷接受 prediction outcome 或现金 wrapper 作为抵押/计价，因此没有“抵押估值 vs 结算价值”脱节的已存在债务敞口。样本 condition 未结算（payoutDenominator=0），0.095/0.905 只是市场报价，不是兑付价值。",
+          "net_result": null,
+          "unknown_costs": [
+            "其他借贷协议未扫",
+            "结算/争议规则",
+            "pUSD 角色/退出"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "发现借贷接受 pUSD/outcome",
+            "结算后报价与 payout 规则偏离",
+            "PMCT 升级"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "POLY-PMCT-IMPL-DRIFT-VS-DOCS",
+      "first_seen_at": "2026-11-09T15:23:30+00:00",
+      "status": "RULE_GAP",
+      "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+      "mechanism": "PMCT 为 61B EIP-1967 最小代理，链上实现 0xce84e053…（N-POLY 核 7,781B），官方 V2 README 列实现 0x6bBCef9f…（6,953B）→ 文档实现≠链上实现；pUSD 是 USDC/USDCe 现金 wrapper（6 位、totalSupply 519.4M），不是 outcome 份额。当前无借贷接受证据，暂不上报 RISK_ONLY，作为规则接口差异线索跟踪。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "impl 源码/角色/暂停",
+        "升级时间/治理",
+        "下游集成假设"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "README 与链上实现对齐",
+        "下游借贷接受 pUSD",
+        "实现升级改变行为"
+      ],
+      "owner": "R-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/R-POLY/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:23:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:23:30+00:00",
+      "capacity": "Aave Polygon 21 个储备无 prediction outcome/pUSD；其余借贷接受度 unknown；CTF Exchange V2 成交量/深度未测；样本 condition 未结算，无兑付容量概念。",
+      "observations_by_role": {
+        "R-POLY": {
+          "finding_id": "POLY-PMCT-IMPL-DRIFT-VS-DOCS",
+          "status": "RULE_GAP",
+          "chain": "POLY",
+          "protocol": "Polymarket PMCT (pUSD)",
+          "market_id": "POLY:137:polymarket-pmct-pusd:0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+          ],
+          "mechanism": "PMCT 为 61B EIP-1967 最小代理，链上实现 0xce84e053…（N-POLY 核 7,781B），官方 V2 README 列实现 0x6bBCef9f…（6,953B）→ 文档实现≠链上实现；pUSD 是 USDC/USDCe 现金 wrapper（6 位、totalSupply 519.4M），不是 outcome 份额。当前无借贷接受证据，暂不上报 RISK_ONLY，作为规则接口差异线索跟踪。",
+          "net_result": null,
+          "unknown_costs": [
+            "impl 源码/角色/暂停",
+            "升级时间/治理",
+            "下游集成假设"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "README 与链上实现对齐",
+            "下游借贷接受 pUSD",
+            "实现升级改变行为"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

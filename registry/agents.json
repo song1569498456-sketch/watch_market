@@ -3017,139 +3017,328 @@
       "agent_id": "R-BASE",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:54:01.784114+00:00",
+      "last_success_at": "2026-11-09T15:14:50.349059+00:00",
+      "last_attempt_at": "2026-11-09T15:14:50.349059+00:00",
       "actual_coverage": [
-        "MetaMorpho README16-23/83-88行明确退出取决Morpho Blue流动性及队列。",
-        "MetaMorpho.sol589-592行totalAssets是期望供给资产累加；862-873行withdrawable受供给减借出和实际loanToken余额限制。",
-        "Aave官方Base地址表给USDC与STATA精确地址；仅作独立Base监控目标，NAV/现金/当前实现未读取。",
-        "未观测异常时间、损失、估值偏差、修复或可利用条件，不能记RISK_ONLY或盈利。"
+        "链身份：eth_chainId=8453（0x2105）；head=55,234,561（2026-11-09T15:14:47Z）；金库/市场/净值状态块 55,234,244（15:13:44Z）。",
+        "MetaMorpho #1 Gauntlet USDC Prime 0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61：name=Gauntlet USDC Prime、symbol=gtUSDCp、decimals=18、asset=USDC 0x833589fC…、curator=0x9e33faae38ff641094fa68c65c2ce600b3410585、owner=0x5a4e19842e09000a582c20a4f524c26fb48dd4d0；totalAssets=401,170,250.624068 USDC、totalSupply=358,395,499.804048631666281620 → NAV/份额=1.119350 USDC；金库自身 USDC 余额（idle）=0.010002 USDC。",
+        "Gauntlet withdrawQueue 共 8 个市场；市场利用率：0.00%（442,015 USDC 全可提）、89.11%、89.46%、89.03%、90.61%、90.01%、90.14%、88.65%；各市场 available（供给-借出）合计=212,604,389.430325 USDC；被 Morpho Blue 共享 USDC 余额 283,199,698.351356 上限约束后，即时可提上限=idle+min(合计,共享余额)=212,604,389.440327 USDC。**NAV 中约 47.00% 不在即时可提范围内**；NAV/份额 1.119350 vs 即时可提/份额 0.593211。",
+        "MetaMorpho #2 Spark USDC Vault 0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A：name=Spark USDC Vault、symbol=sparkUSDC、decimals=18、asset=USDC、curator=0x0f963a8a8c01042b69054e787e5763abbb0646a3、owner=0xf93b7122450a50af3e5a76e1d546e95ac1d0f579；totalAssets=300,549,003.177586 USDC、totalSupply=276,752,002.774186677399068558 → NAV/份额=1.085986；idle=49.154985 USDC。",
+        "Spark withdrawQueue 共 3 个市场（利用率 89.11%、89.03%、0.00%）；available 合计=210,172,048.772800 USDC < 共享余额 283.2M → 即时可提上限=idle+合计=210,172,097.927785 USDC。**NAV 中约 30.07% 不在即时可提范围内**；NAV/份额 1.085986 vs 即时可提/份额 0.759423。",
+        "共享流动性风险：两个金库合计 NAV=701,719,253.801654 USDC，而 Morpho Blue 的 USDC 余额（所有市场共享）=283,199,698.351356 USDC，且两金库各自可提上限合计 422,776,487.368112 USDC > 共享余额 → **两者同时大额提款时，全部市场合计的现金上限仅约 283.2M（约为两金库合计 NAV 的 40.4%），且还要与其它 Morpho 供应商竞争**；这是正常借贷市场结构，不是已确认异常。",
+        "市场层依赖（Morpho Blue idToMarketParams，块 55234559）：Gauntlet 的 4 个主要市场分别以 cbBTC 0xcbb7c000…（oracle 0x663becd1…）、WETH 0x4200…0006（oracle 0xfea2d58c…）、cbETH 0x2ae3f1ec…（oracle 0xb40d93f4… 与 0x4756c26e…）为抵押；LLTV 均为 860000000000000000（86%）；IRM 均为 0x46415998…；4 个 oracle 均为独立合约（各自 2,598B 代码），即 NAV/可提性依赖逐市场预言机与抵押物价格，而非单一共享预言机。",
+        "Aave Base USDC 交叉核对（块 55234244）：waBasUSDC 0xC768c589…（STATA，decimals=6）name=Wrapped Aave Base USDC、asset=USDC、totalAssets=222,848.728550 USDC、totalSupply=193,237.593791 → NAV/份额=1.153236925476740380；Aave Pool 的 USDC reserve：aToken 0x4e65fe4d… totalSupply=195,749,461.847146、variableDebt=177,914,288.399651、stableDebt=0 → 可提取现金=17,835,173.447495 USDC，远大于 STATA 资产的 0.2228M → **未发现 Aave STATA 的 NAV/可兑异常**；其 maxRedeem(0x…dEaD)=0 与无份额一致。"
       ],
       "coverage_gaps": [
-        "30天估值/策略/实现变更与7天存取/异常交易均未回溯；没有历史状态或外部注资账本。",
-        "Morpho API与Base RPC CONNECT 403，未得到Base MetaMorpho具体金库，也未核对8453/代码/实现。",
-        "Base Aave STATA地址仅官方静态名单，尚未核验asset/管理员/实现/策略/可提款现金；MetaMorpho规则不能套给它。",
-        "无当前NAV、底层余额、市场流动性或可提现值的可比数值，不能判断存在无法正常解释的偏差或漏洞。",
-        "二级市场正常折价与风险估值偏差尚无数据区分；没有报价或只读模拟。"
+        "未读 30 天估值/策略/实现变更与 7 天存取/异常交易历史；无外部注资/收益/费用账本，无法判断历史原因。",
+        "未做实际大额 redeem 模拟或成交验证：即时可提上限为按当前市场 available 与共享余额计算的上界，未验证排队/滑点/实际到账。",
+        "未读取金库 owner/curator 的升级/费率/暂停权限细节，也未读 MetaMorpho 实现升级历史。",
+        "Morpho Blue 坏账、清算、预言机价格未读取；仅读到 4 个主要市场的抵押/预言机/LLTV/IRM 地址与代码存在性。",
+        "其它 Morpho 供应商对共享 USDC 余额的竞争未量化；共享余额会随存款/取款变化。",
+        "未覆盖全部 Base 金库（仅引用 BASE03 的两个 MetaMorpho + Aave STATA 交叉核对）。",
+        "本轮外部请求 71 次（≤80 硬性上限，符合；离线 --check 自检后联网）。"
       ],
-      "report": "reports/agents/R-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/R-BASE/2026-11-09/live-20261109T141903Z.md",
       "task": "金库净值与真实可兑资产风险",
       "chain": "BASE",
       "owner": "worker_a",
       "prompt": "prompts/agents/R-BASE.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 4,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-        "verified_at": "2026-11-08T15:55:22.338512+00:00",
-        "record": "evidence/R-BASE/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "R-BNB",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:54:10.950788+00:00",
+      "last_success_at": "2026-11-09T15:21:00+00:00",
+      "last_attempt_at": "2026-11-09T15:21:00+00:00",
       "actual_coverage": [
-        "官方Venus isolated-pools bscmainnet PoolRegistry artifact列地址=0x9F7b01A536aFA00EF10310A162877fd792cD0666；仅文档候选，未链上读注册表。",
-        "Comptroller.supportMarket检查调用者为poolRegistry，初始抵押因子/清算阈值设0；_addToMarket要求isListed；这只是源码，非现行部署角色读取。",
-        "preBorrowHook源码检查暂停、isListed、oracle非零、借贷上限与hypothetical liquidity；不据此推论当前所有市场没有错误估值。",
-        "ResilientOracle参考源码从vToken映射underlying并有治理权限tokenConfig和暂停检查；本轮未取得当前feed或任何资产价格。"
+        {
+          "type": "chain_identity",
+          "address": "bnb-chain",
+          "fields": {
+            "eth_chainId": "0x38",
+            "chain_id": 56,
+            "latest_block": 132606542,
+            "latest_block_time_utc": "2026-11-09T15:14:29+00:00",
+            "pinned_block": 132606537
+          },
+          "evidence_file": "raw/rbnb_summary.json"
+        },
+        {
+          "type": "venus_core_identity",
+          "protocol": "Venus Core",
+          "address": "0xfD36E2c2a6789Db23113685031dF16329158384",
+          "fields": {
+            "comptroller_code_bytes": 1508,
+            "oracle": "0x6592b5de802159f3e74b2486b091d11a8256ab8a",
+            "markets_count": 58,
+            "sampled": 16
+          },
+          "block": 132606537,
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "collateral_factor_and_oracle_sample",
+          "protocol": "Venus Core",
+          "fields": {
+            "USDC": {
+              "vToken": "0xeca88125a5adbe82614ffc12d0db554e2e2867c8",
+              "cf_pct": 82.5,
+              "oracle_price": "0.99979204"
+            },
+            "USDT": {
+              "vToken": "0xfd5840cd36d94d7229439859c0112a4185bc0255",
+              "cf_pct": 80.0,
+              "oracle_price": "0.99880252"
+            },
+            "XVS": {
+              "vToken": "0x151b1e2635a717bcdc836ecd6fbb62b674fe3e1d",
+              "cf_pct": 45.0,
+              "oracle_price": "2.78345010"
+            },
+            "vBNB": {
+              "vToken": "0xa07c5b74c9b40447a954e1466938b865b6bbea36",
+              "cf_pct": 80.0,
+              "oracle_price": "687.879085"
+            },
+            "BTCB": {
+              "vToken": "0x882c173bc7ff3b7786ca16dfed3dfffb9ee7847b",
+              "cf_pct": 80.0,
+              "oracle_price": "74866.795"
+            },
+            "ETH": {
+              "vToken": "0xf508fcd89b8bd15579dc79a6827cb4686a3592c8",
+              "cf_pct": 80.0,
+              "oracle_price": "2126.3182"
+            },
+            "DOT": {
+              "vToken": "0xb248a295732e0225acd3337607cc01068e3b9c10",
+              "cf_pct": 50.0,
+              "oracle_price": "1.0992922"
+            },
+            "BUSD": {
+              "vToken": "0x95c78222b3d6e262426483d42cfa53685a67ab9d",
+              "cf_pct": 0.0,
+              "oracle_price": "1.00000000",
+              "note": "已上市但不可抵押"
+            },
+            "DAI": {
+              "vToken": "0x334b3ecb4dca3593bccc3c7ebd1a1c1d1780fbf1",
+              "cf_pct": 0.0,
+              "oracle_price": "0.99944867",
+              "note": "已上市但不可抵押"
+            },
+            "zero_cf_listed_count_in_sample": 9
+          },
+          "block": 132606537,
+          "evidence_file": "raw/markets.json"
+        },
+        {
+          "type": "borrow_exposure_sample",
+          "protocol": "Venus Core",
+          "fields": {
+            "vUSDT_totalBorrows": "140449332020503175774655610",
+            "vUSDC_totalBorrows": "30536689214166416469435405",
+            "vBTCB_totalBorrows": "1086591315548081052436",
+            "vETH_totalBorrows": "8487813353529699965320",
+            "vBNB_totalBorrows": "51660287157965592858841",
+            "note": "totalBorrows 量级合理；getCash 读取异常（~1e163）未采用"
+          },
+          "block": 132606537,
+          "evidence_file": "raw/markets.json"
+        },
+        {
+          "type": "isolated_registry",
+          "protocol": "Venus Isolated Pools",
+          "address": "0x9F7b01A536aFA00EF10310A162877fd792cD0666",
+          "fields": {
+            "code_bytes": 2739,
+            "impl": "0xc4953e157d057941a9a71273b0af4d4477ed2770",
+            "getAllPools_count": 8,
+            "getAllPools_raw_values": [
+              "0x100",
+              "0x1e0",
+              "0x2c0",
+              "0x3a0",
+              "0x480",
+              "0x560",
+              "0x640",
+              "0x720"
+            ],
+            "decode_note": "返回值为 uint256 池 ID 而非地址；本轮未展开各池 → 缺口"
+          },
+          "block": 132606537,
+          "evidence_file": "raw/identity.json"
+        }
       ],
       "coverage_gaps": [
-        "BNB RPC和Venus市场API代理CONNECT403，未取得chainId、区块、实际pool/vToken/collateral/loan或债务敞口。",
-        "PoolRegistry部署artifact仅读到地址，未核代理实现、注册表当前内容或对应Comptroller版本；develop源码不可当现行状态。",
-        "没有资产发行方/桥支撑/赎回出口/深度/转账限制数据，无法确认任何抵押物无价值或错误识别。",
-        "30天抵押上线/预言机/实现/权限变更未覆盖；7天异常借款/偿还/清算与退出事件未覆盖。",
-        "当前oracle feed、precision/staleness、权限治理、坏账与可回收金额均unknown。"
+        "isolated 池未展开：getAllPools() 返回 8 个 uint256 池 ID 而非地址，本轮未按 ID 取各池 Comptroller/vToken/抵押资产 → 无法排除小池低流动性/异常抵押（主要缺口）。",
+        "getCash 读取异常（返回值 ~1e163），本轮不采用；债务只用 totalBorrows（量级合理）。",
+        "未做逐仓 HF/坏账/清算历史；未核 30 天抵押上线/CF 调整/oracle 变更；未核 isolated 池 oracle 与资产发行/赎回/桥状态。",
+        "未做 DEX 深度 vs oracle 价格的系统对照（仅抽样）；未核 XVS 等治理权限/时间锁。",
+        "核心池 58 个市场中仅抽样 16 个，剩余未读；未覆盖 7 天异常借款/抵押变更事件。"
       ],
-      "report": "reports/agents/R-BNB/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/R-BNB/2026-11-09/live-20261109T141903Z.md",
       "task": "抵押资产资格与真实价值风险",
       "chain": "BNB",
       "owner": "worker_b",
       "prompt": "prompts/agents/R-BNB.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 2,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-        "verified_at": "2026-11-08T15:55:22.338512+00:00",
-        "record": "evidence/R-BNB/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "R-POLY",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:54:30.454783+00:00",
+      "last_success_at": "2026-11-09T15:23:30+00:00",
+      "last_attempt_at": "2026-11-09T15:23:30+00:00",
       "actual_coverage": [
         {
-          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
-          "field": "L4-5官方声明部署地址更新，指向ctf-exchange-v2",
-          "data_kind": "migration notice; effective time unverified",
-          "legacy_polygon_exchange_static": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
-          "scope": "V1 README legacy exchange table; official notice says use V2; legacy liveness/retirement not read onchain"
+          "type": "chain_identity",
+          "address": "polygon-pos",
+          "fields": {
+            "eth_chainId": "0x89",
+            "chain_id": 137,
+            "latest_block": 97021285,
+            "latest_block_time_utc": "2026-11-09T15:16:24+00:00",
+            "pinned_block": 97021280
+          },
+          "evidence_file": "raw/rpoly_summary.json"
         },
         {
-          "source": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
-          "system": "Polymarket CTF Exchange V2",
-          "polygon_exchange_static": "0xE111180000d2663C0091e4f400237545B87B996B",
-          "pmct_proxy_static": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
-          "field": "PMCT wraps USDC/USDCe, separate from outcome ERC1155",
-          "identity_status": "OFFICIAL_DEPLOYMENT_TABLE_ONLY_NOT_LIVE_VERIFIED"
+          "type": "polymarket_contracts",
+          "protocol": "Polymarket / CTF",
+          "fields": {
+            "CTF": {
+              "address": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+              "code_bytes": 15007
+            },
+            "CTF_EXCHANGE_V2": {
+              "address": "0xE111180000d2663C0091e4f400237545B87B996B",
+              "code_bytes": 21037
+            },
+            "PMCT": {
+              "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+              "code_bytes": 61,
+              "eip1967_impl_slot": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+              "symbol": "pUSD",
+              "decimals": 6,
+              "totalSupply": "519408783873676",
+              "underlying_getter": null,
+              "note": "现金 wrapper，非 outcome 份额"
+            },
+            "NEGRISK_ADAPTER": {
+              "address": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296",
+              "code_bytes": 17258
+            },
+            "UMA_CTF_ADAPTER": {
+              "address": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49",
+              "code_bytes": 16185
+            }
+          },
+          "block": 97021280,
+          "evidence_file": "raw/identity.json"
         },
         {
-          "source": "https://raw.githubusercontent.com/gnosis/conditional-tokens-contracts/master/contracts/ConditionalTokens.sol",
-          "fields": "reportPayouts L78-96；redeemPositions L218-254按payout vector",
-          "data_kind": "generic CTF source, deployment match unknown"
+          "type": "sample_condition_settlement",
+          "protocol": "Polymarket CTF",
+          "fields": {
+            "conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+            "question": "Will the U.S. invade Iran before 2027?",
+            "outcomes": [
+              "Yes",
+              "No"
+            ],
+            "clob_prices": [
+              0.095,
+              0.905
+            ],
+            "closed": false,
+            "payoutDenominator": 0,
+            "outcomeSlotCount": 2,
+            "payoutNumerators": [
+              0,
+              0
+            ],
+            "interpretation": "未结算 → 份额不可 redeem，0.095/0.905 只是市场报价"
+          },
+          "block": 97021280,
+          "evidence_file": "raw/rpoly_summary.json"
         },
         {
-          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-          "field": "Aave Polygon静态池/资产登记；未取得CTF outcome wrapper接受映射",
-          "scope": "selected registry only, not exhaustive Polygon lending survey"
+          "type": "lending_acceptance_check",
+          "protocol": "Aave V3 Polygon",
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "fields": {
+            "reserves_count": 21,
+            "reserves_sample": [
+              "DAI",
+              "LINK",
+              "USDCe",
+              "WBTC",
+              "WETH",
+              "USDT",
+              "AAVE",
+              "WMATIC",
+              "USDCn"
+            ],
+            "pmct_in_reserves": false,
+            "ctf_erc1155_in_reserves": false,
+            "note": "无预言机/抵押市场接受 prediction outcome 或 pUSD；其余借贷协议未扫（缺口）"
+          },
+          "block": 97021280,
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "pmct_impl_drift",
+          "protocol": "Polymarket PMCT",
+          "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+          "fields": {
+            "onchain_impl": "0xce84e053301a82937f90ee2c2c1889cab1db25de",
+            "readme_impl": "0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f",
+            "n_poly_verified_impl_code_bytes": 7781,
+            "note": "文档实现≠链上实现（N-POLY 本轮核验），属规则接口差异；pUSD 为可升级最小代理现金层"
+          },
+          "block": 97021280,
+          "evidence_file": "raw/identity.json"
         }
       ],
       "coverage_gaps": [
-        "Gamma当前事件目录与Polygon RPC CONNECT403，无condition/结果份额/区块。",
-        "30天结算/争议/版本生效窗口未覆盖；静态V2提示不是生效时间证据。",
-        "7天借贷/偿还/清算与兑付活动未覆盖，无交易或事件游标。",
-        "无借贷注册事件、抵押wrapper、loan/collateral/oracle/IRM/LTV市场映射，不能确认存在该类借贷市场。",
-        "当前payout vector、wrapper精度、oracle设计/更新时间、现有抵押与未偿债敞口unknown。"
+        "其余借贷协议未扫：仅核 Aave V3 Polygon；Morpho/Compound/其他小借贷是否接受 pUSD 或 outcome 份额未知（决定是否存在 RISK_ONLY）。",
+        "未扫 Polymarket 全部活跃 condition 结算状态与 payout vector（本轮仅 3 个 Gamma 样本 + 1 个 conditionId 链上读）；未按 30/7 天窗口看结算/争议。",
+        "未读 UMA CTF Adapter 结算/挑战规则细节与 NegRiskAdapter 兑换关系；未读 pUSD 当前实现（0xce84e053…）源码/角色/暂停/VAULT allowance。",
+        "未查 CTF Exchange V2 成交量/深度与 outcome 份额真实售价（CLOB 价仅 Gamma 显示值）。",
+        "未核 PMCT 实现升级时间/治理（archive 受限，无法按历史块定界）。"
       ],
-      "report": "reports/agents/R-POLY/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/R-POLY/2026-11-09/live-20261109T141903Z.md",
       "task": "预测事件结算与借贷估值风险",
       "chain": "POLY",
       "owner": "worker_c",
       "prompt": "prompts/agents/R-POLY.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 3,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "5dcd62efea1c9888bd28542afa1bf5fb493a818b",
-        "verified_at": "2026-11-08T15:55:22.338512+00:00",
-        "record": "evidence/R-POLY/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "SOL01",

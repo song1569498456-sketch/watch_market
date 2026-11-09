@@ -1,0 +1,129 @@
+{
+ "started_at_utc": "2026-11-09T15:16:22.884072+00:00",
+ "chain_id": 137,
+ "latest_block": 97021285,
+ "latest_block_time_utc": "2026-11-09T15:16:24+00:00",
+ "pinned_block": 97021280,
+ "contracts": {
+  "CTF": {
+   "address": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+   "code_bytes": 15007
+  },
+  "CTF_EXCHANGE_V2": {
+   "address": "0xE111180000d2663C0091e4f400237545B87B996B",
+   "code_bytes": 21037
+  },
+  "PMCT": {
+   "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+   "code_bytes": 61,
+   "impl_slot": "0x000000000000000000000000ce84e053301a82937f90ee2c2c1889cab1db25de"
+  },
+  "NEGRISK_ADAPTER": {
+   "address": "0xd91E80cF2E7be2e162c6513ceD06f1dD0dA35296",
+   "code_bytes": 17258
+  },
+  "UMA_CTF_ADAPTER": {
+   "address": "0x157Ce2d672854c848c9b79c49a8cc6cc89176a49",
+   "code_bytes": 16185
+  }
+ },
+ "aave_polygon_reserves": [
+  "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+  "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+  "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+  "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+  "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+  "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+  "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+  "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+  "0x172370d5cd63279efa6d502dab29171933a610af",
+  "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+  "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+  "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+  "0x85955046df4668e1dd369d2de9f3aeb98dd2a369",
+  "0xe111178a87a3bff0c8d18decba5798827539ae99",
+  "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+  "0xe0b52e49357fd4daf2c15e02058dce6bc0057db4",
+  "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
+  "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+  "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
+  "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
+  "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+ ],
+ "pmct": {
+  "symbol": "pUSD",
+  "decimals": 6,
+  "totalSupply": "519408783873676",
+  "underlying": null
+ },
+ "gamma": {
+  "ok": true,
+  "items": [
+   {
+    "question": "Will the U.S. invade Iran before 2027?",
+    "conditionId": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+    "slug": "will-the-us-invade-iran-before-2027",
+    "closed": false,
+    "outcomes": "[\"Yes\", \"No\"]",
+    "outcomePrices": "[\"0.095\", \"0.905\"]",
+    "clobTokenIds": "[\"55115078421062885512539156303747803058407616201213034911037320915726138659123\", \"1910830010387565971650098373488592514702818137344973088263643820608151819241\"]"
+   },
+   {
+    "question": "US announces end of Iranian blockade by November 15, 2026?",
+    "conditionId": "0xf036481613a53faafdc7638824e5dfab03b4dda5b9bf13fbdfa2075e2d4a8bea",
+    "slug": "us-announces-end-of-iranian-blockade-by-november-15-2026",
+    "closed": false,
+    "outcomes": "[\"Yes\", \"No\"]",
+    "outcomePrices": "[\"0.0555\", \"0.9445\"]",
+    "clobTokenIds": "[\"14546978402393561886763794016233348324197383968729459022246166822328488515646\", \"59822649710870591002443082281655284432277286805384619774600638740092677692228\"]"
+   },
+   {
+    "question": "BNP Paribas Nordic Open: Adolfo Vallejo vs Ugo Humbert",
+    "conditionId": "0x8676bff9e9fd168388fa4aca19da0c3de13ae31edf6f9400a7bb849a71b6fcfb",
+    "slug": "atp-vallejo-humbert-2026-11-09",
+    "closed": false,
+    "outcomes": "[\"Adolfo Vallejo\", \"Ugo Humbert\"]",
+    "outcomePrices": "[\"0.0005\", \"0.9995\"]",
+    "clobTokenIds": "[\"112815774255722260444631747865802803117867756928988197752327288354534359191512\", \"42787386855064144205682189841912678074839694384408035847817676894900326848166\"]"
+   }
+  ]
+ },
+ "sample_condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+ "ctf_state": {
+  "payoutDenominator": "0",
+  "outcomeSlotCount": 2,
+  "payoutNumerators[0]": 0,
+  "payoutNumerators[1]": 0
+ },
+ "finished_at_utc": "2026-11-09T15:16:26.384190+00:00",
+ "requests": [
+  {
+   "name": "identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:16:23.947862+00:00",
+   "n_calls": 14,
+   "bytes": 149089,
+   "sha256": "f0bc83b40c4002f72a620c184f977a1c2f3f360e7fa0b33d38411b90d0829e58",
+   "elapsed_s": 1.064
+  },
+  {
+   "name": "gamma_markets",
+   "url": "https://gamma-api.polymarket.com/markets?limit=3&active=true&closed=false&order=volume24hr&ascending=false",
+   "http_status": 200,
+   "at": "2026-11-09T15:16:25.714087+00:00",
+   "bytes": 23766,
+   "sha256": "6dd4365e65b98cd3cd7fbd798c9aba056be3c27ea58215b31b36876c47e1db75",
+   "elapsed_s": 1.465
+  },
+  {
+   "name": "ctf_state",
+   "http_status": 200,
+   "at": "2026-11-09T15:16:26.384138+00:00",
+   "n_calls": 4,
+   "bytes": 414,
+   "sha256": "3bd2806e028d9c571ebef4212c93320ed7281ac13ec8d9fc05ffe2a45b73d575",
+   "elapsed_s": 0.369
+  }
+ ],
+ "request_count": 3
+}

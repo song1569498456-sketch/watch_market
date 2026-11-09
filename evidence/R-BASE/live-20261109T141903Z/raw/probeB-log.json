@@ -1,0 +1,92 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:14:47.016643+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:14:47.588828+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "params_0x9103c3b4",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:47.916966+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "oracle_code_0x9103c3",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:14:48.217537+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "params_0x8793cf30",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:48.517773+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "oracle_code_0x8793cf",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:14:48.821554+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "params_0x1c21c59d",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:49.121715+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "oracle_code_0x1c21c5",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:14:49.422507+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "params_0xdba352d9",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:49.730133+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "mainnet.base.org",
+  "tag": "oracle_code_0xdba352",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:14:50.030472+00:00",
+  "http_status": 200
+ }
+]

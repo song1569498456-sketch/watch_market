@@ -260,9 +260,10 @@
         "OP02"
       ],
       "merged_at": "2026-11-09T15:12:45.483764+00:00",
-      "storage_status": "PUSH_PENDING",
-      "evidence_commit": null,
-      "notes": "M00 merge_batch.py"
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "ec2399303683973882cae5400250cc80a9823b70",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:14:56.252736+00:00"
     },
     {
       "batch": 12,
@@ -272,6 +273,19 @@
         "POLY03"
       ],
       "merged_at": "2026-11-09T15:14:44.642323+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "e3d9a7374bbeef7e34b45ac0e55fd65c76ecd2c0",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:14:56.252752+00:00"
+    },
+    {
+      "batch": 13,
+      "agents": [
+        "R-BASE",
+        "R-BNB",
+        "R-POLY"
+      ],
+      "merged_at": "2026-11-09T15:17:52.658326+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -307,6 +321,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 12
+    "completed": 13
   }
 }

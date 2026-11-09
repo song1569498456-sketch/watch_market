@@ -1,0 +1,199 @@
+{
+  "agent_id": "R-BASE",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BASE",
+  "scope": "Base 金库净值与真实可兑资产风险：MetaMorpho（Gauntlet USDC Prime / Spark USDC）NAV vs withdrawQueue 真实可提现金、借出利用率、共享 Morpho Blue 流动性、预言机/LLTV 依赖；Aave waBasUSDC 交叉核对；不做利用/操纵",
+  "started_at": "2026-11-09T15:13:43.060140+00:00",
+  "finished_at": "2026-11-09T15:14:50.349059+00:00",
+  "duration_seconds": 67.289,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T15:14:50+00:00",
+    "beijing": "2026-11-09T23:14:50+08:00",
+    "data_time": "head 55234561（2026-11-09T15:14:47Z）；金库/市场/净值/流动性固定块 55234244（15:13:44Z）；市场参数块 55234559（15:14:47Z）"
+  },
+  "block_or_slot": 55234244,
+  "market_ids": [
+    "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+    "BASE:8453:metamorpho-vault:0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a",
+    "BASE:8453:aave-stata:usdc:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+    "BASE:8453:morpho-blue:0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"
+  ],
+  "discovery_source": [
+    {
+      "source": "BASE03 本轮记录/状态（已链上核验的两个 MetaMorpho 金库地址；本岗位引用并补风险维度，不重复其二级折价研究）",
+      "url": "evidence/BASE03/live-20261109T141903Z/record.json",
+      "retrieved_at_utc": "2026-11-09T15:13:30Z",
+      "http_status": null,
+      "note": "Gauntlet USDC Prime 0xeE8F4eC5…、Spark USDC Vault 0x7BfA7C4f…"
+    },
+    {
+      "source": "Base 只读 RPC（mainnet.base.org）：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T15:13:43Z-2026-11-09T15:14:50Z",
+      "request": "POST JSON-RPC 共 71 次（probeA 61 + probeB 10；全部只读，≤80 硬性上限）",
+      "http_status": 200
+    },
+    {
+      "source": "Morpho 官方 MetaMorpho 源码/README（上轮已读：totalAssets=expectedSupplyAssets 累加；withdrawable=min(supply-borrow, MORPHO 余额)；withdrawQueue 顺序）",
+      "url": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
+      "retrieved_at_utc": "2026-11-08T15:52:56Z",
+      "http_status": 200,
+      "sha256": "c218f3f26e8186399327b793c2f96312c7a2e118467a54dc99e5a16b079979f7"
+    },
+    {
+      "source": "Aave 官方 Base 地址簿（上轮已读：USDC 与 STATA 地址）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+      "retrieved_at_utc": "2026-11-08T15:53:17Z",
+      "http_status": 200,
+      "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae"
+    }
+  ],
+  "mechanism": "MetaMorpho 的 totalAssets 按 withdrawQueue 各 Morpho Blue 市场 expectedSupplyAssets 累加（含已借出资产），而真实可提现金受每个市场 min(供给-借出, Morpho Blue 的 loanToken 余额) 与队列顺序限制（上轮官方源码 L589-592、L807-873）。因此 NAV≠即时可提现金是正常机制；本轮量化两个大金库的 NAV 与 withdrawQueue 可提上限、市场利用率与共享现金，另以 Aave waBasUSDC 做交叉核对；未发现无法由正常借出/流动性解释的 NAV 偏差。",
+  "observations": [
+    "链身份：eth_chainId=8453（0x2105）；head=55,234,561（2026-11-09T15:14:47Z）；金库/市场/净值状态块 55,234,244（15:13:44Z）。",
+    "MetaMorpho #1 Gauntlet USDC Prime 0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61：name=Gauntlet USDC Prime、symbol=gtUSDCp、decimals=18、asset=USDC 0x833589fC…、curator=0x9e33faae38ff641094fa68c65c2ce600b3410585、owner=0x5a4e19842e09000a582c20a4f524c26fb48dd4d0；totalAssets=401,170,250.624068 USDC、totalSupply=358,395,499.804048631666281620 → NAV/份额=1.119350 USDC；金库自身 USDC 余额（idle）=0.010002 USDC。",
+    "Gauntlet withdrawQueue 共 8 个市场；市场利用率：0.00%（442,015 USDC 全可提）、89.11%、89.46%、89.03%、90.61%、90.01%、90.14%、88.65%；各市场 available（供给-借出）合计=212,604,389.430325 USDC；被 Morpho Blue 共享 USDC 余额 283,199,698.351356 上限约束后，即时可提上限=idle+min(合计,共享余额)=212,604,389.440327 USDC。**NAV 中约 47.00% 不在即时可提范围内**；NAV/份额 1.119350 vs 即时可提/份额 0.593211。",
+    "MetaMorpho #2 Spark USDC Vault 0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A：name=Spark USDC Vault、symbol=sparkUSDC、decimals=18、asset=USDC、curator=0x0f963a8a8c01042b69054e787e5763abbb0646a3、owner=0xf93b7122450a50af3e5a76e1d546e95ac1d0f579；totalAssets=300,549,003.177586 USDC、totalSupply=276,752,002.774186677399068558 → NAV/份额=1.085986；idle=49.154985 USDC。",
+    "Spark withdrawQueue 共 3 个市场（利用率 89.11%、89.03%、0.00%）；available 合计=210,172,048.772800 USDC < 共享余额 283.2M → 即时可提上限=idle+合计=210,172,097.927785 USDC。**NAV 中约 30.07% 不在即时可提范围内**；NAV/份额 1.085986 vs 即时可提/份额 0.759423。",
+    "共享流动性风险：两个金库合计 NAV=701,719,253.801654 USDC，而 Morpho Blue 的 USDC 余额（所有市场共享）=283,199,698.351356 USDC，且两金库各自可提上限合计 422,776,487.368112 USDC > 共享余额 → **两者同时大额提款时，全部市场合计的现金上限仅约 283.2M（约为两金库合计 NAV 的 40.4%），且还要与其它 Morpho 供应商竞争**；这是正常借贷市场结构，不是已确认异常。",
+    "市场层依赖（Morpho Blue idToMarketParams，块 55234559）：Gauntlet 的 4 个主要市场分别以 cbBTC 0xcbb7c000…（oracle 0x663becd1…）、WETH 0x4200…0006（oracle 0xfea2d58c…）、cbETH 0x2ae3f1ec…（oracle 0xb40d93f4… 与 0x4756c26e…）为抵押；LLTV 均为 860000000000000000（86%）；IRM 均为 0x46415998…；4 个 oracle 均为独立合约（各自 2,598B 代码），即 NAV/可提性依赖逐市场预言机与抵押物价格，而非单一共享预言机。",
+    "Aave Base USDC 交叉核对（块 55234244）：waBasUSDC 0xC768c589…（STATA，decimals=6）name=Wrapped Aave Base USDC、asset=USDC、totalAssets=222,848.728550 USDC、totalSupply=193,237.593791 → NAV/份额=1.153236925476740380；Aave Pool 的 USDC reserve：aToken 0x4e65fe4d… totalSupply=195,749,461.847146、variableDebt=177,914,288.399651、stableDebt=0 → 可提取现金=17,835,173.447495 USDC，远大于 STATA 资产的 0.2228M → **未发现 Aave STATA 的 NAV/可兑异常**；其 maxRedeem(0x…dEaD)=0 与无份额一致。",
+    "风险判读：两 MetaMorpho 金库的 NAV 与即时可提现金差异（47.0%/30.1%）完全可由正常借出（各市场利用率 88.65%-90.61%）与队列/共享流动性解释，未发现无法由正常费用/排队解释的估值偏差；但高利用率+零 idle 现金+共享 Morpho 余额构成真实提款流动性风险（非漏洞），需持续监控利用率与共享余额。",
+    "未观察到单笔存款后份额异常、提取异常或外部注资线索（未取事件历史，属缺口，不臆断）。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "USDC",
+    "type": "not_a_trade_risk_research",
+    "realized": false,
+    "unknown_costs": [
+      "实际大额赎回滑点/排队（未模拟）",
+      "Morpho Blue 各市场借款人的还款行为",
+      "预言机更新延迟与 LLTV 变化",
+      "30 天/7 天历史与资金流"
+    ],
+    "note": "本岗位为风险研究，不构造交易净收益；NAV≠即时现金的差异（47.0%/30.1%）由正常借出与共享流动性解释，未确认异常。"
+  },
+  "capacity": "Gauntlet 金库即时可提上限≈212,604,389 USDC（NAV 401,170,251，约 53%）；Spark 金库≈210,172,098 USDC（NAV 300,549,003，约 70%）；两者受 Morpho Blue 共享 USDC 余额 283,199,698 约束，合计同时可提不超该余额（约为两金库合计 NAV 的 40.4%），且需与其它供应商竞争；Aave STATA 侧即时现金 17,835,173 USDC > 其资产 222,849。",
+  "permissions": "MetaMorpho：owner/curator 地址已读（Gauntlet owner 0x5a4e1984…、curator 0x9e33faae…；Spark owner 0xf93b7122…、curator 0x0f963a8a…）；升级/费用/暂停状态未读取。Aave STATA：资产公开 ERC-4626，赎回受 Aave 池流动性约束。",
+  "liabilities": "unknown；本轮纯只读，无仓位/借款。金库资产端存在 Morpho Blue 借款债权（已借出部分），属正常风险敞口，未计量坏账。",
+  "waiting_time": "即时可提部分按 withdrawQueue 顺序即时；超出可用流动性的部分取决于借款人还款/新存款，等待时间 unknown。",
+  "invalidation_conditions": [
+    "Morpho Blue 市场利用率继续上升或共享 USDC 余额下降",
+    "抵押物价格大幅下跌导致坏账/清算压力",
+    "金库 owner/curator 变更费率或 withdrawQueue",
+    "预言机/LLTV 治理变更",
+    "Aave USDC 流动性变化影响 STATA"
+  ],
+  "evidence_urls": [
+    "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "https://basescan.org/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+    "https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6",
+    "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol"
+  ],
+  "coverage_gaps": [
+    "未读 30 天估值/策略/实现变更与 7 天存取/异常交易历史；无外部注资/收益/费用账本，无法判断历史原因。",
+    "未做实际大额 redeem 模拟或成交验证：即时可提上限为按当前市场 available 与共享余额计算的上界，未验证排队/滑点/实际到账。",
+    "未读取金库 owner/curator 的升级/费率/暂停权限细节，也未读 MetaMorpho 实现升级历史。",
+    "Morpho Blue 坏账、清算、预言机价格未读取；仅读到 4 个主要市场的抵押/预言机/LLTV/IRM 地址与代码存在性。",
+    "其它 Morpho 供应商对共享 USDC 余额的竞争未量化；共享余额会随存款/取款变化。",
+    "未覆盖全部 Base 金库（仅引用 BASE03 的两个 MetaMorpho + Aave STATA 交叉核对）。",
+    "本轮外部请求 71 次（≤80 硬性上限，符合；离线 --check 自检后联网）。"
+  ],
+  "next_check": [
+    "读 7 天存取事件与 30 天金库升级/费率/curator 变更，验证是否存在无法由正常借出解释的 NAV 偏差。",
+    "按指定份额做只读 redeem 模拟（或读最近 Withdraw 事件到账），确认可提上限与实际到账的差异。",
+    "监控两金库的 Morpho Blue 市场利用率、共享 USDC 余额与 idle 现金；利用率接近 100% 或共享余额下降时升级风险提示。",
+    "读 Morpho Blue 预言机价格/LLTV 与抵押物价格，评估坏账/清算风险；跟踪 oracle 更新延迟。",
+    "补其它 Base 金库与 Beefy 等策略金库的 NAV/可提性风险筛查。"
+  ],
+  "handoff_to": ["M00", "BASE03", "Q00"],
+  "markets": [
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+      "evidence_urls": ["https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"],
+      "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+      "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Spark USDC Vault)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+      "evidence_urls": ["https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"],
+      "identity_status": "CHAIN_VERIFIED_NAV_QUEUE_MARKETS_READ",
+      "next_check": "监控利用率/共享余额；读历史事件与 redeem 模拟"
+    },
+    {
+      "market_id": "BASE:8453:aave-stata:usdc:0xc768c589647798a6ee01a91fde98ef2ed046dbd6",
+      "chain": "BASE",
+      "protocol": "Aave STATA v2 (waBasUSDC)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+      "evidence_urls": ["https://basescan.org/address/0xC768c589647798a6EE01A91FdE98EF2ed046DBD6"],
+      "identity_status": "CHAIN_VERIFIED_NO_ANOMALY_FOUND",
+      "next_check": "跟随 Aave Base USDC 流动性变化"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-METAMORPHO-NAV-VS-WITHDRAWABLE-GAP",
+      "status": "UNVERIFIED",
+      "chain": "BASE",
+      "market_id": "BASE:8453:metamorpho-vault:0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61",
+      "first_seen_at": "2026-11-09T15:14:50+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "MetaMorpho totalAssets 计入 withdrawQueue 各 Morpho Blue 市场 expectedSupplyAssets（含借出），可提现金受每市场 min(供给-借出, MORPHO 共享余额) 与队列限制。块 55234244 量化：Gauntlet USDC Prime NAV 401.17M、即时可提上限 212.60M（gap 47.00%），8 个市场利用率 88.65%-90.61%；Spark USDC NAV 300.55M、即时可提上限 210.17M（gap 30.07%），市场利用率 89.11%/89.03%/0%；两金库合计 NAV 701.72M，但 Morpho Blue 共享 USDC 余额 283.20M → 同时可提受共享余额约束（约合计 NAV 的 40.4%，且需与其它供应商竞争）。差异可由正常借出与流动性结构解释，未发现无法解释的估值偏差；作为风险依赖记录（利用率和共享余额需持续监控），未列为已确认异常。",
+      "evidence_urls": [
+        "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+        "https://basescan.org/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+      ],
+      "net_result": "not_a_trade；风险度量：NAV 中 47.0%/30.1% 非即时可提（正常借出解释）",
+      "unknown_costs": ["大额赎回实际排队/滑点", "借款人还款行为", "预言机/LLTV 变化", "30d/7d 历史"],
+      "handoff_to": ["M00", "BASE03", "Q00"],
+      "invalidation_conditions": ["利用率降至低水平且共享余额充足", "出现无法由借出解释的 NAV 偏差", "坏账/预言机异常"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "MetaMorpho totalAssets 大于即时可提现金即为漏洞/可利用",
+      "reason": "差异由正常借出（利用率 88.65%-90.61%）与共享流动性解释；未发现无法解释的估值偏差，不列 RISK_ONLY 漏洞，仅作风险依赖记录。",
+      "evidence": "withdrawQueue 8/3 市场 market() 读取 + MetaMorpho 源码规则"
+    },
+    {
+      "claim": "两个金库各自可提上限可同时实现",
+      "reason": "共享 Morpho Blue USDC 余额仅 283.20M，两金库可提上限合计 422.78M > 共享余额；同时大额提款受共享余额约束（约合计 NAV 40.4%）且需与其它供应商竞争。",
+      "evidence": "USDC.balanceOf(Morpho)=283,199,698.351356；两金库 NAV/上限计算"
+    },
+    {
+      "claim": "Aave waBasUSDC 的 NAV 与可兑现金存在异常",
+      "reason": "waBasUSDC totalAssets 222,848.73 USDC，Aave Base USDC 可提取现金 17,835,173.45 USDC 远大于其资产；NAV/份额 1.1532369 与 previewRedeem 一致，未发现异常。",
+      "evidence": "STATA totalAssets/totalSupply/previewRedeem + Aave reserve aToken/variableDebt totalSupply"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T15:14:50Z",
+    "complete_block_range": "55234244（金库/市场/净值/流动性状态）；55234559（市场参数）；head 55234561",
+    "complete_event_time_window": "2026-11-09T15:13:44Z-2026-11-09T15:14:47Z"
+  },
+  "risk_card": {
+    "anomaly_time": null,
+    "risk_dependency": "Morpho Blue borrowing utilization 88.65%-90.61%, zero idle cash, shared Morpho Blue USDC balance 283.20M vs combined vault NAV 701.72M, per-market oracles (4 distinct, 2598B) with LLTV 86%",
+    "existing_asset_exposure": "Gauntlet USDC Prime NAV 401.17M / Spark USDC 300.55M（链上读数）",
+    "counterevidence": "NAV vs immediate redeemable gap fully explained by normal lending liquidity and queue mechanics; Aave STATA cross-check shows no anomaly",
+    "repair_status": "not_a_confirmed_defect; monitor utilization and shared liquidity"
+  }
+}

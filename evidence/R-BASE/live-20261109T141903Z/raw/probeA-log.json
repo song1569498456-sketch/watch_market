@@ -1,0 +1,551 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T15:13:43.060152+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:13:44.153940+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:13:44.570240+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_morpho",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:44.985731+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_usdc",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:45.425559+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_aave_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:45.925488+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_stata",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:46.335622+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "morpho_usdc_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:46.777665+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_gauntlet_usdc_prime",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:47.202402+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:47.682019+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:48.089372+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:48.505738+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_asset",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:48.912813+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_totalAssets",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:49.328292+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:49.748047+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_curator",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:50.168984+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_owner",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:50.583264+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_usdc_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:51.002202+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_len",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:51.408103+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:51.825285+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:52.242884+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_2",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:52.648665+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_3",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:53.060203+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_4",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:53.472798+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_5",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:53.901476+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_6",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:54.313219+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "gauntlet_usdc_prime_wq_7",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:54.723174+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_spark_usdc",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:13:55.135922+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:55.593251+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:56.006380+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:56.419232+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_asset",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:56.827797+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 33,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_totalAssets",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:57.239884+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 34,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:57.654577+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 35,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_curator",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:58.076851+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 36,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_owner",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:58.500207+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 37,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_usdc_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:58.909328+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 38,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_wq_len",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:59.325179+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 39,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_wq_0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:13:59.731634+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 40,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_wq_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:00.139381+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 41,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "spark_usdc_wq_2",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:00.549328+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 42,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x38c84619",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:00.955456+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 43,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x9103c3b4",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:01.363815+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 44,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x13c42741",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:01.779349+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 45,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x8793cf30",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:02.209249+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 46,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0xa066f389",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:02.629516+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 47,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x1c21c59d",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:03.048880+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 48,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0xdba352d9",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:03.459081+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 49,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "market_0x0ca10126",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:03.867756+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 50,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:04.281383+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 51,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:04.688885+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 52,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:05.102057+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 53,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_asset",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:05.507224+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 54,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_totalAssets",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:05.914830+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 55,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:06.326095+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 56,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_previewRedeem_1share",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:06.747284+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 57,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "stata_maxRedeem_dead",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:07.177149+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 58,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "aave_reserve_usdc",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:07.605679+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 59,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "aave_aToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:08.087806+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 60,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "aave_stableDebtToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:08.676261+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 61,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "aave_variableDebtToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:14:09.109398+00:00",
+  "http_status": 200
+ }
+]
