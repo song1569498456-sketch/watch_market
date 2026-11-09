@@ -1,0 +1,27 @@
+{
+  "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+  "status": "QUOTED",
+  "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+  "mechanism": "同块（55,228,648）报价：USDC→USDbC 1=1.000018（买入 USDbC 折价约 0.0018%）、USDbC→USDC 1=0.999781/100=99.977632（卖回损失约 0.0222%）。但 Base 上 USDC 无链上赎回（Circle 场外）、USDbC 只能跨链回 L1（等待/费用 unknown），故该微幅折价无法在本链闭环；毛差不足以覆盖桥/等待成本，净额 null。",
+  "evidence_urls": [
+    "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+  ],
+  "net_result": "买向毛差约 +0.0018%/1 USDC；卖向损失约 0.0222%；净额 null（跨链/场外成本 unknown）",
+  "unknown_costs": [
+    "桥 gas 与 L1 领取",
+    "跨链等待",
+    "Circle 场外费用/资格"
+  ],
+  "handoff_to": [
+    "Q00",
+    "X-BASE"
+  ],
+  "invalidation_conditions": [
+    "价差消失",
+    "跨链成本/等待超过价差",
+    "出现链上即时赎回"
+  ],
+  "owner": "BASE01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BASE01/live-20261109T141903Z/record.json"
+}

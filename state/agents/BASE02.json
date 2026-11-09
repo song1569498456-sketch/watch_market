@@ -2,55 +2,134 @@
   "agent_id": "BASE02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:56:24+00:00",
   "observed_cursor": {
-    "token_list_entry": "data/cbETH/data.json",
-    "base_token_document_address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
-    "current_block": null,
-    "actual_pools_read": 0,
-    "quotes_obtained": 0,
-    "transactions_analyzed": 0,
+    "type": "block",
+    "chain_id": 8453,
+    "head_block": 55228993,
+    "head_block_time_utc": "2026-11-09T14:56:14+00:00",
+    "quotes_block": 55228623,
+    "pool_state_block": 55228991,
+    "assets": {
+      "cbETH": {
+        "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "impl": "0x07a71b9b835c9eba242836704d17da0953324e1f",
+        "name": "Coinbase Wrapped Staked ETH",
+        "decimals": 18,
+        "totalSupply": "92553870426575138902330",
+        "l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+        "bridge": "0x4200000000000000000000000000000000000010",
+        "has_exchangeRate": false,
+        "has_redeem": false,
+        "has_unwrap": false,
+        "native_redemption_on_base": false
+      },
+      "wstETH": {
+        "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+        "impl": "0x69ce2505ce515c0203160450157366f927243309",
+        "decimals": 18,
+        "has_stEthPerToken": false,
+        "has_wrap_unwrap": false,
+        "native_redemption_on_base": false
+      },
+      "rETH": {
+        "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+        "decimals": 18,
+        "has_getExchangeRate": false,
+        "has_getRETHValue": false,
+        "native_redemption_on_base": false
+      },
+      "ezETH": {
+        "address": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+        "impl": "0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7",
+        "decimals": 18,
+        "has_getRate": false,
+        "has_convertToETH": false,
+        "native_redemption_on_base": false
+      }
+    },
+    "dex": {
+      "uniswap_v3_factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+      "uniswap_v3_quoter_v2": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+      "cbETH_WETH_pools": {
+        "100": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+        "500": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+        "3000": "0x7b9636266734270de5be02544c04e27046903ff8",
+        "10000": "0x6fb974dcea795d10ade524bcc3fc9e3e9d29ea87"
+      },
+      "quotes_1unit_cbeth_to_weth": {
+        "fee500": "1138295393146301056",
+        "fee100": "1143101627591641075"
+      },
+      "capacity_note": "10 cbETH quote = 10213606677197937300 WETH (-10.6% vs spot); 100 cbETH = 10397168930273174412; pool capacity ~1 cbETH"
+    },
+    "exits": {
+      "dex_instant": "AVAILABLE (Uniswap V3, fixed-block quotes)",
+      "base_native_redemption": "ABSENT",
+      "cross_chain_to_l1": "BRIDGE_ONLY_DELAYED (L2StandardBridge 0x4200000000000000000000000000000000000010)"
+    },
+    "requests_this_run": 78,
+    "event_pages_completed": 0,
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "token_list_entry": "data/cbETH/data.json",
-      "base_token_document_address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
-      "current_block": null,
-      "actual_pools_read": 0,
-      "quotes_obtained": 0,
-      "transactions_analyzed": 0,
+      "type": "block",
+      "chain_id": 8453,
+      "head_block": 55228993,
+      "quotes_block": 55228623,
+      "assets_verified": [
+        "cbETH",
+        "wstETH",
+        "rETH",
+        "ezETH"
+      ],
+      "base_native_redemption": false,
+      "cross_chain_exit": "L2StandardBridge delated flow",
+      "dex_quotes": "cbETH/WETH 1 unit fee500 1.138295 WETH; fee100 1.143102 WETH",
+      "requests_this_run": 78,
+      "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
-    "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
-    "没有本轮折价、可兑原生ETH数量、现金出口或锁定收益结论。"
+    "链身份：eth_chainId=8453（0x2105）；head 55228993（2026-11-09T14:56:14Z）。",
+    "cbETH Base 0x2Ae3F1Ec7…：proxy/impl（0x07a71b9b…，7322B）链上核验，name=Coinbase Wrapped Staked ETH、decimals=18、totalSupply=92,553.870426575138902330；impl 无 exchangeRate/redeem/unwrap，有 l1Token()/bridge()/burn/mint；l1Token=0xbe989514…（L1 规范 cbETH），bridge=0x4200000000000000000000000000000000000010（Base L2StandardBridge 预部署）。",
+    "wstETH Base 0xc1CBa3fC…：proxy impl 0x69ce2505…（4050B）；无 stEthPerToken/getWstETHByStEth/wrap/unwrap（直接调用 revert），仅 bridge()。",
+    "rETH Base 0xB6fe221F…：代码 5835B；无 getExchangeRate/getRETHValue/getEthValue（调用 revert），有 l1Token()。",
+    "ezETH Base 0x2416092f…：proxy impl 0xb370a0bd…（8561B）；无 getRate/convertToETH/exchangeRate，有 burn。",
+    "Uniswap V3 Base 身份：factory 0x33128a8f…（24535B，官方 SDK BASE 地址）、QuoterV2 0x3d4e44Eb…；cbETH/WETH 四个 fee 档池均存在；fee=500 池 token0=cbETH/token1=WETH、tick=1337、liquidity=278.9e18；fee=100 池 tick=1338、liquidity=34,634.4e18。",
+    "固定块 55228623 报价：cbETH fee=500 1 cbETH→1.138295393146301056 WETH；fee=100 1 cbETH→1.143101627591641075 WETH；rETH fee=500 1 rETH→1.174387 WETH（块 55228991）。",
+    "容量：10 cbETH fee=500 报价均价 1.0214（-10.6% vs spot）、100 cbETH 基本停滞；fee=100 10 cbETH 仅 5.744 WETH → 即时退出容量约 1 cbETH 量级。",
+    "三种出口状态：DEX 即时卖出=有；Base 本链协议赎回=无；跨链回 L1=桥接但延迟流程（不能当即时出口）。",
+    "上轮静态线索（token-list 地址）已升级为 CHAIN_VERIFIED；上轮 403/文档缺口本轮以链上 impl selector 与 getter 补齐。"
   ],
   "pending_questions": [
-    "Base RPC和DEX发现API代理CONNECT403；无当前区块、资产代码/实现、实际池或数量报价。",
-    "发行方Coinbase帮助页目标被代理403，猜测GitHub仓库404；未核验当前兑换比例、赎回资格、最小额、暂停/容量/排队。",
-    "只从Superchain token list发现cbETH Base地址，未获得发行人+链上独立身份核验，不能证明当前可兑换或版本正确。",
-    "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
-    "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
+    "未读发行方官方文档的 Base 桥接/赎回规则（Coinbase 帮助页 Cloudflare 拦截；Lido/Rocket Pool/Renzo Base 说明未逐项读取）——结论仅基于链上 selector 与桥接 getter。",
+    "未实测跨链桥流程（L2StandardBridge 提现挑战期、L1 领取费用与到账时间）。",
+    "DEX 只查 Uniswap V3 四档与 Dexscreener 发现；未查 Aerodrome 等 Base 主 DEX 真实深度；wstETH fee=500 池报价异常已排除，需正确池。",
+    "30 天规则/升级与 7 天活动未回溯：未读桥接 mint/burn、DEX Swap、Upgraded 事件。",
+    "ezETH 未取 DEX 报价（请求额度接近上限）；未做只读模拟（无本链赎回腿可组合）。",
+    "报价块 55228623 与池状态/补充报价块 55228991 有约 6 分钟时差。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:40:08.482699+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-    "verified_at": "2026-11-08T15:40:29.232589+00:00",
-    "record": "evidence/BASE02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:56:24.602117+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BASE02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BASE02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 78,
+  "data_sources_used": [
+    "https://mainnet.base.org",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+    "https://api.dexscreener.com/latest/dex/tokens/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json（上轮已抓取，复用）"
+  ]
 }

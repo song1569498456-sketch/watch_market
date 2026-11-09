@@ -1,0 +1,154 @@
+{
+ "started_at_utc": "2026-11-09T14:56:12.954683+00:00",
+ "cbeth_l1_refs": {
+  "l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+  "bridge": "0x4200000000000000000000000000000000000010",
+  "l2Bridge": null
+ },
+ "head_block": 55228993,
+ "head_block_time_utc": "2026-11-09T14:56:14+00:00",
+ "pinned_block": 55228991,
+ "wstETH_impl": {
+  "impl": "0x69ce2505ce515c0203160450157366f927243309",
+  "impl_code_bytes": 4050,
+  "impl_code_sha256": "1345e2da64401a4d98c2016488823780577b4d13cef85d358a91d021de95b23f",
+  "selector_presence": {
+   "stEthPerToken()": false,
+   "getWstETHByStEth(uint256)": false,
+   "unwrap(uint256)": false,
+   "wrap(uint256)": false,
+   "l1Token()": false,
+   "bridge()": true,
+   "l2Bridge()": false,
+   "burn(address,uint256)": false
+  }
+ },
+ "rETH": {
+  "selector_presence": {
+   "getExchangeRate()": false,
+   "getRETHValue(uint256)": false,
+   "getEthValue(uint256)": false,
+   "burn(uint256)": false,
+   "l1Token()": true
+  },
+  "getExchangeRate": null,
+  "getExchangeRate_error": {
+   "code": 3,
+   "message": "execution reverted"
+  },
+  "getRETHValue_1e18": null,
+  "getRETHValue_1e18_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ "ezETH_impl": {
+  "impl": "0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7",
+  "impl_code_bytes": 8561,
+  "selector_presence": {
+   "getRate()": false,
+   "convertToETH(address,uint256)": false,
+   "exchangeRate()": false,
+   "l1Token()": false,
+   "burn(address,uint256)": true
+  }
+ },
+ "pools": {
+  "cbETH_WETH_500": {
+   "pool": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+   "error": null
+  },
+  "wstETH_WETH_500": {
+   "pool": "0x6f4482cbf7b43599078fcb012732e20480015644",
+   "error": null
+  },
+  "rETH_WETH_500": {
+   "pool": "0x9e13996a9f5a9870c105d7e3c311848273740e98",
+   "error": null
+  }
+ },
+ "cbETH_pool500_state": {
+  "address": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+  "token0": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+  "token0_error": null,
+  "token1": "0x4200000000000000000000000000000000000006",
+  "token1_error": null,
+  "fee": 500,
+  "fee_error": null,
+  "slot0": {
+   "sqrtPriceX96": "84705755857287759065125656554",
+   "tick": 1337
+  },
+  "slot0_error": null,
+  "liquidity": "278875584749106093103",
+  "liquidity_error": null
+ },
+ "quotes": {
+  "1cbETH_to_WETH_500": {
+   "amount_in": "1000000000000000000",
+   "fee": 500,
+   "amount_out": "1138295393146301056",
+   "error": null,
+   "gasEstimate": "167466",
+   "ticks_crossed": 3
+  },
+  "10cbETH_to_WETH_500": {
+   "amount_in": "10000000000000000000",
+   "fee": 500,
+   "amount_out": "10213606677197937300",
+   "error": null,
+   "gasEstimate": "1937877",
+   "ticks_crossed": 75
+  },
+  "100cbETH_to_WETH_500": {
+   "amount_in": "100000000000000000000",
+   "fee": 500,
+   "amount_out": "10397168930273174412",
+   "error": null,
+   "gasEstimate": "2167056",
+   "ticks_crossed": 75
+  },
+  "10WETH_to_cbETH_500": {
+   "amount_in": "10000000000000000000",
+   "fee": 500,
+   "amount_out": "3753068161851872213",
+   "error": null,
+   "gasEstimate": "665600",
+   "ticks_crossed": 16
+  },
+  "1wstETH_to_WETH_500": {
+   "amount_in": "1000000000000000000",
+   "fee": 500,
+   "amount_out": "204375627924725839",
+   "error": null,
+   "gasEstimate": "616668",
+   "ticks_crossed": 8
+  },
+  "10wstETH_to_WETH_500": {
+   "amount_in": "10000000000000000000",
+   "fee": 500,
+   "amount_out": "204386799636859449",
+   "error": null,
+   "gasEstimate": "757232",
+   "ticks_crossed": 8
+  },
+  "1rETH_to_WETH_500": {
+   "amount_in": "1000000000000000000",
+   "fee": 500,
+   "amount_out": "1174386987117393439",
+   "error": null,
+   "gasEstimate": "87684",
+   "ticks_crossed": 1
+  },
+  "10rETH_to_WETH_500": {
+   "amount_in": "10000000000000000000",
+   "fee": 500,
+   "amount_out": "6624112296870815350",
+   "error": null,
+   "gasEstimate": "748697",
+   "ticks_crossed": 17
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:56:24.602117+00:00",
+ "request_count_this_script": 25
+}

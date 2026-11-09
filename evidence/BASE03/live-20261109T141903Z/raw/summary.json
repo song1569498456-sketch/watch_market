@@ -1,0 +1,194 @@
+{
+ "started_at_utc": "2026-11-09T14:55:47.331691+00:00",
+ "chain_id": 8453,
+ "latest_block": 55228737,
+ "latest_block_time_utc": "2026-11-09T14:55:23+00:00",
+ "pinned_block": 55228732,
+ "morpho_top": [
+  {
+   "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 401092037.80883557
+  },
+  {
+   "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "name": "Spark USDC Vault",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 300746583.5982712
+  },
+  {
+   "address": "0xbeeF010f9cb27031ad51e3333f9aF9C6B1228183",
+   "name": "Steakhouse USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 106734697.4781184
+  },
+  {
+   "address": "0xBEEFE94c8aD530842bfE7d8B397938fFc1cb83b2",
+   "name": "Steakhouse Prime USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 11638528.79405339
+  },
+  {
+   "address": "0x1401d1271C47648AC70cBcdfA3776D4A87CE006B",
+   "name": "Pangolins USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 7044663.541643925
+  },
+  {
+   "address": "0x43Cd00De63485618A5CEEBE0de364cD6cBeB26E7",
+   "name": "Metronome msETH Vault",
+   "asset": "0x7Ba6F01772924a82D9626c126347A28299E98c98",
+   "assetSymbol": "msETH",
+   "totalAssetsUsd": 6555653.1218821015
+  },
+  {
+   "address": "0xa0E430870c4604CcfC7B38Ca7845B1FF653D0ff1",
+   "name": "Moonwell Flagship ETH",
+   "asset": "0x4200000000000000000000000000000000000006",
+   "assetSymbol": "WETH",
+   "totalAssetsUsd": 3414457.469591809
+  },
+  {
+   "address": "0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca",
+   "name": "Moonwell Flagship USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 2410985.252563136
+  }
+ ],
+ "vaults": [
+  {
+   "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 401092037.80883557,
+   "code_bytes": 19340,
+   "asset()": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "totalAssets()": 401172816985684,
+   "totalSupply()": 358398403602525898144931388,
+   "convertToAssets(uint256)": 1119348,
+   "previewRedeem(uint256)": 1119348,
+   "maxRedeem(address)": 12231218906083773,
+   "maxWithdraw(address)": 13691,
+   "symbol": "gtUSDCp",
+   "decimals": 18,
+   "owner()": "0x5a4e19842e09000a582c20a4f524c26fb48dd4d0",
+   "assets_per_share": 1.1193487832345262e-12
+  },
+  {
+   "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "name": "Spark USDC Vault",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 300746583.5982712,
+   "code_bytes": 19730,
+   "asset()": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "totalAssets()": 300807133876587,
+   "totalSupply()": 276990109215679024696011178,
+   "convertToAssets(uint256)": 1085985,
+   "previewRedeem(uint256)": 1085985,
+   "maxRedeem(address)": 0,
+   "maxWithdraw(address)": 0,
+   "symbol": "sparkUSDC",
+   "decimals": 18,
+   "owner()": "0xf93b7122450a50af3e5a76e1d546e95ac1d0f579",
+   "assets_per_share": 1.085985108740337e-12
+  }
+ ],
+ "secondary_pairs": {
+  "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61": [],
+  "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A": [
+   {
+    "dexId": "uniswap",
+    "pairAddress": "0x96bdb8024ebfbc799c2c61deb7f2d3e4e9c5268a11fc62da1681b9e21515accc",
+    "priceNative": "0.0002536",
+    "priceUsd": "0.5658",
+    "liquidityUsd": 223.07,
+    "base": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "quote": "0x0000000000000000000000000000000000000000"
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T14:55:52.903247+00:00",
+ "requests": [
+  {
+   "name": "chain_identity",
+   "url": "https://mainnet.base.org",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:22.843475+00:00",
+   "bytes": 4176,
+   "sha256": "77548cf596e04d02dd3d791ccb5a7314b37593e0e7fcef8c0e5ee7c3138fe6fb",
+   "elapsed_s": 0.594
+  },
+  {
+   "name": "morpho_vaults",
+   "url": "https://api.morpho.org/graphql",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:23.959157+00:00",
+   "bytes": 1693,
+   "sha256": "1e5832af7beb3ff4988e033a29d3713858550a071312fd6efe32f0f96e3c9ccf",
+   "elapsed_s": 0.715
+  },
+  {
+   "name": "beefy_vaults",
+   "url": "https://api.beefy.finance/vaults",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:26.294000+00:00",
+   "bytes": 4179697,
+   "sha256": "6dbd015ab83b3e89621051a9e2af2ca9d47c1219bd29fb0f52b83b65b98c0811",
+   "elapsed_s": 1.937
+  },
+  {
+   "name": "beefy_tvl",
+   "url": "https://api.beefy.finance/tvl",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:27.083367+00:00",
+   "bytes": 233713,
+   "sha256": "b64ef01a05b926f801222018bdda20ac2bd03c22410d7cb30e1b9179d8d2cb7e",
+   "elapsed_s": 0.333
+  },
+  {
+   "name": "morpho_top",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:48.561037+00:00",
+   "bytes": 1788,
+   "sha256": "649b6d1b6163d46291dd6363888f76b037eaa00818837f0aa5fea9767ffb0c3a",
+   "elapsed_s": 1.229
+  },
+  {
+   "name": "vault_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:50.136242+00:00",
+   "n_calls": 22,
+   "bytes": 80548,
+   "sha256": "54f4b6bf489b7dcefe407b9d9b2398dd99169ee3a15b8ad941d7e1d88c9b1702",
+   "elapsed_s": 1.174
+  },
+  {
+   "name": "dexscreener_token_0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:51.628803+00:00",
+   "bytes": 38,
+   "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d",
+   "elapsed_s": 1.09
+  },
+  {
+   "name": "dexscreener_token_0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:52.502685+00:00",
+   "bytes": 835,
+   "sha256": "9d914154c59d8ce12d1c9501eecc8ad3e5f7c43622c3e4d0d1cdcd27d7280c8a",
+   "elapsed_s": 0.474
+  }
+ ],
+ "request_count": 8
+}

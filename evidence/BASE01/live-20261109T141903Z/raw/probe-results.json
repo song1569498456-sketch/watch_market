@@ -1,0 +1,1004 @@
+{
+ "agent_id": "BASE01",
+ "chain": "BASE",
+ "rpc": "https://mainnet.base.org",
+ "started_at_utc": "2026-11-09T14:53:55.481063+00:00",
+ "observations": {
+  "chain_id": "0x2105",
+  "head_block_number": 55228308,
+  "head_block": {
+   "number": "0x34ab794",
+   "hash": "0x21a513b031126450e5083aebf5de1915e300fd68f315ca1c238c710af2b3e478",
+   "timestamp": "0x6af1de85",
+   "baseFeePerGas": "0x4c6583",
+   "timestamp_utc": "2026-11-09T14:53:57+00:00"
+  },
+  "pinned_block": 55228305,
+  "assets": {
+   "usdc": {
+    "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "code": {
+     "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+     "bytecode_bytes": 1852,
+     "code_keccak256": "0xa6705a10bb756b5dea144591118be77d7af0c3eee3bf2dfe2583dcb0364fefab"
+    },
+    "name()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000855534420436f696e000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "USD Coin"
+     ],
+     "error": null
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "USDC"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+     "decoded": [
+      "6"
+     ],
+     "error": null
+    },
+    "totalSupply()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000f6ccdc7357b09",
+     "decoded": [
+      "4341755716926217"
+     ],
+     "error": null
+    },
+    "paused()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "False"
+     ],
+     "error": null
+    },
+    "eip1967_impl": {
+     "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+     "value": "0x0000000000000000000000000000000000000000000000000000000000000000",
+     "error": null
+    }
+   },
+   "usdbc": {
+    "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "code": {
+     "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+     "bytecode_bytes": 2096,
+     "code_keccak256": "0x8cd2f08c7ee9e6ab6e0180e8d6cb0613bbd54d2c4ae2ecdcaddfcdd9a226215b"
+    },
+    "name()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000d555344204261736520436f696e00000000000000000000000000000000000000",
+     "decoded": [
+      "USD Base Coin"
+     ],
+     "error": null
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000055553446243000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "USDbC"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+     "decoded": [
+      "6"
+     ],
+     "error": null
+    },
+    "totalSupply()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000004ba6cf8844e",
+     "decoded": [
+      "5198738654286"
+     ],
+     "error": null
+    },
+    "paused()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "l1Token()": {
+     "raw": "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "decoded": [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+     ],
+     "error": null
+    },
+    "l2Bridge()": {
+     "raw": "0x0000000000000000000000004200000000000000000000000000000000000010",
+     "decoded": [
+      "0x4200000000000000000000000000000000000010"
+     ],
+     "error": null
+    }
+   }
+  },
+  "l2_standard_bridge": {
+   "address": "0x4200000000000000000000000000000000000010",
+   "bytecode_bytes": 2055,
+   "code_keccak256": "0x1f958654ab06a152993e7a0ae7b6dbb0d4b19265cc9337b8789fe1353bd9dc35"
+  },
+  "dexscreener": {
+   "http_status": 200,
+   "pair_count": 30
+  },
+  "direct_pairs": [
+   {
+    "dexId": "alien-base",
+    "pairAddress": "0x0E635F8EeED4F7279d56692D552F034ECE136019",
+    "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "baseSymbol": "USDC",
+    "quote": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "quoteSymbol": "USDbC",
+    "pairCreatedAt": 1725278699000,
+    "liquidityUsd": 127685.73,
+    "priceUsd": "1.00013",
+    "volume24h": 2762.77
+   },
+   {
+    "dexId": "quickswap",
+    "pairAddress": "0x5D0bC342178C8Fe2c2f9A9fcC9D52555C99936db",
+    "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "baseSymbol": "USDC",
+    "quote": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "quoteSymbol": "USDbC",
+    "pairCreatedAt": 1752584457000,
+    "liquidityUsd": 60777.52,
+    "priceUsd": "1.00010",
+    "volume24h": 241762.7
+   },
+   {
+    "dexId": "aerodrome",
+    "pairAddress": "0x98c7A2338336d2d354663246F64676009c7bDa97",
+    "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "baseSymbol": "USDC",
+    "quote": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "quoteSymbol": "USDbC",
+    "pairCreatedAt": null,
+    "liquidityUsd": 53153.35,
+    "priceUsd": "1.00014",
+    "volume24h": 27387.01
+   },
+   {
+    "dexId": "uniswap",
+    "pairAddress": "0x867dbb1b6417abcb3696d5a5d9cc38cbf9f0f6d17355515fe1c8303e791832c4",
+    "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "baseSymbol": "USDC",
+    "quote": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "quoteSymbol": "USDbC",
+    "pairCreatedAt": 1765668575000,
+    "liquidityUsd": 21297.2,
+    "priceUsd": "1.000097",
+    "volume24h": 161162.23
+   }
+  ],
+  "pools": [
+   {
+    "pairAddress": "0x0E635F8EeED4F7279d56692D552F034ECE136019",
+    "dexId": "alien-base",
+    "code": {
+     "address": "0x0E635F8EeED4F7279d56692D552F034ECE136019",
+     "bytecode_bytes": 22142,
+     "code_keccak256": "0x08732ef7e24ba7fb8d8ecfe41d1a544e0438cc549cea07704e18a76fea268717"
+    },
+    "token0()": {
+     "raw": "0x000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+     "decoded": [
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x000000000000000000000000d9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+     "decoded": [
+      "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+     ],
+     "error": null
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "fee()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000064",
+     "decoded": [
+      "100"
+     ],
+     "error": null
+    },
+    "quotes": [
+     {
+      "token_in": "USDC",
+      "amount_in": "1",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:16.904251+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "10",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:17.645287+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:18.397972+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDbC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:19.134189+00:00",
+      "block": 55228305
+     }
+    ]
+   },
+   {
+    "pairAddress": "0x5D0bC342178C8Fe2c2f9A9fcC9D52555C99936db",
+    "dexId": "quickswap",
+    "code": {
+     "address": "0x5D0bC342178C8Fe2c2f9A9fcC9D52555C99936db",
+     "bytecode_bytes": 22493,
+     "code_keccak256": "0x8b1cd1b97b4a5a134980086cfb7c0bc3ad66f92c394c859e4926198dcb51edbe"
+    },
+    "token0()": {
+     "raw": "0x000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+     "decoded": [
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x000000000000000000000000d9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+     "decoded": [
+      "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+     ],
+     "error": null
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": "0x00000000000000000000000000000000000000000000000000000006df5e476e0000000000000000000000000000000000000000000000000000000747a2c644",
+     "decoded": {
+      "decode_error": "InsufficientDataBytes('Tried to read 32 bytes, only got 0 bytes.')",
+      "raw": "0x00000000000000000000000000000000000000000000000000000006df5e476e0000000000000000000000000000000000000000000000000000000747a2c644"
+     },
+     "error": null
+    },
+    "fee()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000000a",
+     "decoded": [
+      "10"
+     ],
+     "error": null
+    },
+    "quotes": [
+     {
+      "token_in": "USDC",
+      "amount_in": "1",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:24.439988+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "10",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:25.192677+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:25.951772+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDbC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:26.694068+00:00",
+      "block": 55228305
+     }
+    ]
+   },
+   {
+    "pairAddress": "0x98c7A2338336d2d354663246F64676009c7bDa97",
+    "dexId": "aerodrome",
+    "code": {
+     "address": "0x98c7A2338336d2d354663246F64676009c7bDa97",
+     "bytecode_bytes": 45,
+     "code_keccak256": "0xacd6710f7037ad095b1e4d5f8ee5b2681069cb4dd316e77e4e0cb8f85716a2a1"
+    },
+    "token0()": {
+     "raw": "0x000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+     "decoded": [
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x000000000000000000000000d9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+     "decoded": [
+      "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+     ],
+     "error": null
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    "fee()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000064",
+     "decoded": [
+      "100"
+     ],
+     "error": null
+    },
+    "quotes": [
+     {
+      "token_in": "USDC",
+      "amount_in": "1",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:31.989273+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "10",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:32.764373+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:33.497792+00:00",
+      "block": 55228305
+     },
+     {
+      "token_in": "USDbC",
+      "amount_in": "100",
+      "amount_out": null,
+      "ratio": null,
+      "error": {
+       "code": 3,
+       "message": "execution reverted"
+      },
+      "quote_time_utc": "2026-11-09T14:54:34.234032+00:00",
+      "block": 55228305
+     }
+    ]
+   }
+  ],
+  "uniswap": {
+   "factory": {
+    "address": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+    "bytecode_bytes": 24535,
+    "code_keccak256": "0x95707a4ac71f20181a63ef7d180e3c625be5d20fc8f6f980befa966bad568132"
+   },
+   "quoter": {
+    "address": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+    "bytecode_bytes": 8273,
+    "code_keccak256": "0xceb5b8bc35e09fc64b1c48c6b920e0d2e37d5710e4f3ef214e1a81f75acee51e"
+   },
+   "pools": {
+    "100": {
+     "pool": "0x06959273e9a65433de71f5a452d529544e07ddd0",
+     "raw": "0x00000000000000000000000006959273e9a65433de71f5a452d529544e07ddd0",
+     "error": null
+    },
+    "500": {
+     "pool": "0x92722287d2819012dd8ec07b4e426ac00dd11103",
+     "raw": "0x00000000000000000000000092722287d2819012dd8ec07b4e426ac00dd11103",
+     "error": null
+    },
+    "3000": {
+     "pool": "0xc986bd739c99f4fda7b82a8bcb49cb159bf5c993",
+     "raw": "0x000000000000000000000000c986bd739c99f4fda7b82a8bcb49cb159bf5c993",
+     "error": null
+    }
+   }
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.94,
+   "retrieved_at_utc": "2026-11-09T14:53:56.420990+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:53:57.157794+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T14:53:57.897093+00:00"
+  },
+  {
+   "label": "getCode usdc",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.391,
+   "retrieved_at_utc": "2026-11-09T14:53:58.638763+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:53:59.373972+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.382,
+   "retrieved_at_utc": "2026-11-09T14:54:00.106748+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T14:54:00.857141+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:54:01.592749+00:00"
+  },
+  {
+   "label": "eth_call paused()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:54:02.341416+00:00"
+  },
+  {
+   "label": "usdc impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.392,
+   "retrieved_at_utc": "2026-11-09T14:54:03.083873+00:00"
+  },
+  {
+   "label": "getCode usdbc",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.406,
+   "retrieved_at_utc": "2026-11-09T14:54:03.839855+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:54:04.573996+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.435,
+   "retrieved_at_utc": "2026-11-09T14:54:05.359613+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.403,
+   "retrieved_at_utc": "2026-11-09T14:54:06.112546+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:54:06.862418+00:00"
+  },
+  {
+   "label": "eth_call paused()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.409,
+   "retrieved_at_utc": "2026-11-09T14:54:07.622165+00:00"
+  },
+  {
+   "label": "eth_call l1Token()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T14:54:08.372030+00:00"
+  },
+  {
+   "label": "eth_call l2Bridge()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.41,
+   "retrieved_at_utc": "2026-11-09T14:54:09.133324+00:00"
+  },
+  {
+   "label": "getCode l2 bridge",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.401,
+   "retrieved_at_utc": "2026-11-09T14:54:09.885781+00:00"
+  },
+  {
+   "label": "dexscreener-usdbc-pairs",
+   "url": "https://api.dexscreener.com/token-pairs/v1/base/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.08,
+   "retrieved_at_utc": "2026-11-09T14:54:11.316232+00:00",
+   "bytes": 30448,
+   "sha256": "59ebcc554ed912b3bf889b2310ddd390b6f01b04ef9a76b8eaef566996bae80f"
+  },
+  {
+   "label": "getCode pool 0x0E635F8E",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.458,
+   "retrieved_at_utc": "2026-11-09T14:54:12.124834+00:00"
+  },
+  {
+   "label": "pool 0x0E635F token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:54:12.860005+00:00"
+  },
+  {
+   "label": "pool 0x0E635F token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.393,
+   "retrieved_at_utc": "2026-11-09T14:54:13.603529+00:00"
+  },
+  {
+   "label": "pool 0x0E635F stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T14:54:14.341355+00:00"
+  },
+  {
+   "label": "pool 0x0E635F getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.382,
+   "retrieved_at_utc": "2026-11-09T14:54:15.073799+00:00"
+  },
+  {
+   "label": "pool 0x0E635F fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:54:15.808985+00:00"
+  },
+  {
+   "label": "getAmountOut 1 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T14:54:16.553543+00:00"
+  },
+  {
+   "label": "getAmountOut 10 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:54:17.294195+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T14:54:18.047431+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0xd9aAEc",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:54:18.783290+00:00"
+  },
+  {
+   "label": "getCode pool 0x5D0bC342",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.472,
+   "retrieved_at_utc": "2026-11-09T14:54:19.605787+00:00"
+  },
+  {
+   "label": "pool 0x5D0bC3 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.414,
+   "retrieved_at_utc": "2026-11-09T14:54:20.370551+00:00"
+  },
+  {
+   "label": "pool 0x5D0bC3 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T14:54:21.107663+00:00"
+  },
+  {
+   "label": "pool 0x5D0bC3 stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T14:54:21.852850+00:00"
+  },
+  {
+   "label": "pool 0x5D0bC3 getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T14:54:22.592838+00:00"
+  },
+  {
+   "label": "pool 0x5D0bC3 fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.41,
+   "retrieved_at_utc": "2026-11-09T14:54:23.352811+00:00"
+  },
+  {
+   "label": "getAmountOut 1 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:54:24.089802+00:00"
+  },
+  {
+   "label": "getAmountOut 10 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T14:54:24.842113+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.408,
+   "retrieved_at_utc": "2026-11-09T14:54:25.601183+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0xd9aAEc",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.391,
+   "retrieved_at_utc": "2026-11-09T14:54:26.343104+00:00"
+  },
+  {
+   "label": "getCode pool 0x98c7A233",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:54:27.084373+00:00"
+  },
+  {
+   "label": "pool 0x98c7A2 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.392,
+   "retrieved_at_utc": "2026-11-09T14:54:27.826291+00:00"
+  },
+  {
+   "label": "pool 0x98c7A2 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.438,
+   "retrieved_at_utc": "2026-11-09T14:54:28.615102+00:00"
+  },
+  {
+   "label": "pool 0x98c7A2 stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.41,
+   "retrieved_at_utc": "2026-11-09T14:54:29.375570+00:00"
+  },
+  {
+   "label": "pool 0x98c7A2 getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T14:54:30.123819+00:00"
+  },
+  {
+   "label": "pool 0x98c7A2 fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T14:54:30.876784+00:00"
+  },
+  {
+   "label": "getAmountOut 1 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.411,
+   "retrieved_at_utc": "2026-11-09T14:54:31.638630+00:00"
+  },
+  {
+   "label": "getAmountOut 10 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T14:54:32.413451+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0x833589",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.383,
+   "retrieved_at_utc": "2026-11-09T14:54:33.147417+00:00"
+  },
+  {
+   "label": "getAmountOut 100 0xd9aAEc",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:54:33.883802+00:00"
+  },
+  {
+   "label": "getCode uni factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.554,
+   "retrieved_at_utc": "2026-11-09T14:54:34.787679+00:00"
+  },
+  {
+   "label": "getCode uni quoter",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.419,
+   "retrieved_at_utc": "2026-11-09T14:54:35.557403+00:00"
+  },
+  {
+   "label": "uni getPool fee100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.404,
+   "retrieved_at_utc": "2026-11-09T14:54:36.312502+00:00"
+  },
+  {
+   "label": "uni getPool fee500",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T14:54:37.065152+00:00"
+  },
+  {
+   "label": "uni getPool fee3000",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T14:54:37.801359+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:54:38.151839+00:00",
+ "request_count": 55
+}

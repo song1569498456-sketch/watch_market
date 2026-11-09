@@ -195,6 +195,19 @@
         "AVAX02"
       ],
       "merged_at": "2026-11-09T14:54:57.872115+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "220f3077b3819c90e01be36139ca2ff2fb6105e3",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T14:55:11.255297+00:00"
+    },
+    {
+      "batch": 7,
+      "agents": [
+        "BASE01",
+        "BASE02",
+        "BASE03"
+      ],
+      "merged_at": "2026-11-09T14:58:49.825395+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -230,6 +243,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 6
+    "completed": 7
   }
 }

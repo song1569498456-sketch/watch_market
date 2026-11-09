@@ -1,0 +1,23 @@
+{
+  "finding_id": "BASE-USDC-VS-USDBC-TWO-ASSETS",
+  "status": "REJECTED",
+  "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+  "mechanism": "链上核验：USDC 为 Circle 原生发行（代理 impl 0x2ce6311d…，链上无普通账户赎回/burn 仅 minter）；USDbC 为 L1 USDC 桥接（l1Token=0xa0b8…、l2Bridge=0x4200…0010），唯一协议出口为跨链回 L1。两者不同合约/不同发行关系/不同退出路径，不能合并或假设同一即时兑付。",
+  "evidence_urls": [
+    "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+  ],
+  "net_result": "n/a（身份/出口分离结论）",
+  "unknown_costs": [],
+  "handoff_to": [
+    "X-BASE",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "任一代币实现/桥接映射变化",
+    "出现新的链上赎回机制"
+  ],
+  "owner": "BASE01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BASE01/live-20261109T141903Z/record.json"
+}

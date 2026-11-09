@@ -1,0 +1,243 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:56:12.954907+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:56:13.981202+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_wsteth_impl",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:56:14.395817+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_reth",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:56:14.834993+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "reth_getExchangeRate",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:15.245058+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "base-publicnode",
+  "tag": "reth_getExchangeRate",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:15.649398+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "reth_getRETHValue_1e18",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:16.601313+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "base-publicnode",
+  "tag": "reth_getRETHValue_1e18",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:17.014630+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "code_ezeth_impl",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:56:17.380445+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "getpool_cbETH_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:17.834310+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "getpool_wstETH_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:18.247509+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "getpool_rETH_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:18.694460+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "pool500_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:19.114818+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "pool500_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:19.552542+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "pool500_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:19.964465+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "pool500_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:20.376880+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "pool500_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:20.805245+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_1cbETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:21.219809+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_10cbETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:21.649880+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_100cbETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:22.077685+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_10WETH_to_cbETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:22.509305+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_1wstETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:22.931328+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_10wstETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:23.354787+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_1rETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:23.773923+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "base-mainnet",
+  "tag": "quote_10rETH_to_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:56:24.185672+00:00",
+  "http_status": 200
+ }
+]

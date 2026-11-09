@@ -1,0 +1,223 @@
+{
+  "agent_id": "BASE03",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BASE",
+  "scope": "Base 8453 可转让金库份额（MetaMorpho/ERC-4626）二级折价：链上金库身份/实现、totalAssets/totalSupply、convertToAssets/previewRedeem、maxRedeem/maxWithdraw 探针；二级市场存在性（DexScreener 发现 + 链上 V4 部署）；没有可执行折价买入口则 REJECTED",
+  "started_at": "2026-11-09T14:54:30+00:00",
+  "finished_at": "2026-11-09T15:02:00+00:00",
+  "duration_seconds": 450,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T14:56:19+00:00",
+    "beijing": "2026-11-09T22:56:19+08:00",
+    "data_time": "链上读取 2026-11-09T14:55:22Z～14:56:19Z；最新块 55,228,737（2026-11-09T14:55:23Z）；金库状态钉 pinned 块 55,228,732；DexScreener 发现抓取 14:55:45Z 前后；报告落盘时数据已超过 60 秒"
+  },
+  "block_or_slot": 55228732,
+  "market_ids": [
+    "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+  ],
+  "asset_ids": [
+    "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+  ],
+  "discovery_source": [
+    {
+      "source": "Morpho 官方 API（GraphQL，无 key）",
+      "url": "https://api.morpho.org/graphql",
+      "retrieved_at_utc": "2026-11-09T14:55:23+00:00",
+      "http_status": 200,
+      "request": "vaults(first: 8, orderBy: TotalAssetsUsd, where chainId_in [8453])：Gauntlet USDC Prime $401M、Spark USDC Vault $300M、Steakhouse USDC $106M 等；据此锁定两金库做链上核验"
+    },
+    {
+      "source": "Beefy 官方 API（补充金库清单）",
+      "url": "https://api.beefy.finance/vaults",
+      "retrieved_at_utc": "2026-11-09T14:55:26+00:00",
+      "http_status": 200,
+      "request": "Base 金库 608 个清单（4179697 字节）；/tvl 返回 233713 字节但因键结构未按 id 对齐，未用于排序（记录为缺口）"
+    },
+    {
+      "source": "Base 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T14:55:22+00:00～14:56:19+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（asset/totalAssets/totalSupply/convertToAssets/previewRedeem/maxRedeem/maxWithdraw/symbol/decimals/owner；V4 PoolManager 与 StateView 代码）；共 9 次外部 HTTP 请求"
+    },
+    {
+      "source": "DexScreener 官方 API（二级市场发现入口，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "retrieved_at_utc": "2026-11-09T14:55:45+00:00",
+      "http_status": 200,
+      "request": "Gauntlet 金库 0 个 Base 对；Spark 金库 1 个 uniswap 对（pairAddress 0x96bd…accc 为 V4 poolId 形式，priceUsd 0.5658，quote=native ETH，liquidityUsd 223.07）"
+    }
+  ],
+  "mechanism": "MetaMorpho 是 ERC-4626 可转让金库份额：convertToAssets(1e18)/previewRedeem(1e18) 给出同块记账份额价（Gauntlet 1.119348 USDC、Spark 1.085985 USDC），maxRedeem/maxWithdraw 按 owner 份额与实际可提流动性计算（MetaMorpho _maxWithdraw -> _simulateWithdrawMorpho，withdrawQueue 决定各市场提款顺序，流动性不足会 revert）。账面 NAV/份额价不是即时可提现金。二级市场方面：Base 最大金库 Gauntlet USDC Prime 无任何 Base 二级交易对；Spark USDC Vault 仅有 1 个 Uniswap V4 池（poolId 0x96bd…accc，native ETH 计价，liquidityUsd≈223），DexScreener 展示价 0.5658 USD vs NAV 1.085985（约 −47.9%），但容量极小、无同块链上可执行报价、且可能为废弃/测试池。结论：本轮不存在可验证、可执行的二级折价买入口，REJECTED；Spark V4 小池仅作风险/异常观察。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "base-mainnet",
+      "fields": {"eth_chainId": "0x2105", "chain_id": 8453, "latest_block": 55228737,
+                 "latest_block_time_utc": "2026-11-09T14:55:23+00:00", "pinned_block": 55228732},
+      "evidence_file": "raw/discover.json"
+    },
+    {
+      "type": "vault_identity_and_share_price",
+      "protocol": "MetaMorpho (ERC-4626)",
+      "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+      "fields": {"name_from_api": "Gauntlet USDC Prime", "code_bytes": 19340, "symbol": "gtUSDCp", "decimals": 18,
+                 "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                 "totalAssets": "401172816985684", "totalSupply": "358398403602525898144931388",
+                 "convertToAssets_1e18": "1119348", "previewRedeem_1e18": "1119348",
+                 "usdc_per_share": 1.1193487832345262e-12,
+                 "maxRedeem_dead_addr": "12231218906083773", "maxWithdraw_dead_addr": "13691",
+                 "owner": "0x5a4e19842e09000a582c20a4f524c26fb48dd4d0",
+                 "note": "maxRedeem/maxWithdraw 探针对 0x…dEaD（其实际持有约 0.0122 份额）自洽；不代表大额持有者可提额度"},
+      "block": 55228732,
+      "evidence_file": "raw/vault_state.json"
+    },
+    {
+      "type": "vault_identity_and_share_price",
+      "protocol": "MetaMorpho (ERC-4626)",
+      "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "fields": {"name_from_api": "Spark USDC Vault", "code_bytes": 19730, "symbol": "sparkUSDC", "decimals": 18,
+                 "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                 "totalAssets": "300807133876587", "totalSupply": "276990109215679024696011178",
+                 "convertToAssets_1e18": "1085985", "previewRedeem_1e18": "1085985",
+                 "usdc_per_share": 1.085985108740337e-12,
+                 "maxRedeem_dead_addr": 0, "maxWithdraw_dead_addr": 0,
+                 "owner": "0xf93b7122450a50af3e5a76e1d546e95ac1d0f579"},
+      "block": 55228732,
+      "evidence_file": "raw/vault_state.json"
+    },
+    {
+      "type": "secondary_market_check",
+      "protocol": "DexScreener discovery",
+      "fields": {"gauntlet_usdc_prime_pairs_base": 0,
+                 "spark_usdc_vault_pairs_base": [{"dexId": "uniswap", "pairAddress": "0x96bdb8024ebfbc799c2c61deb7f2d3e4e9c5268a11fc62da1681b9e21515accc",
+                                                  "pairAddress_form": "32-byte Uniswap V4 poolId", "priceNative": "0.0002536",
+                                                  "priceUsd": "0.5658", "quote": "0x0000000000000000000000000000000000000000 (native ETH)",
+                                                  "liquidityUsd": 223.07,
+                                                  "implied_discount_vs_nav_pct": "-47.9"}],
+                 "note": "DexScreener 展示价不是固定块可执行报价；$223 流动性容量不成立"},
+      "evidence_file": "raw/summary.json"
+    },
+    {
+      "type": "v4_deployment_check",
+      "protocol": "Uniswap V4",
+      "address": "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+      "fields": {"poolmanager_code_bytes": 24009,
+                 "stateview_attempt": {"address": "0x7ffe42c4a5deea5b0fec41c94c136cf115597227", "code_bytes": 0,
+                                       "result": "地址无代码，未读到该 V4 pool 的 sqrtPrice/liquidity"},
+                 "note": "Base V4 PoolManager 已部署；本轮无同块 V4 池状态与数量报价"},
+      "block": 55228732,
+      "evidence_file": "raw/v4_pool_check.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "rejected_no_executable_secondary_entry",
+    "realized": false,
+    "note": "无可验证、可执行的二级折价买入口：最大金库无二级对；Spark 仅 $223 V4 native-ETH 小池且无链上固定块报价；份额 NAV≠可提现金，赎回流动性上限未测",
+    "unknown_costs": ["二级买入费/滑点（无可行池）", "V4 LP fee 与 ETH 计价换算", "赎回退出费与 withdrawQueue 流动性", "底层变现成本", "L2 gas/L1 数据费", "等待与策略亏损确认"]
+  },
+  "capacity": "Gauntlet USDC Prime：Base 二级市场 0 对（capacity 0）；Spark USDC Vault：唯一 Base 二级池 DexScreener liquidityUsd≈223（native ETH 计价，容量可忽略）；两金库自身 TVL 分别约 $401M/$300M，但赎回可提额度（withdrawQueue 流动性）未测。",
+  "permissions": "MetaMorpho 份额默认可转让（本轮未读该部署的转让限制/暂停/升级状态）；redeem/withdraw 需持有者份额与授权（未签名/未授权/未广播）；curator/owner 地址已读（Gauntlet 0x5a4e…、Spark 0xf93b…）。",
+  "liabilities": "none（只读读取；未建仓、无债务、无在途资金）",
+  "waiting_time": "份额赎回为确认后同步（若流动性足够），但 withdrawQueue 流动性不足会 revert/需等待；实际等待与异步领取本轮未测。二级买入路径不存在。",
+  "invalidation_conditions": [
+    "金库非已读实现或代理升级",
+    "份额转让/暂停/权限变化",
+    "二级池流动性或报价变化（$223 池可能随时消失）",
+    "convertToAssets/previewRedeem 与 maxRedeem 实际执行不一致",
+    "报价/数据超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://api.morpho.org/graphql",
+    "https://mainnet.base.org",
+    "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "https://basescan.org/address/0x498581fF718922c3f8e6A244956aF099B2652b2b",
+    "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+  ],
+  "coverage_gaps": [
+    "V4 池链上状态未取得：StateView 地址无代码，未读 poolId 0x96bd…accc 的 sqrtPrice/liquidity；DexScreener 0.5658 仅展示价，不能当固定块可执行报价。",
+    "赎回可执行性未测：未用真实大额持有者验证 maxRedeem/maxWithdraw 在 withdrawQueue 各市场流动性下的上限；金库市场流动性/提款队列/费用/暂停/升级状态未读。",
+    "二级市场覆盖有限：只查 Base 前 2 大金库 + Beefy 608 个 Base 金库清单（未逐一双查）；未查 Uniswap V3 各费率池/Sushi/Aerodrome 的直接池地址。",
+    "30 天规则窗口（金库升级、策略损失、curator/fee 变更）与 7 天活动窗口（份额二级成交、赎回到账）未覆盖。",
+    "Beefy /tvl 键结构与 vault id 未对齐，未完成 Beefy TVL 排序；未读金库代理实现/升级权限与份额转让限制。",
+    "未计 gas/L1 数据费（Base L2 低费但未实测）；无完整路径模拟。"
+  ],
+  "next_check": [
+    "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+    "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+    "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+    "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+    "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+      "chain": "BASE", "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+      "evidence_urls": ["https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.119348 USDC/份额；Base 二级市场 0 对）",
+      "next_check": "赎回流动性上限与转让限制"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "chain": "BASE", "protocol": "MetaMorpho (Spark USDC Vault)",
+      "asset_ids": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+      "evidence_urls": ["https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+                        "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.085985 USDC/份额；仅 1 个 $223 V4 池，未取得链上报价）",
+      "next_check": "V4 池链上状态/数量报价；赎回流动性"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-METAMORPHO-SHARE-SECONDARY-DISCOUNT",
+      "status": "REJECTED",
+      "chain": "BASE",
+      "protocol": "MetaMorpho / Uniswap V4（发现入口）",
+      "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61 | BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "evidence_urls": ["https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+                        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+                        "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"],
+      "mechanism": "Base 最大 MetaMorpho 金库 Gauntlet USDC Prime（$401M）无 Base 二级交易对；Spark USDC Vault（$300M）仅有 1 个约 $223 的 Uniswap V4 native-ETH 小池，DexScreener 显示价 0.5658 USD vs NAV 1.085985（−47.9%），但容量、计价与可执行性均不成立，且未取得同块链上报价。份额价/NAV 与 maxRedeem/maxWithdraw、二级显示价已分列，不混用。结论：无可验证、可执行的二级折价买入口。",
+      "net_result": null,
+      "unknown_costs": ["二级买入费/滑点（无可行池）", "赎回退出费/队列流动性", "gas/L1 费", "ETH 计价换算"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["出现有真实流动性的二级池", "V4 小池被证实为废弃/测试", "金库份额转让/权限变化"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Base 上存在可买折价金库份额再按 NAV 赎回的二级机会",
+      "reason": "最大金库 Gauntlet USDC Prime 无 Base 二级交易对；Spark USDC Vault 仅 $223 native-ETH V4 小池、无链上固定块报价、容量可忽略；份额 NAV≠即时可提现金且赎回流动性上限未测，明确排除该机会主张。"
+    },
+    {
+      "claim": "把 DexScreener 的 0.5658 USD 展示价当可执行买入价（−47.9% 折价）",
+      "reason": "该对为 32 字节 V4 poolId 形式、native ETH 计价、liquidityUsd≈223；本轮 StateView 地址无代码未取到链上 sqrtPrice/liquidity，展示价不能当报价或成交依据。"
+    },
+    {
+      "claim": "把 convertToAssets/previewRedeem 当即时可提现金（上轮 Q00 否决点）",
+      "reason": "两者只是记账换算；本轮另列 maxRedeem/maxWithdraw 探针与二级市场显示价，并注明大额赎回流动性上限未测，排除混用。"
+    },
+    {
+      "claim": "Beefy /tvl 返回 200 即完成 Beefy Base 金库排序与二级核验",
+      "reason": "键结构与 vault id 未对齐，排序未完成；608 个 Beefy Base 金库只取清单，未逐个查二级池与赎回，排除该覆盖主张。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_vault_state_plus_secondary_discovery",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:56:19+00:00",
+    "complete_block_range": "pinned 单块 55,228,732（最新块 55,228,737）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

@@ -566,40 +566,74 @@
     {
       "market_id": "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
       "chain": "BASE",
-      "protocol": "Circle USDC asset watch",
+      "protocol": "Circle USDC（Base 原生发行）",
       "asset_ids": [
-        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
       ],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+        "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
       ],
-      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
-      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。",
+      "identity_status": "CHAIN_VERIFIED：代理 1,852 B；Circle 自定义实现槽→impl 0x2ce6311d…（23,464 B）；name=USD Coin/6 位/paused=false；链上无普通账户赎回，发行方赎回为场外",
+      "next_check": "Circle 场外条款与资格；不把 burn 当链上兑付",
       "owner": "BASE01",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BASE01/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE01/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "BASE01": {
+          "market_id": "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "chain": "BASE",
+          "protocol": "Circle USDC（Base 原生发行）",
+          "asset_ids": [
+            "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代理 1,852 B；Circle 自定义实现槽→impl 0x2ce6311d…（23,464 B）；name=USD Coin/6 位/paused=false；链上无普通账户赎回，发行方赎回为场外",
+          "next_check": "Circle 场外条款与资格；不把 burn 当链上兑付"
+        }
+      }
     },
     {
       "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
       "chain": "BASE",
-      "protocol": "USDbC bridged asset watch",
+      "protocol": "USDbC（L1 USDC 的 Base 桥接表示）",
       "asset_ids": [
-        "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+        "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       ],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol"
+        "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "https://basescan.org/address/0x4200000000000000000000000000000000000010"
       ],
-      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED; asset watch item, not priced redemption market",
-      "next_check": "核对Base chainId=8453、两个资产代码/实现；USDC/USDbC分别建身份和正常出口，不合并成同名USDC。",
+      "identity_status": "CHAIN_VERIFIED：代码 2,096 B；l1Token=L1 USDC、l2Bridge=Base L2StandardBridge；唯一协议出口为 L2→L1 跨链",
+      "next_check": "跨链等待/费用实测；交 X-BASE",
       "owner": "BASE01",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BASE01/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE01/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "BASE01": {
+          "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+          "chain": "BASE",
+          "protocol": "USDbC（L1 USDC 的 Base 桥接表示）",
+          "asset_ids": [
+            "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+            "https://basescan.org/address/0x4200000000000000000000000000000000000010"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 2,096 B；l1Token=L1 USDC、l2Bridge=Base L2StandardBridge；唯一协议出口为 L2→L1 跨链",
+          "next_check": "跨链等待/费用实测；交 X-BASE"
+        }
+      }
     },
     {
       "market_id": "BASE:8453:cbETH:token:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
@@ -2767,6 +2801,241 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_LB_PAIR_BINSTEP_ACTIVEID（97B 克隆）",
           "next_check": "LBRouter getSwapOut 或 bin 遍历给数量报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+      "chain": "BASE",
+      "protocol": "Uniswap V3 USDC/USDbC 0.01%",
+      "asset_ids": [
+        "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0/token1/liquidity/tick 已读；同块买卖报价已取",
+      "next_check": "容量档与跨池比价（含 v4/其他 DEX）",
+      "owner": "BASE01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE01": {
+          "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+          "chain": "BASE",
+          "protocol": "Uniswap V3 USDC/USDbC 0.01%",
+          "asset_ids": [
+            "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0/token1/liquidity/tick 已读；同块买卖报价已取",
+          "next_check": "容量档与跨池比价（含 v4/其他 DEX）"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "chain": "BASE",
+      "protocol": "Coinbase cbETH（Base 桥接表示）",
+      "asset_ids": [
+        "eip155:8453/erc20:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+      ],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_L2STANDARD_BRIDGE",
+      "next_check": "核验发行方 Base 桥接/赎回规则；跟踪 DEX 容量与桥路线",
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE02": {
+          "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+          "chain": "BASE",
+          "protocol": "Coinbase cbETH（Base 桥接表示）",
+          "asset_ids": [
+            "eip155:8453/erc20:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+          ],
+          "identity_status": "CHAIN_VERIFIED_BRIDGED_L2STANDARD_BRIDGE",
+          "next_check": "核验发行方 Base 桥接/赎回规则；跟踪 DEX 容量与桥路线"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:LST:wstETH:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+      "chain": "BASE",
+      "protocol": "Lido wstETH（Base 桥接表示）",
+      "asset_ids": [
+        "eip155:8453/erc20:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+      ],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Lido 官方 Base 桥接说明；寻找正常 wstETH/WETH 池",
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE02": {
+          "market_id": "BASE:8453:LST:wstETH:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+          "chain": "BASE",
+          "protocol": "Lido wstETH（Base 桥接表示）",
+          "asset_ids": [
+            "eip155:8453/erc20:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+          ],
+          "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+          "next_check": "核验 Lido 官方 Base 桥接说明；寻找正常 wstETH/WETH 池"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:LST:rETH:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+      "chain": "BASE",
+      "protocol": "Rocket Pool rETH（Base 桥接表示）",
+      "asset_ids": [
+        "eip155:8453/erc20:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c"
+      ],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Rocket Pool 官方 Base 说明；补 DEX 容量",
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE02": {
+          "market_id": "BASE:8453:LST:rETH:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+          "chain": "BASE",
+          "protocol": "Rocket Pool rETH（Base 桥接表示）",
+          "asset_ids": [
+            "eip155:8453/erc20:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c"
+          ],
+          "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+          "next_check": "核验 Rocket Pool 官方 Base 说明；补 DEX 容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:LST:ezETH:0x2416092f143378750bb29b79ed961ab195cceea5",
+      "chain": "BASE",
+      "protocol": "Renzo ezETH（Base 桥接表示）",
+      "asset_ids": [
+        "eip155:8453/erc20:0x2416092f143378750bb29b79ed961ab195cceea5"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x2416092f143378750bb29b79eD961ab195CcEea5"
+      ],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Renzo 官方 Base 说明；补 DEX 容量",
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE02": {
+          "market_id": "BASE:8453:LST:ezETH:0x2416092f143378750bb29b79ed961ab195cceea5",
+          "chain": "BASE",
+          "protocol": "Renzo ezETH（Base 桥接表示）",
+          "asset_ids": [
+            "eip155:8453/erc20:0x2416092f143378750bb29b79ed961ab195cceea5"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x2416092f143378750bb29b79eD961ab195CcEea5"
+          ],
+          "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+          "next_check": "核验 Renzo 官方 Base 说明；补 DEX 容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.119348 USDC/份额；Base 二级市场 0 对）",
+      "next_check": "赎回流动性上限与转让限制",
+      "owner": "BASE03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE03": {
+          "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+          "chain": "BASE",
+          "protocol": "MetaMorpho (Gauntlet USDC Prime)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.119348 USDC/份额；Base 二级市场 0 对）",
+          "next_check": "赎回流动性上限与转让限制"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "chain": "BASE",
+      "protocol": "MetaMorpho (Spark USDC Vault)",
+      "asset_ids": [
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+        "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.085985 USDC/份额；仅 1 个 $223 V4 池，未取得链上报价）",
+      "next_check": "V4 池链上状态/数量报价；赎回流动性",
+      "owner": "BASE03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BASE03": {
+          "market_id": "BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+          "chain": "BASE",
+          "protocol": "MetaMorpho (Spark USDC Vault)",
+          "asset_ids": [
+            "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+            "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（convertToAssets 1.085985 USDC/份额；仅 1 个 $223 V4 池，未取得链上报价）",
+          "next_check": "V4 池链上状态/数量报价；赎回流动性"
         }
       },
       "current_onchain_verified": true,

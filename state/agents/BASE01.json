@@ -2,13 +2,26 @@
   "agent_id": "BASE01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "QUOTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:55:15+00:00",
   "observed_cursor": {
-    "type": "STATIC_ASSET_AND_PERMISSION_SOURCES_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:39:29.776385+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:55:15+00:00",
+    "chain_id": 8453,
+    "head_block": 55228651,
+    "pinned_blocks": [
+      55228305,
+      55228648
+    ],
+    "urls": [
+      "https://mainnet.base.org",
+      "https://api.dexscreener.com/token-pairs/v1/base/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+    ],
+    "complete_block_range": "身份/代码：块 55,228,305；同块报价：块 55,228,648（完整单块读数）；head 55,228,651",
+    "complete_event_time_window": "单块快照；30 天规则/7 天活动窗口未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,27 +35,25 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
-    "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
-    "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+    "链存活/身份核验：eth_chainId=0x2105（8453），head=55,228,651（2026-11-09T14:55:05Z）；身份/代码固定块 55,228,305，报价固定块 55,228,648。",
+    "USDC（Circle 原生）0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913：代理 1,852 B；EIP-1967 impl 槽=0；Circle 自定义实现槽 0x7050c9e0…→impl=0x2ce6311ddae708829bc0784c967b7d77d19fd779（23,464 B）；name=USD Coin/symbol=USDC/6 位/totalSupply=4,341,755,716.926217/paused=false；链上无普通账户赎回函数，发行方赎回为场外。",
+    "USDbC（L1 USDC 桥接）0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA：代码 2,096 B；name=USD Base Coin/symbol=USDbC/6 位/totalSupply=5,198,738.654286；l1Token()=L1 USDC 0xa0b86991…、l2Bridge()=Base L2StandardBridge 0x4200…0010（代码 2,055 B）；无 paused()；唯一协议出口为 L2→L1 跨链。",
+    "同块 DEX 报价（Uniswap V3 USDC/USDbC fee100 池 0x06959273…，liquidity=19,975,264,896,318，tick=1）：USDC→USDbC 1=1.000018；USDbC→USDC 1=0.999781、100=99.977632（往返成本约 0.024%，买入 USDbC 折价约 0.0018%）；fee500/fee3000 池报价更差（0.9993/0.990643）。",
+    "发现入口：DexScreener 30 对直连池快照（alien-base 约 12.8 万美元流动性、quickswap 约 6.1 万、aerodrome 约 5.3 万、Uniswap v4 poolId 约 2.1 万）；仅 Uniswap V3 fee100 完成链上报价，其余池 ABI 不匹配未报价。",
+    "外部请求 70 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无交易/签名。"
   ],
   "pending_questions": [
-    "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
-    "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
-    "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
-    "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
-    "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+    "USDC 的 Circle 场外赎回条款（账户/地区资格、最低额、费用、到账时间）未取；链上不可全验。",
+    "USDbC 跨链出口的实测等待/费用未核（Base 标准桥挑战期设计值未链上确认）；L1 领取状态未读。",
+    "除 Uniswap V3 fee100 外的池（alien-base/quickswap/aerodrome/Uniswap v4）未完成链上报价，跨池最优价与容量未定。",
+    "30 天规则/实现变更与 7 天活动窗口未覆盖；黑名单/资格风险未查。",
+    "未做买入→桥→L1 领取完整只读模拟；Base L2 gas 与 L1 数据费未量化。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:39:29.776385+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BASE01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-    "verified_at": "2026-11-08T15:40:29.232589+00:00",
-    "record": "evidence/BASE01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:56:36.062393+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BASE01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BASE01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

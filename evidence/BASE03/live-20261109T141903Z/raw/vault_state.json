@@ -1,0 +1,105 @@
+{
+ "started_at_utc": "2026-11-09T14:55:47.331691+00:00",
+ "chain_id": 8453,
+ "latest_block": 55228737,
+ "latest_block_time_utc": "2026-11-09T14:55:23+00:00",
+ "pinned_block": 55228732,
+ "morpho_top": [
+  {
+   "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 401092037.80883557
+  },
+  {
+   "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "name": "Spark USDC Vault",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 300746583.5982712
+  },
+  {
+   "address": "0xbeeF010f9cb27031ad51e3333f9aF9C6B1228183",
+   "name": "Steakhouse USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 106734697.4781184
+  },
+  {
+   "address": "0xBEEFE94c8aD530842bfE7d8B397938fFc1cb83b2",
+   "name": "Steakhouse Prime USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 11638528.79405339
+  },
+  {
+   "address": "0x1401d1271C47648AC70cBcdfA3776D4A87CE006B",
+   "name": "Pangolins USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 7044663.541643925
+  },
+  {
+   "address": "0x43Cd00De63485618A5CEEBE0de364cD6cBeB26E7",
+   "name": "Metronome msETH Vault",
+   "asset": "0x7Ba6F01772924a82D9626c126347A28299E98c98",
+   "assetSymbol": "msETH",
+   "totalAssetsUsd": 6555653.1218821015
+  },
+  {
+   "address": "0xa0E430870c4604CcfC7B38Ca7845B1FF653D0ff1",
+   "name": "Moonwell Flagship ETH",
+   "asset": "0x4200000000000000000000000000000000000006",
+   "assetSymbol": "WETH",
+   "totalAssetsUsd": 3414457.469591809
+  },
+  {
+   "address": "0xc1256Ae5FF1cf2719D4937adb3bbCCab2E00A2Ca",
+   "name": "Moonwell Flagship USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 2410985.252563136
+  }
+ ],
+ "vaults": [
+  {
+   "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 401092037.80883557,
+   "code_bytes": 19340,
+   "asset()": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "totalAssets()": 401172816985684,
+   "totalSupply()": 358398403602525898144931388,
+   "convertToAssets(uint256)": 1119348,
+   "previewRedeem(uint256)": 1119348,
+   "maxRedeem(address)": 12231218906083773,
+   "maxWithdraw(address)": 13691,
+   "symbol": "gtUSDCp",
+   "decimals": 18,
+   "owner()": "0x5a4e19842e09000a582c20a4f524c26fb48dd4d0",
+   "assets_per_share": 1.1193487832345262e-12
+  },
+  {
+   "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+   "name": "Spark USDC Vault",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC",
+   "totalAssetsUsd": 300746583.5982712,
+   "code_bytes": 19730,
+   "asset()": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "totalAssets()": 300807133876587,
+   "totalSupply()": 276990109215679024696011178,
+   "convertToAssets(uint256)": 1085985,
+   "previewRedeem(uint256)": 1085985,
+   "maxRedeem(address)": 0,
+   "maxWithdraw(address)": 0,
+   "symbol": "sparkUSDC",
+   "decimals": 18,
+   "owner()": "0xf93b7122450a50af3e5a76e1d546e95ac1d0f579",
+   "assets_per_share": 1.085985108740337e-12
+  }
+ ]
+}

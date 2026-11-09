@@ -1546,124 +1546,204 @@
       "agent_id": "BASE01",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:39:29.776385+00:00",
+      "last_success_at": "2026-11-09T14:56:36.062393+00:00",
+      "last_attempt_at": "2026-11-09T14:56:36.062393+00:00",
       "actual_coverage": [
-        "Aave官方Base地址书给USDC与USDbC不同地址，均6 decimals，尚无链核验。",
-        "Circle FiatTokenV1源码107-112行onlyMinters，357-379行burn受whenNotPaused/onlyMinters/notBlacklisted约束。",
-        "源码权限卡仅用于排除无条件burn=兑付假设，未证明Base当前USDC实现或普通用户法币资格。"
+        "链：eth_chainId=0x2105（8453）；head=55,228,651（2026-11-09T14:55:05Z，hash 0x6c7f549f…）；身份/代码固定块 55,228,305；同块报价固定块 55,228,648；head baseFee=0x4c4b40≈5,000,000 wei（L2 部分，未计 L1 数据费）。",
+        "USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913：代理代码 1,852 B（keccak 0xa6705a10…）；EIP-1967 impl 槽为 0；Circle 自定义实现槽 0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3 → impl=0x2ce6311ddae708829bc0784c967b7d77d19fd779（23,464 B，keccak 0x11b75a23…）；name=USD Coin、symbol=USDC、decimals=6、totalSupply=4,341,755,716.926217、paused=false。",
+        "USDbC 0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA：代码 2,096 B（keccak 0x8cd2f08c…）；name=USD Base Coin、symbol=USDbC、decimals=6、totalSupply=5,198,738.654286；l1Token()=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48（L1 USDC）、l2Bridge()=0x4200000000000000000000000000000000000010（Base L2StandardBridge，代码 2,055 B，keccak 0x1f958654…）；无 paused()（revert）。",
+        "Uniswap V3 Base：工厂 0x33128a8fC17869897dcE68Ed026d694621f6FDfD（24,535 B）、QuoterV2 0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a（8,273 B）；USDC/USDbC 池 fee100=0x06959273e9a65433de71f5a452d529544e07ddd0（22,142 B，keccak 0x59b0d9a7…，token0=USDC/token1=USDbC，liquidity=19,975,264,896,318，slot0 tick=1）、fee500=0x92722287…、fee3000=0xc986bd73…。",
+        "同块报价（块 55,228,648，2026-11-09T14:55:07-09Z）：USDC→USDbC 1=1.000018 USDbC（fee100；fee500=0.9993、fee3000=0.990643）；USDbC→USDC 1=0.999781、100=99.977632（fee100）→ 往返成本约 0.024%，买入 USDbC 相对 USDC 折价约 0.0018%。",
+        "出口结论：USDC 发行方赎回为 Circle 场外流程，链上无可执行赎回（burn 仅 minter，上一轮源码证据）；USDbC 唯一协议出口为 Base 标准桥 L2→L1（跨链、OP Stack 挑战期），非 L2 即时兑付；两者均未找到 Base 链上即时赎回入口。",
+        "发现入口：DexScreener 30 对快照中 USDC/USDbC 直连对：alien-base 0x0E635F8E…（约 12.8 万美元流动性）、quickswap 0x5D0bC342…（约 6.1 万）、aerodrome 0x98c7A233…（约 5.3 万，45 字节最小代理）、uniswap v4 poolId 0x867dbb1b…（约 2.1 万）；仅 Uniswap V3 fee100 池完成链上报价，其余池用 getAmountOut/getReserves ABI 调用 revert（池类型不同）。",
+        "失败/限制：Aerodrome/alien-base/quickswap 池报价接口 revert；USDbC 无 paused()；USDC EIP-1967 槽为 0（非 EIP-1967 代理，用 Circle 自定义槽）。"
       ],
       "coverage_gaps": [
-        "30天赎回/规则/实现变更与7天活动均未回溯；没有事件/代表交易或完整区块范围。",
-        "Circle官方合约文档与Base RPC被CONNECT 403拒绝，chainId=8453、代码、代理实现、暂停/黑名单未实时核验。",
-        "没有具体DEX池或指定数量买入/赎回报价，普通账户发行方赎回资格、地区限制、额度、费用、到账时间与储备unknown。",
-        "USDbC桥接退出可能涉及其他链，未在本岗假装同链即时赎回，待X-BASE明确固定链对核验。",
-        "静态Circle FiatTokenV1源码尚未与Base当前USDC实现对应，不能据此宣布当前全部接口规则已确认。"
+        "USDC 的 Circle 发行方赎回条款（账户/地区资格、最低额、费用、到账时间）为场外信息，链上不可全验，本轮未取官方当前条款。",
+        "USDbC 跨链出口的实测等待/费用未核（Base 标准桥挑战期设计值未从链上确认）；L1 领取与 L1 USDC 入账状态未读。",
+        "除 Uniswap V3 fee100 外的池（alien-base/quickswap/aerodrome/v4）未完成链上报价（接口差异），跨池最优价与容量未定。",
+        "30 天规则/实现变更与 7 天活动窗口未覆盖；黑名单/资格风险未查。",
+        "未做买入→桥→L1 领取的完整只读模拟；未量化 Base L2 gas 与 L1 数据费。"
       ],
-      "report": "reports/agents/BASE01/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BASE01/2026-11-09/live-20261109T141903Z.md",
       "task": "稳定币市场与赎回出口",
       "chain": "BASE",
       "owner": "worker_a",
       "prompt": "prompts/agents/BASE01.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-        "verified_at": "2026-11-08T15:40:29.232589+00:00",
-        "record": "evidence/BASE01/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BASE02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:40:08.482699+00:00",
+      "last_success_at": "2026-11-09T14:56:24.602117+00:00",
+      "last_attempt_at": "2026-11-09T14:56:24.602117+00:00",
       "actual_coverage": [
-        "从ethereum-optimism官方token-list仓库data/cbETH/data.json独立读取Base地址=0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22、18位小数；仅发现线索，尚非发行方/链上双重验证。",
-        "Lido旧lido-l2 README明确只指Arbitrum与Optimism，该证据不适用于证明Base资产部署或退出规则，故未套用。",
-        "没有本轮折价、可兑原生ETH数量、现金出口或锁定收益结论。"
+        "链身份：eth_chainId=8453（0x2105）；head=55228993（2026-11-09T14:56:14Z）；报价固定块 55228623（14:55:00Z）。",
+        "cbETH Base 0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22：proxy 代码 2096B（sha256=ead90c9b…），impl=0x07a71b9b835c9eba242836704d17da0953324e1f（7322B）；name=Coinbase Wrapped Staked ETH、symbol=cbETH、decimals=18、totalSupply=92,553.870426575138902330；impl selector：有 burn(address,uint256)/mint(address,uint256)/l1Token()/bridge()/l2Bridge()，**无 exchangeRate()/redeem()/unwrap()**。",
+        "cbETH 桥接身份：l1Token()=0xbe9895146f7af43049ca1c1ae358b0541ea49704（L1 规范 cbETH 地址形态）、bridge()=0x4200000000000000000000000000000000000010（Base L2StandardBridge 预部署）；说明 Base cbETH 是桥接表示，不是 Coinbase 在 Base 原生发行并支持本链赎回的资产。",
+        "wstETH Base 0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452：proxy 代码 3296B（sha256=4a30cba8…），impl=0x69ce2505ce515c0203160450157366f927243309（4050B）；name=Wrapped liquid staked Ether 2.0、decimals=18；impl selector 有 bridge()，**无 stEthPerToken()/getWstETHByStEth()/wrap()/unwrap()/l1Token()**；直接调用 stEthPerToken() 与 getWstETHByStEth(1e18) 均 revert。",
+        "rETH Base 0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c：代码 5835B（sha256=fedda1d7…）；name=Rocket Pool ETH、decimals=18；有 l1Token()，**无 getExchangeRate()/getRETHValue()/getEthValue()/burn()**；getExchangeRate() 与 getRETHValue(1e18) 调用均 revert。",
+        "ezETH Base 0x2416092f143378750bb29b79eD961ab195CcEea5：proxy impl=0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7（8561B）；name=Renzo Restaked ETH、decimals=18；impl selector 有 burn(address,uint256)，**无 getRate()/convertToETH()/exchangeRate()/l1Token()**。",
+        "Uniswap V3 Base 身份：factory 0x33128a8fC17869897dcE68Ed026d694621f6FDfD 代码 24535B（sha256=85456098…，与官方 SDK BASE 地址一致）；QuoterV2 0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a（官方 SDK quoter 地址）。",
+        "cbETH/WETH 池：fee=100 池 0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46（token0=cbETH/token1=WETH、slot0 tick=1338、liquidity=34,634.4e18）与 fee=500 池 0x10648ba41b8565907cfa1496765fa4d95390aa0d（tick=1337、liquidity=278.9e18）；同一固定块 55228623 的 QuoterV2 报价：fee=100 池 1 cbETH→1.143101627591641075 WETH；fee=500 池 1 cbETH→1.138295393146301056 WETH。"
       ],
       "coverage_gaps": [
-        "Base RPC和DEX发现API代理CONNECT403；无当前区块、资产代码/实现、实际池或数量报价。",
-        "发行方Coinbase帮助页目标被代理403，猜测GitHub仓库404；未核验当前兑换比例、赎回资格、最小额、暂停/容量/排队。",
-        "只从Superchain token list发现cbETH Base地址，未获得发行人+链上独立身份核验，不能证明当前可兑换或版本正确。",
-        "30天规则/权限/费率/迁移历史未覆盖；7天实际买入/退出交易、排队长度和到账时间未覆盖。",
-        "本链协议立即赎回和异步领取出口均未确认；不能把任何L1或其他L2文档当Base即时出口。"
+        "30 天规则/升级与 7 天活动未回溯：未读桥接 token 的升级事件（Upgraded）、桥接 mint/burn 事件、DEX Swap 事件与历史报价。",
+        "未实测跨链桥流程（L2StandardBridge 提现的挑战期、L1 领取费用与到账时间）；只记录桥地址与 l1Token 关系，未把跨链当作本链即时出口。",
+        "未核对发行方官方文档的当前赎回规则（Coinbase cbETH 帮助页 Cloudflare 拦截；Lido/Rocket Pool/Renzo 的 Base 桥接说明未逐项读取）——结论只基于链上 impl selector 与桥接 getter。",
+        "DEX 只查了 Uniswap V3 四个 fee 档与 Dexscreener 发现；未查 Aerodrome（Base 主要 DEX）真实池深度与可执行性；wstETH/rETH/ezETH 的更好池未系统轮转。",
+        "未做只读模拟（DEX 卖出可模拟，但无本链赎回腿可组合；跨链流程无法只读模拟）。",
+        "报价块 55228623 与池状态块 55228991 不同（报价后约 6 分钟状态重读），但同一固定块内两腿；储备/流动性可能已变化，标为时差风险。",
+        "本轮外部请求 78 次（≤80，符合硬性上限）。"
       ],
-      "report": "reports/agents/BASE02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BASE02/2026-11-09/live-20261109T141903Z.md",
       "task": "质押衍生品折价赎回",
       "chain": "BASE",
       "owner": "worker_b",
       "prompt": "prompts/agents/BASE02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-        "verified_at": "2026-11-08T15:40:29.232589+00:00",
-        "record": "evidence/BASE02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BASE03",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:39:43.762988+00:00",
+      "last_success_at": "2026-11-09T15:02:00+00:00",
+      "last_attempt_at": "2026-11-09T15:02:00+00:00",
       "actual_coverage": [
         {
-          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/README.md",
-          "lines": "20,83-88",
-          "fields": "退出取决于可用流动性；withdrawQueue控制市场提款顺序",
-          "data_kind": "official protocol source; chain-agnostic"
+          "type": "chain_identity",
+          "address": "base-mainnet",
+          "fields": {
+            "eth_chainId": "0x2105",
+            "chain_id": 8453,
+            "latest_block": 55228737,
+            "latest_block_time_utc": "2026-11-09T14:55:23+00:00",
+            "pinned_block": 55228732
+          },
+          "evidence_file": "raw/discover.json"
         },
         {
-          "source": "https://raw.githubusercontent.com/morpho-org/metamorpho/main/src/MetaMorpho.sol",
-          "lines": "515-528,604-615,807-827",
-          "fields": "maxWithdraw/maxRedeem -> _maxWithdraw -> _simulateWithdrawMorpho；不足流动性revert",
-          "data_kind": "static implementation; no Base deployment match"
+          "type": "vault_identity_and_share_price",
+          "protocol": "MetaMorpho (ERC-4626)",
+          "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+          "fields": {
+            "name_from_api": "Gauntlet USDC Prime",
+            "code_bytes": 19340,
+            "symbol": "gtUSDCp",
+            "decimals": 18,
+            "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "totalAssets": "401172816985684",
+            "totalSupply": "358398403602525898144931388",
+            "convertToAssets_1e18": "1119348",
+            "previewRedeem_1e18": "1119348",
+            "usdc_per_share": 1.1193487832345262e-12,
+            "maxRedeem_dead_addr": "12231218906083773",
+            "maxWithdraw_dead_addr": "13691",
+            "owner": "0x5a4e19842e09000a582c20a4f524c26fb48dd4d0",
+            "note": "maxRedeem/maxWithdraw 探针对 0x…dEaD（其实际持有约 0.0122 份额）自洽；不代表大额持有者可提额度"
+          },
+          "block": 55228732,
+          "evidence_file": "raw/vault_state.json"
+        },
+        {
+          "type": "vault_identity_and_share_price",
+          "protocol": "MetaMorpho (ERC-4626)",
+          "address": "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+          "fields": {
+            "name_from_api": "Spark USDC Vault",
+            "code_bytes": 19730,
+            "symbol": "sparkUSDC",
+            "decimals": 18,
+            "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "totalAssets": "300807133876587",
+            "totalSupply": "276990109215679024696011178",
+            "convertToAssets_1e18": "1085985",
+            "previewRedeem_1e18": "1085985",
+            "usdc_per_share": 1.085985108740337e-12,
+            "maxRedeem_dead_addr": 0,
+            "maxWithdraw_dead_addr": 0,
+            "owner": "0xf93b7122450a50af3e5a76e1d546e95ac1d0f579"
+          },
+          "block": 55228732,
+          "evidence_file": "raw/vault_state.json"
+        },
+        {
+          "type": "secondary_market_check",
+          "protocol": "DexScreener discovery",
+          "fields": {
+            "gauntlet_usdc_prime_pairs_base": 0,
+            "spark_usdc_vault_pairs_base": [
+              {
+                "dexId": "uniswap",
+                "pairAddress": "0x96bdb8024ebfbc799c2c61deb7f2d3e4e9c5268a11fc62da1681b9e21515accc",
+                "pairAddress_form": "32-byte Uniswap V4 poolId",
+                "priceNative": "0.0002536",
+                "priceUsd": "0.5658",
+                "quote": "0x0000000000000000000000000000000000000000 (native ETH)",
+                "liquidityUsd": 223.07,
+                "implied_discount_vs_nav_pct": "-47.9"
+              }
+            ],
+            "note": "DexScreener 展示价不是固定块可执行报价；$223 流动性容量不成立"
+          },
+          "evidence_file": "raw/summary.json"
+        },
+        {
+          "type": "v4_deployment_check",
+          "protocol": "Uniswap V4",
+          "address": "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+          "fields": {
+            "poolmanager_code_bytes": 24009,
+            "stateview_attempt": {
+              "address": "0x7ffe42c4a5deea5b0fec41c94c136cf115597227",
+              "code_bytes": 0,
+              "result": "地址无代码，未读到该 V4 pool 的 sqrtPrice/liquidity"
+            },
+            "note": "Base V4 PoolManager 已部署；本轮无同块 V4 池状态与数量报价"
+          },
+          "block": 55228732,
+          "evidence_file": "raw/v4_pool_check.json"
         }
       ],
       "coverage_gaps": [
-        "Base当前chainId8453及金库代码/实现未核验，API与RPC CONNECT403。",
-        "没有真实金库地址、底层资产与可转让份额、二级市场池或报价。",
-        "30天规则/策略损失/升级窗口未覆盖。",
-        "7天活动窗口未覆盖，无区块/交易或分页游标。",
-        "owner余额/allowance、maxRedeem/maxWithdraw、真实可提现金、费用/队列及底层变现均unknown。"
+        "V4 池链上状态未取得：StateView 地址无代码，未读 poolId 0x96bd…accc 的 sqrtPrice/liquidity；DexScreener 0.5658 仅展示价，不能当固定块可执行报价。",
+        "赎回可执行性未测：未用真实大额持有者验证 maxRedeem/maxWithdraw 在 withdrawQueue 各市场流动性下的上限；金库市场流动性/提款队列/费用/暂停/升级状态未读。",
+        "二级市场覆盖有限：只查 Base 前 2 大金库 + Beefy 608 个 Base 金库清单（未逐一双查）；未查 Uniswap V3 各费率池/Sushi/Aerodrome 的直接池地址。",
+        "30 天规则窗口（金库升级、策略损失、curator/fee 变更）与 7 天活动窗口（份额二级成交、赎回到账）未覆盖。",
+        "Beefy /tvl 键结构与 vault id 未对齐，未完成 Beefy TVL 排序；未读金库代理实现/升级权限与份额转让限制。",
+        "未计 gas/L1 数据费（Base L2 低费但未实测）；无完整路径模拟。"
       ],
-      "report": "reports/agents/BASE03/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/BASE03/2026-11-09/live-20261109T141903Z.md",
       "task": "金库份额二级折价",
       "chain": "BASE",
       "owner": "worker_c",
       "prompt": "prompts/agents/BASE03.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 4,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "d361d0fb86921600dfa1de1d93f4ff4991201c98",
-        "verified_at": "2026-11-08T15:40:29.232589+00:00",
-        "record": "evidence/BASE03/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BASE04",

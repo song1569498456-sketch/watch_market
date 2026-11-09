@@ -1,0 +1,226 @@
+{
+ "chain": "BASE",
+ "retrieved_at_utc": "2026-11-09T14:55:05.123240+00:00",
+ "requests": [
+  {
+   "label": "base blockNumber",
+   "method": "eth_blockNumber",
+   "error": null,
+   "elapsed_s": 0.605,
+   "retrieved_at_utc": "2026-11-09T14:55:05.728679+00:00"
+  },
+  {
+   "label": "base head block",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "elapsed_s": 0.299,
+   "retrieved_at_utc": "2026-11-09T14:55:06.378542+00:00"
+  },
+  {
+   "label": "quoter usdc/usdbc fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.295,
+   "retrieved_at_utc": "2026-11-09T14:55:07.024445+00:00"
+  },
+  {
+   "label": "quoter usdc/usdbc fee500",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.296,
+   "retrieved_at_utc": "2026-11-09T14:55:07.671405+00:00"
+  },
+  {
+   "label": "quoter usdc/usdbc fee3000",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.304,
+   "retrieved_at_utc": "2026-11-09T14:55:08.326493+00:00"
+  },
+  {
+   "label": "quoter usdc/usdbc fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.297,
+   "retrieved_at_utc": "2026-11-09T14:55:08.973974+00:00"
+  },
+  {
+   "label": "quoter usdc/usdbc fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.305,
+   "retrieved_at_utc": "2026-11-09T14:55:09.629460+00:00"
+  },
+  {
+   "label": "factory getPool fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.328,
+   "retrieved_at_utc": "2026-11-09T14:55:10.308019+00:00"
+  },
+  {
+   "label": "pool token0",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.318,
+   "retrieved_at_utc": "2026-11-09T14:55:10.977160+00:00"
+  },
+  {
+   "label": "pool token1",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.3,
+   "retrieved_at_utc": "2026-11-09T14:55:11.627713+00:00"
+  },
+  {
+   "label": "pool liquidity",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.3,
+   "retrieved_at_utc": "2026-11-09T14:55:12.278415+00:00"
+  },
+  {
+   "label": "pool slot0",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.297,
+   "retrieved_at_utc": "2026-11-09T14:55:12.927079+00:00"
+  },
+  {
+   "label": "pool code",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.346,
+   "retrieved_at_utc": "2026-11-09T14:55:13.624275+00:00"
+  },
+  {
+   "label": "usdc circle impl slot",
+   "method": "eth_getStorageAt",
+   "error": null,
+   "elapsed_s": 0.294,
+   "retrieved_at_utc": "2026-11-09T14:55:14.268654+00:00"
+  },
+  {
+   "label": "usdc impl code",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.331,
+   "retrieved_at_utc": "2026-11-09T14:55:14.949859+00:00"
+  }
+ ],
+ "head": {
+  "number": 55228651,
+  "hash": "0x6c7f549f554ee978fdf3c0149b31d3634329603b531b14b25ba96f926ddf34f1",
+  "timestamp_utc": "2026-11-09T14:55:05+00:00",
+  "baseFeePerGas": "0x4c4b40"
+ },
+ "pinned_block": 55228648,
+ "quotes": [
+  {
+   "direction": "USDC->USDbC",
+   "fee": 100,
+   "amount_in": "1",
+   "amount_out": 1.000018,
+   "ratio": 1.000018,
+   "error": null,
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:07.375451+00:00"
+  },
+  {
+   "direction": "USDC->USDbC",
+   "fee": 500,
+   "amount_in": "1",
+   "amount_out": 0.9993,
+   "ratio": 0.9993,
+   "error": null,
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:08.021931+00:00"
+  },
+  {
+   "direction": "USDC->USDbC",
+   "fee": 3000,
+   "amount_in": "1",
+   "amount_out": 0.990643,
+   "ratio": 0.990643,
+   "error": null,
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:08.677242+00:00"
+  },
+  {
+   "direction": "USDbC->USDC",
+   "fee": 100,
+   "amount_in": "1",
+   "amount_out": 0.999781,
+   "ratio": 0.999781,
+   "error": null,
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:09.324634+00:00"
+  },
+  {
+   "direction": "USDbC->USDC",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 99.977632,
+   "ratio": 0.99977632,
+   "error": null,
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:09.979968+00:00"
+  }
+ ],
+ "pool_fee100": {
+  "pool": "0x06959273e9a65433de71f5a452d529544e07ddd0",
+  "raw": "0x00000000000000000000000006959273e9a65433de71f5a452d529544e07ddd0",
+  "error": null,
+  "token0": {
+   "raw": "0x000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "decoded": [
+    "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+   ],
+   "error": null
+  },
+  "token1": {
+   "raw": "0x000000000000000000000000d9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+   "decoded": [
+    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+   ],
+   "error": null
+  },
+  "liquidity": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000122ada91853e",
+   "decoded": [
+    "19975264896318"
+   ],
+   "error": null
+  },
+  "slot0": {
+   "raw": "0x00000000000000000000000000000000000000010003e3b2b3e39e04568dfc35000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000003d600000000000000000000000000000000000000000000000000000000000003e800000000000000000000000000000000000000000000000000000000000003e800000000000000000000000000000000000000000000000000000000000000440000000000000000000000000000000000000000000000000000000000000001",
+   "decoded": [
+    "79232864565397615904803388469",
+    "1",
+    "982",
+    "1000",
+    "1000",
+    "68",
+    "True"
+   ],
+   "error": null
+  },
+  "code": {
+   "bytecode_bytes": 22142,
+   "code_keccak256": "0x59b0d9a7008300846bbb24dde0b1ae4ddceceb4be3f31b2dbbaa5e60378cad40"
+  }
+ },
+ "usdc_circle_impl_slot": {
+  "slot": "0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3",
+  "value": "0x0000000000000000000000002ce6311ddae708829bc0784c967b7d77d19fd779",
+  "error": null
+ },
+ "usdc_impl_address": "0x2ce6311ddae708829bc0784c967b7d77d19fd779",
+ "usdc_impl_code": {
+  "address": "0x2ce6311ddae708829bc0784c967b7d77d19fd779",
+  "bytecode_bytes": 23464,
+  "code_keccak256": "0x11b75a237997ab8328f65b2d5a55c10f0346d0a175741ed42ddf4f2c66b9e873"
+ },
+ "finished_at_utc": "2026-11-09T14:55:15.300286+00:00",
+ "request_count": 15
+}

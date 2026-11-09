@@ -1,0 +1,194 @@
+{
+ "started_at_utc": "2026-11-09T14:55:22.249141+00:00",
+ "chain_id": 8453,
+ "latest_block": 55228737,
+ "latest_block_time_utc": "2026-11-09T14:55:23+00:00",
+ "pinned_block": 55228732,
+ "morpho_raw_head": "{\"data\":{\"vaults\":{\"items\":[{\"address\":\"0xFfedad42083E2Eb8Ca401F09c0038A9DeD7eF8e5\",\"name\":\"Allez USDC\",\"asset\":{\"address\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\",\"symbol\":\"USDC\"}},{\"address\":\"0xFfD3D9fc55ffC0F5234c24ee22C8a2EB7b1fbC50\",\"name\":\"tstcntrct\",\"asset\":{\"address\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\",\"symbol\":\"USDC\"}},{\"address\":\"0xFE333f2c3c55138fAD556B6C1F1D9103c7268071\",\"name\":\"mmTestUSDC\",\"asset\":{\"address\":\"0x5449eCE0580A8287FC42d2634e848eBe8Dc97c07\",\"symbol\":\"testUSD",
+ "morpho_vaults": [
+  {
+   "address": "0xFfedad42083E2Eb8Ca401F09c0038A9DeD7eF8e5",
+   "name": "Allez USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xFfD3D9fc55ffC0F5234c24ee22C8a2EB7b1fbC50",
+   "name": "tstcntrct",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xFE333f2c3c55138fAD556B6C1F1D9103c7268071",
+   "name": "mmTestUSDC",
+   "asset": "0x5449eCE0580A8287FC42d2634e848eBe8Dc97c07",
+   "assetSymbol": "testUSDC"
+  },
+  {
+   "address": "0xFdf351AADD626F6A816bdAE815ECAc065048b075",
+   "name": "TurkeyCash",
+   "asset": "0x75B578f5566117E1c845B23C33F52b92e3821826",
+   "assetSymbol": "TKS2"
+  },
+  {
+   "address": "0xfdD5a1d4823411809D6ac735991B3A015E5AaAb5",
+   "name": "King Elepan WETH Vault",
+   "asset": "0x4200000000000000000000000000000000000006",
+   "assetSymbol": "WETH"
+  },
+  {
+   "address": "0xFdA6d373932414666aFC0dBd23d6857D43465cD9",
+   "name": "Safe Test",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xfd03b1890D6c31Bf1e15346b9B0b16daf6f2Ba36",
+   "name": "Test_1",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xFCc42Ca564BD21283571a6FA6549E612D7ca8269",
+   "name": "tvbp0fnnv8m0i",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xfc8a325A2403CD940649B48ffcDfC250e084A27C",
+   "name": "dForce USDC",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  },
+  {
+   "address": "0xfB54A0EB0A5c10B85AE268618529bED4D20BeFf4",
+   "name": "morpho MetaMorpho",
+   "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+   "assetSymbol": "USDC"
+  }
+ ],
+ "beefy_base_count": 608,
+ "beefy_base_sample": [
+  {
+   "id": "aero-cow-base-mstrc-usdc-vault",
+   "name": "MSTRc-USDC",
+   "tokenAddress": "0xd145b66F74B73a441ec15Eff80EeB653D8E45dFf",
+   "want": null,
+   "earnContractAddress": "0x005b8Aa7aB7bB665902d4E9509B9D4e9fB87BC2b",
+   "platform": null
+  },
+  {
+   "id": "silo-base-weth-cbbtc",
+   "name": "WETH (cbBTC Market)",
+   "tokenAddress": "0x4200000000000000000000000000000000000006",
+   "want": null,
+   "earnContractAddress": "0x01793ef258B053E86e3dF3D6A6786867De12c1B1",
+   "platform": null
+  },
+  {
+   "id": "morpho-base-steakhouse-prime-eurc",
+   "name": "EURC (Steakhouse, Prime V2)",
+   "tokenAddress": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+   "want": null,
+   "earnContractAddress": "0x01F1A592B0b757B2931bbcCf28227cdC1e892dde",
+   "platform": null
+  },
+  {
+   "id": "aerodrome-weth-lcap",
+   "name": "LCAP-WETH vLP",
+   "tokenAddress": "0xb8B1a52b1893F3369eDb63aeE516F2e8B7D45A53",
+   "want": null,
+   "earnContractAddress": "0x028baCa249B33d24FC32ac01d6531F6be0061c8E",
+   "platform": null
+  },
+  {
+   "id": "aero-cow-weth-chad-vault",
+   "name": "CHAD-WETH",
+   "tokenAddress": "0xdFbC2Df8e77f47aC10c021d0AeBA04143b4347EF",
+   "want": null,
+   "earnContractAddress": "0x03232ce2D514daDe7C304aBFbFB526E5460c9c5D",
+   "platform": null
+  },
+  {
+   "id": "aerodrome-cow-base-hype-weth-vault",
+   "name": "HYPE-WETH",
+   "tokenAddress": "0x7d725b5278c8A82A27722F751509691e2B1e8235",
+   "want": null,
+   "earnContractAddress": "0x035e24a26Ebb521BcDE41DdAb2a272be8b94C2Eb",
+   "platform": null
+  },
+  {
+   "id": "aerodrome-usdz-weth",
+   "name": "USDz-WETH vLP",
+   "tokenAddress": "0x2ce63497999F520CC2afaaadbCFC37Afd9deF4b0",
+   "want": null,
+   "earnContractAddress": "0x04B3E65D4f8f722d7B0D2BA76075B1eAC33CE2AF",
+   "platform": null
+  },
+  {
+   "id": "aerodrome-usdc-bwell",
+   "name": "WELL-USDC vLP",
+   "tokenAddress": "0x81A8c12738F7346094526ECC2487a63f45dD1935",
+   "want": null,
+   "earnContractAddress": "0x05636cDbeB18db38bA662626e384409d0999C544",
+   "platform": null
+  },
+  {
+   "id": "aero-cow-tbtc-weth-vault",
+   "name": "tBTC-WETH",
+   "tokenAddress": "0x787427Ae4f24be661d107c4c61C629ccBaF3Cb6F",
+   "want": null,
+   "earnContractAddress": "0x05BEE19151Db72e1f5761759CA4D9B6CF7Fb601F",
+   "platform": null
+  },
+  {
+   "id": "aerodrome-aero-wsteth",
+   "name": "AERO-wstETH vLP",
+   "tokenAddress": "0x82a0c1a0d4EF0c0cA3cFDA3AD1AA78309Cc6139b",
+   "want": null,
+   "earnContractAddress": "0x06a613d3a056d4b04D7523C11d82c67Bebf9d850",
+   "platform": null
+  }
+ ],
+ "beefy_base_top_tvl": [],
+ "finished_at_utc": "2026-11-09T14:55:27.088119+00:00",
+ "requests": [
+  {
+   "name": "chain_identity",
+   "url": "https://mainnet.base.org",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:22.843475+00:00",
+   "bytes": 4176,
+   "sha256": "77548cf596e04d02dd3d791ccb5a7314b37593e0e7fcef8c0e5ee7c3138fe6fb",
+   "elapsed_s": 0.594
+  },
+  {
+   "name": "morpho_vaults",
+   "url": "https://api.morpho.org/graphql",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:23.959157+00:00",
+   "bytes": 1693,
+   "sha256": "1e5832af7beb3ff4988e033a29d3713858550a071312fd6efe32f0f96e3c9ccf",
+   "elapsed_s": 0.715
+  },
+  {
+   "name": "beefy_vaults",
+   "url": "https://api.beefy.finance/vaults",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:26.294000+00:00",
+   "bytes": 4179697,
+   "sha256": "6dbd015ab83b3e89621051a9e2af2ca9d47c1219bd29fb0f52b83b65b98c0811",
+   "elapsed_s": 1.937
+  },
+  {
+   "name": "beefy_tvl",
+   "url": "https://api.beefy.finance/tvl",
+   "http_status": 200,
+   "at": "2026-11-09T14:55:27.083367+00:00",
+   "bytes": 233713,
+   "sha256": "b64ef01a05b926f801222018bdda20ac2bd03c22410d7cb30e1b9179d8d2cb7e",
+   "elapsed_s": 0.333
+  }
+ ],
+ "request_count": 4
+}

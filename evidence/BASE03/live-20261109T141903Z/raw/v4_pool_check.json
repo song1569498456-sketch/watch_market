@@ -1,0 +1,15 @@
+{
+ "at_utc": "2026-11-09T14:56:18.952471+00:00",
+ "pinned_block": 55228732,
+ "pool_id": "0x96bdb8024ebfbc799c2c61deb7f2d3e4e9c5268a11fc62da1681b9e21515accc",
+ "stateview": "0x7ffe42c4a5deea5b0fec41c94c136cf115597227",
+ "poolmanager": "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+ "stateview_code_bytes": 0,
+ "poolmanager_code_bytes": 24009,
+ "req_meta": {
+  "http_status": 200,
+  "sha256": "a95e72059f32875607cfd255f965cc9dcf9453b50c1e9e598c0907e0318820c3",
+  "elapsed_s": 1.09
+ },
+ "note": "V4 pool 报价为 native ETH 计价；本行只做链上池存在性/价格验证，未取得 USDC 计价的买入报价"
+}

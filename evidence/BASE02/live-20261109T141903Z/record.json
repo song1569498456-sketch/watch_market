@@ -1,0 +1,284 @@
+{
+  "agent_id": "BASE02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BASE",
+  "scope": "Base 8453 质押衍生品（cbETH/wstETH/rETH/ezETH）折价赎回：链上身份与份额换算、三种出口（DEX 即时卖出 / 本链协议赎回 / 跨链回 L1）分开核验，至少 1 组固定区块 DEX 报价",
+  "started_at": "2026-11-09T14:54:58.050335+00:00",
+  "finished_at": "2026-11-09T14:56:24.602117+00:00",
+  "duration_seconds": 86.552,
+  "execution_status": "PARTIAL",
+  "status": "DELAYED",
+  "as_of": {
+    "utc": "2026-11-09T14:56:24+00:00",
+    "beijing": "2026-11-09T22:56:24+08:00",
+    "data_time": "head 55228993（2026-11-09T14:56:14Z）；DEX 报价固定块 55228623（2026-11-09T14:55:00Z）；池状态块 55228991"
+  },
+  "block_or_slot": 55228623,
+  "market_ids": [
+    "BASE:8453:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+    "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+    "BASE:8453:UNISWAP_V3:POOL:0x6f4482cbf7b43599078fcb012732e20480015644",
+    "BASE:8453:UNISWAP_V3:POOL:0x9e13996a9f5a9870c105d7e3c311848273740e98"
+  ],
+  "asset_ids": [
+    "eip155:8453/erc20:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+    "eip155:8453/erc20:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+    "eip155:8453/erc20:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+    "eip155:8453/erc20:0x2416092f143378750bb29b79ed961ab195cceea5",
+    "eip155:8453/erc20:0x4200000000000000000000000000000000000006"
+  ],
+  "discovery_source": [
+    {
+      "source": "Superchain 官方 token list（上轮抓取复用）：data/cbETH/data.json，cbETH Base 地址",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/cbETH/data.json",
+      "retrieved_at_utc": "2026-11-08T15:38:39Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Uniswap 官方 SDK 地址表（本次抓取，提取 BASE_ADDRESSES：v3CoreFactoryAddress / quoterAddress）",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-09T14:54:42Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "BASE v3CoreFactory=0x33128a8fC17869897dcE68Ed026d694621f6FDfD；quoter=0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a"
+    },
+    {
+      "source": "Dexscreener cbETH 交易对（发现入口，非独立验证）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "retrieved_at_utc": "2026-11-09T14:54:43Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "10 个 Base 交易对（Aerodrome/Aero/Hydrex/Pancake/QuickSwap/AlienBase），priceNative 1.1404-1.1433 WETH/cbETH，最大 liquidityUsd≈1.27M"
+    },
+    {
+      "source": "Base 只读 RPC（mainnet.base.org），eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T14:54:41Z-2026-11-09T14:56:24Z",
+      "request": "POST JSON-RPC 共 78 次（本轮总计，全部只读）",
+      "http_status": 200
+    }
+  ],
+  "mechanism": "Base 上的 cbETH/wstETH/rETH/ezETH 都是 L1 资产的桥接表示：cbETH 的 l1Token()=0xbe9895146f7af43049ca1c1ae358b0541ea49704、bridge()=0x4200000000000000000000000000000000000010（L2StandardBridge 预部署），impl 无 exchangeRate/redeem/unwrap；wstETH impl 无 stEthPerToken/wrap/unwrap，仅 bridge()；rETH 无 getExchangeRate/getRETHValue；ezETH impl 无 getRate/convertToETH。因此 Base 本链不存在协议立即赎回出口，只有 DEX 即时卖出与跨链回 L1（标准桥流程，存在延迟/费用）两条出口。DEX 报价可在固定块取得，但与“真实赎回价值”无法在本链直接闭环比较，不能把 DEX 价当折价/可兑现价。",
+  "observations": [
+    "链身份：eth_chainId=8453（0x2105）；head=55228993（2026-11-09T14:56:14Z）；报价固定块 55228623（14:55:00Z）。",
+    "cbETH Base 0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22：proxy 代码 2096B（sha256=ead90c9b…），impl=0x07a71b9b835c9eba242836704d17da0953324e1f（7322B）；name=Coinbase Wrapped Staked ETH、symbol=cbETH、decimals=18、totalSupply=92,553.870426575138902330；impl selector：有 burn(address,uint256)/mint(address,uint256)/l1Token()/bridge()/l2Bridge()，**无 exchangeRate()/redeem()/unwrap()**。",
+    "cbETH 桥接身份：l1Token()=0xbe9895146f7af43049ca1c1ae358b0541ea49704（L1 规范 cbETH 地址形态）、bridge()=0x4200000000000000000000000000000000000010（Base L2StandardBridge 预部署）；说明 Base cbETH 是桥接表示，不是 Coinbase 在 Base 原生发行并支持本链赎回的资产。",
+    "wstETH Base 0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452：proxy 代码 3296B（sha256=4a30cba8…），impl=0x69ce2505ce515c0203160450157366f927243309（4050B）；name=Wrapped liquid staked Ether 2.0、decimals=18；impl selector 有 bridge()，**无 stEthPerToken()/getWstETHByStEth()/wrap()/unwrap()/l1Token()**；直接调用 stEthPerToken() 与 getWstETHByStEth(1e18) 均 revert。",
+    "rETH Base 0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c：代码 5835B（sha256=fedda1d7…）；name=Rocket Pool ETH、decimals=18；有 l1Token()，**无 getExchangeRate()/getRETHValue()/getEthValue()/burn()**；getExchangeRate() 与 getRETHValue(1e18) 调用均 revert。",
+    "ezETH Base 0x2416092f143378750bb29b79eD961ab195CcEea5：proxy impl=0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7（8561B）；name=Renzo Restaked ETH、decimals=18；impl selector 有 burn(address,uint256)，**无 getRate()/convertToETH()/exchangeRate()/l1Token()**。",
+    "Uniswap V3 Base 身份：factory 0x33128a8fC17869897dcE68Ed026d694621f6FDfD 代码 24535B（sha256=85456098…，与官方 SDK BASE 地址一致）；QuoterV2 0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a（官方 SDK quoter 地址）。",
+    "cbETH/WETH 池：fee=100 池 0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46（token0=cbETH/token1=WETH、slot0 tick=1338、liquidity=34,634.4e18）与 fee=500 池 0x10648ba41b8565907cfa1496765fa4d95390aa0d（tick=1337、liquidity=278.9e18）；同一固定块 55228623 的 QuoterV2 报价：fee=100 池 1 cbETH→1.143101627591641075 WETH；fee=500 池 1 cbETH→1.138295393146301056 WETH。",
+    "DEX 容量异常：fee=500 池 10 cbETH→10.2136066771979373 WETH（均价 1.0214，较 spot 1.1432 低约 10.6%）、100 cbETH→10.397168930273174412 WETH（几乎不再增长），反向 10 WETH→3.753068161851872213 cbETH；fee=100 池 10 cbETH→5.744064663243380620、100 cbETH→5.745680335869990633 WETH。说明两个池的 in-range 流动性很薄/分布异常，超过约 1 cbETH 报价即严重退化；这些大额报价只作容量证据，不能当可执行价。",
+    "wstETH/WETH fee=500 池 0x6f4482cbf7b43599078fcb012732e20480015644 报价 1 wstETH→0.204375627924725839 WETH（10 wstETH 也仅 0.204386799636859449），与 wstETH≈1.2 ETH 的常识严重不符，判定为该池流动性格局异常（需更好的池发现），不作为价格证据；rETH/WETH fee=500 池 0x9e13996a9f5a9870c105d7e3c311848273740e98 报价 1 rETH→1.174387 WETH（10 rETH→6.6241，同样显示容量很薄）。",
+    "三种出口状态：①DEX 即时卖出=有（Uniswap V3，固定块报价如上，容量约 1 单位量级）；②Base 本链协议赎回=**无**（四个 token 的 impl 均无相应兑换/赎回函数，且 cbETH 明确是 L2StandardBridge 桥接表示）；③跨链回 L1=有桥（cbETH/wstETH 走 L2StandardBridge 0x4200…0010）但属跨链流程，需等待/费用，不能当本链即时出口。",
+    "Dexscreener 仅作发现入口：cbETH 在 Base 有 10 个交易对（Aerodrome/Aero/Hydrex/Pancake/QuickSwap/AlienBase），priceNative 1.1404-1.1433，最大 liquidityUsd≈1.27M；该展示价不可当执行价，实际执行价以 QuoterV2 固定块报价为准。",
+    "结论：Base 上没有“DEX 折价买入→本链按真实赎回规则取回更多 ETH”的闭环，因为本链没有协议赎回出口；跨链出口存在但属延迟流程。无法在本岗位给出正的净 ETH 结果。"
+  ],
+  "quotes": [
+    {
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+      "amount_in": "1 cbETH (1e18)",
+      "amount_out": "1.138295393146301056 WETH",
+      "fees": "Uniswap V3 fee=500（0.05%）已由 QuoterV2 计入；gas 未计",
+      "block": 55228623,
+      "quote_time_utc": "2026-11-09T14:55:00Z",
+      "note": "QuoterV2 quoteExactInputSingle(cbETH→WETH, fee 500)；gasEstimate=167466、ticksCrossed=3；为最接近可执行的固定块现货退出价"
+    },
+    {
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "amount_in": "1 cbETH (1e18)",
+      "amount_out": "1.143101627591641075 WETH",
+      "fees": "Uniswap V3 fee=100（0.01%）已计入；gas 未计",
+      "block": 55228623,
+      "quote_time_utc": "2026-11-09T14:55:00Z",
+      "note": "fee=100 池 1 单位报价；gasEstimate=84556；比 fee=500 池高约 0.42%"
+    },
+    {
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+      "amount_in": "10 cbETH (1e19)",
+      "amount_out": "10.2136066771979373 WETH",
+      "fees": "fee=500 已计入",
+      "block": 55228623,
+      "quote_time_utc": "2026-11-09T14:55:00Z",
+      "note": "均价 1.0214（较 spot 1.1432 低约 10.6%），ticksCrossed=75、gasEstimate=1,937,877；容量退化证据，不作可执行价"
+    },
+    {
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x9e13996a9f5a9870c105d7e3c311848273740e98",
+      "amount_in": "1 rETH (1e18)",
+      "amount_out": "1.174387 WETH",
+      "fees": "Uniswap V3 fee=500 已计入",
+      "block": 55228991,
+      "quote_time_utc": "2026-11-09T14:56:14Z",
+      "note": "rETH/WETH fee=500 池 1 单位报价（gasEstimate=87684、ticksCrossed=1）；无本链协议汇率可对照，不能判定折价"
+    },
+    {
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x6f4482cbf7b43599078fcb012732e20480015644",
+      "amount_in": "1 wstETH (1e18)",
+      "amount_out": "0.204375627924725839 WETH",
+      "fees": "fee=500 已计入",
+      "block": 55228991,
+      "quote_time_utc": "2026-11-09T14:56:14Z",
+      "note": "该报价与 wstETH≈1.2 ETH 常识严重不符，判定池流动性格局异常；仅记录，不作为价格证据"
+    }
+  ],
+  "net_result": {
+    "value": null,
+    "unit": "ETH",
+    "type": "not_computable_no_base_native_redemption",
+    "realized": false,
+    "unknown_costs": [
+      "跨链桥延迟（L2StandardBridge 提现挑战期）与费用",
+      "L1 侧赎回/兑换规则（cbETH 无链上 redeem；stETH 队列等）——跨链范围，未在本岗位展开",
+      "DEX 大额滑点（已见容量退化）",
+      "gas 与 L1 数据费"
+    ],
+    "note": "Base 无协议本链赎回出口；DEX 报价只能与“跨链回 L1 后按 L1 规则退出”比较，属延迟流程，无法在本链形成即时闭环；不把 DEX 价当可兑现折价。"
+  },
+  "capacity": "cbETH/WETH fee=500 池 1 cbETH 可报价（1.1383 WETH），10 cbETH 报价均价已降至 1.0214（-10.6%），100 cbETH 基本不再增长（10.397 WETH）→ 即时退出容量约 1 cbETH 量级；fee=100 池同样 1 单位后迅速退化；跨链桥容量未测。",
+  "permissions": "cbETH/wstETH/rETH/ezETH 均为公开 ERC-20，桥接 token 的 mint/burn 由桥/发行方控制（impl 有 burn/mint 或 bridge 选择器）；本轮未读桥接权限/暂停；本链无协议赎回权限可申请。",
+  "liabilities": "unknown；本轮纯只读，无仓位/借款/授权。",
+  "waiting_time": "DEX 即时；跨链回 L1 需等待（L2StandardBridge 提现挑战期量级 7 天，本轮未实测桥流程）；本链协议赎回不适用。",
+  "invalidation_conditions": [
+    "桥接/发行方在 Base 部署原生赎回或 rate 视图（本链出口出现）",
+    "L2StandardBridge 提现费率/延迟改变或桥暂停",
+    "DEX 池流动性大幅变化使容量/报价改变",
+    "发行方公告迁移/停用 Base 桥接 token",
+    "L1 侧赎回规则变化（cbETH 平台兑换、stETH 队列）"
+  ],
+  "evidence_urls": [
+    "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+    "https://basescan.org/address/0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+    "https://basescan.org/address/0x2416092f143378750bb29b79eD961ab195CcEea5",
+    "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+    "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+  ],
+  "coverage_gaps": [
+    "30 天规则/升级与 7 天活动未回溯：未读桥接 token 的升级事件（Upgraded）、桥接 mint/burn 事件、DEX Swap 事件与历史报价。",
+    "未实测跨链桥流程（L2StandardBridge 提现的挑战期、L1 领取费用与到账时间）；只记录桥地址与 l1Token 关系，未把跨链当作本链即时出口。",
+    "未核对发行方官方文档的当前赎回规则（Coinbase cbETH 帮助页 Cloudflare 拦截；Lido/Rocket Pool/Renzo 的 Base 桥接说明未逐项读取）——结论只基于链上 impl selector 与桥接 getter。",
+    "DEX 只查了 Uniswap V3 四个 fee 档与 Dexscreener 发现；未查 Aerodrome（Base 主要 DEX）真实池深度与可执行性；wstETH/rETH/ezETH 的更好池未系统轮转。",
+    "未做只读模拟（DEX 卖出可模拟，但无本链赎回腿可组合；跨链流程无法只读模拟）。",
+    "报价块 55228623 与池状态块 55228991 不同（报价后约 6 分钟状态重读），但同一固定块内两腿；储备/流动性可能已变化，标为时差风险。",
+    "本轮外部请求 78 次（≤80，符合硬性上限）。"
+  ],
+  "next_check": [
+    "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+    "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+    "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+    "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+    "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+  ],
+  "handoff_to": ["M00", "X-BASE", "Q00"],
+  "markets": [
+    {
+      "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "chain": "BASE",
+      "protocol": "Coinbase cbETH（Base 桥接表示）",
+      "asset_ids": ["eip155:8453/erc20:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22"],
+      "evidence_urls": ["https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_L2STANDARD_BRIDGE",
+      "next_check": "核验发行方 Base 桥接/赎回规则；跟踪 DEX 容量与桥路线"
+    },
+    {
+      "market_id": "BASE:8453:LST:wstETH:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
+      "chain": "BASE",
+      "protocol": "Lido wstETH（Base 桥接表示）",
+      "asset_ids": ["eip155:8453/erc20:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452"],
+      "evidence_urls": ["https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Lido 官方 Base 桥接说明；寻找正常 wstETH/WETH 池"
+    },
+    {
+      "market_id": "BASE:8453:LST:rETH:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+      "chain": "BASE",
+      "protocol": "Rocket Pool rETH（Base 桥接表示）",
+      "asset_ids": ["eip155:8453/erc20:0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c"],
+      "evidence_urls": ["https://basescan.org/address/0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c"],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Rocket Pool 官方 Base 说明；补 DEX 容量"
+    },
+    {
+      "market_id": "BASE:8453:LST:ezETH:0x2416092f143378750bb29b79ed961ab195cceea5",
+      "chain": "BASE",
+      "protocol": "Renzo ezETH（Base 桥接表示）",
+      "asset_ids": ["eip155:8453/erc20:0x2416092f143378750bb29b79ed961ab195cceea5"],
+      "evidence_urls": ["https://basescan.org/address/0x2416092f143378750bb29b79eD961ab195CcEea5"],
+      "identity_status": "CHAIN_VERIFIED_BRIDGED_NO_RATE_VIEW",
+      "next_check": "核验 Renzo 官方 Base 说明；补 DEX 容量"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+      "status": "DELAYED",
+      "chain": "BASE",
+      "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "first_seen_at": "2026-11-09T14:56:24+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "Base 上 cbETH/wstETH/rETH/ezETH 均为 L1 资产的桥接表示，非本链原生可赎回资产：cbETH impl 无 exchangeRate/redeem/unwrap，l1Token()=0xbe98…、bridge()=L2StandardBridge 0x4200…0010；wstETH impl 无 stEthPerToken/wrap/unwrap；rETH 无 getExchangeRate/getRETHValue；ezETH impl 无 getRate/convertToETH。故三出口状态为：DEX 即时卖出有（Uniswap V3 固定块报价，容量约 1 cbETH 量级）；本链协议立即赎回无；跨链回 L1 有桥但属延迟流程（L2StandardBridge），不能当本链即时出口。不能把 DEX 价当可兑现折价。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "net_result": null,
+      "unknown_costs": ["跨链桥延迟/费用", "L1 侧赎回规则", "DEX 滑点", "gas/L1 数据费"],
+      "handoff_to": ["M00", "X-BASE", "Q00"],
+      "invalidation_conditions": ["Base 出现原生赎回/rate 视图", "桥暂停或规则改变", "发行方迁移或停用桥接 token"]
+    },
+    {
+      "finding_id": "BASE-CBETH-WETH-DEX-CAPACITY-THIN",
+      "status": "UNVERIFIED",
+      "chain": "BASE",
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+      "first_seen_at": "2026-11-09T14:56:24+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "cbETH/WETH Uniswap V3 固定块报价：fee=500 池 1 cbETH→1.138295 WETH（ticksCrossed=3）、fee=100 池 1 cbETH→1.143102 WETH；但 10 cbETH 报价均价降至 1.0214（-10.6%，ticksCrossed=75）、100 cbETH 基本不再增长（10.397 WETH），反向 10 WETH→3.753 cbETH。说明即时退出容量约 1 cbETH 量级，大额报价被薄/异常流动性吃掉；该容量证据用于判断任何折价主张的可执行规模上限。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+        "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"
+      ],
+      "net_result": null,
+      "unknown_costs": ["更大规模滑点", "其它 DEX 池深度", "gas"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["池流动性增加使容量提高", "出现更深/更优 DEX 池"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Base cbETH/wstETH/rETH/ezETH 可按协议汇率在本链即时赎回",
+      "reason": "四个 token 均为桥接表示：cbETH impl 无 exchangeRate/redeem/unwrap 且有 l1Token()/bridge()=L2StandardBridge 0x4200…0010；wstETH 无 stEthPerToken/wrap/unwrap；rETH 无 getExchangeRate/getRETHValue（调用 revert）；ezETH impl 无 getRate/convertToETH。Base 无协议本链赎回出口。",
+      "evidence": "impl selector 清单 + 直接调用 revert + 桥接 getter 读取"
+    },
+    {
+      "claim": "1 cbETH = 1 ETH（或 18 位小数/币名等价）",
+      "reason": "链上无本链兑换比率视图；固定块 DEX 报价 1 cbETH≈1.1383-1.1431 WETH，既不是 1:1 也非协议赎回价；没有 L1 汇率/赎回规则证据前不能断言平价。",
+      "evidence": "QuoterV2 固定块报价（块 55228623）"
+    },
+    {
+      "claim": "DEX 报价低于某参考价即可买入并赎回获利",
+      "reason": "无本链赎回腿可组合；跨链回 L1 属 L2StandardBridge 延迟流程（挑战期/费用未测），不能当即时闭环；DEX 报价不能当可兑现折价。",
+      "evidence": "桥接 getter + 三出口拆分"
+    },
+    {
+      "claim": "大额 cbETH 报价可执行",
+      "reason": "10 cbETH 报价均价已较 spot 低约 10.6%（fee=500 池）、100 cbETH 基本停滞；fee=100 池 10 cbETH 仅 5.744 WETH。容量约 1 单位量级，大额报价不可执行。",
+      "evidence": "QuoterV2 10/100 cbETH 报价 + ticksCrossed/gasEstimate"
+    },
+    {
+      "claim": "wstETH/WETH fee=500 池 0.2044 WETH 报价可用",
+      "reason": "该报价与 wstETH≈1.2 ETH 的常识严重不符，判定池流动性格局异常；仅作发现线索，需换正常池后再报价。",
+      "evidence": "QuoterV2 1/10 wstETH 报价"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:56:24Z",
+    "complete_block_range": "55228623（DEX 报价固定块）；55228991（池状态/补充报价）；head 55228993",
+    "complete_event_time_window": "2026-11-09T14:55:00Z-2026-11-09T14:56:14Z"
+  }
+}

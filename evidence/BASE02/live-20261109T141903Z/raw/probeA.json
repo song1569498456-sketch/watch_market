@@ -1,0 +1,324 @@
+{
+ "started_at_utc": "2026-11-09T14:54:58.050335+00:00",
+ "uni_sdk_base": {
+  "http_status": 200,
+  "section": "const BASE_ADDRESSES: ChainAddresses = {\n  v3CoreFactoryAddress: '0x33128a8fC17869897dcE68Ed026d694621f6FDfD',\n  multicallAddress: '0x091e99cb1C49331a94dD62755D168E941AbD0693',\n  quoterAddress: '0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a',\n  v3MigratorAddress: '0x23cF10b1ee3AdfCA73B0eF17C07F7577e7ACd2d7',\n  nonfungiblePositionManagerAddress: '0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1',\n  tickLensAddress: '0x0CdeE061c75D43c82520eD998C23ac2991c9ac6d',\n  swapRouter02Address: '0x2626664c2603336E57B271c5C0b26F421741e481',\n  mixedRouteQuoterV1Address: '0xe544efae946f0008ae9a8d64493efa7886b73776',\n  mixedRouteQuoterV2Address: '0x94a7d36e2ae728d6a2b2ee533b0a260385596d8b',\n\n  v4PoolManagerAddress: '0x498581ff718922c3f8e6a244956af099b2652b2b',\n  v4PositionManagerAddress: '0x7c5f5a4bbd8fd63184577525326123b519429bdc',\n  v4StateView: '0xa3c0c9b65bad0b08107aa264b0f3db444b867a71',\n  v4QuoterAddress: '0xe1a6c5803e3c44368b171bd680c7d32dfc92ca47',\n  permissionedV4PositionManagerAddress: '0xC09255D86DB563cBc11C2fCf4a0C512e160111B4',\n  permissionedV4HooksAddress: '0x5750be78fEdfb2fA48FAa6C6623400Ba4538A8c0',\n}",
+  "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc"
+ },
+ "uni_sdk_base_factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+ "uni_sdk_base_quoter": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+ "chain_id": 8453,
+ "head_block": 55228625,
+ "head_block_time_utc": "2026-11-09T14:55:00+00:00",
+ "pinned_block": 55228623,
+ "cbETH": {
+  "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+  "code_bytes": 2096,
+  "code_sha256": "ead90c9b780ecbb1d7e2a8074ef84390c6e454a6e3786d514937e7f516a5874b",
+  "impl_slot": "0x00000000000000000000000007a71b9b835c9eba242836704d17da0953324e1f",
+  "name": "Coinbase Wrapped Staked ETH",
+  "name_error": null,
+  "symbol": "cbETH",
+  "symbol_error": null,
+  "decimals": 18,
+  "decimals_error": null,
+  "exchangeRate": null,
+  "exchangeRate_error": {
+   "code": 3,
+   "message": "execution reverted"
+  },
+  "totalSupply": "92553870426575138902330",
+  "totalSupply_error": null,
+  "l1Token": "1088110946411140055499929126197631081361136981764",
+  "l1Token_error": null,
+  "bridge": "376793390874373408599387495934666716005045108752",
+  "bridge_error": null,
+  "impl": "0x07a71b9b835c9eba242836704d17da0953324e1f",
+  "impl_code_bytes": 7322,
+  "impl_code_sha256": "fb37d0eb5a9aa7b9097d420dbfb11b328b27e2dfb6de57a10a9247c198ba6d5e",
+  "selector_presence": {
+   "exchangeRate()": false,
+   "redeem(uint256)": false,
+   "unwrap(uint256)": false,
+   "burn(address,uint256)": true,
+   "mint(address,uint256)": true,
+   "l1Token()": true,
+   "bridge()": true,
+   "l2Bridge()": true
+  }
+ },
+ "wstETH": {
+  "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+  "code_bytes": 3296,
+  "code_sha256": "4a30cba84ae5e07cb3fb3c54244fe1e114c9cb26b226e51fa6e3799f66c6996c",
+  "impl_slot": "0x00000000000000000000000069ce2505ce515c0203160450157366f927243309",
+  "name": "Wrapped liquid staked Ether 2.0",
+  "name_error": null,
+  "symbol": "wstETH",
+  "symbol_error": null,
+  "decimals": 18,
+  "decimals_error": null,
+  "stEthPerToken": null,
+  "stEthPerToken_error": {
+   "code": 3,
+   "message": "execution reverted"
+  },
+  "getWstETHByStEth_1e18": null,
+  "getWstETHByStEth_1e18_error": {
+   "code": 3,
+   "message": "execution reverted"
+  },
+  "l1Token": null,
+  "l1Token_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ "rETH": {
+  "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+  "code_bytes": 5835,
+  "code_sha256": "fedda1d760779871d66d72e304bebe2779ebadaae2d99a3d036c2b48a7bcd919",
+  "impl_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "name": "Rocket Pool ETH",
+  "name_error": null,
+  "symbol": "rETH",
+  "symbol_error": null,
+  "decimals": 18,
+  "decimals_error": null
+ },
+ "ezETH": {
+  "address": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+  "code_bytes": 2188,
+  "code_sha256": "51f246a65b163600f418b57fcf10434dad27ce06106a5f117bd8f12d69a0edd2",
+  "impl_slot": "0x000000000000000000000000b370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7",
+  "name": "Renzo Restaked ETH",
+  "name_error": null,
+  "symbol": "ezETH",
+  "symbol_error": null,
+  "decimals": 18,
+  "decimals_error": null
+ },
+ "dexscreener_cbeth": {
+  "http_status": 200,
+  "pairs": [
+   {
+    "chainId": "base",
+    "dexId": "aero",
+    "pairAddress": "0x5e3C5083F27654FaC92126CB3fBD8773306cD90D",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+    "priceUsd": "2434.90",
+    "priceNative": "0.03253",
+    "liquidityUsd": 824187.2,
+    "labels": null,
+    "pairCreatedAt": null
+   },
+   {
+    "chainId": "base",
+    "dexId": "aerodrome",
+    "pairAddress": "0x47cA96Ea59C13F72745928887f84C9F52C3D7348",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2435.091",
+    "priceNative": "1.1432",
+    "liquidityUsd": 273334.31,
+    "labels": null,
+    "pairCreatedAt": null
+   },
+   {
+    "chainId": "base",
+    "dexId": "aero",
+    "pairAddress": "0x03bf20662F76312aEc31EF28d4a024E1ECa108Af",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2434.99",
+    "priceNative": "1.1432",
+    "liquidityUsd": 1266151,
+    "labels": null,
+    "pairCreatedAt": null
+   },
+   {
+    "chainId": "base",
+    "dexId": "aerodrome",
+    "pairAddress": "0x8BB9eAF3C5A906D20c4CC10eA2F73A3Ac2D5d41A",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+    "priceUsd": "2435.11",
+    "priceNative": "0.03253",
+    "liquidityUsd": 281203.58,
+    "labels": null,
+    "pairCreatedAt": null
+   },
+   {
+    "chainId": "base",
+    "dexId": "hydrex",
+    "pairAddress": "0xB1383DC47D9971Fc999C3A9088F79E744b376e97",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2440.37",
+    "priceNative": "1.1433",
+    "liquidityUsd": 269762.52,
+    "labels": [
+     "CLAMM"
+    ],
+    "pairCreatedAt": 1753983279000
+   },
+   {
+    "chainId": "base",
+    "dexId": "pancakeswap",
+    "pairAddress": "0x257FCbAE4Ac6B26A02E4FC5e1a11e4174B5ce395",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2437.65",
+    "priceNative": "1.1432",
+    "liquidityUsd": 108376.73,
+    "labels": null,
+    "pairCreatedAt": 1703299979000
+   },
+   {
+    "chainId": "base",
+    "dexId": "alien-base",
+    "pairAddress": "0xc715096EeCC3f4A0FDBfF055a3db2926adC83244",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2432.056",
+    "priceNative": "1.1432",
+    "liquidityUsd": 113840.75,
+    "labels": [
+     "V3"
+    ],
+    "pairCreatedAt": 1731937757000
+   },
+   {
+    "chainId": "base",
+    "dexId": "quickswap",
+    "pairAddress": "0x74A4bF2cad1b172cDc82a5Da7130C7A59EB5460b",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2428.26",
+    "priceNative": "1.1433",
+    "liquidityUsd": 131761.5,
+    "labels": [
+     "v4"
+    ],
+    "pairCreatedAt": 1752582583000
+   },
+   {
+    "chainId": "base",
+    "dexId": "alien-base",
+    "pairAddress": "0x9BB646BF0F4Da44bfaF3d899e774DE065731EDFe",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2420.22",
+    "priceNative": "1.1422",
+    "liquidityUsd": 171421.72,
+    "labels": null,
+    "pairCreatedAt": 1691512563000
+   },
+   {
+    "chainId": "base",
+    "dexId": "aerodrome",
+    "pairAddress": "0x44Ecc644449fC3a9858d2007CaA8CFAa4C561f91",
+    "baseToken": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "quoteToken": "0x4200000000000000000000000000000000000006",
+    "priceUsd": "2391.74",
+    "priceNative": "1.1404",
+    "liquidityUsd": 95157.93,
+    "labels": null,
+    "pairCreatedAt": 1693275421000
+   }
+  ]
+ },
+ "uniswap_v3": {
+  "factory": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+  "quoter": "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+  "factory_code_bytes": 24535,
+  "factory_code_sha256": "8545609892cc8d7d608dd4420ee110ab98448730570824fb029228e33846d28c",
+  "pools": {
+   "100": {
+    "pool": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+    "error": null
+   },
+   "500": {
+    "pool": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+    "error": null
+   },
+   "3000": {
+    "pool": "0x7b9636266734270de5be02544c04e27046903ff8",
+    "error": null
+   },
+   "10000": {
+    "pool": "0x6fb974dcea795d10ade524bcc3fc9e3e9d29ea87",
+    "error": null
+   }
+  },
+  "quoter_code_bytes": 8273
+ },
+ "chosen_pool_fee": "100",
+ "pool_state": {
+  "address": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+  "code_bytes": 22142,
+  "code_sha256": "5ef2a32cb106a8c986c9776dbd9146be1ce72255ce850230469a303a6b7407b1",
+  "token0": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+  "token0_error": null,
+  "token1": "0x4200000000000000000000000000000000000006",
+  "token1_error": null,
+  "fee": 100,
+  "fee_error": null,
+  "slot0": {
+   "sqrtPriceX96": "84713070630466184084177726994",
+   "tick": 1338
+  },
+  "slot0_error": null,
+  "liquidity": "34634396913138228087271",
+  "liquidity_error": null
+ },
+ "quotes": [
+  {
+   "label": "10cbETH_to_WETH",
+   "token_in": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "10000000000000000000",
+   "fee": 100,
+   "block": 55228623,
+   "amount_out": "5744064663243380620",
+   "error": null,
+   "gasEstimate": "3211013"
+  },
+  {
+   "label": "100cbETH_to_WETH",
+   "token_in": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "100000000000000000000",
+   "fee": 100,
+   "block": 55228623,
+   "amount_out": "5745680335869990633",
+   "error": null,
+   "gasEstimate": "4921640"
+  },
+  {
+   "label": "1cbETH_to_WETH",
+   "token_in": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "1000000000000000000",
+   "fee": 100,
+   "block": 55228623,
+   "amount_out": "1143101627591641075",
+   "error": null,
+   "gasEstimate": "84556"
+  },
+  {
+   "label": "10WETH_to_cbETH",
+   "token_in": "0x4200000000000000000000000000000000000006",
+   "token_out": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+   "amount_in": "10000000000000000000",
+   "fee": 100,
+   "block": 55228623,
+   "amount_out": "8740872746417561444",
+   "error": null,
+   "gasEstimate": "286589"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:55:20.439634+00:00",
+ "request_count_this_script": 53
+}

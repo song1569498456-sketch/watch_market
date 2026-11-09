@@ -3756,6 +3756,315 @@
       },
       "q00_review": null,
       "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BASE-USDC-VS-USDBC-TWO-ASSETS",
+      "first_seen_at": "2026-11-09T14:56:36.062393+00:00",
+      "status": "REJECTED",
+      "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+      "mechanism": "链上核验：USDC 为 Circle 原生发行（代理 impl 0x2ce6311d…，链上无普通账户赎回/burn 仅 minter）；USDbC 为 L1 USDC 桥接（l1Token=0xa0b8…、l2Bridge=0x4200…0010），唯一协议出口为跨链回 L1。两者不同合约/不同发行关系/不同退出路径，不能合并或假设同一即时兑付。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+      ],
+      "net_result": "n/a（身份/出口分离结论）",
+      "unknown_costs": [],
+      "handoff_to": [
+        "X-BASE",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "任一代币实现/桥接映射变化",
+        "出现新的链上赎回机制"
+      ],
+      "owner": "BASE01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:56:36.062393+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:56:36.062393+00:00",
+      "capacity": "Uniswap V3 USDC/USDbC 0.01% 池 liquidity=19,975,264,896,318（uint128），100 USDbC 卖出得 99.977632 USDC（冲击已含）；其他池容量未报价（alien-base 约 12.8 万美元流动性为聚合器快照，未链上核验）",
+      "observations_by_role": {
+        "BASE01": {
+          "finding_id": "BASE-USDC-VS-USDBC-TWO-ASSETS",
+          "status": "REJECTED",
+          "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+          "mechanism": "链上核验：USDC 为 Circle 原生发行（代理 impl 0x2ce6311d…，链上无普通账户赎回/burn 仅 minter）；USDbC 为 L1 USDC 桥接（l1Token=0xa0b8…、l2Bridge=0x4200…0010），唯一协议出口为跨链回 L1。两者不同合约/不同发行关系/不同退出路径，不能合并或假设同一即时兑付。",
+          "evidence_urls": [
+            "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+          ],
+          "net_result": "n/a（身份/出口分离结论）",
+          "unknown_costs": [],
+          "handoff_to": [
+            "X-BASE",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "任一代币实现/桥接映射变化",
+            "出现新的链上赎回机制"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+      "first_seen_at": "2026-11-09T14:56:36.062393+00:00",
+      "status": "QUOTED",
+      "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+      "mechanism": "同块（55,228,648）报价：USDC→USDbC 1=1.000018（买入 USDbC 折价约 0.0018%）、USDbC→USDC 1=0.999781/100=99.977632（卖回损失约 0.0222%）。但 Base 上 USDC 无链上赎回（Circle 场外）、USDbC 只能跨链回 L1（等待/费用 unknown），故该微幅折价无法在本链闭环；毛差不足以覆盖桥/等待成本，净额 null。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+      ],
+      "net_result": "买向毛差约 +0.0018%/1 USDC；卖向损失约 0.0222%；净额 null（跨链/场外成本 unknown）",
+      "unknown_costs": [
+        "桥 gas 与 L1 领取",
+        "跨链等待",
+        "Circle 场外费用/资格"
+      ],
+      "handoff_to": [
+        "Q00",
+        "X-BASE"
+      ],
+      "invalidation_conditions": [
+        "价差消失",
+        "跨链成本/等待超过价差",
+        "出现链上即时赎回"
+      ],
+      "owner": "BASE01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:56:36.062393+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:56:36.062393+00:00",
+      "capacity": "Uniswap V3 USDC/USDbC 0.01% 池 liquidity=19,975,264,896,318（uint128），100 USDbC 卖出得 99.977632 USDC（冲击已含）；其他池容量未报价（alien-base 约 12.8 万美元流动性为聚合器快照，未链上核验）",
+      "observations_by_role": {
+        "BASE01": {
+          "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+          "status": "QUOTED",
+          "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+          "mechanism": "同块（55,228,648）报价：USDC→USDbC 1=1.000018（买入 USDbC 折价约 0.0018%）、USDbC→USDC 1=0.999781/100=99.977632（卖回损失约 0.0222%）。但 Base 上 USDC 无链上赎回（Circle 场外）、USDbC 只能跨链回 L1（等待/费用 unknown），故该微幅折价无法在本链闭环；毛差不足以覆盖桥/等待成本，净额 null。",
+          "evidence_urls": [
+            "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+          ],
+          "net_result": "买向毛差约 +0.0018%/1 USDC；卖向损失约 0.0222%；净额 null（跨链/场外成本 unknown）",
+          "unknown_costs": [
+            "桥 gas 与 L1 领取",
+            "跨链等待",
+            "Circle 场外费用/资格"
+          ],
+          "handoff_to": [
+            "Q00",
+            "X-BASE"
+          ],
+          "invalidation_conditions": [
+            "价差消失",
+            "跨链成本/等待超过价差",
+            "出现链上即时赎回"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+      "first_seen_at": "2026-11-09T14:56:24.602117+00:00",
+      "status": "DELAYED",
+      "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+      "mechanism": "Base 上 cbETH/wstETH/rETH/ezETH 均为 L1 资产的桥接表示，非本链原生可赎回资产：cbETH impl 无 exchangeRate/redeem/unwrap，l1Token()=0xbe98…、bridge()=L2StandardBridge 0x4200…0010；wstETH impl 无 stEthPerToken/wrap/unwrap；rETH 无 getExchangeRate/getRETHValue；ezETH impl 无 getRate/convertToETH。故三出口状态为：DEX 即时卖出有（Uniswap V3 固定块报价，容量约 1 cbETH 量级）；本链协议立即赎回无；跨链回 L1 有桥但属延迟流程（L2StandardBridge），不能当本链即时出口。不能把 DEX 价当可兑现折价。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "跨链桥延迟/费用",
+        "L1 侧赎回规则",
+        "DEX 滑点",
+        "gas/L1 数据费"
+      ],
+      "handoff_to": [
+        "M00",
+        "X-BASE",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "Base 出现原生赎回/rate 视图",
+        "桥暂停或规则改变",
+        "发行方迁移或停用桥接 token"
+      ],
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:56:24.602117+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:56:24.602117+00:00",
+      "capacity": "cbETH/WETH fee=500 池 1 cbETH 可报价（1.1383 WETH），10 cbETH 报价均价已降至 1.0214（-10.6%），100 cbETH 基本不再增长（10.397 WETH）→ 即时退出容量约 1 cbETH 量级；fee=100 池同样 1 单位后迅速退化；跨链桥容量未测。",
+      "observations_by_role": {
+        "BASE02": {
+          "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+          "status": "DELAYED",
+          "chain": "BASE",
+          "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+          "first_seen_at": "2026-11-09T14:56:24+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "Base 上 cbETH/wstETH/rETH/ezETH 均为 L1 资产的桥接表示，非本链原生可赎回资产：cbETH impl 无 exchangeRate/redeem/unwrap，l1Token()=0xbe98…、bridge()=L2StandardBridge 0x4200…0010；wstETH impl 无 stEthPerToken/wrap/unwrap；rETH 无 getExchangeRate/getRETHValue；ezETH impl 无 getRate/convertToETH。故三出口状态为：DEX 即时卖出有（Uniswap V3 固定块报价，容量约 1 cbETH 量级）；本链协议立即赎回无；跨链回 L1 有桥但属延迟流程（L2StandardBridge），不能当本链即时出口。不能把 DEX 价当可兑现折价。",
+          "evidence_urls": [
+            "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+            "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+            "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "跨链桥延迟/费用",
+            "L1 侧赎回规则",
+            "DEX 滑点",
+            "gas/L1 数据费"
+          ],
+          "handoff_to": [
+            "M00",
+            "X-BASE",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "Base 出现原生赎回/rate 视图",
+            "桥暂停或规则改变",
+            "发行方迁移或停用桥接 token"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "DELAYED"
+    },
+    {
+      "finding_id": "BASE-CBETH-WETH-DEX-CAPACITY-THIN",
+      "first_seen_at": "2026-11-09T14:56:24.602117+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+      "mechanism": "cbETH/WETH Uniswap V3 固定块报价：fee=500 池 1 cbETH→1.138295 WETH（ticksCrossed=3）、fee=100 池 1 cbETH→1.143102 WETH；但 10 cbETH 报价均价降至 1.0214（-10.6%，ticksCrossed=75）、100 cbETH 基本不再增长（10.397 WETH），反向 10 WETH→3.753 cbETH。说明即时退出容量约 1 cbETH 量级，大额报价被薄/异常流动性吃掉；该容量证据用于判断任何折价主张的可执行规模上限。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+        "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "更大规模滑点",
+        "其它 DEX 池深度",
+        "gas"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "池流动性增加使容量提高",
+        "出现更深/更优 DEX 池"
+      ],
+      "owner": "BASE02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:56:24.602117+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:56:24.602117+00:00",
+      "capacity": "cbETH/WETH fee=500 池 1 cbETH 可报价（1.1383 WETH），10 cbETH 报价均价已降至 1.0214（-10.6%），100 cbETH 基本不再增长（10.397 WETH）→ 即时退出容量约 1 cbETH 量级；fee=100 池同样 1 单位后迅速退化；跨链桥容量未测。",
+      "observations_by_role": {
+        "BASE02": {
+          "finding_id": "BASE-CBETH-WETH-DEX-CAPACITY-THIN",
+          "status": "UNVERIFIED",
+          "chain": "BASE",
+          "market_id": "BASE:8453:UNISWAP_V3:POOL:0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+          "first_seen_at": "2026-11-09T14:56:24+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "cbETH/WETH Uniswap V3 固定块报价：fee=500 池 1 cbETH→1.138295 WETH（ticksCrossed=3）、fee=100 池 1 cbETH→1.143102 WETH；但 10 cbETH 报价均价降至 1.0214（-10.6%，ticksCrossed=75）、100 cbETH 基本不再增长（10.397 WETH），反向 10 WETH→3.753 cbETH。说明即时退出容量约 1 cbETH 量级，大额报价被薄/异常流动性吃掉；该容量证据用于判断任何折价主张的可执行规模上限。",
+          "evidence_urls": [
+            "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+            "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "更大规模滑点",
+            "其它 DEX 池深度",
+            "gas"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "池流动性增加使容量提高",
+            "出现更深/更优 DEX 池"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BASE-METAMORPHO-SHARE-SECONDARY-DISCOUNT",
+      "first_seen_at": "2026-11-09T15:02:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61 | BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+      "mechanism": "Base 最大 MetaMorpho 金库 Gauntlet USDC Prime（$401M）无 Base 二级交易对；Spark USDC Vault（$300M）仅有 1 个约 $223 的 Uniswap V4 native-ETH 小池，DexScreener 显示价 0.5658 USD vs NAV 1.085985（−47.9%），但容量、计价与可执行性均不成立，且未取得同块链上报价。份额价/NAV 与 maxRedeem/maxWithdraw、二级显示价已分列，不混用。结论：无可验证、可执行的二级折价买入口。",
+      "evidence_urls": [
+        "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+        "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+        "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "二级买入费/滑点（无可行池）",
+        "赎回退出费/队列流动性",
+        "gas/L1 费",
+        "ETH 计价换算"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现有真实流动性的二级池",
+        "V4 小池被证实为废弃/测试",
+        "金库份额转让/权限变化"
+      ],
+      "owner": "BASE03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BASE03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:02:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:02:00+00:00",
+      "capacity": "Gauntlet USDC Prime：Base 二级市场 0 对（capacity 0）；Spark USDC Vault：唯一 Base 二级池 DexScreener liquidityUsd≈223（native ETH 计价，容量可忽略）；两金库自身 TVL 分别约 $401M/$300M，但赎回可提额度（withdrawQueue 流动性）未测。",
+      "observations_by_role": {
+        "BASE03": {
+          "finding_id": "BASE-METAMORPHO-SHARE-SECONDARY-DISCOUNT",
+          "status": "REJECTED",
+          "chain": "BASE",
+          "protocol": "MetaMorpho / Uniswap V4（发现入口）",
+          "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61 | BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+          "evidence_urls": [
+            "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+            "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+            "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+          ],
+          "mechanism": "Base 最大 MetaMorpho 金库 Gauntlet USDC Prime（$401M）无 Base 二级交易对；Spark USDC Vault（$300M）仅有 1 个约 $223 的 Uniswap V4 native-ETH 小池，DexScreener 显示价 0.5658 USD vs NAV 1.085985（−47.9%），但容量、计价与可执行性均不成立，且未取得同块链上报价。份额价/NAV 与 maxRedeem/maxWithdraw、二级显示价已分列，不混用。结论：无可验证、可执行的二级折价买入口。",
+          "net_result": null,
+          "unknown_costs": [
+            "二级买入费/滑点（无可行池）",
+            "赎回退出费/队列流动性",
+            "gas/L1 费",
+            "ETH 计价换算"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现有真实流动性的二级池",
+            "V4 小池被证实为废弃/测试",
+            "金库份额转让/权限变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

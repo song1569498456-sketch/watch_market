@@ -1,0 +1,29 @@
+{
+ "chain": "BASE",
+ "head_block": 55229097,
+ "head_timestamp_utc": "2026-11-09T14:56:35+00:00",
+ "pinned_block": 55229094,
+ "retrieved_at_utc": "2026-11-09T14:56:36.062393+00:00",
+ "quotes": [
+  {
+   "direction": "USDC->USDbC",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 100.001368,
+   "ratio": 1.00001368,
+   "error": null,
+   "block": 55229094,
+   "quote_time_utc": "2026-11-09T14:56:36.822807+00:00"
+  },
+  {
+   "direction": "USDbC->USDC",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 99.977632,
+   "ratio": 0.99977632,
+   "error": null,
+   "block": 55229094,
+   "quote_time_utc": "2026-11-09T14:56:37.581855+00:00"
+  }
+ ]
+}

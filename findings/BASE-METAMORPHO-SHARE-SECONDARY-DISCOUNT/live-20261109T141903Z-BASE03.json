@@ -1,0 +1,32 @@
+{
+  "finding_id": "BASE-METAMORPHO-SHARE-SECONDARY-DISCOUNT",
+  "status": "REJECTED",
+  "chain": "BASE",
+  "protocol": "MetaMorpho / Uniswap V4（发现入口）",
+  "market_id": "BASE:8453:metamorpho-vault:0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61 | BASE:8453:metamorpho-vault:0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+  "evidence_urls": [
+    "https://basescan.org/address/0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+    "https://basescan.org/address/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A",
+    "https://api.dexscreener.com/latest/dex/tokens/0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+  ],
+  "mechanism": "Base 最大 MetaMorpho 金库 Gauntlet USDC Prime（$401M）无 Base 二级交易对；Spark USDC Vault（$300M）仅有 1 个约 $223 的 Uniswap V4 native-ETH 小池，DexScreener 显示价 0.5658 USD vs NAV 1.085985（−47.9%），但容量、计价与可执行性均不成立，且未取得同块链上报价。份额价/NAV 与 maxRedeem/maxWithdraw、二级显示价已分列，不混用。结论：无可验证、可执行的二级折价买入口。",
+  "net_result": null,
+  "unknown_costs": [
+    "二级买入费/滑点（无可行池）",
+    "赎回退出费/队列流动性",
+    "gas/L1 费",
+    "ETH 计价换算"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现有真实流动性的二级池",
+    "V4 小池被证实为废弃/测试",
+    "金库份额转让/权限变化"
+  ],
+  "owner": "BASE03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BASE03/live-20261109T141903Z/record.json"
+}

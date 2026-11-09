@@ -1,0 +1,33 @@
+{
+  "finding_id": "BASE-LST-BRIDGED-NO-NATIVE-REDEMPTION",
+  "status": "DELAYED",
+  "chain": "BASE",
+  "market_id": "BASE:8453:LST:cbETH:0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+  "first_seen_at": "2026-11-09T14:56:24+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "Base 上 cbETH/wstETH/rETH/ezETH 均为 L1 资产的桥接表示，非本链原生可赎回资产：cbETH impl 无 exchangeRate/redeem/unwrap，l1Token()=0xbe98…、bridge()=L2StandardBridge 0x4200…0010；wstETH impl 无 stEthPerToken/wrap/unwrap；rETH 无 getExchangeRate/getRETHValue；ezETH impl 无 getRate/convertToETH。故三出口状态为：DEX 即时卖出有（Uniswap V3 固定块报价，容量约 1 cbETH 量级）；本链协议立即赎回无；跨链回 L1 有桥但属延迟流程（L2StandardBridge），不能当本链即时出口。不能把 DEX 价当可兑现折价。",
+  "evidence_urls": [
+    "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "https://basescan.org/address/0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "跨链桥延迟/费用",
+    "L1 侧赎回规则",
+    "DEX 滑点",
+    "gas/L1 数据费"
+  ],
+  "handoff_to": [
+    "M00",
+    "X-BASE",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "Base 出现原生赎回/rate 视图",
+    "桥暂停或规则改变",
+    "发行方迁移或停用桥接 token"
+  ],
+  "owner": "BASE02",
+  "source_record": "evidence/BASE02/live-20261109T141903Z/record.json"
+}

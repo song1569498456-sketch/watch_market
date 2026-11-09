@@ -1,0 +1,302 @@
+{
+ "agent_id": "BASE01",
+ "run_id": "live-20261109T141903Z",
+ "chain": "BASE",
+ "scope": "Base 稳定币市场与赎回出口：USDC（Circle 原生）与 USDbC（L1 USDC 桥接）身份/出口分离、同块 DEX 报价、链上可执行性核验；不做铸造卖出与跨链执行",
+ "started_at": "2026-11-09T14:53:45+00:00",
+ "finished_at": "2026-11-09T14:56:36.062393+00:00",
+ "duration_seconds": 171.1,
+ "execution_status": "PARTIAL",
+ "status": "QUOTED",
+ "as_of": {
+  "utc": "2026-11-09T14:55:15+00:00",
+  "beijing": "2026-11-09T22:55:15+08:00",
+  "data_time": "身份/代码：块 55,228,305（head 55,228,308 / 14:53:57Z）；同块报价：块 55,228,648（head 55,228,651 / 14:55:05Z）"
+ },
+ "block_or_slot": 55228648,
+ "market_ids": [
+  "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+  "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+  "BASE:BRIDGE:L2_STANDARD_BRIDGE:0x4200000000000000000000000000000000000010"
+ ],
+ "asset_ids": [
+  "eip155:8453/erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "eip155:8453/erc20:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+  "eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+ ],
+ "discovery_source": [
+  {
+   "source": "base-rpc",
+   "url": "https://mainnet.base.org",
+   "retrieved_at_utc": "2026-11-09T14:53:45+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber x2/eth_getCode x8/eth_call x60/eth_getStorageAt x2；70 次请求全部返回结果",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "dexscreener-usdbc-pairs",
+   "url": "https://api.dexscreener.com/token-pairs/v1/base/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+   "retrieved_at_utc": "2026-11-09T14:54:10+00:00",
+   "http_status": 200,
+   "request": "30 对；直连 USDC/USDbC 对分布 alien-base/quickswap/aerodrome/uniswap(v4 poolId) 等，已保存快照"
+  },
+  {
+   "source": "aave-base-address-book",
+   "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Base.sol",
+   "retrieved_at_utc": "2026-11-09T14:53:40+00:00",
+   "http_status": 200,
+   "sha256": "135e2f325b53140c5a82895cf40debc80323fed77bd3ebb240a8d00248ba02ae",
+   "note": "上一轮来源；本轮链上核验 USDC/USDbC 地址与 6 位"
+  },
+  {
+   "source": "circle-fiat-token-source",
+   "url": "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol",
+   "retrieved_at_utc": "2026-10-08T00:00:00+00:00",
+   "http_status": 200,
+   "note": "上一轮静态源：burn 仅 minter、whenNotPaused/notBlacklisted；本轮未重取"
+  }
+ ],
+ "mechanism": "Base 上 USDC 是 Circle 原生发行代币（代理用 Circle 自定义实现槽，当前 impl=0x2ce6311d…；发行方赎回为 Circle 场外流程，链上无普通账户赎回函数，burn 仅 minter 可用）；USDbC 是 L1 USDC 的规范桥接表示（l1Token=L1 USDC 0xa0b8…，l2Bridge=Base L2StandardBridge 0x4200…0010），唯一协议退出是 L2→L1 跨链（OP Stack 挑战期），不是 Base 链上即时兑付。二者名义同价但权益/出口不同；DEX 报价可测出 USDC/USDbC 的微小买卖价差，但 L2 端没有即时赎回出口，不能形成本链闭环。",
+ "observations": [
+  "链：eth_chainId=0x2105（8453）；head=55,228,651（2026-11-09T14:55:05Z，hash 0x6c7f549f…）；身份/代码固定块 55,228,305；同块报价固定块 55,228,648；head baseFee=0x4c4b40≈5,000,000 wei（L2 部分，未计 L1 数据费）。",
+  "USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913：代理代码 1,852 B（keccak 0xa6705a10…）；EIP-1967 impl 槽为 0；Circle 自定义实现槽 0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3 → impl=0x2ce6311ddae708829bc0784c967b7d77d19fd779（23,464 B，keccak 0x11b75a23…）；name=USD Coin、symbol=USDC、decimals=6、totalSupply=4,341,755,716.926217、paused=false。",
+  "USDbC 0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA：代码 2,096 B（keccak 0x8cd2f08c…）；name=USD Base Coin、symbol=USDbC、decimals=6、totalSupply=5,198,738.654286；l1Token()=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48（L1 USDC）、l2Bridge()=0x4200000000000000000000000000000000000010（Base L2StandardBridge，代码 2,055 B，keccak 0x1f958654…）；无 paused()（revert）。",
+  "Uniswap V3 Base：工厂 0x33128a8fC17869897dcE68Ed026d694621f6FDfD（24,535 B）、QuoterV2 0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a（8,273 B）；USDC/USDbC 池 fee100=0x06959273e9a65433de71f5a452d529544e07ddd0（22,142 B，keccak 0x59b0d9a7…，token0=USDC/token1=USDbC，liquidity=19,975,264,896,318，slot0 tick=1）、fee500=0x92722287…、fee3000=0xc986bd73…。",
+  "同块报价（块 55,228,648，2026-11-09T14:55:07-09Z）：USDC→USDbC 1=1.000018 USDbC（fee100；fee500=0.9993、fee3000=0.990643）；USDbC→USDC 1=0.999781、100=99.977632（fee100）→ 往返成本约 0.024%，买入 USDbC 相对 USDC 折价约 0.0018%。",
+  "出口结论：USDC 发行方赎回为 Circle 场外流程，链上无可执行赎回（burn 仅 minter，上一轮源码证据）；USDbC 唯一协议出口为 Base 标准桥 L2→L1（跨链、OP Stack 挑战期），非 L2 即时兑付；两者均未找到 Base 链上即时赎回入口。",
+  "发现入口：DexScreener 30 对快照中 USDC/USDbC 直连对：alien-base 0x0E635F8E…（约 12.8 万美元流动性）、quickswap 0x5D0bC342…（约 6.1 万）、aerodrome 0x98c7A233…（约 5.3 万，45 字节最小代理）、uniswap v4 poolId 0x867dbb1b…（约 2.1 万）；仅 Uniswap V3 fee100 池完成链上报价，其余池用 getAmountOut/getReserves ABI 调用 revert（池类型不同）。",
+  "失败/限制：Aerodrome/alien-base/quickswap 池报价接口 revert；USDbC 无 paused()；USDC EIP-1967 槽为 0（非 EIP-1967 代理，用 Circle 自定义槽）。",
+  "外部请求 70 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无报价外推、无交易/签名。",
+  "定稿前最终重取（块 55229094，2026-11-09T14:56:36.062393+00:00）：USDC->USDbC 100→100.001368；USDbC->USDC 100→99.977632"
+ ],
+ "quotes": [
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "amount_in": "1 USDC",
+   "amount_out": "1.000018 USDbC",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:07.375451+00:00",
+   "note": "买入 USDbC 方向；折价约 0.0018%"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "amount_in": "1 USDbC",
+   "amount_out": "0.999781 USDC",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:09.324634+00:00",
+   "note": "卖出 USDbC 方向；损失约 0.0222%"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "amount_in": "100 USDbC",
+   "amount_out": "99.977632 USDC",
+   "fees": "Uniswap V3 0.01%（已含）；价格冲击已含",
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:09.979968+00:00",
+   "note": "卖出 USDbC 方向；100 档比率 0.99977632"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_500:0x92722287d2819012dd8ec07b4e426ac00dd11103",
+   "amount_in": "1 USDC",
+   "amount_out": "0.9993 USDbC",
+   "fees": "Uniswap V3 0.05%（已含）",
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:08.021931+00:00",
+   "note": "对照池，价更差"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_3000:0xc986bd739c99f4fda7b82a8bcb49cb159bf5c993",
+   "amount_in": "1 USDC",
+   "amount_out": "0.990643 USDbC",
+   "fees": "Uniswap V3 0.3%（已含）",
+   "block": 55228648,
+   "quote_time_utc": "2026-11-09T14:55:08.677242+00:00",
+   "note": "对照池，价差大"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "amount_in": "100 USDC",
+   "amount_out": "100.001368 USDbC",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 55229094,
+   "quote_time_utc": "2026-11-09T14:56:36.822807+00:00",
+   "note": "报告定稿前最终重取（final requote）"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "amount_in": "100 USDbC",
+   "amount_out": "99.977632 USDC",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 55229094,
+   "quote_time_utc": "2026-11-09T14:56:37.581855+00:00",
+   "note": "报告定稿前最终重取（final requote）"
+  }
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "USDC",
+  "type": "no_realized_net（无 Base 链上即时赎回出口；微幅价差不足以覆盖跨链/手续费）",
+  "realized": false,
+  "unknown_costs": [
+   "USDbC 跨链桥 L2+L1 gas 与 L1 领取 gas",
+   "跨链等待（OP Stack 挑战期，约 7 天量级，未核实）",
+   "Circle 场外赎回费用/最低额/地区资格/到账时间",
+   "其他 DEX 池（alien-base/quickswap/aerodrome/v4）报价与容量",
+   "黑名单/暂停等资格风险"
+  ]
+ },
+ "capacity": "Uniswap V3 USDC/USDbC 0.01% 池 liquidity=19,975,264,896,318（uint128），100 USDbC 卖出得 99.977632 USDC（冲击已含）；其他池容量未报价（alien-base 约 12.8 万美元流动性为聚合器快照，未链上核验）",
+ "permissions": "USDC：普通账户链上无赎回函数，burn 需 minter（上一轮源码证据）；发行方赎回为场外资格流程（未知）。USDbC：无本地赎回；退出经 Base L2StandardBridge 跨链（桥提款权限未读），需 L1 领取。",
+ "liabilities": "未执行任何交易、无新增负债；若桥接，L2 销毁后在途应收、L1 领取前不是 L1 自由资产",
+ "waiting_time": "unknown；USDbC 跨链为 OP Stack 挑战期（约 7 天量级，官方设计值本轮未链上核实）；USDC 场外赎回时间 unknown",
+ "invalidation_conditions": [
+  "USDC/USDbC 任一实现或桥接映射变化（当前 l1Token/l2Bridge 已链上核对）",
+  "跨链等待/费用超过 DEX 价差（当前仅约 0.0018% 买向）",
+  "DEX 池流动性不足或价差消失",
+  "Circle 场外资格/额度/费用规则变化",
+  "把链上 burn 或名义锚定当作普通用户可兑现（已排除）"
+ ],
+ "evidence_urls": [
+  "https://mainnet.base.org",
+  "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+  "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0",
+  "https://basescan.org/address/0x4200000000000000000000000000000000000010"
+ ],
+ "coverage_gaps": [
+  "USDC 的 Circle 发行方赎回条款（账户/地区资格、最低额、费用、到账时间）为场外信息，链上不可全验，本轮未取官方当前条款。",
+  "USDbC 跨链出口的实测等待/费用未核（Base 标准桥挑战期设计值未从链上确认）；L1 领取与 L1 USDC 入账状态未读。",
+  "除 Uniswap V3 fee100 外的池（alien-base/quickswap/aerodrome/v4）未完成链上报价（接口差异），跨池最优价与容量未定。",
+  "30 天规则/实现变更与 7 天活动窗口未覆盖；黑名单/资格风险未查。",
+  "未做买入→桥→L1 领取的完整只读模拟；未量化 Base L2 gas 与 L1 数据费。"
+ ],
+ "next_check": [
+  "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+  "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+  "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+  "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+ ],
+ "handoff_to": [
+  "X-BASE",
+  "Q00",
+  "M00"
+ ],
+ "markets": [
+  {
+   "market_id": "BASE:CIRCLE:USDC:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+   "chain": "BASE",
+   "protocol": "Circle USDC（Base 原生发行）",
+   "asset_ids": [
+    "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+   ],
+   "evidence_urls": [
+    "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+   ],
+   "identity_status": "CHAIN_VERIFIED：代理 1,852 B；Circle 自定义实现槽→impl 0x2ce6311d…（23,464 B）；name=USD Coin/6 位/paused=false；链上无普通账户赎回，发行方赎回为场外",
+   "next_check": "Circle 场外条款与资格；不把 burn 当链上兑付"
+  },
+  {
+   "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+   "chain": "BASE",
+   "protocol": "USDbC（L1 USDC 的 Base 桥接表示）",
+   "asset_ids": [
+    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+   ],
+   "evidence_urls": [
+    "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "https://basescan.org/address/0x4200000000000000000000000000000000000010"
+   ],
+   "identity_status": "CHAIN_VERIFIED：代码 2,096 B；l1Token=L1 USDC、l2Bridge=Base L2StandardBridge；唯一协议出口为 L2→L1 跨链",
+   "next_check": "跨链等待/费用实测；交 X-BASE"
+  },
+  {
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "chain": "BASE",
+   "protocol": "Uniswap V3 USDC/USDbC 0.01%",
+   "asset_ids": [
+    "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+   ],
+   "evidence_urls": [
+    "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+   ],
+   "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0/token1/liquidity/tick 已读；同块买卖报价已取",
+   "next_check": "容量档与跨池比价（含 v4/其他 DEX）"
+  }
+ ],
+ "findings": [
+  {
+   "finding_id": "BASE-USDC-VS-USDBC-TWO-ASSETS",
+   "status": "REJECTED",
+   "market_id": "BASE:BRIDGED:USDbC:0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+   "mechanism": "链上核验：USDC 为 Circle 原生发行（代理 impl 0x2ce6311d…，链上无普通账户赎回/burn 仅 minter）；USDbC 为 L1 USDC 桥接（l1Token=0xa0b8…、l2Bridge=0x4200…0010），唯一协议出口为跨链回 L1。两者不同合约/不同发行关系/不同退出路径，不能合并或假设同一即时兑付。",
+   "evidence_urls": [
+    "https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "https://basescan.org/address/0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+   ],
+   "net_result": "n/a（身份/出口分离结论）",
+   "unknown_costs": [],
+   "handoff_to": [
+    "X-BASE",
+    "Q00"
+   ],
+   "invalidation_conditions": [
+    "任一代币实现/桥接映射变化",
+    "出现新的链上赎回机制"
+   ]
+  },
+  {
+   "finding_id": "BASE-USDC-USDbC-DEX-DISCOUNT-20261109",
+   "status": "QUOTED",
+   "market_id": "BASE:UNISWAP_V3:USDC_USDBC_100:0x06959273e9a65433de71f5a452d529544e07ddd0",
+   "mechanism": "同块（55,228,648）报价：USDC→USDbC 1=1.000018（买入 USDbC 折价约 0.0018%）、USDbC→USDC 1=0.999781/100=99.977632（卖回损失约 0.0222%）。但 Base 上 USDC 无链上赎回（Circle 场外）、USDbC 只能跨链回 L1（等待/费用 unknown），故该微幅折价无法在本链闭环；毛差不足以覆盖桥/等待成本，净额 null。",
+   "evidence_urls": [
+    "https://basescan.org/address/0x06959273e9a65433de71f5a452d529544e07ddd0"
+   ],
+   "net_result": "买向毛差约 +0.0018%/1 USDC；卖向损失约 0.0222%；净额 null（跨链/场外成本 unknown）",
+   "unknown_costs": [
+    "桥 gas 与 L1 领取",
+    "跨链等待",
+    "Circle 场外费用/资格"
+   ],
+   "handoff_to": [
+    "Q00",
+    "X-BASE"
+   ],
+   "invalidation_conditions": [
+    "价差消失",
+    "跨链成本/等待超过价差",
+    "出现链上即时赎回"
+   ]
+  }
+ ],
+ "rejections": [
+  {
+   "claim": "普通持币人可把 USDC burn 成 1 美元现金/链上资产",
+   "reason": "burn 仅 minter 可调（上一轮 Circle 源码），发行方赎回为场外流程；链上无普通账户赎回函数。"
+  },
+  {
+   "claim": "USDbC 与 USDC 同名同价同出口，可即时互换套利",
+   "reason": "链上 l1Token/l2Bridge 证明 USDbC 是桥接表示，退出须跨链；DEX 往返成本约 0.024%，微幅折价无法本链闭环。"
+  },
+  {
+   "claim": "Base 上折价买 USDbC 后立即按 1:1 兑 USDC",
+   "reason": "Base L2 无 USDbC/USDC 即时赎回出口；只有 DEX 卖回（损失）或跨链等待（unknown）。"
+  },
+  {
+   "claim": "Aerodrome/alien-base/quickswap 池报价 revert = 这些市场没有流动性",
+   "reason": "revert 来自 ABI/池类型不匹配（CL/Solidly 不同接口），不是网络或市场失败；未报价不等于无流动性。"
+  }
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 4,
+  "retrieved_at_utc": "2026-11-09T14:55:15+00:00",
+  "complete_block_range": "身份/代码：块 55,228,305；同块报价：块 55,228,648（完整单块读数）；head 55,228,651",
+  "complete_event_time_window": "单块快照；30 天规则/7 天活动窗口未覆盖"
+ }
+}

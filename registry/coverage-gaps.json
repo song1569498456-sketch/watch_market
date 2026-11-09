@@ -3916,6 +3916,217 @@
         "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
         "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
       ]
+    },
+    {
+      "agent_id": "BASE01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "USDC 的 Circle 发行方赎回条款（账户/地区资格、最低额、费用、到账时间）为场外信息，链上不可全验，本轮未取官方当前条款。",
+      "next_check": [
+        "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+        "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+        "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+        "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+      ]
+    },
+    {
+      "agent_id": "BASE01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "USDbC 跨链出口的实测等待/费用未核（Base 标准桥挑战期设计值未从链上确认）；L1 领取与 L1 USDC 入账状态未读。",
+      "next_check": [
+        "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+        "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+        "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+        "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+      ]
+    },
+    {
+      "agent_id": "BASE01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "除 Uniswap V3 fee100 外的池（alien-base/quickswap/aerodrome/v4）未完成链上报价（接口差异），跨池最优价与容量未定。",
+      "next_check": [
+        "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+        "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+        "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+        "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+      ]
+    },
+    {
+      "agent_id": "BASE01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/实现变更与 7 天活动窗口未覆盖；黑名单/资格风险未查。",
+      "next_check": [
+        "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+        "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+        "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+        "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+      ]
+    },
+    {
+      "agent_id": "BASE01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做买入→桥→L1 领取的完整只读模拟；未量化 Base L2 gas 与 L1 数据费。",
+      "next_check": [
+        "读 Base 标准桥的实际提款参数/历史到账时长（含 L1 领取），量化跨链成本与等待；仍不把跨链等待当 L2 即时兑付。",
+        "解析 Uniswap v4 poolId 并补 alien-base/quickswap/aerodrome 池报价，形成跨池最优价与容量档（1/10/100/1000）。",
+        "取 Circle 官方当前赎回条款作为场外资格参考（明确“链上不可执行”标注）。",
+        "补 30 天规则/7 天活动窗口；净收益主张交 Q00 复核；USDbC 跨链交 X-BASE。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/升级与 7 天活动未回溯：未读桥接 token 的升级事件（Upgraded）、桥接 mint/burn 事件、DEX Swap 事件与历史报价。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未实测跨链桥流程（L2StandardBridge 提现的挑战期、L1 领取费用与到账时间）；只记录桥地址与 l1Token 关系，未把跨链当作本链即时出口。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核对发行方官方文档的当前赎回规则（Coinbase cbETH 帮助页 Cloudflare 拦截；Lido/Rocket Pool/Renzo 的 Base 桥接说明未逐项读取）——结论只基于链上 impl selector 与桥接 getter。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "DEX 只查了 Uniswap V3 四个 fee 档与 Dexscreener 发现；未查 Aerodrome（Base 主要 DEX）真实池深度与可执行性；wstETH/rETH/ezETH 的更好池未系统轮转。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做只读模拟（DEX 卖出可模拟，但无本链赎回腿可组合；跨链流程无法只读模拟）。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "报价块 55228623 与池状态块 55228991 不同（报价后约 6 分钟状态重读），但同一固定块内两腿；储备/流动性可能已变化，标为时差风险。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 78 次（≤80，符合硬性上限）。",
+      "next_check": [
+        "逐家核验发行方部署文档（Coinbase cbETH、Lido wstETH、Rocket Pool rETH、Renzo ezETH）在 Base 的桥/原生发行关系，确认本链是否新增赎回或 rate 视图。",
+        "实测跨链回 L1 路径（L2StandardBridge 提现挑战期、L1 领取费用/时间），把跨链退出作为独立延迟通道记录，交 X-BASE。",
+        "用 Aerodrome 等 Base 主要 DEX 的官方工厂/路由核验 cbETH/wstETH/rETH 的真实池深度与固定块报价，补足容量曲线（1/5/10/50 单位）并识别异常池。",
+        "补 30 天规则/升级与 7 天活动：桥接 mint/burn、DEX Swap、Upgraded 事件；观察折价与出口同时变差的风险信号。",
+        "若跨链与 DEX 组合定价，必须计入桥延迟（约 7 天量级）与资金占用成本，不能称为即时价差。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "V4 池链上状态未取得：StateView 地址无代码，未读 poolId 0x96bd…accc 的 sqrtPrice/liquidity；DexScreener 0.5658 仅展示价，不能当固定块可执行报价。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "赎回可执行性未测：未用真实大额持有者验证 maxRedeem/maxWithdraw 在 withdrawQueue 各市场流动性下的上限；金库市场流动性/提款队列/费用/暂停/升级状态未读。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "二级市场覆盖有限：只查 Base 前 2 大金库 + Beefy 608 个 Base 金库清单（未逐一双查）；未查 Uniswap V3 各费率池/Sushi/Aerodrome 的直接池地址。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（金库升级、策略损失、curator/fee 变更）与 7 天活动窗口（份额二级成交、赎回到账）未覆盖。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Beefy /tvl 键结构与 vault id 未对齐，未完成 Beefy TVL 排序；未读金库代理实现/升级权限与份额转让限制。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
+    },
+    {
+      "agent_id": "BASE03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未计 gas/L1 数据费（Base L2 低费但未实测）；无完整路径模拟。",
+      "next_check": [
+        "用正确的 Uniswap V4 StateView（或 PoolManager.extsload 槽位推导）读 poolId 0x96bd…accc 的 sqrtPrice/liquidity，给同块买入报价并判断该 $223 池是否废弃。",
+        "对 Base 前 20 大 Morpho 金库批量查 DexScreener 与链上池（Uniswap V3 各费率/Aerodrome/Sushi），登记有二级市场的金库队列。",
+        "对有人二级市场的金库，用真实大额持有者验证 maxRedeem/maxWithdraw 与 withdrawQueue 流动性、提款费用；比较买入成本 vs 实际即时赎回值 vs 异步领取值四列。",
+        "补 30 天/7 天窗口：金库升级、策略损失、curator/fee 变更、二级成交与赎回到账。",
+        "复核 Beefy Base 608 个金库中份额有二级流动性的对象；修正 Beefy TVL 键结构后按容量排序。"
+      ]
     }
   ],
   "status": "OPEN",
