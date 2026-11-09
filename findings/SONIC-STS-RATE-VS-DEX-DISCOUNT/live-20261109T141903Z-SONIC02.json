@@ -1,0 +1,31 @@
+{
+  "finding_id": "SONIC-STS-RATE-VS-DEX-DISCOUNT",
+  "status": "REJECTED",
+  "chain": "SONIC",
+  "protocol": "BeethovenX Sonic Staking (stS)",
+  "market_id": "SONIC:146:beets-sts:0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+  "evidence_urls": [
+    "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+    "https://sonicscan.org/address/0xD760791B29e7894FB827A94Ca433254bb5aFB653"
+  ],
+  "mechanism": "stS 固定块 getRate=convertToAssets(1e18)=1.0883055730 S/stS（totalAssets/totalSupply 自洽）；DEX 显示价 1.08818/1.08819/1.08788（SwapX/Shadow/Defive）→ −1.1/−1.05/−3.9bps，≈1bp 级费用；协议即时赎回不可用（非 ERC4626，两步约2周），故无可执行折价；SwapX 池储备读数与 DexScreener 矛盾已记异常。",
+  "net_result": null,
+  "unknown_costs": [
+    "退出 delay/费用/资格",
+    "gas",
+    "2周 S 价格波动",
+    "罚没风险"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "折价 >10bps 且退出可控",
+    "rate/实现/退出参数变化",
+    "池 ABI 重读后价格改变"
+  ],
+  "owner": "SONIC02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/SONIC02/live-20261109T141903Z/record.json"
+}

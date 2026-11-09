@@ -4720,6 +4720,317 @@
       },
       "current_onchain_verified": true,
       "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:146:beets-sts:0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+      "chain": "SONIC",
+      "protocol": "BeethovenX Sonic Staking (stS)",
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_STS_RATE_AND_PROXY（rate 1.0883055730 S/stS）",
+      "next_check": "退出 ABI/delay；逐档报价",
+      "owner": "SONIC02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC02": {
+          "market_id": "SONIC:146:beets-sts:0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+          "chain": "SONIC",
+          "protocol": "BeethovenX Sonic Staking (stS)",
+          "asset_ids": [
+            "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_STS_RATE_AND_PROXY（rate 1.0883055730 S/stS）",
+          "next_check": "退出 ABI/delay；逐档报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:146:swapx-pool:0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+      "chain": "SONIC",
+      "protocol": "SwapX",
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0xD760791B29e7894FB827A94Ca433254bb5aFB653"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_EXISTS_BUT_RESERVES_READ_INCONSISTENT_WITH_DEXSCREENER",
+      "next_check": "按 SwapX 接口重读并取逐档报价",
+      "owner": "SONIC02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC02": {
+          "market_id": "SONIC:146:swapx-pool:0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+          "chain": "SONIC",
+          "protocol": "SwapX",
+          "asset_ids": [
+            "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+            "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0xD760791B29e7894FB827A94Ca433254bb5aFB653"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_EXISTS_BUT_RESERVES_READ_INCONSISTENT_WITH_DEXSCREENER",
+          "next_check": "按 SwapX 接口重读并取逐档报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:146:shadow-pool:0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95",
+      "chain": "SONIC",
+      "protocol": "Shadow Exchange",
+      "asset_ids": [
+        "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL（集中流动性，getReserves revert）",
+      "next_check": "按集中流动性接口取报价",
+      "owner": "SONIC02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC02": {
+          "market_id": "SONIC:146:shadow-pool:0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95",
+          "chain": "SONIC",
+          "protocol": "Shadow Exchange",
+          "asset_ids": [
+            "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+            "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL（集中流动性，getReserves revert）",
+          "next_check": "按集中流动性接口取报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:146:aave-v3-pool:0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "chain": "SONIC",
+      "protocol": "Aave V3 Sonic",
+      "asset_ids": [
+        "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+        "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_IMPL_AND_RESERVE_PARAMS（USDC/wS frozen+LTV=0）",
+      "next_check": "解冻/LTV 变化；Silo 与其他铸造协议",
+      "owner": "SONIC03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC03": {
+          "market_id": "SONIC:146:aave-v3-pool:0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+          "chain": "SONIC",
+          "protocol": "Aave V3 Sonic",
+          "asset_ids": [
+            "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+            "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_IMPL_AND_RESERVE_PARAMS（USDC/wS frozen+LTV=0）",
+          "next_check": "解冻/LTV 变化；Silo 与其他铸造协议"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 WETH/USDC 0.05%",
+      "asset_ids": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；1/10 WETH 报价已取（2,131.84/2,131.76 USDC/WETH）",
+      "next_check": "二次重取与报告时点差控制",
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-ARB": {
+          "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 WETH/USDC 0.05%",
+          "asset_ids": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；1/10 WETH 报价已取（2,131.84/2,131.76 USDC/WETH）",
+          "next_check": "二次重取与报告时点差控制"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 WETH/USDC 0.05%",
+      "asset_ids": [
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；报价 2,133.44/2,133.01 USDC/WETH（较 L1 高 0.075%）",
+      "next_check": "二次重取；价差是否持续",
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-ARB": {
+          "market_id": "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 WETH/USDC 0.05%",
+          "asset_ids": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；报价 2,133.44/2,133.01 USDC/WETH（较 L1 高 0.075%）",
+          "next_check": "二次重取；价差是否持续"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:WSTETH_WETH_100:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+      "asset_ids": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa"
+      ],
+      "identity_status": "CHAIN_VERIFIED：1.248484736 WETH/wstETH",
+      "next_check": "两侧差≈0.001%，排除",
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-ARB": {
+          "market_id": "ETH:UNISWAP_V3:WSTETH_WETH_100:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+          "asset_ids": [
+            "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa"
+          ],
+          "identity_status": "CHAIN_VERIFIED：1.248484736 WETH/wstETH",
+          "next_check": "两侧差≈0.001%，排除"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:WSTETH_WETH_100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+      "asset_ids": [
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+      ],
+      "identity_status": "CHAIN_VERIFIED：1.248497484 WETH/wstETH；Lido L2 Gateway 提款启用",
+      "next_check": "维持排除",
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-ARB": {
+          "market_id": "ARB:UNISWAP_V3:WSTETH_WETH_100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+          "asset_ids": [
+            "0x5979d7b546e38e414f7e9822514be443a4800529",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+          ],
+          "identity_status": "CHAIN_VERIFIED：1.248497484 WETH/wstETH；Lido L2 Gateway 提款启用",
+          "next_check": "维持排除"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:LIDO_L2_GATEWAY:0x07d4692291b9e30e326fd31706f686f83f331b82",
+      "chain": "ARB",
+      "protocol": "Lido Arbitrum L2 Gateway",
+      "asset_ids": [
+        "0x5979d7b546e38e414f7e9822514be443a4800529"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x07d4692291b9e30e326fd31706f686f83f331b82"
+      ],
+      "identity_status": "CHAIN_VERIFIED：代码 3,296 B，isWithdrawalsEnabled=true",
+      "next_check": "桥参数与等待",
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-ARB": {
+          "market_id": "ARB:LIDO_L2_GATEWAY:0x07d4692291b9e30e326fd31706f686f83f331b82",
+          "chain": "ARB",
+          "protocol": "Lido Arbitrum L2 Gateway",
+          "asset_ids": [
+            "0x5979d7b546e38e414f7e9822514be443a4800529"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x07d4692291b9e30e326fd31706f686f83f331b82"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 3,296 B，isWithdrawalsEnabled=true",
+          "next_check": "桥参数与等待"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

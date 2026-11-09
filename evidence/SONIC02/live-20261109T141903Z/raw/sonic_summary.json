@@ -1,0 +1,168 @@
+{
+ "started_at_utc": "2026-11-09T15:18:14.157849+00:00",
+ "chain_id": 146,
+ "latest_block": 82308375,
+ "latest_block_time_utc": "2026-11-09T15:18:13+00:00",
+ "pinned_block": 82308370,
+ "sts": {
+  "address": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+  "code_bytes": 163,
+  "impl_slot": "0x000000000000000000000000d5f7fc8ba92756a34693baa386edcc8dd5b3f141",
+  "symbol()": "stS",
+  "decimals()": "18",
+  "getRate()": "1088305572999886774",
+  "convertToAssets(uint256)": "1088305572999886774",
+  "previewRedeem(uint256)": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "totalAssets()": "108376373299734406249132764",
+  "totalSupply()": "99582668681000755630806240",
+  "withdrawalDelay()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "paused()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "underlying()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "asset()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  }
+ },
+ "wS": {
+  "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+  "code_bytes": 2636,
+  "symbol": "wS",
+  "decimals": 18,
+  "totalSupply": "146982149071217926369892881"
+ },
+ "dexscreener_pairs": [
+  {
+   "pair": "0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+   "dexId": "swapx",
+   "baseSymbol": "stS",
+   "quoteSymbol": "wS",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+   "priceNative": "1.08818",
+   "priceUsd": "0.04099",
+   "liquidityUsd": 22735.84
+  },
+  {
+   "pair": "0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95",
+   "dexId": "shadow-exchange",
+   "baseSymbol": "stS",
+   "quoteSymbol": "wS",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+   "priceNative": "1.08819",
+   "priceUsd": "0.04099",
+   "liquidityUsd": 16056.5
+  },
+  {
+   "pair": "0x713FB5036dC70012588d77a5B066f1Dd05c712d7",
+   "dexId": "beets",
+   "baseSymbol": "stS",
+   "quoteSymbol": "USDC",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+   "priceNative": "0.04055",
+   "priceUsd": "0.04055",
+   "liquidityUsd": 13780.04
+  },
+  {
+   "pair": "0x5DDbeF774488cc68266d5F15bFB08eaA7cd513F9",
+   "dexId": "swapx",
+   "baseSymbol": "stS",
+   "quoteSymbol": "USDC",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+   "priceNative": "0.04065",
+   "priceUsd": "0.04065",
+   "liquidityUsd": 11704.9
+  },
+  {
+   "pair": "0x702CBE8B71a4237CAe9348dcEF92f4ad23911866",
+   "dexId": "defive",
+   "baseSymbol": "stS",
+   "quoteSymbol": "wS",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+   "priceNative": "1.08788",
+   "priceUsd": "0.03871",
+   "liquidityUsd": 6738.33
+  },
+  {
+   "pair": "0x486443155b8459aA625D04D8BAb94E8DE1828A3C",
+   "dexId": "defive",
+   "baseSymbol": "stS",
+   "quoteSymbol": "scUSD",
+   "base": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "quote": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+   "priceNative": "0.04065",
+   "priceUsd": "0.04065",
+   "liquidityUsd": 4175.59
+  }
+ ],
+ "top_pair_state": {
+  "pair": "0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+  "code_bytes": 22827,
+  "token0": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+  "token1": "0xe5da20f15420ad15de0fa650600afc998bbe3955",
+  "reserve0": "414282156188253708910818",
+  "reserve1": "173932290592352214941187",
+  "slot0_error": {
+   "code": -32000,
+   "message": "execution reverted"
+  },
+  "fee": 100,
+  "factory": "0x8121a3f8c4176e9765deea0b95fa2bdfd3016794"
+ },
+ "finished_at_utc": "2026-11-09T15:18:17.447186+00:00",
+ "requests": [
+  {
+   "name": "sonic_identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:15.569084+00:00",
+   "n_calls": 20,
+   "bytes": 9182,
+   "sha256": "4776c7432d87b9a2eb94f3573ca7a31f3ccb73bef387ae85bffea305ccbdba7b",
+   "elapsed_s": 1.411
+  },
+  {
+   "name": "dexscreener_sts",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:16.711926+00:00",
+   "bytes": 44079,
+   "sha256": "729accc2e2fc90156ab1c38d718d8a8eed0b1fee4c38741c259ea6bb8d152eb3",
+   "elapsed_s": 0.842
+  },
+  {
+   "name": "pair_state",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:17.446625+00:00",
+   "n_calls": 7,
+   "bytes": 46354,
+   "sha256": "04bc780c8c2f043ecc99511965500ce1db976189975f167acb1d81edea5cb8fa",
+   "elapsed_s": 0.432
+  }
+ ],
+ "request_count": 3
+}

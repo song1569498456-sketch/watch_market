@@ -1,0 +1,29 @@
+{
+  "finding_id": "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD",
+  "status": "DELAYED",
+  "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+  "mechanism": "同权益 WETH 两侧同刻报价：L1 1 WETH=2,131.842187 USDC（块 26,378,198）vs ARB 1 WETH=2,133.442007 USDC（块 522,714,575，头块时差约 4 秒）→ ARB 高约 0.075%。方向 L1→ARB 毛差约 +1.6 USDC/WETH，但闭环需 canonical 桥存款（延迟数分钟量级未实测）+ ARB 卖出 + 资金回 L1 的库存恢复（CCTP 费用/时间 unknown 或 canonical 提款约 6.4 天量级）→ 不能锁定净利，记 DELAYED。反向 ARB→L1 毛差 -0.075% 排除；wstETH 两侧差≈0.001% 排除。",
+  "evidence_urls": [
+    "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+  ],
+  "net_result": "毛差 +0.075%（≈+1.6 USDC/WETH）；库存恢复与桥成本 unknown → 净额 null（未实现）",
+  "unknown_costs": [
+    "桥存款延迟/gas",
+    "CCTP 或提款回收成本/等待",
+    "桥参数/暂停",
+    "价格风险"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "价差 < 桥+回收成本",
+    "桥暂停/额度不足",
+    "时差导致报价扭曲",
+    "把桥接表示当原生 1:1"
+  ],
+  "owner": "X-ARB",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json"
+}

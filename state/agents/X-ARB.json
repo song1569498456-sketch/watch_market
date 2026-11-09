@@ -2,19 +2,20 @@
   "agent_id": "X-ARB",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "DELAYED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:22:48+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
-      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
-    ],
-    "ethereum_block": null,
-    "arbitrum_block": null,
-    "verified_token_mappings": 0,
-    "routes_quoted": 0,
-    "history_complete": false
+    "kind": "DUAL_CHAIN_PINNED_BLOCK_QUOTES_PLUS_PUBLIC_SOURCES",
+    "retrieved_at_utc": "2026-11-09T15:22:48+00:00",
+    "ethereum_block": 26378198,
+    "arbitrum_block": 522714575,
+    "ethereum_head": 26378201,
+    "arbitrum_head": 522714578,
+    "verified_token_mappings": 3,
+    "routes_quoted": 8,
+    "complete_block_range": "ETH 26,378,198（head 26,378,201）；ARB 522,714,575（head 522,714,578）",
+    "complete_event_time_window": "单块快照（2026-11-09T15:22:11-15:22:48Z）；30 天桥规则/7 天活动未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -34,35 +35,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
-      "fields": "L194-204 chainId42161,parentChainId1,confirmPeriodBlocks45818",
-      "data_kind": "static SDK default not current rollup parameter"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
-      "fields": "L23-25 router token mapping；L78-80 L2退出经争议窗口/L1 Outbox；L168-221启停状态接口",
-      "data_kind": "official design; deployment/status/mapping not verified"
-    }
+    "两链身份：ETH chainId 0x1，head 26,378,201（15:22:11Z）；ARB chainId 0xa4b1（42161），head 522,714,578（15:22:15Z）；固定块 26,378,198 / 522,714,575（头块时差约 4 秒）。",
+    "同权益表示（两侧 code/symbol/decimals 已核）：L1 WETH 3,124 B/WETH/18 ↔ ARB WETH 2,092 B/WETH/18；L1 wstETH 6,492 B/wstETH/18 ↔ ARB wstETH 3,296 B/wstETH/18；L1 USDC 2,186 B/USDC/6 ↔ ARB USDC 1,852 B/USDC/6（Circle 代理形态，两侧各自原生 mint）。",
+    "桥：Arbitrum SDK networks.ts 200（sha256 c2cb943f…）：42161 段 ethBridge=mainnetETHBridge、tokenBridge=mainnetTokenBridge、confirmPeriodBlocks=45818（静态默认≈6.4 天）；rollup/outbox/inbox 具体地址未解析出（变量引用）→ 未链上读当前参数/暂停。Lido Arbitrum L2 Gateway 0x07d46922…（3,296 B）isWithdrawalsEnabled=true。",
+    "两侧报价：WETH/USDC fee500 L1 池 0x88e6a0c2…（1 WETH=2,131.842187 USDC、10=21,317.569764）vs ARB 池 0xc6962004…（1=2,133.442007、10=21,330.063995）→ ARB 高约 0.075%。",
+    "wstETH/WETH fee100 L1 池 0x109830a1…（1=1.2484847358085658 WETH、10=12.484830809017012）vs ARB 池 0x35218a1c…（1=1.248497484106116、10=12.484608572443788）→ 差约 0.001%，不可做。",
+    "方向核算：L1→ARB 毛差 +0.075%（≈+1.6 USDC/WETH），扣 L1 存款 gas 粗估（≈$0.23 量级 estimate）后仍小幅正，但资金落 ARB USDC，回 L1 需 CCTP（unknown）或 canonical 提款（≈6.4 天量级）→ 库存恢复成本未量化，记 DELAYED；反向 ARB→L1 毛差 -0.075% 排除。",
+    "gas：ETH 0.717 gwei；ARB 0.0201 gwei。外部请求 45 次（两链合计≤80），同 host 间隔≥0.35s。"
   ],
   "pending_questions": [
-    "两链RPC均CONNECT403，未核Ethereum1与Arbitrum42161当前区块/hash或网络活跃。",
-    "官方桥网页CONNECT403，仅SDK/桥设计静态资料，未建立当前部署code与token映射。",
-    "无双侧DEX具体池、同数量报价/反向报价、当前桥费/额度/暂停。",
-    "30天支持/费率/通道变更窗口未覆盖。",
-    "7天跨链及两侧交易活动未覆盖，无消息/交易/区块游标。",
-    "两种模式均未测量，库存未假定、最终性/等待/退款/资金恢复成本unknown。"
+    "官方桥当前链上参数未读：rollup/outbox/inbox 地址未从 SDK 解析出，confirmPeriodBlocks 仍为 45,818 静态值；paused/最新确认节点未读。",
+    "库存恢复路径未核：ARB USDC→L1 USDC 走 CCTP 还是 canonical 桥、费用/时间/额度 unknown；L1→ARB 存款实际延迟未实测。",
+    "报价时差约 4 秒（两链不同块），报告前未二次重取；0.075% 差可能瞬变。",
+    "30 天桥支持/费率/额度变更与 7 天跨链活动未覆盖；USDC CCTP 路径未核；跨链无法单链完整模拟。",
+    "更大档位（100/1000 WETH）与滑点/MEV 未测。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:59:38.477498+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/X-ARB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/X-ARB/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "verified_at": "2026-11-08T16:00:22.271895+00:00",
-    "record": "evidence/X-ARB/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:27:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/X-ARB/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

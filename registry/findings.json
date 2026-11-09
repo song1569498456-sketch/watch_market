@@ -5702,6 +5702,197 @@
       },
       "q00_review": null,
       "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "SONIC-STS-RATE-VS-DEX-DISCOUNT",
+      "first_seen_at": "2026-11-09T15:25:00+00:00",
+      "status": "REJECTED",
+      "market_id": "SONIC:146:beets-sts:0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+      "mechanism": "stS 固定块 getRate=convertToAssets(1e18)=1.0883055730 S/stS（totalAssets/totalSupply 自洽）；DEX 显示价 1.08818/1.08819/1.08788（SwapX/Shadow/Defive）→ −1.1/−1.05/−3.9bps，≈1bp 级费用；协议即时赎回不可用（非 ERC4626，两步约2周），故无可执行折价；SwapX 池储备读数与 DexScreener 矛盾已记异常。",
+      "evidence_urls": [
+        "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "https://sonicscan.org/address/0xD760791B29e7894FB827A94Ca433254bb5aFB653"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "退出 delay/费用/资格",
+        "gas",
+        "2周 S 价格波动",
+        "罚没风险"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "折价 >10bps 且退出可控",
+        "rate/实现/退出参数变化",
+        "池 ABI 重读后价格改变"
+      ],
+      "owner": "SONIC02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:25:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:25:00+00:00",
+      "capacity": "SwapX stS/wS $22.7k、Shadow $16.1k、Beets stS/USDC $13.8k、SwapX stS/USDC $11.7k、Defive $6.7k；折价仅 bps 级，容量对收益无意义。",
+      "observations_by_role": {
+        "SONIC02": {
+          "finding_id": "SONIC-STS-RATE-VS-DEX-DISCOUNT",
+          "status": "REJECTED",
+          "chain": "SONIC",
+          "protocol": "BeethovenX Sonic Staking (stS)",
+          "market_id": "SONIC:146:beets-sts:0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+          "evidence_urls": [
+            "https://sonicscan.org/address/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+            "https://sonicscan.org/address/0xD760791B29e7894FB827A94Ca433254bb5aFB653"
+          ],
+          "mechanism": "stS 固定块 getRate=convertToAssets(1e18)=1.0883055730 S/stS（totalAssets/totalSupply 自洽）；DEX 显示价 1.08818/1.08819/1.08788（SwapX/Shadow/Defive）→ −1.1/−1.05/−3.9bps，≈1bp 级费用；协议即时赎回不可用（非 ERC4626，两步约2周），故无可执行折价；SwapX 池储备读数与 DexScreener 矛盾已记异常。",
+          "net_result": null,
+          "unknown_costs": [
+            "退出 delay/费用/资格",
+            "gas",
+            "2周 S 价格波动",
+            "罚没风险"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "折价 >10bps 且退出可控",
+            "rate/实现/退出参数变化",
+            "池 ABI 重读后价格改变"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "SONIC-AAVE-BORROW-SELL-REPAY-NOT-FEASIBLE",
+      "first_seen_at": "2026-11-09T15:27:00+00:00",
+      "status": "REJECTED",
+      "market_id": "SONIC:146:aave-v3-pool:0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "mechanism": "Aave V3 Sonic 池（impl 0x3ece05ac…）USDC 与 wS 储备均 LTV=0 且 frozen=true → 新抵押借款无法发起（仅还款/提取）；现有 variableBorrowRate USDC 21.5%、wS 5.59%；oracle USDC=$0.99976、wS=$0.037729；同资产往返需覆盖利息+2 次 DEX 费用+gas，无正收益证据。",
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+        "https://sonicscan.org/address/0x3ece05ac893ac406b83aea6796539464bd9d2db5"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "DEX 逐档报价",
+        "gas",
+        "Silo 等未扫"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "解冻或 LTV>0",
+        "利率/价格变化",
+        "发现其他铸造入口"
+      ],
+      "owner": "SONIC03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:27:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:27:00+00:00",
+      "capacity": "USDC 供应 1,341,456.67 USDC / 借款 1,245,624.72（利用率 92.9%）；wS 供应 61,983,549.20 / 借款 7,346,626.09（11.85%）；但 frozen/LTV=0 使新闭环不可发起，容量对机会无意义。",
+      "observations_by_role": {
+        "SONIC03": {
+          "finding_id": "SONIC-AAVE-BORROW-SELL-REPAY-NOT-FEASIBLE",
+          "status": "REJECTED",
+          "chain": "SONIC",
+          "protocol": "Aave V3 Sonic",
+          "market_id": "SONIC:146:aave-v3-pool:0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+            "https://sonicscan.org/address/0x3ece05ac893ac406b83aea6796539464bd9d2db5"
+          ],
+          "mechanism": "Aave V3 Sonic 池（impl 0x3ece05ac…）USDC 与 wS 储备均 LTV=0 且 frozen=true → 新抵押借款无法发起（仅还款/提取）；现有 variableBorrowRate USDC 21.5%、wS 5.59%；oracle USDC=$0.99976、wS=$0.037729；同资产往返需覆盖利息+2 次 DEX 费用+gas，无正收益证据。",
+          "net_result": null,
+          "unknown_costs": [
+            "DEX 逐档报价",
+            "gas",
+            "Silo 等未扫"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "解冻或 LTV>0",
+            "利率/价格变化",
+            "发现其他铸造入口"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD",
+      "first_seen_at": "2026-11-09T15:27:00+00:00",
+      "status": "DELAYED",
+      "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "mechanism": "同权益 WETH 两侧同刻报价：L1 1 WETH=2,131.842187 USDC（块 26,378,198）vs ARB 1 WETH=2,133.442007 USDC（块 522,714,575，头块时差约 4 秒）→ ARB 高约 0.075%。方向 L1→ARB 毛差约 +1.6 USDC/WETH，但闭环需 canonical 桥存款（延迟数分钟量级未实测）+ ARB 卖出 + 资金回 L1 的库存恢复（CCTP 费用/时间 unknown 或 canonical 提款约 6.4 天量级）→ 不能锁定净利，记 DELAYED。反向 ARB→L1 毛差 -0.075% 排除；wstETH 两侧差≈0.001% 排除。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+        "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+      ],
+      "net_result": "毛差 +0.075%（≈+1.6 USDC/WETH）；库存恢复与桥成本 unknown → 净额 null（未实现）",
+      "unknown_costs": [
+        "桥存款延迟/gas",
+        "CCTP 或提款回收成本/等待",
+        "桥参数/暂停",
+        "价格风险"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "价差 < 桥+回收成本",
+        "桥暂停/额度不足",
+        "时差导致报价扭曲",
+        "把桥接表示当原生 1:1"
+      ],
+      "owner": "X-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-ARB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:27:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:27:00+00:00",
+      "capacity": "WETH/USDC fee500 池两侧均为主流池（L1 池 0x88e6a0c2…、ARB 池 0xc6962004…）；1/10 WETH 档报价未显示冲击异常；更大档未测；桥额度/暂停未读",
+      "observations_by_role": {
+        "X-ARB": {
+          "finding_id": "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD",
+          "status": "DELAYED",
+          "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+          "mechanism": "同权益 WETH 两侧同刻报价：L1 1 WETH=2,131.842187 USDC（块 26,378,198）vs ARB 1 WETH=2,133.442007 USDC（块 522,714,575，头块时差约 4 秒）→ ARB 高约 0.075%。方向 L1→ARB 毛差约 +1.6 USDC/WETH，但闭环需 canonical 桥存款（延迟数分钟量级未实测）+ ARB 卖出 + 资金回 L1 的库存恢复（CCTP 费用/时间 unknown 或 canonical 提款约 6.4 天量级）→ 不能锁定净利，记 DELAYED。反向 ARB→L1 毛差 -0.075% 排除；wstETH 两侧差≈0.001% 排除。",
+          "evidence_urls": [
+            "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+            "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+          ],
+          "net_result": "毛差 +0.075%（≈+1.6 USDC/WETH）；库存恢复与桥成本 unknown → 净额 null（未实现）",
+          "unknown_costs": [
+            "桥存款延迟/gas",
+            "CCTP 或提款回收成本/等待",
+            "桥参数/暂停",
+            "价格风险"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "价差 < 桥+回收成本",
+            "桥暂停/额度不足",
+            "时差导致报价扭曲",
+            "把桥接表示当原生 1:1"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "DELAYED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

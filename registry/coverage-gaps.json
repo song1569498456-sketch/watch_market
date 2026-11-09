@@ -5474,6 +5474,170 @@
         "核 Metropolis USDC/scUSD 池接口并报价，作为 scUSD 腿候选；补 scUSD 发行/赎回规则与桥接出口。",
         "补 30 天/7 天窗口；有官方 quoter+第二市场且净额为正才升级，交 Q00 复核。"
       ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "stS 退出参数未链上读出：非 ERC-4626（previewRedeem/withdrawalDelay revert），当前两步退出 delay、undelegate 资格/最小额/费用、可领取时间均未从实现 0xd5f7fc8b… 读取。",
+      "next_check": [
+        "读 stS 当前实现（0xd5f7fc8b…）的退出 ABI（undelegate/withdraw/request/claim），取当前 delay、可领取时间、最小额与费用；用只读模拟验证“请求→到账”路径。",
+        "按 SwapX/Shadow 各自接口重读池状态并取 1/10/100/1000 stS 逐档卖出报价（含滑点），确认是否存在 >10bps 折价与容量。",
+        "补 30 天/7 天窗口：stS rate 变化、折价变化、退出暂停/重开、罚没事件。",
+        "若折价扩大但退出变差，按风险线索处理；量化 2 周等待成本与罚没风险后再评级。",
+        "其他 Sonic 质押凭证（如有）逐个建卡，区分账面汇率/即时可兑/延迟退出。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "SwapX 池 on-chain getReserves 与 DexScreener 价格矛盾（ratio 2.382 vs 1.088）→ 池类型/ABI 未对齐；未按 SwapX 接口重读与取指定数量报价。",
+      "next_check": [
+        "读 stS 当前实现（0xd5f7fc8b…）的退出 ABI（undelegate/withdraw/request/claim），取当前 delay、可领取时间、最小额与费用；用只读模拟验证“请求→到账”路径。",
+        "按 SwapX/Shadow 各自接口重读池状态并取 1/10/100/1000 stS 逐档卖出报价（含滑点），确认是否存在 >10bps 折价与容量。",
+        "补 30 天/7 天窗口：stS rate 变化、折价变化、退出暂停/重开、罚没事件。",
+        "若折价扩大但退出变差，按风险线索处理；量化 2 周等待成本与罚没风险后再评级。",
+        "其他 Sonic 质押凭证（如有）逐个建卡，区分账面汇率/即时可兑/延迟退出。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未取指定数量（1/10/100/1000 stS）逐档卖出报价与滑点；未测协议赎回实际到账时间与罚没历史。",
+      "next_check": [
+        "读 stS 当前实现（0xd5f7fc8b…）的退出 ABI（undelegate/withdraw/request/claim），取当前 delay、可领取时间、最小额与费用；用只读模拟验证“请求→到账”路径。",
+        "按 SwapX/Shadow 各自接口重读池状态并取 1/10/100/1000 stS 逐档卖出报价（含滑点），确认是否存在 >10bps 折价与容量。",
+        "补 30 天/7 天窗口：stS rate 变化、折价变化、退出暂停/重开、罚没事件。",
+        "若折价扩大但退出变差，按风险线索处理；量化 2 周等待成本与罚没风险后再评级。",
+        "其他 Sonic 质押凭证（如有）逐个建卡，区分账面汇率/即时可兑/延迟退出。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核 stS 实现升级/权限/暂停事件；30 天规则/费用/延迟变更与 7 天活动未覆盖。",
+      "next_check": [
+        "读 stS 当前实现（0xd5f7fc8b…）的退出 ABI（undelegate/withdraw/request/claim），取当前 delay、可领取时间、最小额与费用；用只读模拟验证“请求→到账”路径。",
+        "按 SwapX/Shadow 各自接口重读池状态并取 1/10/100/1000 stS 逐档卖出报价（含滑点），确认是否存在 >10bps 折价与容量。",
+        "补 30 天/7 天窗口：stS rate 变化、折价变化、退出暂停/重开、罚没事件。",
+        "若折价扩大但退出变差，按风险线索处理；量化 2 周等待成本与罚没风险后再评级。",
+        "其他 Sonic 质押凭证（如有）逐个建卡，区分账面汇率/即时可兑/延迟退出。"
+      ]
+    },
+    {
+      "agent_id": "SONIC02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核其他 Sonic 质押凭证（若存在）；本轮只覆盖 stS。",
+      "next_check": [
+        "读 stS 当前实现（0xd5f7fc8b…）的退出 ABI（undelegate/withdraw/request/claim），取当前 delay、可领取时间、最小额与费用；用只读模拟验证“请求→到账”路径。",
+        "按 SwapX/Shadow 各自接口重读池状态并取 1/10/100/1000 stS 逐档卖出报价（含滑点），确认是否存在 >10bps 折价与容量。",
+        "补 30 天/7 天窗口：stS rate 变化、折价变化、退出暂停/重开、罚没事件。",
+        "若折价扩大但退出变差，按风险线索处理；量化 2 周等待成本与罚没风险后再评级。",
+        "其他 Sonic 质押凭证（如有）逐个建卡，区分账面汇率/即时可兑/延迟退出。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅核 Aave V3 Sonic；Silo、其他本地稳定币铸造/合成资产协议未扫（若有公开铸造+费用异常才是本岗位核心候选）。",
+      "next_check": [
+        "扫 Sonic 上的 Silo/其他借贷与本地稳定币铸造协议（官方部署表），逐个建“抵押→铸/借→卖出→还债”规则卡；只对 LTV>0、非 frozen、有剩余可借额度的市场建候选。",
+        "若池解冻/参数改变，做完整只读模拟（supply→borrow→DEX 卖出→repay→withdraw），按 pinned 同块取逐档 DEX 报价并计利息/gas。",
+        "核第四个储备 0x50c42dea… 与 Sonic 本地稳定资产（scUSD 等）的铸造/赎回规则，确认真实入口。",
+        "补 30 天（参数/额度/治理升级）与 7 天（真实借款-卖出-偿还）窗口；读 Pool 实现与治理事件。",
+        "任何“借款现金增加”必须列负债与抵押锁定，只报还债后净额。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做完整只读模拟（supply→borrow→swap→repay→withdraw）；当前池 frozen/LTV=0 下无法构造；未取 DEX 逐档 USDC→wS 报价。",
+      "next_check": [
+        "扫 Sonic 上的 Silo/其他借贷与本地稳定币铸造协议（官方部署表），逐个建“抵押→铸/借→卖出→还债”规则卡；只对 LTV>0、非 frozen、有剩余可借额度的市场建候选。",
+        "若池解冻/参数改变，做完整只读模拟（supply→borrow→DEX 卖出→repay→withdraw），按 pinned 同块取逐档 DEX 报价并计利息/gas。",
+        "核第四个储备 0x50c42dea… 与 Sonic 本地稳定资产（scUSD 等）的铸造/赎回规则，确认真实入口。",
+        "补 30 天（参数/额度/治理升级）与 7 天（真实借款-卖出-偿还）窗口；读 Pool 实现与治理事件。",
+        "任何“借款现金增加”必须列负债与抵押锁定，只报还债后净额。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 Pool 实现完整逻辑代码（仅参数/接口）；USDC frozen 状态是否为迁移/下架前兆未核（治理事件/升级时间未查）。",
+      "next_check": [
+        "扫 Sonic 上的 Silo/其他借贷与本地稳定币铸造协议（官方部署表），逐个建“抵押→铸/借→卖出→还债”规则卡；只对 LTV>0、非 frozen、有剩余可借额度的市场建候选。",
+        "若池解冻/参数改变，做完整只读模拟（supply→borrow→DEX 卖出→repay→withdraw），按 pinned 同块取逐档 DEX 报价并计利息/gas。",
+        "核第四个储备 0x50c42dea… 与 Sonic 本地稳定资产（scUSD 等）的铸造/赎回规则，确认真实入口。",
+        "补 30 天（参数/额度/治理升级）与 7 天（真实借款-卖出-偿还）窗口；读 Pool 实现与治理事件。",
+        "任何“借款现金增加”必须列负债与抵押锁定，只报还债后净额。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天参数/额度/利率/暂停变更与 7 天实际借出-卖出-偿还历史未覆盖；aToken 偿债资格未测试。",
+      "next_check": [
+        "扫 Sonic 上的 Silo/其他借贷与本地稳定币铸造协议（官方部署表），逐个建“抵押→铸/借→卖出→还债”规则卡；只对 LTV>0、非 frozen、有剩余可借额度的市场建候选。",
+        "若池解冻/参数改变，做完整只读模拟（supply→borrow→DEX 卖出→repay→withdraw），按 pinned 同块取逐档 DEX 报价并计利息/gas。",
+        "核第四个储备 0x50c42dea… 与 Sonic 本地稳定资产（scUSD 等）的铸造/赎回规则，确认真实入口。",
+        "补 30 天（参数/额度/治理升级）与 7 天（真实借款-卖出-偿还）窗口；读 Pool 实现与治理事件。",
+        "任何“借款现金增加”必须列负债与抵押锁定，只报还债后净额。"
+      ]
+    },
+    {
+      "agent_id": "SONIC03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核第四个储备 0x50c42dea… 身份（可能为 Sonic 本地稳定资产，若可铸造需下轮核查）。",
+      "next_check": [
+        "扫 Sonic 上的 Silo/其他借贷与本地稳定币铸造协议（官方部署表），逐个建“抵押→铸/借→卖出→还债”规则卡；只对 LTV>0、非 frozen、有剩余可借额度的市场建候选。",
+        "若池解冻/参数改变，做完整只读模拟（supply→borrow→DEX 卖出→repay→withdraw），按 pinned 同块取逐档 DEX 报价并计利息/gas。",
+        "核第四个储备 0x50c42dea… 与 Sonic 本地稳定资产（scUSD 等）的铸造/赎回规则，确认真实入口。",
+        "补 30 天（参数/额度/治理升级）与 7 天（真实借款-卖出-偿还）窗口；读 Pool 实现与治理事件。",
+        "任何“借款现金增加”必须列负债与抵押锁定，只报还债后净额。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "官方桥当前链上参数未读：rollup/outbox/inbox 地址未从 SDK 解析出（变量引用），confirmPeriodBlocks 仍为 45,818 静态值，paused/最新确认节点未读。",
+      "next_check": [
+        "从官方部署取 rollup/outbox/inbox 地址并链上读 confirmPeriodBlocks/paused/最新确认；实测 L1→ARB 存款延迟与 gas，核 ARB→L1 提款窗口。",
+        "核 ARB USDC→L1 USDC 的 CCTP 路径（费用/时间/额度）并量化库存恢复成本；对比 canonical 桥。",
+        "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
+        "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "库存恢复路径未核：ARB USDC→L1 USDC 的 CCTP 费用/时间/额度 vs canonical 提款未量化；L1→ARB 存款实际延迟未实测。",
+      "next_check": [
+        "从官方部署取 rollup/outbox/inbox 地址并链上读 confirmPeriodBlocks/paused/最新确认；实测 L1→ARB 存款延迟与 gas，核 ARB→L1 提款窗口。",
+        "核 ARB USDC→L1 USDC 的 CCTP 路径（费用/时间/额度）并量化库存恢复成本；对比 canonical 桥。",
+        "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
+        "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "报价时差约 4 秒（两链不同块），报告前未二次重取；0.075% 差可能瞬变。",
+      "next_check": [
+        "从官方部署取 rollup/outbox/inbox 地址并链上读 confirmPeriodBlocks/paused/最新确认；实测 L1→ARB 存款延迟与 gas，核 ARB→L1 提款窗口。",
+        "核 ARB USDC→L1 USDC 的 CCTP 路径（费用/时间/额度）并量化库存恢复成本；对比 canonical 桥。",
+        "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
+        "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
+      ]
+    },
+    {
+      "agent_id": "X-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天桥支持/费率/额度变更与 7 天跨链活动未覆盖；USDC CCTP 路径未核；未做完整模拟（跨链无法单链模拟）。",
+      "next_check": [
+        "从官方部署取 rollup/outbox/inbox 地址并链上读 confirmPeriodBlocks/paused/最新确认；实测 L1→ARB 存款延迟与 gas，核 ARB→L1 提款窗口。",
+        "核 ARB USDC→L1 USDC 的 CCTP 路径（费用/时间/额度）并量化库存恢复成本；对比 canonical 桥。",
+        "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
+        "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
+      ]
     }
   ],
   "status": "OPEN",

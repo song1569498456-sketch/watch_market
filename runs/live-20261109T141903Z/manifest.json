@@ -299,6 +299,19 @@
         "SONIC01"
       ],
       "merged_at": "2026-11-09T15:20:46.995858+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "c71d90d93596ff9285c5a67adf49103e58b21628",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:21:42.264348+00:00"
+    },
+    {
+      "batch": 15,
+      "agents": [
+        "SONIC02",
+        "SONIC03",
+        "X-ARB"
+      ],
+      "merged_at": "2026-11-09T15:24:04.021428+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -334,6 +347,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 14
+    "completed": 15
   }
 }

@@ -2,13 +2,76 @@
   "agent_id": "SONIC02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:18:49+00:00",
   "observed_cursor": {
-    "type": "STATIC_SONIC_ASSET_AND_WITHDRAWAL_DOCS_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:59:34.134204+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "kind": "onchain_sts_rate_plus_dex_pool_checks",
+    "run_id": "live-20261109T141903Z",
+    "chain": "sonic-mainnet",
+    "chain_id": 146,
+    "latest_block": 82308375,
+    "pinned_block": 82308370,
+    "latest_block_time_utc": "2026-11-09T15:18:13+00:00",
+    "sts": {
+      "address": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+      "code_bytes": 163,
+      "eip1967_impl": "0xd5f7fc8ba92756a34693baa386edcc8dd5b3f141",
+      "getRate": "1088305572999886774",
+      "convertToAssets_1e18": "1088305572999886774",
+      "rate_S_per_stS": "1.0883055730",
+      "totalAssets": "108376373299734406249132764",
+      "totalSupply": "9958266681000755630806240",
+      "is_erc4626": false,
+      "reverted": [
+        "previewRedeem(uint256)",
+        "asset()",
+        "underlying()",
+        "withdrawalDelay()",
+        "paused()"
+      ]
+    },
+    "ws": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "symbol": "wS",
+      "decimals": 18,
+      "totalSupply": "146982149071217926369892881"
+    },
+    "dex": {
+      "swapx_sts_ws": {
+        "pair": "0xD760791B29e7894FB827A94Ca433254bb5aFB653",
+        "fee": 100,
+        "dexscreener_priceNative": 1.08818,
+        "liq_usd": 22735.84,
+        "onchain_reserves_ratio_flag": "2.382 vs 1.088 矛盾，未用于结论"
+      },
+      "shadow_sts_ws": {
+        "pair": "0xde861c8Fc9AB78fE00490C5a38813D26e2d09C95",
+        "fee": 94,
+        "priceNative": 1.08819,
+        "getReserves": "revert"
+      },
+      "beets_sts_usdc": {
+        "pair": "0x713FB5036dC70012588d77a5B066f1Dd05c712d7",
+        "priceUsd": 0.04055
+      },
+      "defive_sts_ws": {
+        "pair": "0x702CBE8B71a4237CAe9348dcEF92f4ad23911866",
+        "priceNative": 1.08788
+      }
+    },
+    "discount_bps": {
+      "swapx": -1.1,
+      "shadow": -1.05,
+      "defive": -3.9
+    },
+    "exit_paths": {
+      "dex_instant": "≈费率",
+      "protocol_instant": "not_available（非ERC4626）",
+      "delayed": "README 约2周，当前参数未链上读"
+    },
+    "result": "REJECTED：折价≈费用（−1～−4bps），协议即时赎回不可用，无可执行折价",
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,28 +85,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "AaveV3Sonic官方地址书给stS/wS及18 decimals；BeethovenXFi Sonic Staking官方README列出相同stS Sonic浏览器地址，静态交叉一致。",
-    "README14/110/118行描述两步退出与两周等待，46行admin可改withdrawal delay，不能将文档数值当当前固定等待。",
-    "README114-118行从pool undelegate也通过withdraw流程；不能仅见pool余额就假设普通用户即时兑付。",
-    "README119行说明validator slash可减少收到S，这是正常风险说明，不是本轮确认罚没事件。"
+    "链身份：eth_chainId=0x92（146），最新块 82,308,375（2026-11-09T15:18:13Z），读取钉 pinned 块 82,308,370。",
+    "stS 链上身份与汇率：0xE5DA20F1… 代码 163B（最小代理），impl=0xd5f7fc8ba92756a34693baa386edcc8dd5b3f141；symbol stS、18 位；getRate()=convertToAssets(1e18)=1.0883055730 S/stS；totalAssets 108,376,373.299734 S、totalSupply 99,582,668.681 stS（比值自洽 1.08831）；非 ERC-4626（previewRedeem/asset/underlying/withdrawalDelay/paused 均 revert）。",
+    "wS 0x039e2fB6…：代码 2,636B、symbol wS、18 位、totalSupply 146,982,149.0712。",
+    "DEX：SwapX stS/wS 0xD760791B…（fee 1bp、$22.7k、DexScreener 1.08818；on-chain getReserves 读数 414,282 wS/173,932 stS 与 DexScreener 矛盾，记异常不采用）、Shadow stS/wS 0xde861c8F…（fee 0.94bp、$16.1k、getReserves revert）、Beets stS/USDC $13.8k、SwapX stS/USDC $11.7k、Defive stS/wS 1.08788（$6.7k）。",
+    "折价比较：DEX 价 vs 份额汇率约 −1.1/−1.05/−3.9bps（SwapX/Shadow/Defive），≈1bp 级费用，无 >10bps 可捕获折价。",
+    "三种出口分开：DEX 即时（≈费率，深度小）；协议即时赎回不可用（非 ERC4626）；延迟退出约 2 周（README；当前 delay/费用/资格未链上读，DELAYED）。",
+    "结论 REJECTED：折价≈费用，等待/罚没成本未量化；SwapX 池 ABI 异常待重读。",
+    "缺口：stS 退出 ABI/参数未链上读、SwapX 池类型未对齐、逐档报价/滑点未取、30 天/7 天窗口未覆盖、其他 Sonic 质押凭证未核。"
   ],
   "pending_questions": [
-    "30天规则/延迟/费率/升级与7天代表活动均未回溯；没有区块/事件/交易。",
-    "Sonic官方RPC与Beets文档CONNECT 403，chainId=146、代码/代理实现、paused与兑付资金未核验。",
-    "两个Beets raw猜测路径404，回退官方BeethovenXFi Sonic README成功，但未读部署实现合约正文。",
-    "当前份额率、withdrawalDelay、pool退出规则、罚没敞口、即时缓冲、资格与费用均unknown；README两周不是当前参数证明。",
-    "无DEX精确池和指定数量买卖/赎回报价，不存在可核验当前折价或收益。"
+    "stS 退出参数未链上读：非 ERC-4626，当前两步退出 delay、undelegate 资格/最小额/费用、可领取时间均未从实现 0xd5f7fc8b… 读取。",
+    "SwapX 池 on-chain getReserves 与 DexScreener 价格矛盾（2.382 vs 1.088），池类型/ABI 未对齐；未取逐档报价。",
+    "未取指定数量（1/10/100/1000 stS）卖出报价与滑点；未测协议赎回实际到账时间与罚没历史。",
+    "未核 stS 实现升级/权限/暂停事件；30 天规则/费用/延迟变更与 7 天活动未覆盖。",
+    "未核其他 Sonic 质押凭证；本轮只覆盖 stS。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:59:34.134204+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SONIC02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SONIC02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "verified_at": "2026-11-08T16:00:22.271895+00:00",
-    "record": "evidence/SONIC02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:25:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SONIC02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SONIC02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

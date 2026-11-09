@@ -2,19 +2,61 @@
   "agent_id": "SONIC03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:20:52+00:00",
   "observed_cursor": {
-    "pool_document_address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
-    "reference_functions_read": [
-      "executeBorrow",
-      "executeRepay"
-    ],
-    "current_block": null,
-    "actual_dex_pools_read": 0,
-    "debt_positions_checked": 0,
-    "complete_cycles_simulated": 0,
-    "transactions_analyzed": 0,
+    "kind": "onchain_aave_reserve_params_and_loop_feasibility",
+    "run_id": "live-20261109T141903Z",
+    "chain": "sonic-mainnet",
+    "chain_id": 146,
+    "latest_block": 82308468,
+    "pinned_block": 82308463,
+    "latest_block_time_utc": "2026-11-09T15:20:30+00:00",
+    "aave_pool": {
+      "address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+      "code_bytes": 1853,
+      "eip1967_impl": "0x3ece05ac893ac406b83aea6796539464bd9d2db5",
+      "addresses_provider": "0x5c2e738f6e27bce0f7558051bf90605dd6176900",
+      "price_oracle": "0xd63f7658c66b2934bd234d79d06aef5290734b30",
+      "reserves": [
+        "0x50c42dea…",
+        "USDC 0x29219dd4…",
+        "wS 0x039e2fB6…",
+        "stS 0xE5DA20F1…"
+      ]
+    },
+    "USDC_reserve": {
+      "ltv_bps": 0,
+      "liq_threshold_bps": 7800,
+      "liq_bonus_bps": 10500,
+      "frozen": true,
+      "borrowing_enabled": true,
+      "variable_borrow_apr_pct": 21.5,
+      "aToken": "0x578ee1ca3a8e1b54554da1bf7c583506c4cd11c6",
+      "vDebt": "0x2273cabad63b7d247a6b107e723c803fc49953a0",
+      "supply": "1341456667522",
+      "borrow": "1245624723639",
+      "utilization_pct": 92.86
+    },
+    "wS_reserve": {
+      "ltv_bps": 0,
+      "liq_threshold_bps": 7000,
+      "liq_bonus_bps": 11000,
+      "frozen": true,
+      "variable_borrow_apr_pct": 5.59263423827209,
+      "aToken": "0x6c5e14a212c1c3e4baf6f871ac9b1a969918c131",
+      "vDebt": "0xf6089b790fbf8f4812a79a31cfabeb00b06ba7bd",
+      "supply": "61983549196766545256066924",
+      "borrow": "7346626087286798028248397",
+      "utilization_pct": 11.85
+    },
+    "oracle_prices_8dec": {
+      "USDC": 99976262,
+      "wS": 3772885
+    },
+    "loop_feasible": false,
+    "reason": "USDC/wS 均 frozen+LTV=0 → 新抵押借款无法发起；即便发起需 21.5%/5.59% 利息+2次DEX费+gas，无价差",
+    "result": "REJECTED：无可发起且无正收益的铸造/借出—卖出—还债闭环",
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -38,28 +80,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "独立AaveV3Sonic地址簿列Pool=0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3、implementation=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5，未读取Fantom部署。",
-    "地址簿列USDC=0x29219dd400f2Bf60E5a23d13Be72B486D4038894和wS=0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38；未从名称推论原生/桥接或面值。",
-    "BorrowLogic参考源码按variableBorrowIndex计算当前债务，repayAmount上限为当前userDebt；正常偿债转入同reserve的params.asset，aToken偿债另有条件。",
-    "没有实测抵押率、普通账户借款权限/额度、利息、回购成本或最终零债务状态。"
+    "链身份：eth_chainId=0x92（146），最新块 82,308,468（2026-11-09T15:20:30Z），读取钉 pinned 块 82,308,463。",
+    "Aave V3 Sonic Pool 代理 0x5362dBb1…（代码 1,853B，EIP-1967 impl=0x3ece05ac893ac406b83aea6796539464bd9d2db5，与官方地址簿一致）；provider=0x5c2e738f…；priceOracle=0xd63f7658…；储备仅 4 个（0x50c42dea…、USDC、wS、stS）。",
+    "USDC 储备：LTV=0、LT=78%、bonus=105%、frozen=true、borrowingEnabled=true、variableBorrowRate=21.5% APR；aToken 供应 1,341,456.667522 USDC、vDebt 1,245,624.723639 USDC（利用率 92.86%）。",
+    "wS 储备：LTV=0、LT=70%、bonus=110%、frozen=true、variableBorrowRate=5.5926% APR；aToken 供应 61,983,549.196766 wS、vDebt 7,346,626.087287 wS（利用率 11.85%）。",
+    "Oracle 价格：USDC=$0.99976262、wS=$0.03772885（8 位）。",
+    "闭环判定：USDC/wS 均 frozen+LTV=0 → 新抵押借款闭环不可发起（仅还款/提取）；即使发起，需覆盖 21.5%/5.59% 利息 + 2 次 DEX 费用 + gas，当前无价差证据 → REJECTED。",
+    "缺口：Silo/其他本地铸造协议未扫、无完整只读模拟、无 DEX 逐档报价、30 天/7 天窗口未覆盖、第四个储备 0x50c42dea… 未核。"
   ],
   "pending_questions": [
-    "Sonic RPC及DEX发现API目标代理CONNECT403，无当前链ID146/区块、实际Pool实现、抵押/借款资格或真实DEX池。",
-    "地址簿USDC仅名称与合约，原生/桥接/迁移身份和资产兑付未独立核验；未使用Fantom地址或BNB规则。",
-    "没有可借/铸额度、当前债务指数/利率、完整回购偿债数量或抵押退出报价，不能声明廉价取得或净收益。",
-    "30天参数/额度/暂停/治理升级变更未覆盖；7天实际借出卖出偿还与抵押退出历史未覆盖。",
-    "借贷/DEX/授权/gas/等待/潜在清算成本unknown，当前aToken偿债资格也未测试。"
+    "仅核 Aave V3 Sonic；Silo、其他本地稳定币铸造/合成资产协议未扫（若有公开铸造+费用异常才是核心候选）。",
+    "未做完整只读模拟（supply→borrow→swap→repay→withdraw）；frozen/LTV=0 下无法构造；未取 DEX 逐档 USDC→wS 报价。",
+    "未读 Pool 实现完整逻辑代码（仅参数/接口）；USDC frozen 状态是否为迁移/下架前兆未核（治理事件/升级时间未查）。",
+    "30 天参数/额度/利率/暂停变更与 7 天实际借出-卖出-偿还历史未覆盖；aToken 偿债资格未测试。",
+    "未核第四个储备 0x50c42dea… 身份（可能为 Sonic 本地稳定资产，若可铸造需下轮核查）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:59:29.121575+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SONIC03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SONIC03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "612b4cfd7716bb74c2f25827a21132108e85caa1",
-    "verified_at": "2026-11-08T16:00:22.271895+00:00",
-    "record": "evidence/SONIC03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:27:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SONIC03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SONIC03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

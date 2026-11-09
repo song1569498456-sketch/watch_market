@@ -1,0 +1,69 @@
+{
+ "at_utc": "2026-11-09T15:18:48.849453+00:00",
+ "pinned_block": 82308370,
+ "pairs": {
+  "shadow_sts_ws": {
+   "code_bytes": 22933,
+   "token0()": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+   "token1()": "0xe5da20f15420ad15de0fa650600afc998bbe3955",
+   "getReserves_error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "fee": 94,
+   "factory()": "0xcd2d0637c94fe77c2896bbcbb174ceffb08de6d7"
+  },
+  "beets_sts_usdc": {
+   "code_bytes": 24252,
+   "token0()": null,
+   "token1()": null,
+   "getReserves_error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "fee": null,
+   "factory()": null
+  }
+ },
+ "req": {
+  "http_status": 200,
+  "sha256": "6ac929993dbd2aef4284e85b53694a81495708a2897809fac87f02ee2488f011",
+  "elapsed_s": 1.564
+ },
+ "requests": [
+  {
+   "name": "sonic_identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:15.569084+00:00",
+   "n_calls": 20,
+   "bytes": 9182,
+   "sha256": "4776c7432d87b9a2eb94f3573ca7a31f3ccb73bef387ae85bffea305ccbdba7b",
+   "elapsed_s": 1.411
+  },
+  {
+   "name": "dexscreener_sts",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:16.711926+00:00",
+   "bytes": 44079,
+   "sha256": "729accc2e2fc90156ab1c38d718d8a8eed0b1fee4c38741c259ea6bb8d152eb3",
+   "elapsed_s": 0.842
+  },
+  {
+   "name": "pair_state",
+   "http_status": 200,
+   "at": "2026-11-09T15:18:17.446625+00:00",
+   "n_calls": 7,
+   "bytes": 46354,
+   "sha256": "04bc780c8c2f043ecc99511965500ce1db976189975f167acb1d81edea5cb8fa",
+   "elapsed_s": 0.432
+  },
+  {
+   "name": "verify_pairs",
+   "http_status": 200,
+   "sha256": "6ac929993dbd2aef4284e85b53694a81495708a2897809fac87f02ee2488f011",
+   "elapsed_s": 1.564
+  }
+ ],
+ "request_count": 4
+}

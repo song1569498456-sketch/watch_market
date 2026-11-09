@@ -1,0 +1,30 @@
+{
+  "finding_id": "SONIC-AAVE-BORROW-SELL-REPAY-NOT-FEASIBLE",
+  "status": "REJECTED",
+  "chain": "SONIC",
+  "protocol": "Aave V3 Sonic",
+  "market_id": "SONIC:146:aave-v3-pool:0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+  "evidence_urls": [
+    "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+    "https://sonicscan.org/address/0x3ece05ac893ac406b83aea6796539464bd9d2db5"
+  ],
+  "mechanism": "Aave V3 Sonic 池（impl 0x3ece05ac…）USDC 与 wS 储备均 LTV=0 且 frozen=true → 新抵押借款无法发起（仅还款/提取）；现有 variableBorrowRate USDC 21.5%、wS 5.59%；oracle USDC=$0.99976、wS=$0.037729；同资产往返需覆盖利息+2 次 DEX 费用+gas，无正收益证据。",
+  "net_result": null,
+  "unknown_costs": [
+    "DEX 逐档报价",
+    "gas",
+    "Silo 等未扫"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "解冻或 LTV>0",
+    "利率/价格变化",
+    "发现其他铸造入口"
+  ],
+  "owner": "SONIC03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/SONIC03/live-20261109T141903Z/record.json"
+}

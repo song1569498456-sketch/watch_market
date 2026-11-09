@@ -1,0 +1,55 @@
+{
+ "started_at_utc": "2026-11-09T15:18:14.157849+00:00",
+ "chain_id": 146,
+ "latest_block": 82308375,
+ "latest_block_time_utc": "2026-11-09T15:18:13+00:00",
+ "pinned_block": 82308370,
+ "sts": {
+  "address": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+  "code_bytes": 163,
+  "impl_slot": "0x000000000000000000000000d5f7fc8ba92756a34693baa386edcc8dd5b3f141",
+  "symbol()": "stS",
+  "decimals()": "18",
+  "getRate()": "1088305572999886774",
+  "convertToAssets(uint256)": "1088305572999886774",
+  "previewRedeem(uint256)": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "totalAssets()": "108376373299734406249132764",
+  "totalSupply()": "99582668681000755630806240",
+  "withdrawalDelay()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "paused()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "underlying()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  "asset()": {
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  }
+ },
+ "wS": {
+  "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+  "code_bytes": 2636,
+  "symbol": "wS",
+  "decimals": 18,
+  "totalSupply": "146982149071217926369892881"
+ }
+}

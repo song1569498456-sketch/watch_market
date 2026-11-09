@@ -1,0 +1,762 @@
+{
+ "agent_id": "X-ARB",
+ "chain": "ETH<->ARB",
+ "started_at_utc": "2026-11-09T15:22:12.163023+00:00",
+ "observations": {
+  "eth_chain_id": "0x1",
+  "eth_head_block_number": 26378201,
+  "eth_head_block": {
+   "number": "0x1927fd9",
+   "hash": "0x8122e94f1e48fc22b0802d437ee7080bba6d208993f746b2f77faf14d4af03aa",
+   "timestamp": "0x6af1e523",
+   "baseFeePerGas": "0x2a01e4a3",
+   "timestamp_utc": "2026-11-09T15:22:11+00:00"
+  },
+  "arb_chain_id": "0xa4b1",
+  "arb_head_block_number": 522714578,
+  "arb_head_block": {
+   "number": "0x1f27fdd2",
+   "hash": "0x59bc286167a868246cf077eca137f8ec5192a12341bcf82ea5a0900c6d192db5",
+   "timestamp": "0x6af1e527",
+   "baseFeePerGas": "0x1317b20",
+   "timestamp_utc": "2026-11-09T15:22:15+00:00"
+  },
+  "eth_pinned_block": 26378198,
+  "arb_pinned_block": 522714575,
+  "arbitrum_sdk_networks": {
+   "http_status": 200,
+   "sha256": "c2cb943f07a6560ef583fd965e755897bc55aa24c58b11d919e1ea11b8d51a18",
+   "bytes": 18721,
+   "seg_len": 394,
+   "parsed": {},
+   "head": "\n    chainId: 42161,\n    name: 'Arbitrum One',\n    parentChainId: 1,\n    tokenBridge: mainnetTokenBridge,\n    ethBridge: mainnetETHBridge,\n    teleporter: {\n      l1Teleporter: '0xCBd9c6e310D6AaDeF9F025f716284162F0158992',\n      l2ForwarderFactory: '0x791d2AbC6c3A459E13B9AdF54Fb5e97B7Af38f87',\n    },\n    confirmPeriodBlocks: 45818,\n    isBold: true,\n    isCustom: false,\n    isTestnet: false,"
+  },
+  "l1_bridge_contracts": {},
+  "lido_l2_gateway": {
+   "address": "0x07d4692291b9e30e326fd31706f686f83f331b82",
+   "code": {
+    "address": "0x07d4692291b9e30e326fd31706f686f83f331b82",
+    "bytecode_bytes": 3296,
+    "code_keccak256": "0x93d3f113d81097295a93cbfd054d390c99a34e1525054645567aa9c8c675812e"
+   },
+   "isWithdrawalsEnabled": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+    "decoded": [
+     "True"
+    ],
+    "error": null
+   }
+  },
+  "assets": {
+   "eth_WETH": {
+    "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "code": {
+     "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     "bytecode_bytes": 3124,
+     "code_keccak256": "0xd0a06b12ac47863b5c7be4185c2deaad1c61557033f56c7d4ea74429cbb25e23"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045745544800000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "WETH"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+     "decoded": [
+      "18"
+     ],
+     "error": null
+    }
+   },
+   "eth_wstETH": {
+    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "code": {
+     "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+     "bytecode_bytes": 6492,
+     "code_keccak256": "0x630181884786c962140041cffa3acffbf39d8c93bde1a62b7b55046e57400557"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "wstETH"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+     "decoded": [
+      "18"
+     ],
+     "error": null
+    },
+    "l1Token_ABI?": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted",
+      "data": "0x"
+     }
+    }
+   },
+   "eth_USDC": {
+    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "code": {
+     "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+     "bytecode_bytes": 2186,
+     "code_keccak256": "0xd80d4b7c890cb9d6a4893e6b52bc34b56b25335cb13716e0d1d31383e6b41505"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "USDC"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+     "decoded": [
+      "6"
+     ],
+     "error": null
+    }
+   },
+   "arb_WETH": {
+    "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "code": {
+     "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+     "bytecode_bytes": 2092,
+     "code_keccak256": "0x2d240bb4510ed1acfeaba905eb4bcc4524d63c8ae66e48fcccac55ea714db7a7"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045745544800000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "WETH"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+     "decoded": [
+      "18"
+     ],
+     "error": null
+    }
+   },
+   "arb_wstETH": {
+    "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+    "code": {
+     "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+     "bytecode_bytes": 3296,
+     "code_keccak256": "0x93d3f113d81097295a93cbfd054d390c99a34e1525054645567aa9c8c675812e"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "wstETH"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+     "decoded": [
+      "18"
+     ],
+     "error": null
+    },
+    "l1Token_ABI?": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": 3,
+      "message": "execution reverted",
+      "data": "0x"
+     }
+    }
+   },
+   "arb_USDC": {
+    "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "code": {
+     "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+     "bytecode_bytes": 1852,
+     "code_keccak256": "0xad30d819dbc47814b7e6cb837fd7cc57fcb591479a38596ee93de4fc52e8c435"
+    },
+    "symbol()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+     "decoded": [
+      "USDC"
+     ],
+     "error": null
+    },
+    "decimals()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+     "decoded": [
+      "6"
+     ],
+     "error": null
+    }
+   }
+  },
+  "quoter_eth": {
+   "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+   "bytecode_bytes": 8273,
+   "code_keccak256": "0x06148f47d0f41a68d3bc970030a7150e5d608cfbc28d372440a2e41ce543d92b"
+  },
+  "quoter_arb": {
+   "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+   "bytecode_bytes": 8273,
+   "code_keccak256": "0xd8162b13ba57ce21a146063b10658bda0a3fd15c99f768c86283fce6640858a5"
+  },
+  "pools": {
+   "eth_weth_usdc_500": {
+    "raw": "0x00000000000000000000000088e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "error": null
+   },
+   "arb_weth_usdc_500": {
+    "raw": "0x000000000000000000000000c6962004f452be9203591991d15f6b388e09e8d0",
+    "pool": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "error": null
+   },
+   "eth_wsteth_weth_100": {
+    "raw": "0x000000000000000000000000109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+    "pool": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+    "error": null
+   },
+   "arb_wsteth_weth_100": {
+    "raw": "0x00000000000000000000000035218a1cbac5bbc3e57fd9bd38219d37571b3537",
+    "pool": "0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+    "error": null
+   }
+  },
+  "weth_usdc_quotes": [
+   {
+    "chain": "eth",
+    "pair": "WETH/USDC",
+    "fee": 500,
+    "amount_in": "1",
+    "amount_out_usdc": 2131.842187,
+    "price_usdc_per_weth": 2131.842187,
+    "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "block": 26378198,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:39.040258+00:00"
+   },
+   {
+    "chain": "eth",
+    "pair": "WETH/USDC",
+    "fee": 500,
+    "amount_in": "10",
+    "amount_out_usdc": 21317.569764,
+    "price_usdc_per_weth": 2131.7569764,
+    "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+    "block": 26378198,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:39.778353+00:00"
+   },
+   {
+    "chain": "arb",
+    "pair": "WETH/USDC",
+    "fee": 500,
+    "amount_in": "1",
+    "amount_out_usdc": 2133.442007,
+    "price_usdc_per_weth": 2133.442007,
+    "pool": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "block": 522714575,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:41.289895+00:00"
+   },
+   {
+    "chain": "arb",
+    "pair": "WETH/USDC",
+    "fee": 500,
+    "amount_in": "10",
+    "amount_out_usdc": 21330.063995,
+    "price_usdc_per_weth": 2133.0063995,
+    "pool": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "block": 522714575,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:42.048595+00:00"
+   }
+  ],
+  "wsteth_weth_quotes": [
+   {
+    "chain": "eth",
+    "pair": "wstETH/WETH",
+    "fee": 100,
+    "amount_in": "1",
+    "amount_out_weth": 1.2484847358085658,
+    "price_weth_per_wsteth": 1.2484847358085658,
+    "pool": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+    "block": 26378198,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:43.481112+00:00"
+   },
+   {
+    "chain": "eth",
+    "pair": "wstETH/WETH",
+    "fee": 100,
+    "amount_in": "10",
+    "amount_out_weth": 12.484830809017012,
+    "price_weth_per_wsteth": 1.2484830809017011,
+    "pool": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+    "block": 26378198,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:44.200352+00:00"
+   },
+   {
+    "chain": "arb",
+    "pair": "wstETH/WETH",
+    "fee": 100,
+    "amount_in": "1",
+    "amount_out_weth": 1.248497484106116,
+    "price_weth_per_wsteth": 1.248497484106116,
+    "pool": "0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+    "block": 522714575,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:45.784355+00:00"
+   },
+   {
+    "chain": "arb",
+    "pair": "wstETH/WETH",
+    "fee": 100,
+    "amount_in": "10",
+    "amount_out_weth": 12.484608572443788,
+    "price_weth_per_wsteth": 1.2484608572443787,
+    "pool": "0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+    "block": 522714575,
+    "error": null,
+    "quote_time_utc": "2026-11-09T15:22:46.543258+00:00"
+   }
+  ],
+  "eth_gas_price_wei": {
+   "raw": "0x2ac091a8",
+   "value": 717263272,
+   "error": null
+  },
+  "arb_gas_price_wei": {
+   "raw": "0x13236a0",
+   "value": 20068000,
+   "error": null
+  }
+ },
+ "requests": [
+  {
+   "label": "eth eth_chainId",
+   "chain": "eth",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.98,
+   "retrieved_at_utc": "2026-11-09T15:22:13.142972+00:00"
+  },
+  {
+   "label": "eth eth_blockNumber",
+   "chain": "eth",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T15:22:13.863670+00:00"
+  },
+  {
+   "label": "eth head block",
+   "chain": "eth",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T15:22:14.610746+00:00"
+  },
+  {
+   "label": "arb eth_chainId",
+   "chain": "arb",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.916,
+   "retrieved_at_utc": "2026-11-09T15:22:15.877201+00:00"
+  },
+  {
+   "label": "arb eth_blockNumber",
+   "chain": "arb",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T15:22:16.627927+00:00"
+  },
+  {
+   "label": "arb head block",
+   "chain": "arb",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.408,
+   "retrieved_at_utc": "2026-11-09T15:22:17.386931+00:00"
+  },
+  {
+   "label": "arbitrum-sdk-networks",
+   "url": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+   "http_status": 200,
+   "error": null,
+   "sha256": "c2cb943f07a6560ef583fd965e755897bc55aa24c58b11d919e1ea11b8d51a18",
+   "bytes": 18721,
+   "retrieved_at_utc": "2026-11-09T15:22:18.693229+00:00"
+  },
+  {
+   "label": "getCode lido l2 gateway",
+   "chain": "arb",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.416,
+   "retrieved_at_utc": "2026-11-09T15:22:19.460218+00:00"
+  },
+  {
+   "label": "l2 gateway withdrawals",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.422,
+   "retrieved_at_utc": "2026-11-09T15:22:20.232946+00:00"
+  },
+  {
+   "label": "getCode eth WETH",
+   "chain": "eth",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.375,
+   "retrieved_at_utc": "2026-11-09T15:22:20.958568+00:00"
+  },
+  {
+   "label": "eth WETH symbol()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T15:22:21.695687+00:00"
+  },
+  {
+   "label": "eth WETH decimals()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.371,
+   "retrieved_at_utc": "2026-11-09T15:22:22.417896+00:00"
+  },
+  {
+   "label": "getCode eth wstETH",
+   "chain": "eth",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T15:22:23.129996+00:00"
+  },
+  {
+   "label": "eth wstETH symbol()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.38,
+   "retrieved_at_utc": "2026-11-09T15:22:23.861039+00:00"
+  },
+  {
+   "label": "eth wstETH decimals()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.38,
+   "retrieved_at_utc": "2026-11-09T15:22:24.591458+00:00"
+  },
+  {
+   "label": "eth wstETH l1Token",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.419,
+   "retrieved_at_utc": "2026-11-09T15:22:25.360635+00:00"
+  },
+  {
+   "label": "getCode eth USDC",
+   "chain": "eth",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T15:22:26.111221+00:00"
+  },
+  {
+   "label": "eth USDC symbol()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.379,
+   "retrieved_at_utc": "2026-11-09T15:22:26.840679+00:00"
+  },
+  {
+   "label": "eth USDC decimals()",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T15:22:27.560377+00:00"
+  },
+  {
+   "label": "getCode arb WETH",
+   "chain": "arb",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.409,
+   "retrieved_at_utc": "2026-11-09T15:22:28.320168+00:00"
+  },
+  {
+   "label": "arb WETH symbol()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T15:22:29.069448+00:00"
+  },
+  {
+   "label": "arb WETH decimals()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.516,
+   "retrieved_at_utc": "2026-11-09T15:22:29.936176+00:00"
+  },
+  {
+   "label": "getCode arb wstETH",
+   "chain": "arb",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.403,
+   "retrieved_at_utc": "2026-11-09T15:22:30.690396+00:00"
+  },
+  {
+   "label": "arb wstETH symbol()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.404,
+   "retrieved_at_utc": "2026-11-09T15:22:31.444769+00:00"
+  },
+  {
+   "label": "arb wstETH decimals()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.434,
+   "retrieved_at_utc": "2026-11-09T15:22:32.230008+00:00"
+  },
+  {
+   "label": "arb wstETH l1Token",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.412,
+   "retrieved_at_utc": "2026-11-09T15:22:32.992325+00:00"
+  },
+  {
+   "label": "getCode arb USDC",
+   "chain": "arb",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.491,
+   "retrieved_at_utc": "2026-11-09T15:22:33.834313+00:00"
+  },
+  {
+   "label": "arb USDC symbol()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.412,
+   "retrieved_at_utc": "2026-11-09T15:22:34.596628+00:00"
+  },
+  {
+   "label": "arb USDC decimals()",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.495,
+   "retrieved_at_utc": "2026-11-09T15:22:35.442044+00:00"
+  },
+  {
+   "label": "getCode quoter eth",
+   "chain": "eth",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T15:22:36.190968+00:00"
+  },
+  {
+   "label": "getCode quoter arb",
+   "chain": "arb",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T15:22:36.940935+00:00"
+  },
+  {
+   "label": "eth getPool WETH/USDC 500",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.375,
+   "retrieved_at_utc": "2026-11-09T15:22:37.666309+00:00"
+  },
+  {
+   "label": "eth quoter WETH->USDC 1",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.672,
+   "retrieved_at_utc": "2026-11-09T15:22:38.689654+00:00"
+  },
+  {
+   "label": "eth quoter WETH->USDC 10",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T15:22:39.427679+00:00"
+  },
+  {
+   "label": "arb getPool WETH/USDC 500",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.404,
+   "retrieved_at_utc": "2026-11-09T15:22:40.182414+00:00"
+  },
+  {
+   "label": "arb quoter WETH->USDC 1",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.407,
+   "retrieved_at_utc": "2026-11-09T15:22:40.939546+00:00"
+  },
+  {
+   "label": "arb quoter WETH->USDC 10",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.408,
+   "retrieved_at_utc": "2026-11-09T15:22:41.697898+00:00"
+  },
+  {
+   "label": "eth getPool wstETH/WETH 100",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T15:22:42.414446+00:00"
+  },
+  {
+   "label": "eth quoter wstETH->WETH 1",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T15:22:43.130566+00:00"
+  },
+  {
+   "label": "eth quoter wstETH->WETH 10",
+   "chain": "eth",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.368,
+   "retrieved_at_utc": "2026-11-09T15:22:43.849641+00:00"
+  },
+  {
+   "label": "arb getPool wstETH/WETH 100",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.484,
+   "retrieved_at_utc": "2026-11-09T15:22:44.684403+00:00"
+  },
+  {
+   "label": "arb quoter wstETH->WETH 1",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T15:22:45.433709+00:00"
+  },
+  {
+   "label": "arb quoter wstETH->WETH 10",
+   "chain": "arb",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.408,
+   "retrieved_at_utc": "2026-11-09T15:22:46.192877+00:00"
+  },
+  {
+   "label": "eth gasPrice",
+   "chain": "eth",
+   "method": "eth_gasPrice",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.421,
+   "retrieved_at_utc": "2026-11-09T15:22:46.964686+00:00"
+  },
+  {
+   "label": "arb gasPrice",
+   "chain": "arb",
+   "method": "eth_gasPrice",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T15:22:47.705051+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:22:48.055849+00:00",
+ "request_count": 45
+}

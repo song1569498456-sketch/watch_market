@@ -1,0 +1,153 @@
+{
+ "started_at_utc": "2026-11-09T15:20:30.149509+00:00",
+ "chain_id": 146,
+ "latest_block": 82308468,
+ "latest_block_time_utc": "2026-11-09T15:20:30+00:00",
+ "pinned_block": 82308463,
+ "pool_code_bytes": 1853,
+ "pool_impl": "0x3ece05ac893ac406b83aea6796539464bd9d2db5",
+ "reserves": [
+  "0x50c42deacd8fc9773493ed674b675be577f2634b",
+  "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+  "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+  "0xe5da20f15420ad15de0fa650600afc998bbe3955"
+ ],
+ "addresses_provider": "0x5c2e738f6e27bce0f7558051bf90605dd6176900",
+ "reserve_USDC": {
+  "configuration": "0x100000000000000000000003e800000000100000000126ac870629041e780000",
+  "ltv_bps": 0,
+  "liq_threshold_bps": 7800,
+  "liq_bonus_bps": 10500,
+  "decimals": 6,
+  "active": true,
+  "frozen": true,
+  "borrowing_enabled": true,
+  "paused": false,
+  "liquidityIndex": 1029575870877685381849702560,
+  "currentLiquidityRate_ray": 1995312306342218647461402,
+  "variableBorrowIndex": 1082888996642858179489746090,
+  "currentVariableBorrowRate_ray": 215000000000000000000000000,
+  "lastUpdateTimestamp": 1794206973,
+  "id": 1,
+  "aToken": null,
+  "stableDebtToken": null,
+  "variableDebtToken": null,
+  "interestRateStrategy": null
+ },
+ "reserve_wS": {
+  "configuration": "0x100000000000000000000003e800000000100000000126ac87122af81b580000",
+  "ltv_bps": 0,
+  "liq_threshold_bps": 7000,
+  "liq_bonus_bps": 11000,
+  "decimals": 18,
+  "active": true,
+  "frozen": true,
+  "borrowing_enabled": true,
+  "paused": false,
+  "liquidityIndex": 1015728231095604911632115652,
+  "currentLiquidityRate_ray": 66284689016560110898434,
+  "variableBorrowIndex": 1052802231861336604846327400,
+  "currentVariableBorrowRate_ray": 55926342382720902005165938,
+  "lastUpdateTimestamp": 1794224374,
+  "id": 2,
+  "aToken": null,
+  "stableDebtToken": null,
+  "variableDebtToken": null,
+  "interestRateStrategy": null
+ },
+ "token_totals": {},
+ "finished_at_utc": "2026-11-09T15:20:31.858340+00:00",
+ "requests": [
+  {
+   "name": "aave_identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:20:31.556033+00:00",
+   "n_calls": 9,
+   "bytes": 8182,
+   "sha256": "09341fa5626fc7c1764285cf87c4ceb633bf6b94079eee5df5c370fd7bf5c915",
+   "elapsed_s": 1.406
+  }
+ ],
+ "request_count": 1,
+ "reserve_detail": {
+  "at_utc": "2026-11-09T15:20:52.262646+00:00",
+  "pinned_block": 82308463,
+  "req": {
+   "http_status": 200,
+   "sha256": "d628a2086a41c4067a2713ff5249d4eb2ec2a370f5bab3e88d8c9cac0d3b14d7",
+   "elapsed_s": 1.299
+  },
+  "USDC_reserve": {
+   "words": 15,
+   "ltv_bps": 0,
+   "liq_threshold_bps": 7800,
+   "liq_bonus_bps": 10500,
+   "decimals": 6,
+   "active": true,
+   "frozen": true,
+   "borrowing_enabled": true,
+   "paused": false,
+   "variableBorrowRate_apr_pct": 21.5,
+   "aToken": "0x578ee1ca3a8e1b54554da1bf7c583506c4cd11c6",
+   "stableDebtToken": "0x0000000000000000000000000000000000000000",
+   "variableDebtToken": "0x2273cabad63b7d247a6b107e723c803fc49953a0",
+   "interestRateStrategy": "0xdff435bccf782f11187d3a4454d96702ed78e092"
+  },
+  "wS_reserve": {
+   "words": 15,
+   "ltv_bps": 0,
+   "liq_threshold_bps": 7000,
+   "liq_bonus_bps": 11000,
+   "decimals": 18,
+   "active": true,
+   "frozen": true,
+   "borrowing_enabled": true,
+   "paused": false,
+   "variableBorrowRate_apr_pct": 5.59263423827209,
+   "aToken": "0x6c5e14a212c1c3e4baf6f871ac9b1a969918c131",
+   "stableDebtToken": "0x0000000000000000000000000000000000000000",
+   "variableDebtToken": "0xf6089b790fbf8f4812a79a31cfabeb00b06ba7bd",
+   "interestRateStrategy": "0xdff435bccf782f11187d3a4454d96702ed78e092"
+  },
+  "price_oracle": "0xd63f7658c66b2934bd234d79d06aef5290734b30",
+  "req2": {
+   "http_status": 200,
+   "sha256": "a5bfd7080d5d3276232f4798b8b5fc62cb3d091ac8f1ed59458298e377b7d861",
+   "elapsed_s": 0.37
+  },
+  "oracle_prices_8dec": {
+   "USDC": 99976262,
+   "wS": 3772885
+  },
+  "totals": {
+   "USDC_aToken": "1341456667522",
+   "USDC_vDebt": "1245624723639",
+   "wS_aToken": "61983549196766545256066924",
+   "wS_vDebt": "7346626087286798028248397"
+  },
+  "requests": [
+   {
+    "name": "aave_identity",
+    "http_status": 200,
+    "at": "2026-11-09T15:20:31.556033+00:00",
+    "n_calls": 9,
+    "bytes": 8182,
+    "sha256": "09341fa5626fc7c1764285cf87c4ceb633bf6b94079eee5df5c370fd7bf5c915",
+    "elapsed_s": 1.406
+   },
+   {
+    "name": "reserve_detail",
+    "http_status": 200,
+    "sha256": "d628a2086a41c4067a2713ff5249d4eb2ec2a370f5bab3e88d8c9cac0d3b14d7",
+    "elapsed_s": 1.299
+   },
+   {
+    "name": "oracle_totals",
+    "http_status": 200,
+    "sha256": "a5bfd7080d5d3276232f4798b8b5fc62cb3d091ac8f1ed59458298e377b7d861",
+    "elapsed_s": 0.37
+   }
+  ],
+  "request_count": 3
+ }
+}

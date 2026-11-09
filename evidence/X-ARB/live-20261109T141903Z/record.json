@@ -1,0 +1,133 @@
+{
+ "agent_id": "X-ARB",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ETH<->ARB",
+ "scope": "Ethereum(1) 与 Arbitrum One(42161) 间同一可证明权益（WETH/wstETH，另登记 USDC 原生/桥接差异）的两侧报价、桥通道状态与方向核算；不做真实跨链、不把桥接表示当原生 1:1",
+ "started_at": "2026-11-09T15:21:40+00:00",
+ "finished_at": "2026-11-09T15:27:00+00:00",
+ "duration_seconds": 320,
+ "execution_status": "PARTIAL",
+ "status": "DELAYED",
+ "as_of": {
+  "utc": "2026-11-09T15:22:48+00:00",
+  "beijing": "2026-11-09T23:22:48+08:00",
+  "data_time": "ETH 块 26,378,198（head 26,378,201 / 15:22:11Z）；ARB 块 522,714,575（head 522,714,578 / 15:22:15Z）；两链头块时差约 4 秒"
+ },
+ "block_or_slot": 26378198,
+ "market_ids": [
+  "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+  "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0",
+  "ETH:UNISWAP_V3:WSTETH_WETH_100:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+  "ARB:UNISWAP_V3:WSTETH_WETH_100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+  "ARB:LIDO_L2_GATEWAY:0x07d4692291b9e30e326fd31706f686f83f331b82"
+ ],
+ "asset_ids": [
+  "eip155:1/erc20:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+  "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+  "eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+  "eip155:42161/erc20:0x5979d7b546e38e414f7e9822514be443a4800529",
+  "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+ ],
+ "discovery_source": [
+  {"source": "ethereum-rpc-publicnode", "url": "https://ethereum-rpc.publicnode.com", "retrieved_at_utc": "2026-11-09T15:21:40+00:00", "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x10/eth_call x18/eth_gasPrice", "http_status": 200, "error": null},
+  {"source": "arbitrum-rpc", "url": "https://arb1.arbitrum.io/rpc", "retrieved_at_utc": "2026-11-09T15:21:40+00:00", "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x4/eth_call x8/eth_gasPrice", "http_status": 200, "error": null},
+  {"source": "arbitrum-sdk-networks", "url": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts", "retrieved_at_utc": "2026-11-09T15:22:20+00:00", "http_status": 200, "sha256": "c2cb943f07a6560ef583fd965e755897bc55aa24c58b11d919e1ea11b8d51a18", "note": "42161 段：ethBridge=mainnetETHBridge、tokenBridge=mainnetTokenBridge、confirmPeriodBlocks=45818（静态默认，非链上当前参数）；未解析出 rollup/outbox 具体地址（变量引用）"}
+ ],
+ "mechanism": "同一 WETH 在 L1 与 Arbitrum One 分别由 canonical Gateway 与对应 L2 WETH 表示，两侧 DEX 报价可在不同区块时刻比较；但跨链闭环需要：L1 买入→canonical 桥存款（retryable，非 7 天）→ ARB 卖出→资金落地 ARB USDC→回 L1 需 CCTP（Circle 原生跨链，未核费用/时间）或 canonical 提款（约 confirmPeriodBlocks=45,818 块≈6.4 天量级，未链上核实）。wstETH 走 Lido 桥（L2 Gateway 0x07d46922… isWithdrawalsEnabled=true）。USDC 两侧是各自发行方原生 mint（ARB USDC 为 Circle 代理形态），不能当 canonical 1:1 桥接表示。",
+ "observations": [
+  "ETH：chainId 0x1；head=26,378,201（2026-11-09T15:22:11Z，hash 0x8122e94f…，baseFee 0x2a01e4a3）；pin 26,378,198；gasPrice=717,263,272 wei（0.717 gwei）。",
+  "ARB：chainId 0xa4b1（42161）；head=522,714,578（2026-11-09T15:22:15Z，hash 0x59bc2861…，baseFee 0x1317b20）；pin 522,714,575；gasPrice=20,068,000 wei（0.0201 gwei）。",
+  "资产身份（两侧均核 code/symbol/decimals）：L1 WETH 3,124 B/WETH/18、wstETH 6,492 B/wstETH/18、USDC 2,186 B/USDC/6；ARB WETH 2,092 B/WETH/18、wstETH 3,296 B/wstETH/18、USDC 1,852 B/USDC/6。",
+  "Arbitrum SDK networks.ts（200，sha256 c2cb943f…）：42161 段 ethBridge=mainnetETHBridge、tokenBridge=mainnetTokenBridge、confirmPeriodBlocks=45818（静态 SDK 默认，约 6.4 天，未链上核实）；rollup/outbox/inbox 地址未从该段解析出（变量引用）→ 未链上读当前参数/暂停。",
+  "Lido Arbitrum L2 Gateway 0x07d4692291b9e30e326fd31706f686f83f331b82：代码 3,296 B；isWithdrawalsEnabled()=true（提款当前启用）。",
+  "WETH/USDC 0.05%（fee 500）两侧池与报价（各自固定块）：L1 池 0x88e6a0c2…，1 WETH=2,131.842187 USDC、10=21,317.569764（2,131.7569764/WETH）；ARB 池 0xc6962004…，1 WETH=2,133.442007 USDC、10=21,330.063995（2,133.0063995/WETH）→ ARB 侧高约 0.075%。",
+  "wstETH/WETH 0.01%（fee 100）两侧池与报价：L1 池 0x109830a1…，1 wstETH=1.2484847358085658 WETH、10=12.484830809017012；ARB 池 0x35218a1c…，1=1.248497484106116、10=12.484608572443788 → 差异约 +0.001%（10 档反向），不可做。",
+  "方向核算：L1→ARB 毛差 +0.075%（≈+1.6 USDC/WETH）；L1 存款 gas 粗估约 15 万 gas×0.717 gwei≈0.00011 ETH≈$0.23 量级（estimate），ARB 卖出 gas 极低 → 毛差扣 gas 后仍小幅正；但卖出后资金在 ARB USDC，回 L1 需 CCTP 或 canonical 提款（约 6.4 天量级/费用 unknown）→ 库存恢复成本未量化。反向 ARB→L1 毛差 -0.075% 直接排除。",
+  "外部请求 45 次（两链合计，≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [
+  {"market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", "amount_in": "1 WETH", "amount_out": "2131.842187 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 26378198, "quote_time_utc": "2026-11-09T15:22:39.040258+00:00", "note": "L1 侧；跨链比较时差约 4 秒"},
+  {"market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", "amount_in": "10 WETH", "amount_out": "21317.569764 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 26378198, "quote_time_utc": "2026-11-09T15:22:39.778353+00:00", "note": "L1 侧"},
+  {"market_id": "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0", "amount_in": "1 WETH", "amount_out": "2133.442007 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 522714575, "quote_time_utc": "2026-11-09T15:22:41.289895+00:00", "note": "ARB 侧；较 L1 高约 0.075%"},
+  {"market_id": "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0", "amount_in": "10 WETH", "amount_out": "21330.063995 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 522714575, "quote_time_utc": "2026-11-09T15:22:42.048595+00:00", "note": "ARB 侧"},
+  {"market_id": "ETH:UNISWAP_V3:WSTETH_WETH_100:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa", "amount_in": "1 wstETH", "amount_out": "1.2484847358085658 WETH", "fees": "Uniswap V3 0.01%（已含）", "block": 26378198, "quote_time_utc": "2026-11-09T15:22:43.481112+00:00", "note": "L1 侧"},
+  {"market_id": "ARB:UNISWAP_V3:WSTETH_WETH_100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537", "amount_in": "1 wstETH", "amount_out": "1.248497484106116 WETH", "fees": "Uniswap V3 0.01%（已含）", "block": 522714575, "quote_time_utc": "2026-11-09T15:22:45.784355+00:00", "note": "ARB 侧；与 L1 差约 0.001%，不可做"}
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "USDC",
+  "type": "delayed_cross_chain_spread_inventory_recovery_unknown",
+  "realized": false,
+  "unknown_costs": [
+   "L1→ARB canonical 存款实际延迟与 gas（estimate 约 $0.2-0.5 量级，未实测）",
+   "ARB USDC→L1 USDC 的 CCTP 费用/时间/额度（或 canonical 提款约 6.4 天量级 + L2/L1 gas）",
+   "桥当前参数（confirmPeriodBlocks/paused 未链上读）",
+   "跨链期间价格变动与 MEV/滑点"
+  ]
+ },
+ "capacity": "WETH/USDC fee500 池两侧均为主流池（L1 池 0x88e6a0c2…、ARB 池 0xc6962004…）；1/10 WETH 档报价未显示冲击异常；更大档未测；桥额度/暂停未读",
+ "permissions": "两侧 DEX 公开交易；Lido L2 Gateway 提款启用；Arbitrum canonical 桥当前启用状态/暂停未链上读；USDC 跨链需 CCTP（未核）",
+ "liabilities": "未执行任何交易、无新增负债、无仓位；跨链在途资金未产生（只读报价）",
+ "waiting_time": "L1→ARB canonical 存款通常数分钟至十几分钟（未实测）；ARB→L1 canonical 提款约 confirmPeriodBlocks 45,818 块≈6.4 天量级（静态 SDK 值，未链上核实）；CCTP unknown",
+ "invalidation_conditions": [
+  "两侧价格差 < 桥/回收成本（当前 0.075% 很小）",
+  "桥暂停/延迟变化或额度不足",
+  "时差导致报价不同块（已标注约 4 秒差）",
+  "把桥接表示当原生资产 1:1（USDC 已按各自发行方区分）",
+  "把 L1 释放/桥接等待当 L2 即时资产"
+ ],
+ "evidence_urls": [
+  "https://ethereum-rpc.publicnode.com",
+  "https://arb1.arbitrum.io/rpc",
+  "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/main/packages/sdk/src/lib/dataEntities/networks.ts",
+  "https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+  "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+  "https://arbiscan.io/address/0x07d4692291b9e30e326fd31706f686f83f331b82"
+ ],
+ "coverage_gaps": [
+  "官方桥当前链上参数未读：rollup/outbox/inbox 地址未从 SDK 解析出（变量引用），confirmPeriodBlocks 仍为 45,818 静态值，paused/最新确认节点未读。",
+  "库存恢复路径未核：ARB USDC→L1 USDC 的 CCTP 费用/时间/额度 vs canonical 提款未量化；L1→ARB 存款实际延迟未实测。",
+  "报价时差约 4 秒（两链不同块），报告前未二次重取；0.075% 差可能瞬变。",
+  "30 天桥支持/费率/额度变更与 7 天跨链活动未覆盖；USDC CCTP 路径未核；未做完整模拟（跨链无法单链模拟）。"
+ ],
+ "next_check": [
+  "从官方部署取 rollup/outbox/inbox 地址并链上读 confirmPeriodBlocks/paused/最新确认；实测 L1→ARB 存款延迟与 gas，核 ARB→L1 提款窗口。",
+  "核 ARB USDC→L1 USDC 的 CCTP 路径（费用/时间/额度）并量化库存恢复成本；对比 canonical 桥。",
+  "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
+  "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", "chain": "ETH", "protocol": "Uniswap V3 WETH/USDC 0.05%", "asset_ids": ["0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"], "evidence_urls": ["https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；1/10 WETH 报价已取（2,131.84/2,131.76 USDC/WETH）", "next_check": "二次重取与报告时点差控制"},
+  {"market_id": "ARB:UNISWAP_V3:WETH_USDC_500:0xc6962004f452be9203591991d15f6b388e09e8d0", "chain": "ARB", "protocol": "Uniswap V3 WETH/USDC 0.05%", "asset_ids": ["0x82af49447d8a07e3bd95bd0d56f35241523fbab1", "0xaf88d065e77c8cc2239327c5edb3a432268e5831"], "evidence_urls": ["https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；报价 2,133.44/2,133.01 USDC/WETH（较 L1 高 0.075%）", "next_check": "二次重取；价差是否持续"},
+  {"market_id": "ETH:UNISWAP_V3:WSTETH_WETH_100:0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa", "chain": "ETH", "protocol": "Uniswap V3 wstETH/WETH 0.01%", "asset_ids": ["0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0", "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"], "evidence_urls": ["https://etherscan.io/address/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa"], "identity_status": "CHAIN_VERIFIED：1.248484736 WETH/wstETH", "next_check": "两侧差≈0.001%，排除"},
+  {"market_id": "ARB:UNISWAP_V3:WSTETH_WETH_100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537", "chain": "ARB", "protocol": "Uniswap V3 wstETH/WETH 0.01%", "asset_ids": ["0x5979d7b546e38e414f7e9822514be443a4800529", "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"], "evidence_urls": ["https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"], "identity_status": "CHAIN_VERIFIED：1.248497484 WETH/wstETH；Lido L2 Gateway 提款启用", "next_check": "维持排除"},
+  {"market_id": "ARB:LIDO_L2_GATEWAY:0x07d4692291b9e30e326fd31706f686f83f331b82", "chain": "ARB", "protocol": "Lido Arbitrum L2 Gateway", "asset_ids": ["0x5979d7b546e38e414f7e9822514be443a4800529"], "evidence_urls": ["https://arbiscan.io/address/0x07d4692291b9e30e326fd31706f686f83f331b82"], "identity_status": "CHAIN_VERIFIED：代码 3,296 B，isWithdrawalsEnabled=true", "next_check": "桥参数与等待"}
+ ],
+ "findings": [
+  {"finding_id": "X-ARB-WETH-L1-ARB-CROSSCHAIN-SPREAD", "status": "DELAYED", "market_id": "ETH:UNISWAP_V3:WETH_USDC_500:0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+   "mechanism": "同权益 WETH 两侧同刻报价：L1 1 WETH=2,131.842187 USDC（块 26,378,198）vs ARB 1 WETH=2,133.442007 USDC（块 522,714,575，头块时差约 4 秒）→ ARB 高约 0.075%。方向 L1→ARB 毛差约 +1.6 USDC/WETH，但闭环需 canonical 桥存款（延迟数分钟量级未实测）+ ARB 卖出 + 资金回 L1 的库存恢复（CCTP 费用/时间 unknown 或 canonical 提款约 6.4 天量级）→ 不能锁定净利，记 DELAYED。反向 ARB→L1 毛差 -0.075% 排除；wstETH 两侧差≈0.001% 排除。",
+   "evidence_urls": ["https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"],
+   "net_result": "毛差 +0.075%（≈+1.6 USDC/WETH）；库存恢复与桥成本 unknown → 净额 null（未实现）", "unknown_costs": ["桥存款延迟/gas", "CCTP 或提款回收成本/等待", "桥参数/暂停", "价格风险"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["价差 < 桥+回收成本", "桥暂停/额度不足", "时差导致报价扭曲", "把桥接表示当原生 1:1"]}
+ ],
+ "rejections": [
+  {"claim": "WETH 两侧 0.075% 差可直接套利并锁定", "reason": "跨链非原子；L1→ARB 后资金落 ARB USDC，回 L1 需 CCTP/提款（费用/等待 unknown）；0.075% 很小，记 DELAYED 而非已实现。"},
+  {"claim": "反向 ARB→L1 也可做", "reason": "ARB 侧 WETH 更贵：ARB 买→L1 卖毛差 -0.075%，直接排除。"},
+  {"claim": "wstETH 两侧有可做价差", "reason": "1 wstETH 两侧 WETH 价差约 0.001%（10 档反向），小于费用/桥成本。"},
+  {"claim": "USDC 两侧是同一 canonical 桥接资产", "reason": "ARB USDC 为 Circle 代理形态（1,852 B），两侧均为各自发行方原生 mint，跨链需 CCTP，不能当 1:1 canonical 表示。"},
+  {"claim": "SDK 静态 confirmPeriodBlocks 即当前链上参数", "reason": "SDK 值为静态默认（45,818），本轮未解析出 rollup 地址、未链上读当前参数/暂停。"}
+ ],
+ "observed_cursor": {
+  "type": "DUAL_CHAIN_PINNED_BLOCK_QUOTES_PLUS_PUBLIC_SOURCES",
+  "source_count": 3,
+  "retrieved_at_utc": "2026-11-09T15:22:48+00:00",
+  "ethereum_block": 26378198,
+  "arbitrum_block": 522714575,
+  "verified_token_mappings": 3,
+  "routes_quoted": 8,
+  "complete_block_range": "ETH 26,378,198（head 26,378,201）；ARB 522,714,575（head 522,714,578）",
+  "complete_event_time_window": "单块快照（15:22:11-15:22:48Z）；30 天桥规则/7 天活动未覆盖"
+ }
+}
