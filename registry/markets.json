@@ -5031,6 +5031,76 @@
       },
       "current_onchain_verified": true,
       "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x840deeef2f115cf50da625f7368c24af6fe74410",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 cbETH/WETH fee=500",
+      "asset_ids": [
+        "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_MID_ONLY",
+      "next_check": "补 Quoter 可执行报价",
+      "owner": "X-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-BASE": {
+          "market_id": "ETH:UNISWAP_V3:POOL:0x840deeef2f115cf50da625f7368c24af6fe74410",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 cbETH/WETH fee=500",
+          "asset_ids": [
+            "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+            "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_MID_ONLY",
+          "next_check": "补 Quoter 可执行报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "chain": "BASE",
+      "protocol": "Uniswap V3 cbETH/WETH fee=100",
+      "asset_ids": [
+        "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+        "0x4200000000000000000000000000000000000006"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_AND_QUOTE_READ",
+      "next_check": "对比 L1 可执行报价与容量",
+      "owner": "X-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "X-BASE": {
+          "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+          "chain": "BASE",
+          "protocol": "Uniswap V3 cbETH/WETH fee=100",
+          "asset_ids": [
+            "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+            "0x4200000000000000000000000000000000000006"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_AND_QUOTE_READ",
+          "next_check": "对比 L1 可执行报价与容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

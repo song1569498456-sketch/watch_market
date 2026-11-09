@@ -312,6 +312,17 @@
         "X-ARB"
       ],
       "merged_at": "2026-11-09T15:24:04.021428+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "3d9fcde7b68776585190e89e937ba7db1e157782",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:24:15.571960+00:00"
+    },
+    {
+      "batch": 16,
+      "agents": [
+        "X-BASE"
+      ],
+      "merged_at": "2026-11-09T15:25:12.927088+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -347,6 +358,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 15
+    "completed": 16
   }
 }

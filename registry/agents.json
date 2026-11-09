@@ -3889,40 +3889,40 @@
       "agent_id": "X-BASE",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T16:02:48.023654+00:00",
+      "last_success_at": "2026-11-09T15:23:42.514395+00:00",
+      "last_attempt_at": "2026-11-09T15:23:42.514395+00:00",
       "actual_coverage": [
-        "StandardBridge.sol110-117行finalize的onlyOtherBridge检查messenger与xDomainMessageSender；309-328行发跨域消息。",
-        "239-258行finalize检查paused、金额/接收地址并向接收方发送ETH；不能由基类paused()返回false推断Base实际桥未暂停。",
-        "新官方base/base README第31行确认承接旧base/node，第5行说明Base基于Ethereum；旧registry路径404不等于停链。",
-        "无可信当前桥部署、映射、市场或报价，因此不编native/wrapped同权益映射及候选路线。"
+        "链身份：Ethereum head 26,378,205（15:22:59Z，pinned 26,378,203，baseFee 715,956,567 wei≈0.716 gwei）；Base head 55,237,033（15:23:02Z，pinned 55,237,031，baseFee 5,001,950 wei≈0.005 gwei）；两链快照时差约 3 秒。",
+        "L1 cbETH 0xBe9895146f7AF43049ca1c1AE358B0541Ea49704：eth_getCode 1,852B（sha256=76bcd86b…）；cbETH/WETH Uniswap V3 池：fee=100 池 0x177622e7…（liquidity=0、tick=1311、mid≈1.140074 WETH/cbETH，因 in-range 流动性为 0，其 mid/报价不可作市场价）、fee=500 池 0x840deeef…（liquidity=54,813,601,813,101,059,045,947、tick=1335、mid≈1.1428616）、fee=3000 池 0xbea61537…（本轮未取状态）。",
+        "Base cbETH 0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22：eth_getCode 2,096B（sha256=ead90c9b…）；cbETH/WETH Uniswap V3 池：fee=100 池 0xa9dafa44…（liquidity=34,634,396,913,138,228,087,271、tick=1338、mid≈1.1432595 WETH/cbETH；QuoterV2 报价 1 cbETH→1.143109911129401342 WETH、10 cbETH→5.878204 WETH）、fee=500 池 0x10648ba4…、fee=3000 池 0x7b963626…（本轮未取状态）。",
+        "同一权益核验：Base cbETH 的 l1Token()=0xbe9895146f7af43049ca1c1ae358b0541ea49704（= L1 cbETH 地址）、bridge()=0x4200000000000000000000000000000000000010（L2StandardBridge），即 Base 侧为 canonical bridged 表示；不能把桥接表示当 Coinbase 原生 1:1 资产，但 L1↔Base 是可证明同权益映射（可桥接）。",
+        "桥通道状态：L1 Base 标准桥 L1StandardBridge 0x3154Cf16ccdb4C6d922629664174b904d80F2C35 的 paused()=false（当前未暂停）；L2StandardBridge 0x4200…0010 为 Base 预部署合约（本轮尝试读取 paused 因结果被 token bridge() 映射覆盖未保存，属缺口）。",
+        "跨链价格差（同时刻快照）：L1 fee=500 池 mid 1.1428616 WETH/cbETH vs Base fee=100 池 mid 1.1432595 → **价差约 +3.48 bps（Base 略高）**；Base 侧可执行卖出报价 1 cbETH→1.1431099 WETH（fee=100 已计）。L1 fee=500 的可执行报价本轮未取（预算用尽），L1 fee=100 的报价因 in-range liquidity=0 不可用（gap）。",
+        "成本与方向：标准桥协议费为 0，但 L1→L2 存款需等待 L1 最终化+L2 执行（分钟级），L2→L1 提款需 7 天挑战期（标准桥）；gas 两侧合计约 0.4–0.6 美元量级（L1 swap+approve+deposit≈0.3–0.4 美元，Base≈0.01–0.02 美元，按当前 baseFee 估算）。以 $10k 规模、3.48 bps≈$3.5 毛利，扣往返 gas 与时间/最终性风险后不足以覆盖，且第二腿与库存恢复需要额外成本。",
+        "模式二（双边库存）：需在两侧预置 cbETH/WETH，按 3.48 bps 价差同时买卖后恢复库存；库存占用与资金成本未量化，不假设用户已有两侧资金，本轮不给净利。"
       ],
       "coverage_gaps": [
-        "30天桥映射/通道/规则变化与7天迁移活动未回溯；两链均无区块或交易证据。",
-        "Ethereum与Base RPC及Base桥文档均CONNECT 403，无法分别核验1/8453及当前两侧桥代码/实现/状态。",
-        "旧Superchain Base配置路径404；新官方base/base源码说明来源迁移，但未取得当前精确部署/资产映射，不因缺席判断停链。",
-        "通用OP StandardBridge开发分支未与Base当前桥部署绑定，不能把其接口/paused基类返回值当当前通道可用证明。",
-        "没有两侧DEX池/实际数量报价、桥额度/费用/到账/退款/最终性、库存恢复报价或初始双侧库存条件；无真实价差。"
+        "L1 fee=500 池的可执行 Quoter 报价未取（请求预算用尽），跨链“可执行价差”只有 Base 一侧报价；mid 价差 3.48 bps 已计算但非两腿可成交口径。",
+        "L2StandardBridge 的 paused 状态本轮被覆盖未保存；未读桥的额度/最小额/提款限制。",
+        "未实测桥 L1→L2 到账时间与 L2→L1 7 天挑战期参数（portal 参数未读）。",
+        "未读 cbETH 桥接表示的发行/销毁权限、限额与升级历史；未读 30 天桥映射/费率变更与 7 天跨链活动。",
+        "未核算模式二的双侧库存占用成本与恢复库存路径；不假设用户已有两侧资金。",
+        "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；但两次脚本因 bug 重跑消耗约 48 次，见 request_discipline_note）。"
       ],
-      "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/X-BASE/2026-11-09/live-20261109T141903Z.md",
       "task": "Ethereum与Base的同权益跨链价差",
       "chain": "ETH+BASE",
       "owner": "worker_a",
       "prompt": "prompts/agents/X-BASE.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 3,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
-        "verified_at": "2026-11-08T16:03:12.869632+00:00",
-        "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS"

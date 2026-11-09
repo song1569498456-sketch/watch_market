@@ -1,0 +1,164 @@
+{
+ "started_at_utc": "2026-11-09T15:22:59.780900+00:00",
+ "ethereum": {
+  "head_block": 26378205,
+  "head_time_utc": "2026-11-09T15:22:59+00:00",
+  "base_fee": "0x2aaca157",
+  "pinned_block": 26378203,
+  "cfg": {
+   "cbeth_token": {
+    "address": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+    "bytes": 1852,
+    "sha256": "76bcd86b160a3cd8740d07c985eedc4c3b044c0fb9123c8f90f49ac17185fba8"
+   },
+   "uni_pools": {
+    "100": {
+     "pool": "0x177622e79acece98c39f6e12fa78ac7fc8a8bf62",
+     "error": null
+    },
+    "500": {
+     "pool": "0x840deeef2f115cf50da625f7368c24af6fe74410",
+     "error": null
+    },
+    "3000": {
+     "pool": "0xbea615376d1184f3670a341b70f6f45d9d0fbaad",
+     "error": null
+    }
+   },
+   "chosen_fee": 100,
+   "pool": "0x177622e79acece98c39f6e12fa78ac7fc8a8bf62",
+   "pool_state": {
+    "token0": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+    "token0_error": null,
+    "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "token1_error": null,
+    "fee": 100,
+    "fee_error": null,
+    "slot0": {
+     "sqrtPriceX96": "84595286136577922801175362973",
+     "tick": 1311
+    },
+    "slot0_error": null,
+    "liquidity": "0",
+    "liquidity_error": null
+   },
+   "mid_weth_per_cbeth": 1140074311076.726,
+   "quotes": [
+    {
+     "side": "sell_1_cbeth",
+     "block": 26378203,
+     "amount_in": "1000000000000000000",
+     "fee": 100,
+     "amount_out": "1139953101366447331",
+     "error": null,
+     "gasEstimate": "140441"
+    },
+    {
+     "side": "sell_10_cbeth",
+     "block": 26378203,
+     "amount_in": "10000000000000000000",
+     "fee": 100,
+     "amount_out": "9315451366641529250",
+     "error": null,
+     "gasEstimate": "25950837"
+    }
+   ],
+   "bridge": {
+    "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+    "paused": false,
+    "paused_error": null
+   }
+  }
+ },
+ "base": {
+  "head_block": 55237033,
+  "head_time_utc": "2026-11-09T15:23:02+00:00",
+  "base_fee": "0x4c52de",
+  "pinned_block": 55237031,
+  "cfg": {
+   "cbeth_token": {
+    "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "bytes": 2096,
+    "sha256": "ead90c9b780ecbb1d7e2a8074ef84390c6e454a6e3786d514937e7f516a5874b"
+   },
+   "uni_pools": {
+    "100": {
+     "pool": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+     "error": null
+    },
+    "500": {
+     "pool": "0x10648ba41b8565907cfa1496765fa4d95390aa0d",
+     "error": null
+    },
+    "3000": {
+     "pool": "0x7b9636266734270de5be02544c04e27046903ff8",
+     "error": null
+    }
+   },
+   "chosen_fee": 100,
+   "pool": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+   "pool_state": {
+    "token0": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+    "token0_error": null,
+    "token1": "0x4200000000000000000000000000000000000006",
+    "token1_error": null,
+    "fee": 100,
+    "fee_error": null,
+    "slot0": {
+     "sqrtPriceX96": "84713377573200624554909550399",
+     "tick": 1338
+    },
+    "slot0_error": null,
+    "liquidity": "34634396913138228087271",
+    "liquidity_error": null
+   },
+   "mid_weth_per_cbeth": 1143259523643.45,
+   "quotes": [
+    {
+     "side": "sell_1_cbeth",
+     "block": 55237031,
+     "amount_in": "1000000000000000000",
+     "fee": 100,
+     "amount_out": "1143109911129401342",
+     "error": null,
+     "gasEstimate": "84556"
+    },
+    {
+     "side": "sell_10_cbeth",
+     "block": 55237031,
+     "amount_in": "10000000000000000000",
+     "fee": 100,
+     "amount_out": "5878203880360667797",
+     "error": null,
+     "gasEstimate": "3196186"
+    }
+   ],
+   "bridge": {
+    "value": "0x4200000000000000000000000000000000000010",
+    "error": null
+   },
+   "l1Token": {
+    "value": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+    "error": null
+   }
+  },
+  "cbeth_mapping": {
+   "l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+   "bridge": "0x4200000000000000000000000000000000000010",
+   "expected_l1_cbeth": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+   "expected_l2_bridge": "0x4200000000000000000000000000000000000010"
+  }
+ },
+ "cross_chain_comparison": {
+  "l1_mid_weth_per_cbeth": 1140074311076.726,
+  "base_mid_weth_per_cbeth": 1143259523643.45,
+  "mid_gap_bps": 27.94,
+  "executable_sell_1_cbeth": {
+   "l1_weth": "1139953101366447331",
+   "base_weth": "1143109911129401342",
+   "base_vs_l1_bps": 27.69
+  }
+ },
+ "finished_at_utc": "2026-11-09T15:23:12.272325+00:00",
+ "request_count_this_script": 30
+}

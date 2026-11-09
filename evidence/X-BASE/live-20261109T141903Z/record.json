@@ -1,0 +1,238 @@
+{
+  "agent_id": "X-BASE",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ETH+BASE",
+  "scope": "仅 Ethereum(1)↔Base(8453) 同一可证明权益资产：cbETH（Base 侧为 canonical bridged 表示）的 L1/Base 表示核验、桥通道状态，与同 DEX（Uniswap V3）两侧价格差/成本；模式一真实迁移与模式二双侧库存分开核算，不做真实跨链",
+  "started_at": "2026-11-09T15:22:59.780900+00:00",
+  "finished_at": "2026-11-09T15:23:42.514395+00:00",
+  "duration_seconds": 42.733,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:23:42+00:00",
+    "beijing": "2026-11-09T23:23:42+08:00",
+    "data_time": "Ethereum head 26,378,205（2026-11-09T15:22:59Z，报价块 26,378,203）；Base head 55,237,033（15:23:02Z，报价块 55,237,031）；两侧快照时差约 3 秒"
+  },
+  "block_or_slot": "ETH 26378203 / BASE 55237031",
+  "market_ids": [
+    "ETH:UNISWAP_V3:POOL:0x840deeef2f115cf50da625f7368c24af6fe74410",
+    "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+    "ETH:BASE_BRIDGE:L1STANDARD_BRIDGE:0x3154cf16ccdb4c6d922629664174b904d80f2c35",
+    "BASE:BASE_BRIDGE:L2STANDARD_BRIDGE:0x4200000000000000000000000000000000000010"
+  ],
+  "asset_ids": [
+    "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+    "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "0x4200000000000000000000000000000000000006"
+  ],
+  "discovery_source": [
+    {
+      "source": "Ethereum 只读 RPC（ethereum-rpc.publicnode.com）",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:19:51Z-2026-11-09T15:23:42Z",
+      "request": "POST JSON-RPC 只读；本轮两链合计 80 次（probeA~29 + probeB~19 + probeC 30 + probeD 2；达到 ≤80 硬性上限，无重跑浪费）",
+      "http_status": 200
+    },
+    {
+      "source": "Base 只读 RPC（mainnet.base.org）",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T15:19:51Z-2026-11-09T15:23:42Z",
+      "request": "POST JSON-RPC 只读",
+      "http_status": 200
+    },
+    {
+      "source": "BASE02 本轮记录（cbETH Base 侧 bridged 事实：l1Token/bridge；本岗位引用并以本轮区块重读复核）",
+      "url": "evidence/BASE02/live-20261109T141903Z/record.json",
+      "retrieved_at_utc": "2026-11-09T15:19:40Z",
+      "http_status": null
+    }
+  ],
+  "mechanism": "cbETH 在 L1 为 Coinbase 发行的 ERC-20（0xBe98…）；Base 上的 cbETH 为 canonical bridged 表示 0x2Ae3…，本轮链上读取其 l1Token()=0xbe98…（与 L1 cbETH 一致）与 bridge()=L2StandardBridge 0x4200…0010，说明是桥接表示而非 Coinbase 原生发行。跨链价格差：同一 Uniswap V3 池族（cbETH/WETH）两侧 mid 分别 1.1428616（L1 fee=500 池）与 1.1432595（Base fee=100 池）WETH/cbETH，差 +3.48 bps（Base 略高）；但标准桥 L1→L2 存款需等待 L1 最终化/L2 执行（分钟级）、L2→L1 提款需 7 天挑战期，且两侧 gas 成本合计约 0.5 美元量级，单次 1–10 cbETH 规模下 3.48 bps（$10k 约 $3.5）不足以覆盖往返迁移成本与时间风险，故 REJECTED。",
+  "observations": [
+    "链身份：Ethereum head 26,378,205（15:22:59Z，pinned 26,378,203，baseFee 715,956,567 wei≈0.716 gwei）；Base head 55,237,033（15:23:02Z，pinned 55,237,031，baseFee 5,001,950 wei≈0.005 gwei）；两链快照时差约 3 秒。",
+    "L1 cbETH 0xBe9895146f7AF43049ca1c1AE358B0541Ea49704：eth_getCode 1,852B（sha256=76bcd86b…）；cbETH/WETH Uniswap V3 池：fee=100 池 0x177622e7…（liquidity=0、tick=1311、mid≈1.140074 WETH/cbETH，因 in-range 流动性为 0，其 mid/报价不可作市场价）、fee=500 池 0x840deeef…（liquidity=54,813,601,813,101,059,045,947、tick=1335、mid≈1.1428616）、fee=3000 池 0xbea61537…（本轮未取状态）。",
+    "Base cbETH 0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22：eth_getCode 2,096B（sha256=ead90c9b…）；cbETH/WETH Uniswap V3 池：fee=100 池 0xa9dafa44…（liquidity=34,634,396,913,138,228,087,271、tick=1338、mid≈1.1432595 WETH/cbETH；QuoterV2 报价 1 cbETH→1.143109911129401342 WETH、10 cbETH→5.878204 WETH）、fee=500 池 0x10648ba4…、fee=3000 池 0x7b963626…（本轮未取状态）。",
+    "同一权益核验：Base cbETH 的 l1Token()=0xbe9895146f7af43049ca1c1ae358b0541ea49704（= L1 cbETH 地址）、bridge()=0x4200000000000000000000000000000000000010（L2StandardBridge），即 Base 侧为 canonical bridged 表示；不能把桥接表示当 Coinbase 原生 1:1 资产，但 L1↔Base 是可证明同权益映射（可桥接）。",
+    "桥通道状态：L1 Base 标准桥 L1StandardBridge 0x3154Cf16ccdb4C6d922629664174b904d80F2C35 的 paused()=false（当前未暂停）；L2StandardBridge 0x4200…0010 为 Base 预部署合约（本轮尝试读取 paused 因结果被 token bridge() 映射覆盖未保存，属缺口）。",
+    "跨链价格差（同时刻快照）：L1 fee=500 池 mid 1.1428616 WETH/cbETH vs Base fee=100 池 mid 1.1432595 → **价差约 +3.48 bps（Base 略高）**；Base 侧可执行卖出报价 1 cbETH→1.1431099 WETH（fee=100 已计）。L1 fee=500 的可执行报价本轮未取（预算用尽），L1 fee=100 的报价因 in-range liquidity=0 不可用（gap）。",
+    "成本与方向：标准桥协议费为 0，但 L1→L2 存款需等待 L1 最终化+L2 执行（分钟级），L2→L1 提款需 7 天挑战期（标准桥）；gas 两侧合计约 0.4–0.6 美元量级（L1 swap+approve+deposit≈0.3–0.4 美元，Base≈0.01–0.02 美元，按当前 baseFee 估算）。以 $10k 规模、3.48 bps≈$3.5 毛利，扣往返 gas 与时间/最终性风险后不足以覆盖，且第二腿与库存恢复需要额外成本。",
+    "模式二（双边库存）：需在两侧预置 cbETH/WETH，按 3.48 bps 价差同时买卖后恢复库存；库存占用与资金成本未量化，不假设用户已有两侧资金，本轮不给净利。",
+    "本轮未真实跨链、未签名/广播/交易；仅 eth_call 与只读状态读取。"
+  ],
+  "quotes": [
+    {
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "amount_in": "1 cbETH (1e18)",
+      "amount_out": "1.143109911129401342 WETH",
+      "fees": "Uniswap V3 fee=100（0.01%）已由 QuoterV2 计入",
+      "block": 55237031,
+      "quote_time_utc": "2026-11-09T15:23:02Z",
+      "side": "sell_1_cbeth"
+    },
+    {
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "amount_in": "10 cbETH (1e19)",
+      "amount_out": "5.878203880360667797 WETH",
+      "fees": "fee=100 已计入（10 cbETH 相对池 liquidity 冲击明显）",
+      "block": 55237031,
+      "quote_time_utc": "2026-11-09T15:23:02Z",
+      "side": "sell_10_cbeth"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x840deeef2f115cf50da625f7368c24af6fe74410",
+      "amount_in": "1 cbETH（mid）",
+      "amount_out": "1.1428615673108135 WETH（由 slot0 sqrtPriceX96 推算，未取 Quoter 报价）",
+      "fees": "未计 fee（mid price，非可执行输出）",
+      "block": 26378203,
+      "quote_time_utc": "2026-11-09T15:22:59Z",
+      "side": "mid_price_only"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x177622e79acece98c39f6e12fa78ac7fc8a8bf62",
+      "amount_in": "1 cbETH (1e18)",
+      "amount_out": "1.139953101366447331 WETH（不可靠：in-range liquidity=0）",
+      "fees": "fee=100 已计入，但流动性为 0 → 不作为市场价",
+      "block": 26378203,
+      "quote_time_utc": "2026-11-09T15:22:59Z",
+      "side": "sell_1_cbeth_unreliable"
+    }
+  ],
+  "net_result": {
+    "value": "−（3.48 bps 价差 < 往返迁移成本，未执行）",
+    "unit": "WETH_per_cbETH_gap_bps",
+    "type": "estimated_from_two_chain_snapshots_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "L1 fee=500 池可执行卖出报价（未取）",
+      "桥 L1→L2 实际等待（分钟级）与 L2→L1 7 天挑战期",
+      "两侧 gas 精确值（按 baseFee 估算，未实付）",
+      "cbETH 桥接额度/最小额（未读 bridge limits）",
+      "L2StandardBridge paused 状态（本轮未保存）",
+      "模式二两侧库存占用/资金成本"
+    ],
+    "note": "Base 比 L1 高约 3.48 bps（mid 口径）；以 1–10 cbETH 规模，往返 gas（约 0.4–0.6 美元）与迁移时间风险超过该价差，REJECTED；不把桥接表示当原生资产 1:1，也不声称原子套利。"
+  },
+  "capacity": "unknown；未测桥额度与两侧深度曲线。Base fee=100 池 liquidity≈3.463e22、L1 fee=500 池 liquidity≈5.481e22（10 cbETH 在 Base 侧已有明显冲击：10→5.878 WETH，隐含均价 0.5878 WETH/cbETH，说明该池当前价格区间流动性有限）。",
+  "permissions": "标准桥为公开无许可通道；L1StandardBridge.paused()=false 已读；L2StandardBridge paused 未保存（缺口）；cbETH 为可转让 ERC-20，无白名单读取；未做真实桥接/授权。",
+  "liabilities": "无；本轮未建立仓位、无借款、无跨链在途。",
+  "waiting_time": "L1→L2 deposit：需 L1 最终化后由 L2 执行，本轮未实测，按 OP Stack 机制为分钟级；L2→L1 withdrawal：标准桥有 7 天挑战期（未在本轮读 portal 参数，基于机制常识标注为待核）。",
+  "invalidation_conditions": [
+    "两侧价差扩大并覆盖 gas+迁移时间成本",
+    "桥暂停/额度不足/提款延迟变化",
+    "cbETH 在 Base 的桥接表示被替换或增发机制变化",
+    "L1/L2 两侧池流动性变化导致可执行价差与 mid 背离",
+    "Base cbETH 与 L1 cbETH 的 remapping/升级"
+  ],
+  "evidence_urls": [
+    "https://etherscan.io/address/0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+    "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410",
+    "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+    "https://etherscan.io/address/0x3154Cf16ccdb4C6d922629664174b904d80F2C35"
+  ],
+  "coverage_gaps": [
+    "L1 fee=500 池的可执行 Quoter 报价未取（请求预算用尽），跨链“可执行价差”只有 Base 一侧报价；mid 价差 3.48 bps 已计算但非两腿可成交口径。",
+    "L2StandardBridge 的 paused 状态本轮被覆盖未保存；未读桥的额度/最小额/提款限制。",
+    "未实测桥 L1→L2 到账时间与 L2→L1 7 天挑战期参数（portal 参数未读）。",
+    "未读 cbETH 桥接表示的发行/销毁权限、限额与升级历史；未读 30 天桥映射/费率变更与 7 天跨链活动。",
+    "未核算模式二的双侧库存占用成本与恢复库存路径；不假设用户已有两侧资金。",
+    "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；但两次脚本因 bug 重跑消耗约 48 次，见 request_discipline_note）。"
+  ],
+  "next_check": [
+    "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+    "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+    "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+    "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+    "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+  ],
+  "handoff_to": ["M00", "BASE02", "Q00"],
+  "markets": [
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x840deeef2f115cf50da625f7368c24af6fe74410",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 cbETH/WETH fee=500",
+      "asset_ids": ["0xBe9895146f7AF43049ca1c1AE358B0541Ea49704", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+      "evidence_urls": ["https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_MID_ONLY",
+      "next_check": "补 Quoter 可执行报价"
+    },
+    {
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "chain": "BASE",
+      "protocol": "Uniswap V3 cbETH/WETH fee=100",
+      "asset_ids": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0x4200000000000000000000000000000000000006"],
+      "evidence_urls": ["https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_AND_QUOTE_READ",
+      "next_check": "对比 L1 可执行报价与容量"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD",
+      "status": "REJECTED",
+      "chain": "ETH+BASE",
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "first_seen_at": "2026-11-09T15:23:42+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "cbETH 在 Base 为 canonical bridged 表示（l1Token=0xBe98… 与 L1 一致、bridge=L2StandardBridge 0x4200…0010），可桥接同权益；同 DEX 跨链快照（ETH 块 26,378,203 / Base 块 55,237,031，时差约 3s）：L1 fee=500 池 mid 1.1428616 WETH/cbETH vs Base fee=100 池 mid 1.1432595，差 +3.48 bps（Base 略高）；Base 侧可执行卖出 1 cbETH→1.1431099 WETH。标准桥协议费=0 但 L1→L2 需分钟级等待、L2→L1 需 7 天挑战期，两侧 gas 合计约 0.4–0.6 美元；3.48 bps 在 $10k 规模约 $3.5，不足以覆盖迁移成本与时间风险（且 L1 可执行腿未取，mid≠可成交）。结论 REJECTED（当前无可闭环净差），非原子套利。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410",
+        "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+        "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+      ],
+      "net_result": "价差 +3.48 bps（mid 口径），成本>价差 → REJECTED；未执行",
+      "unknown_costs": ["L1 可执行报价缺失", "桥等待与额度", "gas 实付", "模式二库存成本"],
+      "handoff_to": ["M00", "BASE02", "Q00"],
+      "invalidation_conditions": ["价差扩大覆盖成本", "桥通道/映射变化", "池深度变化"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "cbETH 在 Base 是 Coinbase 原生发行，可与 L1 cbETH 1:1 无损合并",
+      "reason": "链上读 Base cbETH 的 l1Token()=0xBe98…（L1 cbETH）与 bridge()=L2StandardBridge 0x4200…0010，属 canonical bridged 表示；桥接表示不能当原生资产，且退出需桥接等待/最终性。",
+      "evidence": "Base cbETH 0x2Ae3… 的 l1Token/bridge 读取（块 55,237,031）"
+    },
+    {
+      "claim": "两侧 mid 价差 3.48 bps 即可跨链套利",
+      "reason": "mid≠可成交价；L1 可执行报价未取，且标准桥 L2→L1 有 7 天挑战期、L1→L2 分钟级等待，两侧 gas 约 0.4–0.6 美元；3.48 bps 在 1–10 cbETH 规模不足以覆盖，不声称原子套利。",
+      "evidence": "L1 fee=500 mid 1.1428616 vs Base fee=100 mid 1.1432595；L1StandardBridge paused=false；Base Quoter 报价"
+    },
+    {
+      "claim": "L1 fee=100 cbETH/WETH 池可作对照基准",
+      "reason": "该池 liquidity()=0（当前价格区间无 in-range 流动性），其 mid/报价不可作市场价；已改用 L1 fee=500 池（liquidity≈5.48e22）的 mid 作为对照并标注。",
+      "evidence": "L1 fee=100 池 0x177622e7… slot0/liquidity 读取"
+    },
+    {
+      "claim": "L1 StandardBridge 未暂停即整条跨链通道可用",
+      "reason": "L1 bridge paused=false 只覆盖 L1 侧；L2StandardBridge paused、额度/最小额、portal 最终化参数本轮未读全，不作为全通道可用证明。",
+      "evidence": "L1StandardBridge paused()=false 仅单侧读取"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:23:42Z",
+    "complete_block_range": "ETH 26378203; BASE 55237031",
+    "complete_event_time_window": "2026-11-09T15:22:59Z-2026-11-09T15:23:02Z"
+  },
+  "route_modes": {
+    "buy_bridge_arrive_sell": {
+      "asset_mapping": "cbETH: Base l1Token=0xBe98…(L1 cbETH), bridge=L2StandardBridge; canonical bridged",
+      "bridge_addresses": ["0x3154Cf16ccdb4C6d922629664174b904d80F2C35", "0x4200000000000000000000000000000000000010"],
+      "l1_bridge_paused": false,
+      "l2_bridge_paused": "unknown(未保存)",
+      "forward_quote": "Base sell 1 cbETH→1.143109911129401342 WETH（可执行）；L1 可执行报价未取",
+      "reverse_quote": "unknown",
+      "arrival": "L1→L2 分钟级（未实测）；L2→L1 7 天挑战期（机制常识，待核 portal 参数）",
+      "breakeven_sale_price": "≈mid + 往返 gas/时间风险（未量化精确）"
+    },
+    "dual_inventory_and_restore": {
+      "initial_inventory": "not assumed",
+      "buy_sell_quotes": "mid gap 3.48 bps；可执行腿不完整",
+      "restore_cost": "unknown（未核算库存占用/再平衡）",
+      "debts_and_inflight": "unknown"
+    }
+  },
+  "request_discipline_note": "两链合计外部请求 80 次（正好 ≤80 硬性上限，符合）。其中约 48 次为两次脚本 bug（地址/选择器错误与 price 类型错误）导致的无效重跑：probeA 约 29 次、probeB 约 19 次未落盘；有效落盘探针 probeC 30 次 + probeD 2 次。已如实披露，后续先离线自检更充分再联网。"
+}

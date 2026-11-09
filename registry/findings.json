@@ -5893,6 +5893,76 @@
       },
       "q00_review": null,
       "initial_research_status": "DELAYED"
+    },
+    {
+      "finding_id": "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD",
+      "first_seen_at": "2026-11-09T15:23:42.514395+00:00",
+      "status": "REJECTED",
+      "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+      "mechanism": "cbETH 在 Base 为 canonical bridged 表示（l1Token=0xBe98… 与 L1 一致、bridge=L2StandardBridge 0x4200…0010），可桥接同权益；同 DEX 跨链快照（ETH 块 26,378,203 / Base 块 55,237,031，时差约 3s）：L1 fee=500 池 mid 1.1428616 WETH/cbETH vs Base fee=100 池 mid 1.1432595，差 +3.48 bps（Base 略高）；Base 侧可执行卖出 1 cbETH→1.1431099 WETH。标准桥协议费=0 但 L1→L2 需分钟级等待、L2→L1 需 7 天挑战期，两侧 gas 合计约 0.4–0.6 美元；3.48 bps 在 $10k 规模约 $3.5，不足以覆盖迁移成本与时间风险（且 L1 可执行腿未取，mid≠可成交）。结论 REJECTED（当前无可闭环净差），非原子套利。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410",
+        "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+        "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+      ],
+      "net_result": "价差 +3.48 bps（mid 口径），成本>价差 → REJECTED；未执行",
+      "unknown_costs": [
+        "L1 可执行报价缺失",
+        "桥等待与额度",
+        "gas 实付",
+        "模式二库存成本"
+      ],
+      "handoff_to": [
+        "M00",
+        "BASE02",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "价差扩大覆盖成本",
+        "桥通道/映射变化",
+        "池深度变化"
+      ],
+      "owner": "X-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/X-BASE/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:23:42.514395+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:23:42.514395+00:00",
+      "capacity": "unknown；未测桥额度与两侧深度曲线。Base fee=100 池 liquidity≈3.463e22、L1 fee=500 池 liquidity≈5.481e22（10 cbETH 在 Base 侧已有明显冲击：10→5.878 WETH，隐含均价 0.5878 WETH/cbETH，说明该池当前价格区间流动性有限）。",
+      "observations_by_role": {
+        "X-BASE": {
+          "finding_id": "X-BASE-CBETH-L1-VS-BASE-BRIDGED-SPREAD",
+          "status": "REJECTED",
+          "chain": "ETH+BASE",
+          "market_id": "BASE:UNISWAP_V3:POOL:0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+          "first_seen_at": "2026-11-09T15:23:42+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "cbETH 在 Base 为 canonical bridged 表示（l1Token=0xBe98… 与 L1 一致、bridge=L2StandardBridge 0x4200…0010），可桥接同权益；同 DEX 跨链快照（ETH 块 26,378,203 / Base 块 55,237,031，时差约 3s）：L1 fee=500 池 mid 1.1428616 WETH/cbETH vs Base fee=100 池 mid 1.1432595，差 +3.48 bps（Base 略高）；Base 侧可执行卖出 1 cbETH→1.1431099 WETH。标准桥协议费=0 但 L1→L2 需分钟级等待、L2→L1 需 7 天挑战期，两侧 gas 合计约 0.4–0.6 美元；3.48 bps 在 $10k 规模约 $3.5，不足以覆盖迁移成本与时间风险（且 L1 可执行腿未取，mid≠可成交）。结论 REJECTED（当前无可闭环净差），非原子套利。",
+          "evidence_urls": [
+            "https://etherscan.io/address/0x840deeef2f115cf50da625f7368c24af6fe74410",
+            "https://basescan.org/address/0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+            "https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22"
+          ],
+          "net_result": "价差 +3.48 bps（mid 口径），成本>价差 → REJECTED；未执行",
+          "unknown_costs": [
+            "L1 可执行报价缺失",
+            "桥等待与额度",
+            "gas 实付",
+            "模式二库存成本"
+          ],
+          "handoff_to": [
+            "M00",
+            "BASE02",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "价差扩大覆盖成本",
+            "桥通道/映射变化",
+            "池深度变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

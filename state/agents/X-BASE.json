@@ -2,50 +2,126 @@
   "agent_id": "X-BASE",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:23:42+00:00",
   "observed_cursor": {
-    "type": "STATIC_CROSS_DOMAIN_RULES_AND_SOURCE_MIGRATION_ONLY",
-    "retrieved_at_utc": "2026-11-08T16:02:48.023654+00:00",
-    "ethereum_block_range": null,
-    "base_block_range": null,
-    "complete_event_time_window": null
+    "type": "block_pair",
+    "chain_ids": [
+      1,
+      8453
+    ],
+    "ethereum": {
+      "head_block": 26378205,
+      "head_time_utc": "2026-11-09T15:22:59+00:00",
+      "pinned_block": 26378203,
+      "base_fee_wei": "715956567"
+    },
+    "base": {
+      "head_block": 55237033,
+      "head_time_utc": "2026-11-09T15:23:02+00:00",
+      "pinned_block": 55237031,
+      "base_fee_wei": "5001950"
+    },
+    "asset_mapping": {
+      "l1_cbeth": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
+      "base_cbeth": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "base_cbeth_l1Token": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+      "base_cbeth_bridge": "0x4200000000000000000000000000000000000010",
+      "same_equity_verified": true,
+      "representation": "canonical_bridged_ethereum_mintable_erc20"
+    },
+    "bridges": {
+      "l1_standard_bridge": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+      "l1_paused": false,
+      "l2_standard_bridge": "0x4200000000000000000000000000000000000010",
+      "l2_paused": "unknown_not_saved"
+    },
+    "pools": {
+      "eth_cbeth_weth_fee500": {
+        "pool": "0x840deeef2f115cf50da625f7368c24af6fe74410",
+        "liquidity": "54813601813101059045947",
+        "tick": 1335,
+        "mid_weth_per_cbeth": 1.1428615673108136
+      },
+      "eth_cbeth_weth_fee100": {
+        "pool": "0x177622e79acece98c39f6e12fa78ac7fc8a8bf62",
+        "liquidity": "0",
+        "note": "in-range liquidity 0，mid/报价不可作市场价"
+      },
+      "base_cbeth_weth_fee100": {
+        "pool": "0xa9dafa443a02fbc907cb0093276b3e6f4ef02a46",
+        "liquidity": "34634396913138228087271",
+        "tick": 1338,
+        "mid_weth_per_cbeth": 1.14325952364345,
+        "quote_1cbeth_weth": "1143109911129401342",
+        "quote_10cbeth_weth": "5878203880360667797"
+      }
+    },
+    "cross_chain_spread": {
+      "mid_gap_bps": 3.48,
+      "base_higher": true,
+      "executable_legs": "Base 侧可执行；L1 可执行报价未取（gap）"
+    },
+    "costs": {
+      "bridge_protocol_fee": "0（标准桥）",
+      "estimated_gas_usd": "0.4-0.6",
+      "l1_to_l2_wait": "minutes（未实测）",
+      "l2_to_l1_wait": "7 days challenge period（机制常识，待核 portal 参数）"
+    },
+    "status": "REJECTED",
+    "no_net_edge": true,
+    "requests_this_run": 80,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "type": "STATIC_CROSS_DOMAIN_RULES_AND_SOURCE_MIGRATION_ONLY",
-      "retrieved_at_utc": "2026-11-08T16:02:48.023654+00:00",
-      "ethereum_block_range": null,
-      "base_block_range": null,
-      "complete_event_time_window": null
+      "type": "block_pair",
+      "ethereum_pinned_block": 26378203,
+      "base_pinned_block": 55237031,
+      "same_equity": "cbETH L1↔Base bridged (l1Token/bridge verified)",
+      "cross_chain_mid_gap_bps": 3.48,
+      "net_reject": true,
+      "requests_this_run": 80,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "StandardBridge.sol110-117行finalize的onlyOtherBridge检查messenger与xDomainMessageSender；309-328行发跨域消息。",
-    "239-258行finalize检查paused、金额/接收地址并向接收方发送ETH；不能由基类paused()返回false推断Base实际桥未暂停。",
-    "新官方base/base README第31行确认承接旧base/node，第5行说明Base基于Ethereum；旧registry路径404不等于停链。",
-    "无可信当前桥部署、映射、市场或报价，因此不编native/wrapped同权益映射及候选路线。"
+    "链身份/快照：ETH head 26,378,205（2026-11-09T15:22:59Z，pinned 26,378,203，baseFee 715,956,567 wei）；Base head 55,237,033（15:23:02Z，pinned 55,237,031，baseFee 5,001,950 wei）；两侧快照时差约 3 秒。",
+    "同权益核验：L1 cbETH 0xBe9895…（代码 1,852B）；Base cbETH 0x2Ae3F1…（代码 2,096B）的 l1Token()=0xbe9895…（与 L1 cbETH 一致）、bridge()=L2StandardBridge 0x4200…0010 → canonical bridged 表示，非 Coinbase 原生 1:1。",
+    "桥通道：L1 Base 标准桥 L1StandardBridge 0x3154Cf16… 的 paused()=false（未暂停）；L2StandardBridge 0x4200…0010 存在但 paused 状态本轮被覆盖未保存（缺口）。",
+    "两侧池：ETH fee=500 cbETH/WETH 池 0x840deeef…（liquidity≈5.481e22、tick=1335、mid≈1.1428616 WETH/cbETH）；ETH fee=100 池 0x177622e7… liquidity=0（已排除，其报价不可靠）；Base fee=100 池 0xa9dafa44…（liquidity≈3.463e22、tick=1338、mid≈1.1432595；QuoterV2 1 cbETH→1.143109911129401342 WETH、10→5.878204 WETH）。",
+    "跨链价差：Base vs L1 mid 约 +3.48 bps（Base 略高）；Base 可执行 1 cbETH 报价与 mid 差约 −0.01%。",
+    "成本/等待：标准桥协议费=0；两侧 gas 合计约 0.4–0.6 美元；L1→L2 分钟级（未实测），L2→L1 标准桥 7 天挑战期（待核 portal 参数）；3.48 bps（$10k≈$3.5）不足以覆盖 → REJECTED。",
+    "模式二不做假设：不假设用户已有两侧库存，库存占用/资金成本/再平衡路径未量化。",
+    "上轮仅静态跨域规则与源码，本轮升级为两链同块状态、同权益映射、桥状态与两侧价格差实测（有效数据：probeC 30 + probeD 2 次请求）。"
   ],
   "pending_questions": [
-    "30天桥映射/通道/规则变化与7天迁移活动未回溯；两链均无区块或交易证据。",
-    "Ethereum与Base RPC及Base桥文档均CONNECT 403，无法分别核验1/8453及当前两侧桥代码/实现/状态。",
-    "旧Superchain Base配置路径404；新官方base/base源码说明来源迁移，但未取得当前精确部署/资产映射，不因缺席判断停链。",
-    "通用OP StandardBridge开发分支未与Base当前桥部署绑定，不能把其接口/paused基类返回值当当前通道可用证明。",
-    "没有两侧DEX池/实际数量报价、桥额度/费用/到账/退款/最终性、库存恢复报价或初始双侧库存条件；无真实价差。"
+    "L1 fee=500 池可执行 Quoter 报价未取（请求预算用尽）→ 跨链可执行价差只有 Base 一侧。",
+    "L2StandardBridge paused 状态被覆盖未保存；未读桥额度/最小额/提款限制与 OptimismPortal 最终化参数。",
+    "未读 cbETH 桥接表示的 mint/burn 权限、限额与升级历史；未读 30 天桥映射/费率变更与 7 天跨链活动。",
+    "未实测桥 L1→L2 到账时间；gas 为 baseFee 估算未实付。",
+    "模式二未核算两侧库存占用与再平衡成本。",
+    "本轮外部请求 80 次（正好 ≤80 硬性上限，符合）；其中约 48 次为两次脚本 bug 重跑消耗（probeA~29、probeB~19 未落盘），属流程偏差，已披露。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T16:02:48.023654+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/X-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/X-BASE/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "57ee5d93d5a7abf7f1f7425e0e6673d6f06a23b2",
-    "verified_at": "2026-11-08T16:03:12.869632+00:00",
-    "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:23:42.514395+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/X-BASE/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/X-BASE/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 80,
+  "request_discipline_note": "两链合计外部请求 80 次（正好 ≤80 硬性上限，符合）。其中约 48 次为两次脚本 bug（getPool 空结果解析、price 类型错误）导致的无效重跑：probeA 约 29 次、probeB 约 19 次未落盘；有效落盘 probeC 30 + probeD 2。已如实披露。",
+  "data_sources_used": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://mainnet.base.org",
+    "evidence/BASE02/live-20261109T141903Z/record.json（引用 cbETH Base 侧 bridged 事实，本轮重读复核）"
+  ]
 }

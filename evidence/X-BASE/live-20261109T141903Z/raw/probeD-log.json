@@ -1,0 +1,20 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:23:41.182291+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:23:42.160532+00:00",
+  "http_status": 200
+ }
+]

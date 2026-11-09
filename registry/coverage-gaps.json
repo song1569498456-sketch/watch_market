@@ -5638,6 +5638,78 @@
         "报告前二次重取 WETH/USDC 两侧报价（尽量同刻），价差 > 全部成本才升级；wstETH 维持排除。",
         "补 30 天/7 天窗口与桥事件；不把 SDK 静态参数当链上当前值。"
       ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "L1 fee=500 池的可执行 Quoter 报价未取（请求预算用尽），跨链“可执行价差”只有 Base 一侧报价；mid 价差 3.48 bps 已计算但非两腿可成交口径。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "L2StandardBridge 的 paused 状态本轮被覆盖未保存；未读桥的额度/最小额/提款限制。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未实测桥 L1→L2 到账时间与 L2→L1 7 天挑战期参数（portal 参数未读）。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 cbETH 桥接表示的发行/销毁权限、限额与升级历史；未读 30 天桥映射/费率变更与 7 天跨链活动。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核算模式二的双侧库存占用成本与恢复库存路径；不假设用户已有两侧资金。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
+    },
+    {
+      "agent_id": "X-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；但两次脚本因 bug 重跑消耗约 48 次，见 request_discipline_note）。",
+      "next_check": [
+        "补 L1 fee=500 池的 QuoterV2 可执行报价（1/10 cbETH），与 Base 侧同数量对比，形成两腿可成交价差。",
+        "读 L2StandardBridge 的 paused/限额/提款参数与 OptimismPortal 的最终化参数，确认 L1→L2 到账与 L2→L1 等待。",
+        "读 cbETH 桥接表示的 mint/burn 权限与限额（l1Token/bridge 已核验，权限维度补充）。",
+        "补 30 天桥映射/费率变更与 7 天跨链活动，判断 3.48 bps 是否稳定及是否曾扩大。",
+        "模式二：列两侧初始库存、买入/卖出报价与再平衡成本，估算库存占用与资金成本；不假设已有资金。"
+      ]
     }
   ],
   "status": "OPEN",
