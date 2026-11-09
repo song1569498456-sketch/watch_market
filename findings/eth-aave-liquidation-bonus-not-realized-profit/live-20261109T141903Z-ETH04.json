@@ -1,0 +1,29 @@
+{
+  "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+  "status": "REJECTED",
+  "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+  "mechanism": "Aave 清算奖励是账面折扣权利：真实 HF<1 仓位→按 close factor/规模上限代还→取得抵押（扣协议费）→卖出→扣本金/gas/融资。本轮链上核验 Pool/实现/oracle 与地址书一致，6 个关键储备 LTV=0-8100bps、LT=7700-8500bps、bonus=10450-10600；抽样 8 个借款人 HF=1.045/1.198/3.557/1.059/1.143/1.801 均>1（窗口内 35 笔清算已发生但样本无候选），因此无净利主张；oracle 价值×bonus 不是已实现收益。",
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+  ],
+  "net_result": "unknown（无候选；净额 null）",
+  "unknown_costs": [
+    "reserveFactor/active/frozen 位段",
+    "oracle 精度/价格",
+    "代还本金",
+    "抵押卖出冲击",
+    "gas/融资"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现 HF<1 真实仓位且规则可执行",
+    "储备参数/奖励与源码不符",
+    "抵押卖出通道失效"
+  ],
+  "owner": "ETH04",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH04/live-20261109T141903Z/record.json"
+}

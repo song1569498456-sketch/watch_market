@@ -1,0 +1,330 @@
+{
+ "started_at_utc": "2026-11-09T15:05:17.537524+00:00",
+ "chain_id": 1,
+ "head_block": 26378116,
+ "head_block_info": {
+  "number": "0x1927f84",
+  "timestamp": "0x6af1e127",
+  "hash": "0xc0dbbdcea76ee0117758c487361cfd209b8067f434480b7281ea895a9869feea",
+  "baseFeePerGas": "0x17730c95"
+ },
+ "head_block_time_utc": "2026-11-09T15:05:11+00:00",
+ "pinned_block": 26378114,
+ "contracts": {
+  "trove_manager": {
+   "address": "0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+   "code_bytes": 23163,
+   "code_sha256": "0e39ef50dd3b5f0b3a2d5cf56718ebe705741712ce46e3fea832bb6abb51f22e"
+  },
+  "price_feed": {
+   "address": "0x4c517D4e2C851CA76d7eC94B805269Df0f2201De",
+   "code_bytes": 4582,
+   "code_sha256": "524ea886884ba54f1eb8a6f0cf7d63b86000c618653eef592e1aa8aed5175da1"
+  },
+  "lusd_token": {
+   "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+   "code_bytes": 5297,
+   "code_sha256": "d599bd52e94bce41ca47f46dc4eaea3761628ee04c314a1d8e327589d3e275d4"
+  },
+  "active_pool": {
+   "address": "0xDf9Eb223bAFBE5c5271415C75aeCD68C21fE3D7F"
+  }
+ },
+ "oracle_price_1e18": "2126164322160000000000",
+ "oracle_price_error": null,
+ "trove_manager_state": {
+  "getEntireSystemDebt": {
+   "raw": "0x00000000000000000000000000000000000000000013b886c2f3872596e32a13",
+   "error": null,
+   "uint": "23840991916952104332372499"
+  },
+  "getEntireSystemColl": {
+   "raw": "0x000000000000000000000000000000000000000000000ed478e641af559143af",
+   "error": null,
+   "uint": "70032552226551963403183"
+  },
+  "baseRate": {
+   "raw": "0x000000000000000000000000000000000000000000000000000000e34aeefd29",
+   "error": null,
+   "uint": "976214752553"
+  },
+  "getRedemptionRateWithDecay": {
+   "raw": "0x0000000000000000000000000000000000000000000000000011c37d394f90a1",
+   "error": null,
+   "uint": "5000017203925153"
+  },
+  "MCR": {
+   "raw": "0x0000000000000000000000000000000000000000000000000f43fc2c04ee0000",
+   "error": null,
+   "uint": "1100000000000000000"
+  },
+  "REDEMPTION_FEE_FLOOR": {
+   "raw": "0x0000000000000000000000000000000000000000000000000011c37937e08000",
+   "error": null,
+   "uint": "5000000000000000"
+  },
+  "LUSD_GAS_COMPENSATION": {
+   "raw": "0x00000000000000000000000000000000000000000000000ad78ebc5ac6200000",
+   "error": null,
+   "uint": "200000000000000000000"
+  },
+  "getTCR": {
+   "raw": "0x00000000000000000000000000000000000000000000000056acbdc91f80efed",
+   "error": null,
+   "uint": "6245575454770655213"
+  },
+  "getRedemptionFeeWithDecay_10ETH": {
+   "raw": "0x00000000000000000000000000000000000000000000000000b1a2e43d1ba64a",
+   "error": null,
+   "uint": "50000172039251530"
+  }
+ },
+ "lusd_totalSupply": "23840991916952104332372499",
+ "lusd_symbol": "LUSD",
+ "lusd_decimals": 18,
+ "active_pool_eth": "70032552226551963403183",
+ "gas_price_wei": 393415950,
+ "dexscreener_lusd": {
+  "http_status": 200,
+  "pairs": [
+   {
+    "chainId": "ethereum",
+    "dexId": "curve",
+    "pairAddress": "0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0x6440f144b7e50D6a8439336510312d2F54beB01D",
+    "priceUsd": "1.022",
+    "liquidityUsd": 635927.91
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "uniswap",
+    "pairAddress": "0x4e0924d3a751bE199C426d52fb1f2337fa96f736",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "priceUsd": "1.022",
+    "liquidityUsd": 28123.66
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "solidlycom",
+    "pairAddress": "0x6D7824C5B5B385D1DD8D56c543A0be2EAF140974",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "priceUsd": "1.028",
+    "liquidityUsd": 22827.96
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "sushiswap",
+    "pairAddress": "0xfDf12D1F85b5082877A6E070524f50F6c84FAa6b",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0x383518188C0C6d7730D91b2c03a03C837814a899",
+    "priceUsd": "1.0077",
+    "liquidityUsd": 13117.96
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "uniswap",
+    "pairAddress": "0xF20EF17b889b437C151eB5bA15A47bFc62bfF469",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "priceUsd": "1.029",
+    "liquidityUsd": 8498.62
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "sushiswap",
+    "pairAddress": "0x279Ca79d5fb2490721512C8Ae4767E249D75F41B",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "priceUsd": "1.026",
+    "liquidityUsd": 1883.04
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "balancer",
+    "pairAddress": "0x18FDf15ff782e44C1f9B6C5846ff6B0F0004F6a2",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5",
+    "priceUsd": "1.10",
+    "liquidityUsd": 606.25
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "uniswap",
+    "pairAddress": "0xD251DfF33E31bB98D5587E5b1004Ff01a5a41289",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D",
+    "priceUsd": "1.010",
+    "liquidityUsd": 495.94
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "balancer",
+    "pairAddress": "0x3FA8C89704e5d07565444009e5d9e624B40Be813",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f",
+    "priceUsd": "1.023",
+    "liquidityUsd": 268.2
+   },
+   {
+    "chainId": "ethereum",
+    "dexId": "balancer",
+    "pairAddress": "0x5512A4bbe7B3051f92324bAcF25C02b9000c4a50-0x5f98805A4E8be255a32880FDeC7F6728C6568bA0-0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "priceUsd": "1.025",
+    "liquidityUsd": 55.9
+   },
+   {
+    "chainId": "pulsechain",
+    "dexId": "9mm",
+    "pairAddress": "0xe3e0D722682860a4668b85cDaeC09ed42652CA93",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xA1077a294dDE1B09bB078844df40758a5D0f9a27",
+    "priceUsd": "0.000000000000000002233",
+    "liquidityUsd": 33.3
+   },
+   {
+    "chainId": "pulsechain",
+    "dexId": "9mm",
+    "pairAddress": "0xE053C6CdAA88f4E9dBa7151311a2DfAb834bAf2d",
+    "baseToken": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "quoteToken": "0xA1077a294dDE1B09bB078844df40758a5D0f9a27",
+    "priceUsd": "0.000000000000000002216",
+    "liquidityUsd": 0.55
+   }
+  ]
+ },
+ "quoter_v2": {
+  "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+  "code_bytes": 8273,
+  "code_sha256": "c2797888d8316e5070ceb951465277a225d3707b4dab40c94cf61e330c5e6b85"
+ },
+ "uni_pools": {
+  "LUSD_USDC_100": {
+   "tokenA": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+   "tokenB": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "fee": 100,
+   "pool": null,
+   "error": null
+  },
+  "LUSD_USDC_500": {
+   "tokenA": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+   "tokenB": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "fee": 500,
+   "pool": "0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+   "error": null,
+   "code_bytes": 22142,
+   "state": {
+    "token0": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "token0_error": null,
+    "token1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "token1_error": null,
+    "fee": 500,
+    "fee_error": null,
+    "slot0": {
+     "sqrtPriceX96": "80130121921468411476129",
+     "tick": -276098
+    },
+    "slot0_error": null,
+    "liquidity": "215709883574449",
+    "liquidity_error": null
+   }
+  },
+  "LUSD_USDC_3000": {
+   "tokenA": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+   "tokenB": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "fee": 3000,
+   "pool": "0x9902affdd3b8ef60304958c60377110c6d6ab1df",
+   "error": null
+  },
+  "LUSD_USDT_500": {
+   "tokenA": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+   "tokenB": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+   "fee": 500,
+   "pool": "0x67e887913b13e280538c169f13d169a659a203de",
+   "error": null
+  },
+  "USDC_WETH_500": {
+   "tokenA": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "tokenB": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+   "fee": 500,
+   "pool": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+   "error": null
+  }
+ },
+ "chosen_lusd_pool": {
+  "label": "LUSD_USDC_500",
+  "tokenA": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+  "tokenB": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "fee": 500,
+  "pool": "0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+  "error": null,
+  "code_bytes": 22142,
+  "state": {
+   "token0": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+   "token0_error": null,
+   "token1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+   "token1_error": null,
+   "fee": 500,
+   "fee_error": null,
+   "slot0": {
+    "sqrtPriceX96": "80130121921468411476129",
+    "tick": -276098
+   },
+   "slot0_error": null,
+   "liquidity": "215709883574449",
+   "liquidity_error": null
+  }
+ },
+ "quotes": [
+  {
+   "label": "buy_LUSD_with_1000USDC",
+   "block": 26378114,
+   "amount_in": "1000000000",
+   "fee": 500,
+   "amount_out": "9462623841777123450",
+   "error": null,
+   "gasEstimate": "3422823"
+  },
+  {
+   "label": "buy_LUSD_with_10000USDC",
+   "block": 26378114,
+   "amount_in": "10000000000",
+   "fee": 500,
+   "amount_out": "9462623841777123450",
+   "error": null,
+   "gasEstimate": "3422823"
+  },
+  {
+   "label": "sell_1ETH_for_USDC",
+   "block": 26378114,
+   "amount_in": "1000000000000000000",
+   "fee": 500,
+   "amount_out": "2124701314",
+   "error": null
+  }
+ ],
+ "protocol_redemption_math": {
+  "1000": {
+   "lusd_in": 1000,
+   "eth_drawn": "470330533523432491",
+   "redemption_rate_1e18": 5000017203925153,
+   "fee_eth": "2351660759148458",
+   "net_eth": "467978872764284033"
+  },
+  "10000": {
+   "lusd_in": 10000,
+   "eth_drawn": "4703305335234324916",
+   "redemption_rate_1e18": 5000017203925153,
+   "fee_eth": "23516607591484583",
+   "net_eth": "4679788727642840333"
+  },
+  "floor_1e18": 5000000000000000,
+  "_note": "公式来自 Liquity v1 TroveManager 源码（ETHdrawn=LUSD*1e18/price；fee=ETHdrawn*rate/1e18）；未执行、未计 gas/部分赎回取消"
+ },
+ "finished_at_utc": "2026-11-09T15:05:31.576765+00:00",
+ "request_count_this_script": 37
+}

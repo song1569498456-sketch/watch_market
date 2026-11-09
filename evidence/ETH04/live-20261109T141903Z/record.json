@@ -1,0 +1,118 @@
+{
+ "agent_id": "ETH04",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ETH",
+ "scope": "Ethereum 正常借贷清算：Aave V3 Ethereum 身份/储备清算参数/预言机来源核验、近块借款人健康度抽样与清算事件计数；Morpho/Compound 仅身份检查；不制造清算、不编仓位",
+ "started_at": "2026-11-09T15:05:30+00:00",
+ "finished_at": "2026-11-09T15:09:00+00:00",
+ "duration_seconds": 210,
+ "execution_status": "PARTIAL",
+ "status": "UNVERIFIED",
+ "as_of": {
+  "utc": "2026-11-09T15:06:39+00:00",
+  "beijing": "2026-11-09T23:06:39+08:00",
+  "data_time": "身份/储备参数/借款人/规则：固定块 26,378,116（head 26,378,119 / 2026-11-09T15:05:47Z）；Borrow 与 LiquidationCall 窗口 26,373,119-26,378,119（5,000 块，约 16.7h）"
+ },
+ "block_or_slot": 26378116,
+ "market_ids": [
+  "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+  "1:morpho-blue:0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+  "1:compound-v3:0xc3d688b66703497daa19211eedff47f25384cdc3"
+ ],
+ "asset_ids": [
+  "eip155:1/erc20:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+  "eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+ ],
+ "discovery_source": [
+  {"source": "ethereum-rpc-publicnode", "url": "https://ethereum-rpc.publicnode.com", "retrieved_at_utc": "2026-11-09T15:05:30+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x5/eth_getStorageAt/eth_call x27/eth_getLogs x2；32 次请求全部返回结果", "http_status": 200, "error": null},
+  {"source": "aave-eth-address-book", "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol", "retrieved_at_utc": "2026-11-09T15:05:33+00:00", "http_status": 200, "sha256": "4abafab6373cbfff6b4c9b130ebdc28eb8a3dfeb9c4e4494065ffaa580f9ab5f", "note": "POOL/POOL_IMPL/ORACLE 与本轮链上读值一致；DataProvider 地址未解析出"},
+  {"source": "aave-liquidation-rules", "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol", "retrieved_at_utc": "2026-11-09T15:05:40+00:00", "http_status": 200, "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291", "note": "close factor 0.5e4、CLOSE_FACTOR_HF_THRESHOLD 0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD 2000e8（与上一轮同 sha）"}
+ ],
+ "mechanism": "正常清算：真实 HF<1 借款人 → 清算人代还债务（受 close factor/仓位规模上限）→ 按 liquidationBonus 折扣取得抵押（扣协议清算费）→ 正常卖出抵押换回债务资产。清算奖励（bonus bps 4.5%-6%）是账面权利，不是现金利润；必须扣代还本金、协议费、gas 与卖出冲击。本轮核验了 Aave Pool/实现/oracle 与地址书一致、6 个关键储备 LTV/LT/bonus、规则源未变；但抽样借款人 HF 均>1，无可清算候选，净额 null。Morpho/Compound 仅确认代码存在，未读参数。",
+ "observations": [
+  "链：eth_chainId=0x1；head=26,378,119（2026-11-09T15:05:47Z，hash 0xd19bd129…）；固定块 26,378,116；head baseFee=0x18fbb9d4≈419,159,764 wei。",
+  "Aave V3 Ethereum Pool 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2：代理代码 2,400 B；EIP-1967 impl 槽=0x728a138A4823392C2EFA55e028d434F526fE03CF（=官方地址书 POOL_IMPL）。",
+  "ADDRESSES_PROVIDER()=0x2f39d218133afab8f2b819b1066c7e434ad94e9e；provider.getPriceOracle()=0x54586bE62E3c3580375aE3723C145253060Ca0C2（=官方地址书 ORACLE）；getReservesList()=67 个储备。",
+  "oracle getSourceOfAsset：WETH→0x5424384b256154046e9667ddfaaa5e550145215e、USDC→0x3f73f03aa83b2a48ed27e964ed0fdb590332095b、USDT→0x260326c220e469358846b187ee53328303efe19c（未读精度/价格）。",
+  "储备参数（Pool.getConfiguration 位段解码，固定块）：WETH LTV 8100/LT 8400/bonus 10500/dec 18；USDC 0/7800/10450/6；USDT 0/7800/10450/6；wstETH 7900/8200/10600/18；WBTC 8100/8500/10500/8；DAI 0/7700/10500/18。reserveFactor/active/frozen 位段不自洽（reserveFactor 出现 >10000），本轮不采用。",
+  "清算规则源 sha256=5d344687…（与上一轮相同）：DEFAULT_LIQUIDATION_CLOSE_FACTOR=0.5e4、CLOSE_FACTOR_HF_THRESHOLD=0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD=2000e8。",
+  "Borrow 事件窗口 26,373,119→26,378,119（5,000 块，约 16.7h）：919 条；8 个借款人 getUserAccountData（块 26,378,116）：2 个无债务，其余 HF=1.0454015/1.1983461/3.5567458/1.0591059/1.1433538/1.8008661，均>1，无可清算仓位；最接近 1.0454 仅 watch。",
+  "同窗口 LiquidationCall=35 条（市场活跃、有真实清算发生）；本轮只统计与保存 8 条样本（block/tx/collateral/debt/liquidator），未逐笔复盘残仓/注资/并发。",
+  "Morpho Blue 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb 代码 15,623 B；Compound V3 USDC Comet 0xc3d688B66703497DAA19211EEdff47f25384cdc3 代码 1,878 B——仅身份存在，未读 market 参数/borrowers。",
+  "外部请求 32 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [],
+ "net_result": {
+  "value": null,
+  "unit": "debt_asset",
+  "type": "no_candidate_no_realized_net",
+  "realized": false,
+  "unknown_costs": [
+   "储备 reserveFactor/active/frozen 位段（本轮解码不自洽）",
+   "oracle 精度/最新价（未读）",
+   "代还债务本金/利息与原仓位规模",
+   "抵押卖出冲击/容量",
+   "Ethereum gas 与优先费",
+   "融资成本（如涉及）"
+  ]
+ },
+ "capacity": "unknown；本轮无候选仓位；8 个借款人均 HF>1；窗口内 35 笔清算已发生但未逐笔复盘容量",
+ "permissions": "普通清算资格/储备暂停/frozen 状态未完成位段核验；Pool 为 EIP-1967 代理（impl 与地址书一致）",
+ "liabilities": "未执行任何交易、无新增负债、无仓位",
+ "waiting_time": "n/a（无候选清算路径）",
+ "invalidation_conditions": [
+  "出现 HF<1 真实仓位且同块规则可执行（本轮样本无）",
+  "储备参数/奖励/协议费与静态源码不符（参数部分未交叉验证）",
+  "抵押无可兑现卖出通道或冲击吞没奖励",
+  "成本（gas/融资）超过奖励",
+  "把 oracle 价值×奖励当净利（已排除）"
+ ],
+ "evidence_urls": [
+  "https://ethereum-rpc.publicnode.com",
+  "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
+  "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+  "https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+ ],
+ "coverage_gaps": [
+  "储备 reserveFactor/active/frozen 位段解码不自洽，未采用；缺 PoolDataProvider 或官方 ReserveConfiguration 源码逐位复核。",
+  "oracle 精度/最新价未读（只读来源地址）；不能把价格当利润。",
+  "借款样本仅 8 个（窗口 919 条 Borrow），不是全量仓位队列；35 笔 LiquidationCall 未逐笔复盘（残仓/外部注资/并发清算）。",
+  "Morpho Blue 与 Compound V3 仅确认代码存在，未读 market 参数（LLTV/oracle/利率）与 borrowers；不能判断其清算机会。",
+  "30 天参数/实现升级窗口未覆盖；无候选仓位，未做代还→抵押→卖出闭环、无抵押卖出报价、无 gas/L1 成本量化。"
+ ],
+ "next_check": [
+  "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+  "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+  "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+  "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2", "chain": "ETH", "protocol": "Aave V3 Ethereum Pool（代理）", "asset_ids": ["0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"], "evidence_urls": ["https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2", "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol"], "identity_status": "CHAIN_VERIFIED：代理 2,400 B；impl 槽=0x728a138A…=地址书；oracle=0x54586bE6…=地址书；67 储备；6 个关键储备参数已解（reserveFactor 位段未采用）", "next_check": "补参数位段交叉验证；扩窗建借款人 watch；有真实 HF<1 再评估"},
+  {"market_id": "1:morpho-blue:0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb", "chain": "ETH", "protocol": "Morpho Blue", "asset_ids": [], "evidence_urls": ["https://etherscan.io/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"], "identity_status": "CODE_PRESENT_ONLY（15,623 B）；market 参数/borrowers 未读", "next_check": "读 market id/LLTV/oracle/IRM 与 borrowers；与 Aave 分别建模"},
+  {"market_id": "1:compound-v3:0xc3d688b66703497daa19211eedff47f25384cdc3", "chain": "ETH", "protocol": "Compound V3 USDC Comet", "asset_ids": [], "evidence_urls": ["https://etherscan.io/address/0xc3d688B66703497DAA19211EEdff47f25384cdc3"], "identity_status": "CODE_PRESENT_ONLY（1,878 B）；Comet 参数/borrowers 未读", "next_check": "读 Comet 参数与借款人；不套 Aave 公式"}
+ ],
+ "findings": [
+  {"finding_id": "eth-aave-liquidation-bonus-not-realized-profit", "status": "REJECTED", "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+   "mechanism": "Aave 清算奖励是账面折扣权利：真实 HF<1 仓位→按 close factor/规模上限代还→取得抵押（扣协议费）→卖出→扣本金/gas/融资。本轮链上核验 Pool/实现/oracle 与地址书一致，6 个关键储备 LTV=0-8100bps、LT=7700-8500bps、bonus=10450-10600；抽样 8 个借款人 HF=1.045/1.198/3.557/1.059/1.143/1.801 均>1（窗口内 35 笔清算已发生但样本无候选），因此无净利主张；oracle 价值×bonus 不是已实现收益。",
+   "evidence_urls": ["https://ethereum-rpc.publicnode.com", "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"],
+   "net_result": "unknown（无候选；净额 null）", "unknown_costs": ["reserveFactor/active/frozen 位段", "oracle 精度/价格", "代还本金", "抵押卖出冲击", "gas/融资"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["出现 HF<1 真实仓位且规则可执行", "储备参数/奖励与源码不符", "抵押卖出通道失效"]}
+ ],
+ "rejections": [
+  {"claim": "oracle 抵押价值×清算奖励=已实现净利", "reason": "必须扣代还本金、协议清算费、gas、卖出冲击与融资；本轮无候选、无卖出报价。"},
+  {"claim": "旧 HF 或静态参数即可认定可清算", "reason": "必须在同一块读 getUserAccountData；本轮 8 个样本 HF 均>1。"},
+  {"claim": "窗口内 35 笔清算=当前存在可清算候选", "reason": "清算已发生不等于现在仍有 HF<1 仓位；样本内无候选，未逐笔复盘。"},
+  {"claim": "Morpho/Compound 代码存在=其清算机会已核", "reason": "仅确认代码，未读 market 参数与 borrowers。"},
+  {"claim": "储备参数全部已核", "reason": "reserveFactor/active/frozen 位段解码不自洽，本轮不采用；LTV/LT/bonus 未与 PoolDataProvider 交叉验证。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 3,
+  "retrieved_at_utc": "2026-11-09T15:06:39+00:00",
+  "complete_block_range": "身份/储备/借款人/规则：块 26,378,116；Borrow/LiquidationCall 窗口 26,373,119-26,378,119（5,000 块完整覆盖该窗口）；head 26,378,119",
+  "complete_event_time_window": "2026-11-09 约 14:00Z-15:05Z（5,000 块×12s）；30 天规则与 7 天清算复盘未覆盖"
+ }
+}

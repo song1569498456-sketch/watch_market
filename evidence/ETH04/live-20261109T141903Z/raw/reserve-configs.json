@@ -1,0 +1,147 @@
+{
+ "chain": "ETH",
+ "pinned_block": 26378116,
+ "retrieved_at_utc": "2026-11-09T15:06:33.957573+00:00",
+ "configs": [
+  {
+   "symbol": "WETH",
+   "asset": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+   "raw": "0x100000000000000000000107d00002191c00001b9e5005dc8512290420d01fa4",
+   "error": null,
+   "packed": "0x100000000000000000000107d00002191c00001b9e5005dc8512290420d01fa4",
+   "ltv_bps": 8100,
+   "liquidation_threshold_bps": 8400,
+   "liquidation_bonus_bps": 10500,
+   "decimals": 18,
+   "reserve_factor_bps": 56453,
+   "usage_as_collateral": true,
+   "borrowing_enabled": false,
+   "stable_borrow_enabled": true,
+   "is_active": false,
+   "is_frozen": false,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  },
+  {
+   "symbol": "USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "raw": "0x100000000000000000000007d00d09dc3000a3e9ab8003e8850628d21e780000",
+   "error": null,
+   "packed": "0x100000000000000000000007d00d09dc3000a3e9ab8003e8850628d21e780000",
+   "ltv_bps": 0,
+   "liquidation_threshold_bps": 7800,
+   "liquidation_bonus_bps": 10450,
+   "decimals": 6,
+   "reserve_factor_bps": 59525,
+   "usage_as_collateral": true,
+   "borrowing_enabled": true,
+   "stable_borrow_enabled": false,
+   "is_active": false,
+   "is_frozen": false,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  },
+  {
+   "symbol": "USDT",
+   "asset": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+   "raw": "0x100000000000000000000003e80cf6c960009896800003e8850628d21e780000",
+   "error": null,
+   "packed": "0x100000000000000000000003e80cf6c960009896800003e8850628d21e780000",
+   "ltv_bps": 0,
+   "liquidation_threshold_bps": 7800,
+   "liquidation_bonus_bps": 10450,
+   "decimals": 6,
+   "reserve_factor_bps": 59525,
+   "usage_as_collateral": true,
+   "borrowing_enabled": true,
+   "stable_borrow_enabled": false,
+   "is_active": false,
+   "is_frozen": false,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  },
+  {
+   "symbol": "wstETH",
+   "asset": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+   "raw": "0x100000000000000000000107d00000cf850000003a980dac8112296820081edc",
+   "error": null,
+   "packed": "0x100000000000000000000107d00000cf850000003a980dac8112296820081edc",
+   "ltv_bps": 7900,
+   "liquidation_threshold_bps": 8200,
+   "liquidation_bonus_bps": 10600,
+   "decimals": 18,
+   "reserve_factor_bps": 44161,
+   "usage_as_collateral": true,
+   "borrowing_enabled": false,
+   "stable_borrow_enabled": true,
+   "is_active": true,
+   "is_frozen": false,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  },
+  {
+   "symbol": "WBTC",
+   "asset": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+   "raw": "0x100000000000000000000007d000000953800000038413888508290421341fa4",
+   "error": null,
+   "packed": "0x100000000000000000000007d000000953800000038413888508290421341fa4",
+   "ltv_bps": 8100,
+   "liquidation_threshold_bps": 8500,
+   "liquidation_bonus_bps": 10500,
+   "decimals": 8,
+   "reserve_factor_bps": 34949,
+   "usage_as_collateral": true,
+   "borrowing_enabled": true,
+   "stable_borrow_enabled": false,
+   "is_active": false,
+   "is_frozen": true,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  },
+  {
+   "symbol": "DAI",
+   "asset": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+   "raw": "0x100000000000000000000007d0008f0d18000717cbc009c4851229041e140000",
+   "error": null,
+   "packed": "0x100000000000000000000007d0008f0d18000717cbc009c4851229041e140000",
+   "ltv_bps": 0,
+   "liquidation_threshold_bps": 7700,
+   "liquidation_bonus_bps": 10500,
+   "decimals": 18,
+   "reserve_factor_bps": 50309,
+   "usage_as_collateral": true,
+   "borrowing_enabled": false,
+   "stable_borrow_enabled": false,
+   "is_active": true,
+   "is_frozen": false,
+   "borrowable_in_isolation": false,
+   "siloed": false
+  }
+ ],
+ "requests": [
+  {
+   "label": "getConfiguration WETH",
+   "error": null
+  },
+  {
+   "label": "getConfiguration USDC",
+   "error": null
+  },
+  {
+   "label": "getConfiguration USDT",
+   "error": null
+  },
+  {
+   "label": "getConfiguration wstETH",
+   "error": null
+  },
+  {
+   "label": "getConfiguration WBTC",
+   "error": null
+  },
+  {
+   "label": "getConfiguration DAI",
+   "error": null
+  }
+ ]
+}

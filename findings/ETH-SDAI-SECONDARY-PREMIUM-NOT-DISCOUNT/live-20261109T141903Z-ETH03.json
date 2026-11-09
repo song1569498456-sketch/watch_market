@@ -1,0 +1,31 @@
+{
+  "finding_id": "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "protocol": "Savings DAI / Curve",
+  "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA | ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+  "evidence_urls": [
+    "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+  ],
+  "mechanism": "sDAI 固定块 NAV=1.182774 DAI/sDAI（convertToAssets/previewRedeem 与 totalAssets/totalSupply 一致）；Curve sDAI/FRAX 同 pinned 块 get_dy：1 sDAI→1.19296 FRAX、买 1 sDAI≈1.1932 FRAX，按 FRAX≈1 近似为溢价约 +0.86% → 二级买入成本高于可兑现 NAV，不是折价；其他 sDAI 池无可成交深度。",
+  "net_result": null,
+  "unknown_costs": [
+    "FRAX/USD 独立报价",
+    "gas/授权",
+    "sDAI 即时可提现金（pot/vat）",
+    "滑点"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "二级价跌破 NAV 且可成交",
+    "FRAX/USD 显著偏离",
+    "金库实现/权限变化"
+  ],
+  "owner": "ETH03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH03/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,93 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:06:40.091161+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:06:40.974465+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "buy3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:41.540786+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "buyusdt",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:41.892700+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_curve",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:06:42.243738+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "curve_coins_0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:42.606659+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "curve_coins_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:42.959542+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "curve_get_dy_int128",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:43.316136+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "curve_get_dy_uint256",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:06:43.676381+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted",
+   "data": "0x"
+  }
+ }
+]

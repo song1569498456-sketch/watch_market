@@ -1,0 +1,179 @@
+{
+ "started_at_utc": "2026-11-09T15:05:13.102962+00:00",
+ "chain_id": 1,
+ "latest_block": 26378116,
+ "latest_block_time_utc": "2026-11-09T15:05:11+00:00",
+ "pinned_block": 26378111,
+ "morpho_top": [
+  {
+   "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+   "name": "Adpend USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 965699983.6608442
+  },
+  {
+   "address": "0x94643e86aa5E38DDAc6c7791C1297f4E40cD96c1",
+   "name": "1337 USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 515109969.9358236
+  },
+  {
+   "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+   "name": "Steakhouse USDT",
+   "asset": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+   "totalAssetsUsd": 75545841.4657484
+  },
+  {
+   "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+   "name": "Steakhouse USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 66489677.33511742
+  },
+  {
+   "address": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 21510712.05071767
+  }
+ ],
+ "sdai": {
+  "code_bytes": 10925,
+  "asset()": "0x6b175474e89094c44da98b954eedeac495271d0f",
+  "totalAssets()": 161887728131909223847300403,
+  "totalSupply()": 136871204862920015270687896,
+  "convertToAssets(1e18)": 1182774187558616813,
+  "previewRedeem(1e18)": 1182774187558616813,
+  "maxRedeem(dead)": 4799010505457216773,
+  "maxWithdraw(dead)": 5676145751677426589,
+  "symbol": "sDAI",
+  "decimals": 18,
+  "pot": "0x197e90f9fad81970ba7976f33cbd77088e5d7cf7"
+ },
+ "pot_DAI_balance": 0,
+ "morpho_vault": {
+  "code_bytes": 19730,
+  "asset()": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "totalAssets()": 966621761742162,
+  "totalSupply()": 905277920604455960394729,
+  "convertToAssets(1e18)": 827025336,
+  "previewRedeem(1e18)": 827025336,
+  "maxRedeem(dead)": 0,
+  "maxWithdraw(dead)": 0,
+  "symbol": "adpUSDC",
+  "decimals": 18,
+  "name": "Adpend USDC",
+  "withdrawQueueLength": 30
+ },
+ "morpho_vault_idle_asset": {
+  "asset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "vault_asset_balance": 966621761742162
+ },
+ "secondary_pairs": {
+  "sdai": [
+   {
+    "dexId": "curve",
+    "pair": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+    "base": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "baseSymbol": "sDAI",
+    "quote": "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+    "quoteSymbol": "FRAX",
+    "priceNative": "1.2397",
+    "priceUsd": "1.22",
+    "liquidityUsd": 204249.38
+   },
+   {
+    "dexId": "uniswap",
+    "pair": "0xAb8EF77e9Afdf3808Ce9833155511242D9Ba8d76",
+    "base": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "baseSymbol": "sDAI",
+    "quote": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "quoteSymbol": "WETH",
+    "priceNative": "0.0004986",
+    "priceUsd": "1.056",
+    "liquidityUsd": 10.73
+   },
+   {
+    "dexId": "curve",
+    "pair": "0x167478921b907422F8E88B43C4Af2B8BEa278d3A",
+    "base": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "baseSymbol": "sDAI",
+    "quote": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+    "quoteSymbol": "sUSDe",
+    "priceNative": "0.9414",
+    "priceUsd": null,
+    "liquidityUsd": null
+   },
+   {
+    "dexId": "balancer",
+    "pair": "0x3dE1b8854Ec4F1a6E45Fc56b8008AbB14EB103FB",
+    "base": "0x0E573Ce2736Dd9637A0b21058352e1667925C7a8",
+    "baseSymbol": "USDV",
+    "quote": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "quoteSymbol": "sDAI",
+    "priceNative": "0.3445",
+    "priceUsd": null,
+    "liquidityUsd": null
+   },
+   {
+    "dexId": "curve",
+    "pair": "0x3036a3683013C538847e038b2AE574f21Cb4f419",
+    "base": "0xbC404429558292eE2D769E57d57D6E74bbd2792d",
+    "baseSymbol": "sUSX",
+    "quote": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "quoteSymbol": "sDAI",
+    "priceNative": "0.3352",
+    "priceUsd": null,
+    "liquidityUsd": null
+   }
+  ],
+  "morpho": []
+ },
+ "finished_at_utc": "2026-11-09T15:05:18.441318+00:00",
+ "requests": [
+  {
+   "name": "chain_identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:14.171201+00:00",
+   "n_calls": 3,
+   "bytes": 18537,
+   "sha256": "d49cb5fac8f4a127760ff4fb7d15e46e9899b79b1cfa772d11ad9afd02423b29",
+   "elapsed_s": 1.068
+  },
+  {
+   "name": "morpho_vaults",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:15.445406+00:00",
+   "bytes": 1125,
+   "sha256": "89e9ee50363dab2811373f9aba359b5da623024da8eb69a8cb88e904145feee3",
+   "elapsed_s": 0.974
+  },
+  {
+   "name": "vault_reads",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:16.194938+00:00",
+   "n_calls": 24,
+   "bytes": 63925,
+   "sha256": "d5b122ff98b218a9546a8d8fade78df96676e6e6257a0a2916dbcd203eae7400",
+   "elapsed_s": 0.448
+  },
+  {
+   "name": "dexscreener_sdai",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:17.447238+00:00",
+   "bytes": 16861,
+   "sha256": "2d486a5ca7bb05624cccdc65fc6435299ab65b4894a15362e7a84e31b0e48685",
+   "elapsed_s": 0.951
+  },
+  {
+   "name": "dexscreener_morpho",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:18.140764+00:00",
+   "bytes": 38,
+   "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d",
+   "elapsed_s": 0.392
+  }
+ ],
+ "request_count": 5
+}

@@ -1,0 +1,32 @@
+{
+  "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+  "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "上轮静态规则（持 LUSD 的 msg.sender 可 redeem，不要求自有 Trove）本轮链上核验：TCR=624.56%>MCR=110%，baseRate≈0.0001%，redemptionRate=0.5000017%（≈0.5% 下限），ActivePool 70,032.55 ETH；1000 LUSD 协议赎回净得 0.467978872764284033 ETH≈$994.19–994.98。但市场端 LUSD 溢价：Curve BOLD/LUSD 池 1000 LUSD→1026.06 BOLD（≈1.0275 USD/LUSD），1000 BOLD→973.24 LUSD；买入 1000 LUSD 约需 1027.49 BOLD → 净 −$27 至 −$33（−2.7%～−3.2%），未计 gas。当前不存在“买折价 LUSD→协议兑付获利”的闭环。",
+  "evidence_urls": [
+    "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+    "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
+  ],
+  "net_result": "−$27 至 −$33 / 1000 LUSD（条件性估算，未执行；未计 gas；BOLD≈$1 假设）",
+  "unknown_costs": [
+    "LUSD 实际买入成交",
+    "BOLD/USD 独立汇率",
+    "赎回部分取消",
+    "Ethereum gas",
+    "价格移动"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "LUSD 转为折价 <$0.99498",
+    "赎回费率/系统参数变化",
+    "DEX 深度或 BOLD 汇率变化"
+  ],
+  "owner": "ETH02",
+  "source_record": "evidence/ETH02/live-20261109T141903Z/record.json"
+}

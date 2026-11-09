@@ -1,0 +1,63 @@
+{
+ "started_at_utc": "2026-11-09T15:06:40.091148+00:00",
+ "head_block": 26378123,
+ "head_block_time_utc": "2026-11-09T15:06:35+00:00",
+ "pinned_block": 26378121,
+ "buy_quotes": [
+  {
+   "label": "buy_1000USDC_to_LUSD_fee3000",
+   "block": 26378121,
+   "amount_in": "1000000000",
+   "fee": 3000,
+   "amount_out": "22591187885940002",
+   "error": null,
+   "gasEstimate": "706602",
+   "ticksCrossed": 1
+  },
+  {
+   "label": "buy_1000USDT_to_LUSD_fee500",
+   "block": 26378121,
+   "amount_in": "1000000000",
+   "fee": 500,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  }
+ ],
+ "curve_pool": {
+  "pool": "0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b",
+  "code_bytes": 23635,
+  "code_sha256": "07f84333e9c48bcc4a2c6ff5ed2211cbb4d9dc175f21f513b83f0e1e73279479",
+  "coins": {
+   "0": {
+    "raw": "0x0000000000000000000000006440f144b7e50d6a8439336510312d2f54beb01d",
+    "address": "0x6440f144b7e50d6a8439336510312d2f54beb01d",
+    "error": null
+   },
+   "1": {
+    "raw": "0x0000000000000000000000005f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "address": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "error": null
+   }
+  },
+  "curve_get_dy_int128": {
+   "raw": "0x000000000000000000000000000000000000000000000034c27af7eaddcd9b5a",
+   "uint": "973244477611529050970",
+   "error": null
+  },
+  "curve_get_dy_uint256": {
+   "raw": null,
+   "uint": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  }
+ },
+ "finished_at_utc": "2026-11-09T15:06:44.026522+00:00",
+ "request_count_this_script": 9
+}

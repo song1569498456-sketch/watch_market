@@ -1,0 +1,97 @@
+{
+ "at_utc": "2026-11-09T15:05:43.815757+00:00",
+ "pinned_block": 26378111,
+ "pool": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+ "req": {
+  "http_status": 200,
+  "sha256": "c7093d501d1eeab812a70cceedeb81f3ebffa48dfae605e96b24ab6767f36d40",
+  "elapsed_s": 1.051
+ },
+ "pool_code_bytes": 23635,
+ "coins": [
+  "0x853d955acef822db058eb8505911ed77f175b99e",
+  "0x83f20f44975d03b1b09e64809b757c47f942beea"
+ ],
+ "balances": [
+  "185163598695821775785144",
+  "16837196663923783670398"
+ ],
+ "fee": 1000000,
+ "A": 1500,
+ "get_dy_0_to_1_1e18": "838085532540897466",
+ "get_dy_1_to_0_1e18": "1192955870592096815",
+ "req2": {
+  "http_status": 200,
+  "sha256": "f24b96cb2e30a1ddcd50eac38c3fd25ebeff88eeaa736c27171aa0c2253793f7",
+  "elapsed_s": 0.382
+ },
+ "coin_meta": {
+  "0x853d955acef822db058eb8505911ed77f175b99e": {
+   "symbol": "FRAX",
+   "decimals": 18
+  },
+  "0x83f20f44975d03b1b09e64809b757c47f942beea": {
+   "symbol": "sDAI",
+   "decimals": 18
+  }
+ },
+ "requests": [
+  {
+   "name": "chain_identity",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:14.171201+00:00",
+   "n_calls": 3,
+   "bytes": 18537,
+   "sha256": "d49cb5fac8f4a127760ff4fb7d15e46e9899b79b1cfa772d11ad9afd02423b29",
+   "elapsed_s": 1.068
+  },
+  {
+   "name": "morpho_vaults",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:15.445406+00:00",
+   "bytes": 1125,
+   "sha256": "89e9ee50363dab2811373f9aba359b5da623024da8eb69a8cb88e904145feee3",
+   "elapsed_s": 0.974
+  },
+  {
+   "name": "vault_reads",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:16.194938+00:00",
+   "n_calls": 24,
+   "bytes": 63925,
+   "sha256": "d5b122ff98b218a9546a8d8fade78df96676e6e6257a0a2916dbcd203eae7400",
+   "elapsed_s": 0.448
+  },
+  {
+   "name": "dexscreener_sdai",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:17.447238+00:00",
+   "bytes": 16861,
+   "sha256": "2d486a5ca7bb05624cccdc65fc6435299ab65b4894a15362e7a84e31b0e48685",
+   "elapsed_s": 0.951
+  },
+  {
+   "name": "dexscreener_morpho",
+   "url": "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+   "http_status": 200,
+   "at": "2026-11-09T15:05:18.140764+00:00",
+   "bytes": 38,
+   "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d",
+   "elapsed_s": 0.392
+  },
+  {
+   "name": "curve_pool",
+   "http_status": 200,
+   "sha256": "c7093d501d1eeab812a70cceedeb81f3ebffa48dfae605e96b24ab6767f36d40",
+   "elapsed_s": 1.051
+  },
+  {
+   "name": "curve_pool_tokens",
+   "http_status": 200,
+   "sha256": "f24b96cb2e30a1ddcd50eac38c3fd25ebeff88eeaa736c27171aa0c2253793f7",
+   "elapsed_s": 0.382
+  }
+ ],
+ "request_count": 7
+}

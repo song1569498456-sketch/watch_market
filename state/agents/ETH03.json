@@ -2,15 +2,60 @@
   "agent_id": "ETH03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:05:44+00:00",
   "observed_cursor": {
-    "deployment_commit_document": "665879762f8b5df5d234463f45d1d6a49bd4fbeb",
-    "vault_document_address": "0x83f20f44975d03b1b09e64809b757c47f942beea",
-    "current_block": null,
-    "actual_secondary_pools_read": 0,
-    "redeems_simulated": 0,
-    "transactions_analyzed": 0,
+    "kind": "same_block_vault_state_plus_curve_quote",
+    "run_id": "live-20261109T141903Z",
+    "chain": "ethereum-mainnet",
+    "chain_id": 1,
+    "latest_block": 26378116,
+    "pinned_block": 26378111,
+    "latest_block_time_utc": "2026-11-09T15:05:11+00:00",
+    "sdai": {
+      "address": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "code_bytes": 10925,
+      "totalAssets": "161887728131909223847300403",
+      "totalSupply": "136871204862920015270687896",
+      "convertToAssets_1e18": "1182774187558616813",
+      "previewRedeem_1e18": "1182774187558616813",
+      "dai_per_sdai": 1.1827741875586169,
+      "maxRedeem_dead": "4799010505457216773",
+      "maxWithdraw_dead": "5676145751677426589",
+      "pot": "0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7",
+      "pot_DAI_balance": 0
+    },
+    "morpho_top_vault": {
+      "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "name": "Adpend USDC",
+      "code_bytes": 19730,
+      "asset": "USDC 0xA0b86991…",
+      "symbol": "adpUSDC",
+      "totalAssets": "966621761742162",
+      "totalSupply": "905277920604455960394729",
+      "convertToAssets_1e18": "827025336",
+      "withdrawQueueLength": 30,
+      "maxRedeem_dead": 0,
+      "maxWithdraw_dead": 0,
+      "share_price_arithmetic_flag": "totalAssets/totalSupply≈1067.7 vs convertToAssets 827.03 不一致，待复核"
+    },
+    "secondary": {
+      "sdai_curve_pool": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "coins": [
+        "FRAX",
+        "sDAI"
+      ],
+      "A": 1500,
+      "fee": 1000000,
+      "get_dy_FRAX_to_sDAI_1e18": "838085532540897466",
+      "get_dy_sDAI_to_FRAX_1e18": "1192955870592096815",
+      "buy_1_sdai_cost_frax": 1.1932,
+      "nav_dai_per_sdai": 1.1827741875586169,
+      "implied_premium_bps_approx": 86,
+      "morpho_secondary_pairs": 0
+    },
+    "result": "REJECTED：sDAI 二级为溢价非折价；头部 Morpho 金库无二级市场",
+    "quotes_count": 2,
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -30,28 +75,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
-    "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
-    "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
-    "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+    "链身份：eth_chainId=0x1（1），最新块 26,378,116（2026-11-09T15:05:11Z），读取钉 pinned 块 26,378,111。",
+    "sDAI 0x83F20F44…（代码 10,925B，ERC4626/SavingsDai）：totalAssets 161,887,728.131909… DAI、totalSupply 136,871,204.862920…；convertToAssets(1e18)=previewRedeem(1e18)=1.1827741875586168 DAI/sDAI，与 totalAssets/totalSupply 一致；maxRedeem/maxWithdraw(0x…dEaD) 自洽（该地址持有约4.799 sDAI）；pot 的 ERC20 DAI 余额 0 属 Maker 内部会计，未当可提现金。",
+    "Morpho Adpend USDC 0x55555815…（$965.7M，代码 19,730B，withdrawQueueLength=30）：读得 totalAssets/convertToAssets，但 share 价与 totalAssets/totalSupply 反推不一致（827.03 vs 1067.7），记异常/缺口，不据此下折价结论。",
+    "二级市场：sDAI 的 Curve sDAI/FRAX 池 0xcE6431D2…（A=1500、fee≈0.01%，balances FRAX 185,163.6/sDAI 16,837.2）：get_dy(FRAX→sDAI,1e18)=0.8380855325、get_dy(sDAI→FRAX,1e18)=1.1929558706 → 买 1 sDAI≈1.1932 FRAX，对比 NAV 1.18277 DAI（FRAX≈1 近似）溢价约 +0.86%；非折价。",
+    "Morpho 头部金库 Adpend USDC：DexScreener 返回 0 个 Ethereum 二级交易对 → 无买入折价份额入口。",
+    "结论 REJECTED：sDAI 二级溢价、Morpho 头部金库无二级市场，无可执行二级折价→赎回路径。",
+    "缺口：Morpho share 价异常待复核；sDAI pot/vat 现金未读/未做 redeem 模拟；二级市场覆盖有限；FRAX/USD 未独立报价；30 天/7 天窗口未覆盖。"
   ],
   "pending_questions": [
-    "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
-    "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
-    "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
-    "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
-    "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+    "Morpho 金库 share 价读取异常（827.03 vs 1067.7 USDC/份额）需核对 ABI/实现/小数偏移，并对至少 1 个 Morpho 金库取 1 份额赎回只读证据。",
+    "sDAI 即时可提现金未证明：pot 的 ERC20 DAI 余额 0 属 Maker 内部会计；未读 vat/daiJoin 现金或做 redeem 只读模拟。",
+    "二级市场只覆盖 sDAI Curve sDAI/FRAX 与 1 个 Morpho 金库；未扫其他 Morpho/Yearn 金库的 Uniswap V3/Curve/Balancer 池。",
+    "FRAX/USD 未独立报价，sDAI 溢价按 FRAX≈1 近似；gas/滑点/授权未计。",
+    "30 天规则窗口（升级/策略损失/curator 费）与 7 天活动窗口（真实赎回/二级成交）未覆盖。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:47:03.965320+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "verified_at": "2026-11-08T15:47:35.918126+00:00",
-    "record": "evidence/ETH03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:13:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ETH03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ETH03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

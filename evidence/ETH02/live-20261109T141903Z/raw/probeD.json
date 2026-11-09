@@ -1,0 +1,29 @@
+{
+ "started_at_utc": "2026-11-09T15:07:05.537582+00:00",
+ "head_block": 26378125,
+ "head_block_time_utc": "2026-11-09T15:06:59+00:00",
+ "pinned_block": 26378123,
+ "curve_coin0": {
+  "address": "0x6440f144b7e50d6a8439336510312d2f54beb01d",
+  "symbol": "BOLD",
+  "symbol_error": null,
+  "name": "BOLD Stablecoin",
+  "name_error": null,
+  "decimals": 18,
+  "decimals_error": null
+ },
+ "curve_get_dy": {
+  "coin0_to_LUSD_1000": {
+   "raw": "0x000000000000000000000000000000000000000000000034c27af7eaddcd9b5a",
+   "uint": "973244477611529050970",
+   "error": null
+  },
+  "LUSD_to_coin0_1000": {
+   "raw": "0x0000000000000000000000000000000000000000000000379f752ed75f899547",
+   "uint": "1026061065580886725959",
+   "error": null
+  }
+ },
+ "finished_at_utc": "2026-11-09T15:07:09.221528+00:00",
+ "request_count_this_script": 7
+}

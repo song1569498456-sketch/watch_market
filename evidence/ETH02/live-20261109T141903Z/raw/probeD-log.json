@@ -1,0 +1,65 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:07:05.537596+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:07:06.508485+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "coin0_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:07:07.085743+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "coin0_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:07:07.449985+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "coin0_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:07:07.811813+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "coin0_to_LUSD_1000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:07:08.194494+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "LUSD_to_coin0_1000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:07:08.854434+00:00",
+  "http_status": 200
+ }
+]

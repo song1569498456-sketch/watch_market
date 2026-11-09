@@ -1,0 +1,635 @@
+{
+ "agent_id": "ETH04",
+ "chain": "ETH",
+ "rpc": "https://ethereum-rpc.publicnode.com",
+ "started_at_utc": "2026-11-09T15:05:57.943295+00:00",
+ "observations": {
+  "chain_id": "0x1",
+  "head_block_number": 26378119,
+  "head_block": {
+   "number": "0x1927f87",
+   "hash": "0xd19bd129209307f7849672fa6a861b1ef9d6d456edfa269f5203a8814d9bd173",
+   "timestamp": "0x6af1e14b",
+   "baseFeePerGas": "0x18fbb9d4",
+   "timestamp_utc": "2026-11-09T15:05:47+00:00"
+  },
+  "pinned_block": 26378116,
+  "address_book": {
+   "http_status": 200,
+   "sha256": "4abafab6373cbfff6b4c9b130ebdc28eb8a3dfeb9c4e4494065ffaa580f9ab5f",
+   "bytes": 81310,
+   "pool_present": true,
+   "impl_present": true,
+   "data_provider": null,
+   "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+   "protocol_data_provider_lines": [
+    "IPoolDataProvider internal constant AAVE_PROTOCOL_DATA_PROVIDER =",
+    "address internal constant UI_INCENTIVE_DATA_PROVIDER = 0xe3dFf4052F0bF6134ACb73bEaE8fe2317d71F047;",
+    "address internal constant UI_POOL_DATA_PROVIDER = 0x2dAd8162A989cd99D673dE4425Bb2298Db1E1aA2;"
+   ]
+  },
+  "liquidation_rule_source": {
+   "http_status": 200,
+   "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291",
+   "bytes": 29642,
+   "close_factor": "uint256 internal constant DEFAULT_LIQUIDATION_CLOSE_FACTOR = 0.5e4;",
+   "hf_threshold": "uint256 public constant CLOSE_FACTOR_HF_THRESHOLD = 0.95e18;",
+   "min_base": "uint256 public constant MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD = 2000e8;"
+  },
+  "aave_identity": {
+   "pool_proxy": {
+    "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+    "bytecode_bytes": 2400,
+    "code_keccak256": "0x96107dc4006b4c7fecd1827cfb275ffeef31e6194cd50466f85f8eb24ccf2679"
+   },
+   "book_impl": {
+    "address": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+    "bytecode_bytes": 21146,
+    "code_keccak256": "0x530cdbba5eb9487cd5d041bb74b7a1936ad3230bf9e361893ecd025373c7fbe5"
+   },
+   "pool_impl_slot": {
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x000000000000000000000000728a138a4823392c2efa55e028d434f526fe03cf",
+    "error": null
+   }
+  },
+  "reserves": {
+   "count": 67,
+   "assets": [
+    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+    "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "0x6b175474e89094c44da98b954eedeac495271d0f",
+    "0x514910771af9ca656af840dff83e8264ecf986ca",
+    "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+    "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "0xae78736cd615f374d3085123a210448e74fc6393",
+    "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "0xd533a949740bb3306d119cc777fa900ba034cd52",
+    "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+    "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+    "0xba100000625a3754423978a60c9317c58a424e3d",
+    "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+    "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+    "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+    "0x111111111117dc0aa78b770fa6a738034120c302",
+    "0x853d955acef822db058eb8505911ed77f175b99e",
+    "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+    "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+    "0x83f20f44975d03b1b09e64809b757c47f942beea",
+    "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6",
+    "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202",
+    "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+    "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e",
+    "0x6c3ea9036406852006290770bedfcaba0e23a0e8",
+    "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+    "0xf1c9acdc66974dfb6decb12aa385b9cd01190e38",
+    "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+    "0xa35b1b31ce002fbf2058d22f30f95d405200a15b",
+    "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+    "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+    "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+    "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+    "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7",
+    "0x8236a87084f8b84306f72007f36f2618a5634494",
+    "0x657e8c867d8b37dcc18fa4caead9c45eb088c642",
+    "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    "0x50d2c7992b802eef16c04feadab310f31866a545",
+    "0x3b3fb9c57858ef816833dc91565efcd85d96f634",
+    "0xc139190f447e929f090edeb554d95abb8b18ac1c",
+    "0x917459337caac939d41d7493b3999f571d20d667",
+    "0x14bdc3a3ae09f5518b923b69489cbcafb238e617",
+    "0x90d2af7d622ca3141efa4d8f1f24d86e5974cc8f",
+    "0xc96de26018a54d51c097160568752c4e3bd6c364",
+    "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+    "0x9f56094c450763769ba0ea9fe2876070c0fd5f77",
+    "0xbc6736d346a5ebc0debc997397912cd9b8fae10a",
+    "0xd11c452fc99cf405034ee446803b6f6c1f6d5ed8",
+    "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+    "0x68749665ff8d2d112fa859aa293f07a622782f38",
+    "0xe6a934089bbee34f832060ce98848359883749b3",
+    "0x62c6e813b9589c3631ba0cdb013acdb8544038b7",
+    "0x1f84a51296691320478c98b8d77f2bbd17d34350",
+    "0xe8483517077afa11a9b07f849cee2552f040d7b2",
+    "0xaca92e438df0b2401ff60da7e4337b687a2435da",
+    "0x356b8d89c1e1239cbbb9de4815c39a1474d5ba7d",
+    "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+    "0xaebf0bb9f57e89260d57f31af34eb58657d96ce0",
+    "0x3de0ff76e8b528c092d47b9dac775931cef80f49",
+    "0x9bf45ab47747f4b4dd09b3c2c73953484b4eb375",
+    "0xb0f70c0bd6fd87dbeb7c10dc692a2a6106817072",
+    "0x619d75e3b790ebc21c289f2805bb7177a7d732e2",
+    "0x9db38d74a0d29380899ad354121dfb521adb0548",
+    "0x59bc9fae5d62b19d4f8d07d758047acb9ee19d34"
+   ]
+  },
+  "pool_addresses_provider": {
+   "raw": "0x0000000000000000000000002f39d218133afab8f2b819b1066c7e434ad94e9e",
+   "decoded": [
+    "0x2f39d218133afab8f2b819b1066c7e434ad94e9e"
+   ],
+   "error": null
+  },
+  "provider_getPriceOracle": {
+   "raw": "0x00000000000000000000000054586be62e3c3580375ae3723c145253060ca0c2",
+   "decoded": [
+    "0x54586be62e3c3580375ae3723c145253060ca0c2"
+   ],
+   "error": null
+  },
+  "oracle_sources": {
+   "WETH": {
+    "raw": "0x0000000000000000000000005424384b256154046e9667ddfaaa5e550145215e",
+    "decoded": [
+     "0x5424384b256154046e9667ddfaaa5e550145215e"
+    ],
+    "error": null
+   },
+   "USDC": {
+    "raw": "0x0000000000000000000000003f73f03aa83b2a48ed27e964ed0fdb590332095b",
+    "decoded": [
+     "0x3f73f03aa83b2a48ed27e964ed0fdb590332095b"
+    ],
+    "error": null
+   },
+   "USDT": {
+    "raw": "0x000000000000000000000000260326c220e469358846b187ee53328303efe19c",
+    "decoded": [
+     "0x260326c220e469358846b187ee53328303efe19c"
+    ],
+    "error": null
+   }
+  },
+  "reserve_configs": [
+   {
+    "symbol": "WETH",
+    "asset": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "dp_raw": null,
+    "dp_error": null
+   },
+   {
+    "symbol": "USDC",
+    "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "dp_raw": null,
+    "dp_error": null
+   },
+   {
+    "symbol": "USDT",
+    "asset": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "dp_raw": null,
+    "dp_error": null
+   },
+   {
+    "symbol": "wstETH",
+    "asset": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "dp_raw": null,
+    "dp_error": null
+   },
+   {
+    "symbol": "WBTC",
+    "asset": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "dp_raw": null,
+    "dp_error": null
+   },
+   {
+    "symbol": "DAI",
+    "asset": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "dp_raw": null,
+    "dp_error": null
+   }
+  ],
+  "borrow_window": {
+   "from": 26373119,
+   "to": 26378119,
+   "blocks": 5000,
+   "count": 919
+  },
+  "borrower_accounts": [
+   {
+    "borrower": "0x76f30e3f75437fb862b8d2c4d80a671bceba5b1a",
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "error": null,
+    "collateral_base_8dec": 0,
+    "debt_base_8dec": 0,
+    "available_borrows_base_8dec": 0,
+    "current_lt_bps": 0,
+    "ltv_bps": 0,
+    "hf_1e18": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+   },
+   {
+    "borrower": "0x0cc376a26544d8787f9c4552cb82b453610b6fe8",
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "error": null,
+    "collateral_base_8dec": 0,
+    "debt_base_8dec": 0,
+    "available_borrows_base_8dec": 0,
+    "current_lt_bps": 0,
+    "ltv_bps": 0,
+    "hf_1e18": 115792089237316195423570985008687907853269984665640564039457584007913129639935
+   },
+   {
+    "borrower": "0x3c0b05027ddeb16cfa158f3f29802e31df14fffd",
+    "raw": "0x00000000000000000000000000000000000000000000000000000017bd31a3ed00000000000000000000000000000000000000000000000000000013132408f8000000000000000000000000000000000000000000000000000000002762e4c500000000000000000000000000000000000000000000000000000000000020d00000000000000000000000000000000000000000000000000000000000001fa40000000000000000000000000000000000000000000000000e820329e7d9b59a",
+    "error": null,
+    "collateral_base_8dec": 101958394861,
+    "debt_base_8dec": 81925507320,
+    "available_borrows_base_8dec": 660792517,
+    "current_lt_bps": 8400,
+    "ltv_bps": 8100,
+    "hf_1e18": 1045401542021723546,
+    "hf_float": 1.0454015420217235,
+    "liquidatable": false
+   },
+   {
+    "borrower": "0xeaf206ba47519ecdd89cddaa27d145b46a1b3b06",
+    "raw": "0x00000000000000000000000000000000000000000000000000004b70b13fb858000000000000000000000000000000000000000000000000000034e18ae8280800000000000000000000000000000000000000000000000000000839bcfc18ce00000000000000000000000000000000000000000000000000000000000020d00000000000000000000000000000000000000000000000000000000000001fa400000000000000000000000000000000000000000000000010a1617175b9ae07",
+    "error": null,
+    "collateral_base_8dec": 82947382163544,
+    "debt_base_8dec": 58143302756360,
+    "available_borrows_base_8dec": 9044076796110,
+    "current_lt_bps": 8400,
+    "ltv_bps": 8100,
+    "hf_1e18": 1198346115791564295,
+    "hf_float": 1.1983461157915642,
+    "liquidatable": false
+   },
+   {
+    "borrower": "0xfbc36e4417114c2138db506ccf4ed95067bf962c",
+    "raw": "0x0000000000000000000000000000000000000000000000000000419615a1651400000000000000000000000000000000000000000000000000000fa223e0e6d800000000000000000000000000000000000000000000000000002564a4a6526e000000000000000000000000000000000000000000000000000000000000211d0000000000000000000000000000000000000000000000000000000000001f95000000000000000000000000000000000000000000000000315c1978ae5aaedd",
+    "error": null,
+    "collateral_base_8dec": 72112863798548,
+    "debt_base_8dec": 17189061060312,
+    "available_borrows_base_8dec": 41114189320814,
+    "current_lt_bps": 8477,
+    "ltv_bps": 8085,
+    "hf_1e18": 3556745811827797725,
+    "hf_float": 3.5567458118277977,
+    "liquidatable": false
+   },
+   {
+    "borrower": "0xb8a451107a9f87fde481d4d686247d6e43ed715e",
+    "raw": "0x000000000000000000000000000000000000000000000000000bd9cae083bbda000000000000000000000000000000000000000000000000000aa142a5d863db0000000000000000000000000000000000000000000000000000642aaaf40ad8000000000000000000000000000000000000000000000000000000000000251c00000000000000000000000000000000000000000000000000000000000024540000000000000000000000000000000000000000000000000eb2b3329b193315",
+    "error": null,
+    "collateral_base_8dec": 3335690117168090,
+    "debt_base_8dec": 2992057389442011,
+    "available_borrows_base_8dec": 110134419524312,
+    "current_lt_bps": 9500,
+    "ltv_bps": 9300,
+    "hf_1e18": 1059105892317344533,
+    "hf_float": 1.0591058923173444,
+    "liquidatable": false
+   },
+   {
+    "borrower": "0xa189fea7d8be09e7a644d0e5ca19c548524894d7",
+    "raw": "0x0000000000000000000000000000000000000000000000000001699d33a0cdb8000000000000000000000000000000000000000000000000000101c441eb22af00000000000000000000000000000000000000000000000000001903fc78803c0000000000000000000000000000000000000000000000000000000000001fd60000000000000000000000000000000000000000000000000000000000001e8c0000000000000000000000000000000000000000000000000fde023f73b711df",
+    "error": null,
+    "collateral_base_8dec": 397598873669048,
+    "debt_base_8dec": 283417407857327,
+    "available_borrows_base_8dec": 27504911351868,
+    "current_lt_bps": 8150,
+    "ltv_bps": 7820,
+    "hf_1e18": 1143353826946257375,
+    "hf_float": 1.1433538269462573,
+    "liquidatable": false
+   },
+   {
+    "borrower": "0x7ac1f09a44779c4b7f0a8df30a7c4aa1b5df329f",
+    "raw": "0x00000000000000000000000000000000000000000000000000000df8c7ee5ada0000000000000000000000000000000000000000000000000000065ca3871ac1000000000000000000000000000000000000000000000000000004ad04a8655600000000000000000000000000000000000000000000000000000000000020080000000000000000000000000000000000000000000000000000000000001edc00000000000000000000000000000000000000000000000018fdf6324be0a660",
+    "error": null,
+    "collateral_base_8dec": 15362157337306,
+    "debt_base_8dec": 6994950298305,
+    "available_borrows_base_8dec": 5141153998166,
+    "current_lt_bps": 8200,
+    "ltv_bps": 7900,
+    "hf_1e18": 1800866121899877984,
+    "hf_float": 1.8008661218998778,
+    "liquidatable": false
+   }
+  ],
+  "borrowers_scanned": 505,
+  "liquidation_calls": {
+   "count": 35,
+   "error": null,
+   "logs": [
+    {
+     "block": 26374800,
+     "tx": "0x2a56ac01a71d243c3a3178afbb61c8489727025aec9f69dcccf8965ed65bba97",
+     "collateral": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+     "debt": "0xc139190f447e929f090edeb554d95abb8b18ac1c",
+     "user": "0xde640ee016b512479766400fe2b2eca2293871c3",
+     "debt_raw": "971217809682587264",
+     "collateral_raw": "380462087709264",
+     "liquidator": "0x0cab9af0ecfc663e55bb850089ebf6af1bbf46de",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+     "debt": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+     "user": "0x552b42287c4fe1e913ea9a159b69bd7e9b81ec76",
+     "debt_raw": "71291586741",
+     "collateral_raw": "31884161917179858382",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xae78736cd615f374d3085123a210448e74fc6393",
+     "debt": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+     "user": "0x99a81892d39fe2d2e0234f91d14dc20e194c109f",
+     "debt_raw": "2304212753320000000000",
+     "collateral_raw": "1001366365652402229",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "debt": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "user": "0x37ac724bcaa3927882c252539959f9b52c73953c",
+     "debt_raw": "2544961",
+     "collateral_raw": "1264922960666100",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "debt": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "user": "0x37469a13baa13900d49d4779d51ac3a274ffcde7",
+     "debt_raw": "11750",
+     "collateral_raw": "5840107093124",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "debt": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "user": "0x11cf5a94ff32bf92bc4b154f0753e6db511c9ed3",
+     "debt_raw": "8055",
+     "collateral_raw": "4003579798732",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "debt": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "user": "0x9a6888ab865619d20722ef8cc91c86706ca4ebf0",
+     "debt_raw": "6843",
+     "collateral_raw": "3401178964957",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    },
+    {
+     "block": 26375761,
+     "tx": "0xe549e852acd2e900f6e32dcbf5aec721dc53ba517fe879868b913c377ca93be4",
+     "collateral": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+     "debt": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "user": "0x8cb9b79728fcd358b7f0cb0dbf861718435f61ec",
+     "debt_raw": "3409",
+     "collateral_raw": "1694376602591",
+     "liquidator": "0xe399ba00de4ea0d1c8ea065cdb1543739e2f7158",
+     "receiveAToken": false
+    }
+   ]
+  },
+  "other_protocols": {
+   "morpho_blue": {
+    "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+    "bytecode_bytes": 15623,
+    "code_keccak256": "0xfa259fa317198f88f5fa3c119f06c066295dbcd47d715e0a30e1bcf94c02ef8c"
+   },
+   "compound_v3_usdc_comet": {
+    "address": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+    "bytecode_bytes": 1878,
+    "code_keccak256": "0x64952234eab8f3aed74355c49119f627965640b1efeb6b28430b5a31b0d3b192"
+   }
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.908,
+   "retrieved_at_utc": "2026-11-09T15:05:58.851513+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T15:05:59.557134+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.451,
+   "retrieved_at_utc": "2026-11-09T15:06:00.359562+00:00"
+  },
+  {
+   "label": "aave-eth-addressbook",
+   "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.058,
+   "retrieved_at_utc": "2026-11-09T15:06:01.768533+00:00",
+   "bytes": 81310,
+   "sha256": "4abafab6373cbfff6b4c9b130ebdc28eb8a3dfeb9c4e4494065ffaa580f9ab5f"
+  },
+  {
+   "label": "liquidation-logic",
+   "url": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T15:06:02.519463+00:00",
+   "bytes": 29642,
+   "sha256": "5d344687e00ec2ced5d92e455bc2f8dd16af4ae547eea48ee8a3e840113ac291"
+  },
+  {
+   "label": "getCode pool",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.371,
+   "retrieved_at_utc": "2026-11-09T15:06:03.241495+00:00"
+  },
+  {
+   "label": "getCode book impl",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.376,
+   "retrieved_at_utc": "2026-11-09T15:06:03.967648+00:00"
+  },
+  {
+   "label": "pool impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T15:06:04.680693+00:00"
+  },
+  {
+   "label": "getReservesList",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.343,
+   "retrieved_at_utc": "2026-11-09T15:06:05.374511+00:00"
+  },
+  {
+   "label": "pool ADDRESSES_PROVIDER",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.354,
+   "retrieved_at_utc": "2026-11-09T15:06:06.080334+00:00"
+  },
+  {
+   "label": "provider getPriceOracle",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.36,
+   "retrieved_at_utc": "2026-11-09T15:06:06.791460+00:00"
+  },
+  {
+   "label": "oracle source WETH",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T15:06:07.502763+00:00"
+  },
+  {
+   "label": "oracle source USDC",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.365,
+   "retrieved_at_utc": "2026-11-09T15:06:08.218518+00:00"
+  },
+  {
+   "label": "oracle source USDT",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.354,
+   "retrieved_at_utc": "2026-11-09T15:06:08.923089+00:00"
+  },
+  {
+   "label": "borrow 5000",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.692,
+   "retrieved_at_utc": "2026-11-09T15:06:09.965867+00:00"
+  },
+  {
+   "label": "acct 0x76f30e3f",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T15:06:10.748839+00:00"
+  },
+  {
+   "label": "acct 0x0cc376a2",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.381,
+   "retrieved_at_utc": "2026-11-09T15:06:11.480267+00:00"
+  },
+  {
+   "label": "acct 0x3c0b0502",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.351,
+   "retrieved_at_utc": "2026-11-09T15:06:12.182203+00:00"
+  },
+  {
+   "label": "acct 0xeaf206ba",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T15:06:12.890439+00:00"
+  },
+  {
+   "label": "acct 0xfbc36e44",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.412,
+   "retrieved_at_utc": "2026-11-09T15:06:13.653178+00:00"
+  },
+  {
+   "label": "acct 0xb8a45110",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.363,
+   "retrieved_at_utc": "2026-11-09T15:06:14.367365+00:00"
+  },
+  {
+   "label": "acct 0xa189fea7",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.372,
+   "retrieved_at_utc": "2026-11-09T15:06:15.090104+00:00"
+  },
+  {
+   "label": "acct 0x7ac1f09a",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.351,
+   "retrieved_at_utc": "2026-11-09T15:06:15.791775+00:00"
+  },
+  {
+   "label": "liquidationcall",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.379,
+   "retrieved_at_utc": "2026-11-09T15:06:16.520900+00:00"
+  },
+  {
+   "label": "getCode morpho blue",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.372,
+   "retrieved_at_utc": "2026-11-09T15:06:17.244089+00:00"
+  },
+  {
+   "label": "getCode compound comet",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T15:06:17.964872+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:06:18.315216+00:00",
+ "request_count": 26
+}

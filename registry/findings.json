@@ -1196,32 +1196,33 @@
     },
     {
       "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
-      "status": "UNVERIFIED",
+      "status": "REJECTED",
       "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
-      "mechanism": "官方v1 redeemCollateral由持有LUSD的msg.sender发起，不要求其拥有Trove；受余额、TCR、bootstrap、最大费率、迭代/hints和实际可赎债务约束，产出ETH减赎回费，不等于持币无条件兑1美元。",
+      "mechanism": "上轮静态规则（持 LUSD 的 msg.sender 可 redeem，不要求自有 Trove）本轮链上核验：TCR=624.56%>MCR=110%，baseRate≈0.0001%，redemptionRate=0.5000017%（≈0.5% 下限），ActivePool 70,032.55 ETH；1000 LUSD 协议赎回净得 0.467978872764284033 ETH≈$994.19–994.98。但市场端 LUSD 溢价：Curve BOLD/LUSD 池 1000 LUSD→1026.06 BOLD（≈1.0275 USD/LUSD），1000 BOLD→973.24 LUSD；买入 1000 LUSD 约需 1027.49 BOLD → 净 −$27 至 −$33（−2.7%～−3.2%），未计 gas。当前不存在“买折价 LUSD→协议兑付获利”的闭环。",
       "evidence_urls": [
-        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
-        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol"
+        "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+        "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
       ],
-      "net_result": "unknown",
+      "net_result": "−$27 至 −$33 / 1000 LUSD（条件性估算，未执行；未计 gas；BOLD≈$1 假设）",
       "unknown_costs": [
-        "LUSD买入费/冲击",
-        "动态赎回费",
+        "LUSD 实际买入成交",
+        "BOLD/USD 独立汇率",
+        "赎回部分取消",
         "Ethereum gas",
-        "ETH变现/等待与价格风险"
+        "价格移动"
       ],
       "handoff_to": [
+        "M00",
         "Q00"
       ],
       "invalidation_conditions": [
-        "主网代码/版本不符",
-        "TCR或可赎债务不支持",
-        "资格或金额/fee上限/hints失败",
-        "费用及ETH出售价值吞没差额"
+        "LUSD 转为折价 <$0.99498",
+        "赎回费率/系统参数变化",
+        "DEX 深度或 BOLD 汇率变化"
       ],
       "owner": "ETH02",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH02/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
         "claim_scope": "Liquity v1持LUSD赎回ETH；静态持有人权限与输出规则可核，当前经济候选未核",
@@ -1258,9 +1259,41 @@
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
-      "last_observed_at": "2026-11-08T15:46:58.517342+00:00",
-      "last_verified_onchain_at": null,
-      "capacity": "unknown"
+      "last_observed_at": "2026-11-09T15:07:09.221528+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:07:09.221528+00:00",
+      "capacity": "协议赎回名义上限=系统债务 23,840,991.92 LUSD；ActivePool ETH=70,032.55（≈$148.9M）远大于债务，抵押不构成瓶颈；实际可赎 Troves/hint/迭代/最小净债务取消未枚举，单次实际容量未知。DEX 端 Curve BOLD/LUSD 池聚合器 liq≈$635,928 为主，Uniswap V3 LUSD/USDC 池仅 $28k 且报价饱和不可执行。",
+      "observations_by_role": {
+        "ETH02": {
+          "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+          "status": "REJECTED",
+          "chain": "ETH",
+          "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+          "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "上轮静态规则（持 LUSD 的 msg.sender 可 redeem，不要求自有 Trove）本轮链上核验：TCR=624.56%>MCR=110%，baseRate≈0.0001%，redemptionRate=0.5000017%（≈0.5% 下限），ActivePool 70,032.55 ETH；1000 LUSD 协议赎回净得 0.467978872764284033 ETH≈$994.19–994.98。但市场端 LUSD 溢价：Curve BOLD/LUSD 池 1000 LUSD→1026.06 BOLD（≈1.0275 USD/LUSD），1000 BOLD→973.24 LUSD；买入 1000 LUSD 约需 1027.49 BOLD → 净 −$27 至 −$33（−2.7%～−3.2%），未计 gas。当前不存在“买折价 LUSD→协议兑付获利”的闭环。",
+          "evidence_urls": [
+            "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+            "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
+          ],
+          "net_result": "−$27 至 −$33 / 1000 LUSD（条件性估算，未执行；未计 gas；BOLD≈$1 假设）",
+          "unknown_costs": [
+            "LUSD 实际买入成交",
+            "BOLD/USD 独立汇率",
+            "赎回部分取消",
+            "Ethereum gas",
+            "价格移动"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "LUSD 转为折价 <$0.99498",
+            "赎回费率/系统参数变化",
+            "DEX 深度或 BOLD 汇率变化"
+          ]
+        }
+      }
     },
     {
       "finding_id": "ETH-SDAI-PREVIEW-AS-EXECUTION-GUARANTEE",
@@ -1344,13 +1377,14 @@
       "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
       "claim": "排除“预言机估值乘清算奖励就是已兑现净利润”的论证。",
       "evidence_urls": [
+        "https://ethereum-rpc.publicnode.com",
         "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
       ],
       "evidence_fields": "实际代还限额、receiveAToken分支、liquidationProtocolFee；还需市场出售/融资/费用证据。",
       "scope_limit": "静态规则反证，不声称某实际仓位可清算或无利可图。",
       "owner": "ETH04",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH04/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
         "claim_scope": "排除Ethereum Aave oracle×清算奖励为已实现净利；不裁决任何真实仓位",
@@ -1378,17 +1412,54 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:46:46.422746+00:00",
-      "last_observed_at": "2026-11-08T15:46:46.422746+00:00",
-      "last_verified_onchain_at": null,
+      "last_observed_at": "2026-11-09T15:09:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:09:00+00:00",
       "unknown_costs": [
-        "实际代还本金",
-        "清算协议抽成",
-        "抵押品卖出/赎回费与滑点",
-        "Ethereum gas与优先费",
-        "融资费/利息",
-        "未退出抵押与残余债务"
+        "reserveFactor/active/frozen 位段",
+        "oracle 精度/价格",
+        "代还本金",
+        "抵押卖出冲击",
+        "gas/融资"
       ],
-      "capacity": "unknown"
+      "capacity": "unknown；本轮无候选仓位；8 个借款人均 HF>1；窗口内 35 笔清算已发生但未逐笔复盘容量",
+      "mechanism": "Aave 清算奖励是账面折扣权利：真实 HF<1 仓位→按 close factor/规模上限代还→取得抵押（扣协议费）→卖出→扣本金/gas/融资。本轮链上核验 Pool/实现/oracle 与地址书一致，6 个关键储备 LTV=0-8100bps、LT=7700-8500bps、bonus=10450-10600；抽样 8 个借款人 HF=1.045/1.198/3.557/1.059/1.143/1.801 均>1（窗口内 35 笔清算已发生但样本无候选），因此无净利主张；oracle 价值×bonus 不是已实现收益。",
+      "net_result": "unknown（无候选；净额 null）",
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现 HF<1 真实仓位且规则可执行",
+        "储备参数/奖励与源码不符",
+        "抵押卖出通道失效"
+      ],
+      "observations_by_role": {
+        "ETH04": {
+          "finding_id": "eth-aave-liquidation-bonus-not-realized-profit",
+          "status": "REJECTED",
+          "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+          "mechanism": "Aave 清算奖励是账面折扣权利：真实 HF<1 仓位→按 close factor/规模上限代还→取得抵押（扣协议费）→卖出→扣本金/gas/融资。本轮链上核验 Pool/实现/oracle 与地址书一致，6 个关键储备 LTV=0-8100bps、LT=7700-8500bps、bonus=10450-10600；抽样 8 个借款人 HF=1.045/1.198/3.557/1.059/1.143/1.801 均>1（窗口内 35 笔清算已发生但样本无候选），因此无净利主张；oracle 价值×bonus 不是已实现收益。",
+          "evidence_urls": [
+            "https://ethereum-rpc.publicnode.com",
+            "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
+          ],
+          "net_result": "unknown（无候选；净额 null）",
+          "unknown_costs": [
+            "reserveFactor/active/frozen 位段",
+            "oracle 精度/价格",
+            "代还本金",
+            "抵押卖出冲击",
+            "gas/融资"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现 HF<1 真实仓位且规则可执行",
+            "储备参数/奖励与源码不符",
+            "抵押卖出通道失效"
+          ]
+        }
+      }
     },
     {
       "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
@@ -4485,6 +4556,132 @@
             "accrued 读取证明新地址有奖励",
             "claimVenusAsCollateral 给出可售现金",
             "XVS 不可卖"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+      "first_seen_at": "2026-11-09T15:13:00+00:00",
+      "status": "REJECTED",
+      "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA | ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "mechanism": "sDAI 固定块 NAV=1.182774 DAI/sDAI（convertToAssets/previewRedeem 与 totalAssets/totalSupply 一致）；Curve sDAI/FRAX 同 pinned 块 get_dy：1 sDAI→1.19296 FRAX、买 1 sDAI≈1.1932 FRAX，按 FRAX≈1 近似为溢价约 +0.86% → 二级买入成本高于可兑现 NAV，不是折价；其他 sDAI 池无可成交深度。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+        "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "FRAX/USD 独立报价",
+        "gas/授权",
+        "sDAI 即时可提现金（pot/vat）",
+        "滑点"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "二级价跌破 NAV 且可成交",
+        "FRAX/USD 显著偏离",
+        "金库实现/权限变化"
+      ],
+      "owner": "ETH03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:13:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:13:00+00:00",
+      "capacity": "sDAI：Curve sDAI/FRAX 池约 185,163.6 FRAX / 16,837.2 sDAI（$204k 级），但方向为溢价、买入即亏，容量无意义；其他 sDAI 池 <$11。Morpho Adpend USDC：无二级市场（capacity 0）；金库自身 $965.7M 但赎回流动性上限未测。",
+      "observations_by_role": {
+        "ETH03": {
+          "finding_id": "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+          "status": "REJECTED",
+          "chain": "ETH",
+          "protocol": "Savings DAI / Curve",
+          "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA | ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+          "evidence_urls": [
+            "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+            "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+          ],
+          "mechanism": "sDAI 固定块 NAV=1.182774 DAI/sDAI（convertToAssets/previewRedeem 与 totalAssets/totalSupply 一致）；Curve sDAI/FRAX 同 pinned 块 get_dy：1 sDAI→1.19296 FRAX、买 1 sDAI≈1.1932 FRAX，按 FRAX≈1 近似为溢价约 +0.86% → 二级买入成本高于可兑现 NAV，不是折价；其他 sDAI 池无可成交深度。",
+          "net_result": null,
+          "unknown_costs": [
+            "FRAX/USD 独立报价",
+            "gas/授权",
+            "sDAI 即时可提现金（pot/vat）",
+            "滑点"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "二级价跌破 NAV 且可成交",
+            "FRAX/USD 显著偏离",
+            "金库实现/权限变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ETH-MORPHO-TOP-VAULT-NO-SECONDARY-MARKET",
+      "first_seen_at": "2026-11-09T15:13:00+00:00",
+      "status": "REJECTED",
+      "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "mechanism": "Morpho API 按 TVL 排序的 Ethereum 头部金库 Adpend USDC（0x55555815…，$965.7M，代码 19,730B、withdrawQueueLength=30）在 DexScreener 返回 0 个 Ethereum 二级交易对；无买入折价份额的市场入口。share 价读取存在 totalAssets/totalSupply 与 convertToAssets 不一致异常，已记为缺口，不下折价结论。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+        "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "share 价异常待复核",
+        "赎回流动性",
+        "gas"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现真实二级市场",
+        "share 价异常被证明为读取/实现问题"
+      ],
+      "owner": "ETH03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:13:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:13:00+00:00",
+      "capacity": "sDAI：Curve sDAI/FRAX 池约 185,163.6 FRAX / 16,837.2 sDAI（$204k 级），但方向为溢价、买入即亏，容量无意义；其他 sDAI 池 <$11。Morpho Adpend USDC：无二级市场（capacity 0）；金库自身 $965.7M 但赎回流动性上限未测。",
+      "observations_by_role": {
+        "ETH03": {
+          "finding_id": "ETH-MORPHO-TOP-VAULT-NO-SECONDARY-MARKET",
+          "status": "REJECTED",
+          "chain": "ETH",
+          "protocol": "MetaMorpho",
+          "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+          "evidence_urls": [
+            "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+            "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+          ],
+          "mechanism": "Morpho API 按 TVL 排序的 Ethereum 头部金库 Adpend USDC（0x55555815…，$965.7M，代码 19,730B、withdrawQueueLength=30）在 DexScreener 返回 0 个 Ethereum 二级交易对；无买入折价份额的市场入口。share 价读取存在 totalAssets/totalSupply 与 convertToAssets 不一致异常，已记为缺口，不下折价结论。",
+          "net_result": null,
+          "unknown_costs": [
+            "share 价异常待复核",
+            "赎回流动性",
+            "gas"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现真实二级市场",
+            "share 价异常被证明为读取/实现问题"
           ]
         }
       },

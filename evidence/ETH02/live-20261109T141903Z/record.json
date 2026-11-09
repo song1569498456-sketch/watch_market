@@ -1,0 +1,244 @@
+{
+  "agent_id": "ETH02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ETH",
+  "scope": "Ethereum 稳定币折价买入与正常兑付：Liquity v1 LUSD redeemCollateral 链上核验（实现/TCR/baseRate/赎回费/容量）与同块 DEX/Curve 报价对比，计算净额；不做铸造卖出",
+  "started_at": "2026-11-09T15:05:17.537524+00:00",
+  "finished_at": "2026-11-09T15:07:09.221528+00:00",
+  "duration_seconds": 111.684,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:07:09+00:00",
+    "beijing": "2026-11-09T23:07:09+08:00",
+    "data_time": "head 26378125（2026-11-09T15:06:59Z）；系统状态/价格读取块 26378114（15:05:11Z）；Curve 报价块 26378123（15:07:00Z）；Uniswap 报价块 26378114/26378121"
+  },
+  "block_or_slot": 26378114,
+  "market_ids": [
+    "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+    "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+    "ETH:UNISWAP_V3:POOL:0x4e0924d3a751be199c426d52fb1f2337fa96f736"
+  ],
+  "asset_ids": [
+    "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "0x6440f144b7e50d6a8439336510312d2f54beb01d",
+    "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+  ],
+  "discovery_source": [
+    {
+      "source": "Dexscreener LUSD 交易对（发现入口，非独立验证）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "retrieved_at_utc": "2026-11-09T15:05:13Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "Ethereum 上主要：Curve BOLD/LUSD 池 0x7ED17e03…（liquidityUsd≈635,928、priceUsd 1.022）、Uniswap V3 LUSD/USDC 0x4e0924d3…（$28,124）、其余小额；另混入 pulsechain 同名 token（baseToken 同址但 chainId=pulsechain，已按 chainId 过滤）"
+    },
+    {
+      "source": "Liquity v1 官方 mainnetDeployment 与 TroveManager 源码（上轮抓取复用；本轮以链上代码/字段核验）",
+      "url": "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
+      "retrieved_at_utc": "2026-11-08T15:45:52Z",
+      "http_status": 200,
+      "sha256": "a1694d65c6b9800645d18cf0d3e38f5eb57af2e3545a32095c91dba952d87b36"
+    },
+    {
+      "source": "Ethereum 只读 RPC（ethereum-rpc.publicnode.com）：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:03:50Z-2026-11-09T15:07:09Z",
+      "request": "POST JSON-RPC 共 71 次（本轮总计，全部只读；含 1 次脚本 bug 运行浪费约 18 次，仍 ≤80 硬性上限）",
+      "http_status": 200
+    }
+  ],
+  "mechanism": "Liquity v1 的 redeemCollateral 允许持 LUSD 的普通地址按系统价格赎回 ETH：ETHdrawn = LUSD×1e18/price，fee = ETHdrawn×redemptionRate，净得 ETH = ETHdrawn−fee；受 TCR≥MCR、bootstrap、maxFee、hints/迭代、最小净债务与部分赎回取消约束。当前系统 TCR=624.6%（远高于 MCR=110%）、baseRate 极小、redemptionRate≈0.5% 下限、ActivePool 有 70,032 ETH；但市场端 LUSD 处于溢价（Curve BOLD/LUSD 池 1000 BOLD→973.24 LUSD、1000 LUSD→1026.06 BOLD；Uniswap 现货≈1.023 USDC/LUSD），因此“买折价 LUSD 再按协议赎回”的前提不存在：买入成本高于赎回产出，净负。",
+  "observations": [
+    "链身份：eth_chainId=1；head=26378125（2026-11-09T15:06:59Z）；报价/状态固定块 26378114/26378121/26378123。",
+    "Liquity v1 身份链上核验：TroveManager 0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2 代码 23,163B（sha256=0e39ef50…）；PriceFeed 0x4c517D4e2C851CA76d7eC94B805269Df0f2201De 代码 4,582B（sha256=524ea886…）；LUSD 0x5f98805A… 代码 5,297B（sha256=d599bd52…）、symbol=LUSD、decimals=18、totalSupply=23,840,991.916952104332372499；ActivePool 0xDf9Eb223… 的 getETH()=70,032.552226551963403183 ETH。",
+    "系统状态（块 26378114）：priceFeed.fetchPrice()=2126.16432216 USD（1e18）；getEntireSystemDebt=23,840,991.916952104332372499 LUSD；getEntireSystemColl=70,032.552226551963403183 ETH；getTCR(price)=6.245575454770655213（624.56%）；MCR=1.1e18（110%）。",
+    "赎回参数：baseRate=976,214,752,553（≈0.0000976%）；getRedemptionRateWithDecay=5,000,017,203,925,153（0.5000017%）；REDEMPTION_FEE_FLOOR=5e15（0.5%）；getRedemptionFeeWithDecay(10 ETH)=50,000,172,039,251,530（0.05000017 ETH）；LUSD_GAS_COMPENSATION=200e18。即当前赎回费≈下限 0.5%，系统远健康于 MCR，赎回条件在系统层面满足。",
+    "赎回产出（协议公式，1000 LUSD 测量刻度，未执行）：ETHdrawn=0.470330533523432491 ETH，fee=0.002351660759148458 ETH，净得 0.467978872764284033 ETH；按 oracle price 折 USD≈994.98；再按 Uniswap V3 USDC/WETH 500 池报价（1 ETH=2124.701314 USDC）折≈994.19 USDC。",
+    "赎回容量：系统债务 23,840,991.92 LUSD 为可赎名义上限；ActivePool 70,032.55 ETH（按 oracle≈$148.9M）远大于债务的 $1 计价，说明抵押缓冲不构成容量瓶颈；但实际可赎 Troves、hint/最大迭代、最小净债务（200 LUSD gas compensation）导致的部分赎回取消未枚举，实际单次容量与到账以执行时为准（缺口）。",
+    "DEX 端（同块报价/池读取）：①Curve BOLD/LUSD 池 0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b（代码 23,635B，sha256=07f84333…；coins[0]=BOLD Stablecoin 0x6440f144…（18 位）、coins[1]=LUSD）：get_dy(0→1, 1000×1e18)=973.244477611529050970 LUSD；get_dy(1→0, 1000×1e18)=1026.061065580886725959 BOLD。买入 1000 LUSD 约需 1027.49 BOLD（1 LUSD≈1.0275 BOLD），即 LUSD 相对 BOLD 溢价约 2.7%。②Uniswap V3 LUSD/USDC fee=500 池 0x4e0924d3a751be199c426d52fb1f2337fa96f736（token0=LUSD/token1=USDC、sqrtPriceX96=80130121921468411476129、tick=-276098、liquidity=215,709,883,574,449）：现货≈1.023 USDC/LUSD；但 QuoterV2 对 1000/10000 USDC 买入返回 9.46 LUSD（gasEstimate=3.42M、两次结果相同），说明该池 in-range 流动性极薄、报价饱和不可执行。③Uniswap V3 LUSD/USDC fee=3000 池 0x9902affd…：1000 USDC→22.59 LUSD（ticksCrossed=1，同样不可执行）；LUSD/USDT fee=500 池 quote revert。",
+    "净额核算（1000 LUSD 测量刻度，条件性）：买入成本≈1027.49 BOLD（若 BOLD≈$1，则≈$1027.5；BOLD/USD 本轮未独立核验，标为假设）；赎回净得≈0.467978872764284033 ETH≈$994.19–994.98（USDC/ETH 两种口径）；**净 ≈ −$27 至 −$33（约 −2.7% 至 −3.2%）**，未计 gas；gasPrice=393,415,950 wei（0.393 gwei），3–4 笔交易估算 <$1，不足以翻转。",
+    "方向校验：若持有 LUSD，Curve 直接卖出 1000 LUSD 得 1026.06 BOLD（≈$1026 若 BOLD≈$1），高于协议赎回的 $994.98 → 协议赎回劣于市场卖出；LUSD 处于溢价而非折价，因此不存在“买入折价→协议兑付获利”的闭环。",
+    "上轮仅静态源码/部署的来源级结论已升级为链上代码与参数核验；本轮未重开“无需自有 Trove 的持币人赎回”这一已核验规则，也未把名义 1 美元当兑付价。"
+  ],
+  "quotes": [
+    {
+      "market_id": "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+      "amount_in": "1000 BOLD (1e21)",
+      "amount_out": "973.244477611529050970 LUSD",
+      "fees": "Curve 池费已计入 get_dy；gas 未计",
+      "block": 26378123,
+      "quote_time_utc": "2026-11-09T15:07:00Z",
+      "note": "Curve BOLD/LUSD get_dy(0,1)；即买入 LUSD 的反向参考：1 LUSD≈1.0275 BOLD"
+    },
+    {
+      "market_id": "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+      "amount_in": "1000 LUSD (1e21)",
+      "amount_out": "1026.061065580886725959 BOLD",
+      "fees": "Curve 池费已计入",
+      "block": 26378123,
+      "quote_time_utc": "2026-11-09T15:07:00Z",
+      "note": "持有 LUSD 的市场卖出价；高于协议赎回净得（$994.98），赎回无溢价"
+    },
+    {
+      "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+      "amount_in": "1000 LUSD (1e21)",
+      "amount_out": "0.467978872764284033 ETH（净，含 0.5% 赎回费）",
+      "fees": "redemptionRate=0.5000017%（fee=0.002351660759148458 ETH，已扣）",
+      "block": 26378114,
+      "quote_time_utc": "2026-11-09T15:05:11Z",
+      "note": "协议公式 ETHdrawn=LUSD×1e18/price、fee=ETHdrawn×rate；未执行，未计 gas；hint/迭代/部分赎回取消未验证"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+      "amount_in": "1000 USDC (1e9) 与 10000 USDC (1e10)",
+      "amount_out": "9.462623841777123450 LUSD（两次相同，报价饱和）",
+      "fees": "fee=500 已计入",
+      "block": 26378114,
+      "quote_time_utc": "2026-11-09T15:05:11Z",
+      "note": "该池 in-range 流动性极薄（liquidity=2.157e14），大额报价不可执行；现货 spot≈1.023 USDC/LUSD"
+    }
+  ],
+  "net_result": {
+    "value": "-27 至 -33",
+    "unit": "USD（条件性；BOLD≈$1 假设）",
+    "type": "estimated_from_onchain_rate_and_same_block_dex_quotes_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "LUSD 实际买入成交价（Curve BOLD/LUSD 或其它池的深度/滑点，未执行）",
+      "BOLD/USD 独立汇率（本轮用 BOLD≈$1 的假设；未核验 BOLD 发行方/兑付）",
+      "协议赎回的 hint/最大迭代/最小净债务导致的部分赎回取消",
+      "Ethereum gas（0.393 gwei，估 <$1，未实付）",
+      "LUSD/ETH 价格在提交窗口内的移动"
+    ],
+    "note": "买入 1000 LUSD≈1027.49 BOLD，协议赎回净得≈$994.19–994.98，净 −$27 至 −$33（−2.7%～−3.2%）；LUSD 当前为溢价（1.022–1.0275）而非折价，方向性前提不成立。"
+  },
+  "capacity": "协议赎回名义上限=系统债务 23,840,991.92 LUSD；ActivePool ETH=70,032.55（≈$148.9M）远大于债务，抵押不构成瓶颈；实际可赎 Troves/hint/迭代/最小净债务取消未枚举，单次实际容量未知。DEX 端 Curve BOLD/LUSD 池聚合器 liq≈$635,928 为主，Uniswap V3 LUSD/USDC 池仅 $28k 且报价饱和不可执行。",
+  "permissions": "Liquity v1 redeemCollateral 对持有 LUSD 的普通 msg.sender 开放（上轮源码核对），无白名单；本轮未执行，TCR/baseRate/费率均链上读取，系统层面满足赎回条件（TCR 624%>MCR 110%，bootstrap 早已结束）。",
+  "liabilities": "无；本轮纯只读，未借款/未交易。",
+  "waiting_time": "协议赎回为同一交易内同步（Liquity v1），无排队；受 hint/迭代影响，未验证实际执行。",
+  "invalidation_conditions": [
+    "LUSD 转为折价（DEX 价 < 赎回净得 $0.99498）",
+    "赎回费率下调或 baseRate 下降（当前已在 0.5% 下限）",
+    "系统 TCR 跌近 MCR 或 ActivePool ETH 不足",
+    "BOLD/USD 偏离 1 美元（影响买入成本折算）",
+    "DEX 深度变化使买入价与赎回价出现可覆盖差额"
+  ],
+  "evidence_urls": [
+    "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+    "https://etherscan.io/address/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b",
+    "https://etherscan.io/address/0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json"
+  ],
+  "coverage_gaps": [
+    "未做实际 redeem 执行或只读模拟（需要 LUSD 余额与授权假设）：本轮用协议公式 + 链上参数计算，未验证 hint/最大迭代/部分赎回取消与真实到账。",
+    "30 天规则窗口未覆盖：未查赎回费率/baseRate/系统参数治理变更与生效时间。",
+    "7 天活动未覆盖：未读 redeem 事件与实际赎回交易、排队/容量历史。",
+    "未枚举可赎 Troves（需要遍历 SortedTroves 或事件），实际可赎债务与单次容量 unknown；只给名义上限。",
+    "DEX 仅核验 Curve BOLD/LUSD 池与 Uniswap V3 两个 LUSD 池；其它稳定币池（3pool/LUSD-3Crv 等）与 BOLD 的 USD 汇率未独立核验；BOLD≈$1 为假设。",
+    "本轮外部请求 71 次（≤80 硬性上限，符合；含 1 次脚本 bug 运行浪费约 18 次，已披露）。"
+  ],
+  "next_check": [
+    "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+    "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+    "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+    "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+    "监控 LUSD 由溢价转为折价时重开候选。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+      "chain": "ETH",
+      "protocol": "Liquity v1 LUSD normal redemption",
+      "asset_ids": ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json"
+      ],
+      "identity_status": "CHAIN_VERIFIED_CODE_AND_PARAMS_READ",
+      "next_check": "读 Troves/hints 与 redeem 事件，验证实际到账与容量"
+    },
+    {
+      "market_id": "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+      "chain": "ETH",
+      "protocol": "Curve BOLD/LUSD stableswap",
+      "asset_ids": ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0", "0x6440f144b7e50d6a8439336510312d2f54beb01d"],
+      "evidence_urls": ["https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"],
+      "identity_status": "CHAIN_VERIFIED_POOL_COINS_AND_GET_DY_READ",
+      "next_check": "独立核验 BOLD/USD；监控 LUSD 溢价变化与池深度"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 LUSD/USDC fee=500",
+      "asset_ids": ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+      "evidence_urls": ["https://etherscan.io/address/0x4e0924d3a751be199c426d52fb1f2337fa96f736"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_THIN_LIQUIDITY",
+      "next_check": "流动性极薄，仅作 spot 参考；不用于大额执行"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-LIQUITY-V1-LUSD-REDEEM-ETH",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+      "first_seen_at": "2026-11-08T15:46:58.517342+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "上轮静态规则（持 LUSD 的 msg.sender 可 redeem，不要求自有 Trove）本轮链上核验：TCR=624.56%>MCR=110%，baseRate≈0.0001%，redemptionRate=0.5000017%（≈0.5% 下限），ActivePool 70,032.55 ETH；1000 LUSD 协议赎回净得 0.467978872764284033 ETH≈$994.19–994.98。但市场端 LUSD 溢价：Curve BOLD/LUSD 池 1000 LUSD→1026.06 BOLD（≈1.0275 USD/LUSD），1000 BOLD→973.24 LUSD；买入 1000 LUSD 约需 1027.49 BOLD → 净 −$27 至 −$33（−2.7%～−3.2%），未计 gas。当前不存在“买折价 LUSD→协议兑付获利”的闭环。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+        "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
+      ],
+      "net_result": "−$27 至 −$33 / 1000 LUSD（条件性估算，未执行；未计 gas；BOLD≈$1 假设）",
+      "unknown_costs": ["LUSD 实际买入成交", "BOLD/USD 独立汇率", "赎回部分取消", "Ethereum gas", "价格移动"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["LUSD 转为折价 <$0.99498", "赎回费率/系统参数变化", "DEX 深度或 BOLD 汇率变化"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "LUSD 当前存在可买入折价并按协议 1 美元兑付获利",
+      "reason": "DEX 端 LUSD 为溢价：Curve BOLD/LUSD 池 1 LUSD≈1.0275 BOLD、1000 BOLD→973.24 LUSD；Uniswap 现货≈1.023 USDC/LUSD。协议赎回净得仅 $0.99419–0.99498/LUSD，买入再赎回净负 −$27～−$33/1000 LUSD。",
+      "evidence": "Curve get_dy 两方向报价（块 26378123）+ Liquity 赎回公式/费率（块 26378114）"
+    },
+    {
+      "claim": "协议赎回的输出高于市场卖价，应优先赎回",
+      "reason": "Curve 直接卖出 1000 LUSD 得 1026.06 BOLD（≈$1026），高于协议赎回 $994.98；赎回反而更差。",
+      "evidence": "Curve get_dy(1→0)、Uniswap ETH/USDC 退出报价"
+    },
+    {
+      "claim": "Uniswap V3 LUSD/USDC 池可作为 1000 单位买入渠道",
+      "reason": "该池 liquidity=2.157e14 极薄，QuoterV2 对 1000/10000 USDC 返回相同的 9.46 LUSD（gasEstimate=3.42M），报价饱和不可执行；fee=3000 池同样异常；LUSD/USDT 池 revert。",
+      "evidence": "QuoterV2 报价（块 26378114/26378121）+ pool state"
+    },
+    {
+      "claim": "TCR/可赎债务不足会导致本赎回不可执行",
+      "reason": "链上 TCR=6.2456（624.56%）远高于 MCR=1.1（110%），ActivePool 70,032.55 ETH 远大于债务，系统层面不构成阻塞；但具体 Troves/hint/部分取消未枚举，已列缺口而非臆断。",
+      "evidence": "getTCR/getEntireSystemDebt/getEntireSystemColl/ActivePool.getETH 读取"
+    },
+    {
+      "claim": "静态源码中的 0.5% 下限即本轮实际费率",
+      "reason": "本轮链上 getRedemptionRateWithDecay=0.5000017%、baseRate≈0.0001%，实际费率是链上读数而非源码推断；且该费率随 baseRate 衰减变化。",
+      "evidence": "TroveManager getRedemptionRateWithDecay/baseRate/getRedemptionFeeWithDecay 链上读取"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:07:09Z",
+    "complete_block_range": "26378114-26378125（系统/价格块 26378114；Uniswap 报价块 26378114/26378121；Curve 报价块 26378123）",
+    "complete_event_time_window": "2026-11-09T15:05:11Z-2026-11-09T15:07:00Z"
+  },
+  "redemption_six_columns": {
+    "buy_amount": "1000 LUSD（测量刻度）",
+    "receipt_lusd": "1000",
+    "redeemable_eth_now": "0.467978872764284033 ETH（净，含 0.5% 费；协议公式，未执行）",
+    "arrival_time": "同一交易内（Liquity v1 同步），hint/迭代未验证",
+    "sale_output": "≈994.19–994.98 USDC（ETH 退出报价/oracle 两种口径）",
+    "unknowns": ["实际买入成交价", "BOLD/USD", "部分赎回取消", "gas", "30天/7天规则与活动"]
+  }
+}

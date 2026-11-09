@@ -4537,6 +4537,193 @@
         "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
         "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
       ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做实际 redeem 执行或只读模拟（需要 LUSD 余额与授权假设）：本轮用协议公式 + 链上参数计算，未验证 hint/最大迭代/部分赎回取消与真实到账。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口未覆盖：未查赎回费率/baseRate/系统参数治理变更与生效时间。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动未覆盖：未读 redeem 事件与实际赎回交易、排队/容量历史。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未枚举可赎 Troves（需要遍历 SortedTroves 或事件），实际可赎债务与单次容量 unknown；只给名义上限。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "DEX 仅核验 Curve BOLD/LUSD 池与 Uniswap V3 两个 LUSD 池；其它稳定币池（3pool/LUSD-3Crv 等）与 BOLD 的 USD 汇率未独立核验；BOLD≈$1 为假设。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 71 次（≤80 硬性上限，符合；含 1 次脚本 bug 运行浪费约 18 次，已披露）。",
+      "next_check": [
+        "对 100/1000 LUSD 做只读模拟或按已知 Trove 列表核对 redeem 实际到账与部分赎回取消；读 SortedTroves 头部 Trove 与 hint 有效区间。",
+        "补 30 天费率/治理（baseRate、赎回费下限、MCR、bootstrap 状态）与 7 天 redeem 事件。",
+        "独立核验 BOLD 的 USD 价格/兑付规则（Liquity v2），以确定 Curve 报价的真实美元成本。",
+        "轮转其它 LUSD 稳定币池（3pool、LUSD/USDT、Balancer）并取同块报价，确认是否存在任何 <$0.99498 的买入渠道。",
+        "监控 LUSD 由溢价转为折价时重开候选。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Morpho 金库 share 价读取异常：totalAssets/totalSupply 反推约 1067.7 USDC/份额 vs convertToAssets 827.03，需核对 ABI/实现/小数偏移；未据此下结论。",
+      "next_check": [
+        "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+        "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+        "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+        "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+        "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "sDAI 可提现金证据不足：pot 的 ERC20 DAI 余额 0 属 Maker 内部会计（vat/rad），未读 vat/daiJoin 现金或做 redeem 只读模拟。",
+      "next_check": [
+        "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+        "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+        "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+        "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+        "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "二级市场只覆盖 sDAI 的 Curve sDAI/FRAX 池（其余池 <$11 或不可用）与 1 个 Morpho 金库；未扫其他 Morpho/Yearn 金库的 Uniswap V3/Curve/Balancer 池。",
+      "next_check": [
+        "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+        "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+        "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+        "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+        "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "FRAX/USD 未独立报价，溢价按 FRAX≈1 近似；未计 gas/滑点/授权。",
+      "next_check": [
+        "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+        "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+        "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+        "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+        "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+      ]
+    },
+    {
+      "agent_id": "ETH03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（升级/策略损失/curator 费）与 7 天活动窗口（真实赎回/二级成交）未覆盖。",
+      "next_check": [
+        "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+        "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+        "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+        "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+        "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "储备 reserveFactor/active/frozen 位段解码不自洽，未采用；缺 PoolDataProvider 或官方 ReserveConfiguration 源码逐位复核。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+        "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+        "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+        "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "oracle 精度/最新价未读（只读来源地址）；不能把价格当利润。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+        "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+        "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+        "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "借款样本仅 8 个（窗口 919 条 Borrow），不是全量仓位队列；35 笔 LiquidationCall 未逐笔复盘（残仓/外部注资/并发清算）。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+        "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+        "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+        "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Morpho Blue 与 Compound V3 仅确认代码存在，未读 market 参数（LLTV/oracle/利率）与 borrowers；不能判断其清算机会。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+        "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+        "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+        "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ETH04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天参数/实现升级窗口未覆盖；无候选仓位，未做代还→抵押→卖出闭环、无抵押卖出报价、无 gas/L1 成本量化。",
+      "next_check": [
+        "用 PoolDataProvider getReserveConfigurationData 或官方 ReserveConfiguration 源码逐位复核 reserveFactor/active/frozen；读 Chainlink 源精度/最新价（仅规则/参数）。",
+        "扩大借款人窗口（7 天分段），对 HF<1.2 建 watch；HF<1 且同块规则可执行才记候选；逐笔复盘 35 笔清算的残仓/注资/并发。",
+        "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
+        "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -1,0 +1,71 @@
+{
+ "started_at_utc": "2026-11-09T15:05:13.102962+00:00",
+ "chain_id": 1,
+ "latest_block": 26378116,
+ "latest_block_time_utc": "2026-11-09T15:05:11+00:00",
+ "pinned_block": 26378111,
+ "morpho_top": [
+  {
+   "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+   "name": "Adpend USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 965699983.6608442
+  },
+  {
+   "address": "0x94643e86aa5E38DDAc6c7791C1297f4E40cD96c1",
+   "name": "1337 USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 515109969.9358236
+  },
+  {
+   "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+   "name": "Steakhouse USDT",
+   "asset": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+   "totalAssetsUsd": 75545841.4657484
+  },
+  {
+   "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+   "name": "Steakhouse USDC",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 66489677.33511742
+  },
+  {
+   "address": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+   "name": "Gauntlet USDC Prime",
+   "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+   "totalAssetsUsd": 21510712.05071767
+  }
+ ],
+ "sdai": {
+  "code_bytes": 10925,
+  "asset()": "0x6b175474e89094c44da98b954eedeac495271d0f",
+  "totalAssets()": 161887728131909223847300403,
+  "totalSupply()": 136871204862920015270687896,
+  "convertToAssets(1e18)": 1182774187558616813,
+  "previewRedeem(1e18)": 1182774187558616813,
+  "maxRedeem(dead)": 4799010505457216773,
+  "maxWithdraw(dead)": 5676145751677426589,
+  "symbol": "sDAI",
+  "decimals": 18,
+  "pot": "0x197e90f9fad81970ba7976f33cbd77088e5d7cf7"
+ },
+ "pot_DAI_balance": 0,
+ "morpho_vault": {
+  "code_bytes": 19730,
+  "asset()": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "totalAssets()": 966621761742162,
+  "totalSupply()": 905277920604455960394729,
+  "convertToAssets(1e18)": 827025336,
+  "previewRedeem(1e18)": 827025336,
+  "maxRedeem(dead)": 0,
+  "maxWithdraw(dead)": 0,
+  "symbol": "adpUSDC",
+  "decimals": 18,
+  "name": "Adpend USDC",
+  "withdrawQueueLength": 30
+ },
+ "morpho_vault_idle_asset": {
+  "asset": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "vault_asset_balance": 966621761742162
+ }
+}

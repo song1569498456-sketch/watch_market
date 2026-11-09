@@ -765,17 +765,33 @@
         "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"
       ],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json",
-        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/contracts/TroveManager.sol"
+        "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+        "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json"
       ],
-      "identity_status": "OFFICIAL_DEPLOYMENT_AND_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
-      "next_check": "验证Ethereum chainId=1、TroveManager代码与部署版本；读取getRedemptionRateWithDecay/baseRate、priceFeed、TCR和可赎Troves。",
+      "identity_status": "CHAIN_VERIFIED_CODE_AND_PARAMS_READ",
+      "next_check": "读 Troves/hints 与 redeem 事件，验证实际到账与容量",
       "owner": "ETH02",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH02/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH02/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "ETH02": {
+          "market_id": "ETH:LIQUITY_V1:TROVE_MANAGER:0xa39739ef8b0231dbfa0dcda07d7e29faabcf4bb2",
+          "chain": "ETH",
+          "protocol": "Liquity v1 LUSD normal redemption",
+          "asset_ids": [
+            "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+            "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json"
+          ],
+          "identity_status": "CHAIN_VERIFIED_CODE_AND_PARAMS_READ",
+          "next_check": "读 Troves/hints 与 redeem 事件，验证实际到账与容量"
+        }
+      }
     },
     {
       "market_id": "ETH:1:sDAI:0x83f20f44975d03b1b09e64809b757c47f942beea",
@@ -800,20 +816,42 @@
     {
       "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
       "chain": "ETH",
-      "protocol": "Aave V3 Ethereum",
-      "asset_ids": [],
-      "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
-        "https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+      "protocol": "Aave V3 Ethereum Pool（代理）",
+      "asset_ids": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
       ],
-      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
-      "next_check": "当前proxy代码/实现与reserve配置，再索引真实仓位",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol"
+      ],
+      "identity_status": "CHAIN_VERIFIED：代理 2,400 B；impl 槽=0x728a138A…=地址书；oracle=0x54586bE6…=地址书；67 储备；6 个关键储备参数已解（reserveFactor 位段未采用）",
+      "next_check": "补参数位段交叉验证；扩窗建借款人 watch；有真实 HF<1 再评估",
       "owner": "ETH04",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ETH04/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH04/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "ETH04": {
+          "market_id": "1:aave-v3:0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+          "chain": "ETH",
+          "protocol": "Aave V3 Ethereum Pool（代理）",
+          "asset_ids": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代理 2,400 B；impl 槽=0x728a138A…=地址书；oracle=0x54586bE6…=地址书；67 储备；6 个关键储备参数已解（reserveFactor 位段未采用）",
+          "next_check": "补参数位段交叉验证；扩窗建借款人 watch；有真实 HF<1 再评估"
+        }
+      }
     },
     {
       "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
@@ -3476,6 +3514,239 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（XVS 可售，~$104k 级）",
           "next_check": "转账税/黑名单；卖出成本"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+      "chain": "ETH",
+      "protocol": "Curve BOLD/LUSD stableswap",
+      "asset_ids": [
+        "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+        "0x6440f144b7e50d6a8439336510312d2f54beb01d"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_COINS_AND_GET_DY_READ",
+      "next_check": "独立核验 BOLD/USD；监控 LUSD 溢价变化与池深度",
+      "owner": "ETH02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH02": {
+          "market_id": "ETH:CURVE:BOLD_LUSD_POOL:0x7ed17e037b7d88a8270c89b3afa9c38e5218f12b",
+          "chain": "ETH",
+          "protocol": "Curve BOLD/LUSD stableswap",
+          "asset_ids": [
+            "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+            "0x6440f144b7e50d6a8439336510312d2f54beb01d"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_COINS_AND_GET_DY_READ",
+          "next_check": "独立核验 BOLD/USD；监控 LUSD 溢价变化与池深度"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:POOL:0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 LUSD/USDC fee=500",
+      "asset_ids": [
+        "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x4e0924d3a751be199c426d52fb1f2337fa96f736"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_THIN_LIQUIDITY",
+      "next_check": "流动性极薄，仅作 spot 参考；不用于大额执行",
+      "owner": "ETH02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH02": {
+          "market_id": "ETH:UNISWAP_V3:POOL:0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 LUSD/USDC fee=500",
+          "asset_ids": [
+            "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x4e0924d3a751be199c426d52fb1f2337fa96f736"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ_THIN_LIQUIDITY",
+          "next_check": "流动性极薄，仅作 spot 参考；不用于大额执行"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "chain": "ETH",
+      "protocol": "Savings DAI (ERC4626)",
+      "asset_ids": [
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（NAV 1.182774 DAI/sDAI，与 totalAssets/totalSupply 一致）",
+      "next_check": "pot/vat 现金与 redeem 模拟；二级溢价复核",
+      "owner": "ETH03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH03": {
+          "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+          "chain": "ETH",
+          "protocol": "Savings DAI (ERC4626)",
+          "asset_ids": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（NAV 1.182774 DAI/sDAI，与 totalAssets/totalSupply 一致）",
+          "next_check": "pot/vat 现金与 redeem 模拟；二级溢价复核"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "chain": "ETH",
+      "protocol": "MetaMorpho (Adpend USDC)",
+      "asset_ids": [
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE_BUT_SHARE_PRICE_ARITHMETIC_FLAG（无二级市场）",
+      "next_check": "修正 share 价读取；idle/withdrawQueue 流动性",
+      "owner": "ETH03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH03": {
+          "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+          "chain": "ETH",
+          "protocol": "MetaMorpho (Adpend USDC)",
+          "asset_ids": [
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE_BUT_SHARE_PRICE_ARITHMETIC_FLAG（无二级市场）",
+          "next_check": "修正 share 价读取；idle/withdrawQueue 流动性"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "chain": "ETH",
+      "protocol": "Curve (sDAI/FRAX)",
+      "asset_ids": [
+        "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+        "0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_AND_GETDY（买 1 sDAI≈1.1932 FRAX > NAV）",
+      "next_check": "FRAX/USD 报价；深度与滑点",
+      "owner": "ETH03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH03": {
+          "market_id": "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+          "chain": "ETH",
+          "protocol": "Curve (sDAI/FRAX)",
+          "asset_ids": [
+            "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+            "0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_AND_GETDY（买 1 sDAI≈1.1932 FRAX > NAV）",
+          "next_check": "FRAX/USD 报价；深度与滑点"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "1:morpho-blue:0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+      "chain": "ETH",
+      "protocol": "Morpho Blue",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+      ],
+      "identity_status": "CODE_PRESENT_ONLY（15,623 B）；market 参数/borrowers 未读",
+      "next_check": "读 market id/LLTV/oracle/IRM 与 borrowers；与 Aave 分别建模",
+      "owner": "ETH04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH04": {
+          "market_id": "1:morpho-blue:0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb",
+          "chain": "ETH",
+          "protocol": "Morpho Blue",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+          ],
+          "identity_status": "CODE_PRESENT_ONLY（15,623 B）；market 参数/borrowers 未读",
+          "next_check": "读 market id/LLTV/oracle/IRM 与 borrowers；与 Aave 分别建模"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "1:compound-v3:0xc3d688b66703497daa19211eedff47f25384cdc3",
+      "chain": "ETH",
+      "protocol": "Compound V3 USDC Comet",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xc3d688B66703497DAA19211EEdff47f25384cdc3"
+      ],
+      "identity_status": "CODE_PRESENT_ONLY（1,878 B）；Comet 参数/borrowers 未读",
+      "next_check": "读 Comet 参数与借款人；不套 Aave 公式",
+      "owner": "ETH04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ETH04": {
+          "market_id": "1:compound-v3:0xc3d688b66703497daa19211eedff47f25384cdc3",
+          "chain": "ETH",
+          "protocol": "Compound V3 USDC Comet",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xc3d688B66703497DAA19211EEdff47f25384cdc3"
+          ],
+          "identity_status": "CODE_PRESENT_ONLY（1,878 B）；Comet 参数/borrowers 未读",
+          "next_check": "读 Comet 参数与借款人；不套 Aave 公式"
         }
       },
       "current_onchain_verified": true,

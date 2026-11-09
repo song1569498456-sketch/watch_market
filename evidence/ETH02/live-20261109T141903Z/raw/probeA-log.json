@@ -1,0 +1,336 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T15:05:17.537540+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:05:18.369163+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:05:18.719406+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_trovermanager",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:05:19.086420+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_pricefeed",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:05:19.460605+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_lusd",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:05:19.811048+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pricefeed_fetchPrice",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:20.198967+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_getEntireSystemDebt",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:20.561268+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_getEntireSystemColl",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:20.911373+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_baseRate",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:21.271200+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_getRedemptionRateWithDecay",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:21.621733+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_MCR",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:21.972032+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_REDEMPTION_FEE_FLOOR",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:22.322426+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_LUSD_GAS_COMPENSATION",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:22.672493+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_getTCR",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:23.022997+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "tm_getRedemptionFeeWithDecay",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:23.378243+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "lusd_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:23.728917+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "lusd_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:24.079019+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "lusd_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:24.429198+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "activepool_getETH",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:24.779482+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "gasPrice",
+  "rpc_method": "eth_gasPrice",
+  "at_utc": "2026-11-09T15:05:25.143235+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_lusd_pairs",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+  "at_utc": "2026-11-09T15:05:25.480769+00:00",
+  "http_status": 200,
+  "sha256": "2884eb020a1e1468d3d3c68e50519e36f62b22ae7b577f91b82f324a6451a567"
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_quoter",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:05:26.327851+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "uni_getPool_LUSD_USDC_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:26.677956+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "uni_getPool_LUSD_USDC_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:27.028070+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "uni_getPool_LUSD_USDC_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:27.378338+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "uni_getPool_LUSD_USDT_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:27.728393+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "uni_getPool_USDC_WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:28.078905+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "code_pool_LUSD_USDC_500",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:05:28.429106+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pool_LUSD_USDC_500_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:28.795968+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pool_LUSD_USDC_500_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:29.146368+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pool_LUSD_USDC_500_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:29.496714+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 33,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pool_LUSD_USDC_500_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:29.847227+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 34,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "pool_LUSD_USDC_500_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:30.197643+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 35,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "buy_1000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:30.547965+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 36,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "buy_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:30.898362+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 37,
+  "kind": "POST",
+  "host": "ethereum-rpc.publicnode.com",
+  "tag": "quote_1ETH_to_USDC",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:05:31.248831+00:00",
+  "http_status": 200
+ }
+]

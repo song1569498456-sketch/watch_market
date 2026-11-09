@@ -2,47 +2,116 @@
   "agent_id": "ETH02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:07:09+00:00",
   "observed_cursor": {
-    "type": "STATIC_REDEMPTION_SOURCE_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:46:58.517342+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "block",
+    "chain_id": 1,
+    "head_block": 26378125,
+    "head_block_time_utc": "2026-11-09T15:06:59+00:00",
+    "system_state_block": 26378114,
+    "quote_blocks": [
+      26378114,
+      26378121,
+      26378123
+    ],
+    "liquity_v1": {
+      "trove_manager": "0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2",
+      "trove_manager_code_bytes": 23163,
+      "trove_manager_code_sha256": "0e39ef50dd3b5f0b3a2d5cf56718ebe705741712ce46e3fea832bb6abb51f22e",
+      "price_feed": "0x4c517D4e2C851CA76d7eC94B805269Df0f2201De",
+      "lusd": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+      "lusd_totalSupply": "23840991916952104332372499",
+      "active_pool_eth": "70032552226551963403183",
+      "eth_price_1e18": "2126164322160000000000",
+      "system_debt": "23840991916952104332372499",
+      "system_coll_eth": "70032552226551963403183",
+      "tcr": "6245575454770655213",
+      "mcr": "1100000000000000000",
+      "baseRate": "976214752553",
+      "redemptionRateWithDecay": "5000017203925153",
+      "redemption_fee_floor": "5000000000000000",
+      "gas_price_wei": 393415950
+    },
+    "protocol_redemption_math": {
+      "1000_LUSD_eth_drawn": "470330533523432491",
+      "1000_LUSD_fee_eth": "2351660759148458",
+      "1000_LUSD_net_eth": "467978872764284033",
+      "net_usd_range": "994.19-994.98"
+    },
+    "dex": {
+      "curve_bold_lusd_pool": "0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b",
+      "curve_coin0_BOLD": "0x6440f144b7e50d6a8439336510312d2f54beb01d",
+      "curve_get_dy_1000BOLD_to_LUSD": "973244477611529050970",
+      "curve_get_dy_1000LUSD_to_BOLD": "1026061065580886725959",
+      "buy_1000LUSD_cost_BOLD_est": "1027.49",
+      "uniswap_v3_lusd_usdc_pool": "0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+      "uniswap_v3_lusd_usdc_spot": "≈1.023 USDC/LUSD",
+      "uniswap_v3_quote_saturated": true
+    },
+    "net_result": {
+      "value": "-27 to -33",
+      "unit": "USD_conditional_BOLD_assumed_1",
+      "type": "estimated_from_onchain_rate_and_same_block_dex_quotes_not_executed",
+      "realized": false
+    },
+    "requests_this_run": 71,
+    "chain_block": 26378125,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "type": "STATIC_REDEMPTION_SOURCE_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:46:58.517342+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "block",
+      "chain_id": 1,
+      "head_block": 26378125,
+      "system_state_block": 26378114,
+      "tcr": "6245575454770655213",
+      "redemptionRateWithDecay": "5000017203925153",
+      "net_ethereum_redeem_1000LUSD": "467978872764284033",
+      "curve_lusd_premium": "1 LUSD≈1.0275 BOLD",
+      "net_usd": "-27 to -33 (conditional)",
+      "status": "REJECTED",
+      "requests_this_run": 71,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
-    "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
-    "853-855行partial hint/净债务条件不满足可取消部分赎回；名义请求量不保证全部完成。",
-    "1379-1405行赎回费是baseRate与floor计算的ETH费用，当前费率unknown；不把源码0.5%字样当本轮实际费率。"
+    "链身份：eth_chainId=1；head 26378125（2026-11-09T15:06:59Z）；状态/报价固定块 26378114/26378121/26378123。",
+    "Liquity v1 身份链上核验：TroveManager 0xA39739EF…（23,163B，sha256 0e39ef50…）、PriceFeed 0x4c517D4e…（4,582B）、LUSD 0x5f98805A…（5,297B，LUSD/18 位/totalSupply=23,840,991.916952104332372499）、ActivePool getETH=70,032.552226551963403183 ETH。",
+    "系统参数（块 26378114）：ETH 价格 2126.16432216；债务 23,840,991.91695 LUSD；抵押 70,032.55223 ETH；TCR=6.245575454770655213（624.56%）；MCR=1.1e18；baseRate=976,214,752,553；redemptionRateWithDecay=0.5000017%；redemption fee floor=0.5%；getRedemptionFeeWithDecay(10 ETH)=0.05000017 ETH；LUSD_GAS_COMPENSATION=200e18。",
+    "协议赎回公式（1000 LUSD，未执行）：ETHdrawn=0.470330533523432491、fee=0.002351660759148458、净 0.467978872764284033 ETH（≈$994.19–994.98）。系统层面满足赎回条件；实际可赎 Troves/hint/部分取消未枚举。",
+    "DEX 同块报价：Curve BOLD/LUSD 池（0x7ED17e03…，coins BOLD/LUSD）get_dy 1000 BOLD→973.244477611529050970 LUSD、1000 LUSD→1026.061065580886725959 BOLD → LUSD 溢价约 2.7%（买入 1000 LUSD≈1027.49 BOLD）。Uniswap V3 LUSD/USDC 500 池现货≈1.023，但 QuoterV2 报价饱和（1000/10000 USDC 均 9.46 LUSD）不可执行；fee=3000 池异常；LUSD/USDT revert。",
+    "净额：买入 1000 LUSD≈1027.49 BOLD（≈$1027.5 若 BOLD≈$1）－ 赎回≈$994.19–994.98 = 约 −$27～−$33（−2.7%～−3.2%），未计 gas（0.393 gwei，<$1）。当前 LUSD 为溢价，不存在买折价→协议兑付的正收益闭环。",
+    "方向校验：Curve 直接卖出 1000 LUSD 得 1026.06 BOLD（≈$1026）> 协议赎回 $994.98，说明赎回劣于市场卖出。",
+    "上轮静态源码/部署结论已升级为链上代码与参数核验；未重开“持币人无需自有 Trove 即可赎回”的既定规则，也未把名义 1 美元当兑付价。"
   ],
   "pending_questions": [
-    "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
-    "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
-    "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
-    "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
+    "未做实际 redeem 执行/只读模拟（需 LUSD 余额与授权假设）：hint、最大迭代、部分赎回取消与真实到账未验证。",
+    "未枚举可赎 Troves（需遍历 SortedTroves/事件），实际可赎债务与单次容量 unknown，只给名义上限 23,840,991.92 LUSD。",
+    "30 天规则窗口未覆盖：赎回费率/baseRate/MCR/系统参数治理变更未查。",
+    "7 天活动未覆盖：未读 redeem 事件与实际赎回交易。",
+    "DEX 仅核验 Curve BOLD/LUSD 与 Uniswap V3 两个 LUSD 池；未查 3pool/LUSD-3Crv、Balancer 等；BOLD/USD 未独立核验（BOLD≈$1 为假设）。",
+    "报价块与状态块有数秒至 2 分钟时差；未做连续块监控。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:46:58.517342+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "verified_at": "2026-11-08T15:47:35.918126+00:00",
-    "record": "evidence/ETH02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:07:09.221528+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ETH02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ETH02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 71,
+  "request_discipline_note": "外部请求 71 次（≤80 硬性上限，符合）；其中 1 次脚本 bug 运行浪费约 18 次（probeB 首跑），已在 record/report 披露；所有联网脚本均先离线 --check 自检再执行。",
+  "data_sources_used": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://api.dexscreener.com/latest/dex/tokens/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+    "https://raw.githubusercontent.com/liquity/dev/main/packages/contracts/mainnetDeployment/mainnetDeploymentOutput.json（上轮已抓取，复用）"
+  ]
 }

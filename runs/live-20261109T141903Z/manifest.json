@@ -234,6 +234,19 @@
         "BNB05"
       ],
       "merged_at": "2026-11-09T15:05:20.885473+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "6255bd94b25d632c4e269b18f2c34eafe4d659b6",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:05:32.888559+00:00"
+    },
+    {
+      "batch": 10,
+      "agents": [
+        "ETH02",
+        "ETH03",
+        "ETH04"
+      ],
+      "merged_at": "2026-11-09T15:08:56.275180+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -269,6 +282,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 9
+    "completed": 10
   }
 }

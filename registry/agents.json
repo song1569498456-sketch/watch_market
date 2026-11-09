@@ -2337,124 +2337,201 @@
       "agent_id": "ETH02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:46:58.517342+00:00",
+      "last_success_at": "2026-11-09T15:07:09.221528+00:00",
+      "last_attempt_at": "2026-11-09T15:07:09.221528+00:00",
       "actual_coverage": [
-        "Liquity官方mainnetDeployment JSON给LUSD、TroveManager、activePool与priceFeed地址，未链独立核验。",
-        "TroveManager.sol:948-953要求合法maxFee、bootstrap结束、TCR>=MCR、金额>0与持有LUSD余额；持币人与被赎回借款人角色不同。",
-        "853-855行partial hint/净债务条件不满足可取消部分赎回；名义请求量不保证全部完成。",
-        "1379-1405行赎回费是baseRate与floor计算的ETH费用，当前费率unknown；不把源码0.5%字样当本轮实际费率。"
+        "链身份：eth_chainId=1；head=26378125（2026-11-09T15:06:59Z）；报价/状态固定块 26378114/26378121/26378123。",
+        "Liquity v1 身份链上核验：TroveManager 0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2 代码 23,163B（sha256=0e39ef50…）；PriceFeed 0x4c517D4e2C851CA76d7eC94B805269Df0f2201De 代码 4,582B（sha256=524ea886…）；LUSD 0x5f98805A… 代码 5,297B（sha256=d599bd52…）、symbol=LUSD、decimals=18、totalSupply=23,840,991.916952104332372499；ActivePool 0xDf9Eb223… 的 getETH()=70,032.552226551963403183 ETH。",
+        "系统状态（块 26378114）：priceFeed.fetchPrice()=2126.16432216 USD（1e18）；getEntireSystemDebt=23,840,991.916952104332372499 LUSD；getEntireSystemColl=70,032.552226551963403183 ETH；getTCR(price)=6.245575454770655213（624.56%）；MCR=1.1e18（110%）。",
+        "赎回参数：baseRate=976,214,752,553（≈0.0000976%）；getRedemptionRateWithDecay=5,000,017,203,925,153（0.5000017%）；REDEMPTION_FEE_FLOOR=5e15（0.5%）；getRedemptionFeeWithDecay(10 ETH)=50,000,172,039,251,530（0.05000017 ETH）；LUSD_GAS_COMPENSATION=200e18。即当前赎回费≈下限 0.5%，系统远健康于 MCR，赎回条件在系统层面满足。",
+        "赎回产出（协议公式，1000 LUSD 测量刻度，未执行）：ETHdrawn=0.470330533523432491 ETH，fee=0.002351660759148458 ETH，净得 0.467978872764284033 ETH；按 oracle price 折 USD≈994.98；再按 Uniswap V3 USDC/WETH 500 池报价（1 ETH=2124.701314 USDC）折≈994.19 USDC。",
+        "赎回容量：系统债务 23,840,991.92 LUSD 为可赎名义上限；ActivePool 70,032.55 ETH（按 oracle≈$148.9M）远大于债务的 $1 计价，说明抵押缓冲不构成容量瓶颈；但实际可赎 Troves、hint/最大迭代、最小净债务（200 LUSD gas compensation）导致的部分赎回取消未枚举，实际单次容量与到账以执行时为准（缺口）。",
+        "DEX 端（同块报价/池读取）：①Curve BOLD/LUSD 池 0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b（代码 23,635B，sha256=07f84333…；coins[0]=BOLD Stablecoin 0x6440f144…（18 位）、coins[1]=LUSD）：get_dy(0→1, 1000×1e18)=973.244477611529050970 LUSD；get_dy(1→0, 1000×1e18)=1026.061065580886725959 BOLD。买入 1000 LUSD 约需 1027.49 BOLD（1 LUSD≈1.0275 BOLD），即 LUSD 相对 BOLD 溢价约 2.7%。②Uniswap V3 LUSD/USDC fee=500 池 0x4e0924d3a751be199c426d52fb1f2337fa96f736（token0=LUSD/token1=USDC、sqrtPriceX96=80130121921468411476129、tick=-276098、liquidity=215,709,883,574,449）：现货≈1.023 USDC/LUSD；但 QuoterV2 对 1000/10000 USDC 买入返回 9.46 LUSD（gasEstimate=3.42M、两次结果相同），说明该池 in-range 流动性极薄、报价饱和不可执行。③Uniswap V3 LUSD/USDC fee=3000 池 0x9902affd…：1000 USDC→22.59 LUSD（ticksCrossed=1，同样不可执行）；LUSD/USDT fee=500 池 quote revert。",
+        "净额核算（1000 LUSD 测量刻度，条件性）：买入成本≈1027.49 BOLD（若 BOLD≈$1，则≈$1027.5；BOLD/USD 本轮未独立核验，标为假设）；赎回净得≈0.467978872764284033 ETH≈$994.19–994.98（USDC/ETH 两种口径）；**净 ≈ −$27 至 −$33（约 −2.7% 至 −3.2%）**，未计 gas；gasPrice=393,415,950 wei（0.393 gwei），3–4 笔交易估算 <$1，不足以翻转。"
       ],
       "coverage_gaps": [
-        "30天规则/赎回费变化与7天赎回交易均未回溯，无区块/交易/事件。",
-        "Ethereum RPC、Liquity官方文档和LUSD二级池API均CONNECT 403，当前链ID、代码、参数、TCR/可赎债务未核验。",
-        "没有指定数量LUSD买入报价、实时ETH赎回输出、上限/迭代和hint成功条件或ETH退出报价。",
-        "静态master源码与mainnet部署JSON没有独立链关联，不能把名义1美元或静态费率下限当当前可兑数量。"
+        "未做实际 redeem 执行或只读模拟（需要 LUSD 余额与授权假设）：本轮用协议公式 + 链上参数计算，未验证 hint/最大迭代/部分赎回取消与真实到账。",
+        "30 天规则窗口未覆盖：未查赎回费率/baseRate/系统参数治理变更与生效时间。",
+        "7 天活动未覆盖：未读 redeem 事件与实际赎回交易、排队/容量历史。",
+        "未枚举可赎 Troves（需要遍历 SortedTroves 或事件），实际可赎债务与单次容量 unknown；只给名义上限。",
+        "DEX 仅核验 Curve BOLD/LUSD 池与 Uniswap V3 两个 LUSD 池；其它稳定币池（3pool/LUSD-3Crv 等）与 BOLD 的 USD 汇率未独立核验；BOLD≈$1 为假设。",
+        "本轮外部请求 71 次（≤80 硬性上限，符合；含 1 次脚本 bug 运行浪费约 18 次，已披露）。"
       ],
-      "report": "reports/agents/ETH02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ETH02/2026-11-09/live-20261109T141903Z.md",
       "task": "稳定币折价与兑付",
       "chain": "ETH",
       "owner": "worker_a",
       "prompt": "prompts/agents/ETH02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 3,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-        "verified_at": "2026-11-08T15:47:35.918126+00:00",
-        "record": "evidence/ETH02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ETH03",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:47:03.965320+00:00",
+      "last_success_at": "2026-11-09T15:13:00+00:00",
+      "last_attempt_at": "2026-11-09T15:13:00+00:00",
       "actual_coverage": [
-        "官方README列Ethereum sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea，部署commit=665879762f8b5df5d234463f45d1d6a49bd4fbeb；本轮按该commit重新读取源码。",
-        "源码previewRedeem调用convertToAssets，maxRedeem返回owner份额余额，maxWithdraw返回其转换资产值；无当前参数读数。",
-        "实际redeem在pot需要时drip，再_burn检查余额/授权并pot.exit/daiJoin.exit；不把纯view输出当成功退出。",
-        "ERC4626标准previewRedeem忽略maxRedeem限制，不能通用宣称所有金库无限即时现金；该源码未建立异步队列，不反向证明当前所有退出立即可用。"
+        {
+          "type": "chain_identity",
+          "address": "ethereum-mainnet",
+          "fields": {
+            "eth_chainId": "0x1",
+            "chain_id": 1,
+            "latest_block": 26378116,
+            "latest_block_time_utc": "2026-11-09T15:05:11+00:00",
+            "pinned_block": 26378111
+          },
+          "evidence_file": "raw/eth03_summary.json"
+        },
+        {
+          "type": "vault_identity_and_share_price",
+          "protocol": "Savings DAI (Maker ERC4626)",
+          "address": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+          "fields": {
+            "code_bytes": 10925,
+            "asset": "0x6B175474E89094C44Da98b954EedeAC495271d0F (DAI)",
+            "symbol": "sDAI",
+            "decimals": 18,
+            "totalAssets": "161887728131909223847300403",
+            "totalSupply": "136871204862920015270687896",
+            "convertToAssets_1e18": "1182774187558616813",
+            "previewRedeem_1e18": "1182774187558616813",
+            "dai_per_sdai": 1.1827741875586169,
+            "maxRedeem_dead_addr": "4799010505457216773",
+            "maxWithdraw_dead_addr": "5676145751677426589",
+            "pot": "0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7",
+            "pot_DAI_ERC20_balance": 0,
+            "note": "maxRedeem/maxWithdraw 对 0x…dEaD（实际持有约4.799 sDAI）自洽；pot ERC20 DAI 余额0属内部会计，不能当可提现金"
+          },
+          "block": 26378111,
+          "evidence_file": "raw/vaults.json"
+        },
+        {
+          "type": "vault_identity_and_share_price",
+          "protocol": "MetaMorpho (Morpho)",
+          "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+          "fields": {
+            "name": "Adpend USDC",
+            "code_bytes": 19730,
+            "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (USDC)",
+            "symbol": "adpUSDC",
+            "decimals": 18,
+            "totalAssets": "966621761742162",
+            "totalSupply": "905277920604455960394729",
+            "convertToAssets_1e18": "827025336",
+            "previewRedeem_1e18": "827025336",
+            "withdrawQueueLength": 30,
+            "maxRedeem_dead_addr": 0,
+            "maxWithdraw_dead_addr": 0,
+            "arithmetic_flag": "totalAssets/totalSupply 反推约 1067.7 USDC/份额，与 convertToAssets 827.03 不一致（异常/缺口，未据此下结论）"
+          },
+          "block": 26378111,
+          "evidence_file": "raw/vaults.json"
+        },
+        {
+          "type": "secondary_market_quote",
+          "protocol": "Curve sDAI/FRAX",
+          "address": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+          "fields": {
+            "code_bytes": 23635,
+            "A": 1500,
+            "fee": 1000000,
+            "coins": [
+              "FRAX 0x853d955aCEf822Db058eb8505911ED77F175b99e",
+              "sDAI 0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+            ],
+            "balances_raw": [
+              "185163598695821775785144",
+              "16837196663923783670398"
+            ],
+            "get_dy_FRAX_to_sDAI_1e18": "838085532540897466",
+            "get_dy_sDAI_to_FRAX_1e18": "1192955870592096815",
+            "buy_1_sdai_cost_frax": 1.1932,
+            "nav_dai_per_sdai": 1.1827741875586169,
+            "implied_premium_bps_approx": 86,
+            "note": "FRAX/USD 未独立报价，按 FRAX≈1 近似；溢价方向明确（买入成本高于NAV）"
+          },
+          "block": 26378111,
+          "evidence_file": "raw/curve_pool.json"
+        },
+        {
+          "type": "secondary_market_absence",
+          "protocol": "MetaMorpho share token",
+          "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+          "fields": {
+            "dexscreener_ethereum_pairs": 0,
+            "note": "头部 Morpho 金库（$965.7M）无二级交易对，无法构造买入折价份额路径"
+          },
+          "evidence_file": "raw/eth03_summary.json"
+        }
       ],
       "coverage_gaps": [
-        "Ethereum RPC与二级份额市场发现API代理CONNECT403；无chainId/区块、当前vault代码、pot/DAI余额或具体二级池。",
-        "没有指定数量市场买入报价、previewRedeem/maxRedeem/maxWithdraw链上读取或完整redeem模拟；折价与即时可提款值unknown。",
-        "30天规则/部署/策略亏损/暂停变更未覆盖；7天真实赎回、交易和历史资金状态未覆盖。",
-        "README指定部署commit可读取源码，但当前部署是否仍对应该版本未独立核验；不能用源码当实时保证。",
-        "DAI退出深度、真实gas、资格/授权、等待、费用和现行限制未核验。"
+        "Morpho 金库 share 价读取异常：totalAssets/totalSupply 反推约 1067.7 USDC/份额 vs convertToAssets 827.03，需核对 ABI/实现/小数偏移；未据此下结论。",
+        "sDAI 可提现金证据不足：pot 的 ERC20 DAI 余额 0 属 Maker 内部会计（vat/rad），未读 vat/daiJoin 现金或做 redeem 只读模拟。",
+        "二级市场只覆盖 sDAI 的 Curve sDAI/FRAX 池（其余池 <$11 或不可用）与 1 个 Morpho 金库；未扫其他 Morpho/Yearn 金库的 Uniswap V3/Curve/Balancer 池。",
+        "FRAX/USD 未独立报价，溢价按 FRAX≈1 近似；未计 gas/滑点/授权。",
+        "30 天规则窗口（升级/策略损失/curator 费）与 7 天活动窗口（真实赎回/二级成交）未覆盖。"
       ],
-      "report": "reports/agents/ETH03/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ETH03/2026-11-09/live-20261109T141903Z.md",
       "task": "金库份额折价与提款",
       "chain": "ETH",
       "owner": "worker_b",
       "prompt": "prompts/agents/ETH03.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-        "verified_at": "2026-11-08T15:47:35.918126+00:00",
-        "record": "evidence/ETH03/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ETH04",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:46:46.422746+00:00",
+      "last_success_at": "2026-11-09T15:09:00+00:00",
+      "last_attempt_at": "2026-11-09T15:09:00+00:00",
       "actual_coverage": [
-        {
-          "protocol": "Aave V3 Ethereum",
-          "pool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
-          "pool_impl_static": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
-          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
-          "fields": "L43 default close factor常量；L260-280按健康度/金额限制代还；L390 receiveAToken；L414协议清算费",
-          "data_kind": "static source not current Ethereum config"
-        }
+        "链：eth_chainId=0x1；head=26,378,119（2026-11-09T15:05:47Z，hash 0xd19bd129…）；固定块 26,378,116；head baseFee=0x18fbb9d4≈419,159,764 wei。",
+        "Aave V3 Ethereum Pool 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2：代理代码 2,400 B；EIP-1967 impl 槽=0x728a138A4823392C2EFA55e028d434F526fE03CF（=官方地址书 POOL_IMPL）。",
+        "ADDRESSES_PROVIDER()=0x2f39d218133afab8f2b819b1066c7e434ad94e9e；provider.getPriceOracle()=0x54586bE62E3c3580375aE3723C145253060Ca0C2（=官方地址书 ORACLE）；getReservesList()=67 个储备。",
+        "oracle getSourceOfAsset：WETH→0x5424384b256154046e9667ddfaaa5e550145215e、USDC→0x3f73f03aa83b2a48ed27e964ed0fdb590332095b、USDT→0x260326c220e469358846b187ee53328303efe19c（未读精度/价格）。",
+        "储备参数（Pool.getConfiguration 位段解码，固定块）：WETH LTV 8100/LT 8400/bonus 10500/dec 18；USDC 0/7800/10450/6；USDT 0/7800/10450/6；wstETH 7900/8200/10600/18；WBTC 8100/8500/10500/8；DAI 0/7700/10500/18。reserveFactor/active/frozen 位段不自洽（reserveFactor 出现 >10000），本轮不采用。",
+        "清算规则源 sha256=5d344687…（与上一轮相同）：DEFAULT_LIQUIDATION_CLOSE_FACTOR=0.5e4、CLOSE_FACTOR_HF_THRESHOLD=0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD=2000e8。",
+        "Borrow 事件窗口 26,373,119→26,378,119（5,000 块，约 16.7h）：919 条；8 个借款人 getUserAccountData（块 26,378,116）：2 个无债务，其余 HF=1.0454015/1.1983461/3.5567458/1.0591059/1.1433538/1.8008661，均>1，无可清算仓位；最接近 1.0454 仅 watch。",
+        "同窗口 LiquidationCall=35 条（市场活跃、有真实清算发生）；本轮只统计与保存 8 条样本（block/tx/collateral/debt/liquidator），未逐笔复盘残仓/注资/并发。"
       ],
       "coverage_gaps": [
-        "30天清算参数/实现升级窗口未覆盖。",
-        "7天及已发生清算复盘未覆盖：无区块/交易/借款账户索引。",
-        "Ethereum链身份、proxy代码与源码实现匹配未核验，RPC CONNECT403。",
-        "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
-        "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。"
+        "储备 reserveFactor/active/frozen 位段解码不自洽，未采用；缺 PoolDataProvider 或官方 ReserveConfiguration 源码逐位复核。",
+        "oracle 精度/最新价未读（只读来源地址）；不能把价格当利润。",
+        "借款样本仅 8 个（窗口 919 条 Borrow），不是全量仓位队列；35 笔 LiquidationCall 未逐笔复盘（残仓/外部注资/并发清算）。",
+        "Morpho Blue 与 Compound V3 仅确认代码存在，未读 market 参数（LLTV/oracle/利率）与 borrowers；不能判断其清算机会。",
+        "30 天参数/实现升级窗口未覆盖；无候选仓位，未做代还→抵押→卖出闭环、无抵押卖出报价、无 gas/L1 成本量化。"
       ],
-      "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ETH04/2026-11-09/live-20261109T141903Z.md",
       "task": "正常借贷清算兑现",
       "chain": "ETH",
       "owner": "worker_c",
       "prompt": "prompts/agents/ETH04.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 3,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-        "verified_at": "2026-11-08T15:47:35.918126+00:00",
-        "record": "evidence/ETH04/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ETH05",

@@ -1,0 +1,29 @@
+{
+  "finding_id": "ETH-MORPHO-TOP-VAULT-NO-SECONDARY-MARKET",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "protocol": "MetaMorpho",
+  "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+  "evidence_urls": [
+    "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+    "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"
+  ],
+  "mechanism": "Morpho API 按 TVL 排序的 Ethereum 头部金库 Adpend USDC（0x55555815…，$965.7M，代码 19,730B、withdrawQueueLength=30）在 DexScreener 返回 0 个 Ethereum 二级交易对；无买入折价份额的市场入口。share 价读取存在 totalAssets/totalSupply 与 convertToAssets 不一致异常，已记为缺口，不下折价结论。",
+  "net_result": null,
+  "unknown_costs": [
+    "share 价异常待复核",
+    "赎回流动性",
+    "gas"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现真实二级市场",
+    "share 价异常被证明为读取/实现问题"
+  ],
+  "owner": "ETH03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH03/live-20261109T141903Z/record.json"
+}

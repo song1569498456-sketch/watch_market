@@ -1,0 +1,246 @@
+{
+  "agent_id": "ETH03",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ETH",
+  "scope": "Ethereum 1 金库份额折价与提款：sDAI（SavingsDai）与头部 MetaMorpho 金库的固定块份额→资产转换、maxRedeem/maxWithdraw、二级市场（Curve/Uniswap/DexScreener）实际买入价；NAV 与可兑现现金分开；无可执行折价则 REJECTED",
+  "started_at": "2026-11-09T15:04:20+00:00",
+  "finished_at": "2026-11-09T15:13:00+00:00",
+  "duration_seconds": 520,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:05:44+00:00",
+    "beijing": "2026-11-09T23:05:44+08:00",
+    "data_time": "链上读取 2026-11-09T15:05:11Z～15:05:44Z；最新块 26,378,116（2026-11-09T15:05:11Z）；钉 pinned 块 26,378,111；报告落盘时已超过 60 秒"
+  },
+  "block_or_slot": 26378111,
+  "market_ids": [
+    "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+    "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"
+  ],
+  "asset_ids": [
+    "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+    "0x853d955aCEf822Db058eb8505911ED77F175b99e"
+  ],
+  "discovery_source": [
+    {
+      "source": "MakerDAO sDAI 官方 README（上一轮读取，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/makerdao/sdai/master/README.md",
+      "retrieved_at_utc": "（上一轮）2026-11-08；本轮用其地址做链上核验",
+      "request": "Mainnet sDAI=0x83f20f44975d03b1b09e64809b757c47f942beea；本轮 eth_getCode/eth_call 核验"
+    },
+    {
+      "source": "Morpho 官方 API（GraphQL，无 key）",
+      "url": "https://api.morpho.org/graphql",
+      "retrieved_at_utc": "2026-11-09T15:05:15+00:00",
+      "http_status": 200,
+      "request": "vaults(first: 5, orderBy: TotalAssetsUsd, where chainId_in [1])：Adpend USDC $965.7M（0x55555815…）、1337 USDC $515M、Steakhouse USDT $75.5M 等"
+    },
+    {
+      "source": "Ethereum 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:05:14+00:00～15:05:44+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（sDAI 与 Morpho 金库 asset/totalAssets/totalSupply/convertToAssets/previewRedeem/maxRedeem/maxWithdraw/symbol/decimals/pot/withdrawQueueLength；Curve 池 coins/balances/fee/A/get_dy）；共 7 次外部 HTTP 请求"
+    },
+    {
+      "source": "DexScreener 官方 API（二级市场发现，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "retrieved_at_utc": "2026-11-09T15:05:17+00:00",
+      "http_status": 200,
+      "request": "sDAI 的 Ethereum 交易对：curve sDAI/FRAX 0xcE6431D2…（$204k）、uniswap sDAI/WETH（$10.7）等；Morpho Adpend USDC 返回 0 个 Ethereum 对"
+    }
+  ],
+  "mechanism": "sDAI 是 SavingsDai（ERC4626）：convertToAssets/previewRedeem 按 chi 给出 DAI 记账价值（本轮 1.182774 DAI/sDAI，与 totalAssets/totalSupply 一致），maxRedeem/maxWithdraw 按持有者份额换算；实际 redeem 走 pot.exit/daiJoin.exit，pot 的 ERC20 DAI 余额 0 只是 Maker 内部会计，不直接等于可提现金。二级市场：Curve sDAI/FRAX 池同 pinned 块 get_dy：1 sDAI→1.1929558706 FRAX、1 FRAX→0.8380855325 sDAI（即买 1 sDAI≈1.1932 FRAX）；与 NAV 1.18277 DAI 相比为溢价约 +0.86%（FRAX≈1 近似），不是折价，买入即亏。头部 MetaMorpho 金库 Adpend USDC 无二级市场。故不存在「二级折价买入→赎回」可执行路径。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "ethereum-mainnet",
+      "fields": {"eth_chainId": "0x1", "chain_id": 1, "latest_block": 26378116,
+                 "latest_block_time_utc": "2026-11-09T15:05:11+00:00", "pinned_block": 26378111},
+      "evidence_file": "raw/eth03_summary.json"
+    },
+    {
+      "type": "vault_identity_and_share_price",
+      "protocol": "Savings DAI (Maker ERC4626)",
+      "address": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "fields": {"code_bytes": 10925, "asset": "0x6B175474E89094C44Da98b954EedeAC495271d0F (DAI)",
+                 "symbol": "sDAI", "decimals": 18,
+                 "totalAssets": "161887728131909223847300403", "totalSupply": "136871204862920015270687896",
+                 "convertToAssets_1e18": "1182774187558616813", "previewRedeem_1e18": "1182774187558616813",
+                 "dai_per_sdai": 1.1827741875586168,
+                 "maxRedeem_dead_addr": "4799010505457216773", "maxWithdraw_dead_addr": "5676145751677426589",
+                 "pot": "0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7",
+                 "pot_DAI_ERC20_balance": 0,
+                 "note": "maxRedeem/maxWithdraw 对 0x…dEaD（实际持有约4.799 sDAI）自洽；pot ERC20 DAI 余额0属内部会计，不能当可提现金"},
+      "block": 26378111,
+      "evidence_file": "raw/vaults.json"
+    },
+    {
+      "type": "vault_identity_and_share_price",
+      "protocol": "MetaMorpho (Morpho)",
+      "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "fields": {"name": "Adpend USDC", "code_bytes": 19730, "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (USDC)",
+                 "symbol": "adpUSDC", "decimals": 18,
+                 "totalAssets": "966621761742162", "totalSupply": "905277920604455960394729",
+                 "convertToAssets_1e18": "827025336", "previewRedeem_1e18": "827025336",
+                 "withdrawQueueLength": 30, "maxRedeem_dead_addr": 0, "maxWithdraw_dead_addr": 0,
+                 "arithmetic_flag": "totalAssets/totalSupply 反推约 1067.7 USDC/份额，与 convertToAssets 827.03 不一致（异常/缺口，未据此下结论）"},
+      "block": 26378111,
+      "evidence_file": "raw/vaults.json"
+    },
+    {
+      "type": "secondary_market_quote",
+      "protocol": "Curve sDAI/FRAX",
+      "address": "0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "fields": {"code_bytes": 23635, "A": 1500, "fee": 1000000,
+                 "coins": ["FRAX 0x853d955aCEf822Db058eb8505911ED77F175b99e", "sDAI 0x83F20F44975D03b1b09e64809B757c47f942BEeA"],
+                 "balances_raw": ["185163598695821775785144", "16837196663923783670398"],
+                 "get_dy_FRAX_to_sDAI_1e18": "838085532540897466", "get_dy_sDAI_to_FRAX_1e18": "1192955870592096815",
+                 "buy_1_sdai_cost_frax": 1.1932, "nav_dai_per_sdai": 1.1827741875586168,
+                 "implied_premium_bps_approx": 86,
+                 "note": "FRAX/USD 未独立报价，按 FRAX≈1 近似；溢价方向明确（买入成本高于NAV）"},
+      "block": 26378111,
+      "evidence_file": "raw/curve_pool.json"
+    },
+    {
+      "type": "secondary_market_absence",
+      "protocol": "MetaMorpho share token",
+      "address": "0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "fields": {"dexscreener_ethereum_pairs": 0,
+                 "note": "头部 Morpho 金库（$965.7M）无二级交易对，无法构造买入折价份额路径"},
+      "evidence_file": "raw/eth03_summary.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7", "amount_in": "1e18 FRAX", "amount_out": "0.838085532540897466 sDAI", "fees": "Curve fee=1,000,000（1e10 分母，≈0.01%）；gas 未计", "block": 26378111, "quote_time_utc": "2026-11-09T15:05:44+00:00", "note": "买 sDAI 方向；买 1 sDAI 需约 1.1932 FRAX，高于 NAV 1.18277 DAI（溢价）"},
+    {"market_id": "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7", "amount_in": "1e18 sDAI", "amount_out": "1.192955870592096815 FRAX", "fees": "同上", "block": 26378111, "quote_time_utc": "2026-11-09T15:05:44+00:00", "note": "卖 sDAI 方向"}
+  ],
+  "net_result": {
+    "value": null,
+    "unit": "DAI/USD（无正收益路径）",
+    "type": "rejected_no_secondary_discount",
+    "realized": false,
+    "note": "sDAI 二级价为溢价（买入成本高于 NAV），Morpho 头部金库无二级市场；不存在二级折价买入→赎回可执行路径",
+    "unknown_costs": ["FRAX/USD 独立报价（溢价按≈1近似）", "gas/授权", "sDAI 即时可提现金（pot/vat 内部会计未读）", "Morpho 份额价读取异常待复核", "滑点与二级池深度"]
+  },
+  "capacity": "sDAI：Curve sDAI/FRAX 池约 185,163.6 FRAX / 16,837.2 sDAI（$204k 级），但方向为溢价、买入即亏，容量无意义；其他 sDAI 池 <$11。Morpho Adpend USDC：无二级市场（capacity 0）；金库自身 $965.7M 但赎回流动性上限未测。",
+  "permissions": "sDAI/Morpho 金库为标准 ERC4626，redeem/withdraw 需持有者份额与授权（本轮未授权/未签名/未广播）；未读金库暂停/升级/允许账户状态；未做只读 redeem 模拟。",
+  "liabilities": "none（只读读取；未建仓、无债务、无在途资金）",
+  "waiting_time": "0（二级 quote 与 vault view 同块）；实际执行：二级买入 1 笔 + 赎回 1 笔，等待 gas/确认；sDAI 无异步队列（所读源码），Morpho withdrawQueue 需市场流动性，未测",
+  "invalidation_conditions": [
+    "sDAI 二级池价格跌到低于 NAV 且可成交（则需重测）",
+    "Morpho 金库出现真实二级市场",
+    "FRAX/USD 偏离 1 使用户溢价/折价方向改变",
+    "金库实现升级/暂停/份额转让限制变化",
+    "报价超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+    "https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+    "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+    "https://api.morpho.org/graphql",
+    "https://api.dexscreener.com/latest/dex/tokens/0x83F20F44975D03b1b09e64809B757c47f942BEeA"
+  ],
+  "coverage_gaps": [
+    "Morpho 金库 share 价读取异常：totalAssets/totalSupply 反推约 1067.7 USDC/份额 vs convertToAssets 827.03，需核对 ABI/实现/小数偏移；未据此下结论。",
+    "sDAI 可提现金证据不足：pot 的 ERC20 DAI 余额 0 属 Maker 内部会计（vat/rad），未读 vat/daiJoin 现金或做 redeem 只读模拟。",
+    "二级市场只覆盖 sDAI 的 Curve sDAI/FRAX 池（其余池 <$11 或不可用）与 1 个 Morpho 金库；未扫其他 Morpho/Yearn 金库的 Uniswap V3/Curve/Balancer 池。",
+    "FRAX/USD 未独立报价，溢价按 FRAX≈1 近似；未计 gas/滑点/授权。",
+    "30 天规则窗口（升级/策略损失/curator 费）与 7 天活动窗口（真实赎回/二级成交）未覆盖。"
+  ],
+  "next_check": [
+    "修正 Morpho 金库 share 价读取（口径/实现差异），并对至少 1 个 Morpho 金库取 1 份额赎回的只读证据。",
+    "sDAI：读 pot/vat 的 DAI 现金与 chi/dsr，或做只读 redeem 模拟（不改权限/余额假设），确认即时可提 DAI 与 NAV 差异。",
+    "扫其他 Ethereum Morpho/Yearn 金库的二级池（Uniswap V3 各费率、Curve、Balancer），按“买入成本/显示 NAV/实际即时赎回/异步领取”四列建卡。",
+    "用真实 FRAX/USD 报价复核 sDAI 二级溢价；补 gas/滑点/授权成本。",
+    "补 30 天/7 天窗口：金库升级、策略损失、赎回与二级成交历史。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+      "chain": "ETH", "protocol": "Savings DAI (ERC4626)",
+      "asset_ids": ["0x6B175474E89094C44Da98b954EedeAC495271d0F", "0x83F20F44975D03b1b09e64809B757c47f942BEeA"],
+      "evidence_urls": ["https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA"],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE（NAV 1.182774 DAI/sDAI，与 totalAssets/totalSupply 一致）",
+      "next_check": "pot/vat 现金与 redeem 模拟；二级溢价复核"
+    },
+    {
+      "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "chain": "ETH", "protocol": "MetaMorpho (Adpend USDC)",
+      "asset_ids": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", "0x55555815a5595991C3A0Ff119B59AEF6C8B55555"],
+      "evidence_urls": ["https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"],
+      "identity_status": "ONCHAIN_VERIFIED_VAULT_STATE_BUT_SHARE_PRICE_ARITHMETIC_FLAG（无二级市场）",
+      "next_check": "修正 share 价读取；idle/withdrawQueue 流动性"
+    },
+    {
+      "market_id": "ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "chain": "ETH", "protocol": "Curve (sDAI/FRAX)",
+      "asset_ids": ["0x853d955aCEf822Db058eb8505911ED77F175b99e", "0x83F20F44975D03b1b09e64809B757c47f942BEeA"],
+      "evidence_urls": ["https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_AND_GETDY（买 1 sDAI≈1.1932 FRAX > NAV）",
+      "next_check": "FRAX/USD 报价；深度与滑点"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-SDAI-SECONDARY-PREMIUM-NOT-DISCOUNT",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "protocol": "Savings DAI / Curve",
+      "market_id": "ETH:1:savings-dai:0x83F20F44975D03b1b09e64809B757c47f942BEeA | ETH:1:curve-pool:0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7",
+      "evidence_urls": ["https://etherscan.io/address/0x83F20F44975D03b1b09e64809B757c47f942BEeA",
+                        "https://etherscan.io/address/0xcE6431D21E3fb1036CE9973a3312368ED96F5CE7"],
+      "mechanism": "sDAI 固定块 NAV=1.182774 DAI/sDAI（convertToAssets/previewRedeem 与 totalAssets/totalSupply 一致）；Curve sDAI/FRAX 同 pinned 块 get_dy：1 sDAI→1.19296 FRAX、买 1 sDAI≈1.1932 FRAX，按 FRAX≈1 近似为溢价约 +0.86% → 二级买入成本高于可兑现 NAV，不是折价；其他 sDAI 池无可成交深度。",
+      "net_result": null,
+      "unknown_costs": ["FRAX/USD 独立报价", "gas/授权", "sDAI 即时可提现金（pot/vat）", "滑点"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["二级价跌破 NAV 且可成交", "FRAX/USD 显著偏离", "金库实现/权限变化"]
+    },
+    {
+      "finding_id": "ETH-MORPHO-TOP-VAULT-NO-SECONDARY-MARKET",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "protocol": "MetaMorpho",
+      "market_id": "ETH:1:metamorpho-vault:0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+      "evidence_urls": ["https://etherscan.io/address/0x55555815a5595991C3A0Ff119B59AEF6C8B55555",
+                        "https://api.dexscreener.com/latest/dex/tokens/0x55555815a5595991C3A0Ff119B59AEF6C8B55555"],
+      "mechanism": "Morpho API 按 TVL 排序的 Ethereum 头部金库 Adpend USDC（0x55555815…，$965.7M，代码 19,730B、withdrawQueueLength=30）在 DexScreener 返回 0 个 Ethereum 二级交易对；无买入折价份额的市场入口。share 价读取存在 totalAssets/totalSupply 与 convertToAssets 不一致异常，已记为缺口，不下折价结论。",
+      "net_result": null,
+      "unknown_costs": ["share 价异常待复核", "赎回流动性", "gas"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["出现真实二级市场", "share 价异常被证明为读取/实现问题"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "sDAI 存在二级折价，可买入后按 NAV 赎回赚差",
+      "reason": "Curve sDAI/FRAX 同 pinned 块报价：买 1 sDAI≈1.1932 FRAX，而 NAV=1.182774 DAI（FRAX≈1 近似）→ 溢价约 +0.86%，买入即亏；其他 sDAI 池无可成交深度，明确排除。"
+    },
+    {
+      "claim": "把 previewRedeem/NAV 当可提现金或成功保证（上轮 Q00 否决点）",
+      "reason": "本轮把 NAV（convertToAssets）、maxRedeem/maxWithdraw、二级实际价格分列；pot 的 ERC20 DAI 余额 0 属 Maker 内部会计，未当可提现金；未做 redeem 模拟，排除把 view 当保证。"
+    },
+    {
+      "claim": "头部 Morpho 金库可买折价份额",
+      "reason": "Adpend USDC 无任何 Ethereum 二级交易对（DexScreener 0），无买入入口；share 价读取异常另记缺口，排除。"
+    },
+    {
+      "claim": "Morpho share 价 827.03 USDC/份额可直接采用",
+      "reason": "totalAssets/totalSupply 反推约 1,067.7 USDC/份额，与 convertToAssets 不一致；在核对实现/ABI 前不采用该值下任何折价结论，排除。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_block_vault_state_plus_curve_quote",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:05:44+00:00",
+    "complete_block_range": "pinned 单块 26,378,111（最新块 26,378,116）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

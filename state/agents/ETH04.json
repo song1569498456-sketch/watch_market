@@ -2,17 +2,25 @@
   "agent_id": "ETH04",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "UNVERIFIED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:06:39+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
+    "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "retrieved_at_utc": "2026-11-09T15:06:39+00:00",
+    "chain_id": 1,
+    "head_block": 26378119,
+    "pinned_block": 26378116,
     "fetched_urls": [
+      "https://ethereum-rpc.publicnode.com",
       "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Ethereum.sol",
       "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol"
     ],
-    "chain_block": null,
-    "borrowers_indexed": 0,
-    "history_complete": false
+    "chain_block": 26378116,
+    "borrowers_indexed": 8,
+    "history_complete": false,
+    "complete_block_range": "身份/储备/借款人/规则：块 26,378,116；Borrow/LiquidationCall 窗口 26,373,119-26,378,119（5,000 块完整覆盖）",
+    "complete_event_time_window": "约 2026-11-09T14:00Z-15:05Z；30 天规则与 7 天清算复盘未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,35 +38,30 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "protocol": "Aave V3 Ethereum",
-      "pool": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
-      "pool_impl_static": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
-      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/aave-dao/aave-v3-origin/main/src/contracts/protocol/libraries/logic/LiquidationLogic.sol",
-      "fields": "L43 default close factor常量；L260-280按健康度/金额限制代还；L390 receiveAToken；L414协议清算费",
-      "data_kind": "static source not current Ethereum config"
-    }
+    "链：eth_chainId=0x1；head=26,378,119（2026-11-09T15:05:47Z，hash 0xd19bd129…）；固定块 26,378,116；head baseFee≈419,159,764 wei。",
+    "Aave V3 Ethereum 身份：Pool 代理 0x87870Bca…（2,400 B）；EIP-1967 impl 槽=0x728a138A…（=地址书 POOL_IMPL）；provider=0x2f39d218…；provider.getPriceOracle()=0x54586bE6…（=地址书 ORACLE）；getReservesList()=67 储备。",
+    "预言机来源：WETH→0x5424384b…、USDC→0x3f73f03a…、USDT→0x260326c2…（仅来源地址，未读精度/价格）。",
+    "关键储备参数（Pool.getConfiguration 位段解码）：WETH 8100/8400/10500/18；USDC 0/7800/10450/6；USDT 0/7800/10450/6；wstETH 7900/8200/10600/18；WBTC 8100/8500/10500/8；DAI 0/7700/10500/18（LTV/LT/bonus bps）；reserveFactor/active/frozen 位段不自洽，未采用。",
+    "规则源 sha256=5d344687…（与上一轮相同）：close factor 0.5e4、CLOSE_FACTOR_HF_THRESHOLD 0.95e18、MIN_BASE_MAX_CLOSE_FACTOR_THRESHOLD 2000e8。",
+    "借款样本：Borrow 窗口 26,373,119-26,378,119（5,000 块≈16.7h）919 条；8 个借款人 getUserAccountData：2 个无债务，其余 HF=1.0454/1.1983/3.5567/1.0591/1.1434/1.8009 均>1（无可清算仓位，最近者仅 watch）。",
+    "清算复盘（部分）：同窗口 LiquidationCall=35 条，已存 8 条样本（block/tx/collateral/debt/liquidator）；未逐笔复盘残仓/注资/并发。",
+    "Morpho Blue 0xBBBB… 代码 15,623 B、Compound V3 USDC Comet 0xc3d6… 代码 1,878 B——仅身份存在，参数/borrowers 未读。",
+    "外部请求 32 次（≤80），同 host 间隔≥0.35s；无报价/无交易/无签名。"
   ],
   "pending_questions": [
-    "30天清算参数/实现升级窗口未覆盖。",
-    "7天及已发生清算复盘未覆盖：无区块/交易/借款账户索引。",
-    "Ethereum链身份、proxy代码与源码实现匹配未核验，RPC CONNECT403。",
-    "无真实borrower/position、当前健康度/债务本息/抵押/允许代还。",
-    "无可售抵押收入、数量报价或完整只读模拟；不能给可清算额或净收益。"
+    "储备 reserveFactor/active/frozen 位段解码不自洽，未采用；需 PoolDataProvider 或官方 ReserveConfiguration 源码逐位复核。",
+    "oracle 精度/最新价未读（只读来源地址）；不能把价格当利润。",
+    "借款样本仅 8 个（窗口 919 条 Borrow），不是全量仓位队列；35 笔 LiquidationCall 未逐笔复盘。",
+    "Morpho Blue/Compound V3 仅代码存在，未读 market 参数（LLTV/oracle/利率）与 borrowers。",
+    "30 天参数/实现升级窗口未覆盖；无候选，未做代还→抵押→卖出闭环、无卖出报价、无 gas/L1 成本量化。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:46:46.422746+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ETH04/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH04/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "c073ed030bfb6dee3d5db1cab10c4ea02707fad0",
-    "verified_at": "2026-11-08T15:47:35.918126+00:00",
-    "record": "evidence/ETH04/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:09:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ETH04/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ETH04/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }
