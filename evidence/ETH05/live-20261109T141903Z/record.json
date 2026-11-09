@@ -1,0 +1,199 @@
+{
+  "agent_id": "ETH05",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ETH",
+  "scope": "Ethereum 1 NFT/销毁铸造权益兑现：Lido unstETH 领取 NFT 队列状态（继承 ETH01 地址，只补差额）、NFT 可转让性/二级市场深度、Uniswap V3 NonfungiblePositionManager 销毁铸造机制身份核验；无可执行折价则 REJECTED",
+  "started_at": "2026-11-09T15:07:10+00:00",
+  "finished_at": "2026-11-09T15:16:00+00:00",
+  "duration_seconds": 530,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:08:11+00:00",
+    "beijing": "2026-11-09T23:08:11+08:00",
+    "data_time": "链上读取 2026-11-09T15:08:06Z～15:08:11Z；最新块 26,378,130（2026-11-09T15:07:59Z）；钉 pinned 块 26,378,125；报告落盘时已超过 60 秒"
+  },
+  "block_or_slot": 26378125,
+  "market_ids": [
+    "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+  ],
+  "asset_ids": [
+    "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+  ],
+  "discovery_source": [
+    {
+      "source": "Lido 官方部署表/源码（上一轮与 ETH01 已核验，本轮链上读状态）",
+      "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "retrieved_at_utc": "（本 run 早前）2026-11-09T14:21Z 附近；本轮用其 queue 地址做链上读取",
+      "request": "queue 代理 0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1；本轮 eth_getCode/getLastRequestId/getLastFinalizedRequestId/unfinalizedStETH/isPaused/ownerOf/getWithdrawalStatus 读取"
+    },
+    {
+      "source": "Ethereum 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://ethereum-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:08:06+00:00～15:08:11+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（Lido queue 状态与 ownerOf；Uniswap V3 NPM factory/WETH9/name/symbol）；共 5 次外部 HTTP 请求"
+    },
+    {
+      "source": "DexScreener 官方 API（NFT 二级市场发现，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "retrieved_at_utc": "2026-11-09T15:08:09+00:00",
+      "http_status": 200,
+      "request": "unstETH（ERC721）Ethereum 交易对：0 个 → 无 DEX 二级流动性；NFT 市场（OpenSea/Blur）需 API key/网页，本轮未用"
+    }
+  ],
+  "mechanism": "Lido WithdrawalQueue 的每个提款请求铸造一枚 unstETH（ERC721），finalized 后 owner 可 claim 领取 stETH/ETH；NFT 转移只改 request.owner 不清 claimed，claimed 请求的 ownerOf 会 revert（上一轮源码）。本轮 pinned 块读：last_request=141,226、last_finalized=141,196、unfinalizedStETH=4,229.390613409722、isPaused=false，ownerOf(141196)/ownerOf(141226) 均存在 → 领取权在链上真实存在且队列推进（相比 ETH01 早前读数 +2 requests、+225.23 stETH 未最终化）。但 getWithdrawalStatus 数组解码失败，未取得逐请求 claimed/claimableEther；unstETH 在 DEX 无任何交易对，NFT 市场深度未取得；因此无法证明存在「买入折价 NFT→领取 ETH」的可执行路径。第二个机制 Uniswap V3 NonfungiblePositionManager（NFT position，burn 时销毁 NFT 并 collect tokens）身份链上核验通过（factory/WETH9/name/symbol），但无具体 tokenId/仓位数据，无法给折价报价。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "ethereum-mainnet",
+      "fields": {"eth_chainId": "0x1", "chain_id": 1, "latest_block": 26378130,
+                 "latest_block_time_utc": "2026-11-09T15:07:59+00:00", "pinned_block": 26378125},
+      "evidence_file": "raw/eth05_summary.json"
+    },
+    {
+      "type": "lido_queue_state",
+      "protocol": "Lido WithdrawalQueue (unstETH)",
+      "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "fields": {"code_bytes": 2497, "getLastRequestId": 141226, "getLastFinalizedRequestId": 141196,
+                 "unfinalizedStETH": 4229.390613409722, "isPaused": false,
+                 "ownerOf_141196": "0x30115eac47c214af3d8c1c7df6026386a9de34c4",
+                 "ownerOf_141226": "0xe37ef305844d71d67b75b2c364b70a802fec9e5d",
+                 "eth01_baseline_delta": {"last_request_delta": 2, "unfinalized_stETH_delta": 225.228445409722},
+                 "getWithdrawalStatus_decode": "失败（返回数组布局与假设不符，claimable 未取得，缺口）"},
+      "block": 26378125,
+      "evidence_file": "raw/lido_queue.json"
+    },
+    {
+      "type": "nft_secondary_market",
+      "protocol": "unstETH ERC721",
+      "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "fields": {"dexscreener_ethereum_pairs": 0,
+                 "nft_marketplaces": "OpenSea/Blur 等需 API key 或网页，本轮未使用；无真实买卖报价/地板价/深度数据",
+                 "note": "不把地板价当可兑现现金"},
+      "evidence_file": "raw/eth05_summary.json"
+    },
+    {
+      "type": "second_mechanism_identity",
+      "protocol": "Uniswap V3 NonfungiblePositionManager",
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "fields": {"code_bytes": 24384, "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+                 "WETH9()": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                 "name": "Uniswap V3 Positions NFT-V1", "symbol": "UNI-V3-POS",
+                 "note": "销毁铸造机制（decreaseLiquidity/collect 后 burn NFT）身份核验通过；无具体 tokenId/仓位数据，无法报价"},
+      "block": 26378125,
+      "evidence_file": "raw/eth05_summary.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "rejected_no_executable_discount",
+    "realized": false,
+    "note": "Lido 领取权真实存在且队列推进，但无 DEX/NFT 市场可成交报价与逐请求 claimable，无法证明折价买入→领取的可执行正收益；UniV3 position NFT 无数据集",
+    "unknown_costs": ["NFT 买入价/市场深度", "claim gas 与 finalize 等待", "已 claimed 风险", "UniV3 position 折价与 gas", "底层 ETH/stETH 变现成本"]
+  },
+  "capacity": "Lido queue：last=141,226、finalized=141,196、unfinalizedStETH=4,229.39 stETH（队列规模）；可领取逐请求金额未解出。NFT 二级：DEX 0 对，市场深度 unknown；UniV3 NPM 仓位容量 unknown（无 tokenId 数据集）。",
+  "permissions": "Lido claim 需 request owner 且 request finalized（上一轮源码）；NFT 可转让但 claimed 后 ownerOf revert；本轮未 claim/mint/burn/approve/签名/广播；未使用 NFT 市场 API（无 key）。",
+  "liabilities": "none（只读读取；未建仓、无债务、无在途资金）",
+  "waiting_time": "Lido：finalize 等待（队列推进中，本轮 last-finalized 差 30 个 request）；领取 claim 即时（owner+finalized 后）；NFT 转让即时但市场深度未知；UniV3 position burn/collect 即时但无数据集",
+  "invalidation_conditions": [
+    "unstETH 二级市场出现可成交折价买盘（需重测）",
+    "Lido 队列暂停/升级/claim 规则变化",
+    "NFT 已 claimed（买入即无价值）",
+    "UniV3 position 数据集可得且存在折价",
+    "报价/数据超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://ethereum-rpc.publicnode.com",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://api.dexscreener.com/latest/dex/tokens/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+  ],
+  "coverage_gaps": [
+    "Lido 逐请求状态未解出：getWithdrawalStatus(uint256[]) ABI 解码失败，未取得 claimed/finalized/claimableEther 与 timestamp；需按 WithdrawalQueueBase 结构重解或单请求 view。",
+    "NFT 二级市场深度未知：DEX 0 对；OpenSea/Blur 等需 API key/网页，本轮未用 → 无真实买单/地板价/成交深度。",
+    "UniV3 position 数据集缺失：无具体 tokenId、仓位规模/费用累计/可领取 tokens，无法给买入—销毁—取资产报价。",
+    "未做 claim/burn/collect 只读模拟；gas、Lido finalize 等待时间与失败成本未实测。",
+    "30 天规则窗口（升级/暂停/队列参数）与 7 天活动窗口（真实 claim/转移/burn）未覆盖。"
+  ],
+  "next_check": [
+    "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+    "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+    "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+    "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+    "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+  ],
+  "handoff_to": ["M00", "ETH01", "Q00"],
+  "markets": [
+    {
+      "market_id": "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "chain": "ETH", "protocol": "Lido WithdrawalQueue (unstETH NFT)",
+      "asset_ids": ["0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"],
+      "evidence_urls": ["https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"],
+      "identity_status": "ONCHAIN_VERIFIED_QUEUE_STATE（last/finalized/unfinalized/isPaused/ownerOf；claimable 未解出）",
+      "next_check": "逐请求 claimed/claimable 解码；NFT 市场深度"
+    },
+    {
+      "market_id": "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "chain": "ETH", "protocol": "Uniswap V3 NonfungiblePositionManager",
+      "asset_ids": ["0xC36442b4a4522E871399CD717aBDD847Ab11FE88"],
+      "evidence_urls": ["https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88"],
+      "identity_status": "ONCHAIN_VERIFIED_NPM_IDENTITY（factory/WETH9/name/symbol；无 tokenId 数据集）",
+      "next_check": "取真实 tokenId/position 并报价"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ETH-LIDO-UNSTETH-NFT-CLAIM-RIGHTS",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "protocol": "Lido WithdrawalQueue (unstETH)",
+      "market_id": "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "evidence_urls": ["https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"],
+      "mechanism": "Lido queue pinned 块 last=141,226、finalized=141,196、unfinalizedStETH=4,229.3906、isPaused=false，ownerOf 存在 → 领取 NFT 是真实 ETH 领取权；但 DEX 无 unstETH 交易对（0），NFT 市场深度未取得，逐请求 claimable 未解出 → 无法证明可折价买入；已 claimed NFT 无价值。暂无正收益路径。",
+      "net_result": null,
+      "unknown_costs": ["NFT 买入价/深度", "claim gas 与等待", "已 claimed 风险"],
+      "handoff_to": ["M00", "ETH01", "Q00"],
+      "invalidation_conditions": ["出现可成交折价 NFT 买盘", "队列暂停/规则变化", "claimable 解码证明无残值"]
+    },
+    {
+      "finding_id": "ETH-UNIV3-POSITION-NFT-BURN-COLLECT",
+      "status": "REJECTED",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 NonfungiblePositionManager",
+      "market_id": "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "evidence_urls": ["https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88"],
+      "mechanism": "NPM 身份链上核验通过（代码 24,384B；factory=0x1F98431…、WETH9=0xC02aaA…、name/symbol 正确）：销毁 position NFT→collect tokens 的机制存在。但无具体 tokenId/仓位数据（需事件索引/枚举），无法识别折价 NFT 或给可兑现金报价；本轮不做机会主张。",
+      "net_result": null,
+      "unknown_costs": ["position 折价", "gas", "collect 资产变现"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["获得 tokenId/仓位数据集且存在折价", "NPM 实现/权限变化"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "可用 NFT 地板价/显示价计 Lido unstETH 的已实现收入或折价",
+      "reason": "DEX 无 unstETH 交易对（0），NFT 市场深度/成交未取得；地板价不是可兑现现金，排除。"
+    },
+    {
+      "claim": "买 unstETH NFT 等 finalized 领取 ETH 可稳定获利",
+      "reason": "需要 NFT 二级成交数据与逐请求 claimed/claimable 证明；本轮 claimable 未解出、无市场深度，不证明存在折价；已 claimed 的 NFT 无价值，排除该主张。"
+    },
+    {
+      "claim": "Uniswap V3 position NFT 存在折价买入→销毁取资产机会",
+      "reason": "机制身份核验通过，但没有具体 tokenId/仓位/费用与市场价格数据，无法证明折价或可执行，排除。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_nft_queue_state_plus_mechanism_identity",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:08:11+00:00",
+    "complete_block_range": "pinned 单块 26,378,125（最新块 26,378,130）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

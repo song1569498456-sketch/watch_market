@@ -4724,6 +4724,205 @@
         "补 Morpho Blue（market id/LLTV/oracle）与 Compound V3（Comet 参数/borrowers）身份与参数，三者分别建模。",
         "有候选后按同块取抵押卖出报价，扣代还本金/协议费/gas/L1 成本/融资后报净额；无候选保持 null，交 Q00 复核。"
       ]
+    },
+    {
+      "agent_id": "ETH05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Lido 逐请求状态未解出：getWithdrawalStatus(uint256[]) ABI 解码失败，未取得 claimed/finalized/claimableEther 与 timestamp；需按 WithdrawalQueueBase 结构重解或单请求 view。",
+      "next_check": [
+        "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+        "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+        "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+        "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+        "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "NFT 二级市场深度未知：DEX 0 对；OpenSea/Blur 等需 API key/网页，本轮未用 → 无真实买单/地板价/成交深度。",
+      "next_check": [
+        "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+        "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+        "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+        "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+        "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "UniV3 position 数据集缺失：无具体 tokenId、仓位规模/费用累计/可领取 tokens，无法给买入—销毁—取资产报价。",
+      "next_check": [
+        "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+        "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+        "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+        "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+        "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做 claim/burn/collect 只读模拟；gas、Lido finalize 等待时间与失败成本未实测。",
+      "next_check": [
+        "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+        "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+        "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+        "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+        "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+      ]
+    },
+    {
+      "agent_id": "ETH05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（升级/暂停/队列参数）与 7 天活动窗口（真实 claim/转移/burn）未覆盖。",
+      "next_check": [
+        "按 WithdrawalQueueBase 实际结构解码 getWithdrawalStatus（或单请求 view），取最近 finalized/claimed 请求的 owner/claimed/claimableEther，逐件验证可领取性。",
+        "为 Lido unstETH 建立事件索引（Requested/Claimed/Transfered）并在可访问的合规 NFT 市场 API 下确认是否存在低于 claimable 的买单；无数据维持 REJECTED。",
+        "为 Uniswap V3 NPM 取真实 tokenId 与 position（liquidity/tokensOwed/feeGrowth），给“买入 position NFT→decreaseLiquidity+collect→移出资产”完整报价（含 gas 与 NFT 折价）。",
+        "补 30 天/7 天窗口：合约升级、队列参数、真实 claim/转移/burn 活动与到账时间。",
+        "与 ETH01/N-ETH 去重：本岗位只补 NFT 层（申领权/可转让性/市场），不重复底层退出收益。"
+      ]
+    },
+    {
+      "agent_id": "OP01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "OP 标准桥回 L1 的实际等待天数未链上核实（约 7 天为设计量级）；L2 提款 gas、L1 领取 gas、L1 接收后兑换费用未量化。",
+      "next_check": [
+        "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+        "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+        "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+        "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+      ]
+    },
+    {
+      "agent_id": "OP01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Circle 场外赎回条款（账户/地区资格、最低额、费用、时间）未取，链上不可执行。",
+      "next_check": [
+        "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+        "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+        "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+        "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+      ]
+    },
+    {
+      "agent_id": "OP01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "USDT/USDC 池深度与跨池最优价未逐一比较；未做 10000 档与跨池路由；跨链到账金额/时间无模拟。",
+      "next_check": [
+        "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+        "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+        "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+        "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+      ]
+    },
+    {
+      "agent_id": "OP01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/桥迁移变更与 7 天活动未覆盖；USDC.e 桥提款状态（启用/暂停）未读。",
+      "next_check": [
+        "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+        "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+        "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+        "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+      ]
+    },
+    {
+      "agent_id": "OP01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Superchain token-list USDC.e 条目 404（源失效）；USDT paused() 无接口（revert）。",
+      "next_check": [
+        "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+        "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+        "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+        "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Velodrome 的 isPaused(pool)/getFee(pool) 在固定块均 revert → pause 与费率 unknown（view 报价不能证明同状态可 swap）；未找到可读取的替代权限接口，未硬猜。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Sushi V2 的 WETH/USDC.e pair 在固定块不存在；未用不同资产（如原生 USDC 或其它 DEX）替代成“同一对”。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做实际 swap 模拟/成交（需要代币余额与授权假设，且两腿非原子）；净额为同块报价折算。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/费率/迁移与 7 天活动未覆盖：未读 Velodrome factory 费率/暂停变更事件、Uniswap 池 Swap 事件与价差出现前交易。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Velodrome 池代码仅 45 bytes（疑似 clone/代理），未展开实现层；实现升级/权限可能变化。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅 WETH/USDC.e 一对；未轮转 OP/USDC、USDC/USDT0 等同链其它同资产对。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
+    },
+    {
+      "agent_id": "OP02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；无重跑浪费）。",
+      "next_check": [
+        "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+        "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+        "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+        "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+        "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+      ]
     }
   ],
   "status": "OPEN",

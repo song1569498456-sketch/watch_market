@@ -1466,19 +1466,18 @@
       "chain": "OP",
       "status": "REJECTED",
       "market_ids": [],
-      "mechanism": "排除“USDC合约存在burn就表示任意持有人能链上1:1现金赎回”的推断。官方FiatTokenV1参考源码的burn受onlyMinters/whenNotPaused/notBlacklisted限制，只改余额与总供给，无向持有人支付现金的逻辑；当前OP部署实现与发行方现金资格未核验。",
+      "mechanism": "本轮链上核验：OP 原生 USDC 是 Circle 代理（impl 0xded3b9a8…，23,464 B，paused=false），无普通账户赎回函数；burn 仅 minter（上轮 Circle FiatTokenV1 源码），只改余额/供给，不向持有人付款。发行方赎回为 Circle 场外流程，链上不可执行。",
       "evidence_urls": [
-        "https://raw.githubusercontent.com/circlefin/stablecoin-evm/master/contracts/v1/FiatTokenV1.sol"
+        "https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85"
       ],
       "next_check": "核验普通合格用户的真实赎回渠道、账户/地区条件、额度、最小额、手续费/等待；合约burn/CCTP不是现金到账证明。",
       "review_required": true,
       "handoff_to": [
-        "M00",
         "Q00"
       ],
       "owner": "OP01",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/OP01/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/OP01/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
         "claim_scope": "排除USDC存在burn即任意OP持币人可链上按1美元拿现金",
@@ -1506,31 +1505,52 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:49:23.421716+00:00",
-      "last_observed_at": "2026-11-08T15:49:23.421716+00:00",
-      "last_verified_onchain_at": null,
-      "unknown_costs": [
-        "DEX买入价/冲击",
-        "兑付与账户费用",
-        "L2执行/L1数据费",
-        "等待成本",
-        "接收资产退出成本"
+      "last_observed_at": "2026-11-09T15:14:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:14:00+00:00",
+      "unknown_costs": [],
+      "capacity": "USDC/USDT fee100 池 liquidity=3,657,206,172,725（1000 档买向毛差仍 +0.09%）；USDC/USDC.e fee100 池 liquidity=141,118,541,498,271；更大档/其他池未测",
+      "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+      "net_result": "n/a（排除性结论）",
+      "invalidation_conditions": [
+        "Circle 在 OP 部署新赎回合约",
+        "当前实现引入普通账户赎回"
       ],
-      "capacity": "unknown"
+      "observations_by_role": {
+        "OP01": {
+          "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+          "status": "REJECTED",
+          "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+          "mechanism": "本轮链上核验：OP 原生 USDC 是 Circle 代理（impl 0xded3b9a8…，23,464 B，paused=false），无普通账户赎回函数；burn 仅 minter（上轮 Circle FiatTokenV1 源码），只改余额/供给，不向持有人付款。发行方赎回为 Circle 场外流程，链上不可执行。",
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+          ],
+          "net_result": "n/a（排除性结论）",
+          "unknown_costs": [],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "Circle 在 OP 部署新赎回合约",
+            "当前实现引入普通账户赎回"
+          ]
+        }
+      }
     },
     {
       "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
       "status": "REJECTED",
       "chain": "OP",
-      "market_id": null,
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
       "claim": "排除“getAmountOut可返回数值就证明同状态可执行swap”的论证。",
       "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
         "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
       ],
       "evidence_fields": "Pool.sol getAmountOut L447-450不查pause，而swap L345查factory.isPaused",
       "scope_limit": "针对已读源码中的两方法；未证明OP某实际池暂停或对应当前部署。",
       "owner": "OP02",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/OP02/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/OP02/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
         "claim_scope": "仅排除Velodrome getAmountOut有值就证明同状态swap权限",
@@ -1558,16 +1578,53 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
-      "last_observed_at": "2026-11-08T15:49:05.707031+00:00",
-      "last_verified_onchain_at": null,
+      "last_observed_at": "2026-11-09T15:10:59.425452+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:10:59.425452+00:00",
       "unknown_costs": [
-        "两腿池费/路由费",
-        "转账税",
-        "滑点/动态费",
-        "L2 gas与L1数据费",
-        "账户/授权前提"
+        "Velodrome 费率",
+        "pause 状态",
+        "实际 swap 权限"
       ],
-      "capacity": "unknown"
+      "capacity": "Velodrome volatile 池仅 7.467749311695200355 WETH / 15,878.789233 USDC.e（≈$15.9k 稳定币侧），1 WETH 即占 WETH 储备 13.4%；Uniswap V3 fee=500 池 liquidity=2,963,021,199,541,957（深）。可执行规模受 Velodrome 深度严格限制，且费率/pause 未读通。",
+      "mechanism": "上轮以源码排除“getAmountOut 有数值即证明同状态可 swap”（swap 另查 factory.isPaused）；本轮在固定块 159319129 对实际 Velodrome 池 0x0493bf8b… 调用 factory.isPaused(pool) 与 factory.getFee(pool) 均 revert → pause 与费率仍不可读，view 报价不能当可成交。因此 Velodrome 腿只能作价格参考，不能作为 Q00 认可的执行腿。",
+      "net_result": "not_computed_view_only",
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "可读取 pause/fee 并证明未暂停",
+        "swap 权限经模拟验证"
+      ],
+      "observations_by_role": {
+        "OP02": {
+          "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+          "status": "REJECTED",
+          "chain": "OP",
+          "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+          "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "上轮以源码排除“getAmountOut 有数值即证明同状态可 swap”（swap 另查 factory.isPaused）；本轮在固定块 159319129 对实际 Velodrome 池 0x0493bf8b… 调用 factory.isPaused(pool) 与 factory.getFee(pool) 均 revert → pause 与费率仍不可读，view 报价不能当可成交。因此 Velodrome 腿只能作价格参考，不能作为 Q00 认可的执行腿。",
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+            "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+          ],
+          "net_result": "not_computed_view_only",
+          "unknown_costs": [
+            "Velodrome 费率",
+            "pause 状态",
+            "实际 swap 权限"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "可读取 pause/fee 并证明未暂停",
+            "swap 权限经模拟验证"
+          ]
+        }
+      }
     },
     {
       "finding_id": "POLY-AAVE-LIQUIDATION-BONUS-NOT-NET-PROFIT",
@@ -4682,6 +4739,310 @@
           "invalidation_conditions": [
             "出现真实二级市场",
             "share 价异常被证明为读取/实现问题"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ETH-LIDO-UNSTETH-NFT-CLAIM-RIGHTS",
+      "first_seen_at": "2026-11-09T15:16:00+00:00",
+      "status": "REJECTED",
+      "market_id": "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "mechanism": "Lido queue pinned 块 last=141,226、finalized=141,196、unfinalizedStETH=4,229.3906、isPaused=false，ownerOf 存在 → 领取 NFT 是真实 ETH 领取权；但 DEX 无 unstETH 交易对（0），NFT 市场深度未取得，逐请求 claimable 未解出 → 无法证明可折价买入；已 claimed NFT 无价值。暂无正收益路径。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "NFT 买入价/深度",
+        "claim gas 与等待",
+        "已 claimed 风险"
+      ],
+      "handoff_to": [
+        "M00",
+        "ETH01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现可成交折价 NFT 买盘",
+        "队列暂停/规则变化",
+        "claimable 解码证明无残值"
+      ],
+      "owner": "ETH05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH05/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:16:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:16:00+00:00",
+      "capacity": "Lido queue：last=141,226、finalized=141,196、unfinalizedStETH=4,229.39 stETH（队列规模）；可领取逐请求金额未解出。NFT 二级：DEX 0 对，市场深度 unknown；UniV3 NPM 仓位容量 unknown（无 tokenId 数据集）。",
+      "observations_by_role": {
+        "ETH05": {
+          "finding_id": "ETH-LIDO-UNSTETH-NFT-CLAIM-RIGHTS",
+          "status": "REJECTED",
+          "chain": "ETH",
+          "protocol": "Lido WithdrawalQueue (unstETH)",
+          "market_id": "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+          "evidence_urls": [
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+          ],
+          "mechanism": "Lido queue pinned 块 last=141,226、finalized=141,196、unfinalizedStETH=4,229.3906、isPaused=false，ownerOf 存在 → 领取 NFT 是真实 ETH 领取权；但 DEX 无 unstETH 交易对（0），NFT 市场深度未取得，逐请求 claimable 未解出 → 无法证明可折价买入；已 claimed NFT 无价值。暂无正收益路径。",
+          "net_result": null,
+          "unknown_costs": [
+            "NFT 买入价/深度",
+            "claim gas 与等待",
+            "已 claimed 风险"
+          ],
+          "handoff_to": [
+            "M00",
+            "ETH01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现可成交折价 NFT 买盘",
+            "队列暂停/规则变化",
+            "claimable 解码证明无残值"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ETH-UNIV3-POSITION-NFT-BURN-COLLECT",
+      "first_seen_at": "2026-11-09T15:16:00+00:00",
+      "status": "REJECTED",
+      "market_id": "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "mechanism": "NPM 身份链上核验通过（代码 24,384B；factory=0x1F98431…、WETH9=0xC02aaA…、name/symbol 正确）：销毁 position NFT→collect tokens 的机制存在。但无具体 tokenId/仓位数据（需事件索引/枚举），无法识别折价 NFT 或给可兑现金报价；本轮不做机会主张。",
+      "evidence_urls": [
+        "https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "position 折价",
+        "gas",
+        "collect 资产变现"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "获得 tokenId/仓位数据集且存在折价",
+        "NPM 实现/权限变化"
+      ],
+      "owner": "ETH05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ETH05/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:16:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:16:00+00:00",
+      "capacity": "Lido queue：last=141,226、finalized=141,196、unfinalizedStETH=4,229.39 stETH（队列规模）；可领取逐请求金额未解出。NFT 二级：DEX 0 对，市场深度 unknown；UniV3 NPM 仓位容量 unknown（无 tokenId 数据集）。",
+      "observations_by_role": {
+        "ETH05": {
+          "finding_id": "ETH-UNIV3-POSITION-NFT-BURN-COLLECT",
+          "status": "REJECTED",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 NonfungiblePositionManager",
+          "market_id": "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+          "evidence_urls": [
+            "https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+          ],
+          "mechanism": "NPM 身份链上核验通过（代码 24,384B；factory=0x1F98431…、WETH9=0xC02aaA…、name/symbol 正确）：销毁 position NFT→collect tokens 的机制存在。但无具体 tokenId/仓位数据（需事件索引/枚举），无法识别折价 NFT 或给可兑现金报价；本轮不做机会主张。",
+          "net_result": null,
+          "unknown_costs": [
+            "position 折价",
+            "gas",
+            "collect 资产变现"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "获得 tokenId/仓位数据集且存在折价",
+            "NPM 实现/权限变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "OP-USDC-E-SAME-SYMBOL-DIFFERENT-EQUITY",
+      "first_seen_at": "2026-11-09T15:14:00+00:00",
+      "status": "REJECTED",
+      "market_id": "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+      "mechanism": "USDC.e 与原生 USDC 的 name/symbol 均为 USD Coin/USDC，但 USDC.e 的 l1Token=L1 USDC、l2Bridge=OP 标准桥 0x4200…0010，是桥接表示；买 USDC.e 方向无折价（100 USDC→99.997509 USDC.e）、卖方向仅 0.018% 折价，出口只有 DEX 卖回或跨链等待 → 无闭环。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+      ],
+      "net_result": "unknown（不可闭环；净额 null）",
+      "unknown_costs": [
+        "桥 gas/等待",
+        "DEX 往返费"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "USDC.e 桥改用新机制",
+        "买方向出现折价"
+      ],
+      "owner": "OP01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/OP01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:14:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:14:00+00:00",
+      "capacity": "USDC/USDT fee100 池 liquidity=3,657,206,172,725（1000 档买向毛差仍 +0.09%）；USDC/USDC.e fee100 池 liquidity=141,118,541,498,271；更大档/其他池未测",
+      "observations_by_role": {
+        "OP01": {
+          "finding_id": "OP-USDC-E-SAME-SYMBOL-DIFFERENT-EQUITY",
+          "status": "REJECTED",
+          "market_id": "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+          "mechanism": "USDC.e 与原生 USDC 的 name/symbol 均为 USD Coin/USDC，但 USDC.e 的 l1Token=L1 USDC、l2Bridge=OP 标准桥 0x4200…0010，是桥接表示；买 USDC.e 方向无折价（100 USDC→99.997509 USDC.e）、卖方向仅 0.018% 折价，出口只有 DEX 卖回或跨链等待 → 无闭环。",
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+          ],
+          "net_result": "unknown（不可闭环；净额 null）",
+          "unknown_costs": [
+            "桥 gas/等待",
+            "DEX 往返费"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "USDC.e 桥改用新机制",
+            "买方向出现折价"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+      "first_seen_at": "2026-11-09T15:14:00+00:00",
+      "status": "DELAYED",
+      "market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+      "mechanism": "用原生 USDC 在 DEX 买 USDT：100→100.098834、1000→1000.904767（毛 +0.09-0.10%）；USDT 为 L1 USDT 桥接表示（l1Token=L1 USDT、l2Bridge=标准桥），经 OP 标准桥回 L1 可 1:1 得 L1 USDT，但需等待 OP 证明/争议窗口（约 7 天量级，未核实）并支付 L2 提款/L1 领取 gas，毛差与估算 gas 同量级；不是 L2 即时兑现。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+        "https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"
+      ],
+      "net_result": "毛差 +0.0905%/1000 USDC；扣估算跨链 gas 后可能接近零，净额 null（未实现）",
+      "unknown_costs": [
+        "L2 提款 gas",
+        "L1 领取 gas",
+        "L1 USDT→USDC 兑换费",
+        "7 天资金占用"
+      ],
+      "handoff_to": [
+        "Q00",
+        "M00"
+      ],
+      "invalidation_conditions": [
+        "毛差 < 实测跨链成本",
+        "桥暂停/等待超预期",
+        "L1 接收资产流动性不足"
+      ],
+      "owner": "OP01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/OP01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:14:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:14:00+00:00",
+      "capacity": "USDC/USDT fee100 池 liquidity=3,657,206,172,725（1000 档买向毛差仍 +0.09%）；USDC/USDC.e fee100 池 liquidity=141,118,541,498,271；更大档/其他池未测",
+      "observations_by_role": {
+        "OP01": {
+          "finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+          "status": "DELAYED",
+          "market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+          "mechanism": "用原生 USDC 在 DEX 买 USDT：100→100.098834、1000→1000.904767（毛 +0.09-0.10%）；USDT 为 L1 USDT 桥接表示（l1Token=L1 USDT、l2Bridge=标准桥），经 OP 标准桥回 L1 可 1:1 得 L1 USDT，但需等待 OP 证明/争议窗口（约 7 天量级，未核实）并支付 L2 提款/L1 领取 gas，毛差与估算 gas 同量级；不是 L2 即时兑现。",
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+            "https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"
+          ],
+          "net_result": "毛差 +0.0905%/1000 USDC；扣估算跨链 gas 后可能接近零，净额 null（未实现）",
+          "unknown_costs": [
+            "L2 提款 gas",
+            "L1 领取 gas",
+            "L1 USDT→USDC 兑换费",
+            "7 天资金占用"
+          ],
+          "handoff_to": [
+            "Q00",
+            "M00"
+          ],
+          "invalidation_conditions": [
+            "毛差 < 实测跨链成本",
+            "桥暂停/等待超预期",
+            "L1 接收资产流动性不足"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "DELAYED"
+    },
+    {
+      "finding_id": "OP-WETH-USDCe-UNIV3-VS-VELODROME-ROUNDTRIP",
+      "first_seen_at": "2026-11-09T15:10:59.425452+00:00",
+      "status": "REJECTED",
+      "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+      "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3 fee=500 与 Velodrome V2 volatile 的同块报价：Uni 1 WETH→2111.231801 USDC.e；Velodrome 1 WETH→1870.244738、1000 USDC.e→0.441185 WETH，储备仅 7.4677 WETH/15,878.79 USDC.e。两方向 A→B→A 估算净 −12.60% / −11.42%（Velodrome 费率取 0.3% 假设，getFee revert 无法读实）；spot 价差仅约 0.016%，远小于双侧费率+冲击。无可闭环价差。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+        "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b"
+      ],
+      "net_result": "-11.42% 至 -12.60%（同块报价折算，未执行）",
+      "unknown_costs": [
+        "Velodrome 费率",
+        "pause/执行权限",
+        "gas/L1 数据费",
+        "两笔交易时间差"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "Velodrome 深度大幅增加",
+        "费率/价格变化使费后转正",
+        "出现更深第三市场"
+      ],
+      "owner": "OP02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/OP02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:10:59.425452+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:10:59.425452+00:00",
+      "capacity": "Velodrome volatile 池仅 7.467749311695200355 WETH / 15,878.789233 USDC.e（≈$15.9k 稳定币侧），1 WETH 即占 WETH 储备 13.4%；Uniswap V3 fee=500 池 liquidity=2,963,021,199,541,957（深）。可执行规模受 Velodrome 深度严格限制，且费率/pause 未读通。",
+      "observations_by_role": {
+        "OP02": {
+          "finding_id": "OP-WETH-USDCe-UNIV3-VS-VELODROME-ROUNDTRIP",
+          "status": "REJECTED",
+          "chain": "OP",
+          "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+          "first_seen_at": "2026-11-09T15:10:59+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3 fee=500 与 Velodrome V2 volatile 的同块报价：Uni 1 WETH→2111.231801 USDC.e；Velodrome 1 WETH→1870.244738、1000 USDC.e→0.441185 WETH，储备仅 7.4677 WETH/15,878.79 USDC.e。两方向 A→B→A 估算净 −12.60% / −11.42%（Velodrome 费率取 0.3% 假设，getFee revert 无法读实）；spot 价差仅约 0.016%，远小于双侧费率+冲击。无可闭环价差。",
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+            "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b"
+          ],
+          "net_result": "-11.42% 至 -12.60%（同块报价折算，未执行）",
+          "unknown_costs": [
+            "Velodrome 费率",
+            "pause/执行权限",
+            "gas/L1 数据费",
+            "两笔交易时间差"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "Velodrome 深度大幅增加",
+            "费率/价格变化使费后转正",
+            "出现更深第三市场"
           ]
         }
       },

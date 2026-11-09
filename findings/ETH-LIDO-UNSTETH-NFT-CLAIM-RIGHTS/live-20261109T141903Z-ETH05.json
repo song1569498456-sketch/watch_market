@@ -1,0 +1,30 @@
+{
+  "finding_id": "ETH-LIDO-UNSTETH-NFT-CLAIM-RIGHTS",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "protocol": "Lido WithdrawalQueue (unstETH)",
+  "market_id": "ETH:1:lido-withdrawal-queue:0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+  "evidence_urls": [
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+  ],
+  "mechanism": "Lido queue pinned 块 last=141,226、finalized=141,196、unfinalizedStETH=4,229.3906、isPaused=false，ownerOf 存在 → 领取 NFT 是真实 ETH 领取权；但 DEX 无 unstETH 交易对（0），NFT 市场深度未取得，逐请求 claimable 未解出 → 无法证明可折价买入；已 claimed NFT 无价值。暂无正收益路径。",
+  "net_result": null,
+  "unknown_costs": [
+    "NFT 买入价/深度",
+    "claim gas 与等待",
+    "已 claimed 风险"
+  ],
+  "handoff_to": [
+    "M00",
+    "ETH01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现可成交折价 NFT 买盘",
+    "队列暂停/规则变化",
+    "claimable 解码证明无残值"
+  ],
+  "owner": "ETH05",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH05/live-20261109T141903Z/record.json"
+}

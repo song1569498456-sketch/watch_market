@@ -247,6 +247,19 @@
         "ETH04"
       ],
       "merged_at": "2026-11-09T15:08:56.275180+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "c8783839912f0e992cc409e46c70a035645f9739",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:09:10.309537+00:00"
+    },
+    {
+      "batch": 11,
+      "agents": [
+        "ETH05",
+        "OP01",
+        "OP02"
+      ],
+      "merged_at": "2026-11-09T15:12:45.483764+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -282,6 +295,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 10
+    "completed": 11
   }
 }

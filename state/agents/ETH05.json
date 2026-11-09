@@ -2,13 +2,49 @@
   "agent_id": "ETH05",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:08:11+00:00",
   "observed_cursor": {
-    "type": "STATIC_NFT_RIGHTS_SOURCE_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:49:15.184460+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "kind": "onchain_nft_queue_state_plus_mechanism_identity",
+    "run_id": "live-20261109T141903Z",
+    "chain": "ethereum-mainnet",
+    "chain_id": 1,
+    "latest_block": 26378130,
+    "pinned_block": 26378125,
+    "latest_block_time_utc": "2026-11-09T15:07:59+00:00",
+    "lido_queue": {
+      "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+      "code_bytes": 2497,
+      "last_request_id": 141226,
+      "last_finalized_request_id": 141196,
+      "unfinalized_stETH": 4229.390613409722,
+      "isPaused": false,
+      "ownerOf_141196": "0x30115eac47c214af3d8c1c7df6026386a9de34c4",
+      "ownerOf_141226": "0xe37ef305844d71d67b75b2c364b70a802fec9e5d",
+      "eth01_delta": {
+        "last_request_delta": 2,
+        "unfinalized_stETH_delta": 225.228445409722
+      },
+      "getWithdrawalStatus_decode": "failed（claimable 未取得）"
+    },
+    "unsteth_secondary": {
+      "dexscreener_ethereum_pairs": 0,
+      "nft_marketplaces": "OpenSea/Blur 需 API key/网页，未用；无成交/深度数据"
+    },
+    "second_mechanism": {
+      "protocol": "Uniswap V3 NonfungiblePositionManager",
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "code_bytes": 24384,
+      "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "WETH9()": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "name": "Uniswap V3 Positions NFT-V1",
+      "symbol": "UNI-V3-POS",
+      "token_dataset": "none（需事件索引/枚举）"
+    },
+    "result": "REJECTED：NFT 领取权真实存在但无二级市场报价/逐请求 claimable，无法证明折价；UniV3 position 无数据集",
+    "quotes_count": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,29 +58,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方部署表chainId=1、name=Lido: stETH Withdrawal NFT、symbol=unstETH，queue与实现已提取，尚未实时链核验。",
-    "ERC721源码169-175行ownerOf对claimed请求revert；230-248行_transfer拒绝已claimed并更新request.owner、清除approval。",
-    "WithdrawalQueue.sol:218-230未finalized或已claimed返回0，264-273行领取要求owner和finalized；当前无真实requestId可验证。"
+    "链身份：eth_chainId=0x1（1），最新块 26,378,130（2026-11-09T15:07:59Z），读取钉 pinned 块 26,378,125。",
+    "Lido WithdrawalQueue（unstETH NFT，继承 ETH01 已核验地址）0x889edC2e…：代码 2,497B；last=141,226、finalized=141,196、unfinalizedStETH=4,229.390613409722、isPaused=false；ownerOf(141196)=0x30115eac…、ownerOf(141226)=0xe37ef305…；相比 ETH01 早前读数 +2 requests、+225.23 stETH 未最终化。",
+    "Lido 逐请求 claimed/finalized/claimableEther 未取得（getWithdrawalStatus(uint256[]) ABI 解码失败，缺口）；领取需 owner+finalized（上一轮源码）。",
+    "NFT 二级市场：DexScreener 对 unstETH 返回 0 个 Ethereum 交易对（无 DEX 流动性）；OpenSea/Blur 等需 API key/网页，本轮未用 → 无真实成交/地板价/深度，不把地板价当现金。",
+    "第二机制 Uniswap V3 NonfungiblePositionManager 0xC36442b4…：代码 24,384B、factory=0x1F98431…、WETH9=0xC02aaA…、name/symbol 核验通过（销毁 position NFT→collect tokens）；无具体 tokenId/仓位数据，无法报价。",
+    "结论 REJECTED：NFT 领取权真实存在但无可成交二级报价与逐请求 claimable，不构成可执行折价路径；UniV3 position 无数据集。",
+    "缺口：getWithdrawalStatus 解码、NFT 市场深度、UniV3 position 数据集、claim/burn 只读模拟与 gas、30 天/7 天窗口。"
   ],
   "pending_questions": [
-    "30天NFT权益/升级变更与7天请求/转移/领取活动均未回溯，无交易/事件/区块。",
-    "Lido文档与Ethereum LlamaRPC eth_chainId均CONNECT 403，当前代码/代理实现和NFT队列状态未链核验。",
-    "没有真实requestId/tokenId、当前owner/claimed/finalized/claimable，不能认定任何一件NFT仍可领取。",
-    "没有实际NFT可成交买单/卖单与取得成本、gas/等待或剩余可支付ETH，无法核算NFT买入→领取收益。",
-    "仅有官方静态部署与源码；NFT转移后的current owner逻辑需要当前实现核对，不使用地板价或显示APR计收入。"
+    "Lido 逐请求状态未解出：getWithdrawalStatus(uint256[]) 解码失败，未取得 claimed/finalized/claimableEther 与 timestamp。",
+    "NFT 二级市场深度未知：DEX 0 对；OpenSea/Blur 等需 API key/网页，本轮未用，无真实买单/地板价/成交深度。",
+    "UniV3 position 数据集缺失：无 tokenId、仓位规模/费用累计/可领取 tokens，无法给买入—销毁—取资产报价。",
+    "未做 claim/burn/collect 只读模拟；gas、Lido finalize 等待与失败成本未实测。",
+    "30 天规则窗口（升级/暂停/队列参数）与 7 天活动窗口（真实 claim/转移/burn）未覆盖。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:49:15.184460+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ETH05/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ETH05/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
-    "verified_at": "2026-11-08T15:49:44.821008+00:00",
-    "record": "evidence/ETH05/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T15:16:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ETH05/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ETH05/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

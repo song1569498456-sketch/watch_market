@@ -1,0 +1,29 @@
+{
+  "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+  "status": "REJECTED",
+  "chain": "OP",
+  "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+  "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "上轮以源码排除“getAmountOut 有数值即证明同状态可 swap”（swap 另查 factory.isPaused）；本轮在固定块 159319129 对实际 Velodrome 池 0x0493bf8b… 调用 factory.isPaused(pool) 与 factory.getFee(pool) 均 revert → pause 与费率仍不可读，view 报价不能当可成交。因此 Velodrome 腿只能作价格参考，不能作为 Q00 认可的执行腿。",
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+    "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+  ],
+  "net_result": "not_computed_view_only",
+  "unknown_costs": [
+    "Velodrome 费率",
+    "pause 状态",
+    "实际 swap 权限"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "可读取 pause/fee 并证明未暂停",
+    "swap 权限经模拟验证"
+  ],
+  "owner": "OP02",
+  "source_record": "evidence/OP02/live-20261109T141903Z/record.json"
+}

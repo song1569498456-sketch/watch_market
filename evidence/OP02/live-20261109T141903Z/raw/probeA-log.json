@@ -1,0 +1,386 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T15:09:40.709365+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:09:41.834781+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:09:42.343441+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_velo_factory",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:42.864087+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_getPool_volatile",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:43.478072+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_velo_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:43.986648+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:44.500222+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:45.003466+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_getReserves",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:45.525855+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_isPaused",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:46.062122+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "op-publicnode",
+  "tag": "velo_isPaused",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:46.562889+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_getFee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:47.554975+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "op-publicnode",
+  "tag": "velo_getFee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:48.123693+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_uni_factory",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:48.520438+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_getPool_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:49.312772+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_getPool_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:49.814969+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_getPool_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:50.320886+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_uni_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:50.834571+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_pool_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:51.619382+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_pool_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:52.153363+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_pool_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:52.667850+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_pool_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:53.168506+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_pool_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:53.674634+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_uni_quoter",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:54.188723+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_sushi_factory",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:54.700870+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "sushi_getPair",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:55.396567+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "op-publicnode",
+  "tag": "sushi_getPair",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:55.943073+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "code_sushi_router",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:09:56.298484+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x4200_1000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:56.807976+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x4200_1000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:57.316900+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x7F5c_1870244738",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:57.846302+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x7F5c_885162863",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:58.353877+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 33,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x4200_10000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:58.868819+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 34,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x4200_10000000000000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:59.370042+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 35,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x7F5c_9078667540",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:09:59.901903+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 36,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x7F5c_903392306",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:00.417755+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 37,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x7F5c_1000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:00.928193+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 38,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x7F5c_1000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:01.438626+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 39,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "velo_out_0x7F5c_10000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:02.028519+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 40,
+  "kind": "POST",
+  "host": "op-mainnet",
+  "tag": "uni_out_0x7F5c_10000000000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:02.528075+00:00",
+  "http_status": 200
+ }
+]

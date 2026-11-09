@@ -1,0 +1,370 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T15:10:38.061787+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T15:10:39.120202+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_getPool_volatile",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:39.707779+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_getPool_stable",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:40.195970+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_velo_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:10:40.696757+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:41.192909+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:41.686911+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_reserves",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:42.183851+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_isPaused",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:42.691220+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_getFee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:43.232102+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted"
+  }
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_out_1WETH",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:43.752069+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_out_10WETH",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:44.248805+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "velo_out_1000USDCe",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:44.759583+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_getPool_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:45.267964+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_getPool_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:45.761098+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_getPool_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:46.259413+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_uni_pool_100",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:10:46.748223+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_100_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:47.473624+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_100_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:47.968324+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_100_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:48.457038+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_100_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:48.953682+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_100_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:49.464963+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_quote_1WETH_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:49.970129+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_uni_pool_500",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:10:50.494057+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_500_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:51.253678+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 26,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_500_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:51.759499+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 27,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_500_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:52.254037+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 28,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_500_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:52.761982+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 29,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_500_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:53.299787+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 30,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_quote_1WETH_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:53.807790+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 31,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_uni_pool_3000",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T15:10:54.296533+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 32,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_3000_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:54.956765+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 33,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_3000_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:55.447238+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 34,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_3000_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:55.950021+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 35,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_3000_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:56.447116+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 36,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_3000_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:56.938347+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 37,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_quote_1WETH_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:57.443189+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 38,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_ref_getPool",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:57.945560+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 39,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_ref_quote_1WETH",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:58.442269+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 40,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "uni_ref_quote_1000USDC",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T15:10:58.938284+00:00",
+  "http_status": 200
+ }
+]

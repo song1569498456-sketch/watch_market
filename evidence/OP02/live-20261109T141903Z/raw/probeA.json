@@ -1,0 +1,144 @@
+{
+ "started_at_utc": "2026-11-09T15:09:40.709352+00:00",
+ "chain_id": 10,
+ "head_block": 159319102,
+ "head_block_info": {
+  "number": "0x97f043e",
+  "timestamp": "0x6af1e235",
+  "hash": "0x7b20b88fb55059a23d6100a8137f77a2c761652fa3ce3ed670468ba6c7dfbaa7",
+  "gasLimit": "0x2625a00",
+  "baseFeePerGas": "0x246"
+ },
+ "head_block_time_utc": "2026-11-09T15:09:41+00:00",
+ "pinned_block": 159319100,
+ "quotes": [
+  {
+   "label": "velo_1WETH",
+   "market": "velodrome",
+   "block": 159319100,
+   "token_in": "0x4200000000000000000000000000000000000006",
+   "amount_in": "1000000000000000000",
+   "amount_out": "1870244738",
+   "error": null
+  },
+  {
+   "label": "uni_1WETH",
+   "market": "uniswap_v3",
+   "block": 159319100,
+   "token_in": "0x4200000000000000000000000000000000000006",
+   "token_out": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "1000000000000000000",
+   "amount_out": "885162863",
+   "error": null
+  },
+  {
+   "label": "sushi_1WETH",
+   "market": "sushi_v2",
+   "block": 159319100,
+   "error": "no sushi pair"
+  },
+  {
+   "label": "velo_10WETH",
+   "market": "velodrome",
+   "block": 159319100,
+   "token_in": "0x4200000000000000000000000000000000000006",
+   "amount_in": "10000000000000000000",
+   "amount_out": "9078667540",
+   "error": null
+  },
+  {
+   "label": "uni_10WETH",
+   "market": "uniswap_v3",
+   "block": 159319100,
+   "token_in": "0x4200000000000000000000000000000000000006",
+   "token_out": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "10000000000000000000",
+   "amount_out": "903392306",
+   "error": null
+  },
+  {
+   "label": "sushi_10WETH",
+   "market": "sushi_v2",
+   "block": 159319100,
+   "error": "no sushi pair"
+  }
+ ],
+ "leg2_quotes": [
+  {
+   "label": "velo1_uni2_1WETH",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "1870244738",
+   "amount_out": "39374281017983158",
+   "error": null
+  },
+  {
+   "label": "uni1_velo2_1WETH",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "885162863",
+   "amount_out": "393188188023394476",
+   "error": null
+  },
+  {
+   "label": "velo1_uni2_10WETH",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "9078667540",
+   "amount_out": "40358857266977334",
+   "error": null
+  },
+  {
+   "label": "uni1_velo2_10WETH",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "903392306",
+   "amount_out": "400851028667992188",
+   "error": null
+  }
+ ],
+ "reverse_quotes": [
+  {
+   "label": "velo_1000USDCe",
+   "market": "velodrome",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "1000000000",
+   "amount_out": "441185058723120801",
+   "error": null
+  },
+  {
+   "label": "uni_1000USDCe",
+   "market": "uniswap_v3",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "1000000000",
+   "amount_out": "38338528594555060",
+   "error": null
+  },
+  {
+   "label": "velo_10000USDCe",
+   "market": "velodrome",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "amount_in": "10000000000",
+   "amount_out": "2880346153410919706",
+   "error": null
+  },
+  {
+   "label": "uni_10000USDCe",
+   "market": "uniswap_v3",
+   "block": 159319100,
+   "token_in": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "token_out": "0x4200000000000000000000000000000000000006",
+   "amount_in": "10000000000",
+   "amount_out": "40382837952627381",
+   "error": null
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:10:03.071755+00:00",
+ "request_count_this_script": 40
+}

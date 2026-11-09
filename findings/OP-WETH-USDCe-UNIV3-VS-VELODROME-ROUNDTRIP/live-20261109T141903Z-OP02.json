@@ -1,0 +1,31 @@
+{
+  "finding_id": "OP-WETH-USDCe-UNIV3-VS-VELODROME-ROUNDTRIP",
+  "status": "REJECTED",
+  "chain": "OP",
+  "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+  "first_seen_at": "2026-11-09T15:10:59+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3 fee=500 与 Velodrome V2 volatile 的同块报价：Uni 1 WETH→2111.231801 USDC.e；Velodrome 1 WETH→1870.244738、1000 USDC.e→0.441185 WETH，储备仅 7.4677 WETH/15,878.79 USDC.e。两方向 A→B→A 估算净 −12.60% / −11.42%（Velodrome 费率取 0.3% 假设，getFee revert 无法读实）；spot 价差仅约 0.016%，远小于双侧费率+冲击。无可闭环价差。",
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+    "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b"
+  ],
+  "net_result": "-11.42% 至 -12.60%（同块报价折算，未执行）",
+  "unknown_costs": [
+    "Velodrome 费率",
+    "pause/执行权限",
+    "gas/L1 数据费",
+    "两笔交易时间差"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "Velodrome 深度大幅增加",
+    "费率/价格变化使费后转正",
+    "出现更深第三市场"
+  ],
+  "owner": "OP02",
+  "source_record": "evidence/OP02/live-20261109T141903Z/record.json"
+}

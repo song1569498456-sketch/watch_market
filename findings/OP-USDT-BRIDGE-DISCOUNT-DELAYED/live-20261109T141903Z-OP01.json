@@ -1,0 +1,29 @@
+{
+  "finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED",
+  "status": "DELAYED",
+  "market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+  "mechanism": "用原生 USDC 在 DEX 买 USDT：100→100.098834、1000→1000.904767（毛 +0.09-0.10%）；USDT 为 L1 USDT 桥接表示（l1Token=L1 USDT、l2Bridge=标准桥），经 OP 标准桥回 L1 可 1:1 得 L1 USDT，但需等待 OP 证明/争议窗口（约 7 天量级，未核实）并支付 L2 提款/L1 领取 gas，毛差与估算 gas 同量级；不是 L2 即时兑现。",
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+    "https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"
+  ],
+  "net_result": "毛差 +0.0905%/1000 USDC；扣估算跨链 gas 后可能接近零，净额 null（未实现）",
+  "unknown_costs": [
+    "L2 提款 gas",
+    "L1 领取 gas",
+    "L1 USDT→USDC 兑换费",
+    "7 天资金占用"
+  ],
+  "handoff_to": [
+    "Q00",
+    "M00"
+  ],
+  "invalidation_conditions": [
+    "毛差 < 实测跨链成本",
+    "桥暂停/等待超预期",
+    "L1 接收资产流动性不足"
+  ],
+  "owner": "OP01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/OP01/live-20261109T141903Z/record.json"
+}

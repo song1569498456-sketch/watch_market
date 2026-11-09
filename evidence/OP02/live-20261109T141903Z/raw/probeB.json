@@ -1,0 +1,121 @@
+{
+ "started_at_utc": "2026-11-09T15:10:38.061774+00:00",
+ "head_block": 159319131,
+ "head_block_time_utc": "2026-11-09T15:10:39+00:00",
+ "pinned_block": 159319129,
+ "velo_pools": {
+  "volatile": {
+   "pool": "0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+   "error": null
+  },
+  "stable": {
+   "pool": "0x825e291af3555685554a13971e731145393dc8a7",
+   "error": null
+  }
+ },
+ "velo_pool_state": {
+  "name": "volatile",
+  "address": "0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+  "bytes": 45,
+  "sha256": "0d8ec699b570e458378e593547d814ae86037f5f895b09963c778325b8b607cc",
+  "token0": "0x4200000000000000000000000000000000000006",
+  "token1": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+  "reserves": {
+   "reserve0": "7467749311695200355",
+   "reserve1": "15878789233",
+   "ts": 1794236801
+  },
+  "isPaused": null,
+  "getFee_raw": null,
+  "quote_1WETH": {
+   "amount_out": "1870244738",
+   "error": null
+  },
+  "quote_10WETH": {
+   "amount_out": "9078667540",
+   "error": null
+  },
+  "quote_1000USDCe": {
+   "amount_out": "441185058723120801",
+   "error": null
+  }
+ },
+ "uni_pools": {
+  "100": {
+   "pool": "0x9595edbefc82535a02312a4c42cc91e6e9df8f67",
+   "error": null
+  },
+  "500": {
+   "pool": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+   "error": null
+  },
+  "3000": {
+   "pool": "0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+   "error": null
+  }
+ },
+ "uni_pool_details": {
+  "100": {
+   "fee": 100,
+   "address": "0x9595edbefc82535a02312a4c42cc91e6e9df8f67",
+   "bytes": 22142,
+   "sha256": "a65f64cd30be802e42784994087e59db15030ff47a13fce4d9a24e288e4e987e",
+   "token0": "0x4200000000000000000000000000000000000006",
+   "token1": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+   "liquidity": "1701516977288",
+   "slot0": {
+    "sqrtPriceX96": "3652595727413298824295217",
+    "tick": -199703
+   },
+   "quote_1WETH": {
+    "amount_out": "885216601",
+    "error": null
+   }
+  },
+  "500": {
+   "fee": 500,
+   "address": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+   "bytes": 22142,
+   "sha256": "09fb586bf5bdfd3d48166a72a5de77d63abf23afc5da59359c5a2a033498fda8",
+   "token0": "0x4200000000000000000000000000000000000006",
+   "token1": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+   "liquidity": "2963021199541957",
+   "slot0": {
+    "sqrtPriceX96": "3653064354814779225616322",
+    "tick": -199701
+   },
+   "quote_1WETH": {
+    "amount_out": "2111231801",
+    "error": null
+   }
+  },
+  "3000": {
+   "fee": 3000,
+   "address": "0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+   "bytes": 22142,
+   "sha256": "cff84b726b212c0f964012935dbf57cf7850bbafa8d651adb973bdf261189f73",
+   "token0": "0x4200000000000000000000000000000000000006",
+   "token1": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+   "liquidity": "2152282411227147",
+   "slot0": {
+    "sqrtPriceX96": "3652952305478356781531392",
+    "tick": -199702
+   },
+   "quote_1WETH": {
+    "amount_out": "2076158997",
+    "error": null
+   }
+  }
+ },
+ "reference_pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+ "reference_1WETH_to_nativeUSDC": {
+  "amount_out": "2117740267",
+  "error": null
+ },
+ "reference_1000USDC_to_WETH": {
+  "amount_out": "469014587568597460",
+  "error": null
+ },
+ "finished_at_utc": "2026-11-09T15:10:59.425452+00:00",
+ "request_count_this_script": 40
+}

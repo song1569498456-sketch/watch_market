@@ -1,0 +1,21 @@
+{
+  "finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION",
+  "status": "REJECTED",
+  "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+  "mechanism": "本轮链上核验：OP 原生 USDC 是 Circle 代理（impl 0xded3b9a8…，23,464 B，paused=false），无普通账户赎回函数；burn 仅 minter（上轮 Circle FiatTokenV1 源码），只改余额/供给，不向持有人付款。发行方赎回为 Circle 场外流程，链上不可执行。",
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+  ],
+  "net_result": "n/a（排除性结论）",
+  "unknown_costs": [],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "Circle 在 OP 部署新赎回合约",
+    "当前实现引入普通账户赎回"
+  ],
+  "owner": "OP01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/OP01/live-20261109T141903Z/record.json"
+}

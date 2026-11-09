@@ -1,0 +1,28 @@
+{
+  "finding_id": "ETH-UNIV3-POSITION-NFT-BURN-COLLECT",
+  "status": "REJECTED",
+  "chain": "ETH",
+  "protocol": "Uniswap V3 NonfungiblePositionManager",
+  "market_id": "ETH:1:uniswap-v3-npm:0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  "evidence_urls": [
+    "https://etherscan.io/address/0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+  ],
+  "mechanism": "NPM 身份链上核验通过（代码 24,384B；factory=0x1F98431…、WETH9=0xC02aaA…、name/symbol 正确）：销毁 position NFT→collect tokens 的机制存在。但无具体 tokenId/仓位数据（需事件索引/枚举），无法识别折价 NFT 或给可兑现金报价；本轮不做机会主张。",
+  "net_result": null,
+  "unknown_costs": [
+    "position 折价",
+    "gas",
+    "collect 资产变现"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "获得 tokenId/仓位数据集且存在折价",
+    "NPM 实现/权限变化"
+  ],
+  "owner": "ETH05",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ETH05/live-20261109T141903Z/record.json"
+}

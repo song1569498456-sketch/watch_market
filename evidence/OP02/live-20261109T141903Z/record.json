@@ -1,0 +1,254 @@
+{
+  "agent_id": "OP02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "OP",
+  "scope": "OP Mainnet 10 同一资产对（WETH/USDC.e）在 Uniswap V3 与 Velodrome V2 的同块 A→B→A 比较；核验两腿资产地址一致、逐档费用/冲击，Velodrome view 报价与 swap 权限分开",
+  "started_at": "2026-11-09T15:09:40.709352+00:00",
+  "finished_at": "2026-11-09T15:10:59.425452+00:00",
+  "duration_seconds": 78.716,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:10:59+00:00",
+    "beijing": "2026-11-09T23:10:59+08:00",
+    "data_time": "head 159319131（2026-11-09T15:10:39Z）；状态/报价块 159319129（Uniswap 费率池与 Velodrome 储备/报价同块）；首轮报价块 159319100"
+  },
+  "block_or_slot": 159319129,
+  "market_ids": [
+    "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+    "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+    "OP:UNISWAP_V3:POOL:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b"
+  ],
+  "asset_ids": [
+    "eip155:10/erc20:0x4200000000000000000000000000000000000006",
+    "eip155:10/erc20:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+    "eip155:10/erc20:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+  ],
+  "discovery_source": [
+    {
+      "source": "OP Mainnet 只读 RPC（mainnet.optimism.io）：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call",
+      "url": "https://mainnet.optimism.io",
+      "retrieved_at_utc": "2026-11-09T15:09:40Z-2026-11-09T15:10:59Z",
+      "request": "POST JSON-RPC 共 80 次（本轮总计，全部只读；正好达到 ≤80 硬性上限，无重跑浪费）",
+      "http_status": 200
+    },
+    {
+      "source": "Uniswap 官方部署表（上轮已登记；本轮链上核验 factory/getPool/Quoter v1 code）",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "retrieved_at_utc": "2026-11-08T15:48:15Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Velodrome V2 官方 Pool 源码（上轮已读：getAmountOut 不查 pause、swap 查 factory.isPaused）",
+      "url": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
+      "retrieved_at_utc": "2026-11-08T15:48:16Z",
+      "http_status": 200,
+      "sha256": null
+    }
+  ],
+  "mechanism": "同一资产对 WETH/USDC.e：Uniswap V3 用 Quoter v1 在固定块报价（0.05%/0.3%/0.01% 三档池）；Velodrome V2 用 pool.getAmountOut view 报价（其 swap 额外查 factory.isPaused）。Uniswap 侧 500 池真实报价 1 WETH→2111.231801 USDC.e；Velodrome volatile 池因储备仅 7.4677 WETH/15,878.79 USDC.e，1 WETH 卖出仅 1870.244738 USDC.e、1000 USDC.e 买回仅 0.441185 WETH；两个方向往返均严重负（约 −12.6%/−11.4%）。且 Velodrome 的 isPaused/getFee 在固定块调用 revert，pause 与费率无法读取 → view 报价不能当可成交，Q00 上轮的排除依然成立。",
+  "observations": [
+    "链身份：eth_chainId=10（0x0a）；head=159319131（2026-11-09T15:10:39Z）；区块 baseFeePerGas=0x246（582 wei）；固定块 159319129。",
+    "同一资产对核验：Velodrome volatile 池 0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b 的 token0=WETH 0x4200…0006、token1=USDC.e 0x7F5c…；Uniswap V3 fee=500 池 0x85149247691df622eaf1a8bd0cafd40bc45154a9 的 token0=WETH、token1=USDC.e —— 两腿资产地址完全一致，非桥接/封装混用。",
+    "Velodrome 池状态（块 159319129）：池代码仅 45 bytes（sha256=0d8ec699…，疑似最小代理/clone，需注意实现层）；reserves reserve0(WETH)=7.467749311695200355、reserve1(USDC.e)=15,878.789233（blockTimestampLast=1794236801≈15:06:41Z）；由储备推算中间价≈2126.3 USDC.e/WETH。",
+    "Velodrome 报价（同块 view getAmountOut）：1 WETH→1,870.244738 USDC.e；10 WETH→9,078.667540 USDC.e；1000 USDC.e→0.441185058723120801 WETH。1 WETH 已达 WETH 储备约 13.4%，冲击巨大。",
+    "Velodrome 权限/费率：对 factory 的 isPaused(pool) 与 getFee(pool) 调用在固定块均 revert（ABI/实现不匹配或方法不存在）→ **pause 状态与 fee 均 unknown，getAmountOut 数值不能证明同状态可 swap**（Q00 上轮结论本轮得到再次验证，且本轮无法用读 pause 的方式修复）。",
+    "Uniswap V3 池（块 159319129）：fee=500 池 0x85149247… liquidity=2,963,021,199,541,957、slot0 tick=-199701、sqrtPriceX96=3653064354814779225616322（spot≈2126.0 USDC.e/WETH）；fee=3000 池 0xb589969d… liquidity=2.152e15，1 WETH→2,076.158997；fee=100 池 0x9595edbe… liquidity=1.70e12（极薄），1 WETH→885.216601（不可用）。",
+    "Uniswap 真实报价（Quoter v1，同块）：fee=500 池 1 WETH→**2,111.231801 USDC.e**（相对 spot 2126.0 约 -0.7%，含 0.05% 费+冲击）；用 fee=500 池作为 Uni 腿基准。",
+    "参照池（不同资产，仅作价格标尺）：Uniswap V3 WETH/原生USDC fee=500 池 0x1fb3cf6e…：1 WETH→2,117.740267 原生 USDC；1000 原生 USDC→0.469014587568597460 WETH。说明 USDC.e 与原生 USDC 不默认同一资产，未合并。",
+    "往返核算（同块，Velodrome fee 因 getFee revert 未知，按常见 0.3% 假设并做敏感性）：①Uni 卖 1 WETH 得 2111.231801 USDC.e → Velodrome 用其买回 WETH：fee=0.3% 时约 0.87399 WETH，净约 −12.60%；②Velodrome 卖 1 WETH 得 1870.244738 USDC.e → Uniswap 买回 WETH 约 0.88585 WETH，净约 −11.42%。两方向均显著净负；即使 Velodrome fee 取 0.05%，方向①仍约 −12.4%，结论不翻转。",
+    "价差与可执行性：两池 spot 价差很小（Velodrome 中间价 2126.3 vs Uni spot 2126.0，约 0.016%），成本低于双向费率（0.05%+≥0.3%+冲击），且 Velodrome 深度仅 7.47 WETH；不存在可闭环价差。",
+    "Sushi V2 的 WETH/USDC.e pair 在固定块不存在（getPair 返回空，probeA 记录）；未用其它资产替代成“同一对”。",
+    "上轮“Velodrome view 报价≠同状态 swap 权限”的排除得到新证据；本轮没有把 view 数字当可成交价，也没有据此得出正收益。"
+  ],
+  "quotes": [
+    {
+      "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+      "amount_in": "1 WETH (1e18)",
+      "amount_out": "2111.231801 USDC.e",
+      "fees": "Uniswap V3 fee=500（0.05%）已由 Quoter v1 计入",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "Quoter v1 quoteExactInputSingle(WETH→USDC.e, fee 500)；liiquidity=2.963e15；作为 Uni 腿基准"
+    },
+    {
+      "market_id": "OP:UNISWAP_V3:POOL:0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+      "amount_in": "1 WETH (1e18)",
+      "amount_out": "2076.158997 USDC.e",
+      "fees": "Uniswap V3 fee=3000（0.3%）已计入",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "同块对照；liquidity=2.152e15"
+    },
+    {
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "amount_in": "1 WETH (1e18)",
+      "amount_out": "1870.244738 USDC.e",
+      "fees": "Velodrome 费率 unknown（factory.getFee revert）；view getAmountOut，未证明 pause 状态",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "储备 7.4677 WETH/15,878.79 USDC.e；1 WETH≈13.4% 储备，冲击巨大；不可当可成交价"
+    },
+    {
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "amount_in": "10 WETH (1e19)",
+      "amount_out": "9078.667540 USDC.e",
+      "fees": "unknown（getFee revert）",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "10 WETH≈134% 储备，曲线饱和；仅容量证据"
+    },
+    {
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "amount_in": "1000 USDC.e (1e9)",
+      "amount_out": "0.441185058723120801 WETH",
+      "fees": "unknown（getFee revert）",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "反向买 WETH 腿；对应价格约 2266.6 USDC.e/WETH，远差于 Uni 2111.2"
+    },
+    {
+      "market_id": "OP:UNISWAP_V3:POOL:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+      "amount_in": "1 WETH (1e18) / 1000 原生 USDC",
+      "amount_out": "2117.740267 原生 USDC / 0.469014587568597460 WETH",
+      "fees": "fee=500 已计入",
+      "block": 159319129,
+      "quote_time_utc": "2026-11-09T15:10:39Z",
+      "note": "参照池（WETH/原生USDC，不同资产），仅作价格标尺，未与 USDC.e 合并"
+    }
+  ],
+  "net_result": {
+    "value": "-11.42% 至 -12.60%",
+    "unit": "WETH_roundtrip",
+    "type": "estimated_from_same_block_quotes_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "Velodrome 实际费率（getFee revert，unknown，未填 0）",
+      "Velodrome pause 状态（isPaused revert，unknown；view 报价不保证可 swap）",
+      "L1 数据费与两笔交易的组合执行成本（OP L2 gas 极低，baseFee=582 wei）",
+      "两腿不可原子组合的时间风险",
+      "更深规模的滑点（Velodrome 仅 7.47 WETH 储备）"
+    ],
+    "note": "方向①：Uni 卖 1 WETH→2111.231801 USDC.e→Velo 买回≈0.87399 WETH（fee 0.3% 假设），净 −12.60%；方向②：Velo 卖 1 WETH→1870.244738→Uni 买回≈0.88585 WETH，净 −11.42%。两方向均净负，且 Velodrome 可成交性未证明。"
+  },
+  "capacity": "Velodrome volatile 池仅 7.467749311695200355 WETH / 15,878.789233 USDC.e（≈$15.9k 稳定币侧），1 WETH 即占 WETH 储备 13.4%；Uniswap V3 fee=500 池 liquidity=2,963,021,199,541,957（深）。可执行规模受 Velodrome 深度严格限制，且费率/pause 未读通。",
+  "permissions": "Uniswap V3 Quoter v1 报价为只读模拟；Velodrome pool.getAmountOut 为 view 函数，swap 额外检查 factory.isPaused（本轮 isPaused/getFee 调用 revert，权限与费率未知）；未做实际 swap 模拟。",
+  "liabilities": "无；本轮纯只读，无仓位/借款/授权。",
+  "waiting_time": "两腿若执行需两笔交易（OP L2 出块约 2s），非原子；L1 数据费未估；本报告不把两笔交易当无风险闭环。",
+  "invalidation_conditions": [
+    "Velodrome 实际费率/pause 状态与假设不符",
+    "Velodrome 池流动性增加使冲击下降",
+    "Uniswap V3 池价格/流动性变化",
+    "出现更深的第三市场（Sushi 等）且费后可覆盖差额",
+    "两腿价格在提交窗口内移动"
+  ],
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+    "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+    "https://optimistic.etherscan.io/address/0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+    "https://optimistic.etherscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
+  ],
+  "coverage_gaps": [
+    "Velodrome 的 isPaused(pool)/getFee(pool) 在固定块均 revert → pause 与费率 unknown（view 报价不能证明同状态可 swap）；未找到可读取的替代权限接口，未硬猜。",
+    "Sushi V2 的 WETH/USDC.e pair 在固定块不存在；未用不同资产（如原生 USDC 或其它 DEX）替代成“同一对”。",
+    "未做实际 swap 模拟/成交（需要代币余额与授权假设，且两腿非原子）；净额为同块报价折算。",
+    "30 天规则/费率/迁移与 7 天活动未覆盖：未读 Velodrome factory 费率/暂停变更事件、Uniswap 池 Swap 事件与价差出现前交易。",
+    "Velodrome 池代码仅 45 bytes（疑似 clone/代理），未展开实现层；实现升级/权限可能变化。",
+    "仅 WETH/USDC.e 一对；未轮转 OP/USDC、USDC/USDT0 等同链其它同资产对。",
+    "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；无重跑浪费）。"
+  ],
+  "next_check": [
+    "读取 Velodrome V2 factory 的正确 pause/fee 接口（或 Pool 实现的 isPaused/fee 存储）以恢复可成交性核验；若无法读通，维持 view 报价不作为可成交证据。",
+    "补 7 天活动：读两池 Swap 事件与价差出现前交易，解释 Velodrome 深度/价格状态来源。",
+    "轮转 OP/USDC（OP token 0x4200…0042）与 USDC/USDT0 在 Uniswap V3 vs Velodrome 的同块报价。",
+    "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
+    "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+      "chain": "OP",
+      "protocol": "Uniswap V3 WETH/USDC.e fee=500",
+      "asset_ids": ["eip155:10/erc20:0x4200000000000000000000000000000000000006", "eip155:10/erc20:0x7f5c764cbc14f9669b88837ca1490cca17c31607"],
+      "evidence_urls": ["https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_AND_QUOTE",
+      "next_check": "与更多 OP DEX 同块比价；监控流动性与价格"
+    },
+    {
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "chain": "OP",
+      "protocol": "Velodrome V2 volatile WETH/USDC.e",
+      "asset_ids": ["eip155:10/erc20:0x4200000000000000000000000000000000000006", "eip155:10/erc20:0x7f5c764cbc14f9669b88837ca1490cca17c31607"],
+      "evidence_urls": ["https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b"],
+      "identity_status": "CHAIN_VERIFIED_POOL_IDENTITY_AND_RESERVES_PAUSE_FEE_UNREADABLE",
+      "next_check": "读通 pause/fee 后再评估；当前仅 view 报价"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "op-velodrome-view-quote-not-swap-permission-proof",
+      "status": "REJECTED",
+      "chain": "OP",
+      "market_id": "OP:VELODROME_V2:POOL:0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "first_seen_at": "2026-11-08T15:49:05.707031+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "上轮以源码排除“getAmountOut 有数值即证明同状态可 swap”（swap 另查 factory.isPaused）；本轮在固定块 159319129 对实际 Velodrome 池 0x0493bf8b… 调用 factory.isPaused(pool) 与 factory.getFee(pool) 均 revert → pause 与费率仍不可读，view 报价不能当可成交。因此 Velodrome 腿只能作价格参考，不能作为 Q00 认可的执行腿。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+        "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
+      ],
+      "net_result": "not_computed_view_only",
+      "unknown_costs": ["Velodrome 费率", "pause 状态", "实际 swap 权限"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["可读取 pause/fee 并证明未暂停", "swap 权限经模拟验证"]
+    },
+    {
+      "finding_id": "OP-WETH-USDCe-UNIV3-VS-VELODROME-ROUNDTRIP",
+      "status": "REJECTED",
+      "chain": "OP",
+      "market_id": "OP:UNISWAP_V3:POOL:0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+      "first_seen_at": "2026-11-09T15:10:59+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3 fee=500 与 Velodrome V2 volatile 的同块报价：Uni 1 WETH→2111.231801 USDC.e；Velodrome 1 WETH→1870.244738、1000 USDC.e→0.441185 WETH，储备仅 7.4677 WETH/15,878.79 USDC.e。两方向 A→B→A 估算净 −12.60% / −11.42%（Velodrome 费率取 0.3% 假设，getFee revert 无法读实）；spot 价差仅约 0.016%，远小于双侧费率+冲击。无可闭环价差。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+        "https://optimistic.etherscan.io/address/0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b"
+      ],
+      "net_result": "-11.42% 至 -12.60%（同块报价折算，未执行）",
+      "unknown_costs": ["Velodrome 费率", "pause/执行权限", "gas/L1 数据费", "两笔交易时间差"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["Velodrome 深度大幅增加", "费率/价格变化使费后转正", "出现更深第三市场"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Velodrome getAmountOut 有返回值即在同状态可执行 swap",
+      "reason": "Velodrome swap 额外检查 factory.isPaused；本轮固定块对实际池的 isPaused(pool)/getFee(pool) 调用均 revert，pause 与费率 unknown，view 报价不能证明权限。",
+      "evidence": "池 0x0493bf8b… 的 reserves/报价 + factory isPaused/getFee revert 记录（块 159319129）"
+    },
+    {
+      "claim": "WETH/USDC.e 在 Uniswap V3 与 Velodrome 之间存在可闭环价差",
+      "reason": "同块报价折算两方向往返净 −12.60% / −11.42%；spot 价差仅约 0.016%（2126.3 vs 2126.0），远小于 0.05%+≥0.3% 费率与 Velodrome 冲击。",
+      "evidence": "Quoter v1 与 getAmountOut 同块报价（块 159319129）"
+    },
+    {
+      "claim": "Sushi V2 可作为第三同对市场",
+      "reason": "固定块 getPair(WETH, USDC.e) 返回空；不用原生 USDC 或其它资产替代成同一对。",
+      "evidence": "probeA sushi_getPair 结果"
+    },
+    {
+      "claim": "使用 Uniswap V3 fee=100 池作为执行腿",
+      "reason": "该池 liquidity=1.70e12 极薄，1 WETH 报价仅 885.22 USDC.e（相对 spot 偏离约 −58%），不可用；已改用 fee=500 池并标注。",
+      "evidence": "uni_pool_details[100] + quote_1WETH"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:10:59Z",
+    "complete_block_range": "159319129（同块报价/状态）；159319100（首轮 Uni fee=100 误用报价，仅作排除证据）；head 159319131",
+    "complete_event_time_window": "2026-11-09T15:10:39Z（块 159319129 时间）；Velodrome 储备 blockTimestampLast≈15:06:41Z"
+  }
+}

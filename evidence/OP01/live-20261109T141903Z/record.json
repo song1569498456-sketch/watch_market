@@ -1,0 +1,145 @@
+{
+ "agent_id": "OP01",
+ "run_id": "live-20261109T141903Z",
+ "chain": "OP",
+ "scope": "OP Mainnet 稳定币（原生 USDC / 桥接 USDC.e / USDT）身份与出口分离、同块 DEX 折价报价、场外赎回与跨链回 L1 区分；不做铸造卖出与跨链执行",
+ "started_at": "2026-11-09T15:09:15+00:00",
+ "finished_at": "2026-11-09T15:14:00+00:00",
+ "duration_seconds": 285,
+ "execution_status": "PARTIAL",
+ "status": "DELAYED",
+ "as_of": {
+  "utc": "2026-11-09T15:10:27+00:00",
+  "beijing": "2026-11-09T23:10:27+08:00",
+  "data_time": "身份/池状态：块 159,319,068（head 159,319,071 / 15:08:39Z）；最终买卖双向报价：块 159,319,120（head 159,319,123 / 15:10:23Z）"
+ },
+ "block_or_slot": 159319120,
+ "market_ids": [
+  "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+  "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+  "OP:10:USDT:token:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+  "OP:10:UNISWAP_V3:USDC_USDCE_100:0x2ab22ac86b25bd448a4d9dc041bd2384655299c4",
+  "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+  "OP:10:L2_STANDARD_BRIDGE:0x4200000000000000000000000000000000000010"
+ ],
+ "asset_ids": [
+  "eip155:10/erc20:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+  "eip155:10/erc20:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+  "eip155:10/erc20:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+  "eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "eip155:1/erc20:0xdac17f958d2ee523a2206206994597c13d831ec7"
+ ],
+ "discovery_source": [
+  {"source": "optimism-rpc", "url": "https://mainnet.optimism.io", "retrieved_at_utc": "2026-11-09T15:09:15+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber x3/eth_getCode x15/eth_getStorageAt/eth_call x40/eth_getLogs 0；首轮 67 次 + 重取 5 次，全部返回结果", "http_status": 200, "error": null},
+  {"source": "superchain-token-list-USDC", "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/data.json", "retrieved_at_utc": "2026-11-09T15:09:45+00:00", "http_status": 200, "sha256": "bce621b5988264bbb9c95bd9838a8a5d819e1d56a6569f320e9c5ac85c0a3f8e", "note": "OP 条目存在；json 结构与解析假设不同（tokens 为 chainId 映射），解析失败但地址已由链上核验"},
+  {"source": "superchain-token-list-USDT", "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDT/data.json", "retrieved_at_utc": "2026-11-09T15:09:47+00:00", "http_status": 200, "sha256": "baaaf0b99e85d0310bd9dd0b586cd559db630dd4b534c1161b1185231b7c9841"},
+  {"source": "superchain-token-list-USDC.e", "url": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC.e/data.json", "retrieved_at_utc": "2026-11-09T15:09:48+00:00", "http_status": 404, "error": "源失效（404），非网络不可达；USDC.e 身份改用链上 l1Token/l2Bridge 核验"}
+ ],
+ "mechanism": "OP 上三种资产：原生 USDC 为 Circle 代理发行（impl 0xded3b9a8…，发行方赎回为场外流程，链上无普通账户赎回；burn 仅 minter）；USDC.e 与 USDT 为 L1 USDC/L1 USDT 的规范桥接表示（l1Token 分别为 L1 USDC/L1 USDT，l2Bridge=OP L2StandardBridge），唯一协议出口是跨链回 L1（L1 证明/争议窗口），不是 L2 即时兑付。DEX 即卖是唯一 OP 本链即时出口。买 USDT（用原生 USDC）在 DEX 有约 0.09-0.10% 毛差，但要经标准桥回 L1 才能兑现，需等待与 gas，属 DELAYED；USDC.e 卖方向折价仅 0.018% 且买方向无折价，不可闭环。",
+ "observations": [
+  "链：eth_chainId=0xa（10）；head=159,319,123（2026-11-09T15:10:23Z）；身份/池状态固定块 159,319,068；最终报价固定块 159,319,120；head baseFee=0x24f=591 wei（L2 部分，未计 L1 数据费）。",
+  "原生 USDC 0x0b2c639c533813f4aa9d7837caf62653d097ff85：代码 1,852 B；Circle 自定义实现槽 0x7050c9e0f4ca769c69bd3a8ef740bc37934f8e2c036e5a723fd8ee048ed3f8c3 → impl=0xded3b9a8dbedc2f9cb725b55d0e686a81e6d06dc（23,464 B）；name=USD Coin、symbol=USDC、decimals=6、paused=false。",
+  "USDC.e 0x7F5c764cBc14f9669B88837ca1490cCa17c31607：代码 14,725 B；name=USD Coin、symbol=USDC、decimals=6、paused=false；l1Token()=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48（L1 USDC）、l2Bridge()=0x4200000000000000000000000000000000000010。",
+  "USDT 0x94b008aA00579c1307B0EF2c499aD98a8ce58e58：代码 6,774 B；name=Tether USD、symbol=USDT、decimals=6、paused=null(revert)；l1Token()=0xdac17f958d2ee523a2206206994597c13d831ec7（L1 USDT）、l2Bridge()=0x4200000000000000000000000000000000000010。",
+  "OP L2StandardBridge 0x4200000000000000000000000000000000000010：代码 2,055 B（跨链出口合约存在）。",
+  "Uniswap V3 OP：factory 0x1F98431c8…（24,535 B）、QuoterV2 0x61fFE014…（8,273 B）；USDC/USDC.e fee100 池 0x2ab22ac86b25bd448a4d9dc041bd2384655299c4（liquidity 141,118,541,498,271）、fee500 池 0x2e2d190a…（2,834,705,629）；USDC/USDT fee100 池 0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e（3,657,206,172,725）、fee500 池 0x2926736c…（927,695,210,685）。",
+  "同步块报价（首轮块 159,319,068，15:09:26-33Z）：USDC.e→USDC 1/10/100/1000=0.999824/9.998241/99.982349/999.817118；USDC→USDC.e 100=99.997509；USDT→USDC 1/10/100/1000=0.998787/9.98785/99.876044/996.201373。",
+  "最终重取（块 159,319,105/159,319,120，15:09:56/15:10:26Z）：USDC.e→USDC 100=99.982349（-0.0177%）；USDT→USDC 100=99.876044（-0.124%）、1000=996.201373（-0.380%）；USDC→USDT 100=100.098834（+0.0988%）、1000=1000.904767（+0.0905%）→ 买 USDT 有约 0.09-0.10% 毛差，需跨链回 L1 兑现。",
+  "出口判定：原生 USDC 场外赎回（链上不可执行）；USDC.e/USDT 只能经 OP 标准桥回 L1（跨链等待约 7 天量级，未链上核实）或 DEX 卖回；无 L2 本链即时协议兑付。",
+  "失败/限制：Superchain token-list USDC.e 条目 404（源失效）；USDT paused() revert（无该接口）；无网络/RPC 失败。",
+  "外部请求 72 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e", "amount_in": "1000 USDC", "amount_out": "1000.904767 USDT", "fees": "Uniswap V3 0.01%（已含）", "block": 159319120, "quote_time_utc": "2026-11-09T15:10:27.003636+00:00", "note": "买 USDT 方向，最终重取；毛 +0.0905%，跨链 L1 兑现需等待/gas"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e", "amount_in": "100 USDC", "amount_out": "100.098834 USDT", "fees": "Uniswap V3 0.01%（已含）", "block": 159319120, "quote_time_utc": "2026-11-09T15:10:26.199677+00:00", "note": "买 USDT 方向，最终重取；+0.0988%"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e", "amount_in": "1000 USDT", "amount_out": "996.201373 USDC", "fees": "Uniswap V3 0.01%（已含）；含价格冲击", "block": 159319105, "quote_time_utc": "2026-11-09T15:09:57.331771+00:00", "note": "卖 USDT 方向（镜像），-0.380%"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e", "amount_in": "100 USDT", "amount_out": "99.876044 USDC", "fees": "Uniswap V3 0.01%（已含）", "block": 159319105, "quote_time_utc": "2026-11-09T15:09:56.485359+00:00", "note": "卖 USDT 方向，-0.124%"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDCE_100:0x2ab22ac86b25bd448a4d9dc041bd2384655299c4", "amount_in": "100 USDC.e", "amount_out": "99.982349 USDC", "fees": "Uniswap V3 0.01%（已含）", "block": 159319105, "quote_time_utc": "2026-11-09T15:09:56.485359+00:00", "note": "卖 USDC.e 方向，-0.0177%"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDCE_100:0x2ab22ac86b25bd448a4d9dc041bd2384655299c4", "amount_in": "100 USDC", "amount_out": "99.997509 USDC.e", "fees": "Uniswap V3 0.01%（已含）", "block": 159319068, "quote_time_utc": "2026-11-09T15:09:30.128436+00:00", "note": "买 USDC.e 方向：无折价（溢价），不能构成买折价闭环"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDCE_100:0x2ab22ac86b25bd448a4d9dc041bd2384655299c4", "amount_in": "1/10/1000 USDC.e", "amount_out": "0.999824/9.998241/999.817118 USDC", "fees": "Uniswap V3 0.01%（已含）", "block": 159319068, "quote_time_utc": "2026-11-09T15:09:29.270635+00:00", "note": "首轮同块卖方向档位（100 已含）；折价约 0.018%"}
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "USDC/USDT",
+  "type": "delayed_cross_chain_spread_no_realized_net",
+  "realized": false,
+  "unknown_costs": [
+   "OP 标准桥回 L1 的实际等待天数与 L2 提款/L1 领取 gas",
+   "L1 接收后 USDT→USDC 的卖出/兑换费用与深度",
+   "Circle 场外赎回条款（账户/地区资格、最低额、费用、时间）",
+   "跨池最优价与 10000 档容量",
+   "桥/资产暂停与黑名单风险"
+  ]
+ },
+ "capacity": "USDC/USDT fee100 池 liquidity=3,657,206,172,725（1000 档买向毛差仍 +0.09%）；USDC/USDC.e fee100 池 liquidity=141,118,541,498,271；更大档/其他池未测",
+ "permissions": "原生 USDC：链上无普通账户赎回，burn 需 minter（上轮 Circle 源码证据）；USDC.e/USDT：无本地赎回，退出经 OP 标准桥（提款权限/暂停未读）；DEX 交易公开",
+ "liabilities": "未执行任何交易、无新增负债；若跨链，L2 销毁后在途应收、L1 领取前不是 L1 自由资产",
+ "waiting_time": "unknown；USDC.e/USDT 跨链回 L1 为 OP 证明/争议窗口（约 7 天量级设计，未链上核实）；Circle 场外赎回时间 unknown",
+ "invalidation_conditions": [
+  "资产原生/桥接身份错误（本轮已链上核验 l1Token/l2Bridge/impl）",
+  "跨链等待/费用超过 DEX 毛差（USDT 毛差仅约 0.09%）",
+  "DEX 池深度不足或折价消失",
+  "把链上 burn/桥接等待当作 L2 即时兑付（已排除）",
+  "Circle 场外资格/费用规则变化"
+ ],
+ "evidence_urls": [
+  "https://mainnet.optimism.io",
+  "https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+  "https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+  "https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+  "https://optimistic.etherscan.io/address/0x2ab22ac86b25bd448a4d9dc041bd2384655299c4",
+  "https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"
+ ],
+ "coverage_gaps": [
+  "OP 标准桥回 L1 的实际等待天数未链上核实（约 7 天为设计量级）；L2 提款 gas、L1 领取 gas、L1 接收后兑换费用未量化。",
+  "Circle 场外赎回条款（账户/地区资格、最低额、费用、时间）未取，链上不可执行。",
+  "USDT/USDC 池深度与跨池最优价未逐一比较；未做 10000 档与跨池路由；跨链到账金额/时间无模拟。",
+  "30 天规则/桥迁移变更与 7 天活动未覆盖；USDC.e 桥提款状态（启用/暂停）未读。",
+  "Superchain token-list USDC.e 条目 404（源失效）；USDT paused() 无接口（revert）。"
+ ],
+ "next_check": [
+  "核 OP 标准桥提款实际等待与费用（L2 提款 + L1 领取 gas），用固定块估算跨链成本；仍不把等待当 L2 即时兑付。",
+  "对 USDT 跨链候选做完整只读模拟（桥参数、L1 接收后 USDT→USDC 深度）并定期重取买向报价；只有毛差 > 实测成本才升级。",
+  "取 Circle 官方赎回条款作为场外资格参考（标注链上不可执行）；核 USDC.e 桥提款状态。",
+  "补 30 天/7 天窗口与跨池报价；Q00 复核 USDT 跨链差的成本/等待假设。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85", "chain": "OP", "protocol": "Circle USDC（OP 原生发行代理）", "asset_ids": ["0x0b2c639c533813f4aa9d7837caf62653d097ff85"], "evidence_urls": ["https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85"], "identity_status": "CHAIN_VERIFIED：代理 1,852 B；Circle 实现槽→impl 0xded3b9a8…（23,464 B）；paused=false；链上无普通账户赎回，发行方赎回场外", "next_check": "Circle 场外条款；不把 burn 当兑付"},
+  {"market_id": "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607", "chain": "OP", "protocol": "USDC.e（L1 USDC 桥接表示）", "asset_ids": ["0x7f5c764cbc14f9669b88837ca1490cca17c31607", "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"], "evidence_urls": ["https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607"], "identity_status": "CHAIN_VERIFIED：代码 14,725 B；symbol 同为 USDC 但 l1Token=L1 USDC、l2Bridge=标准桥 → 桥接权益", "next_check": "桥提款状态；跨链等待/费用"},
+  {"market_id": "OP:10:USDT:token:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58", "chain": "OP", "protocol": "USDT（L1 USDT 桥接表示）", "asset_ids": ["0x94b008aa00579c1307b0ef2c499ad98a8ce58e58", "0xdac17f958d2ee523a2206206994597c13d831ec7"], "evidence_urls": ["https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"], "identity_status": "CHAIN_VERIFIED：代码 6,774 B；l1Token=L1 USDT、l2Bridge=标准桥；无 paused 接口", "next_check": "跨链成本/等待；L1 接收后 USDT→USDC 深度"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e", "chain": "OP", "protocol": "Uniswap V3 USDC/USDT 0.01%", "asset_ids": ["0x0b2c639c533813f4aa9d7837caf62653d097ff85", "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58"], "evidence_urls": ["https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=3,657,206,172,725；买卖双向报价已取", "next_check": "跨池最优价与容量；配合桥成本评估"},
+  {"market_id": "OP:10:UNISWAP_V3:USDC_USDCE_100:0x2ab22ac86b25bd448a4d9dc041bd2384655299c4", "chain": "OP", "protocol": "Uniswap V3 USDC/USDC.e 0.01%", "asset_ids": ["0x0b2c639c533813f4aa9d7837caf62653d097ff85", "0x7f5c764cbc14f9669b88837ca1490cca17c31607"], "evidence_urls": ["https://optimistic.etherscan.io/address/0x2ab22ac86b25bd448a4d9dc041bd2384655299c4"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=141,118,541,498,271；卖方折价 0.018%，买方溢价", "next_check": "跨池最优价；跨链成本对比"}
+ ],
+ "findings": [
+  {"finding_id": "OP-USDC-BURN-AS-CASH-REDEMPTION", "status": "REJECTED", "market_id": "OP:10:USDC:token:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+   "mechanism": "本轮链上核验：OP 原生 USDC 是 Circle 代理（impl 0xded3b9a8…，23,464 B，paused=false），无普通账户赎回函数；burn 仅 minter（上轮 Circle FiatTokenV1 源码），只改余额/供给，不向持有人付款。发行方赎回为 Circle 场外流程，链上不可执行。",
+   "evidence_urls": ["https://optimistic.etherscan.io/address/0x0b2c639c533813f4aa9d7837caf62653d097ff85"],
+   "net_result": "n/a（排除性结论）", "unknown_costs": [], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["Circle 在 OP 部署新赎回合约", "当前实现引入普通账户赎回"]},
+  {"finding_id": "OP-USDC-E-SAME-SYMBOL-DIFFERENT-EQUITY", "status": "REJECTED", "market_id": "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+   "mechanism": "USDC.e 与原生 USDC 的 name/symbol 均为 USD Coin/USDC，但 USDC.e 的 l1Token=L1 USDC、l2Bridge=OP 标准桥 0x4200…0010，是桥接表示；买 USDC.e 方向无折价（100 USDC→99.997509 USDC.e）、卖方向仅 0.018% 折价，出口只有 DEX 卖回或跨链等待 → 无闭环。",
+   "evidence_urls": ["https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607"],
+   "net_result": "unknown（不可闭环；净额 null）", "unknown_costs": ["桥 gas/等待", "DEX 往返费"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["USDC.e 桥改用新机制", "买方向出现折价"]},
+  {"finding_id": "OP-USDT-BRIDGE-DISCOUNT-DELAYED", "status": "DELAYED", "market_id": "OP:10:UNISWAP_V3:USDC_USDT_100:0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+   "mechanism": "用原生 USDC 在 DEX 买 USDT：100→100.098834、1000→1000.904767（毛 +0.09-0.10%）；USDT 为 L1 USDT 桥接表示（l1Token=L1 USDT、l2Bridge=标准桥），经 OP 标准桥回 L1 可 1:1 得 L1 USDT，但需等待 OP 证明/争议窗口（约 7 天量级，未核实）并支付 L2 提款/L1 领取 gas，毛差与估算 gas 同量级；不是 L2 即时兑现。",
+   "evidence_urls": ["https://optimistic.etherscan.io/address/0x94b008aA00579c1307B0EF2c499aD98a8ce58e58", "https://optimistic.etherscan.io/address/0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e"],
+   "net_result": "毛差 +0.0905%/1000 USDC；扣估算跨链 gas 后可能接近零，净额 null（未实现）", "unknown_costs": ["L2 提款 gas", "L1 领取 gas", "L1 USDT→USDC 兑换费", "7 天资金占用"], "handoff_to": ["Q00", "M00"],
+   "invalidation_conditions": ["毛差 < 实测跨链成本", "桥暂停/等待超预期", "L1 接收资产流动性不足"]}
+ ],
+ "rejections": [
+  {"claim": "USDC 合约存在 burn = 普通持有人链上 1:1 现金赎回", "reason": "burn 仅 minter 且无付款逻辑；发行方赎回为场外，链上不可执行（本轮补链上 impl/paused 证据）。"},
+  {"claim": "USDC.e 与原生 USDC 同名即同权益/同出口", "reason": "l1Token/l2Bridge 证明 USDC.e 是 L1 USDC 桥接表示；买方溢价、卖折价仅 0.018%，无法闭环。"},
+  {"claim": "L2 DEX 折价 = 本链即时套利", "reason": "OP 上 USDC.e/USDT 无本地赎回；出口只有 DEX 卖回或跨链回 L1（等待/费用），USDT 买向毛差仅 0.09%。"},
+  {"claim": "把桥接等待当已实现收益", "reason": "跨链等待约 7 天量级未核实，gas 未量化；记 DELAYED 而非 QUOTED/SIMULATED。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 4,
+  "retrieved_at_utc": "2026-11-09T15:10:27+00:00",
+  "complete_block_range": "身份/池状态：块 159,319,068；最终报价：块 159,319,120；head 159,319,123",
+  "complete_event_time_window": "单块快照（15:09:23-15:10:27Z）；30 天规则/7 天活动未覆盖"
+ }
+}

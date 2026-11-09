@@ -1,0 +1,38 @@
+{
+ "head_block": 159319108,
+ "head_timestamp_utc": "2026-11-09T15:09:53+00:00",
+ "pinned_block": 159319105,
+ "retrieved_at_utc": "2026-11-09T15:09:55.624105+00:00",
+ "quotes": [
+  {
+   "direction": "USDC.e->USDC",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 99.982349,
+   "ratio": 0.99982349,
+   "error": null,
+   "block": 159319105,
+   "quote_time_utc": "2026-11-09T15:09:56.485359+00:00"
+  },
+  {
+   "direction": "USDT->USDC",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 99.876044,
+   "ratio": 0.99876044,
+   "error": null,
+   "block": 159319105,
+   "quote_time_utc": "2026-11-09T15:09:57.331771+00:00"
+  },
+  {
+   "direction": "USDT->USDC",
+   "fee": 100,
+   "amount_in": "1000",
+   "amount_out": 996.201373,
+   "ratio": 0.996201373,
+   "error": null,
+   "block": 159319105,
+   "quote_time_utc": "2026-11-09T15:09:58.164293+00:00"
+  }
+ ]
+}

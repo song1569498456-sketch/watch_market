@@ -2,64 +2,121 @@
   "agent_id": "OP02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:10:59+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
-      "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
-    ],
-    "chain_block": null,
-    "market_pages_completed": 0,
-    "history_complete": false
+    "type": "block",
+    "chain_id": 10,
+    "head_block": 159319131,
+    "head_block_time_utc": "2026-11-09T15:10:39+00:00",
+    "pinned_block": 159319129,
+    "pair": "WETH/USDC.e（token0=0x4200…0006, token1=0x7F5c…）",
+    "uniswap_v3": {
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "quoter_v1": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+      "fee500_pool": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+      "fee500_liquidity": "2963021199541957",
+      "fee500_tick": -199701,
+      "quote_1WETH_usdce": "2111231801",
+      "fee3000_pool": "0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+      "quote_1WETH_fee3000": "2076158997",
+      "fee100_thin_pool": "0x9595edbefc82535a02312a4c42cc91e6e9df8f67",
+      "quote_1WETH_fee100_unusable": "885216601"
+    },
+    "velodrome_v2": {
+      "factory": "0xF1046053aa5682b4F9a81b5481394DA16BE5FF5a",
+      "volatile_pool": "0x0493bf8b6dbb159ce2db2e0e8403e753abd1235b",
+      "pool_code_bytes": 45,
+      "pool_code_sha256": "0d8ec699b570e458378e593547d814ae86037f5f895b09963c778325b8b607cc",
+      "reserves": {
+        "WETH": "7467749311695200355",
+        "USDCe": "15878789233",
+        "ts": 1794236801
+      },
+      "isPaused_UNREADABLE": true,
+      "getFee_UNREADABLE": true,
+      "implied_mid_usdce_per_weth": "2126.3",
+      "quote_1WETH_usdce": "1870244738",
+      "quote_10WETH_usdce": "9078667540",
+      "quote_1000USDCe_weth": "441185058723120801",
+      "stable_pool": "0x825e291af3555685554a13971e731145393dc8a7"
+    },
+    "reference_pool_weth_native_usdc": {
+      "pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+      "quote_1WETH_nativeUSDC": "2117740267",
+      "quote_1000nativeUSDC_weth": "469014587568597460"
+    },
+    "roundtrip": {
+      "uni_sell_velo_buy": {
+        "net_weth": "0.87399",
+        "net_pct": -12.6
+      },
+      "velo_sell_uni_buy": {
+        "net_weth": "0.88585",
+        "net_pct": -11.42
+      },
+      "velo_fee_assumption": 0.003,
+      "velo_fee_unknown": true,
+      "spot_spread_pct": 0.016
+    },
+    "status": "REJECTED",
+    "sushi_pool": "ABSENT（getPair WETH/USDC.e 返回空）",
+    "requests_this_run": 80,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
-        "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol"
-      ],
-      "chain_block": null,
-      "market_pages_completed": 0,
-      "history_complete": false
+      "type": "block",
+      "chain_id": 10,
+      "pinned_block": 159319129,
+      "pair": "WETH/USDC.e",
+      "uniswap_fee500_quote_1WETH": "2111231801",
+      "velodrome_quote_1WETH": "1870244738",
+      "velodrome_pause_fee_unreadable": true,
+      "roundtrip_negative": true,
+      "requests_this_run": 80,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    {
-      "protocol": "Uniswap V3 OP",
-      "factory_static": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-      "quoter_static": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
-      "identity_status": "STATIC_FACTORY_NOT_MARKET"
-    },
-    {
-      "protocol": "Velodrome V2",
-      "source": "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol",
-      "fields": "swap L345查pause；getAmountOut L447-450扣factory.getFee；stable L458-465精度归一",
-      "identity_status": "SOURCE_ONLY_NO_LIVE_POOL_MATCH"
-    }
+    "链身份：eth_chainId=10；head 159319131（2026-11-09T15:10:39Z）；同块报价/状态块 159319129；baseFeePerGas=582 wei。",
+    "同资产对核验：Velodrome volatile 池 0x0493bf8b… 与 Uniswap V3 fee=500 池 0x85149247… 的 token0=WETH 0x4200…0006、token1=USDC.e 0x7F5c… 完全一致；未混用原生 USDC/桥接封装。",
+    "Uniswap V3 同块真实报价（Quoter v1）：fee=500 池 1 WETH→2,111.231801 USDC.e（liquidity=2.963e15）；fee=3000 池 2,076.158997；fee=100 池 liquidity=1.70e12、报价 885.216601（不可用，已排除）。",
+    "Velodrome V2 同块状态/报价：volatile 池储备 7.467749311695200355 WETH / 15,878.789233 USDC.e（blockTimestampLast≈15:06:41Z）；view getAmountOut：1 WETH→1,870.244738 USDC.e、10 WETH→9,078.667540、1000 USDC.e→0.441185058723120801 WETH。",
+    "可成交性：Velodrome 池代码仅 45B（疑似 clone）；factory.isPaused(pool) 与 factory.getFee(pool) 在固定块均 revert → pause 与费率 unknown；view 报价不能证明同状态可 swap（Q00 上轮排除在本轮得到再次验证）。",
+    "往返折算（同块，未执行）：①Uni 卖 1 WETH→2111.231801 USDC.e→Velo 买回≈0.87399 WETH（−12.60%，Velo fee 0.3% 假设）；②Velo 卖 1 WETH→1870.244738→Uni 买回≈0.88585 WETH（−11.42%）。spot 价差仅约 0.016%，远小于费率+冲击。",
+    "参照池（不同资产，仅价格标尺）：Uniswap V3 WETH/原生 USDC fee=500 池 0x1fb3cf6e…：1 WETH→2,117.740267 原生 USDC；1000 原生 USDC→0.469014587568597460 WETH。",
+    "Sushi V2 的 WETH/USDC.e pair 在固定块不存在；未用不同资产替代成同一对。",
+    "上轮静态源码/工厂入口结论已升级为同块链上报价与池状态核验；结论为 REJECTED（不可闭环 + Velodrome 权限未证）。"
   ],
   "pending_questions": [
-    "30天费率/迁移/流动性变化未覆盖。",
-    "7天代表性活动/价差出现前交易未覆盖，无区块/事件。",
-    "OP RPC与交易对目录CONNECT403，未核chainId10、code、真实池和资产地址。",
-    "未检验底层独立、储备真实性、转账税/封装权益与卖出/激活状态。",
-    "没有同状态两腿指定数量报价、曲线、容量、最终重报价或模拟。"
+    "Velodrome factory.isPaused(pool)/getFee(pool) 调用 revert：pause 与费率 unknown；未找到可读替代接口，未硬猜。",
+    "未做实际 swap 模拟/成交（需代币余额/授权假设，两腿非原子）；净额为同块报价折算。",
+    "Sushi WETH/USDC.e pair 不存在；未查其它第三市场。",
+    "30 天规则/费率/迁移与 7 天活动未回溯：未读 Velodrome factory 事件、Uniswap Swap 事件与价差出现前交易。",
+    "Velodrome 池代码 45B（clone/代理），实现层未展开。",
+    "仅 WETH/USDC.e 一对；未轮转 OP/USDC、USDC/USDT0 等同链同资产对。",
+    "本轮外部请求 80 次（正好 ≤80 硬性上限，符合；两轮脚本均 --check 自检后联网，无重跑浪费）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:49:05.707031+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/OP02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/OP02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "4e0b7822090bfb7f250b2c16d54061031513cf46",
-    "verified_at": "2026-11-08T15:49:44.821008+00:00",
-    "record": "evidence/OP02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:10:59.425452+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/OP02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/OP02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 80,
+  "request_discipline_note": "外部请求 80 次（正好 ≤80 硬性上限，符合）；probeA 与 probeB 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
+  "data_sources_used": [
+    "https://mainnet.optimism.io",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md（上轮已登记，本轮链上核验工厂/Quoter code）",
+    "https://raw.githubusercontent.com/velodrome-finance/contracts/main/contracts/Pool.sol（上轮已读，本轮链上核验实际池）"
+  ]
 }

@@ -1,0 +1,24 @@
+{
+  "finding_id": "OP-USDC-E-SAME-SYMBOL-DIFFERENT-EQUITY",
+  "status": "REJECTED",
+  "market_id": "OP:10:USDC.e:token:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+  "mechanism": "USDC.e 与原生 USDC 的 name/symbol 均为 USD Coin/USDC，但 USDC.e 的 l1Token=L1 USDC、l2Bridge=OP 标准桥 0x4200…0010，是桥接表示；买 USDC.e 方向无折价（100 USDC→99.997509 USDC.e）、卖方向仅 0.018% 折价，出口只有 DEX 卖回或跨链等待 → 无闭环。",
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+  ],
+  "net_result": "unknown（不可闭环；净额 null）",
+  "unknown_costs": [
+    "桥 gas/等待",
+    "DEX 往返费"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "USDC.e 桥改用新机制",
+    "买方向出现折价"
+  ],
+  "owner": "OP01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/OP01/live-20261109T141903Z/record.json"
+}
