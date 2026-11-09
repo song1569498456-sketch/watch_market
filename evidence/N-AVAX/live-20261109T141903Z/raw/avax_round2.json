@@ -1,0 +1,92 @@
+{
+ "started_at_utc": "2026-11-09T14:45:00.877259+00:00",
+ "latest_block_reference": 99858595,
+ "getlogs_v21_50k": {
+  "range": [
+   99808595,
+   99858595
+  ],
+  "error": null,
+  "count": 0
+ },
+ "getlogs_v21_events": [],
+ "lbpair_implementation": "0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f",
+ "pair_clone_bytes": 97,
+ "pair_clone_target": null,
+ "impl_code_bytes": 22503,
+ "token_meta_more": {
+  "0xb8d7710f7d8349a506b75dd184f05777c82dad0c": {
+   "symbol": "ARENA",
+   "decimals": 18
+  },
+  "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": {
+   "symbol": "USDC",
+   "decimals": 6
+  },
+  "0x8b1e2420e0d453a718d4b70e3a043263eab77851": {
+   "symbol": "PRIME-MOCK",
+   "decimals": 18
+  },
+  "0xfd2c2a98009d0cbed715882036e43d26c4289053": {
+   "symbol": "avBTC",
+   "decimals": 18
+  },
+  "0x152b9d0fdc40c096757f570a51e494bd4b943e50": {
+   "symbol": "BTC.b",
+   "decimals": 8
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:45:06.829604+00:00",
+ "requests": [
+  {
+   "name": "getlogs_v21_50k",
+   "rpc": "https://api.avax.network/ext/bc/C/rpc",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:01.732217+00:00",
+   "n_calls": 1,
+   "bytes": 161,
+   "sha256": "ff01e5bfcd9929414cfa167b0a3865f616dce9186b8033da358bbb0211b50425",
+   "elapsed_s": 0.855
+  },
+  {
+   "name": "getlogs_v21_50k",
+   "rpc": "https://avalanche-c-chain-rpc.publicnode.com",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:03.340032+00:00",
+   "n_calls": 1,
+   "bytes": 39,
+   "sha256": "6e742b2f94ec8a7ce4af693199ca9610d4ac8a04846f2b029b9e45f184976d64",
+   "elapsed_s": 1.608
+  },
+  {
+   "name": "impl_and_event_times",
+   "rpc": "https://api.avax.network/ext/bc/C/rpc",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:04.135885+00:00",
+   "n_calls": 1,
+   "bytes": 104,
+   "sha256": "f4e18c8134ae6da0a814f4e3721ba33edcd65943c893029b73c2628e80b01dc7",
+   "elapsed_s": 0.395
+  },
+  {
+   "name": "pair_clone_and_tokens",
+   "rpc": "https://api.avax.network/ext/bc/C/rpc",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:05.477347+00:00",
+   "n_calls": 12,
+   "bytes": 46951,
+   "sha256": "1c82f31a2323af7d7e93c84d7b0fc5a5694d5e06b7b07e4a8c56d3204c403004",
+   "elapsed_s": 0.941
+  },
+  {
+   "name": "avalanchego_changelog",
+   "url": "https://raw.githubusercontent.com/ava-labs/avalanchego/master/CHANGELOG.md",
+   "http_status": 404,
+   "at": "2026-11-09T14:45:06.829566+00:00",
+   "bytes": 14,
+   "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+   "elapsed_s": 0.952
+  }
+ ],
+ "request_count": 5
+}

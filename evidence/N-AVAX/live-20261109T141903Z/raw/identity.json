@@ -1,0 +1,13 @@
+{
+ "started_at_utc": "2026-11-09T14:44:30.561521+00:00",
+ "chain_id": 43114,
+ "latest_block": 99858595,
+ "latest_block_time_utc": "2026-11-09T14:44:31+00:00",
+ "base_fee_wei": "0x9502f900",
+ "v2_code_bytes": 10836,
+ "v21_code_bytes": 10587,
+ "aave_pool_code_bytes": 2400,
+ "v2_pair_count": 30,
+ "v21_pair_count": 2072,
+ "aave_reserves_count": 18
+}

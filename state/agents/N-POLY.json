@@ -2,17 +2,26 @@
   "agent_id": "N-POLY",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "RULE_GAP",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:43:43+00:00",
   "observed_cursor": {
-    "type": "STATIC_SOURCE_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:32:36.909343+00:00",
-    "source_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md"
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-09T14:43:43+00:00",
+    "chain_id": 137,
+    "head_block": 97019899,
+    "pinned_blocks": [
+      97019894
     ],
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "urls": [
+      "https://polygon-bor-rpc.publicnode.com",
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+      "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+      "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"
+    ],
+    "complete_block_range": "代码/状态：块 97,019,894；Uniswap V3 新池日志：97,009,894-97,019,894（完整覆盖 10,000 块窗口）；新 condition 校验：块 97,019,894",
+    "complete_event_time_window": "Uniswap V3 新池约 2026-11-09T10:31:37Z-14:41:45Z（4.17h）；Gamma 快照 14:42:50Z；30 天规则/7 天活动未完整覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,29 +39,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
-    "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
-    "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+    "链身份核验：eth_chainId=0x89（137）；head=97,019,899（2026-11-09T14:41:45Z）；状态/代码固定块 97,019,894；baseFee=247,813,036,452 wei。",
+    "PMCT(pUSD) 链上核验：代理 0xC011a7E1… 为 61 B EIP-1967 最小代理；impl 槽=0xce84e053…（7,781 B）；name=Polymarket USD、symbol=pUSD、decimals=6、totalSupply=520,531,160.428038、USDC=原生 USDC、USDCE=USDC.e、VAULT=0xc417fd8e…、VAULT 持有 158.22489 pUSD；README 列 impl 0x6bBCef9f…（6,953 B）≠链上 impl → 实现漂移。",
+    "V1/V2 交易所：V1 0x4bFb41d5… 代码仍存在 17,208 B（README 已归档，但不能断言链上退役）；V2 0xE1111800… 代码 21,037 B，EIP-1967 impl/admin 槽=0（非代理）；V2 现金层 Onramp/Offramp/PermissionedRamp/两个适配器/NegRisk 交易所链上均有代码。",
+    "新市场：Gamma startDate 倒序最新市场 id 6905622（Ethereum above 2,040 on November 9, 11AM ET?，startDate 2026-11-09T14:40:20Z，conditionId 0x33d27589…）在 CTF 0x4D97DCd9… 的 getOutcomeSlotCount=2（块 97,019,894）→ condition 链上存在。",
+    "DEX 新池：Uniswap V3 Polygon 工厂最近 10,000 块（约 4.17h）新增 1 池 0xb72337be…（块 97,014,581，token0=0x0d500b1d…原生 gas wrapper、token1=0xe12a7b1c…、fee 3000）；该 RPC eth_getLogs 上限 10,000 块，24h/7d 窗口不可得。",
+    "外部请求 59 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无报价/交易/签名。"
   ],
   "pending_questions": [
-    "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
-    "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
-    "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
-    "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
-    "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+    "PMCT 当前实现 0xce84e053… 的源码/版本/角色/暂停/allowance 未读；WRAPPER_ROLE/MINTER_ROLE 未由链上取得，普通用户 pUSD 退出路径未证。",
+    "V1/V2 部署时间与 V1 是否仍活跃无法链上定界（历史块 getCode 需 archive token；未扫交易所事件/订单）。",
+    "pUSD 是否被任何借贷/抵押协议接受仍未建立映射；不得当 outcome 或抵押品。",
+    "新市场（conditionId 0x33d27589…）仅有 condition 存在证据，缺 oracle/payout/订单簿与报价；新池 token1 身份/流动性未核验。",
+    "30 天规则/公告与 7 天活动窗口未完整覆盖；Aave Polygon 当前状态、其他 DEX 工厂与旧小池轮转未做。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:32:36.909343+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-POLY/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
-    "verified_at": "2026-11-08T15:33:32.477653+00:00",
-    "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T14:43:50+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-POLY/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

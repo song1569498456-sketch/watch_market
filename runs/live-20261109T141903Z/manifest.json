@@ -156,6 +156,19 @@
         "N-OP"
       ],
       "merged_at": "2026-11-09T14:45:44.767327+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "184c8d5e29aaa99be1461d5bc6ba1f1f7854236f",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T14:46:04.079683+00:00"
+    },
+    {
+      "batch": 4,
+      "agents": [
+        "N-POLY",
+        "N-AVAX",
+        "N-SONIC"
+      ],
+      "merged_at": "2026-11-09T14:49:14.267988+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -191,6 +204,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 3
+    "completed": 4
   }
 }

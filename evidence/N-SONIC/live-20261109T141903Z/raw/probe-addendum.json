@@ -1,0 +1,225 @@
+{
+ "chain": "SONIC",
+ "pinned_block": 82307306,
+ "head_block": 82307309,
+ "retrieved_at_utc": "2026-11-09T14:46:39.210539+00:00",
+ "requests": [
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 1.335,
+   "retrieved_at_utc": "2026-11-09T14:46:40.545422+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.383,
+   "retrieved_at_utc": "2026-11-09T14:46:41.279842+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T14:46:41.999440+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.375,
+   "retrieved_at_utc": "2026-11-09T14:46:42.725921+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:46:43.467025+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T14:46:44.188078+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.407,
+   "retrieved_at_utc": "2026-11-09T14:46:44.945884+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T14:46:45.693162+00:00"
+  },
+  {
+   "label": "shadow pair factory()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.383,
+   "retrieved_at_utc": "2026-11-09T14:46:46.426819+00:00"
+  },
+  {
+   "label": "getCode shadow factory",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T14:46:47.177494+00:00"
+  },
+  {
+   "label": "getLogs paircreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.373,
+   "retrieved_at_utc": "2026-11-09T14:46:47.901029+00:00"
+  },
+  {
+   "label": "block from",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "elapsed_s": 0.377,
+   "retrieved_at_utc": "2026-11-09T14:46:48.629853+00:00"
+  },
+  {
+   "label": "block to",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "elapsed_s": 0.376,
+   "retrieved_at_utc": "2026-11-09T14:46:49.356044+00:00"
+  },
+  {
+   "label": "aave-sonic-file-commits-30d-retry",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?path=src/AaveV3Sonic.sol&since=2026-10-10T00:00:00Z&per_page=50",
+   "http_status": 403,
+   "error": null,
+   "sha256": "195d0930cc10ded5e51ed9f49c536ebbe9bf8a9be43006341d194c126d3a0b74",
+   "bytes": 279,
+   "retrieved_at_utc": "2026-11-09T14:46:50.517528+00:00"
+  }
+ ],
+ "aave_reserve_identity": [
+  {
+   "address": "0x50c42deacd8fc9773493ed674b675be577f2634b",
+   "symbol": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045745544800000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "WETH"
+    ],
+    "error": null
+   },
+   "decimals": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   }
+  },
+  {
+   "address": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+   "symbol": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "USDC"
+    ],
+    "error": null
+   },
+   "decimals": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+    "decoded": [
+     "6"
+    ],
+    "error": null
+   }
+  },
+  {
+   "address": "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+   "symbol": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000027753000000000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "wS"
+    ],
+    "error": null
+   },
+   "decimals": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   }
+  },
+  {
+   "address": "0xe5da20f15420ad15de0fa650600afc998bbe3955",
+   "symbol": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000037374530000000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "stS"
+    ],
+    "error": null
+   },
+   "decimals": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   }
+  }
+ ],
+ "shadow_pair_factory": {
+  "raw": "0x0000000000000000000000002da25e7446a70d7be65fd4c053948becaa6374c8",
+  "decoded": [
+   "0x2da25e7446a70d7be65fd4c053948becaa6374c8"
+  ],
+  "error": null
+ },
+ "shadow_factory": {
+  "address": "0x2da25e7446a70d7be65fd4c053948becaa6374c8",
+  "code": {
+   "address": "0x2da25e7446a70d7be65fd4c053948becaa6374c8",
+   "bytecode_bytes": 18573,
+   "code_keccak256": "0xe13d1508c4e3a955d3757f3e83e010cffc6e6512dd0eff7e723a2c19ef52d0c8"
+  }
+ },
+ "paircreated": {
+  "topic0": "0xc4805696c66d7cf352fc1d6bb633ad5ee82f6cb577c453024b6e0eb8306c6fc9",
+  "event": "PairCreated(address,address,bool,address,uint256)",
+  "attempts": [
+   {
+    "window": "100k",
+    "from_block": 82207309,
+    "to_block": 82307309,
+    "count": 0,
+    "error": null,
+    "pairs": [],
+    "truncated": false
+   }
+  ],
+  "used_window": "100k"
+ },
+ "window_times": {
+  "from": {
+   "block": 82207309,
+   "timestamp_utc": "2026-11-07T07:26:26+00:00"
+  },
+  "to": {
+   "block": 82307309,
+   "timestamp_utc": "2026-11-09T14:45:47+00:00"
+  }
+ },
+ "aave_sonic_commits_retry": {
+  "http_status": 403,
+  "body_head": "{'message': \"API rate limit exceeded for 67.159.52.222. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)\", 'documentation_url': 'https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'}"
+ },
+ "finished_at_utc": "2026-11-09T14:46:50.868110+00:00",
+ "request_count": 14
+}

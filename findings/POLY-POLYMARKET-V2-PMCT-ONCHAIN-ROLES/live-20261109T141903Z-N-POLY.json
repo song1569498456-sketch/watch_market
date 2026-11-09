@@ -1,0 +1,28 @@
+{
+  "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+  "status": "RULE_GAP",
+  "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+  "mechanism": "Polymarket V2 以 pUSD(PMCT) 现金 wrapper 作为交易抵押：Onramp 包原生 USDC/USDC.e、Offramp 解包、CtfCollateralAdapter 桥接 CTF；链上核验 pUSD 代理当前实现 0xce84e053…（EIP-1967 槽），与 V2 README 部署表 0x6bBCef9f… 不一致 → 文档/实现版本漂移；pUSD 是现金层，不是 outcome token 或借贷抵押品。",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+    "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+  ],
+  "net_result": "unknown（身份/机制核验，无报价）",
+  "unknown_costs": [
+    "pUSD 当前实现角色/暂停/allowance",
+    "wrap/unwrap gas",
+    "V1/V2 活跃度与流动性"
+  ],
+  "handoff_to": [
+    "R-POLY",
+    "POLY02"
+  ],
+  "invalidation_conditions": [
+    "链上 impl 变化或与源码对照不符",
+    "V2 现金层暂停或迁移",
+    "pUSD 被误当作 outcome/借贷抵押品"
+  ],
+  "owner": "N-POLY",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json"
+}

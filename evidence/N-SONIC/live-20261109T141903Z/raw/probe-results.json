@@ -1,0 +1,685 @@
+{
+ "agent_id": "N-SONIC",
+ "chain": "SONIC",
+ "rpc": "https://rpc.soniclabs.com",
+ "started_at_utc": "2026-11-09T14:45:47.649808+00:00",
+ "observations": {
+  "chain_id": "0x92",
+  "head_block_number": 82307309,
+  "head_block": {
+   "number": "0x4e7e8ed",
+   "hash": "0xa065d6ac73ea47918f1bb0969ca997baa6310909f5231dbd94e06ab18ca0270e",
+   "timestamp": "0x6af1dc9b",
+   "baseFeePerGas": "0xba43b7400",
+   "timestamp_utc": "2026-11-09T14:45:47+00:00"
+  },
+  "pinned_block": 82307306,
+  "aave_identity": {
+   "pool_proxy": {
+    "address": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+    "bytecode_bytes": 1853,
+    "code_keccak256": "0xbb7879bbb9fc3bbfd7173fe7e7f4e175340dbecf214c0408353f840a87e495c2"
+   },
+   "provider": {
+    "address": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
+    "bytecode_bytes": 6696,
+    "code_keccak256": "0x262cc36af1ae99139c3d31aa3249828c64d98b42944714671b3fddfe41d5ad79"
+   },
+   "impl_book": {
+    "address": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
+    "bytecode_bytes": 21146,
+    "code_keccak256": "0xc66496e4c79b191ea87413e98ca4202aff1647f7ed01954a575915f2362e2317"
+   },
+   "provider_getPool": {
+    "raw": "0x0000000000000000000000005362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+    "value": "0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+    "error": null
+   },
+   "pool_impl_slot": {
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x0000000000000000000000003ece05ac893ac406b83aea6796539464bd9d2db5",
+    "error": null
+   }
+  },
+  "aave_reserves": {
+   "count": 4,
+   "assets": [
+    "0x50c42deacd8fc9773493ed674b675be577f2634b",
+    "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+    "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+    "0xe5da20f15420ad15de0fa650600afc998bbe3955"
+   ],
+   "error": null,
+   "block": 82307306
+  },
+  "aave_address_book": {
+   "http_status": 200,
+   "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd",
+   "bytes": 10704,
+   "pool_present": true,
+   "impl_present": true,
+   "interesting_lines": [
+    "IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER =",
+    "IPool internal constant POOL = IPool(0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3);",
+    "IPoolConfigurator internal constant POOL_CONFIGURATOR =",
+    "IAaveOracle internal constant ORACLE = IAaveOracle(0xD63f7658C66B2934Bd234D79D06aEF5290734B30);"
+   ],
+   "distinct_address_count": 55
+  },
+  "aave_sonic_commits_30d": {
+   "http_status": 403,
+   "count": 2,
+   "parse_error": "TypeError(\"string indices must be integers, not 'str'\")"
+  },
+  "aave_addressbook_commits_30d": {
+   "http_status": 403,
+   "count": 2,
+   "parse_error": "KeyError(slice(None, 10, None))"
+  },
+  "dexscreener": {
+   "http_status": 200,
+   "sha256": "351ff445eba00298ab622f36596e026039dca6d4bae696d4580e850d1bf5bd78",
+   "bytes": 23117,
+   "pair_count": 30
+  },
+  "dex_newest_pairs": [
+   {
+    "chainId": "sonic",
+    "dexId": "metropolis",
+    "pairAddress": "0x32c0D87389E72E46b54bc4Ea6310C1a0e921C4DC",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1745434002000,
+    "liquidityUsd": 110.05,
+    "priceUsd": "0.03717",
+    "volume24h": 45.83
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "metropolis",
+    "pairAddress": "0x11D899DEc22fb03a0047212B1a20A7Ad8d699420",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1745433988000,
+    "liquidityUsd": 39.57,
+    "priceUsd": "0.03716",
+    "volume24h": 19.92
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "metropolis",
+    "pairAddress": "0x0b14a4e25A5b7788e05dAFEa84347FEE23A6B5d2",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "quoteSymbol": "scUSD",
+    "pairCreatedAt": 1745433849000,
+    "liquidityUsd": 20.76,
+    "priceUsd": "0.03463",
+    "volume24h": 15.79
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "0x4d8Ef974FaD9B7e323bE2c260B7c7712db090e86",
+    "pairAddress": "0x331325E76f08e16e5B6102cb80aB5256B097553c",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1742273869000,
+    "liquidityUsd": 2.85,
+    "priceUsd": "0.03681",
+    "volume24h": 0.06
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "9mm",
+    "pairAddress": "0x4A4924C8AfA845a0177bB1044Bd0d1A56e397137",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1740594728000,
+    "liquidityUsd": 41.12,
+    "priceUsd": "0.03715",
+    "volume24h": 2.09
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "shadow-exchange",
+    "pairAddress": "0x23EfA8092dab315Fa519bd9880597AF56C5a9B12",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1738333785000,
+    "liquidityUsd": 89.74,
+    "priceUsd": "0.03695",
+    "volume24h": 4.85
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "spookyswap",
+    "pairAddress": "0xc2a4817F5563152bA6bC54E1b521e2831e79D7E8",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1737209111000,
+    "liquidityUsd": 29.86,
+    "priceUsd": "0.03703",
+    "volume24h": 1.62
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "defive",
+    "pairAddress": "0x6eB32C8dB5Ff2878acbCB6a1Ec5e301F60884dA4",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1736067305000,
+    "liquidityUsd": 14340.74,
+    "priceUsd": "0.03723",
+    "volume24h": 2284.11
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "equalizer",
+    "pairAddress": "0xb1BC4B830FCbA2184B92e15b9133c41160518038",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1735359824000,
+    "liquidityUsd": 13185.9,
+    "priceUsd": "0.03726",
+    "volume24h": 59617.48
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "sushiswap",
+    "pairAddress": "0x48505B3047d5C2af657037034369700F4D036822",
+    "base": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "baseSymbol": "wS",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "pairCreatedAt": 1735280412000,
+    "liquidityUsd": 27.23,
+    "priceUsd": "0.03731",
+    "volume24h": 0.57
+   }
+  ],
+  "pair_age_days": [
+   {
+    "pairAddress": "0x32c0D87389E72E46b54bc4Ea6310C1a0e921C4DC",
+    "dexId": "metropolis",
+    "created_utc": "2025-04-23T18:46:42+00:00",
+    "age_days": 564.83
+   },
+   {
+    "pairAddress": "0x11D899DEc22fb03a0047212B1a20A7Ad8d699420",
+    "dexId": "metropolis",
+    "created_utc": "2025-04-23T18:46:28+00:00",
+    "age_days": 564.83
+   },
+   {
+    "pairAddress": "0x0b14a4e25A5b7788e05dAFEa84347FEE23A6B5d2",
+    "dexId": "metropolis",
+    "created_utc": "2025-04-23T18:44:09+00:00",
+    "age_days": 564.83
+   },
+   {
+    "pairAddress": "0x331325E76f08e16e5B6102cb80aB5256B097553c",
+    "dexId": "0x4d8Ef974FaD9B7e323bE2c260B7c7712db090e86",
+    "created_utc": "2025-03-18T04:57:49+00:00",
+    "age_days": 601.41
+   },
+   {
+    "pairAddress": "0x4A4924C8AfA845a0177bB1044Bd0d1A56e397137",
+    "dexId": "9mm",
+    "created_utc": "2025-02-26T18:32:08+00:00",
+    "age_days": 620.84
+   },
+   {
+    "pairAddress": "0x23EfA8092dab315Fa519bd9880597AF56C5a9B12",
+    "dexId": "shadow-exchange",
+    "created_utc": "2025-01-31T14:29:45+00:00",
+    "age_days": 647.01
+   },
+   {
+    "pairAddress": "0xc2a4817F5563152bA6bC54E1b521e2831e79D7E8",
+    "dexId": "spookyswap",
+    "created_utc": "2025-01-18T14:05:11+00:00",
+    "age_days": 660.03
+   },
+   {
+    "pairAddress": "0x6eB32C8dB5Ff2878acbCB6a1Ec5e301F60884dA4",
+    "dexId": "defive",
+    "created_utc": "2025-01-05T08:55:05+00:00",
+    "age_days": 673.24
+   },
+   {
+    "pairAddress": "0xb1BC4B830FCbA2184B92e15b9133c41160518038",
+    "dexId": "equalizer",
+    "created_utc": "2024-12-28T04:23:44+00:00",
+    "age_days": 681.43
+   },
+   {
+    "pairAddress": "0x48505B3047d5C2af657037034369700F4D036822",
+    "dexId": "sushiswap",
+    "created_utc": "2024-12-27T06:20:12+00:00",
+    "age_days": 682.35
+   }
+  ],
+  "pair_onchain_verification": [
+   {
+    "pairAddress": "0x32c0D87389E72E46b54bc4Ea6310C1a0e921C4DC",
+    "dexId": "metropolis",
+    "code": {
+     "address": "0x32c0D87389E72E46b54bc4Ea6310C1a0e921C4DC",
+     "bytecode_bytes": 97,
+     "code_keccak256": "0x2a0b523a09bb151f69f17bbe0551e16351655208a4dce9435437a2446c13886a"
+    },
+    "created_utc": "2025-04-23T18:46:42+00:00",
+    "token0": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "token1": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "factory": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves": {
+     "raw": "0x00000000000000000000000000000000000000000000009360a8715f0ea7efc50000000000000000000000000000000000000000000000000000000000890acf",
+     "error": null
+    }
+   },
+   {
+    "pairAddress": "0x11D899DEc22fb03a0047212B1a20A7Ad8d699420",
+    "dexId": "metropolis",
+    "code": {
+     "address": "0x11D899DEc22fb03a0047212B1a20A7Ad8d699420",
+     "bytecode_bytes": 97,
+     "code_keccak256": "0x50bfa9e93bc2b672f1c07e884538573f77bdf17cd2ef66f6e1e7ae9e64232884"
+    },
+    "created_utc": "2025-04-23T18:46:28+00:00",
+    "token0": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "token1": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "factory": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves": {
+     "raw": "0x000000000000000000000000000000000000000000000028a16568657b3c72a00000000000000000000000000000000000000000000000000000000000b2d29a",
+     "error": null
+    }
+   },
+   {
+    "pairAddress": "0x0b14a4e25A5b7788e05dAFEa84347FEE23A6B5d2",
+    "dexId": "metropolis",
+    "code": {
+     "address": "0x0b14a4e25A5b7788e05dAFEa84347FEE23A6B5d2",
+     "bytecode_bytes": 97,
+     "code_keccak256": "0x955c73d6f21b4bb09130c8e5278a3ce175b8608058b6a587772ae4b9815123f6"
+    },
+    "created_utc": "2025-04-23T18:44:09+00:00",
+    "token0": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "token1": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "factory": {
+     "raw": null,
+     "value": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves": {
+     "raw": "0x00000000000000000000000000000000000000000000000a8c57c50982177c080000000000000000000000000000000000000000000000000000000000d5fb57",
+     "error": null
+    }
+   }
+  ],
+  "ws_token": {
+   "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+   "symbol": "wS",
+   "symbol_error": null,
+   "code": {
+    "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    "bytecode_bytes": 2636,
+    "code_keccak256": "0xfbd5d84b325c1e0a582f906715f0bb83fa2fa5a67c3c35d7839cb969bbc7f331"
+   }
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.336,
+   "retrieved_at_utc": "2026-11-09T14:45:48.985419+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.365,
+   "retrieved_at_utc": "2026-11-09T14:45:49.701184+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:45:50.413395+00:00"
+  },
+  {
+   "label": "getCode aave pool proxy",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.364,
+   "retrieved_at_utc": "2026-11-09T14:45:51.127637+00:00"
+  },
+  {
+   "label": "getCode aave provider",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T14:45:51.848214+00:00"
+  },
+  {
+   "label": "getCode aave impl book",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T14:45:52.586611+00:00"
+  },
+  {
+   "label": "provider.getPool()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:45:53.298264+00:00"
+  },
+  {
+   "label": "aave pool impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:45:54.010233+00:00"
+  },
+  {
+   "label": "aave getReservesList",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.363,
+   "retrieved_at_utc": "2026-11-09T14:45:54.725094+00:00"
+  },
+  {
+   "label": "aave-sonic-addressbook",
+   "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.048,
+   "retrieved_at_utc": "2026-11-09T14:45:56.124557+00:00",
+   "bytes": 10704,
+   "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd"
+  },
+  {
+   "label": "aave-sonic-file-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?path=src/AaveV3Sonic.sol&since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 403,
+   "error": null,
+   "elapsed_s": 0.728,
+   "retrieved_at_utc": "2026-11-09T14:45:57.204299+00:00",
+   "bytes": 279,
+   "sha256": "195d0930cc10ded5e51ed9f49c536ebbe9bf8a9be43006341d194c126d3a0b74"
+  },
+  {
+   "label": "aave-addressbook-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 403,
+   "error": null,
+   "elapsed_s": 0.183,
+   "retrieved_at_utc": "2026-11-09T14:45:57.737889+00:00",
+   "bytes": 279,
+   "sha256": "195d0930cc10ded5e51ed9f49c536ebbe9bf8a9be43006341d194c126d3a0b74"
+  },
+  {
+   "label": "dexscreener-token-pairs",
+   "url": "https://api.dexscreener.com/token-pairs/v1/sonic/0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.05,
+   "retrieved_at_utc": "2026-11-09T14:45:59.143440+00:00",
+   "bytes": 23117,
+   "sha256": "351ff445eba00298ab622f36596e026039dca6d4bae696d4580e850d1bf5bd78"
+  },
+  {
+   "label": "getCode pair 0x32c0D873",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:45:59.856673+00:00"
+  },
+  {
+   "label": "pair 0x32c0D8 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:46:00.569134+00:00"
+  },
+  {
+   "label": "pair 0x32c0D8 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:46:01.280182+00:00"
+  },
+  {
+   "label": "pair 0x32c0D8 factory()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:46:01.988664+00:00"
+  },
+  {
+   "label": "pair 0x32c0D8 getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.42,
+   "retrieved_at_utc": "2026-11-09T14:46:02.759055+00:00"
+  },
+  {
+   "label": "getCode pair 0x11D899DE",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.356,
+   "retrieved_at_utc": "2026-11-09T14:46:03.465123+00:00"
+  },
+  {
+   "label": "pair 0x11D899 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:46:04.170880+00:00"
+  },
+  {
+   "label": "pair 0x11D899 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:46:04.880494+00:00"
+  },
+  {
+   "label": "pair 0x11D899 factory()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:46:05.588733+00:00"
+  },
+  {
+   "label": "pair 0x11D899 getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.367,
+   "retrieved_at_utc": "2026-11-09T14:46:06.305924+00:00"
+  },
+  {
+   "label": "getCode pair 0x0b14a4e2",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:46:07.014338+00:00"
+  },
+  {
+   "label": "pair 0x0b14a4 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.365,
+   "retrieved_at_utc": "2026-11-09T14:46:07.730257+00:00"
+  },
+  {
+   "label": "pair 0x0b14a4 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:46:08.441592+00:00"
+  },
+  {
+   "label": "pair 0x0b14a4 factory()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.356,
+   "retrieved_at_utc": "2026-11-09T14:46:09.147940+00:00"
+  },
+  {
+   "label": "pair 0x0b14a4 getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:46:09.856179+00:00"
+  },
+  {
+   "label": "wS symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.359,
+   "retrieved_at_utc": "2026-11-09T14:46:10.565392+00:00"
+  },
+  {
+   "label": "getCode wS",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.371,
+   "retrieved_at_utc": "2026-11-09T14:46:11.287188+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:46:11.637771+00:00",
+ "request_count": 30
+}

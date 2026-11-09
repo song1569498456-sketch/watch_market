@@ -1,0 +1,131 @@
+{
+ "started_at_utc": "2026-11-09T14:44:30.561521+00:00",
+ "chain_id": 43114,
+ "latest_block": 99858595,
+ "latest_block_time_utc": "2026-11-09T14:44:31+00:00",
+ "base_fee_wei": "0x9502f900",
+ "v2_code_bytes": 10836,
+ "v21_code_bytes": 10587,
+ "aave_pool_code_bytes": 2400,
+ "v2_pair_count": 30,
+ "v21_pair_count": 2072,
+ "aave_reserves_count": 18,
+ "newest_pairs": [
+  {
+   "factory": "v21",
+   "index": 2071,
+   "pair": "0x3de6bb9c787aede002a1540d300fc9e625b3a218"
+  },
+  {
+   "factory": "v21",
+   "index": 2070,
+   "pair": "0x0218f49cbf7cf47049b589b327c18c4c99de2863"
+  },
+  {
+   "factory": "v21",
+   "index": 2069,
+   "pair": "0x12ff77103c3dc7278083a722c5c7cc146e8f761e"
+  },
+  {
+   "factory": "v21",
+   "index": 2068,
+   "pair": "0xec4ab591d6db25c1090454b488fff885ac9eb34e"
+  },
+  {
+   "factory": "v21",
+   "index": 2067,
+   "pair": "0x74bdfac866175aff481651181d781417ffd24dae"
+  },
+  {
+   "factory": "v21",
+   "index": 2066,
+   "pair": "0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+  }
+ ],
+ "pair_metadata": [
+  {
+   "factory": "v21",
+   "index": 2071,
+   "pair": "0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+   "getTokenX()": "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+   "getTokenY()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "getBinStep()": 50,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8388608,
+   "getReserves()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "raw2": "0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  {
+   "factory": "v21",
+   "index": 2070,
+   "pair": "0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+   "getTokenX()": "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+   "getTokenY()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "getBinStep()": 25,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8388608,
+   "getReserves()": {
+    "raw": "0x00000000000000000000000000000000000000000000152d02c7e14af62d9a40",
+    "raw2": "0000000000000000000000000000000000000000000000000de0b6b3a763ffca"
+   }
+  },
+  {
+   "factory": "v21",
+   "index": 2069,
+   "pair": "0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+   "getTokenX()": "0xb8d7710f7d8349a506b75dd184f05777c82dad0c",
+   "getTokenY()": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+   "getBinStep()": 25,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8386496,
+   "getReserves()": {
+    "raw": "0x000000000000000000000000000000000000000000000026496d16aaf2fedb6c",
+    "raw2": "0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  {
+   "factory": "v21",
+   "index": 2068,
+   "pair": "0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+   "getTokenX()": "0x94823237e4d5f51c272f3c16a8a29ffecc274624",
+   "getTokenY()": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+   "getBinStep()": 25,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8384320,
+   "getReserves()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "raw2": "0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  {
+   "factory": "v21",
+   "index": 2067,
+   "pair": "0x74bdfac866175aff481651181d781417ffd24dae",
+   "getTokenX()": "0xfd2c2a98009d0cbed715882036e43d26c4289053",
+   "getTokenY()": "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+   "getBinStep()": 25,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8388608,
+   "getReserves()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "raw2": "0000000000000000000000000000000000000000000000000000000000000000"
+   }
+  },
+  {
+   "factory": "v21",
+   "index": 2066,
+   "pair": "0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+   "getTokenX()": "0x8b1e2420e0d453a718d4b70e3a043263eab77851",
+   "getTokenY()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "getBinStep()": 100,
+   "getFactory()": "0x8e42f2f4101563bf679975178e880fd87d3efd4e",
+   "getActiveId()": 8387146,
+   "getReserves()": {
+    "raw": "0x000000000000000000000000000000000000000000008a2af6a6d8be2da76544",
+    "raw2": "0000000000000000000000000000000000000000000000000109d4f70c67c57f"
+   }
+  }
+ ]
+}

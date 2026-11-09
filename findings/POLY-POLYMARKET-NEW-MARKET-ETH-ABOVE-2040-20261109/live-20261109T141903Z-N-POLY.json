@@ -1,0 +1,28 @@
+{
+  "finding_id": "POLY-POLYMARKET-NEW-MARKET-ETH-ABOVE-2040-20261109",
+  "status": "UNVERIFIED",
+  "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+  "mechanism": "新上市预测市场：Gamma startDate 2026-11-09T14:40:20Z 的「Ethereum above 2,040 on November 9, 11AM ET?」，conditionId 0x33d27589…；CTF getOutcomeSlotCount=2 链上确认 condition 存在（块 97,019,894）。未取价格/订单簿，不判断可交易性或收益。",
+  "evidence_urls": [
+    "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false",
+    "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+  ],
+  "net_result": "unknown（无报价）",
+  "unknown_costs": [
+    "订单簿价格/滑点",
+    "结算/争议风险",
+    "gas"
+  ],
+  "handoff_to": [
+    "POLY01",
+    "R-POLY"
+  ],
+  "invalidation_conditions": [
+    "condition 不存在或已作废",
+    "市场关闭/取消",
+    "无法取得可执行报价"
+  ],
+  "owner": "N-POLY",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,36 @@
+{
+  "finding_id": "AVAX-LFJ-V2.1-NEWEST-PAIRS-IDENTITY",
+  "status": "UNVERIFIED",
+  "chain": "AVAX",
+  "protocol": "LFJ Liquidity Book V2.1",
+  "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863 等 6 个",
+  "evidence_urls": [
+    "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+    "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+    "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae",
+    "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+  ],
+  "mechanism": "V2.1 工厂 getLBPairAtIndex 枚举的最新 6 个 pair，全部满足 pair.getFactory()=V2.1 工厂；tokenX/tokenY/binStep/activeId/getReserves 链上直读。最新 pair 多为一侧/空储备；WWLD/WAVAX 存在 100k:1 直注，PRIME-MOCK 名称含 MOCK，avBTC/BTC.b 是不同 BTC 表示。新市场身份成立，但资产有效性、bin 分布与费用未读，无经济结论。",
+  "net_result": null,
+  "unknown_costs": [
+    "bin 激活流动性与价格冲击",
+    "动态费用",
+    "gas/优先费",
+    "资产税/限制",
+    "退出费用"
+  ],
+  "handoff_to": [
+    "M00",
+    "AVAX01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "pair.getFactory() 非 V2.1 工厂",
+    "token 合约与 symbol 不符/为 mock",
+    "bin 分布显示无可用流动性",
+    "工厂实现变化"
+  ],
+  "owner": "N-AVAX",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,304 @@
+{
+  "agent_id": "N-AVAX",
+  "run_id": "live-20261109T141903Z",
+  "chain": "AVAX",
+  "scope": "Avalanche C-Chain 43114 新市场/新规则/新操作发现：链身份核验、LFJ Liquidity Book V2/V2.1 工厂链上核验、最新 6 个 V2.1 交易对身份与储备、30 天发布窗口、7 天事件窗口尝试（受 getLogs 范围限制）",
+  "started_at": "2026-11-09T14:44:10+00:00",
+  "finished_at": "2026-11-09T14:50:00+00:00",
+  "duration_seconds": 350,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T14:45:29+00:00",
+    "beijing": "2026-11-09T22:45:29+08:00",
+    "data_time": "链上读取 2026-11-09T14:44:31Z～14:45:29Z；最新块 99,858,595（区块时间 2026-11-09T14:44:31Z）；releases atom 抓取 2026-11-09T14:45:27Z"
+  },
+  "block_or_slot": 99858595,
+  "market_ids": [
+    "AVAX:43114:LFJ:LBPair:0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+    "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+    "AVAX:43114:LFJ:LBPair:0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+    "AVAX:43114:LFJ:LBPair:0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+    "AVAX:43114:LFJ:LBPair:0x74bdfac866175aff481651181d781417ffd24dae",
+    "AVAX:43114:LFJ:LBPair:0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+  ],
+  "asset_ids": [
+    "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+    "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+    "0xb8d7710f7d8349a506b75dd184f05777c82dad0c",
+    "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+    "0xfd2c2a98009d0cbed715882036e43d26c4289053",
+    "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+    "0x8b1e2420e0d453a718d4b70e3a043263eab77851",
+    "0x94823237e4d5f51c272f3c16a8a29ffecc274624"
+  ],
+  "discovery_source": [
+    {
+      "source": "Avalanche C-Chain 公共 RPC",
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "retrieved_at_utc": "2026-11-09T14:44:31+00:00～14:45:27+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call/eth_getLogs；18 次外部请求中的主要部分；getLogs 单次上限 50,000 块（-32701）"
+    },
+    {
+      "source": "备用 provider（getLogs 回退一次）",
+      "url": "https://avalanche-c-chain-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T14:44:38+00:00/14:45:25+00:00",
+      "http_status": 403,
+      "error": "getLogs 回退请求 403；按规则记录后停止，不硬重试"
+    },
+    {
+      "source": "joe-sdk-v2 官方地址表（上一轮读取，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+      "retrieved_at_utc": "（上一轮）2026-11-08；本轮用于工厂地址核对",
+      "request": "V2 工厂 0x6E77932A…、V2.1 工厂 0x8e42f2F4…；本轮 eth_getCode/getNumberOfLBPairs 核验"
+    },
+    {
+      "source": "avalanchego releases atom（无 key）",
+      "url": "https://github.com/ava-labs/avalanchego/releases.atom",
+      "retrieved_at_utc": "2026-11-09T14:45:27+00:00",
+      "http_status": 200,
+      "sha256": "9e4469e8d97dd3021c51bdada46e9a3d40f56ed10ea402554b2433e3d0b20b72",
+      "request": "窗口内 v1.15.3（2026-11-05T22:47:12Z）、v1.15.3-rc.2/rc.0（11-04）、Helicon.2（10-22）、v1.15.2-rc.1/grafts（10-22）"
+    },
+    {
+      "source": "joe-v2 releases atom（无 key）",
+      "url": "https://github.com/traderjoe-xyz/joe-v2/releases.atom",
+      "retrieved_at_utc": "2026-11-09T14:45:28+00:00",
+      "http_status": 200,
+      "sha256": "1ab4e4fcc7cfd16bf72e4dc3e7a016929df5a84190ba222fb9892debb480d743",
+      "request": "最新 v2.2（2024-04-09），30 天窗口内无新合约发布"
+    },
+    {
+      "source": "GitHub REST API（失败）",
+      "url": "https://api.github.com/repos/ava-labs/avalanchego/releases?per_page=10",
+      "retrieved_at_utc": "2026-11-09T14:44:39+00:00",
+      "http_status": 403,
+      "error": "共享 IP 限流 403；未重试第 3 次，改用 releases.atom"
+    }
+  ],
+  "mechanism": "LFJ Liquidity Book V2/V2.1 是两个独立工厂（V2 30 对、V2.1 2,072 对），同 token 对可按工厂版本、binStep 分开存在；V2.1 pair 为 97 字节代理克隆，克隆目标由工厂 getLBPairImplementation() 返回 0x3e30fdae…（22,503 字节）——implementation 替换会整体改变之后部署 pair 的规则（费率/权限/swap 逻辑）。最新 6 个 pair 的 tokenX/tokenY/binStep/activeId/getReserves 已链上直读：其中 WWLD/WAVAX（2070）为 1:1 bin 价但储备 99,999.999 WWLD : 1.0 WAVAX 的极度不对称注资；ARENA/USDC（2069）单边储备 706.267 ARENA / 0 USDC；PRIME-MOCK/WAVAX（2066）代币名含 MOCK；avBTC/BTC.b（2067）是两种不同 BTC 表示。这些只能作为资产身份/注资结构线索，未核发行方与 bin 分布前不能当机会。7 天 LBPairCreated 事件受 getLogs 50k 块上限限制：50k 块扫 V2/V2.1 均 0 条，仅说明最近约 27.8 小时工厂安静，不能外推全链。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "avalanche-c-chain",
+      "fields": {"eth_chainId": "0xa86a", "chain_id": 43114, "latest_block": 99858595,
+                 "latest_block_time_utc": "2026-11-09T14:44:31+00:00", "base_fee_wei": "0x9502f900", "base_fee_gwei": "2.5"},
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "factory_identity",
+      "protocol": "LFJ Liquidity Book V2",
+      "address": "0x6E77932A92582f504FF6c4BdbCef7Da6c198aEEf",
+      "fields": {"code_bytes": 10836, "getNumberOfLBPairs": 30},
+      "block": 99858595,
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "factory_identity",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "address": "0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+      "fields": {"code_bytes": 10587, "getNumberOfLBPairs": 2072,
+                 "lbpair_implementation": "0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f",
+                 "implementation_code_bytes": 22503, "pair_account_bytes": 97},
+      "block": 99858595,
+      "evidence_file": "raw/avax_round2.json"
+    },
+    {
+      "type": "new_market_queue",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "address": "getLBPairAtIndex(2071..2066)",
+      "fields": {
+        "2071": {"pair": "0x3de6bb9c787aede002a1540d300fc9e625b3a218", "tokenX": "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b", "tokenX_symbol": "WWLD", "tokenY": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7", "tokenY_symbol": "WAVAX", "binStep": 50, "activeId": 8388608, "reserves": ["0", "0"]},
+        "2070": {"pair": "0x0218f49cbf7cf47049b589b327c18c4c99de2863", "tokenX": "WWLD", "tokenY": "WAVAX", "binStep": 25, "activeId": 8388608, "reserves_raw": ["0x152d02c7e14af62d9a40", "0x0de0b6b3a763ffca"], "reserves_human": ["99999.99999999999 WWLD", "1.0 WAVAX"]},
+        "2069": {"pair": "0x12ff77103c3dc7278083a722c5c7cc146e8f761e", "tokenX": "0xb8d7710f7d8349a506b75dd184f05777c82dad0c", "tokenX_symbol": "ARENA", "tokenY": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e", "tokenY_symbol": "USDC", "binStep": 25, "activeId": 8386496, "reserves_human": ["706.2671848616701 ARENA", "0 USDC"]},
+        "2068": {"pair": "0xec4ab591d6db25c1090454b488fff885ac9eb34e", "tokenX": "0x94823237e4d5f51c272f3c16a8a29ffecc274624", "tokenY": "USDC", "binStep": 25, "activeId": 8384320, "reserves": ["0", "0"]},
+        "2067": {"pair": "0x74bdfac866175aff481651181d781417ffd24dae", "tokenX": "0xfd2c2a98009d0cbed715882036e43d26c4289053", "tokenX_symbol": "avBTC", "tokenY": "0x152b9d0fdc40c096757f570a51e494bd4b943e50", "tokenY_symbol": "BTC.b", "binStep": 25, "activeId": 8388608, "reserves": ["0", "0"]},
+        "2066": {"pair": "0xd41ad255796e97a49de36b8f38f1f16713f01bc8", "tokenX": "0x8b1e2420e0d453a718d4b70e3a043263eab77851", "tokenX_symbol": "PRIME-MOCK", "tokenY": "WAVAX", "binStep": 100, "activeId": 8387146, "reserves_human": ["652479.1110183976 PRIME-MOCK", "0.07482502635846182 WAVAX"]},
+        "note": "全部 pair.getFactory()=V2.1 工厂；未读 bin 分布/激活流动性/费用；WWLD/ARENA/PRIME-MOCK/avBTC/0x94823237… 发行方与机制未核"
+      },
+      "block": 99858595,
+      "evidence_file": "raw/pair_metadata.json"
+    },
+    {
+      "type": "rule_window_partial",
+      "protocol": "avalanchego / joe-v2",
+      "fields": {"avalanchego_releases_in_30d": [{"tag": "v1.15.3", "updated_utc": "2026-11-05T22:47:12Z"},
+                                                   {"tag": "v1.15.3-rc.2", "updated_utc": "2026-11-04T21:34:48Z"},
+                                                   {"tag": "Helicon.2", "updated_utc": "2026-10-22T21:49:24Z"}],
+                 "joev2_latest_release": {"tag": "v2.2", "updated_utc": "2024-04-09T22:53:12Z"},
+                 "note": "节点/合约发布≠链上规则已生效；V2.1 规则面在 getLBPairImplementation 与 setLBPairIgnored 等权限"},
+      "evidence_file": "raw/avax_round3.json"
+    },
+    {
+      "type": "activity_window_partial",
+      "protocol": "LFJ factories",
+      "fields": {"getlogs_max_range_blocks": 50000,
+                 "v2_5000_blocks_events": 0,
+                 "v21_50000_blocks_events": 0,
+                 "v21_7d_attempt_error": {"code": -32701, "message": "exceed maximum block range: 50000"},
+                 "fallback_provider_getlogs": "HTTP 403",
+                 "caveat": "topic0 与 ABI 一致性未做无 topic 对照，0 事件存在漏检风险"},
+      "evidence_file": "raw/getlogs.json / raw/avax_round3.json"
+    },
+    {
+      "type": "aave_snapshot",
+      "protocol": "Aave v3",
+      "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "fields": {"code_bytes": 2400, "reserves_count": 18},
+      "block": 99858595,
+      "evidence_file": "raw/identity.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": ["bin 动态费用", "bin 激活流动性与价格冲击", "gas/优先费（C-Chain 2.5 gwei 基础费）", "资产税/限制", "退出费用"]
+  },
+  "capacity": "unknown（未读 bin 分布/激活流动性；最新 6 个 pair 中 3 个储备为 0，1 个单边，2 个不对称注资）",
+  "permissions": "unknown（未读工厂 owner、setLBPairImplementation/setLBPairIgnored 权限状态；V2.1 pair 为 97B 代理克隆，实现 0x3e30fdae…）",
+  "liabilities": "none（只读读取；未建仓、无债务、无交易）",
+  "waiting_time": "unknown（未读任何存款/退出/赎回时间）",
+  "invalidation_conditions": [
+    "eth_chainId 非 43114 或最新块异常（本轮 43114、99,858,595）",
+    "工厂地址与 SDK 部署表不符（本轮代码与 pair 数已核验一致）",
+    "pair.getFactory() 非对应工厂（本轮 6 个均指向 V2.1）",
+    "同名/近名资产不同合约与机制（WWLD/ARENA/PRIME-MOCK/avBTC/BTC.b 未核，不能合并权益）",
+    "getLBPairImplementation 或实现代码哈希变化（规则变更，需重核验）"
+  ],
+  "evidence_urls": [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://snowtrace.io/address/0x6E77932A92582f504FF6c4BdbCef7Da6c198aEEf",
+    "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+    "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+    "https://snowtrace.io/address/0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+    "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+    "https://raw.githubusercontent.com/traderjoe-xyz/joe-sdk-v2/main/src/constants/v2Addrs.ts",
+    "https://github.com/ava-labs/avalanchego/releases.atom",
+    "https://github.com/traderjoe-xyz/joe-v2/releases.atom"
+  ],
+  "coverage_gaps": [
+    "7 天活动窗口未完成：eth_getLogs 单次上限 50,000 块（-32701），只扫了 V2(5k)/V2.1(50k) 两段且 0 事件；备用 provider 403。",
+    "0 事件结果依赖 LBPairCreated topic0 与 ABI 一致，未做无 topic 对照，存在漏检风险；未统计 30 天新增 pair 精确数量。",
+    "30 天规则窗口只覆盖 avalanchego/joe-v2 发布 feed 与实现身份；未覆盖 Avalanche 治理、LFJ owner/权限变更、setLBPairIgnored 等链上事件。",
+    "6 个最新 pair 未读 bin 分布/激活流动性/费用；WWLD/ARENA/PRIME-MOCK/avBTC/0x94823237… 发行方与机制未核。",
+    "Aave 仅记录储备数量快照（18），未与上轮对比/未读事件；Benqi 等其他协议未扫；旧小池/退出窗口未轮转；无报价/模拟。"
+  ],
+  "next_check": [
+    "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+    "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+    "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+    "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+    "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+    "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+  ],
+  "handoff_to": ["M00", "AVAX01", "Q00"],
+  "markets": [
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b", "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0x3de6bb9c787aede002a1540d300fc9e625b3a218"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep50，未注资）",
+      "next_check": "读 bin 分布；核 WWLD 发行方"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b", "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep25，100k:1 注资）",
+      "next_check": "核 WWLD 与 100k:1 注资结构；不先当机会"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0xb8d7710f7d8349a506b75dd184f05777c82dad0c", "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"],
+      "evidence_urls": ["https://snowtrace.io/address/0x12ff77103c3dc7278083a722c5c7cc146e8f761e"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（ARENA/USDC binStep25，单边储备）",
+      "next_check": "核 ARENA 发行方与 USDC 侧注入情况"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0x94823237e4d5f51c272f3c16a8a29ffecc274624", "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"],
+      "evidence_urls": ["https://snowtrace.io/address/0xec4ab591d6db25c1090454b488fff885ac9eb34e"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（0x94823237…/USDC binStep25，未注资）",
+      "next_check": "读 token symbol/发行方；读 bin 分布"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x74bdfac866175aff481651181d781417ffd24dae",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0xfd2c2a98009d0cbed715882036e43d26c4289053", "0x152b9d0fdc40c096757f570a51e494bd4b943e50"],
+      "evidence_urls": ["https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（avBTC/BTC.b binStep25，未注资；两种 BTC 表示不同权益）",
+      "next_check": "核 avBTC 发行机制与 BTC.b 的关系"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+      "chain": "AVAX", "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": ["0x8b1e2420e0d453a718d4b70e3a043263eab77851", "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（PRIME-MOCK/WAVAX binStep100，疑似 mock 代币）",
+      "next_check": "核 PRIME-MOCK 是否测试币；排除后登记"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "AVAX-LFJ-V2.1-NEWEST-PAIRS-IDENTITY",
+      "status": "UNVERIFIED",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863 等 6 个",
+      "evidence_urls": ["https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+                        "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+                        "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae",
+                        "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"],
+      "mechanism": "V2.1 工厂 getLBPairAtIndex 枚举的最新 6 个 pair，全部满足 pair.getFactory()=V2.1 工厂；tokenX/tokenY/binStep/activeId/getReserves 链上直读。最新 pair 多为一侧/空储备；WWLD/WAVAX 存在 100k:1 直注，PRIME-MOCK 名称含 MOCK，avBTC/BTC.b 是不同 BTC 表示。新市场身份成立，但资产有效性、bin 分布与费用未读，无经济结论。",
+      "net_result": null,
+      "unknown_costs": ["bin 激活流动性与价格冲击", "动态费用", "gas/优先费", "资产税/限制", "退出费用"],
+      "handoff_to": ["M00", "AVAX01", "Q00"],
+      "invalidation_conditions": ["pair.getFactory() 非 V2.1 工厂", "token 合约与 symbol 不符/为 mock", "bin 分布显示无可用流动性", "工厂实现变化"]
+    },
+    {
+      "finding_id": "AVAX-LFJ-V2.1-PAIR-IMPLEMENTATION-SURFACE",
+      "status": "UNVERIFIED",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "market_id": null,
+      "evidence_urls": ["https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e"],
+      "mechanism": "工厂 getLBPairImplementation()=0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f（22,503 字节），V2.1 pair 为 97 字节代理克隆；实现地址/代码变化会整体改变之后部署 pair 的规则（费率/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立每日监控面；V2 与 V2.1 工厂规则面分离，不能混用。",
+      "net_result": null,
+      "unknown_costs": [],
+      "handoff_to": ["M00", "AVAX01", "Q00"],
+      "invalidation_conditions": ["getLBPairImplementation 或实现代码哈希变化（需重核验规则）", "工厂被迁移/替换"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "WWLD/WAVAX（2070）1:1 bin 价 + 100k:1 储备是可直接套利的错价",
+      "reason": "WWLD 发行方/总量/可转让性/外部参考价均未核，储备与 bin 分布未读；可能为测试/启动注资，明确排除利润主张，仅保留资产身份线索。"
+    },
+    {
+      "claim": "PRIME-MOCK 或 avBTC/BTC.b 可当普通同名资产参与价差",
+      "reason": "PRIME-MOCK 名称含 MOCK；avBTC 与 BTC.b 是两种不同 BTC 表示（不同合约、不同桥/发行路径），不能仅因名称/配对合并权益，已排除。"
+    },
+    {
+      "claim": "50k 块内 0 条 LBPairCreated 说明 Avalanche 无新市场",
+      "reason": "只覆盖 LFJ V2/V2.1 工厂最近约 50k 块，且 topic0 一致性未做无 topic 对照；其他协议与 7 天窗口未覆盖，排除该覆盖主张。"
+    },
+    {
+      "claim": "节点/合约 release（avalanchego v1.15.x、joe-v2 v2.2）代表链上规则已生效",
+      "reason": "发布只是软件/合约仓库动作；链上规则面是已部署代码与权限，本轮只做身份与实现记录，排除该断言。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "chain_snapshot_plus_factory_index_enumeration",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-09T14:45:29+00:00",
+    "complete_block_range": "点读最新块 99,858,595 与 5k/50k 块 getLogs 窗口；无 7 天连续区块范围",
+    "complete_event_time_window": "不完整：LBPairCreated 约最近 27.8 小时（50k 块）扫描=0 事件；7 天活动窗口未覆盖"
+  }
+}

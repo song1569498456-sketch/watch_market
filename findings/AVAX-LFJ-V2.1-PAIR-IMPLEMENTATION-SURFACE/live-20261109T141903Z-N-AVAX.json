@@ -1,0 +1,25 @@
+{
+  "finding_id": "AVAX-LFJ-V2.1-PAIR-IMPLEMENTATION-SURFACE",
+  "status": "UNVERIFIED",
+  "chain": "AVAX",
+  "protocol": "LFJ Liquidity Book V2.1",
+  "market_id": null,
+  "evidence_urls": [
+    "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e"
+  ],
+  "mechanism": "工厂 getLBPairImplementation()=0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f（22,503 字节），V2.1 pair 为 97 字节代理克隆；实现地址/代码变化会整体改变之后部署 pair 的规则（费率/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立每日监控面；V2 与 V2.1 工厂规则面分离，不能混用。",
+  "net_result": null,
+  "unknown_costs": [],
+  "handoff_to": [
+    "M00",
+    "AVAX01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "getLBPairImplementation 或实现代码哈希变化（需重核验规则）",
+    "工厂被迁移/替换"
+  ],
+  "owner": "N-AVAX",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json"
+}

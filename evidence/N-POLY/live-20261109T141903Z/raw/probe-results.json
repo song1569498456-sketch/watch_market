@@ -1,0 +1,894 @@
+{
+ "agent_id": "N-POLY",
+ "chain": "POLY",
+ "rpc": "https://polygon-bor-rpc.publicnode.com",
+ "started_at_utc": "2026-11-09T14:41:42.835782+00:00",
+ "observations": {
+  "chain_id": "0x89",
+  "head_block_number": 97019899,
+  "head_block": {
+   "number": "0x5c867fb",
+   "hash": "0x38481f18bef6218ad5ad568921a6a05149c0cca9d26db053c546522713dc5438",
+   "timestamp": "0x6af1dba9",
+   "baseFeePerGas": "0x39b60215a4",
+   "timestamp_utc": "2026-11-09T14:41:45+00:00"
+  },
+  "pinned_block": 97019894,
+  "v1_readme": {
+   "http_status": 200,
+   "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+   "bytes": 2621,
+   "archived_line": "> This repository has been archived and is no longer maintained.",
+   "deploy_table_lines": [
+    "| Polygon          | [0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E](https://polygonscan.com/address/0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E)|"
+   ]
+  },
+  "v2_readme": {
+   "http_status": 200,
+   "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c",
+   "bytes": 14235,
+   "deploy_lines": [
+    "### Polygon",
+    "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f`](https://polygonscan.com/address/0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f) |",
+    "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |",
+    "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |",
+    "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |",
+    "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |",
+    "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |",
+    "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |",
+    "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |",
+    "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |",
+    "| [CollateralToken](src/collateral/CollateralToken.sol) (impl) | [`0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29`](https://amoy.polygonscan.com/address/0x28A4eaD5bD4847d36F6d046A45e827bdf7781C29) |",
+    "| [CollateralToken](src/collateral/CollateralToken.sol) (proxy) | [`0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB`](https://amoy.polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB) |",
+    "| [CollateralOnramp](src/collateral/CollateralOnramp.sol) | [`0x93070a847efEf7F70739046A929D47a521F5B8ee`](https://amoy.polygonscan.com/address/0x93070a847efEf7F70739046A929D47a521F5B8ee) |",
+    "| [CollateralOfframp](src/collateral/CollateralOfframp.sol) | [`0x2957922Eb93258b93368531d39fAcCA3B4dC5854`](https://amoy.polygonscan.com/address/0x2957922Eb93258b93368531d39fAcCA3B4dC5854) |",
+    "| [PermissionedRamp](src/collateral/PermissionedRamp.sol) | [`0xebC2459Ec962869ca4c0bd1E06368272732BCb08`](https://amoy.polygonscan.com/address/0xebC2459Ec962869ca4c0bd1E06368272732BCb08) |",
+    "| [CtfCollateralAdapter](src/adapters/CtfCollateralAdapter.sol) | [`0xADa100874d00e3331D00F2007a9c336a65009718`](https://amoy.polygonscan.com/address/0xADa100874d00e3331D00F2007a9c336a65009718) |",
+    "| [NegRiskCtfCollateralAdapter](src/adapters/NegRiskCtfCollateralAdapter.sol) | [`0xAdA200001000ef00D07553cEE7006808F895c6F1`](https://amoy.polygonscan.com/address/0xAdA200001000ef00D07553cEE7006808F895c6F1) |",
+    "| [CTFExchangeV2](src/exchange/CTFExchange.sol) | [`0xE111180000d2663C0091e4f400237545B87B996B`](https://amoy.polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B) |",
+    "| [NegRiskCtfExchangeV2](src/exchange/CTFExchange.sol) | [`0xe2222d279d744050d28e00520010520000310F59`](https://amoy.polygonscan.com/address/0xe2222d279d744050d28e00520010520000310F59) |"
+   ],
+   "pmct_lines": [
+    "│   ├── CtfCollateralAdapter.sol        — CTF ↔ PMCT adapter",
+    "├── CollateralToken.sol             — PMCT (PolyMarket Collateral Token)",
+    "├── CollateralOnramp.sol            — Wrap USDC/USDCe → PMCT",
+    "└── CollateralOfframp.sol           — Unwrap PMCT → USDC/USDCe",
+    "The exchange trades in **PMCT** (PolyMarket Collateral Token), an ERC20 wrapper around USDC/USDCe:",
+    "- **CollateralOnramp**: Wraps supported assets into PMCT",
+    "- **CollateralOfframp**: Unwraps PMCT back to supported assets",
+    "- **CtfCollateralAdapter**: Bridges PMCT ↔ CTF operations (split/merge/redeem)",
+    "- **Wrapped collateral (PMCT)** — New collateral token layer with onramp/offramp, replacing direct USDC usage. Enables the collateral adapter pattern for CTF interactions."
+   ],
+   "polygon_addresses": []
+  },
+  "collateraltoken_source": {
+   "http_status": 200,
+   "sha256": "03cc9570c16b591c7329447b6f95d4d44f8362fec0054d53ee679e89ab30807e",
+   "bytes": 9844,
+   "getters": [
+    [
+     "",
+     "USDC"
+    ],
+    [
+     "",
+     "USDCE"
+    ],
+    [
+     "",
+     "VAULT"
+    ],
+    [
+     "name",
+     ""
+    ],
+    [
+     "symbol",
+     ""
+    ],
+    [
+     "decimals",
+     ""
+    ],
+    [
+     "_givePermit2InfiniteAllowance",
+     ""
+    ]
+   ],
+   "public_constants": [],
+   "name_lines": [
+    "return \"Polymarket USD\";",
+    "return \"pUSD\";",
+    "/// @return The number of decimals (6)",
+    "function decimals() public pure override returns (uint8) {"
+   ]
+  },
+  "ctf_v2_commits_30d": {
+   "http_status": 200,
+   "count": 0,
+   "commits": []
+  },
+  "gamma_markets": {
+   "http_status": 200,
+   "sha256": "d436d7009e1bd4bdc6a1ffa1060344624822c855f2e3b7e975076856bc10e10f",
+   "bytes": 112083,
+   "markets": [
+    {
+     "id": "559651",
+     "question": "Xi Jinping out before 2027?",
+     "conditionId": "0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+     "slug": "xi-jinping-out-before-2027",
+     "startDate": "2025-07-03T20:37:00.228Z",
+     "endDate": "2027-01-01T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559652",
+     "question": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+     "slug": "will-gavin-newsom-win-the-2028-democratic-presidential-nomination-568",
+     "startDate": "2025-07-11T18:35:56.805Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559653",
+     "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xe6bcc2f1dd025ce5e1833190f7c60a71171c94f805df55b9ab0ded695ec93565",
+     "slug": "will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653",
+     "startDate": "2025-07-11T18:35:59.075Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559654",
+     "question": "Will Pete Buttigieg win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x4c325469d9b516ef4e6b8f73a81a12607dec075e3c2fd454f91765aaeafc4760",
+     "slug": "will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687",
+     "startDate": "2025-07-11T18:35:58.818Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559655",
+     "question": "Will Josh Shapiro win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xd65891729ce093cc12236856837eba1a0872fc7998fd4294c21346f7db68079c",
+     "slug": "will-josh-shapiro-win-the-2028-democratic-presidential-nomination-977",
+     "startDate": "2025-07-11T18:36:01.098Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559656",
+     "question": "Will Wes Moore win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x61d9486c0f7e14ed98f3b177b6adcb3cd45646c92e8bbfbf209789b86472d4b6",
+     "slug": "will-wes-moore-win-the-2028-democratic-presidential-nomination-714",
+     "startDate": "2025-07-11T18:36:00.839Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559657",
+     "question": "Will Stephen A. Smith win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xc8f1cf5d4f26e0fd9c8fe89f2a7b3263b902cf14fde7bfccef525753bb492e47",
+     "slug": "will-stephen-a-smith-win-the-2028-democratic-presidential-nomination-914",
+     "startDate": "2025-07-11T18:36:02.893Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559658",
+     "question": "Will Kamala Harris win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x909659c9436228e2be56d5582ba6188166f2f8bf3c596335512c8f2e380d01ec",
+     "slug": "will-kamala-harris-win-the-2028-democratic-presidential-nomination-641",
+     "startDate": "2025-07-11T18:36:03.15Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559659",
+     "question": "Will Gretchen Whitmer win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xe39adea057926dc197fe30a441f57a340b2a232d5a687010f78bba9b6e02620f",
+     "slug": "will-gretchen-whitmer-win-the-2028-democratic-presidential-nomination-676",
+     "startDate": "2025-07-11T18:36:05.047Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559660",
+     "question": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x1d519b87999e3d4e90e1e8f57b5eee73a0ba488ff3fdb70867f294733aba84a9",
+     "slug": "will-andy-beshear-win-the-2028-democratic-presidential-nomination-832",
+     "startDate": "2025-07-11T18:36:04.79Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559661",
+     "question": "Will Jon Ossoff win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x74dba1ce1ae9dd535414e85f2d9ab5ea32c0fb1acc9b7130b67e6d91217e24e1",
+     "slug": "will-jon-ossoff-win-the-2028-democratic-presidential-nomination-885",
+     "startDate": "2025-07-11T18:36:06.838Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559662",
+     "question": "Will Mark Cuban win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x9d4f94f82de9d13ff1d3318639ab9000ee2533949e525343156f374fb00bd9b1",
+     "slug": "will-mark-cuban-win-the-2028-democratic-presidential-nomination-329",
+     "startDate": "2025-07-11T18:36:08.958Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559663",
+     "question": "Will J.B. Pritzker win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xe883f2fda25a605a184bb5fe583afce6cc21ea0b348b6a3728ec3067553c548d",
+     "slug": "will-jb-pritzker-win-the-2028-democratic-presidential-nomination-288",
+     "startDate": "2025-07-11T18:36:09.214Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559664",
+     "question": "Will Raphael Warnock win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xdce84960dce38aa4a5800a5eba7c9ac34d2ce49ba9d44c42572c472d468af264",
+     "slug": "will-raphael-warnock-win-the-2028-democratic-presidential-nomination-914",
+     "startDate": "2025-07-11T18:36:11.106Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559665",
+     "question": "Will Cory Booker win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x1970bcce75e3674660917ae4685b433a9b1e0152d810a8d7c346dfd5e00694c2",
+     "slug": "will-corey-booker-win-the-2028-democratic-presidential-nomination-125",
+     "startDate": "2025-07-11T18:36:10.848Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559666",
+     "question": "Will Tim Walz win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x3265b10daeb30dbcc3214bd02e488551d0a5d3028392f4152e4750b943fbfc91",
+     "slug": "will-tim-walz-win-the-2028-democratic-presidential-nomination-475",
+     "startDate": "2025-07-11T18:36:13.472Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559667",
+     "question": "Will Michelle Obama win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+     "slug": "will-michelle-obama-win-the-2028-democratic-presidential-nomination-777",
+     "startDate": "2025-07-11T18:36:12.961Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559668",
+     "question": "Will Mark Kelly win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x36db77c539bcc8c7bf0686c1b99f30c5a5eed1f53d3b3a27a071550c81f83701",
+     "slug": "will-mark-kelly-win-the-2028-democratic-presidential-nomination-479",
+     "startDate": "2025-07-11T18:36:13.216Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559669",
+     "question": "Will Rahm Emanuel win the 2028 Democratic presidential nomination?",
+     "conditionId": "0x3dc47a72ac6bb265e9cefebd2a2eeed00966394cb2d07245b5c94138b60e82a3",
+     "slug": "will-rahm-emanuel-win-the-2028-democratic-presidential-nomination-299",
+     "startDate": "2025-07-11T18:36:13.728Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    },
+    {
+     "id": "559670",
+     "question": "Will Gina Raimondo win the 2028 Democratic presidential nomination?",
+     "conditionId": "0xcb239105ed21a2420ba4d85090b9bc32755c56601ffdc528afd17fd6282fe930",
+     "slug": "will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676",
+     "startDate": "2025-07-11T18:36:14.926Z",
+     "endDate": "2028-11-08T04:59:00Z",
+     "closed": false,
+     "active": true,
+     "outcomes": "[\"Yes\", \"No\"]"
+    }
+   ],
+   "count": 20
+  },
+  "code": {
+   "v1_exchange": {
+    "address": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+    "bytecode_bytes": 17208,
+    "code_keccak256": "0xcfb37c52dfb6f44164b2f25e34239df2dc3ee98727f0fb21f06a3efe56f9d8bf"
+   },
+   "v2_exchange": {
+    "address": "0xE111180000d2663C0091e4f400237545B87B996B",
+    "bytecode_bytes": 21037,
+    "code_keccak256": "0xa08da89bbac2063dfa6a705e70314d218d40fb2b2a6405442297c241fcd58401"
+   },
+   "pmct_proxy": {
+    "address": "0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+    "bytecode_bytes": 61,
+    "code_keccak256": "0xaaa52c8cc8a0e3fd27ce756cc6b4e70c51423e9b597b11f32d3e49f8b1fc890d"
+   },
+   "ctf": {
+    "address": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+    "bytecode_bytes": 15007,
+    "code_keccak256": "0xbe524e094025c2a1122ccfbe3264e29fe662d7e0ae518b6926135c814405eceb"
+   },
+   "univ3_factory": {
+    "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "bytecode_bytes": 24535,
+    "code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69"
+   }
+  },
+  "v2_polygon_addresses": [],
+  "proxy_storage": {
+   "v2_exchange_impl": {
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "error": null
+   },
+   "v2_exchange_admin": {
+    "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+    "value": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "error": null
+   },
+   "pmct_proxy_impl": {
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x000000000000000000000000ce84e053301a82937f90ee2c2c1889cab1db25de",
+    "error": null
+   },
+   "pmct_proxy_admin": {
+    "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+    "value": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "error": null
+   }
+  },
+  "pmct_calls": {
+   "name()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000e506f6c796d61726b657420555344000000000000000000000000000000000000",
+    "decoded": [
+     "Polymarket USD"
+    ],
+    "error": null
+   },
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000047055534400000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "pUSD"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+    "decoded": [
+     "6"
+    ],
+    "error": null
+   },
+   "totalSupply()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000001d96b9ae96e06",
+    "decoded": [
+     "520531160428038"
+    ],
+    "error": null
+   },
+   "USDC()": {
+    "raw": "0x0000000000000000000000003c499c542cef5e3811e1192ce70d8cc03d5c3359",
+    "decoded": [
+     "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+    ],
+    "error": null
+   },
+   "USDC_E()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   },
+   "VAULT()": {
+    "raw": "0x000000000000000000000000c417fd8e9661c0d2120b64a04bb3278c17e99db1",
+    "decoded": [
+     "0xc417fd8e9661c0d2120b64a04bb3278c17e99db1"
+    ],
+    "error": null
+   },
+   "WRAPPER_ROLE()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   },
+   "MINTER_ROLE()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   }
+  },
+  "code_age": {
+   "v2_exchange": {
+    "30d": {
+     "block": 95723899,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     },
+     "block_timestamp_utc": "2026-10-18T02:39:56+00:00"
+    },
+    "7d": {
+     "block": 96717499,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     }
+    }
+   },
+   "pmct_proxy": {
+    "30d": {
+     "block": 95723899,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     },
+     "block_timestamp_utc": "2026-10-18T02:39:56+00:00"
+    },
+    "7d": {
+     "block": 96717499,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     }
+    }
+   },
+   "v1_exchange": {
+    "30d": {
+     "block": 95723899,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     },
+     "block_timestamp_utc": "2026-10-18T02:39:56+00:00"
+    },
+    "7d": {
+     "block": 96717499,
+     "bytecode_bytes": null,
+     "error": {
+      "code": -32602,
+      "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+     }
+    }
+   }
+  },
+  "chosen_market": {
+   "id": "559651",
+   "question": "Xi Jinping out before 2027?",
+   "conditionId": "0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+   "slug": "xi-jinping-out-before-2027",
+   "startDate": "2025-07-03T20:37:00.228Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "closed": false,
+   "active": true,
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  "ctf_check": {
+   "getOutcomeSlotCount": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000002",
+    "decoded": [
+     "2"
+    ],
+    "error": null
+   },
+   "condition_id": "0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7"
+  },
+  "univ3_new_pools_24h": {
+   "from_block": 96976699,
+   "to_block": 97019899,
+   "count": null,
+   "error": {
+    "code": -32701,
+    "message": "exceed maximum block range: 10000"
+   },
+   "pools": []
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.249,
+   "retrieved_at_utc": "2026-11-09T14:41:44.085147+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:41:44.790993+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.407,
+   "retrieved_at_utc": "2026-11-09T14:41:45.548847+00:00"
+  },
+  {
+   "label": "v1-readme",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.014,
+   "retrieved_at_utc": "2026-11-09T14:41:46.912978+00:00",
+   "bytes": 2621,
+   "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f"
+  },
+  {
+   "label": "v2-readme",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.44,
+   "retrieved_at_utc": "2026-11-09T14:41:47.704103+00:00",
+   "bytes": 14235,
+   "sha256": "41def0727a8adbaccefb3c25bce4e50166915f98ea3e9588323304c2851fac7c"
+  },
+  {
+   "label": "collateraltoken-source",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.43,
+   "retrieved_at_utc": "2026-11-09T14:41:48.491503+00:00",
+   "bytes": 9844,
+   "sha256": "03cc9570c16b591c7329447b6f95d4d44f8362fec0054d53ee679e89ab30807e"
+  },
+  {
+   "label": "ctf-v2-commits-30d",
+   "url": "https://api.github.com/repos/Polymarket/ctf-exchange-v2/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.066,
+   "retrieved_at_utc": "2026-11-09T14:41:49.909581+00:00",
+   "bytes": 2,
+   "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+   "label": "gamma-markets",
+   "url": "https://gamma-api.polymarket.com/markets?limit=20&closed=false",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.36,
+   "retrieved_at_utc": "2026-11-09T14:41:51.620450+00:00",
+   "bytes": 112083,
+   "sha256": "d436d7009e1bd4bdc6a1ffa1060344624822c855f2e3b7e975076856bc10e10f"
+  },
+  {
+   "label": "getCode v1_exchange",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.406,
+   "retrieved_at_utc": "2026-11-09T14:41:52.379581+00:00"
+  },
+  {
+   "label": "getCode v2_exchange",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:41:53.114449+00:00"
+  },
+  {
+   "label": "getCode pmct_proxy",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:41:53.825776+00:00"
+  },
+  {
+   "label": "getCode ctf",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.452,
+   "retrieved_at_utc": "2026-11-09T14:41:54.628450+00:00"
+  },
+  {
+   "label": "getCode univ3_factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.497,
+   "retrieved_at_utc": "2026-11-09T14:41:55.476098+00:00"
+  },
+  {
+   "label": "v2_exchange impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T14:41:56.196116+00:00"
+  },
+  {
+   "label": "v2_exchange admin slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T14:41:56.942528+00:00"
+  },
+  {
+   "label": "pmct_proxy impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.353,
+   "retrieved_at_utc": "2026-11-09T14:41:57.646149+00:00"
+  },
+  {
+   "label": "pmct_proxy admin slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:41:58.386912+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T14:41:59.134605+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.349,
+   "retrieved_at_utc": "2026-11-09T14:41:59.834284+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.36,
+   "retrieved_at_utc": "2026-11-09T14:42:00.544649+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:42:01.251311+00:00"
+  },
+  {
+   "label": "eth_call USDC()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.346,
+   "retrieved_at_utc": "2026-11-09T14:42:01.947805+00:00"
+  },
+  {
+   "label": "eth_call USDC_E()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:42:02.660511+00:00"
+  },
+  {
+   "label": "eth_call VAULT()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T14:42:03.380366+00:00"
+  },
+  {
+   "label": "eth_call WRAPPER_ROLE()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:42:04.092739+00:00"
+  },
+  {
+   "label": "eth_call MINTER_ROLE()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.357,
+   "retrieved_at_utc": "2026-11-09T14:42:04.800766+00:00"
+  },
+  {
+   "label": "getCode v2_exchange at 30d block 95723899",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T14:42:05.540183+00:00"
+  },
+  {
+   "label": "block timestamp 30d v2_exchange",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:42:06.245977+00:00"
+  },
+  {
+   "label": "getCode v2_exchange at 7d block 96717499",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.436,
+   "retrieved_at_utc": "2026-11-09T14:42:07.033178+00:00"
+  },
+  {
+   "label": "getCode pmct_proxy at 30d block 95723899",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.367,
+   "retrieved_at_utc": "2026-11-09T14:42:07.751964+00:00"
+  },
+  {
+   "label": "block timestamp 30d pmct_proxy",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.403,
+   "retrieved_at_utc": "2026-11-09T14:42:08.505952+00:00"
+  },
+  {
+   "label": "getCode pmct_proxy at 7d block 96717499",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.359,
+   "retrieved_at_utc": "2026-11-09T14:42:09.215946+00:00"
+  },
+  {
+   "label": "getCode v1_exchange at 30d block 95723899",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.348,
+   "retrieved_at_utc": "2026-11-09T14:42:09.915911+00:00"
+  },
+  {
+   "label": "block timestamp 30d v1_exchange",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T14:42:10.632236+00:00"
+  },
+  {
+   "label": "getCode v1_exchange at 7d block 96717499",
+   "method": "eth_getCode",
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.353,
+   "retrieved_at_utc": "2026-11-09T14:42:11.335836+00:00"
+  },
+  {
+   "label": "eth_call getOutcomeSlotCount(bytes32)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T14:42:12.052572+00:00"
+  },
+  {
+   "label": "getLogs univ3 24h",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": {
+    "code": -32701,
+    "message": "exceed maximum block range: 10000"
+   },
+   "elapsed_s": 0.346,
+   "retrieved_at_utc": "2026-11-09T14:42:12.748933+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:42:13.099440+00:00",
+ "request_count": 37
+}

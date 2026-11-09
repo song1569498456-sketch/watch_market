@@ -1,0 +1,109 @@
+{
+ "agent_id": "N-SONIC",
+ "run_id": "live-20261109T141903Z",
+ "chain": "SONIC",
+ "scope": "Sonic chainId146 链存活确认、Aave V3 Sonic 身份/储备链上核验、DEX 工厂新市场发现；不含 Fantom 旧网",
+ "started_at": "2026-11-09T14:45:30+00:00",
+ "finished_at": "2026-11-09T14:48:30+00:00",
+ "duration_seconds": 180,
+ "execution_status": "PARTIAL",
+ "status": "UNVERIFIED",
+ "as_of": {
+  "utc": "2026-11-09T14:47:48+00:00",
+  "beijing": "2026-11-09T22:47:48+08:00",
+  "data_time": "链状态/代码固定块 82,307,306（block timestamp 2026-11-09T14:45:47Z）；工厂事件窗 82,207,309-82,307,309（2026-11-07T07:26:26Z-2026-11-09T14:45:47Z）；新池创建块 82,235,901（2026-11-07T23:34:40Z）"
+ },
+ "block_or_slot": 82307306,
+ "market_ids": [
+  "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+  "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+  "146:equalizer:factory:0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"
+ ],
+ "asset_ids": [
+  "eip155:146/erc20:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+  "eip155:146/erc20:0x29219dd400f2bf60e5a23d13be72b486d4038894",
+  "eip155:146/erc20:0x50c42deacd8fc9773493ed674b675be577f2634b",
+  "eip155:146/erc20:0xe5da20f15420ad15de0fa650600afc998bbe3955",
+  "eip155:146/erc20:0xf7d85ec4e7710f71992752eac2111312e73e9c9c"
+ ],
+ "discovery_source": [
+  {"source": "sonic-rpc", "url": "https://rpc.soniclabs.com", "retrieved_at_utc": "2026-11-09T14:45:30+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x12/eth_getStorageAt/eth_call x35/eth_getLogs x8；全部返回结果（GitHub API 除外）", "http_status": 200, "error": null},
+  {"source": "aave-sonic-address-book", "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol", "retrieved_at_utc": "2026-11-09T14:46:00+00:00", "http_status": 200, "sha256": "2d066d5e0748cb6c703813f12be1658dfbefe128f9fd227c762b497a702d98cd", "bytes_read": null},
+  {"source": "aave-addressbook-commits-30d", "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?path=src/AaveV3Sonic.sol&since=2026-10-10T00:00:00Z&per_page=50", "retrieved_at_utc": "2026-11-09T14:46:30+00:00", "http_status": 403, "error": "API rate limit exceeded for 67.159.52.222（两次 403 后停止，不再重试）"},
+  {"source": "dexscreener-token-pairs", "url": "https://api.dexscreener.com/token-pairs/v1/sonic/0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "retrieved_at_utc": "2026-11-09T14:46:20+00:00", "http_status": 200, "request": "30 对；最新 pairCreatedAt 2025-04-23，聚合器列表无法提供新市场信号"},
+  {"source": "equalizer-factory-paircreated", "url": "https://rpc.soniclabs.com (eth_getLogs 工厂 0x7ca1dccf… PoolCreated)", "retrieved_at_utc": "2026-11-09T14:47:10+00:00", "http_status": 200, "request": "窗口 82,207,309-82,307,309（100,000 块）；1 条新池事件"}
+ ],
+ "mechanism": "Sonic 为独立 EVM 链（146，原生 gas 代币 S）。Aave V3 Sonic 池为代理（EIP-1967 实现可升级），provider.getPool 与官方地址书一致；储备仅 WETH/USDC/wS/stS 四种，身份按链上符号核验，不能用 Fantom 旧地址或同名资产替代。Equalizer CL 工厂按 Uniswap V3 风格事件创建新池（fee/tickSpacing 可读），新池 USDC/ftUSD 的身份可按事件+池自身字段核验；是否存在流动性/可交易性另需读取，不能把创建事件当机会。",
+ "observations": [
+  "链存活：eth_chainId=0x92（146）；head=82,307,309（2026-11-09T14:45:47Z，hash 0xa065d6ac…）；固定块 82,307,306；baseFee=50,000,000,000 wei；原生 gas 代币按链登记符号 S（未沿用 Fantom 旧称）。",
+  "Aave V3 Sonic：pool 代理 0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3（代码 1,853 B，keccak 0xbb7879bb…）、provider 0x5C2e738F6E27bCE0F7558051Bf90605dD6176900（6,696 B，keccak 0x262cc36a…）；getPool()=0x5362…（一致）；pool EIP-1967 impl 槽=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5（21,146 B，keccak 0xc66496e4…），与官方地址书实现一致；地址书 sha256 2d066d5e…，55 个地址。",
+  "Aave Sonic 储备 4 个（链上 getReservesList）：WETH 0x50c42dea…（symbol WETH/18）、USDC 0x29219dd4…（USDC/6）、wS 0x039e2fb6…（wS/18）、stS 0xe5da20f1…（stS/18）；wS 代币代码 2,636 B，keccak 0xfbd5d84b…。",
+  "新市场：Equalizer 工厂 0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40（代码 24,530 B，经已知交易对 public factory() getter 取得）；窗口内 PoolCreated 1 条：pool 0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96，块 82,235,901（2026-11-07T23:34:40Z），tx 0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc；池代码 21,889 B（keccak 0xa552802d…）。",
+  "新池身份（链上读值）：token0=USDC 0x29219dd4…、token1=ftUSD 0xf7d85ec4…（symbol ftUSD、name Flying Tulip USD、decimals 6、totalSupply 1,038,372.016232）、fee=10000（1%）、tickSpacing=1；与创建事件及池自身读值一致。",
+  "同窗其他工厂：Shadow 0x2da25e7446a70d7be65fd4c053948becaa6374c8（经 pair factory() 取得）PairCreated=0；SpookySwap V3 0x3d91b700252e0e3ee7805d12e048a988ab69c8ad（代码 24,535 B）PairCreated=0/PoolCreated=0；9mm 0x0f7b3fcba276a65dd6e41e400055dcb75ba66750（代码 14,067 B）两者均 0。窗口 100,000 块=82,207,309→82,307,309（2026-11-07T07:26:26Z→2026-11-09T14:45:47Z，约 2.31 天），完整覆盖该窗口。",
+  "失败/限制：GitHub API AaveV3Sonic 文件提交查询两次 HTTP 403（rate limit），停止不重试；DexScreener 30 对最新 pairCreatedAt 为 2025-04-23，不能作新市场信号；历史块/部署时间未查（未用 archive）。",
+  "外部请求 68 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [],
+ "net_result": {
+  "value": null,
+  "unit": "n/a（本岗不要求报价）",
+  "type": "no_quote_no_claim",
+  "realized": false,
+  "unknown_costs": ["Sonic gas", "新池流动性/冲击", "ftUSD 可卖性与权限", "Aave stS 退出/罚没规则", "桥接/迁移费用"]
+ },
+ "capacity": "unknown；Aave Sonic 4 储备但可用流动性未读；Equalizer 新池初始流动性未读；其他协议容量未扫",
+ "permissions": "Aave Pool 为 EIP-1967 代理（impl 可升级；升级权限未读）；储备借款/抵押参数未读；Equalizer 工厂创建规则/池权限未读；ftUSD 代币权限未核验",
+ "liabilities": "未执行任何交易、无新增负债；无仓位",
+ "waiting_time": "n/a（无跨链/结算对象）",
+ "invalidation_conditions": [
+  "RPC chainId 不是 146 或数据实际来自 Fantom 旧网",
+  "Aave 池/实现/provider 与官方地址书不符（本轮一致，但可升级）",
+  "新池/工厂归属或 token 身份不符、ftUSD 不可卖或无流动性",
+  "储备退出规则/暂停变化导致账面资产不可提现"
+ ],
+ "evidence_urls": [
+  "https://rpc.soniclabs.com",
+  "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+  "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
+  "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+  "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc",
+  "https://sonicscan.org/address/0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"
+ ],
+ "coverage_gaps": [
+  "30 天规则/部署变更未覆盖：GitHub API rate limit（2 次 403 后停止），Aave Sonic 是否有资产/规则变更未判定，不能写“无变化”。",
+  "7 天活动未覆盖：仅 DEX 工厂创建事件 2.31 天窗口；未扫交易/借贷/清算/跨链事件；Shadow 只查 PairCreated、未查 PoolCreated，工厂扫描不完整。",
+  "ftUSD 部署者/权限/可卖性/流动性未核验；新池初始流动性未读（未取 slot0/储备）。",
+  "Aave Sonic stS 等储备的退出规则、借款/清算参数、可用流动性、oracle 未链上调用。",
+  "旧小池轮转、其他 Sonic 协议（Beets/Silo/Curve 等）与迁移/桥接版资产未扫；部署时间未定界（未用 archive）。"
+ ],
+ "next_check": [
+  "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+  "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+  "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+  "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+ ],
+ "handoff_to": ["SONIC01", "M00"],
+ "markets": [
+  {"market_id": "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3", "chain": "SONIC", "protocol": "Aave V3 Sonic Pool（代理）", "asset_ids": ["0x50c42deacd8fc9773493ed674b675be577f2634b", "0x29219dd400f2bf60e5a23d13be72b486d4038894", "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38", "0xe5da20f15420ad15de0fa650600afc998bbe3955"], "evidence_urls": ["https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol", "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"], "identity_status": "CHAIN_VERIFIED：proxy 1,853 B、provider.getPool 一致、EIP-1967 impl=地址书实现 0x3Ece05AC…；4 储备已核", "next_check": "储备参数、stS 退出规则、oracle、可用流动性"},
+  {"market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96", "chain": "SONIC", "protocol": "Equalizer CL（Uniswap V3 风格事件）", "asset_ids": ["0x29219dd400f2bf60e5a23d13be72b486d4038894", "0xf7d85ec4e7710f71992752eac2111312e73e9c9c"], "evidence_urls": ["https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96", "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"], "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：创建块 82,235,901（2026-11-07T23:34:40Z），token0=USDC/token1=ftUSD/fee=10000/tickSpacing=1；流动性未读", "next_check": "读 slot0/流动性；核 ftUSD 可卖性；交 SONIC01"},
+  {"market_id": "146:equalizer:factory:0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40", "chain": "SONIC", "protocol": "Equalizer 工厂（发现注册表）", "asset_ids": [], "evidence_urls": ["https://sonicscan.org/address/0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"], "identity_status": "CHAIN_CODE_VERIFIED（24,530 B），来源为已知交易对 factory() getter，未经官方部署表核验", "next_check": "与官方部署表核验工厂归属；补更长窗口与总池数"}
+ ],
+ "findings": [
+  {"finding_id": "SONIC-EQUALIZER-CL-USDC-FTUSD-POOL-20261107", "status": "UNVERIFIED", "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96", "mechanism": "Equalizer CL 工厂在 2.31 天窗口内唯一新建池：USDC/ftUSD（ftUSD=Flying Tulip USD，6 位，总量 1,038,372.016232），fee 1%、tickSpacing 1；创建块 82,235,901（2026-11-07T23:34:40Z）。池身份与代币字段已链上核验；未取流动性/报价，不判断可交易性或收益。", "evidence_urls": ["https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96", "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"], "net_result": "unknown（无报价）", "unknown_costs": ["初始流动性/冲击", "ftUSD 可卖性/权限", "Sonic gas"], "handoff_to": ["SONIC01"], "invalidation_conditions": ["ftUSD 不可卖/有转账限制", "池无流动性或移除", "工厂/池身份不符"]}
+ ],
+ "rejections": [
+  {"claim": "静态官方源/地址书可访问即代表 Sonic 主网存活", "reason": "已用 RPC chainId=146 与增长区块（head 82,307,309）确认存活；此前静态源不能单独证明。"},
+  {"claim": "沿用 Fantom 历史池或同名资产作为 Sonic 当前市场", "reason": "Aave Sonic 池/实现/provider 已链上核验并与官方地址书一致；wS 符号已核；仍不把 Fantom 地址当 Sonic 部署。"},
+  {"claim": "Equalizer 新池出现即可交易或有收益", "reason": "仅核验创建事件与池/代币身份；未取流动性、slot0 或报价。"},
+  {"claim": "GitHub 提交查询 0 结果=30 天无规则变化", "reason": "两次请求均为 HTTP 403 rate limit，未取得数据，不能推断无变化。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 5,
+  "retrieved_at_utc": "2026-11-09T14:47:48+00:00",
+  "complete_block_range": "代码/状态：块 82,307,306；DEX 工厂事件：82,207,309-82,307,309（100,000 块，完整覆盖该窗口）；新池创建块 82,235,901",
+  "complete_event_time_window": "DEX 新池事件约 2026-11-07T07:26:26Z-2026-11-09T14:45:47Z（2.31 天）；30 天规则与 7 天全类活动未覆盖"
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "started_at_utc": "2026-11-09T14:44:30.561521+00:00",
+ "chain_id": 43114,
+ "latest_block": 99858595,
+ "latest_block_time_utc": "2026-11-09T14:44:31+00:00",
+ "base_fee_wei": "0x9502f900",
+ "v2_code_bytes": 10836,
+ "v21_code_bytes": 10587,
+ "aave_pool_code_bytes": 2400,
+ "v2_pair_count": 30,
+ "v21_pair_count": 2072,
+ "aave_reserves_count": 18,
+ "newest_pairs": [
+  {
+   "factory": "v21",
+   "index": 2071,
+   "pair": "0x3de6bb9c787aede002a1540d300fc9e625b3a218"
+  },
+  {
+   "factory": "v21",
+   "index": 2070,
+   "pair": "0x0218f49cbf7cf47049b589b327c18c4c99de2863"
+  },
+  {
+   "factory": "v21",
+   "index": 2069,
+   "pair": "0x12ff77103c3dc7278083a722c5c7cc146e8f761e"
+  },
+  {
+   "factory": "v21",
+   "index": 2068,
+   "pair": "0xec4ab591d6db25c1090454b488fff885ac9eb34e"
+  },
+  {
+   "factory": "v21",
+   "index": 2067,
+   "pair": "0x74bdfac866175aff481651181d781417ffd24dae"
+  },
+  {
+   "factory": "v21",
+   "index": 2066,
+   "pair": "0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+  }
+ ]
+}

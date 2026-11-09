@@ -2749,6 +2749,372 @@
       },
       "q00_review": null,
       "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+      "first_seen_at": "2026-11-09T14:43:50+00:00",
+      "status": "RULE_GAP",
+      "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+      "mechanism": "Polymarket V2 以 pUSD(PMCT) 现金 wrapper 作为交易抵押：Onramp 包原生 USDC/USDC.e、Offramp 解包、CtfCollateralAdapter 桥接 CTF；链上核验 pUSD 代理当前实现 0xce84e053…（EIP-1967 槽），与 V2 README 部署表 0x6bBCef9f… 不一致 → 文档/实现版本漂移；pUSD 是现金层，不是 outcome token 或借贷抵押品。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+      ],
+      "net_result": "unknown（身份/机制核验，无报价）",
+      "unknown_costs": [
+        "pUSD 当前实现角色/暂停/allowance",
+        "wrap/unwrap gas",
+        "V1/V2 活跃度与流动性"
+      ],
+      "handoff_to": [
+        "R-POLY",
+        "POLY02"
+      ],
+      "invalidation_conditions": [
+        "链上 impl 变化或与源码对照不符",
+        "V2 现金层暂停或迁移",
+        "pUSD 被误当作 outcome/借贷抵押品"
+      ],
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:43:50+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:43:50+00:00",
+      "capacity": "unknown；pUSD totalSupply=520,531,160.428038、VAULT 持有 158.22489 pUSD；V2 Onramp/Offramp 容量未读；新市场/新池流动性未读",
+      "observations_by_role": {
+        "N-POLY": {
+          "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+          "status": "RULE_GAP",
+          "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+          "mechanism": "Polymarket V2 以 pUSD(PMCT) 现金 wrapper 作为交易抵押：Onramp 包原生 USDC/USDC.e、Offramp 解包、CtfCollateralAdapter 桥接 CTF；链上核验 pUSD 代理当前实现 0xce84e053…（EIP-1967 槽），与 V2 README 部署表 0x6bBCef9f… 不一致 → 文档/实现版本漂移；pUSD 是现金层，不是 outcome token 或借贷抵押品。",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"
+          ],
+          "net_result": "unknown（身份/机制核验，无报价）",
+          "unknown_costs": [
+            "pUSD 当前实现角色/暂停/allowance",
+            "wrap/unwrap gas",
+            "V1/V2 活跃度与流动性"
+          ],
+          "handoff_to": [
+            "R-POLY",
+            "POLY02"
+          ],
+          "invalidation_conditions": [
+            "链上 impl 变化或与源码对照不符",
+            "V2 现金层暂停或迁移",
+            "pUSD 被误当作 outcome/借贷抵押品"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "POLY-POLYMARKET-NEW-MARKET-ETH-ABOVE-2040-20261109",
+      "first_seen_at": "2026-11-09T14:43:50+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+      "mechanism": "新上市预测市场：Gamma startDate 2026-11-09T14:40:20Z 的「Ethereum above 2,040 on November 9, 11AM ET?」，conditionId 0x33d27589…；CTF getOutcomeSlotCount=2 链上确认 condition 存在（块 97,019,894）。未取价格/订单簿，不判断可交易性或收益。",
+      "evidence_urls": [
+        "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false",
+        "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+      ],
+      "net_result": "unknown（无报价）",
+      "unknown_costs": [
+        "订单簿价格/滑点",
+        "结算/争议风险",
+        "gas"
+      ],
+      "handoff_to": [
+        "POLY01",
+        "R-POLY"
+      ],
+      "invalidation_conditions": [
+        "condition 不存在或已作废",
+        "市场关闭/取消",
+        "无法取得可执行报价"
+      ],
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:43:50+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:43:50+00:00",
+      "capacity": "unknown；pUSD totalSupply=520,531,160.428038、VAULT 持有 158.22489 pUSD；V2 Onramp/Offramp 容量未读；新市场/新池流动性未读",
+      "observations_by_role": {
+        "N-POLY": {
+          "finding_id": "POLY-POLYMARKET-NEW-MARKET-ETH-ABOVE-2040-20261109",
+          "status": "UNVERIFIED",
+          "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+          "mechanism": "新上市预测市场：Gamma startDate 2026-11-09T14:40:20Z 的「Ethereum above 2,040 on November 9, 11AM ET?」，conditionId 0x33d27589…；CTF getOutcomeSlotCount=2 链上确认 condition 存在（块 97,019,894）。未取价格/订单簿，不判断可交易性或收益。",
+          "evidence_urls": [
+            "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false",
+            "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
+          ],
+          "net_result": "unknown（无报价）",
+          "unknown_costs": [
+            "订单簿价格/滑点",
+            "结算/争议风险",
+            "gas"
+          ],
+          "handoff_to": [
+            "POLY01",
+            "R-POLY"
+          ],
+          "invalidation_conditions": [
+            "condition 不存在或已作废",
+            "市场关闭/取消",
+            "无法取得可执行报价"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "POLY-UNISWAP-V3-NEW-POOL-20261109",
+      "first_seen_at": "2026-11-09T14:43:50+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+      "mechanism": "Uniswap V3 Polygon 工厂在最近 10,000 块（约 4.17h）新增 1 池：token0=0x0d500b1d…（原生 gas wrapper）、token1=0xe12a7b1c…、fee 0.3%，创建块 97,014,581；token1 身份与流动性未核验。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+      ],
+      "net_result": "unknown（无报价）",
+      "unknown_costs": [
+        "token1 身份/可卖性",
+        "流动性/冲击",
+        "gas"
+      ],
+      "handoff_to": [
+        "POLY01"
+      ],
+      "invalidation_conditions": [
+        "token1 不可卖/骗局",
+        "池无流动性",
+        "工厂归属不符"
+      ],
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:43:50+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:43:50+00:00",
+      "capacity": "unknown；pUSD totalSupply=520,531,160.428038、VAULT 持有 158.22489 pUSD；V2 Onramp/Offramp 容量未读；新市场/新池流动性未读",
+      "observations_by_role": {
+        "N-POLY": {
+          "finding_id": "POLY-UNISWAP-V3-NEW-POOL-20261109",
+          "status": "UNVERIFIED",
+          "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+          "mechanism": "Uniswap V3 Polygon 工厂在最近 10,000 块（约 4.17h）新增 1 池：token0=0x0d500b1d…（原生 gas wrapper）、token1=0xe12a7b1c…、fee 0.3%，创建块 97,014,581；token1 身份与流动性未核验。",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+          ],
+          "net_result": "unknown（无报价）",
+          "unknown_costs": [
+            "token1 身份/可卖性",
+            "流动性/冲击",
+            "gas"
+          ],
+          "handoff_to": [
+            "POLY01"
+          ],
+          "invalidation_conditions": [
+            "token1 不可卖/骗局",
+            "池无流动性",
+            "工厂归属不符"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "AVAX-LFJ-V2.1-NEWEST-PAIRS-IDENTITY",
+      "first_seen_at": "2026-11-09T14:50:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863 等 6 个",
+      "mechanism": "V2.1 工厂 getLBPairAtIndex 枚举的最新 6 个 pair，全部满足 pair.getFactory()=V2.1 工厂；tokenX/tokenY/binStep/activeId/getReserves 链上直读。最新 pair 多为一侧/空储备；WWLD/WAVAX 存在 100k:1 直注，PRIME-MOCK 名称含 MOCK，avBTC/BTC.b 是不同 BTC 表示。新市场身份成立，但资产有效性、bin 分布与费用未读，无经济结论。",
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+        "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+        "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae",
+        "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "bin 激活流动性与价格冲击",
+        "动态费用",
+        "gas/优先费",
+        "资产税/限制",
+        "退出费用"
+      ],
+      "handoff_to": [
+        "M00",
+        "AVAX01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "pair.getFactory() 非 V2.1 工厂",
+        "token 合约与 symbol 不符/为 mock",
+        "bin 分布显示无可用流动性",
+        "工厂实现变化"
+      ],
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:50:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:50:00+00:00",
+      "capacity": "unknown（未读 bin 分布/激活流动性；最新 6 个 pair 中 3 个储备为 0，1 个单边，2 个不对称注资）",
+      "observations_by_role": {
+        "N-AVAX": {
+          "finding_id": "AVAX-LFJ-V2.1-NEWEST-PAIRS-IDENTITY",
+          "status": "UNVERIFIED",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863 等 6 个",
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+            "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+            "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae",
+            "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+          ],
+          "mechanism": "V2.1 工厂 getLBPairAtIndex 枚举的最新 6 个 pair，全部满足 pair.getFactory()=V2.1 工厂；tokenX/tokenY/binStep/activeId/getReserves 链上直读。最新 pair 多为一侧/空储备；WWLD/WAVAX 存在 100k:1 直注，PRIME-MOCK 名称含 MOCK，avBTC/BTC.b 是不同 BTC 表示。新市场身份成立，但资产有效性、bin 分布与费用未读，无经济结论。",
+          "net_result": null,
+          "unknown_costs": [
+            "bin 激活流动性与价格冲击",
+            "动态费用",
+            "gas/优先费",
+            "资产税/限制",
+            "退出费用"
+          ],
+          "handoff_to": [
+            "M00",
+            "AVAX01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "pair.getFactory() 非 V2.1 工厂",
+            "token 合约与 symbol 不符/为 mock",
+            "bin 分布显示无可用流动性",
+            "工厂实现变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "AVAX-LFJ-V2.1-PAIR-IMPLEMENTATION-SURFACE",
+      "first_seen_at": "2026-11-09T14:50:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": null,
+      "mechanism": "工厂 getLBPairImplementation()=0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f（22,503 字节），V2.1 pair 为 97 字节代理克隆；实现地址/代码变化会整体改变之后部署 pair 的规则（费率/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立每日监控面；V2 与 V2.1 工厂规则面分离，不能混用。",
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e"
+      ],
+      "net_result": null,
+      "unknown_costs": [],
+      "handoff_to": [
+        "M00",
+        "AVAX01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "getLBPairImplementation 或实现代码哈希变化（需重核验规则）",
+        "工厂被迁移/替换"
+      ],
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:50:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:50:00+00:00",
+      "capacity": "unknown（未读 bin 分布/激活流动性；最新 6 个 pair 中 3 个储备为 0，1 个单边，2 个不对称注资）",
+      "observations_by_role": {
+        "N-AVAX": {
+          "finding_id": "AVAX-LFJ-V2.1-PAIR-IMPLEMENTATION-SURFACE",
+          "status": "UNVERIFIED",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "market_id": null,
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x8e42f2F4101563bF679975178e880FD87d3eFd4e"
+          ],
+          "mechanism": "工厂 getLBPairImplementation()=0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f（22,503 字节），V2.1 pair 为 97 字节代理克隆；实现地址/代码变化会整体改变之后部署 pair 的规则（费率/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立每日监控面；V2 与 V2.1 工厂规则面分离，不能混用。",
+          "net_result": null,
+          "unknown_costs": [],
+          "handoff_to": [
+            "M00",
+            "AVAX01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "getLBPairImplementation 或实现代码哈希变化（需重核验规则）",
+            "工厂被迁移/替换"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "SONIC-EQUALIZER-CL-USDC-FTUSD-POOL-20261107",
+      "first_seen_at": "2026-11-09T14:48:30+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+      "mechanism": "Equalizer CL 工厂在 2.31 天窗口内唯一新建池：USDC/ftUSD（ftUSD=Flying Tulip USD，6 位，总量 1,038,372.016232），fee 1%、tickSpacing 1；创建块 82,235,901（2026-11-07T23:34:40Z）。池身份与代币字段已链上核验；未取流动性/报价，不判断可交易性或收益。",
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+        "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"
+      ],
+      "net_result": "unknown（无报价）",
+      "unknown_costs": [
+        "初始流动性/冲击",
+        "ftUSD 可卖性/权限",
+        "Sonic gas"
+      ],
+      "handoff_to": [
+        "SONIC01"
+      ],
+      "invalidation_conditions": [
+        "ftUSD 不可卖/有转账限制",
+        "池无流动性或移除",
+        "工厂/池身份不符"
+      ],
+      "owner": "N-SONIC",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SONIC/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:48:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:48:30+00:00",
+      "capacity": "unknown；Aave Sonic 4 储备但可用流动性未读；Equalizer 新池初始流动性未读；其他协议容量未扫",
+      "observations_by_role": {
+        "N-SONIC": {
+          "finding_id": "SONIC-EQUALIZER-CL-USDC-FTUSD-POOL-20261107",
+          "status": "UNVERIFIED",
+          "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+          "mechanism": "Equalizer CL 工厂在 2.31 天窗口内唯一新建池：USDC/ftUSD（ftUSD=Flying Tulip USD，6 位，总量 1,038,372.016232），fee 1%、tickSpacing 1；创建块 82,235,901（2026-11-07T23:34:40Z）。池身份与代币字段已链上核验；未取流动性/报价，不判断可交易性或收益。",
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+            "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"
+          ],
+          "net_result": "unknown（无报价）",
+          "unknown_costs": [
+            "初始流动性/冲击",
+            "ftUSD 可卖性/权限",
+            "Sonic gas"
+          ],
+          "handoff_to": [
+            "SONIC01"
+          ],
+          "invalidation_conditions": [
+            "ftUSD 不可卖/有转账限制",
+            "池无流动性或移除",
+            "工厂/池身份不符"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

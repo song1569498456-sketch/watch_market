@@ -1,0 +1,292 @@
+{
+ "chain": "SONIC",
+ "pinned_block": 82307306,
+ "head_block": 82307309,
+ "retrieved_at_utc": "2026-11-09T14:47:19.285956+00:00",
+ "requests": [
+  {
+   "label": "equalizer sample pair factory()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 1.316,
+   "retrieved_at_utc": "2026-11-09T14:47:20.602335+00:00"
+  },
+  {
+   "label": "getCode equalizer factory",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.4,
+   "retrieved_at_utc": "2026-11-09T14:47:21.353421+00:00"
+  },
+  {
+   "label": "getLogs equalizer PairCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.356,
+   "retrieved_at_utc": "2026-11-09T14:47:22.061281+00:00"
+  },
+  {
+   "label": "getLogs equalizer PoolCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.376,
+   "retrieved_at_utc": "2026-11-09T14:47:22.787514+00:00"
+  },
+  {
+   "label": "spookyswap-v3 sample pair factory()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.367,
+   "retrieved_at_utc": "2026-11-09T14:47:23.505433+00:00"
+  },
+  {
+   "label": "getCode spookyswap-v3 factory",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.382,
+   "retrieved_at_utc": "2026-11-09T14:47:24.238131+00:00"
+  },
+  {
+   "label": "getLogs spookyswap-v3 PairCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:47:24.972350+00:00"
+  },
+  {
+   "label": "getLogs spookyswap-v3 PoolCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.361,
+   "retrieved_at_utc": "2026-11-09T14:47:25.683380+00:00"
+  },
+  {
+   "label": "9mm sample pair factory()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:47:26.396517+00:00"
+  },
+  {
+   "label": "getCode 9mm factory",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.377,
+   "retrieved_at_utc": "2026-11-09T14:47:27.124504+00:00"
+  },
+  {
+   "label": "getLogs 9mm PairCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:47:27.833114+00:00"
+  },
+  {
+   "label": "getLogs 9mm PoolCreated 100k",
+   "method": "eth_getLogs",
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T14:47:28.573147+00:00"
+  },
+  {
+   "label": "getCode new pair 0x1eb298",
+   "method": "eth_getCode",
+   "error": null,
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T14:47:29.321803+00:00"
+  },
+  {
+   "label": "new pair token0",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.372,
+   "retrieved_at_utc": "2026-11-09T14:47:30.043960+00:00"
+  },
+  {
+   "label": "new pair token1",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.357,
+   "retrieved_at_utc": "2026-11-09T14:47:30.751754+00:00"
+  },
+  {
+   "label": "block 82235901",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "elapsed_s": 0.356,
+   "retrieved_at_utc": "2026-11-09T14:47:31.458213+00:00"
+  }
+ ],
+ "factories": [
+  {
+   "dexId": "equalizer",
+   "sample_pair": "0xb1BC4B830FCbA2184B92e15b9133c41160518038",
+   "factory": {
+    "raw": "0x0000000000000000000000007ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+    "decoded": [
+     "0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"
+    ],
+    "error": null
+   },
+   "factory_address": "0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+   "factory_code": {
+    "address": "0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+    "bytecode_bytes": 24530,
+    "code_keccak256": "0xbc7fd4fc47b2b033294b4da716e5b85b714c3ca410954db8c1454d35d02b406d"
+   },
+   "events": [
+    {
+     "event": "PairCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 0,
+     "error": null,
+     "logs": []
+    },
+    {
+     "event": "PoolCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 1,
+     "error": null,
+     "logs": [
+      {
+       "block": 82235901,
+       "tx": "0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc",
+       "token0": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+       "token1": "0xf7d85ec4e7710f71992752eac2111312e73e9c9c",
+       "topics": [
+        "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+        "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+        "0x000000000000000000000000f7d85ec4e7710f71992752eac2111312e73e9c9c",
+        "0x0000000000000000000000000000000000000000000000000000000000002710"
+       ],
+       "data": "0x00000000000000000000000000000000000000000000000000000000000000010000000000000000000000001eb298eb4e57737cf80bbf62ae6519ca9123ee96"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "dexId": "spookyswap-v3",
+   "sample_pair": "0xc2a4817F5563152bA6bC54E1b521e2831e79D7E8",
+   "factory": {
+    "raw": "0x0000000000000000000000003d91b700252e0e3ee7805d12e048a988ab69c8ad",
+    "decoded": [
+     "0x3d91b700252e0e3ee7805d12e048a988ab69c8ad"
+    ],
+    "error": null
+   },
+   "factory_address": "0x3d91b700252e0e3ee7805d12e048a988ab69c8ad",
+   "factory_code": {
+    "address": "0x3d91b700252e0e3ee7805d12e048a988ab69c8ad",
+    "bytecode_bytes": 24535,
+    "code_keccak256": "0x9dbed0c486dc81a94a11f6b861bcadfbe2645f2235c96648ee0f1fac7470e9fb"
+   },
+   "events": [
+    {
+     "event": "PairCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 0,
+     "error": null,
+     "logs": []
+    },
+    {
+     "event": "PoolCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 0,
+     "error": null,
+     "logs": []
+    }
+   ]
+  },
+  {
+   "dexId": "9mm",
+   "sample_pair": "0x4A4924C8AfA845a0177bB1044Bd0d1A56e397137",
+   "factory": {
+    "raw": "0x0000000000000000000000000f7b3fcba276a65dd6e41e400055dcb75ba66750",
+    "decoded": [
+     "0x0f7b3fcba276a65dd6e41e400055dcb75ba66750"
+    ],
+    "error": null
+   },
+   "factory_address": "0x0f7b3fcba276a65dd6e41e400055dcb75ba66750",
+   "factory_code": {
+    "address": "0x0f7b3fcba276a65dd6e41e400055dcb75ba66750",
+    "bytecode_bytes": 14067,
+    "code_keccak256": "0xca3af881b980aa1b62ca10bd10efae81465228c6420d1a606b1e2e2192cf14f7"
+   },
+   "events": [
+    {
+     "event": "PairCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 0,
+     "error": null,
+     "logs": []
+    },
+    {
+     "event": "PoolCreated",
+     "from_block": 82207309,
+     "to_block": 82307309,
+     "count": 0,
+     "error": null,
+     "logs": []
+    }
+   ]
+  }
+ ],
+ "found": {
+  "dexId": "equalizer",
+  "factory": "0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+  "event": "PoolCreated",
+  "count": 1,
+  "sample": [
+   {
+    "block": 82235901,
+    "tx": "0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc",
+    "token0": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+    "token1": "0xf7d85ec4e7710f71992752eac2111312e73e9c9c",
+    "topics": [
+     "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+     "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+     "0x000000000000000000000000f7d85ec4e7710f71992752eac2111312e73e9c9c",
+     "0x0000000000000000000000000000000000000000000000000000000000002710"
+    ],
+    "data": "0x00000000000000000000000000000000000000000000000000000000000000010000000000000000000000001eb298eb4e57737cf80bbf62ae6519ca9123ee96"
+   }
+  ]
+ },
+ "new_pair_verification": [
+  {
+   "event": "PoolCreated",
+   "block": 82235901,
+   "tx": "0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc",
+   "pair": "0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+   "code": {
+    "address": "0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+    "bytecode_bytes": 21889,
+    "code_keccak256": "0xa552802d3bdca1718b4bb566b5d275e9bb16bd7d7f7cf7d1189fdec4dd8a169c"
+   },
+   "token0": {
+    "raw": "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+    "decoded": [
+     "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+    ],
+    "error": null
+   },
+   "token1": {
+    "raw": "0x000000000000000000000000f7d85ec4e7710f71992752eac2111312e73e9c9c",
+    "decoded": [
+     "0xf7d85ec4e7710f71992752eac2111312e73e9c9c"
+    ],
+    "error": null
+   },
+   "block_timestamp_utc": "2026-11-07T23:34:40+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:47:31.808781+00:00",
+ "request_count": 16
+}

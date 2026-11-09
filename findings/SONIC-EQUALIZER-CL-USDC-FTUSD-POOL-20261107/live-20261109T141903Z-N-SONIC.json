@@ -1,0 +1,27 @@
+{
+  "finding_id": "SONIC-EQUALIZER-CL-USDC-FTUSD-POOL-20261107",
+  "status": "UNVERIFIED",
+  "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+  "mechanism": "Equalizer CL 工厂在 2.31 天窗口内唯一新建池：USDC/ftUSD（ftUSD=Flying Tulip USD，6 位，总量 1,038,372.016232），fee 1%、tickSpacing 1；创建块 82,235,901（2026-11-07T23:34:40Z）。池身份与代币字段已链上核验；未取流动性/报价，不判断可交易性或收益。",
+  "evidence_urls": [
+    "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+    "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"
+  ],
+  "net_result": "unknown（无报价）",
+  "unknown_costs": [
+    "初始流动性/冲击",
+    "ftUSD 可卖性/权限",
+    "Sonic gas"
+  ],
+  "handoff_to": [
+    "SONIC01"
+  ],
+  "invalidation_conditions": [
+    "ftUSD 不可卖/有转账限制",
+    "池无流动性或移除",
+    "工厂/池身份不符"
+  ],
+  "owner": "N-SONIC",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-SONIC/live-20261109T141903Z/record.json"
+}

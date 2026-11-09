@@ -3315,6 +3315,192 @@
         "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
         "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
       ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "部署时间/迁移是否生效无法链上定界：历史块 getCode 被 RPC 要求 archive token；无法判断 V2/PMCT 部署时间或 V1 是否仍活跃（未扫交易所事件/订单）。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "PMCT 当前实现 0xce84e053… 的源码/版本/角色/暂停/allowance 未读；WRAPPER_ROLE/MINTER_ROLE 未由链上取得；不能断言普通用户 pUSD 退出路径。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "pUSD 未被任何借贷/抵押协议接受的映射未建立；不能把现金 wrapper 当 outcome 或抵押品。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "新市场仅核验 condition 存在（2 slots），未读 payout/oracle/争议与订单簿；无价格/报价，不能当可执行机会。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/公告与 7 天活动未完整覆盖：仅 Uni V3 4.17h 工厂窗口 + Gamma 最新市场快照 + 仓库/README 静态源；CTF v2 仓库 30 天提交 0。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-POLY",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未查 Aave Polygon 当前状态（上轮静态对象）、其他 DEX 工厂与旧小池轮转。",
+      "next_check": [
+        "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+        "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+        "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+        "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动窗口未完成：eth_getLogs 单次上限 50,000 块（-32701），只扫了 V2(5k)/V2.1(50k) 两段且 0 事件；备用 provider 403。",
+      "next_check": [
+        "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+        "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+        "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+        "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+        "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+        "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "live-20261109T141903Z",
+      "gap": "0 事件结果依赖 LBPairCreated topic0 与 ABI 一致，未做无 topic 对照，存在漏检风险；未统计 30 天新增 pair 精确数量。",
+      "next_check": [
+        "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+        "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+        "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+        "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+        "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+        "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口只覆盖 avalanchego/joe-v2 发布 feed 与实现身份；未覆盖 Avalanche 治理、LFJ owner/权限变更、setLBPairIgnored 等链上事件。",
+      "next_check": [
+        "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+        "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+        "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+        "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+        "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+        "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "live-20261109T141903Z",
+      "gap": "6 个最新 pair 未读 bin 分布/激活流动性/费用；WWLD/ARENA/PRIME-MOCK/avBTC/0x94823237… 发行方与机制未核。",
+      "next_check": [
+        "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+        "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+        "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+        "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+        "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+        "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+      ]
+    },
+    {
+      "agent_id": "N-AVAX",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Aave 仅记录储备数量快照（18），未与上轮对比/未读事件；Benqi 等其他协议未扫；旧小池/退出窗口未轮转；无报价/模拟。",
+      "next_check": [
+        "50k 块分页补 7 天 LBPairCreated（先在 V2.1 做无 topic 对照确认 ABI），统计新增 pair 与工厂版本分布。",
+        "对最新 pair 读 bin 分布/激活流动性（getBin/getBins 或状态字段），确认 WWLD/WAVAX 100k:1 注资结构是否有可执行路径。",
+        "核 WWLD、ARENA、PRIME-MOCK、avBTC、0x94823237… 合约源码与发行方，排除 mock/测试币；avBTC 与 BTC.b 的桥接/发行关系单独登记。",
+        "监控 V2.1 getLBPairImplementation（0x3e30fdae…）与实现代码哈希、avalanchego 新 release（当前 v1.15.3）、joe-v2 新 release（窗口内无）。",
+        "Aave 储备清单（18）与上轮基线对比，读新增/移除资产；补扫 Benqi 等其他借贷协议。",
+        "读工厂 owner 与 setLBPairIgnored/quoter 权限状态，确认路由覆盖不等于全部工厂池。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/部署变更未覆盖：GitHub API rate limit（2 次 403 后停止），Aave Sonic 是否有资产/规则变更未判定，不能写“无变化”。",
+      "next_check": [
+        "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+        "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+        "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+        "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动未覆盖：仅 DEX 工厂创建事件 2.31 天窗口；未扫交易/借贷/清算/跨链事件；Shadow 只查 PairCreated、未查 PoolCreated，工厂扫描不完整。",
+      "next_check": [
+        "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+        "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+        "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+        "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "live-20261109T141903Z",
+      "gap": "ftUSD 部署者/权限/可卖性/流动性未核验；新池初始流动性未读（未取 slot0/储备）。",
+      "next_check": [
+        "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+        "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+        "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+        "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Aave Sonic stS 等储备的退出规则、借款/清算参数、可用流动性、oracle 未链上调用。",
+      "next_check": [
+        "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+        "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+        "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+        "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+      ]
+    },
+    {
+      "agent_id": "N-SONIC",
+      "run_id": "live-20261109T141903Z",
+      "gap": "旧小池轮转、其他 Sonic 协议（Beets/Silo/Curve 等）与迁移/桥接版资产未扫；部署时间未定界（未用 archive）。",
+      "next_check": [
+        "取 GitHub 提交时间线（等 rate limit 恢复或替代源）核 AaveV3Sonic 30 天变更；补 7 天分段区块活动窗口。",
+        "对 Equalizer 新池读 slot0/流动性，核 ftUSD 部署者/权限/可卖性；交 SONIC01 决定是否纳入 DEX 池队列。",
+        "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
+        "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
+      ]
     }
   ],
   "status": "OPEN",

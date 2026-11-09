@@ -145,39 +145,209 @@
       "agent_id": "N-AVAX",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:32:59.855358+00:00",
+      "last_success_at": "2026-11-09T14:50:00+00:00",
+      "last_attempt_at": "2026-11-09T14:50:00+00:00",
       "actual_coverage": [
-        "自主读取LFJ/Joe官方README、LBFactory源码与SDK，发现Avalanche V2/V2.1分别独立工厂与quoter地址。",
-        "LBFactory源码有getNumberOfLBPairs、getLBPairAtIndex和LBPairCreated(tokenX,tokenY,binStep,pair,index)，可建立分页恢复点；本轮未调用。",
-        "源码有setLBPairIgnored owner权限，说明quoter路由可能不包括全部工厂注册池；实际设置unknown。",
-        "AvalancheGo v1.15.3发布于2026-11-05T22:47:12Z，说明C-Chain eth_call Gas-Used头和filter API变化；不代表当前RPC已升级。"
+        {
+          "type": "chain_identity",
+          "address": "avalanche-c-chain",
+          "fields": {
+            "eth_chainId": "0xa86a",
+            "chain_id": 43114,
+            "latest_block": 99858595,
+            "latest_block_time_utc": "2026-11-09T14:44:31+00:00",
+            "base_fee_wei": "0x9502f900",
+            "base_fee_gwei": "2.5"
+          },
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "factory_identity",
+          "protocol": "LFJ Liquidity Book V2",
+          "address": "0x6E77932A92582f504FF6c4BdbCef7Da6c198aEEf",
+          "fields": {
+            "code_bytes": 10836,
+            "getNumberOfLBPairs": 30
+          },
+          "block": 99858595,
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "factory_identity",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "address": "0x8e42f2F4101563bF679975178e880FD87d3eFd4e",
+          "fields": {
+            "code_bytes": 10587,
+            "getNumberOfLBPairs": 2072,
+            "lbpair_implementation": "0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f",
+            "implementation_code_bytes": 22503,
+            "pair_account_bytes": 97
+          },
+          "block": 99858595,
+          "evidence_file": "raw/avax_round2.json"
+        },
+        {
+          "type": "new_market_queue",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "address": "getLBPairAtIndex(2071..2066)",
+          "fields": {
+            "2071": {
+              "pair": "0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+              "tokenX": "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+              "tokenX_symbol": "WWLD",
+              "tokenY": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+              "tokenY_symbol": "WAVAX",
+              "binStep": 50,
+              "activeId": 8388608,
+              "reserves": [
+                "0",
+                "0"
+              ]
+            },
+            "2070": {
+              "pair": "0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+              "tokenX": "WWLD",
+              "tokenY": "WAVAX",
+              "binStep": 25,
+              "activeId": 8388608,
+              "reserves_raw": [
+                "0x152d02c7e14af62d9a40",
+                "0x0de0b6b3a763ffca"
+              ],
+              "reserves_human": [
+                "99999.99999999999 WWLD",
+                "1.0 WAVAX"
+              ]
+            },
+            "2069": {
+              "pair": "0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+              "tokenX": "0xb8d7710f7d8349a506b75dd184f05777c82dad0c",
+              "tokenX_symbol": "ARENA",
+              "tokenY": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+              "tokenY_symbol": "USDC",
+              "binStep": 25,
+              "activeId": 8386496,
+              "reserves_human": [
+                "706.2671848616701 ARENA",
+                "0 USDC"
+              ]
+            },
+            "2068": {
+              "pair": "0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+              "tokenX": "0x94823237e4d5f51c272f3c16a8a29ffecc274624",
+              "tokenY": "USDC",
+              "binStep": 25,
+              "activeId": 8384320,
+              "reserves": [
+                "0",
+                "0"
+              ]
+            },
+            "2067": {
+              "pair": "0x74bdfac866175aff481651181d781417ffd24dae",
+              "tokenX": "0xfd2c2a98009d0cbed715882036e43d26c4289053",
+              "tokenX_symbol": "avBTC",
+              "tokenY": "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+              "tokenY_symbol": "BTC.b",
+              "binStep": 25,
+              "activeId": 8388608,
+              "reserves": [
+                "0",
+                "0"
+              ]
+            },
+            "2066": {
+              "pair": "0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+              "tokenX": "0x8b1e2420e0d453a718d4b70e3a043263eab77851",
+              "tokenX_symbol": "PRIME-MOCK",
+              "tokenY": "WAVAX",
+              "binStep": 100,
+              "activeId": 8387146,
+              "reserves_human": [
+                "652479.1110183976 PRIME-MOCK",
+                "0.07482502635846182 WAVAX"
+              ]
+            },
+            "note": "全部 pair.getFactory()=V2.1 工厂；未读 bin 分布/激活流动性/费用；WWLD/ARENA/PRIME-MOCK/avBTC/0x94823237… 发行方与机制未核"
+          },
+          "block": 99858595,
+          "evidence_file": "raw/pair_metadata.json"
+        },
+        {
+          "type": "rule_window_partial",
+          "protocol": "avalanchego / joe-v2",
+          "fields": {
+            "avalanchego_releases_in_30d": [
+              {
+                "tag": "v1.15.3",
+                "updated_utc": "2026-11-05T22:47:12Z"
+              },
+              {
+                "tag": "v1.15.3-rc.2",
+                "updated_utc": "2026-11-04T21:34:48Z"
+              },
+              {
+                "tag": "Helicon.2",
+                "updated_utc": "2026-10-22T21:49:24Z"
+              }
+            ],
+            "joev2_latest_release": {
+              "tag": "v2.2",
+              "updated_utc": "2024-04-09T22:53:12Z"
+            },
+            "note": "节点/合约发布≠链上规则已生效；V2.1 规则面在 getLBPairImplementation 与 setLBPairIgnored 等权限"
+          },
+          "evidence_file": "raw/avax_round3.json"
+        },
+        {
+          "type": "activity_window_partial",
+          "protocol": "LFJ factories",
+          "fields": {
+            "getlogs_max_range_blocks": 50000,
+            "v2_5000_blocks_events": 0,
+            "v21_50000_blocks_events": 0,
+            "v21_7d_attempt_error": {
+              "code": -32701,
+              "message": "exceed maximum block range: 50000"
+            },
+            "fallback_provider_getlogs": "HTTP 403",
+            "caveat": "topic0 与 ABI 一致性未做无 topic 对照，0 事件存在漏检风险"
+          },
+          "evidence_file": "raw/getlogs.json / raw/avax_round3.json"
+        },
+        {
+          "type": "aave_snapshot",
+          "protocol": "Aave v3",
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "fields": {
+            "code_bytes": 2400,
+            "reserves_count": 18
+          },
+          "block": 99858595,
+          "evidence_file": "raw/identity.json"
+        }
       ],
       "coverage_gaps": [
-        "30天规则窗口仅读取AvalancheGo v1.15.3（页面发布时间2026-11-05）和Liquidity Book当前源资料，未遍历全生态公告/治理或确认链上激活。",
-        "7天代表性交易和24h工厂新增均未覆盖；C-Chain RPC eth_chainId被代理CONNECT 403，未取得区块/日志。",
-        "Joe SDK所列V2/V2.1地址只文档级，未核对当前部署字节码/实现版本；main分支源码不可直接套给任一已部署版本。",
-        "旧小池、资产身份、储备/流动性、真实数量报价和全部gas/退出费用未核验。"
+        "7 天活动窗口未完成：eth_getLogs 单次上限 50,000 块（-32701），只扫了 V2(5k)/V2.1(50k) 两段且 0 事件；备用 provider 403。",
+        "0 事件结果依赖 LBPairCreated topic0 与 ABI 一致，未做无 topic 对照，存在漏检风险；未统计 30 天新增 pair 精确数量。",
+        "30 天规则窗口只覆盖 avalanchego/joe-v2 发布 feed 与实现身份；未覆盖 Avalanche 治理、LFJ owner/权限变更、setLBPairIgnored 等链上事件。",
+        "6 个最新 pair 未读 bin 分布/激活流动性/费用；WWLD/ARENA/PRIME-MOCK/avBTC/0x94823237… 发行方与机制未核。",
+        "Aave 仅记录储备数量快照（18），未与上轮对比/未读事件；Benqi 等其他协议未扫；旧小池/退出窗口未轮转；无报价/模拟。"
       ],
-      "report": "reports/agents/N-AVAX/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-AVAX/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "AVAX",
       "owner": "worker_b",
       "prompt": "prompts/agents/N-AVAX.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 6,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
-        "verified_at": "2026-11-08T15:33:32.477653+00:00",
-        "record": "evidence/N-AVAX/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-BASE",
@@ -483,39 +653,40 @@
       "agent_id": "N-POLY",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:32:36.909343+00:00",
+      "last_success_at": "2026-11-09T14:43:50+00:00",
+      "last_attempt_at": "2026-11-09T14:43:50+00:00",
       "actual_coverage": [
-        "Aave官方地址书明确USDCe_UNDERLYING与USDCn_UNDERLYING不同，均标6 decimals；尚无链独立核对。",
-        "Polymarket官方README称CTF Exchange在ERC1155权益和ERC20 collateral之间交换，链上结算、链下撮合，给出Polygon部署地址。",
-        "未确认新增市场、生效规则、代表性操作、旧市场状态变化或可盈利候选。"
+        "链身份：eth_chainId=0x89（137）；head=97,019,899（2026-11-09T14:41:45Z，hash 0x38481f18…）；固定块 97,019,894；baseFee=247,813,036,452 wei；原生 gas 代币按链上现行命名（POL）记录，未写死旧称。",
+        "V1 交易所 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E：代码仍在，17,208 B，keccak 0xcfb37c52…；V1 README 顶部 '> This repository has been archived and is no longer maintained.'；不能仅凭 README 断言链上退役。",
+        "V2 交易所 0xE111180000d2663C0091e4f400237545B87B996B：代码 21,037 B，keccak 0xa08da89b…；EIP-1967 impl 槽与 admin 槽均为 0 → 非代理直接部署。",
+        "PMCT 代理 0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB：代码 61 B keccak 0xaaa52c8c…，为 EIP-1967 最小代理（runtime 读取 slot 0x360894a1…382bbc）；impl 槽=0xce84e053301a82937f90ee2c2c1889cab1db25de；admin 槽=0。",
+        "PMCT 当前实现 0xce84e053…：代码 7,781 B，keccak 0x740b9ebb…，name()=Polymarket USD；README 部署表 impl 0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f：代码 6,953 B，keccak 0x932c9369…，name()=Polymarket USD → 两者不同，README 实现非当前槽值。",
+        "PMCT 链上字段：name=Polymarket USD、symbol=pUSD、decimals=6、totalSupply=520,531,160.428038、USDC()=0x3c499c542cef5e3811e1192ce70d8cc03d5c3359、USDCE()=0x2791bca1f2de4661ed88a30c99a7a9449aa84174、VAULT()=0xc417fd8e9661c0d2120b64a04bb3278c17e99db1、balanceOf(VAULT)=158.22489 pUSD；WRAPPER_ROLE()/MINTER_ROLE() 调用 revert（未取到角色常量）。",
+        "V2 现金层合约链上代码：Onramp 0x93070a847efEf7F70739046A929D47a521F5B8ee（2,651 B，0x89eaba6b…）、Offramp 0x2957922Eb93258b93368531d39fAcCA3B4dC5854（2,653 B，0x18de842d…）、PermissionedRamp 0xebC2459Ec962869ca4c0bd1E06368272732BCb08（4,780 B）、CtfCollateralAdapter 0xADa100874d00e3331D00F2007a9c336a65009718（10,736 B）、NegRiskCtfCollateralAdapter 0xAdA200001000ef00D07553cEE7006808F895c6F1（13,367 B）、NegRiskCtfExchangeV2 0xe2222d279d744050d28e00520010520000310F59（21,037 B）。",
+        "新市场：Gamma 最新 startDate 市场 id 6905622「Ethereum above 2,040 on November 9, 11AM ET?」startDate 2026-11-09T14:40:20Z、endDate 2026-11-09T16:00:00Z、active、conditionId 0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7；CTF 0x4D97DCd97eC945f40cF65F87097ACe5EA0476045（代码 15,007 B，keccak 0xbe524e09…）的 getOutcomeSlotCount=2（块 97,019,894）→ condition 链上存在。"
       ],
       "coverage_gaps": [
-        "30天规则/部署/公告回溯未覆盖（2026-10-09至11-08）；静态地址表无生效时间证明。",
-        "7天活动未覆盖（2026-11-01至11-08）；无区块/日志/交易；也未扫过去24小时。",
-        "Polygon RPC eth_chainId CONNECT 403；chainId=137、代码/代理和网络运行状态均未实时核对。",
-        "未读任何CTF conditionId/positionId、oracle结算状态或实际借贷抵押资格，不能把事件价格与Aave借贷资格连接。",
-        "未建立DEX工厂白名单、新池列表或旧小池轮转，未获取报价、净额、原生gas资产当前元数据或费用。"
+        "部署时间/迁移是否生效无法链上定界：历史块 getCode 被 RPC 要求 archive token；无法判断 V2/PMCT 部署时间或 V1 是否仍活跃（未扫交易所事件/订单）。",
+        "PMCT 当前实现 0xce84e053… 的源码/版本/角色/暂停/allowance 未读；WRAPPER_ROLE/MINTER_ROLE 未由链上取得；不能断言普通用户 pUSD 退出路径。",
+        "pUSD 未被任何借贷/抵押协议接受的映射未建立；不能把现金 wrapper 当 outcome 或抵押品。",
+        "新市场仅核验 condition 存在（2 slots），未读 payout/oracle/争议与订单簿；无价格/报价，不能当可执行机会。",
+        "30 天规则/公告与 7 天活动未完整覆盖：仅 Uni V3 4.17h 工厂窗口 + Gamma 最新市场快照 + 仓库/README 静态源；CTF v2 仓库 30 天提交 0。",
+        "未查 Aave Polygon 当前状态（上轮静态对象）、其他 DEX 工厂与旧小池轮转。"
       ],
-      "report": "reports/agents/N-POLY/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-POLY/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "POLY",
       "owner": "worker_a",
       "prompt": "prompts/agents/N-POLY.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 6,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
-        "verified_at": "2026-11-08T15:33:32.477653+00:00",
-        "record": "evidence/N-POLY/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-SOL",
@@ -697,54 +868,39 @@
       "agent_id": "N-SONIC",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:32:35.366969+00:00",
+      "last_success_at": "2026-11-09T14:48:30+00:00",
+      "last_attempt_at": "2026-11-09T14:48:30+00:00",
       "actual_coverage": [
-        {
-          "source": "ethereum-lists registry",
-          "chain_id": 146,
-          "native_symbol": "S",
-          "status": "THIRD_PARTY_STATIC_NOT_LIVENESS_PROOF"
-        },
-        {
-          "source": "0xsoniclabs/sonic README",
-          "field": "genesis required",
-          "status": "OFFICIAL_SOURCE_NOT_CHAIN_LIVENESS"
-        },
-        {
-          "protocol": "Aave V3 Sonic",
-          "pool_proxy": "0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3",
-          "pool_impl": "0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5",
-          "provider": "0x5C2e738F6E27bCE0F7558051Bf90605dD6176900",
-          "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE"
-        }
+        "链存活：eth_chainId=0x92（146）；head=82,307,309（2026-11-09T14:45:47Z，hash 0xa065d6ac…）；固定块 82,307,306；baseFee=50,000,000,000 wei；原生 gas 代币按链登记符号 S（未沿用 Fantom 旧称）。",
+        "Aave V3 Sonic：pool 代理 0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3（代码 1,853 B，keccak 0xbb7879bb…）、provider 0x5C2e738F6E27bCE0F7558051Bf90605dD6176900（6,696 B，keccak 0x262cc36a…）；getPool()=0x5362…（一致）；pool EIP-1967 impl 槽=0x3Ece05AC893AC406b83AEA6796539464BD9d2dB5（21,146 B，keccak 0xc66496e4…），与官方地址书实现一致；地址书 sha256 2d066d5e…，55 个地址。",
+        "Aave Sonic 储备 4 个（链上 getReservesList）：WETH 0x50c42dea…（symbol WETH/18）、USDC 0x29219dd4…（USDC/6）、wS 0x039e2fb6…（wS/18）、stS 0xe5da20f1…（stS/18）；wS 代币代码 2,636 B，keccak 0xfbd5d84b…。",
+        "新市场：Equalizer 工厂 0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40（代码 24,530 B，经已知交易对 public factory() getter 取得）；窗口内 PoolCreated 1 条：pool 0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96，块 82,235,901（2026-11-07T23:34:40Z），tx 0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc；池代码 21,889 B（keccak 0xa552802d…）。",
+        "新池身份（链上读值）：token0=USDC 0x29219dd4…、token1=ftUSD 0xf7d85ec4…（symbol ftUSD、name Flying Tulip USD、decimals 6、totalSupply 1,038,372.016232）、fee=10000（1%）、tickSpacing=1；与创建事件及池自身读值一致。",
+        "同窗其他工厂：Shadow 0x2da25e7446a70d7be65fd4c053948becaa6374c8（经 pair factory() 取得）PairCreated=0；SpookySwap V3 0x3d91b700252e0e3ee7805d12e048a988ab69c8ad（代码 24,535 B）PairCreated=0/PoolCreated=0；9mm 0x0f7b3fcba276a65dd6e41e400055dcb75ba66750（代码 14,067 B）两者均 0。窗口 100,000 块=82,207,309→82,307,309（2026-11-07T07:26:26Z→2026-11-09T14:45:47Z，约 2.31 天），完整覆盖该窗口。",
+        "失败/限制：GitHub API AaveV3Sonic 文件提交查询两次 HTTP 403（rate limit），停止不重试；DexScreener 30 对最新 pairCreatedAt 为 2025-04-23，不能作新市场信号；历史块/部署时间未查（未用 archive）。",
+        "外部请求 68 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
       ],
       "coverage_gaps": [
-        "网络存活未核验：官方与注册表回退RPC均CONNECT403，未取chainId或增长区块。",
-        "30天规则/迁移生效窗口未覆盖，源码当前分支不提供完整生效历史。",
-        "7天活动与近24小时代表性操作未覆盖，无交易/事件或区块游标。",
-        "Aave池与资产身份仅静态表，无当前代码/实现/储备/流动性核验。",
-        "未扫描已核DEX工厂、旧小池、退出窗口、数量报价及完整成本。"
+        "30 天规则/部署变更未覆盖：GitHub API rate limit（2 次 403 后停止），Aave Sonic 是否有资产/规则变更未判定，不能写“无变化”。",
+        "7 天活动未覆盖：仅 DEX 工厂创建事件 2.31 天窗口；未扫交易/借贷/清算/跨链事件；Shadow 只查 PairCreated、未查 PoolCreated，工厂扫描不完整。",
+        "ftUSD 部署者/权限/可卖性/流动性未核验；新池初始流动性未读（未取 slot0/储备）。",
+        "Aave Sonic stS 等储备的退出规则、借款/清算参数、可用流动性、oracle 未链上调用。",
+        "旧小池轮转、其他 Sonic 协议（Beets/Silo/Curve 等）与迁移/桥接版资产未扫；部署时间未定界（未用 archive）。"
       ],
-      "report": "reports/agents/N-SONIC/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-SONIC/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "SONIC",
       "owner": "worker_c",
       "prompt": "prompts/agents/N-SONIC.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 5,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "b01b73e375ea3c6fc93a49b43409ecdf21d035b8",
-        "verified_at": "2026-11-08T15:33:32.477653+00:00",
-        "record": "evidence/N-SONIC/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ARB01",

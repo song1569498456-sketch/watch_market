@@ -392,20 +392,44 @@
     {
       "market_id": "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
       "chain": "SONIC",
-      "protocol": "Aave V3 Sonic",
-      "asset_ids": [],
+      "protocol": "Aave V3 Sonic Pool（代理）",
+      "asset_ids": [
+        "0x50c42deacd8fc9773493ed674b675be577f2634b",
+        "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+        "0xe5da20f15420ad15de0fa650600afc998bbe3955"
+      ],
       "evidence_urls": [
         "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
         "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
       ],
-      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
-      "next_check": "chainId146、provider.getPool、proxy code/implementation、reserve列表与可提流动性",
+      "identity_status": "CHAIN_VERIFIED：proxy 1,853 B、provider.getPool 一致、EIP-1967 impl=地址书实现 0x3Ece05AC…；4 储备已核",
+      "next_check": "储备参数、stS 退出规则、oracle、可用流动性",
       "owner": "N-SONIC",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-SONIC/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SONIC/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "N-SONIC": {
+          "market_id": "146:aave-v3:0x5362dbb1e601abf3a4c14c22ffeda64042e5eaa3",
+          "chain": "SONIC",
+          "protocol": "Aave V3 Sonic Pool（代理）",
+          "asset_ids": [
+            "0x50c42deacd8fc9773493ed674b675be577f2634b",
+            "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+            "0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38",
+            "0xe5da20f15420ad15de0fa650600afc998bbe3955"
+          ],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
+            "https://sonicscan.org/address/0x5362dBb1e601abF3a4c14c22ffEdA64042E5eAA3"
+          ],
+          "identity_status": "CHAIN_VERIFIED：proxy 1,853 B、provider.getPool 一致、EIP-1967 impl=地址书实现 0x3Ece05AC…；4 储备已核",
+          "next_check": "储备参数、stS 退出规则、oracle、可用流动性"
+        }
+      }
     },
     {
       "market_id": "ARB:SUSHISWAP_V2:FACTORY:0xc35dadb65012ec5796536bd9864ed8773abc74c4",
@@ -1744,6 +1768,416 @@
           ],
           "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
           "next_check": "Quoter v1 指定数量报价；作为旧池轮转基线"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+      "chain": "POLY",
+      "protocol": "Polymarket V2 PMCT (pUSD) ERC20 cash wrapper proxy",
+      "asset_ids": [
+        "0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+        "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+      ],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+        "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PROXY：61 B EIP-1967 最小代理；impl 槽=0xce84e053…（与 README 列 0x6bBCef9f… 不同）；name/symbol/decimals/USDC/USDCE/VAULT 已读",
+      "next_check": "读当前实现源码/角色/暂停/allowance；核对升级历史与 README 漂移",
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-POLY": {
+          "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+          "chain": "POLY",
+          "protocol": "Polymarket V2 PMCT (pUSD) ERC20 cash wrapper proxy",
+          "asset_ids": [
+            "0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+            "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+          ],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+            "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"
+          ],
+          "identity_status": "CHAIN_VERIFIED_PROXY：61 B EIP-1967 最小代理；impl 槽=0xce84e053…（与 README 列 0x6bBCef9f… 不同）；name/symbol/decimals/USDC/USDCE/VAULT 已读",
+          "next_check": "读当前实现源码/角色/暂停/allowance；核对升级历史与 README 漂移"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:POLYMARKET:CTF_EXCHANGE_V2:0xe111180000d2663c0091e4f400237545b87b996b",
+      "chain": "POLY",
+      "protocol": "Polymarket CTFExchangeV2",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+        "https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B"
+      ],
+      "identity_status": "CHAIN_VERIFIED_NOT_PROXY：代码 21,037 B/keccak 0xa08da89b…；EIP-1967 impl/admin 槽=0",
+      "next_check": "抽查 V2 成交/订单事件；与 V1 活跃度对比",
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-POLY": {
+          "market_id": "POLY:POLYMARKET:CTF_EXCHANGE_V2:0xe111180000d2663c0091e4f400237545b87b996b",
+          "chain": "POLY",
+          "protocol": "Polymarket CTFExchangeV2",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+            "https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B"
+          ],
+          "identity_status": "CHAIN_VERIFIED_NOT_PROXY：代码 21,037 B/keccak 0xa08da89b…；EIP-1967 impl/admin 槽=0",
+          "next_check": "抽查 V2 成交/订单事件；与 V1 活跃度对比"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+      "chain": "POLY",
+      "protocol": "Polymarket new market（Ethereum above 2,040 on November 9, 11AM ET?）",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"
+      ],
+      "identity_status": "CTF_CONDITION_VERIFIED：conditionId 0x33d27589… getOutcomeSlotCount=2（块 97,019,894）；Gamma startDate 2026-11-09T14:40:20Z、active",
+      "next_check": "读 oracle/payout/订单簿；到期 2026-11-09T16:00Z 前后重核",
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-POLY": {
+          "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+          "chain": "POLY",
+          "protocol": "Polymarket new market（Ethereum above 2,040 on November 9, 11AM ET?）",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"
+          ],
+          "identity_status": "CTF_CONDITION_VERIFIED：conditionId 0x33d27589… getOutcomeSlotCount=2（块 97,019,894）；Gamma startDate 2026-11-09T14:40:20Z、active",
+          "next_check": "读 oracle/payout/订单簿；到期 2026-11-09T16:00Z 前后重核"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+      "chain": "POLY",
+      "protocol": "Uniswap V3 new pool（原生 gas wrapper / 0xe12a7b1c…，fee 0.3%）",
+      "asset_ids": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0xe12a7b1c7275d42b1aa16a03f3dfa0830480066f"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+      ],
+      "identity_status": "EVENT_OBSERVED：块 97,014,581、tx 0x12049548…；token1 身份/流动性未核验",
+      "next_check": "交 POLY01 核验 token 身份/流动性/可交易性",
+      "owner": "N-POLY",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-POLY": {
+          "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+          "chain": "POLY",
+          "protocol": "Uniswap V3 new pool（原生 gas wrapper / 0xe12a7b1c…，fee 0.3%）",
+          "asset_ids": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0xe12a7b1c7275d42b1aa16a03f3dfa0830480066f"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+          ],
+          "identity_status": "EVENT_OBSERVED：块 97,014,581、tx 0x12049548…；token1 身份/流动性未核验",
+          "next_check": "交 POLY01 核验 token 身份/流动性/可交易性"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+        "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x3de6bb9c787aede002a1540d300fc9e625b3a218"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep50，未注资）",
+      "next_check": "读 bin 分布；核 WWLD 发行方",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0x3de6bb9c787aede002a1540d300fc9e625b3a218",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+            "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x3de6bb9c787aede002a1540d300fc9e625b3a218"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep50，未注资）",
+          "next_check": "读 bin 分布；核 WWLD 发行方"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+        "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep25，100k:1 注资）",
+      "next_check": "核 WWLD 与 100k:1 注资结构；不先当机会",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0x0218f49cbf7cf47049b589b327c18c4c99de2863",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0xa571f27d24e2afc45581b5ec9fb0ccd0bcb9bf1b",
+            "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x0218f49cbf7cf47049b589b327c18c4c99de2863"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（WWLD/WAVAX binStep25，100k:1 注资）",
+          "next_check": "核 WWLD 与 100k:1 注资结构；不先当机会"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0xb8d7710f7d8349a506b75dd184f05777c82dad0c",
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x12ff77103c3dc7278083a722c5c7cc146e8f761e"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（ARENA/USDC binStep25，单边储备）",
+      "next_check": "核 ARENA 发行方与 USDC 侧注入情况",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0x12ff77103c3dc7278083a722c5c7cc146e8f761e",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0xb8d7710f7d8349a506b75dd184f05777c82dad0c",
+            "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x12ff77103c3dc7278083a722c5c7cc146e8f761e"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（ARENA/USDC binStep25，单边储备）",
+          "next_check": "核 ARENA 发行方与 USDC 侧注入情况"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0x94823237e4d5f51c272f3c16a8a29ffecc274624",
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0xec4ab591d6db25c1090454b488fff885ac9eb34e"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（0x94823237…/USDC binStep25，未注资）",
+      "next_check": "读 token symbol/发行方；读 bin 分布",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0xec4ab591d6db25c1090454b488fff885ac9eb34e",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0x94823237e4d5f51c272f3c16a8a29ffecc274624",
+            "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0xec4ab591d6db25c1090454b488fff885ac9eb34e"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（0x94823237…/USDC binStep25，未注资）",
+          "next_check": "读 token symbol/发行方；读 bin 分布"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0x74bdfac866175aff481651181d781417ffd24dae",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0xfd2c2a98009d0cbed715882036e43d26c4289053",
+        "0x152b9d0fdc40c096757f570a51e494bd4b943e50"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（avBTC/BTC.b binStep25，未注资；两种 BTC 表示不同权益）",
+      "next_check": "核 avBTC 发行机制与 BTC.b 的关系",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0x74bdfac866175aff481651181d781417ffd24dae",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0xfd2c2a98009d0cbed715882036e43d26c4289053",
+            "0x152b9d0fdc40c096757f570a51e494bd4b943e50"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x74bdfac866175aff481651181d781417ffd24dae"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（avBTC/BTC.b binStep25，未注资；两种 BTC 表示不同权益）",
+          "next_check": "核 avBTC 发行机制与 BTC.b 的关系"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:LFJ:LBPair:0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+      "chain": "AVAX",
+      "protocol": "LFJ Liquidity Book V2.1",
+      "asset_ids": [
+        "0x8b1e2420e0d453a718d4b70e3a043263eab77851",
+        "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（PRIME-MOCK/WAVAX binStep100，疑似 mock 代币）",
+      "next_check": "核 PRIME-MOCK 是否测试币；排除后登记",
+      "owner": "N-AVAX",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-AVAX/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-AVAX": {
+          "market_id": "AVAX:43114:LFJ:LBPair:0xd41ad255796e97a49de36b8f38f1f16713f01bc8",
+          "chain": "AVAX",
+          "protocol": "LFJ Liquidity Book V2.1",
+          "asset_ids": [
+            "0x8b1e2420e0d453a718d4b70e3a043263eab77851",
+            "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0xd41ad255796e97a49de36b8f38f1f16713f01bc8"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_TOKENS_BINSTEP（PRIME-MOCK/WAVAX binStep100，疑似 mock 代币）",
+          "next_check": "核 PRIME-MOCK 是否测试币；排除后登记"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+      "chain": "SONIC",
+      "protocol": "Equalizer CL（Uniswap V3 风格事件）",
+      "asset_ids": [
+        "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "0xf7d85ec4e7710f71992752eac2111312e73e9c9c"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+        "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"
+      ],
+      "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：创建块 82,235,901（2026-11-07T23:34:40Z），token0=USDC/token1=ftUSD/fee=10000/tickSpacing=1；流动性未读",
+      "next_check": "读 slot0/流动性；核 ftUSD 可卖性；交 SONIC01",
+      "owner": "N-SONIC",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SONIC/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SONIC": {
+          "market_id": "146:equalizer-cl:pool:0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+          "chain": "SONIC",
+          "protocol": "Equalizer CL（Uniswap V3 风格事件）",
+          "asset_ids": [
+            "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+            "0xf7d85ec4e7710f71992752eac2111312e73e9c9c"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x1eb298eb4e57737cf80bbf62ae6519ca9123ee96",
+            "https://sonicscan.org/tx/0xa5701b561d641a96dfd11ce3f53781f13ed10bee43c94d0cec2e26a497d9becc"
+          ],
+          "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：创建块 82,235,901（2026-11-07T23:34:40Z），token0=USDC/token1=ftUSD/fee=10000/tickSpacing=1；流动性未读",
+          "next_check": "读 slot0/流动性；核 ftUSD 可卖性；交 SONIC01"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "146:equalizer:factory:0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+      "chain": "SONIC",
+      "protocol": "Equalizer 工厂（发现注册表）",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"
+      ],
+      "identity_status": "CHAIN_CODE_VERIFIED（24,530 B），来源为已知交易对 factory() getter，未经官方部署表核验",
+      "next_check": "与官方部署表核验工厂归属；补更长窗口与总池数",
+      "owner": "N-SONIC",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SONIC/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SONIC": {
+          "market_id": "146:equalizer:factory:0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40",
+          "chain": "SONIC",
+          "protocol": "Equalizer 工厂（发现注册表）",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x7ca1dccfb4f49564b8f13e18a67747fd428f1c40"
+          ],
+          "identity_status": "CHAIN_CODE_VERIFIED（24,530 B），来源为已知交易对 factory() getter，未经官方部署表核验",
+          "next_check": "与官方部署表核验工厂归属；补更长窗口与总池数"
         }
       },
       "current_onchain_verified": true,

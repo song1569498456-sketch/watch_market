@@ -1,0 +1,26 @@
+{
+  "finding_id": "POLY-UNISWAP-V3-NEW-POOL-20261109",
+  "status": "UNVERIFIED",
+  "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+  "mechanism": "Uniswap V3 Polygon 工厂在最近 10,000 块（约 4.17h）新增 1 池：token0=0x0d500b1d…（原生 gas wrapper）、token1=0xe12a7b1c…、fee 0.3%，创建块 97,014,581；token1 身份与流动性未核验。",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+  ],
+  "net_result": "unknown（无报价）",
+  "unknown_costs": [
+    "token1 身份/可卖性",
+    "流动性/冲击",
+    "gas"
+  ],
+  "handoff_to": [
+    "POLY01"
+  ],
+  "invalidation_conditions": [
+    "token1 不可卖/骗局",
+    "池无流动性",
+    "工厂归属不符"
+  ],
+  "owner": "N-POLY",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-POLY/live-20261109T141903Z/record.json"
+}

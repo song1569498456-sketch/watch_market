@@ -1,0 +1,229 @@
+{
+ "agent_id": "N-POLY",
+ "run_id": "live-20261109T141903Z",
+ "chain": "POLY",
+ "scope": "Polygon PoS 新市场/新规则/新操作发现：Polymarket V1/V2 交易所与 PMCT(pUSD) 现金层链上身份核验、新市场与 DEX 新池发现",
+ "started_at": "2026-11-09T14:40:30+00:00",
+ "finished_at": "2026-11-09T14:43:50+00:00",
+ "duration_seconds": 200,
+ "execution_status": "PARTIAL",
+ "status": "RULE_GAP",
+ "as_of": {
+  "utc": "2026-11-09T14:43:43+00:00",
+  "beijing": "2026-11-09T22:43:43+08:00",
+  "data_time": "链状态/代码固定在块 97,019,894（block timestamp 2026-11-09T14:41:45Z，抓取 14:40:30-14:43:43Z）；新市场 startDate 2026-11-09T14:40:20Z；Gamma 快照 14:42:50Z；Uni V3 日志窗口 97,009,894-97,019,894（约 2026-11-09T10:31:37Z-14:41:45Z）"
+ },
+ "block_or_slot": 97019894,
+ "market_ids": [
+  "POLY:POLYMARKET:CTF_EXCHANGE_V2:0xe111180000d2663c0091e4f400237545b87b996b",
+  "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+  "POLY:POLYMARKET:CTF:0x4d97dcd97ec945f40cf65f87097ace5ea0476045",
+  "POLY:POLYMARKET:CTF_EXCHANGE_V1:0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e",
+  "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+  "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5"
+ ],
+ "asset_ids": [
+  "eip155:137/erc20:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+  "eip155:137/erc20:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+  "eip155:137/erc20:0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+ ],
+ "discovery_source": [
+  {
+   "source": "polygon-rpc-publicnode",
+   "url": "https://polygon-bor-rpc.publicnode.com",
+   "retrieved_at_utc": "2026-11-09T14:40:30+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x16/eth_getStorageAt x5/eth_call x14/eth_getLogs x2；全部返回结果（旧块 getCode 因 archive token 被拒）",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "polymarket-v1-readme",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+   "retrieved_at_utc": "2026-11-09T14:40:40+00:00",
+   "http_status": 200,
+   "bytes_read": 2621,
+   "sha256": "e6b957ee9e8b3a3728e084404e36b9fa224d75bc02eec22f9b96279992e3184f",
+   "note": "顶部归档声明；Polygon V1 部署 0x4bFb41d5…"
+  },
+  {
+   "source": "polymarket-v2-readme",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+   "retrieved_at_utc": "2026-11-09T14:40:42+00:00",
+   "http_status": 200,
+   "note": "Polygon 部署表：CollateralToken impl 0x6bBCef9f…/proxy 0xC011a7E1…、Onramp 0x93070a84…、Offramp 0x2957922E…、PermissionedRamp 0xebC2459E…、CtfCollateralAdapter 0xADa10087…、NegRiskCtfCollateralAdapter 0xAdA20000…、CTFExchangeV2 0xE1111800…、NegRiskCtfExchangeV2 0xe2222d27…"
+  },
+  {
+   "source": "polymarket-collateraltoken-source",
+   "url": "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+   "retrieved_at_utc": "2026-11-09T14:40:44+00:00",
+   "http_status": 200,
+   "note": "public 变量 USDC/USDCE/VAULT；name=Polymarket USD、symbol=pUSD、decimals=6"
+  },
+  {
+   "source": "gamma-api-newest-markets",
+   "url": "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false",
+   "retrieved_at_utc": "2026-11-09T14:42:50+00:00",
+   "http_status": 200,
+   "request": "返回按 startDate 倒序的最新市场：id 6905622「Ethereum above 2,040 on November 9, 11AM ET?」startDate 2026-11-09T14:40:20Z、conditionId 0x33d27589…、active"
+  },
+  {
+   "source": "polymarket-ctf-v2-commits-30d",
+   "url": "https://api.github.com/repos/Polymarket/ctf-exchange-v2/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "retrieved_at_utc": "2026-11-09T14:40:46+00:00",
+   "http_status": 200,
+   "request": "30 天 0 条提交（仓库近期无源码变更）"
+  }
+ ],
+ "mechanism": "Polymarket 存在两层：V1 旧交易所（0x4bFb…，README 已归档声明）与 V2 交易所（0xE111…，直接部署、非代理）；V2 以 PMCT(pUSD) 现金 wrapper 为交易抵押资产：pUSD 由 Onramp 包装原生 USDC/USDC.e、Offramp 解包，CtfCollateralAdapter 桥接 PMCT 与 CTF split/merge/redeem。链上核验显示 pUSD 代理当前实现为 0xce84e053…（EIP-1967 槽），与 V2 README 部署表列的 0x6bBCef9f… 不同，构成“公布实现 vs 当前实现”的版本漂移；pUSD 非 outcome token，也不是已知借贷抵押品。新市场发现为独立对象：新 condition 在 CTF 中确有 2 个 outcome slot。",
+ "observations": [
+  "链身份：eth_chainId=0x89（137）；head=97,019,899（2026-11-09T14:41:45Z，hash 0x38481f18…）；固定块 97,019,894；baseFee=247,813,036,452 wei；原生 gas 代币按链上现行命名（POL）记录，未写死旧称。",
+  "V1 交易所 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E：代码仍在，17,208 B，keccak 0xcfb37c52…；V1 README 顶部 '> This repository has been archived and is no longer maintained.'；不能仅凭 README 断言链上退役。",
+  "V2 交易所 0xE111180000d2663C0091e4f400237545B87B996B：代码 21,037 B，keccak 0xa08da89b…；EIP-1967 impl 槽与 admin 槽均为 0 → 非代理直接部署。",
+  "PMCT 代理 0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB：代码 61 B keccak 0xaaa52c8c…，为 EIP-1967 最小代理（runtime 读取 slot 0x360894a1…382bbc）；impl 槽=0xce84e053301a82937f90ee2c2c1889cab1db25de；admin 槽=0。",
+  "PMCT 当前实现 0xce84e053…：代码 7,781 B，keccak 0x740b9ebb…，name()=Polymarket USD；README 部署表 impl 0x6bBCef9f7ef3B6C592c99e0f206a0DE94Ad0925f：代码 6,953 B，keccak 0x932c9369…，name()=Polymarket USD → 两者不同，README 实现非当前槽值。",
+  "PMCT 链上字段：name=Polymarket USD、symbol=pUSD、decimals=6、totalSupply=520,531,160.428038、USDC()=0x3c499c542cef5e3811e1192ce70d8cc03d5c3359、USDCE()=0x2791bca1f2de4661ed88a30c99a7a9449aa84174、VAULT()=0xc417fd8e9661c0d2120b64a04bb3278c17e99db1、balanceOf(VAULT)=158.22489 pUSD；WRAPPER_ROLE()/MINTER_ROLE() 调用 revert（未取到角色常量）。",
+  "V2 现金层合约链上代码：Onramp 0x93070a847efEf7F70739046A929D47a521F5B8ee（2,651 B，0x89eaba6b…）、Offramp 0x2957922Eb93258b93368531d39fAcCA3B4dC5854（2,653 B，0x18de842d…）、PermissionedRamp 0xebC2459Ec962869ca4c0bd1E06368272732BCb08（4,780 B）、CtfCollateralAdapter 0xADa100874d00e3331D00F2007a9c336a65009718（10,736 B）、NegRiskCtfCollateralAdapter 0xAdA200001000ef00D07553cEE7006808F895c6F1（13,367 B）、NegRiskCtfExchangeV2 0xe2222d279d744050d28e00520010520000310F59（21,037 B）。",
+  "新市场：Gamma 最新 startDate 市场 id 6905622「Ethereum above 2,040 on November 9, 11AM ET?」startDate 2026-11-09T14:40:20Z、endDate 2026-11-09T16:00:00Z、active、conditionId 0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7；CTF 0x4D97DCd97eC945f40cF65F87097ACe5EA0476045（代码 15,007 B，keccak 0xbe524e09…）的 getOutcomeSlotCount=2（块 97,019,894）→ condition 链上存在。",
+  "DEX 新池：Uniswap V3 Polygon 工厂 0x1F98431c8…（代码 24,535 B，keccak 0x4d7b8525…）在块 97,009,894-97,019,894（约 4.17h）新增 1 池 0xb72337bea17c20a148d41f375b6fe4f70c2842d5（块 97,014,581，tx 0x12049548…，token0=0x0d500b1d…原生 gas wrapper、token1=0xe12a7b1c…，fee 3000）。",
+  "失败/限制：旧块 getCode（30d/7d 前）被 RPC 以 archive token 拒绝；Uni V3 24h/7d eth_getLogs 超 10,000 块上限；CTF v2 仓库 30 天提交 0 条。",
+  "外部请求 59 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无报价/无交易/无签名。"
+ ],
+ "quotes": [],
+ "net_result": {
+  "value": null,
+  "unit": "n/a（本岗不要求报价；未取任何可执行价）",
+  "type": "no_quote_no_claim",
+  "realized": false,
+  "unknown_costs": [
+   "pUSD wrap/unwrap 的 role/暂停/allowance 与 gas",
+   "V1/V2 交易所成交与流动性",
+   "新市场订单簿价格与可交易性",
+   "Polygon gas 与原生 gas 代币计价"
+  ]
+ },
+ "capacity": "unknown；pUSD totalSupply=520,531,160.428038、VAULT 持有 158.22489 pUSD；V2 Onramp/Offramp 容量未读；新市场/新池流动性未读",
+ "permissions": "PMCT 为 EIP-1967 最小代理（impl 槽可升级，admin 槽 0，升级权限未读）；wrap/unwrap 角色（源码 WRAPPER_ROLE/MINTER_ROLE）未从链上读到；Onramp/Offramp 暂停状态未读",
+ "liabilities": "未执行任何交易、无新增负债；pUSD 是现金 wrapper，不是 outcome token 或借贷抵押品",
+ "waiting_time": "n/a（无跨链/结算对象）；新市场 endDate 2026-11-09T16:00:00Z 仅供跟踪",
+ "invalidation_conditions": [
+  "链上代理实现/角色与官方部署表或源码不符（已发现 impl 漂移，需以链上为准）",
+  "V1/V2 交易所状态变化或 V2 现金层暂停",
+  "新市场/新池移除、成交不可用或流动性不足",
+  "把 pUSD 当 outcome 或借贷抵押品的推断（已排除）"
+ ],
+ "evidence_urls": [
+  "https://polygon-bor-rpc.publicnode.com",
+  "https://raw.githubusercontent.com/Polymarket/ctf-exchange/main/README.md",
+  "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md",
+  "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/src/collateral/CollateralToken.sol",
+  "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB",
+  "https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B",
+  "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+  "https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"
+ ],
+ "coverage_gaps": [
+  "部署时间/迁移是否生效无法链上定界：历史块 getCode 被 RPC 要求 archive token；无法判断 V2/PMCT 部署时间或 V1 是否仍活跃（未扫交易所事件/订单）。",
+  "PMCT 当前实现 0xce84e053… 的源码/版本/角色/暂停/allowance 未读；WRAPPER_ROLE/MINTER_ROLE 未由链上取得；不能断言普通用户 pUSD 退出路径。",
+  "pUSD 未被任何借贷/抵押协议接受的映射未建立；不能把现金 wrapper 当 outcome 或抵押品。",
+  "新市场仅核验 condition 存在（2 slots），未读 payout/oracle/争议与订单簿；无价格/报价，不能当可执行机会。",
+  "30 天规则/公告与 7 天活动未完整覆盖：仅 Uni V3 4.17h 工厂窗口 + Gamma 最新市场快照 + 仓库/README 静态源；CTF v2 仓库 30 天提交 0。",
+  "未查 Aave Polygon 当前状态（上轮静态对象）、其他 DEX 工厂与旧小池轮转。"
+ ],
+ "next_check": [
+  "读 PMCT 当前实现 0xce84e053… 源码与仓库 commit 对照，读 on-chain 角色/暂停/allowance，确认 pUSD 正常 wrap/unwrap 路径；把 README impl 与链上 impl 漂移纳入 finding 时间线。",
+  "用支持 archive 的 RPC 或事件回放补 V1/V2 部署与迁移时间，并抽查 V1/V2 交易所活动以判断 V1 是否仍活跃。",
+  "对 market 6905622（conditionId 0x33d27589…）补 oracle/payout 与订单簿状态；继续用 Gamma startDate 倒序 + CTF 校验登记新市场。",
+  "补 30 天规则/7 天活动窗口；Aave Polygon 当前状态交 POLY02；Uni V3 新池 0xb72337be… 交 POLY01。"
+ ],
+ "handoff_to": [
+  "POLY01",
+  "POLY02",
+  "R-POLY"
+ ],
+ "markets": [
+  {
+   "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+   "chain": "POLY",
+   "protocol": "Polymarket V2 PMCT (pUSD) ERC20 cash wrapper proxy",
+   "asset_ids": ["0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb", "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359", "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"],
+   "evidence_urls": ["https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md", "https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB"],
+   "identity_status": "CHAIN_VERIFIED_PROXY：61 B EIP-1967 最小代理；impl 槽=0xce84e053…（与 README 列 0x6bBCef9f… 不同）；name/symbol/decimals/USDC/USDCE/VAULT 已读",
+   "next_check": "读当前实现源码/角色/暂停/allowance；核对升级历史与 README 漂移"
+  },
+  {
+   "market_id": "POLY:POLYMARKET:CTF_EXCHANGE_V2:0xe111180000d2663c0091e4f400237545b87b996b",
+   "chain": "POLY",
+   "protocol": "Polymarket CTFExchangeV2",
+   "asset_ids": [],
+   "evidence_urls": ["https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md", "https://polygonscan.com/address/0xE111180000d2663C0091e4f400237545B87B996B"],
+   "identity_status": "CHAIN_VERIFIED_NOT_PROXY：代码 21,037 B/keccak 0xa08da89b…；EIP-1967 impl/admin 槽=0",
+   "next_check": "抽查 V2 成交/订单事件；与 V1 活跃度对比"
+  },
+  {
+   "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+   "chain": "POLY",
+   "protocol": "Polymarket new market（Ethereum above 2,040 on November 9, 11AM ET?）",
+   "asset_ids": [],
+   "evidence_urls": ["https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false"],
+   "identity_status": "CTF_CONDITION_VERIFIED：conditionId 0x33d27589… getOutcomeSlotCount=2（块 97,019,894）；Gamma startDate 2026-11-09T14:40:20Z、active",
+   "next_check": "读 oracle/payout/订单簿；到期 2026-11-09T16:00Z 前后重核"
+  },
+  {
+   "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+   "chain": "POLY",
+   "protocol": "Uniswap V3 new pool（原生 gas wrapper / 0xe12a7b1c…，fee 0.3%）",
+   "asset_ids": ["0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0xe12a7b1c7275d42b1aa16a03f3dfa0830480066f"],
+   "evidence_urls": ["https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"],
+   "identity_status": "EVENT_OBSERVED：块 97,014,581、tx 0x12049548…；token1 身份/流动性未核验",
+   "next_check": "交 POLY01 核验 token 身份/流动性/可交易性"
+  }
+ ],
+ "findings": [
+  {
+   "finding_id": "POLY-POLYMARKET-V2-PMCT-ONCHAIN-ROLES",
+   "status": "RULE_GAP",
+   "market_id": "POLY:POLYMARKET:PMCT_PROXY:0xc011a7e12a19f7b1f670d46f03b03f3342e82dfb",
+   "mechanism": "Polymarket V2 以 pUSD(PMCT) 现金 wrapper 作为交易抵押：Onramp 包原生 USDC/USDC.e、Offramp 解包、CtfCollateralAdapter 桥接 CTF；链上核验 pUSD 代理当前实现 0xce84e053…（EIP-1967 槽），与 V2 README 部署表 0x6bBCef9f… 不一致 → 文档/实现版本漂移；pUSD 是现金层，不是 outcome token 或借贷抵押品。",
+   "evidence_urls": ["https://polygonscan.com/address/0xC011a7E12a19f7B1f670d46F03B03f3342E82DFB", "https://raw.githubusercontent.com/Polymarket/ctf-exchange-v2/main/README.md"],
+   "net_result": "unknown（身份/机制核验，无报价）",
+   "unknown_costs": ["pUSD 当前实现角色/暂停/allowance", "wrap/unwrap gas", "V1/V2 活跃度与流动性"],
+   "handoff_to": ["R-POLY", "POLY02"],
+   "invalidation_conditions": ["链上 impl 变化或与源码对照不符", "V2 现金层暂停或迁移", "pUSD 被误当作 outcome/借贷抵押品"]
+  },
+  {
+   "finding_id": "POLY-POLYMARKET-NEW-MARKET-ETH-ABOVE-2040-20261109",
+   "status": "UNVERIFIED",
+   "market_id": "POLY:POLYMARKET:MARKET:0x33d2758918374e13d8be7538f04801f03c5ac9c5a66515285ba70a43d06844a7",
+   "mechanism": "新上市预测市场：Gamma startDate 2026-11-09T14:40:20Z 的「Ethereum above 2,040 on November 9, 11AM ET?」，conditionId 0x33d27589…；CTF getOutcomeSlotCount=2 链上确认 condition 存在（块 97,019,894）。未取价格/订单簿，不判断可交易性或收益。",
+   "evidence_urls": ["https://gamma-api.polymarket.com/markets?limit=5&closed=false&order=startDate&ascending=false", "https://polygonscan.com/address/0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"],
+   "net_result": "unknown（无报价）",
+   "unknown_costs": ["订单簿价格/滑点", "结算/争议风险", "gas"],
+   "handoff_to": ["POLY01", "R-POLY"],
+   "invalidation_conditions": ["condition 不存在或已作废", "市场关闭/取消", "无法取得可执行报价"]
+  },
+  {
+   "finding_id": "POLY-UNISWAP-V3-NEW-POOL-20261109",
+   "status": "UNVERIFIED",
+   "market_id": "POLY:UNISWAP_V3:POOL:0xb72337bea17c20a148d41f375b6fe4f70c2842d5",
+   "mechanism": "Uniswap V3 Polygon 工厂在最近 10,000 块（约 4.17h）新增 1 池：token0=0x0d500b1d…（原生 gas wrapper）、token1=0xe12a7b1c…、fee 0.3%，创建块 97,014,581；token1 身份与流动性未核验。",
+   "evidence_urls": ["https://polygonscan.com/address/0xb72337bea17c20a148d41f375b6fe4f70c2842d5"],
+   "net_result": "unknown（无报价）",
+   "unknown_costs": ["token1 身份/可卖性", "流动性/冲击", "gas"],
+   "handoff_to": ["POLY01"],
+   "invalidation_conditions": ["token1 不可卖/骗局", "池无流动性", "工厂归属不符"]
+  }
+ ],
+ "rejections": [
+  {"claim": "V1 README 已归档 = V1 链上已退役", "reason": "V1 交易所 0x4bFb… 代码仍在（17,208 B）；未扫事件/订单，不能断言退役。"},
+  {"claim": "PMCT/pUSD 是 result/outcome 份额或借贷抵押品", "reason": "链上 pUSD name=Polymarket USD、symbol=pUSD、decimals=6，USDC/USDC.e/VAULT 现金 wrapper 结构；无 outcome/借贷映射证据。"},
+  {"claim": "V2 README 列出的 CollateralToken impl 就是当前链上实现", "reason": "代理 EIP-1967 槽指向 0xce84e053…，与 README 的 0x6bBCef9f… 不同；需按链上为准。"},
+  {"claim": "新市场/新池出现即可交易或有收益", "reason": "仅核验 condition 存在（2 slots）与池创建事件；无报价/流动性/订单簿，不构成机会。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 6,
+  "retrieved_at_utc": "2026-11-09T14:43:43+00:00",
+  "complete_block_range": "代码/状态：块 97,019,894；新池日志：97,009,894-97,019,894（完整覆盖 10,000 块窗口）；新 condition 校验：块 97,019,894",
+  "complete_event_time_window": "Uniswap V3 新池约 2026-11-09T10:31:37Z-14:41:45Z（4.17h）；Gamma 快照 14:42:50Z；30 天规则/7 天活动未完整覆盖"
+ }
+}

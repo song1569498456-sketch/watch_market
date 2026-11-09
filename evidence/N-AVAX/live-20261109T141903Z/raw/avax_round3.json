@@ -1,0 +1,101 @@
+{
+ "started_at_utc": "2026-11-09T14:45:23.246515+00:00",
+ "latest_block_reference": 99858595,
+ "getlogs_v21_7d": {
+  "range": [
+   99556195,
+   99858595
+  ],
+  "error": {
+   "code": -32701,
+   "message": "exceed maximum block range: 50000"
+  },
+  "count": 0
+ },
+ "events_7d": [],
+ "events_7d_decoded": [],
+ "avalanchego_atom_titles": [
+  "Release notes from avalanchego",
+  "v1.15.3 - API Cleanup",
+  "v1.15.3-rc.2",
+  "v1.15.3-rc.0",
+  "Helicon.2 - Removed Coreth",
+  "v1.15.2-rc.1",
+  "graft/subnet-evm/v1.15.2",
+  "graft/subnet-evm/v1.15.2-rc.1",
+  "graft/evm/v1.15.2",
+  "graft/evm/v1.15.2-rc.1",
+  "graft/coreth/v1.15.2"
+ ],
+ "avalanchego_atom_updated": [
+  "2026-11-04T21:34:48Z",
+  "2026-11-05T22:47:12Z",
+  "2026-11-04T21:34:48Z",
+  "2026-11-04T19:29:25Z",
+  "2026-10-22T21:49:24Z",
+  "2026-10-22T16:31:08Z",
+  "2026-10-22T21:16:18Z",
+  "2026-10-22T16:31:13Z",
+  "2026-10-22T21:16:18Z",
+  "2026-10-22T16:31:12Z",
+  "2026-10-22T21:16:17Z"
+ ],
+ "joev2_atom_titles": [
+  "Release notes from joe-v2",
+  "v2.2",
+  "v2.1.1",
+  "v2.1.0",
+  "v2.0.0",
+  "v1.0.0"
+ ],
+ "joev2_atom_updated": [
+  "2024-04-09T22:53:12Z",
+  "2024-04-09T22:54:42Z",
+  "2023-05-15T08:24:48Z",
+  "2023-04-04T16:47:09Z",
+  "2023-04-03T19:28:31Z",
+  "2023-01-19T13:09:45Z"
+ ],
+ "finished_at_utc": "2026-11-09T14:45:28.809583+00:00",
+ "requests": [
+  {
+   "name": "getlogs_v21_7d",
+   "rpc": "https://api.avax.network/ext/bc/C/rpc",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:23.998812+00:00",
+   "n_calls": 1,
+   "bytes": 161,
+   "sha256": "ff01e5bfcd9929414cfa167b0a3865f616dce9186b8033da358bbb0211b50425",
+   "elapsed_s": 0.752
+  },
+  {
+   "name": "getlogs_v21_7d",
+   "rpc": "https://avalanche-c-chain-rpc.publicnode.com",
+   "http_status": 403,
+   "at": "2026-11-09T14:45:25.023380+00:00",
+   "n_calls": 1,
+   "bytes": 97,
+   "sha256": "4f0fc2f97d10329fce954d9612acacd471c5ba5a7578eb8bafcc8803fff6e40a",
+   "elapsed_s": 1.024
+  },
+  {
+   "name": "avalanchego_atom",
+   "url": "https://github.com/ava-labs/avalanchego/releases.atom",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:27.213637+00:00",
+   "bytes": 120290,
+   "sha256": "9e4469e8d97dd3021c51bdada46e9a3d40f56ed10ea402554b2433e3d0b20b72",
+   "elapsed_s": 1.79
+  },
+  {
+   "name": "joev2_atom",
+   "url": "https://github.com/traderjoe-xyz/joe-v2/releases.atom",
+   "http_status": 200,
+   "at": "2026-11-09T14:45:28.809493+00:00",
+   "bytes": 5027,
+   "sha256": "1ab4e4fcc7cfd16bf72e4dc3e7a016929df5a84190ba222fb9892debb480d743",
+   "elapsed_s": 1.195
+  }
+ ],
+ "request_count": 4
+}
