@@ -1,0 +1,236 @@
+{
+ "started_at_utc": "2026-11-09T14:47:56.443185+00:00",
+ "sdk_arbitrum_lines": [
+  "ChainId.ARBITRUM_ONE,",
+  "[ChainId.ARBITRUM_ONE]: '0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9',",
+  "[ChainId.ARBITRUM_ONE]: '0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24',",
+  "const ARBITRUM_ONE_ADDRESSES: ChainAddresses = {",
+  "const ARBITRUM_GOERLI_ADDRESSES: ChainAddresses = {",
+  "const ARBITRUM_SEPOLIA_ADDRESSES: ChainAddresses = {",
+  "[ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,",
+  "[ChainId.ARBITRUM_GOERLI]: ARBITRUM_GOERLI_ADDRESSES,",
+  "[ChainId.ARBITRUM_SEPOLIA]: ARBITRUM_SEPOLIA_ADDRESSES,"
+ ],
+ "sdk_quoter_lines": [
+  "quoterAddress: string",
+  "mixedRouteQuoterV1Address?: string",
+  "mixedRouteQuoterV2Address?: string",
+  "v4QuoterAddress?: string",
+  "quoterAddress: '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6',",
+  "mixedRouteQuoterV1Address: '0x84E44095eeBfEC7793Cd7d5b57B7e401D7f1cA2E',",
+  "mixedRouteQuoterV2Address: '0xd0372023c4938b9984efe75247461a4abb36974b',",
+  "v4QuoterAddress: '0x99bd42b2b22e531f283b7f8a86dff631eb16a9d1',",
+  "mixedRouteQuoterV1Address: '0xBa60b6e6fF25488308789E6e0A65D838be34194e',",
+  "mixedRouteQuoterV2Address: '0xbe2257d1aafbe6b73f67a9ac971c2f0b344bb3c5',",
+  "v4QuoterAddress: '0xd673f731edfe5aaf1bda7fd43d13bbb5150b87ca',",
+  "mixedRouteQuoterV2Address: '0x5c834b6cac4173bfe288c5722a38e04b9e366e30',"
+ ],
+ "sdk_contains_candidate": {
+  "0x61fFE014bA17989E743c5F6cB21bF9697530B21e": false,
+  "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6": true
+ },
+ "chain_id": 42161,
+ "latest_block": 522706727,
+ "latest_block_time_utc": "2026-11-09T14:47:59+00:00",
+ "base_fee_wei": "0x133e450",
+ "pinned_block": 522706717,
+ "quoter_primary_code_bytes": 8273,
+ "code_bytes": {
+  "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6": 4631,
+  "0x1F98431c8aD98523631AE4a59f267346ea31F984": 24535,
+  "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": 2092,
+  "0xaf88d065e77c8cc2239327c5edb3a432268e5831": 1852,
+  "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": 2141,
+  "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": 760
+ },
+ "pools": {
+  "WETH/USDC": {
+   "tokenA": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "tokenB": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "fee": 500,
+   "pool": "0xc6962004f452be9203591991d15f6b388e09e8d0"
+  },
+  "USDC/USDT": {
+   "tokenA": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "tokenB": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+   "fee": 100,
+   "pool": "0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6"
+  },
+  "USDT/WETH": {
+   "tokenA": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+   "tokenB": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "fee": 500,
+   "pool": "0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+  },
+  "WETH/USDC_3k": {
+   "tokenA": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "tokenB": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "fee": 3000,
+   "pool": "0xc473e2aee3441bf9240be85eb122abb059a3b57c"
+  },
+  "USDC/WBTC": {
+   "tokenA": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "tokenB": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+   "fee": 3000,
+   "pool": "0x6985cb98ce393fce8d6272127f39013f61e36166"
+  },
+  "WBTC/WETH": {
+   "tokenA": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+   "tokenB": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "fee": 3000,
+   "pool": "0x149e36e72726e0bcea5c59d40df2c43f60f5a22d"
+  },
+  "USDC/USDT_1": {
+   "tokenA": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "tokenB": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+   "fee": 1,
+   "pool": null
+  },
+  "WETH/USDT_3k": {
+   "tokenA": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "tokenB": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+   "fee": 3000,
+   "pool": "0xc82819f72a9e77e2c0c3a69b3196478f44303cf4"
+  }
+ },
+ "token_meta": {
+  "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+   "symbol": "WETH",
+   "decimals": 18
+  },
+  "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
+   "symbol": "USDC",
+   "decimals": 6
+  },
+  "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
+   "symbol": "USD₮0",
+   "decimals": 6
+  },
+  "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": {
+   "symbol": "WBTC",
+   "decimals": 8
+  }
+ },
+ "quotes": [
+  {
+   "triangle": "T1_WETH_USDC_USDT",
+   "amount_in_raw": "100000000000000000",
+   "error": null,
+   "amount_out_raw": "99904274793693395",
+   "amount_out_dec": "0.09990427479369339",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "0.1"
+  },
+  {
+   "triangle": "T1_WETH_USDC_USDT",
+   "amount_in_raw": "1000000000000000000",
+   "error": null,
+   "amount_out_raw": "998829456896439891",
+   "amount_out_dec": "0.9988294568964399",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "1.0"
+  },
+  {
+   "triangle": "T1_WETH_USDC_USDT",
+   "amount_in_raw": "10000000000000000000",
+   "error": null,
+   "amount_out_raw": "9967034302194313656",
+   "amount_out_dec": "9.967034302194314",
+   "gas_estimate": 5,
+   "status": "quoted",
+   "amount_in_dec": "10.0"
+  },
+  {
+   "triangle": "T1_WETH_USDC_USDT",
+   "amount_in_raw": "50000000000000000000",
+   "error": null,
+   "amount_out_raw": "49389054098727395856",
+   "amount_out_dec": "49.3890540987274",
+   "gas_estimate": 19,
+   "status": "quoted",
+   "amount_in_dec": "50.0"
+  },
+  {
+   "triangle": "T2_WETH_USDC_WBTC",
+   "amount_in_raw": "100000000000000000",
+   "error": null,
+   "amount_out_raw": "99701413219447454",
+   "amount_out_dec": "0.09970141321944745",
+   "gas_estimate": 2,
+   "status": "quoted",
+   "amount_in_dec": "0.1"
+  },
+  {
+   "triangle": "T2_WETH_USDC_WBTC",
+   "amount_in_raw": "1000000000000000000",
+   "error": null,
+   "amount_out_raw": "994066931299310142",
+   "amount_out_dec": "0.9940669312993101",
+   "gas_estimate": 2,
+   "status": "quoted",
+   "amount_in_dec": "1.0"
+  },
+  {
+   "triangle": "T2_WETH_USDC_WBTC",
+   "amount_in_raw": "10000000000000000000",
+   "error": null,
+   "amount_out_raw": "9687370389592732244",
+   "amount_out_dec": "9.687370389592733",
+   "gas_estimate": 4,
+   "status": "quoted",
+   "amount_in_dec": "10.0"
+  },
+  {
+   "triangle": "T2_WETH_USDC_WBTC",
+   "amount_in_raw": "50000000000000000000",
+   "error": null,
+   "amount_out_raw": "43208762744196879664",
+   "amount_out_dec": "43.20876274419688",
+   "gas_estimate": 11,
+   "status": "quoted",
+   "amount_in_dec": "50.0"
+  },
+  {
+   "triangle": "T3_USDC_USDT_WETH",
+   "amount_in_raw": "1000000",
+   "error": null,
+   "amount_out_raw": "999065",
+   "amount_out_dec": "0.999065",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "1.0"
+  },
+  {
+   "triangle": "T3_USDC_USDT_WETH",
+   "amount_in_raw": "10000000",
+   "error": null,
+   "amount_out_raw": "9990652",
+   "amount_out_dec": "9.990652",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "10.0"
+  },
+  {
+   "triangle": "T3_USDC_USDT_WETH",
+   "amount_in_raw": "1000000000",
+   "error": null,
+   "amount_out_raw": "998954995",
+   "amount_out_dec": "998.954995",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "1000.0"
+  },
+  {
+   "triangle": "T3_USDC_USDT_WETH",
+   "amount_in_raw": "10000000000",
+   "error": null,
+   "amount_out_raw": "9979520830",
+   "amount_out_dec": "9979.52083",
+   "gas_estimate": 1,
+   "status": "quoted",
+   "amount_in_dec": "10000.0"
+  }
+ ]
+}

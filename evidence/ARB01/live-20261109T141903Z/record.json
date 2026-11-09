@@ -1,0 +1,290 @@
+{
+  "agent_id": "ARB01",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One 同一资产对（WETH/USDC.e）在 Uniswap V3 与 SushiSwap V2 的同块报价与 A→B→A 逐档成本；N-ARB 新池 BLPX/USDC 可报价性核验",
+  "started_at": "2026-11-09T14:46:30.106808+00:00",
+  "finished_at": "2026-11-09T14:47:44.893037+00:00",
+  "duration_seconds": 74.786,
+  "execution_status": "COMPLETED",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T14:47:44+00:00",
+    "beijing": "2026-11-09T22:47:44+08:00",
+    "data_time": "head 522706632 @ 2026-11-09T14:47:34Z；两腿报价同块 522706375（2026-11-09T14:46:31Z 头部时间）；Sushi 池储备 blockTimestampLast=1794234929（≈14:35:29Z，距报价约 11 分钟，更新于上一次交易）"
+  },
+  "block_or_slot": 522706375,
+  "market_ids": [
+    "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+    "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+    "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2"
+  ],
+  "asset_ids": [
+    "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+    "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "eip155:42161/erc20:0xf2925a78adac85ca330643bc5584a694199afb76"
+  ],
+  "discovery_source": [
+    {
+      "source": "Arbitrum One 只读 RPC（arb1.arbitrum.io），JSON-RPC eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_gasPrice/eth_getCode/eth_call",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-09T14:45:53Z-2026-11-09T14:47:44Z",
+      "request": "POST JSON-RPC 共 56 次（本轮总计，全部只读）",
+      "http_status": 200
+    },
+    {
+      "source": "Uniswap 官方 SDK 地址（上轮已抓取，本轮复用：v3CoreFactoryAddress / quoterAddress / 共享部署地址）",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-08T15:34:16Z",
+      "http_status": 200,
+      "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc"
+    },
+    {
+      "source": "SushiSwap 官方 Arbitrum V2 工厂部署 JSON（上轮已抓取，本轮复用 factory 地址）",
+      "url": "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json",
+      "retrieved_at_utc": "2026-11-08T15:34:17Z",
+      "http_status": 200,
+      "sha256": "7106a26328fe5392eb1d7846af5e5927e8cf2bbccd54c8c0190d7cef363386c5"
+    },
+    {
+      "source": "N-ARB 本轮记录（新池 0x7c03126d… 的发现来源；本轮仅作候选复核，不当作独立验证）",
+      "url": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "retrieved_at_utc": "2026-11-09T14:47:10Z",
+      "http_status": null,
+      "note": "本地共享工作区文件读取"
+    },
+    {
+      "source": "Dexscreener 代币交易对查询（仅发现入口：BLPX token 0xf2925a78… 的其它 DEX 交易对）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xf2925a78adac85ca330643bc5584a694199afb76",
+      "retrieved_at_utc": "2026-11-09T14:47:43Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "pairs=[]（聚合器未收录任何该 token 交易对）"
+    }
+  ],
+  "mechanism": "同资产对（WETH/USDC.e）在 Uniswap V3 fee=500 池与 SushiSwap V2 pair 上取同一区块（522706375）两腿报价：第一腿实际输出作为第二腿输入，计入各 DEX 费率（Uni 0.05%、Sushi 0.30%）与恒定乘积冲击。同块中间价：Uniswap 2125.394、Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps），低于往返费率 35bps，故 5 个数量档全部净负；Sushi pair 仅 37.04 WETH 储备使大额下单迅速恶化。新池 BLPX/USDC 可单边报价但只有 Uniswap V3 一个市场、聚合器无任何收录，无法构成两市场闭环。",
+  "observations": [
+    "链身份：eth_chainId=42161；head=522706632（2026-11-09T14:47:34Z）；gasPrice=20,108,000 wei（0.020108 gwei）。",
+    "合约身份链上核验：Uniswap V3 factory 0x1F98431c8aD98523631AE4a59f267346ea31F984（24535B，sha256=fd5e0ec0…）；Sushi V2 factory 0xc35DADB65012eC5796536bD9864eD8773aBc74C4（11264B，sha256=ac64b67a…）；Sushi router 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506（17762B，sha256=e6dfc263…）；Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（4631B，sha256=164604f0…，与官方 SDK ARB quoterAddress 一致）。",
+    "同一资产对两池互证：Uniswap V3 池 0xc31e54c7a869b9fcbecc14363cf510d1c41fa443：token0=WETH 0x82aF…、token1=USDC.e 0xFF97…、fee=500、slot0 tick=-199731、sqrtPriceX96=3647515015869329862770939、liquidity=21599303645811515；Sushi V2 pair 0x905dfcd5649217c42684f23958568e533c711aa3：token0=WETH、token1=USDC.e（顺序相同，资产权益一致），reserves=37.037187636938966194 WETH / 78523.640619 USDC.e（blockTimestampLast=1794234929）。",
+    "同块中间价（用两池状态同一块 522706375 计算）：Uniswap V3=2125.394044 USDC.e/WETH；Sushi V2=2120.129676；Sushi 相对 Uni 低 24.77bps（0.248%）。",
+    "往返费率下限：Uniswap 0.05% + Sushi 0.30% = 0.35%（35bps）+ 两腿冲击 + gas；35bps > 24.77bps 中间价差 → 结构上无法覆盖费用；实测 5 档全部净负。",
+    "实测净结果（同块 522706375，以第一腿实际输出为第二腿输入，未计 gas）：10 USDC：Uni买→Sushi卖 净 −0.033427（−0.33%），Sushi买→Uni卖 净 −0.039273（−0.39%）；100 USDC：−0.457148（−0.46%）/ −0.515363（−0.52%）；1000 USDC：−16.719273（−1.67%）/ −17.259255（−1.73%）；10000 USDC：−1235.149697（−12.35%）/ −1234.116070（−12.34%）；100000 USDC：−57975.723050（−57.98%）/ −57909.761201（−57.91%）。",
+    "容量：Sushi V2 侧 WETH 储备仅 37.0372 WETH（按 2120 USDC ≈ 78.5k USD），1000 USDC 级交易已占 WETH 储备约 1.27%，冲击主导；Uniswap V3 侧 liquidity=21.6e15（深），故瓶颈在 Sushi 腿。",
+    "gas：gasPrice=0.020108 gwei；按两笔 swap 各约 180k gas 估算 ≈0.0000072 ETH（≈0.015 USD，按中间价），远小于各档亏损；Arbitrum L1 数据费未单独估算（unknown，但不足以翻转结论）。",
+    "N-ARB 新池复核（链上）：Uniswap V3 池 0x7c03126dc25748c658efb946d32b42a4a84d49d2（代码 22142B，sha256=df4352d1…），token0=原生 USDC 0xaf88…、token1=BLPX 0xf2925a78adac85ca330643bc5584a694199afb76、fee=3000（0.3%）、slot0 tick=329309、liquidity=24259911431500377；可单边报价：100 USDC→18,844.754615093570206089 BLPX（6→18 位换算，≈0.005306 USDC/BLPX）；1 BLPX→0.004984 USDC（Quoter 返回 4984 raw，6 位）。",
+    "BLPX/USDC 的跨 DEX 性排除：Dexscreener token 查询 pairs=[]（无任何收录）；本轮未发现第二个独立市场（N-ARB 24h 窗口内 Uniswap V3 也仅此一个新池）。故 0x7c03126d… 只能登记为单市场新池候选，不能构成 ARB01 的两市场闭环。",
+    "Sushi 池储备时间戳 14:35:29Z 与报价块 14:46:31Z 相差约 11 分钟（储备只在成交时更新），两腿虽用同一 eth_call 块，但 Sushi 储备状态反映上一笔交易；已按块固定，差异仅影响储备时间标注，不改变净负结论。"
+  ],
+  "quotes": [
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "amount_in": "10 USDC.e (1e7)",
+      "amount_out": "0.004715670195594033 WETH",
+      "fees": "Uniswap V3 fee=500（0.05%）已由 Quoter 计入",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "Quoter v1 quoteExactInputSingle(USDC.e→WETH, fee 500)；第二腿 Sushi 用此实际输出"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+      "amount_in": "0.004715670195594033 WETH",
+      "amount_out": "9.966573 USDC.e",
+      "fees": "Sushi V2 0.30% 已由 Router getAmountsOut 计入",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "第二腿（Uni 买→Sushi 卖），净 −0.033427 USDC（−0.33%）"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+      "amount_in": "10 USDC.e (1e7)",
+      "amount_out": "0.004701945547005634 WETH",
+      "fees": "Sushi V2 0.30% 已计入",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "Sushi 买→Uni 卖方向第一腿"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "amount_in": "0.004701945547005634 WETH",
+      "amount_out": "9.960727 USDC.e",
+      "fees": "Uniswap V3 fee=500 已计入",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "Sushi 买→Uni 卖方向第二腿，净 −0.039273 USDC（−0.39%）"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "amount_in": "100 USDC.e (1e8)",
+      "amount_out": "0.047152355816894610 WETH",
+      "fees": "Uniswap V3 fee=500 已计入",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "100 USDC 档第一腿；Sushi 卖回 99.542852（净 −0.457148）"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "amount_in": "4.6675438386791575 WETH (10000 USDC 档第一腿输出)",
+      "amount_out": "8764.850303 USDC.e",
+      "fees": "两腿费用计入（Uni 0.05% + Sushi 0.30%）",
+      "block": 522706375,
+      "quote_time_utc": "2026-11-09T14:46:31Z",
+      "note": "10000 USDC 档：Uni 买 4.6675 WETH→Sushi 卖回 8764.850303，净 −1235.149697（−12.35%）"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+      "amount_in": "100 原生 USDC (1e8)",
+      "amount_out": "18844.754615093570206089 BLPX",
+      "fees": "Uniswap V3 fee=3000（0.30%）已计入",
+      "block": 522706632,
+      "quote_time_utc": "2026-11-09T14:47:34Z",
+      "note": "N-ARB 新池单边可报价；仅此一个市场（Dexscreener pairs=[]），不构成跨 DEX 闭环"
+    }
+  ],
+  "net_result": {
+    "value": "-0.033427",
+    "unit": "USDC.e",
+    "type": "estimated_from_same_block_quotes_not_executed",
+    "realized": false,
+    "unknown_costs": [
+      "Arbitrum L1 数据费（未从实际交易读取；量级远小于亏损，不足以翻转）",
+      "实际两笔 swap gas（约 0.000007 ETH 估算，已含在 notes）",
+      "授权/账户初始化（若首次交易）",
+      "两腿拆成两笔交易的时间差风险（本报价为同块只读，不可原子完成）"
+    ],
+    "note": "10/100/1000/10000/100000 USDC.e 五档、两个方向共 10 条往返全部净负，最小亏损 −0.033427 USDC（−0.33%）；无正收益路径。"
+  },
+  "capacity": "Sushi V2 侧 WETH 储备 37.037187636938966194（≈78.5k USD），1000 USDC 级即占其 WETH 储备约 1.27%，冲击迅速放大亏损；Uniswap V3 侧 liquidity=21599303645811515（较深）。可执行容量受 Sushi 腿限制，且费用结构已使任何规模净负。",
+  "permissions": "两池均公开可交易：Uniswap V3 池 0xc31e54c7…（fee 500）、Sushi pair 0x905dfcd5… 的 token0/token1 与工厂 getPool/getPair 一致；无白名单/暂停读取（仅读报价，不涉及授权）。",
+  "liabilities": "unknown；本轮纯只读，无仓位/借款/授权。",
+  "waiting_time": "无：两腿若执行需两笔交易，可同块报价但不保证原子组合；未涉及跨链/提款等待。",
+  "invalidation_conditions": [
+    "同块中间价差扩大到 > 35bps + 冲击 + gas（当前 24.77bps）",
+    "Sushi V2 储备大幅增加使冲击下降",
+    "两腿价格在提交时间窗内移动使报价过期",
+    "任一池暂停/流动性撤出",
+    "出现费用更低的第二市场（如 Uniswap V3 fee=100/500 另一池或 Camelot、Velodrome 同资产池）"
+  ],
+  "evidence_urls": [
+    "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+    "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+    "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+    "https://arbiscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+    "https://arbiscan.io/address/0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+    "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
+  ],
+  "coverage_gaps": [
+    "只比较了 Uniswap V3 fee=500 与 Sushi V2 一对；未覆盖 Uniswap V3 fee=100/3000 同资产池、Camelot、Velodrome/其它 Arbitrum DEX 的同资产对（下一轮轮转）。",
+    "30 天规则变更与 7 天活动未回溯：未读 PoolCreated/PairCreated/Swap 事件、未找差异出现前的交易与费率/流动性调整，无法回答“为何短暂失衡”。",
+    "未做只读模拟（两腿不可原子组合于单笔交易；若用聚合器/多跳合约需要额外路由合约，本轮未模拟）。",
+    "N-ARB 新池 BLPX/USDC 只核验了单市场可报价性；未确认 token 权限（税/黑名单）与其它未收录 DEX 的池（Dexscreener 无收录不等于全链不存在）。",
+    "Sushi 池储备时间戳比报价块早约 11 分钟（仅成交时更新），两腿仍为同块 eth_call；未做连续块监控。",
+    "L1 数据费未按实际交易估算（unknown）；Arbitrum 当前 gasPrice=0.020108 gwei。",
+    "本轮外部请求 56 次（≤80，符合上限）。"
+  ],
+  "next_check": [
+    "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+    "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+    "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+    "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+    "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+  ],
+  "handoff_to": ["M00", "Q00", "N-ARB"],
+  "markets": [
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 (WETH/USDC.e, fee=500)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_TOKEN0_TOKEN1_FEE_READ",
+      "next_check": "与更多 DEX 同资产对同块比价；监控价差"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+      "chain": "ARB",
+      "protocol": "SushiSwap V2 (WETH/USDC.e)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+        "https://arbiscan.io/address/0xc35DADB65012eC5796536bD9864eD8773aBc74C4"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PAIR_TOKEN0_TOKEN1_RESERVES_READ",
+      "next_check": "监控储备与中间价差；储备仅 37 WETH 限制容量"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 (USDC/BLPX, fee=3000)",
+      "asset_ids": [
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "eip155:42161/erc20:0xf2925a78adac85ca330643bc5584a694199afb76"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_QUOTABLE_SINGLE_VENUE",
+      "next_check": "等待第二市场出现；核验 BLPX token 权限"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+      "status": "REJECTED",
+      "chain": "ARB",
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "first_seen_at": "2026-11-09T14:47:44+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3(fee=500) 与 SushiSwap V2 的同块报价：同块中间价 Uniswap 2125.394 vs Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps）；往返费率 0.05%+0.30%=35bps 高于中间价差，且 Sushi 储备仅 37.04 WETH，冲击使大额更差。10/100/1000/10000/100000 USDC 五档两个方向实测全部净负（最小 −0.33%），无闭环正收益。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+        "https://arbiscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
+      ],
+      "net_result": "同块 10 档往返全部净负；最小 −0.033427 USDC.e（−0.33% @10 USDC），1000 USDC 档 −1.67%",
+      "unknown_costs": ["L1 数据费", "两笔交易时间差", "授权/账户初始化"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["中间价差 >35bps+冲击+gas", "Sushi 储备显著增加", "出现更低费率/更深第二市场"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "WETH/USDC.e 在 Uniswap V3 与 SushiSwap V2 之间存在可闭环套利",
+      "reason": "同块中间价差仅 24.77bps，小于往返费用 35bps（0.05%+0.30%）且需两腿冲击；10 档同块报价全部净负（最小 −0.33%），未扣 gas 亦为负。",
+      "evidence": "Quoter v1 + Sushi Router getAmountsOut 于块 522706375"
+    },
+    {
+      "claim": "Sushi WETH 更便宜 24.8bps 即可买 Sushi 卖 Uniswap 获利",
+      "reason": "忽略往返费率与冲击：Sushi 买→Uni 卖在 10 USDC 档即 −0.039273（−0.39%）；1000 档 −1.73%。",
+      "evidence": "同块两腿报价（10/100/1000/10000/100000 档）"
+    },
+    {
+      "claim": "N-ARB 新池 BLPX/USDC 可作 ARB01 跨 DEX 候选",
+      "reason": "池 0x7c03126d… 链上确认可单边报价（100 USDC→18,844.75 BLPX），但 Dexscreener 无任何收录、本轮未发现第二个独立市场；单市场不能构成 A→B→A 闭环。",
+      "evidence": "池 token0/token1/fee/slot0/liquidity + Quoter 报价 + Dexscreener pairs=[]"
+    },
+    {
+      "claim": "不同 DEX 有价差即可套利（不看数量/费用）",
+      "reason": "必须用同块指定数量、以第一腿实际输出为第二腿输入；本对在最小 10 USDC 档即净负，价差被费率吃光。",
+      "evidence": "逐档净结果表"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 5,
+    "retrieved_at_utc": "2026-11-09T14:47:44Z",
+    "complete_block_range": "522706375（两腿同块报价）；522706632（N-ARB 新池最新状态读取）",
+    "complete_event_time_window": "2026-11-09T14:46:31Z（报价块时间）；Sushi 储备更新于 2026-11-09T14:35:29Z"
+  }
+}

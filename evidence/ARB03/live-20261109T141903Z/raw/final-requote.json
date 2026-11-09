@@ -1,0 +1,39 @@
+{
+ "chain": "ARB",
+ "head_block": 522707876,
+ "head_timestamp_utc": "2026-11-09T14:52:55+00:00",
+ "pinned_block": 522707873,
+ "retrieved_at_utc": "2026-11-09T14:52:57.589409+00:00",
+ "quotes": [
+  {
+   "direction": "wstETH->WETH",
+   "fee": 100,
+   "amount_in": "1",
+   "amount_out": 1.248497488656218,
+   "ratio": 1.248497488656218,
+   "error": null,
+   "quote_time_utc": "2026-11-09T14:52:58.362085+00:00",
+   "block": 522707873
+  },
+  {
+   "direction": "wstETH->WETH",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 124.80245003332676,
+   "ratio": 1.2480245003332675,
+   "error": null,
+   "quote_time_utc": "2026-11-09T14:52:59.138560+00:00",
+   "block": 522707873
+  },
+  {
+   "direction": "rETH->WETH",
+   "fee": 500,
+   "amount_in": "1",
+   "amount_out": 1.1737989660492183,
+   "ratio": 1.1737989660492183,
+   "error": null,
+   "quote_time_utc": "2026-11-09T14:52:59.942832+00:00",
+   "block": 522707873
+  }
+ ]
+}

@@ -3501,6 +3501,217 @@
         "读 Aave Sonic 储备参数与 stS 退出规则、oracle 调用；评估账面资产 vs 可提现流动性，交 SONIC02/SONIC03。",
         "补 Shadow PoolCreated 与其他 Sonic DEX 工厂、旧小池轮转；保留真实区块范围与分页。"
       ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "只比较了 Uniswap V3 fee=500 与 Sushi V2 一对；未覆盖 Uniswap V3 fee=100/3000 同资产池、Camelot、Velodrome/其它 Arbitrum DEX 的同资产对（下一轮轮转）。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则变更与 7 天活动未回溯：未读 PoolCreated/PairCreated/Swap 事件、未找差异出现前的交易与费率/流动性调整，无法回答“为何短暂失衡”。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做只读模拟（两腿不可原子组合于单笔交易；若用聚合器/多跳合约需要额外路由合约，本轮未模拟）。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "N-ARB 新池 BLPX/USDC 只核验了单市场可报价性；未确认 token 权限（税/黑名单）与其它未收录 DEX 的池（Dexscreener 无收录不等于全链不存在）。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Sushi 池储备时间戳比报价块早约 11 分钟（仅成交时更新），两腿仍为同块 eth_call；未做连续块监控。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "L1 数据费未按实际交易估算（unknown）；Arbitrum 当前 gasPrice=0.020108 gwei。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 56 次（≤80，符合上限）。",
+      "next_check": [
+        "轮转比较 Uniswap V3 fee=100/500/3000 与 Camelot/Velodrome 等 Arbitrum 同资产对，在同一块取两腿报价；优先找费率更低或深度更大的第二市场。",
+        "监控 Uniswap V3 池 0xc31e54c7… 与 Sushi pair 0x905dfcd5… 的中间价差是否超过 35bps+冲击+gas；若超过再重跑同块报价。",
+        "补 7 天活动：读两池 Swap 事件与差异出现前的交易，解释失衡来源；检查是否有流动性撤出/费率调整。",
+        "跟踪 N-ARB 新池 0x7c03126d…（BLPX/USDC 0.3%）是否出现第二个 DEX 市场或迁移；若有，登记为跨 DEX 候选。",
+        "若采用聚合器/多跳执行，先验证路由合约与原子性，并读取 L1 数据费口径，避免把两笔交易当无风险闭环。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口未覆盖：未扫 Uniswap 治理/工厂 fee tier、池创建/迁移事件；只核当前 SDK 地址与链上 Quoter/工厂代码。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动窗口未覆盖：未扫真实三角交易、未复盘历史成交与大额换币；只有单 pinned 块快照。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅 Uniswap V3 三个闭环，未覆盖 Sushi/Camelot/Balancer 等其他 DEX 三角与跨 DEX 组合。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未计 gas（L2+L1 数据费）、授权、滑点、失败成本；QuoterV2 返回的 gasEstimate 字段未使用/未校验解码。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做融资（自有本金/闪电贷）与只读交易模拟；容量只到 50 WETH / 10,000 USDC。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "报价为 pinned 块历史证据（报告落盘时已超过 60 秒），执行前必须重取。",
+      "next_check": [
+        "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+        "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+        "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+        "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+        "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+      ]
+    },
+    {
+      "agent_id": "ARB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "跨链出口实际等待时间与 L1 侧状态未核：L2 网关 withdrawals enabled=true，但 L1 网关是否启用、争议窗口天数、L1 释放后领取流程未读。",
+      "next_check": [
+        "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+        "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+        "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+        "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ARB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "折价对照使用 Ethereum 14:31:47Z 的 L1 读数，与 Arbitrum 14:51 不同链且时差约 20 分钟，只能作参考；缺同链同机制的权威参考值。",
+      "next_check": [
+        "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+        "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+        "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+        "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ARB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做完整路径只读模拟（跨链+L1 领取）；未测 L2 gas 笔数、L1 数据费与 L1 领取 gas。",
+      "next_check": [
+        "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+        "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+        "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+        "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ARB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则变化与 7 天活动窗口未覆盖；未扫其他 LST（stETH 其他封装、sfrxETH 等）与 L2 原生质押衍生品是否存在本链赎回。",
+      "next_check": [
+        "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+        "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+        "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+        "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "ARB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "rETH 容量仅测 1/10 单位；wstETH 容量未做 1000 档；L1/L2 费用口径未合并测算。",
+      "next_check": [
+        "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+        "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+        "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+        "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+      ]
     }
   ],
   "status": "OPEN",

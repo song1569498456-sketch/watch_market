@@ -2,17 +2,25 @@
   "agent_id": "ARB03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "QUOTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:51:15+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
-      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:51:15+00:00",
+    "chain_id": 42161,
+    "head_block": 522707445,
+    "pinned_blocks": [
+      522707442
     ],
-    "chain_block": null,
-    "history_complete": false
+    "urls": [
+      "https://arb1.arbitrum.io/rpc",
+      "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+      "https://api.dexscreener.com/latest/dex/search?q=rETH"
+    ],
+    "complete_block_range": "代码/状态/报价：块 522,707,442（完整单块读数）；head 522,707,445",
+    "complete_event_time_window": "单块快照；30 天规则回溯与 7 天活动窗口未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,37 +38,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "asset": "wstETH",
-      "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
-      "decimals_from_static_registry": 18,
-      "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
-      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
-      "lines": "78-80",
-      "field": "L2 burn -> L1 outbox release after dispute window",
-      "data_kind": "static official design; not current deployment/state"
-    }
+    "链身份核验：eth_chainId=0xa4b1（42161）；head=522,707,445（2026-11-09T14:51:05Z）；状态/代码/报价固定块 522,707,442；head baseFee≈0.020 gwei（未计 L1 数据费）。",
+    "wstETH L2 0x5979D7b5…：代码 3,296 B，name=Wrapped liquid staked Ether 2.0/symbol=wstETH/18 位/totalSupply=47,840.945125478664582365；stEthPerToken、getStETHByWstETH、unwrap 均 revert → L2 无份额率/赎回函数；bridge()=0x07d46922…，网关 isWithdrawalsEnabled()=true。",
+    "rETH L2 0xEC70Dcb4…：代码 760 B，name=Rocket Pool ETH/symbol=rETH/18 位；getExchangeRate/getEthValue revert → 无 L2 协议赎回。",
+    "DEX 即卖同块报价（报告前重取，块 522,707,442）：wstETH/WETH 0.01% 池 0x35218a1c…（liquidity 344,345.0909，tick 2220）：1 wstETH=1.24849749 WETH、100=124.80245（滑点 0.038%）；买入 10/100 WETH=8.0077909/80.0565901 wstETH；rETH/WETH 0.05% 池 0x09ba302a…（liquidity 4,957.0584，tick -1610）：1 rETH=1.17379897 WETH、10 rETH=11.30126（冲击 3.8%）。",
+    "折价对照（跨链跨时刻，仅参考）：Ethereum 块 26377950 的 L1 stEthPerToken=1.24882206、rETH rate=1.17543595 vs Arbitrum 本块 DEX 即卖 → wstETH -0.0259%（1 单位）、rETH -0.1393%（1 单位）；L2 无原生 ETH 出口，不能即时闭环。",
+    "协议出口：Lido Arbitrum Gateway 官方设计为 L2 销毁→L1 outbox 争议窗口后释放；L2 网关提款已启用，L1 状态与具体等待天数未读；跨链退出不计为本链即时 ETH。",
+    "外部请求 55 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无报价外推、无交易/签名。"
   ],
   "pending_questions": [
-    "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
-    "7天代表性活动未覆盖，无区块/交易/事件。",
-    "链身份42161、token code、官方Lido映射、份额率未链上核验。",
-    "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
-    "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+    "跨链出口实际等待时间与 L1 侧状态未核：L1 网关是否启用、争议窗口天数、L1 释放后领取流程均未读。",
+    "折价对照使用 Ethereum 14:31:47Z 的 L1 读数，与 Arbitrum 14:51 不同链且时差约 20 分钟，只能作参考；缺同链同机制权威参考值。",
+    "未做完整路径只读模拟（跨链+L1 领取）；L2 gas 笔数、L1 数据费与 L1 领取 gas 未测算。",
+    "30 天规则/7 天活动窗口未覆盖；其他 LST（stETH 其他封装、sfrxETH 等）与 L2 原生借贷抵押品是否有本链赎回未扫。",
+    "rETH 容量仅测 1/10 单位（10 单位冲击 3.8%）；wstETH 容量未做更大档位。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:35:18.919313+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-    "verified_at": "2026-11-08T15:35:55.555537+00:00",
-    "record": "evidence/ARB03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:52:57.589409+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ARB03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ARB03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

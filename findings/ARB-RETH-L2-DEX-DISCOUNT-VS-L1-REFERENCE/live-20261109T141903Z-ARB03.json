@@ -1,0 +1,27 @@
+{
+  "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+  "status": "QUOTED",
+  "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+  "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 rETH=1.17379897 WETH，对比 Ethereum 块 26377950 的 L1 协议汇率 1.17543595（跨链跨时刻参考）低约 0.1393%；10 rETH 报价受 3.8% 冲击，容量很小；L2 无 getExchangeRate/getEthValue 等赎回函数，仅 DEX 即卖可行。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+  ],
+  "net_result": "折价约 -0.1393%（1 rETH）相对于跨链参考，未实现净额 null",
+  "unknown_costs": [
+    "跨链等待与 gas",
+    "L1 同口径参考",
+    "容量上限"
+  ],
+  "handoff_to": [
+    "Q00",
+    "X-ARB"
+  ],
+  "invalidation_conditions": [
+    "DEX 价差消失",
+    "容量不足",
+    "L1 参考变化"
+  ],
+  "owner": "ARB03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ARB03/live-20261109T141903Z/record.json"
+}

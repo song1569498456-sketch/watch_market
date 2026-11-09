@@ -653,13 +653,14 @@
       "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
       "claim": "排除“通过上述Lido Arbitrum canonical gateway退出就是Arbitrum本链即时ETH赎回”的说法。",
       "evidence_urls": [
+        "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529",
         "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
       ],
       "evidence_fields": "官方设计文档78-80行：L2 burn -> L1 release after dispute window；当前实现未核验",
       "scope_limit": "仅针对该已读设计中的出口，不能推断所有其他LST或所有Arbitrum协议均无本链出口。",
       "owner": "ARB03",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
         "claim_scope": "排除指定Lido canonical gateway退出等于Arbitrum本链即时ETH",
@@ -686,16 +687,40 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:35:18.919313+00:00",
-      "last_observed_at": "2026-11-08T15:35:18.919313+00:00",
-      "last_verified_onchain_at": null,
-      "unknown_costs": [
-        "DEX费用及滑点",
-        "当前L2/L1费用口径",
-        "真实退出费",
-        "等待天数/机会成本",
-        "wstETH/ETH份额转换率"
+      "last_observed_at": "2026-11-09T14:52:57.589409+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:57.589409+00:00",
+      "unknown_costs": [],
+      "capacity": "wstETH/WETH 0.01% 池 liquidity=344,345.090898874533687755（uint128），100 wstETH 即卖滑点约 0.038%；rETH/WETH 0.05% 池 liquidity=4,957.058406180490529597（uint128），1 rETH 可用、10 rETH 冲击约 3.8% → 容量很小；跨链出口容量/等待 unknown",
+      "mechanism": "链上证实：wstETH L2 代币无 stEthPerToken/getStETHByWstETH/unwrap（均 revert），bridge()=0x07d46922… 且 isWithdrawalsEnabled=true；官方设计为 L2 销毁→L1 outbox 争议窗口后释放。因此该路径是跨链/等待出口，不是 Arbitrum 本链即时 ETH 赎回。",
+      "net_result": "n/a（排除性结论）",
+      "handoff_to": [
+        "X-ARB"
       ],
-      "capacity": "unknown"
+      "invalidation_conditions": [
+        "L2 代币升级引入本地赎回函数",
+        "L1/L2 网关迁移或关闭"
+      ],
+      "observations_by_role": {
+        "ARB03": {
+          "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+          "status": "REJECTED",
+          "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+          "mechanism": "链上证实：wstETH L2 代币无 stEthPerToken/getStETHByWstETH/unwrap（均 revert），bridge()=0x07d46922… 且 isWithdrawalsEnabled=true；官方设计为 L2 销毁→L1 outbox 争议窗口后释放。因此该路径是跨链/等待出口，不是 Arbitrum 本链即时 ETH 赎回。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529",
+            "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+          ],
+          "net_result": "n/a（排除性结论）",
+          "unknown_costs": [],
+          "handoff_to": [
+            "X-ARB"
+          ],
+          "invalidation_conditions": [
+            "L2 代币升级引入本地赎回函数",
+            "L1/L2 网关迁移或关闭"
+          ]
+        }
+      }
     },
     {
       "finding_id": "AVAX-STABLE-NATIVE-BRIDGED-EQUIVALENCE",
@@ -3115,6 +3140,271 @@
       },
       "q00_review": null,
       "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+      "first_seen_at": "2026-11-09T14:47:44.893037+00:00",
+      "status": "REJECTED",
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3(fee=500) 与 SushiSwap V2 的同块报价：同块中间价 Uniswap 2125.394 vs Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps）；往返费率 0.05%+0.30%=35bps 高于中间价差，且 Sushi 储备仅 37.04 WETH，冲击使大额更差。10/100/1000/10000/100000 USDC 五档两个方向实测全部净负（最小 −0.33%），无闭环正收益。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+        "https://arbiscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
+      ],
+      "net_result": "同块 10 档往返全部净负；最小 −0.033427 USDC.e（−0.33% @10 USDC），1000 USDC 档 −1.67%",
+      "unknown_costs": [
+        "L1 数据费",
+        "两笔交易时间差",
+        "授权/账户初始化"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "中间价差 >35bps+冲击+gas",
+        "Sushi 储备显著增加",
+        "出现更低费率/更深第二市场"
+      ],
+      "owner": "ARB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:47:44.893037+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:47:44.893037+00:00",
+      "capacity": "Sushi V2 侧 WETH 储备 37.037187636938966194（≈78.5k USD），1000 USDC 级即占其 WETH 储备约 1.27%，冲击迅速放大亏损；Uniswap V3 侧 liquidity=21599303645811515（较深）。可执行容量受 Sushi 腿限制，且费用结构已使任何规模净负。",
+      "observations_by_role": {
+        "ARB01": {
+          "finding_id": "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+          "status": "REJECTED",
+          "chain": "ARB",
+          "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+          "first_seen_at": "2026-11-09T14:47:44+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3(fee=500) 与 SushiSwap V2 的同块报价：同块中间价 Uniswap 2125.394 vs Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps）；往返费率 0.05%+0.30%=35bps 高于中间价差，且 Sushi 储备仅 37.04 WETH，冲击使大额更差。10/100/1000/10000/100000 USDC 五档两个方向实测全部净负（最小 −0.33%），无闭环正收益。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+            "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+            "https://arbiscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
+          ],
+          "net_result": "同块 10 档往返全部净负；最小 −0.033427 USDC.e（−0.33% @10 USDC），1000 USDC 档 −1.67%",
+          "unknown_costs": [
+            "L1 数据费",
+            "两笔交易时间差",
+            "授权/账户初始化"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "中间价差 >35bps+冲击+gas",
+            "Sushi 储备显著增加",
+            "出现更低费率/更深第二市场"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ARB-UNISWAP-V3-TRIANGLES-WETH-USDC-USD0-WBTC-NEGATIVE",
+      "first_seen_at": "2026-11-09T14:52:00+00:00",
+      "status": "QUOTED",
+      "market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0 / WETH-USDC-WBTC / USDC-USD0-WETH",
+      "mechanism": "用 Uniswap V3 QuoterV2 的 quoteExactInput 在单一 pinned 区块对三腿闭环做整路径报价（合约内部逐腿 amountIn=上腿 amountOut，费率与冲击已计入）。3 个闭环 12 条报价全部输出<输入：最好 T3 小额 −9.35bps，T1 1 WETH −11.71bps，T2 1 WETH −59.33bps；数量放大更差。三腿费率下限 11/65bps 已接近或超过可捕获价差，gas 未计更负。结论：本轮不存在正收益 A→B→C→A。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+        "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+        "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+        "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+      ],
+      "net_result": {
+        "value": "-0.000935",
+        "unit": "USDC per 1 USDC",
+        "type": "estimated_from_quotes",
+        "note": "最好档；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "gas L2/L1",
+        "授权",
+        "滑点/失败",
+        "融资成本"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "同块状态不一致",
+        "代币/路径不符",
+        "gas 后更负（不改变排除）",
+        "报价过期需重取"
+      ],
+      "owner": "ARB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:52:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:00+00:00",
+      "capacity": "仅测到 50 WETH / 10,000 USDC 档且全部净负；更大量级只会更差（T2 50 WETH 已 −1358bps）。池 liquidity 同 pinned 块：WETH/USDC 2.08e18、USDC/USD₮0 2.94e15、USD₮0/WETH 2.15e17（liquidity 非美元金额，仅作量级参考）。",
+      "observations_by_role": {
+        "ARB02": {
+          "finding_id": "ARB-UNISWAP-V3-TRIANGLES-WETH-USDC-USD0-WBTC-NEGATIVE",
+          "status": "QUOTED",
+          "chain": "ARB",
+          "protocol": "Uniswap V3",
+          "market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0 / WETH-USDC-WBTC / USDC-USD0-WETH",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+            "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+            "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+            "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+          ],
+          "mechanism": "用 Uniswap V3 QuoterV2 的 quoteExactInput 在单一 pinned 区块对三腿闭环做整路径报价（合约内部逐腿 amountIn=上腿 amountOut，费率与冲击已计入）。3 个闭环 12 条报价全部输出<输入：最好 T3 小额 −9.35bps，T1 1 WETH −11.71bps，T2 1 WETH −59.33bps；数量放大更差。三腿费率下限 11/65bps 已接近或超过可捕获价差，gas 未计更负。结论：本轮不存在正收益 A→B→C→A。",
+          "net_result": {
+            "value": "-0.000935",
+            "unit": "USDC per 1 USDC",
+            "type": "estimated_from_quotes",
+            "note": "最好档；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "gas L2/L1",
+            "授权",
+            "滑点/失败",
+            "融资成本"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "同块状态不一致",
+            "代币/路径不符",
+            "gas 后更负（不改变排除）",
+            "报价过期需重取"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+      "first_seen_at": "2026-11-09T14:52:57.589409+00:00",
+      "status": "QUOTED",
+      "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+      "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 wstETH=1.24849749 WETH、100=124.80245，对比 Ethereum 块 26377950 的 L1 协议比 1.24882206（跨链跨时刻参考）低约 0.0259%（100 单位 -0.0639%）；但 L2 无协议赎回，折价只能通过即卖实现或承担跨链等待。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+      ],
+      "net_result": "折价约 -0.0259%（1 wstETH）/ -0.0639%（100 wstETH）相对于跨链参考，未实现净额 null",
+      "unknown_costs": [
+        "跨链等待与 gas",
+        "L1 同口径参考",
+        "容量上限"
+      ],
+      "handoff_to": [
+        "Q00",
+        "X-ARB"
+      ],
+      "invalidation_conditions": [
+        "DEX 价差消失",
+        "跨链等待不可行",
+        "L1 参考变化"
+      ],
+      "owner": "ARB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:52:57.589409+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:57.589409+00:00",
+      "capacity": "wstETH/WETH 0.01% 池 liquidity=344,345.090898874533687755（uint128），100 wstETH 即卖滑点约 0.038%；rETH/WETH 0.05% 池 liquidity=4,957.058406180490529597（uint128），1 rETH 可用、10 rETH 冲击约 3.8% → 容量很小；跨链出口容量/等待 unknown",
+      "observations_by_role": {
+        "ARB03": {
+          "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+          "status": "QUOTED",
+          "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+          "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 wstETH=1.24849749 WETH、100=124.80245，对比 Ethereum 块 26377950 的 L1 协议比 1.24882206（跨链跨时刻参考）低约 0.0259%（100 单位 -0.0639%）；但 L2 无协议赎回，折价只能通过即卖实现或承担跨链等待。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+          ],
+          "net_result": "折价约 -0.0259%（1 wstETH）/ -0.0639%（100 wstETH）相对于跨链参考，未实现净额 null",
+          "unknown_costs": [
+            "跨链等待与 gas",
+            "L1 同口径参考",
+            "容量上限"
+          ],
+          "handoff_to": [
+            "Q00",
+            "X-ARB"
+          ],
+          "invalidation_conditions": [
+            "DEX 价差消失",
+            "跨链等待不可行",
+            "L1 参考变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+      "first_seen_at": "2026-11-09T14:52:57.589409+00:00",
+      "status": "QUOTED",
+      "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+      "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 rETH=1.17379897 WETH，对比 Ethereum 块 26377950 的 L1 协议汇率 1.17543595（跨链跨时刻参考）低约 0.1393%；10 rETH 报价受 3.8% 冲击，容量很小；L2 无 getExchangeRate/getEthValue 等赎回函数，仅 DEX 即卖可行。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+      ],
+      "net_result": "折价约 -0.1393%（1 rETH）相对于跨链参考，未实现净额 null",
+      "unknown_costs": [
+        "跨链等待与 gas",
+        "L1 同口径参考",
+        "容量上限"
+      ],
+      "handoff_to": [
+        "Q00",
+        "X-ARB"
+      ],
+      "invalidation_conditions": [
+        "DEX 价差消失",
+        "容量不足",
+        "L1 参考变化"
+      ],
+      "owner": "ARB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:52:57.589409+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:57.589409+00:00",
+      "capacity": "wstETH/WETH 0.01% 池 liquidity=344,345.090898874533687755（uint128），100 wstETH 即卖滑点约 0.038%；rETH/WETH 0.05% 池 liquidity=4,957.058406180490529597（uint128），1 rETH 可用、10 rETH 冲击约 3.8% → 容量很小；跨链出口容量/等待 unknown",
+      "observations_by_role": {
+        "ARB03": {
+          "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+          "status": "QUOTED",
+          "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+          "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 rETH=1.17379897 WETH，对比 Ethereum 块 26377950 的 L1 协议汇率 1.17543595（跨链跨时刻参考）低约 0.1393%；10 rETH 报价受 3.8% 冲击，容量很小；L2 无 getExchangeRate/getEthValue 等赎回函数，仅 DEX 即卖可行。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+          ],
+          "net_result": "折价约 -0.1393%（1 rETH）相对于跨链参考，未实现净额 null",
+          "unknown_costs": [
+            "跨链等待与 gas",
+            "L1 同口径参考",
+            "容量上限"
+          ],
+          "handoff_to": [
+            "Q00",
+            "X-ARB"
+          ],
+          "invalidation_conditions": [
+            "DEX 价差消失",
+            "容量不足",
+            "L1 参考变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

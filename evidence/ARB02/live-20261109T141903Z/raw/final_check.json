@@ -1,0 +1,35 @@
+{
+ "at_utc": "2026-11-09T14:48:33.470349+00:00",
+ "pinned_block": 522706717,
+ "quoter": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+ "quoter_factory": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+ "quoter_weth9": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+ "pool_states": {
+  "0xc6962004f452be9203591991d15f6b388e09e8d0": {
+   "liquidity": "2082757286957756332",
+   "sqrtPriceX96": "3654307508607171094904832",
+   "tick": -199694
+  },
+  "0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6": {
+   "liquidity": "2943808332104589",
+   "sqrtPriceX96": "79268853362682817912202045702",
+   "tick": 10
+  },
+  "0x641c00a822e8b671738d32a431a4fb6074e5c79d": {
+   "liquidity": "214997102976435268",
+   "sqrtPriceX96": "3655880363585186104877663",
+   "tick": -199685
+  }
+ },
+ "requests": [
+  {
+   "name": "quoter_identity_and_pool_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:48:33.470282+00:00",
+   "n_calls": 8,
+   "bytes": 1978,
+   "sha256": "603af0af19d36dd33810e1ce1e4b41a283ad1b44d6b0cde79e6e444115b13bd2",
+   "elapsed_s": 1.009
+  }
+ ]
+}

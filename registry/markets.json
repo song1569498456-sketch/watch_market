@@ -469,22 +469,38 @@
     {
       "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
       "chain": "ARB",
-      "protocol": "Lido wstETH (source-discovered asset; DEX not identified)",
+      "protocol": "Lido wstETH L2 封装 + Arbitrum Gateway",
       "asset_ids": [
-        "42161:0x5979d7b546e38e414f7e9822514be443a4800529"
+        "0x5979d7b546e38e414f7e9822514be443a4800529"
       ],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
         "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529"
       ],
-      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_ONLY_UNVERIFIED_LIVE",
-      "next_check": "Lido官方部署/当前gateway与token code交叉核对；发现真实DEX池和本链退出函数。",
+      "identity_status": "CHAIN_VERIFIED：代码 3,296 B；无 L2 份额率/赎回函数（revert）；bridge()=0x07d46922…，isWithdrawalsEnabled=true",
+      "next_check": "跨链等待与 L1 状态；不计为本链即时 ETH",
       "owner": "ARB03",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/ARB03/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "ARB03": {
+          "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+          "chain": "ARB",
+          "protocol": "Lido wstETH L2 封装 + Arbitrum Gateway",
+          "asset_ids": [
+            "0x5979d7b546e38e414f7e9822514be443a4800529"
+          ],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+            "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 3,296 B；无 L2 份额率/赎回函数（revert）；bridge()=0x07d46922…，isWithdrawalsEnabled=true",
+          "next_check": "跨链等待与 L1 状态；不计为本链即时 ETH"
+        }
+      }
     },
     {
       "market_id": "ARB:AAVE_STATA:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
@@ -1568,20 +1584,19 @@
     {
       "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
       "chain": "ARB",
-      "protocol": "Uniswap V3 BLPX/USDC 0.3%",
+      "protocol": "Uniswap V3 (USDC/BLPX, fee=3000)",
       "asset_ids": [
-        "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
-        "0xf2925a78adac85ca330643bc5584a694199afb76"
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "eip155:42161/erc20:0xf2925a78adac85ca330643bc5584a694199afb76"
       ],
       "evidence_urls": [
-        "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
-        "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+        "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2"
       ],
-      "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：块 522,536,108 创建，池 token0/token1/fee/tickSpacing 与事件一致；BLPX 代码/符号/总量已读；流动性极小",
-      "next_check": "读池储备与报价、BLPX 部署者与可卖性；交 ARB01 建立池队列",
-      "owner": "N-ARB",
+      "identity_status": "CHAIN_VERIFIED_POOL_QUOTABLE_SINGLE_VENUE",
+      "next_check": "等待第二市场出现；核验 BLPX token 权限",
+      "owner": "ARB01",
       "last_observed_run": "live-20261109T141903Z",
-      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "source_record": "evidence/ARB01/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "N-ARB": {
           "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
@@ -1597,6 +1612,20 @@
           ],
           "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：块 522,536,108 创建，池 token0/token1/fee/tickSpacing 与事件一致；BLPX 代码/符号/总量已读；流动性极小",
           "next_check": "读池储备与报价、BLPX 部署者与可卖性；交 ARB01 建立池队列"
+        },
+        "ARB01": {
+          "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 (USDC/BLPX, fee=3000)",
+          "asset_ids": [
+            "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "eip155:42161/erc20:0xf2925a78adac85ca330643bc5584a694199afb76"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_QUOTABLE_SINGLE_VENUE",
+          "next_check": "等待第二市场出现；核验 BLPX token 权限"
         }
       },
       "current_onchain_verified": true,
@@ -2178,6 +2207,288 @@
           ],
           "identity_status": "CHAIN_CODE_VERIFIED（24,530 B），来源为已知交易对 factory() getter，未经官方部署表核验",
           "next_check": "与官方部署表核验工厂归属；补更长窗口与总池数"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 (WETH/USDC.e, fee=500)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_TOKEN0_TOKEN1_FEE_READ",
+      "next_check": "与更多 DEX 同资产对同块比价；监控价差",
+      "owner": "ARB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB01": {
+          "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 (WETH/USDC.e, fee=500)",
+          "asset_ids": [
+            "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+            "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_TOKEN0_TOKEN1_FEE_READ",
+          "next_check": "与更多 DEX 同资产对同块比价；监控价差"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+      "chain": "ARB",
+      "protocol": "SushiSwap V2 (WETH/USDC.e)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+        "https://arbiscan.io/address/0xc35DADB65012eC5796536bD9864eD8773aBc74C4"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PAIR_TOKEN0_TOKEN1_RESERVES_READ",
+      "next_check": "监控储备与中间价差；储备仅 37 WETH 限制容量",
+      "owner": "ARB01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB01": {
+          "market_id": "ARB:SUSHISWAP_V2:PAIR:0x905dfcd5649217c42684f23958568e533c711aa3",
+          "chain": "ARB",
+          "protocol": "SushiSwap V2 (WETH/USDC.e)",
+          "asset_ids": [
+            "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "eip155:42161/erc20:0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+            "https://arbiscan.io/address/0xc35DADB65012eC5796536bD9864eD8773aBc74C4"
+          ],
+          "identity_status": "CHAIN_VERIFIED_PAIR_TOKEN0_TOKEN1_RESERVES_READ",
+          "next_check": "监控储备与中间价差；储备仅 37 WETH 限制容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0xc6962004f452be9203591991d15f6b388e09e8d0",
+      "chain": "ARB",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（WETH/USDC 0.05%）",
+      "next_check": "同块重取 quote；跨 DEX 扩展时作一腿",
+      "owner": "ARB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB02": {
+          "market_id": "ARB:42161:uniswap-v3-pool:0xc6962004f452be9203591991d15f6b388e09e8d0",
+          "chain": "ARB",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+            "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（WETH/USDC 0.05%）",
+          "next_check": "同块重取 quote；跨 DEX 扩展时作一腿"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+      "chain": "ARB",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USDC/USD₮0 0.01%）",
+      "next_check": "同块重取 quote；USDC/USD₮0 视为两个不同稳定币合约",
+      "owner": "ARB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB02": {
+          "market_id": "ARB:42161:uniswap-v3-pool:0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+          "chain": "ARB",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USDC/USD₮0 0.01%）",
+          "next_check": "同块重取 quote；USDC/USD₮0 视为两个不同稳定币合约"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+      "chain": "ARB",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+        "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USD₮0/WETH 0.05%）",
+      "next_check": "同块重取 quote；跨 DEX 扩展时作一腿",
+      "owner": "ARB02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB02": {
+          "market_id": "ARB:42161:uniswap-v3-pool:0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+          "chain": "ARB",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+            "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USD₮0/WETH 0.05%）",
+          "next_check": "同块重取 quote；跨 DEX 扩展时作一腿"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+      "asset_ids": [
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=344,345.0909，tick=2220；即卖 1/100 wstETH 报价值见 quotes",
+      "next_check": "容量档位（1/10/100/1000）与价差可持续时间",
+      "owner": "ARB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB03": {
+          "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+          "asset_ids": [
+            "0x5979d7b546e38e414f7e9822514be443a4800529",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=344,345.0909，tick=2220；即卖 1/100 wstETH 报价值见 quotes",
+          "next_check": "容量档位（1/10/100/1000）与价差可持续时间"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 rETH/WETH 0.05%",
+      "asset_ids": [
+        "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=4,957.0584，tick=-1610；1 rETH 可卖、10 rETH 冲击约 3.8%",
+      "next_check": "更小档位报价与容量；是否存在其他更深池",
+      "owner": "ARB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB03": {
+          "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 rETH/WETH 0.05%",
+          "asset_ids": [
+            "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=4,957.0584，tick=-1610；1 rETH 可卖、10 rETH 冲击约 3.8%",
+          "next_check": "更小档位报价与容量；是否存在其他更深池"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "42161:rocketpool-reth:0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+      "chain": "ARB",
+      "protocol": "Rocket Pool rETH L2 封装",
+      "asset_ids": [
+        "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8"
+      ],
+      "identity_status": "CHAIN_VERIFIED：代码 760 B；name=Rocket Pool ETH/rETH/18；getExchangeRate/getEthValue revert（无 L2 赎回）",
+      "next_check": "L1 兑付规则与跨链路径；仅 DEX 即卖可行",
+      "owner": "ARB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB03": {
+          "market_id": "42161:rocketpool-reth:0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+          "chain": "ARB",
+          "protocol": "Rocket Pool rETH L2 封装",
+          "asset_ids": [
+            "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 760 B；name=Rocket Pool ETH/rETH/18；getExchangeRate/getEthValue revert（无 L2 赎回）",
+          "next_check": "L1 兑付规则与跨链路径；仅 DEX 即卖可行"
         }
       },
       "current_onchain_verified": true,

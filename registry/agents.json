@@ -905,127 +905,295 @@
     {
       "agent_id": "ARB01",
       "enabled": true,
-      "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:35:07.091426+00:00",
+      "status": "COMPLETED",
+      "last_success_at": "2026-11-09T14:47:44.893037+00:00",
+      "last_attempt_at": "2026-11-09T14:47:44.893037+00:00",
       "actual_coverage": [
-        "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
-        "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
-        "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+        "链身份：eth_chainId=42161；head=522706632（2026-11-09T14:47:34Z）；gasPrice=20,108,000 wei（0.020108 gwei）。",
+        "合约身份链上核验：Uniswap V3 factory 0x1F98431c8aD98523631AE4a59f267346ea31F984（24535B，sha256=fd5e0ec0…）；Sushi V2 factory 0xc35DADB65012eC5796536bD9864eD8773aBc74C4（11264B，sha256=ac64b67a…）；Sushi router 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506（17762B，sha256=e6dfc263…）；Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（4631B，sha256=164604f0…，与官方 SDK ARB quoterAddress 一致）。",
+        "同一资产对两池互证：Uniswap V3 池 0xc31e54c7a869b9fcbecc14363cf510d1c41fa443：token0=WETH 0x82aF…、token1=USDC.e 0xFF97…、fee=500、slot0 tick=-199731、sqrtPriceX96=3647515015869329862770939、liquidity=21599303645811515；Sushi V2 pair 0x905dfcd5649217c42684f23958568e533c711aa3：token0=WETH、token1=USDC.e（顺序相同，资产权益一致），reserves=37.037187636938966194 WETH / 78523.640619 USDC.e（blockTimestampLast=1794234929）。",
+        "同块中间价（用两池状态同一块 522706375 计算）：Uniswap V3=2125.394044 USDC.e/WETH；Sushi V2=2120.129676；Sushi 相对 Uni 低 24.77bps（0.248%）。",
+        "往返费率下限：Uniswap 0.05% + Sushi 0.30% = 0.35%（35bps）+ 两腿冲击 + gas；35bps > 24.77bps 中间价差 → 结构上无法覆盖费用；实测 5 档全部净负。",
+        "实测净结果（同块 522706375，以第一腿实际输出为第二腿输入，未计 gas）：10 USDC：Uni买→Sushi卖 净 −0.033427（−0.33%），Sushi买→Uni卖 净 −0.039273（−0.39%）；100 USDC：−0.457148（−0.46%）/ −0.515363（−0.52%）；1000 USDC：−16.719273（−1.67%）/ −17.259255（−1.73%）；10000 USDC：−1235.149697（−12.35%）/ −1234.116070（−12.34%）；100000 USDC：−57975.723050（−57.98%）/ −57909.761201（−57.91%）。",
+        "容量：Sushi V2 侧 WETH 储备仅 37.0372 WETH（按 2120 USDC ≈ 78.5k USD），1000 USDC 级交易已占 WETH 储备约 1.27%，冲击主导；Uniswap V3 侧 liquidity=21.6e15（深），故瓶颈在 Sushi 腿。",
+        "gas：gasPrice=0.020108 gwei；按两笔 swap 各约 180k gas 估算 ≈0.0000072 ETH（≈0.015 USD，按中间价），远小于各档亏损；Arbitrum L1 数据费未单独估算（unknown，但不足以翻转结论）。"
       ],
       "coverage_gaps": [
-        "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
-        "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
-        "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
-        "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
-        "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+        "只比较了 Uniswap V3 fee=500 与 Sushi V2 一对；未覆盖 Uniswap V3 fee=100/3000 同资产池、Camelot、Velodrome/其它 Arbitrum DEX 的同资产对（下一轮轮转）。",
+        "30 天规则变更与 7 天活动未回溯：未读 PoolCreated/PairCreated/Swap 事件、未找差异出现前的交易与费率/流动性调整，无法回答“为何短暂失衡”。",
+        "未做只读模拟（两腿不可原子组合于单笔交易；若用聚合器/多跳合约需要额外路由合约，本轮未模拟）。",
+        "N-ARB 新池 BLPX/USDC 只核验了单市场可报价性；未确认 token 权限（税/黑名单）与其它未收录 DEX 的池（Dexscreener 无收录不等于全链不存在）。",
+        "Sushi 池储备时间戳比报价块早约 11 分钟（仅成交时更新），两腿仍为同块 eth_call；未做连续块监控。",
+        "L1 数据费未按实际交易估算（unknown）；Arbitrum 当前 gasPrice=0.020108 gwei。",
+        "本轮外部请求 56 次（≤80，符合上限）。"
       ],
-      "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ARB01/2026-11-09/live-20261109T141903Z.md",
       "task": "同资产对跨DEX价差",
       "chain": "ARB",
       "owner": "worker_a",
       "prompt": "prompts/agents/ARB01.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 5,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-        "verified_at": "2026-11-08T15:35:55.555537+00:00",
-        "record": "evidence/ARB01/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ARB02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:35:29.566307+00:00",
+      "last_success_at": "2026-11-09T14:52:00+00:00",
+      "last_attempt_at": "2026-11-09T14:52:00+00:00",
       "actual_coverage": [
-        "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
-        "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
-        "QuoterV2源代码quoteExactInput逐腿amountIn=_amountOut并累积内部gasEstimate，未执行本轮报价。",
-        "官方NodeInterface注释定义gasEstimate为总gas、gasEstimateForL1为其中L1分量；不能total之外重复加L1。"
+        {
+          "type": "chain_identity",
+          "address": "arbitrum-one",
+          "fields": {
+            "eth_chainId": "0xa4b1",
+            "chain_id": 42161,
+            "latest_block": 522706727,
+            "latest_block_time_utc": "2026-11-09T14:47:59+00:00",
+            "pinned_block": 522706717,
+            "block_time_approx": "0.25s（10 块约 2.5 秒）"
+          },
+          "evidence_file": "raw/arb02_summary.json"
+        },
+        {
+          "type": "quoter_identity",
+          "protocol": "Uniswap V3 QuoterV2",
+          "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+          "fields": {
+            "code_bytes": 8273,
+            "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "WETH9()": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+            "factory_code_bytes": 24535
+          },
+          "block": 522706717,
+          "evidence_file": "raw/final_check.json"
+        },
+        {
+          "type": "triangle_quote",
+          "protocol": "Uniswap V3",
+          "address": "WETH→USDC(500)→USD₮0(100)→WETH(500)",
+          "fields": {
+            "path_fees": [
+              500,
+              100,
+              500
+            ],
+            "total_fee_bps": 11,
+            "quotes": [
+              {
+                "amount_in": "0.1 WETH",
+                "amount_out": "0.09990427479369339 WETH",
+                "net_bps": "-9.57"
+              },
+              {
+                "amount_in": "1 WETH",
+                "amount_out": "0.998829456896439891 WETH",
+                "net_bps": "-11.71"
+              },
+              {
+                "amount_in": "10 WETH",
+                "amount_out": "9.967034302194314 WETH",
+                "net_bps": "-32.97"
+              },
+              {
+                "amount_in": "50 WETH",
+                "amount_out": "49.3890540987274 WETH",
+                "net_bps": "-122.19"
+              }
+            ]
+          },
+          "block": 522706717,
+          "evidence_file": "raw/arb02_summary.json"
+        },
+        {
+          "type": "triangle_quote",
+          "protocol": "Uniswap V3",
+          "address": "WETH→USDC(500)→WBTC(3000)→WETH(3000)",
+          "fields": {
+            "path_fees": [
+              500,
+              3000,
+              3000
+            ],
+            "total_fee_bps": 65,
+            "quotes": [
+              {
+                "amount_in": "0.1 WETH",
+                "amount_out": "0.09970141321944745 WETH",
+                "net_bps": "-29.86"
+              },
+              {
+                "amount_in": "1 WETH",
+                "amount_out": "0.9940669312993101 WETH",
+                "net_bps": "-59.33"
+              },
+              {
+                "amount_in": "10 WETH",
+                "amount_out": "9.687370389592733 WETH",
+                "net_bps": "-312.6"
+              },
+              {
+                "amount_in": "50 WETH",
+                "amount_out": "43.20876274419688 WETH",
+                "net_bps": "-1358"
+              }
+            ]
+          },
+          "block": 522706717,
+          "evidence_file": "raw/arb02_summary.json"
+        },
+        {
+          "type": "triangle_quote",
+          "protocol": "Uniswap V3",
+          "address": "USDC→USD₮0(100)→WETH(500)→USDC(500)",
+          "fields": {
+            "path_fees": [
+              100,
+              500,
+              500
+            ],
+            "total_fee_bps": 11,
+            "quotes": [
+              {
+                "amount_in": "1 USDC",
+                "amount_out": "0.999065 USDC",
+                "net_bps": "-9.35"
+              },
+              {
+                "amount_in": "10 USDC",
+                "amount_out": "9.990652 USDC",
+                "net_bps": "-9.35"
+              },
+              {
+                "amount_in": "1000 USDC",
+                "amount_out": "998.954995 USDC",
+                "net_bps": "-10.45"
+              },
+              {
+                "amount_in": "10000 USDC",
+                "amount_out": "9979.52083 USDC",
+                "net_bps": "-20.48"
+              }
+            ]
+          },
+          "block": 522706717,
+          "evidence_file": "raw/arb02_summary.json"
+        },
+        {
+          "type": "pool_state",
+          "protocol": "Uniswap V3",
+          "address": "0xc6962004f452be9203591991d15f6b388e09e8d0 / 0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6 / 0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+          "fields": {
+            "WETH_USDC_500": {
+              "liquidity": "2082757286957756332",
+              "tick": -199694
+            },
+            "USDC_USD0_100": {
+              "liquidity": "2943808332104589",
+              "tick": 10
+            },
+            "USD0_WETH_500": {
+              "liquidity": "214997102976435268",
+              "tick": -199685
+            },
+            "note": "池 token0/token1 按地址排序；USD₮0 合约 0xFd086bC7… 链上 symbol 为 USD₮0"
+          },
+          "block": 522706717,
+          "evidence_file": "raw/final_check.json"
+        },
+        {
+          "type": "token_identity",
+          "protocol": "ERC20",
+          "address": "0x82aF4944…Bab1 / 0xaf88d065…e5831 / 0xFd086bC7…FCbb9 / 0x2f2a2543…B0f",
+          "fields": {
+            "WETH": {
+              "symbol": "WETH",
+              "decimals": 18
+            },
+            "USDC": {
+              "symbol": "USDC",
+              "decimals": 6
+            },
+            "USD0": {
+              "symbol": "USD₮0",
+              "decimals": 6
+            },
+            "WBTC": {
+              "symbol": "WBTC",
+              "decimals": 8
+            }
+          },
+          "block": 522706717,
+          "evidence_file": "raw/arb02_summary.json"
+        }
       ],
       "coverage_gaps": [
-        "当前池图未建立：Arbitrum RPC与DEX发现入口均代理CONNECT403，三腿实际池地址、代币地址、区块和数量全部未取得。",
-        "30天规则窗口未覆盖：只读SDK/Quoter/NodeInterface当前源码，没有治理/部署变更历史与链上生效证据。",
-        "7天真实三角交易与旧小池轮转未覆盖，没有事件扫描或交易复盘。",
-        "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
-        "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
+        "30 天规则窗口未覆盖：未扫 Uniswap 治理/工厂 fee tier、池创建/迁移事件；只核当前 SDK 地址与链上 Quoter/工厂代码。",
+        "7 天活动窗口未覆盖：未扫真实三角交易、未复盘历史成交与大额换币；只有单 pinned 块快照。",
+        "仅 Uniswap V3 三个闭环，未覆盖 Sushi/Camelot/Balancer 等其他 DEX 三角与跨 DEX 组合。",
+        "未计 gas（L2+L1 数据费）、授权、滑点、失败成本；QuoterV2 返回的 gasEstimate 字段未使用/未校验解码。",
+        "未做融资（自有本金/闪电贷）与只读交易模拟；容量只到 50 WETH / 10,000 USDC。",
+        "报价为 pinned 块历史证据（报告落盘时已超过 60 秒），执行前必须重取。"
       ],
-      "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ARB02/2026-11-09/live-20261109T141903Z.md",
       "task": "三资产多池闭环兑换",
       "chain": "ARB",
       "owner": "worker_b",
       "prompt": "prompts/agents/ARB02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 2,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-        "verified_at": "2026-11-08T15:35:55.555537+00:00",
-        "record": "evidence/ARB02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ARB03",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:35:18.919313+00:00",
+      "last_success_at": "2026-11-09T14:52:57.589409+00:00",
+      "last_attempt_at": "2026-11-09T14:52:57.589409+00:00",
       "actual_coverage": [
-        {
-          "asset": "wstETH",
-          "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
-          "decimals_from_static_registry": 18,
-          "source": "AaveV3ArbitrumAssets.wstETH_UNDERLYING",
-          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_LIDO_AND_CHAIN_VERIFIED"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
-          "lines": "78-80",
-          "field": "L2 burn -> L1 outbox release after dispute window",
-          "data_kind": "static official design; not current deployment/state"
-        }
+        "链：eth_chainId=0xa4b1（42161）；head=522,707,445（2026-11-09T14:51:05Z，hash 0x41da8f41…）；固定块 522,707,442；head baseFee≈0.020 gwei（L2 部分，未计 L1 数据费）。",
+        "wstETH L2 0x5979D7b546E38E414F7E9822514be443A4800529：代码 3,296 B，keccak 0x93d3f113…；name=Wrapped liquid staked Ether 2.0、symbol=wstETH、decimals=18、totalSupply=47,840.945125478664582365；stEthPerToken()、getStETHByWstETH(uint256)、unwrap(uint256) 在固定块均 revert（空 data）→ L2 无份额率/赎回函数。",
+        "wstETH bridge() 返回 L2 网关 0x07d4692291b9e30e326fd31706f686f83f331b82；该网关 isWithdrawalsEnabled()=true（块 522,707,442）；gateway()/l1Address()/l1Token() 与 withdrawalsEnabled()/paused()/isPaused() 不可用（revert/无函数）。",
+        "rETH L2 0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8：代码仅 760 B，keccak 0x9bb54fba…；name=Rocket Pool ETH、symbol=rETH、decimals=18；getExchangeRate()/getEthValue(uint256) revert → L2 无协议赎回/汇率函数。",
+        "wstETH/WETH Uniswap V3 0.01% 池（factory.getPool）=0x35218a1cbac5bbc3e57fd9bd38219d37571b3537，liquidity=344,345.090898874533687755（uint128），slot0 tick=2220。",
+        "rETH/WETH Uniswap V3 0.05% 池（factory.getPool）=0x09ba302a3f5ad2bf8853266e271b005a5b3716fe，liquidity=4,957.058406180490529597（uint128），slot0 tick=-1610。",
+        "报告前重取报价（块 522,707,442，2026-11-09T14:51:12-15Z）：wstETH→WETH 1=1.248497488656218、100=124.80245003332676；WETH→wstETH 10=8.007790901227656、100=80.0565900940693；rETH→WETH 1=1.1737989660492183、10=11.30126028254181（冲击约 3.8%）。",
+        "折价对照（跨链跨时刻仅参考）：Ethereum 块 26377950（14:31:47Z）L1 stEthPerToken=1.248822059877191983、rETH getExchangeRate=1.175435950453622632；对比 Arbitrum 块 522,707,442 DEX 即卖：1 wstETH 折 -0.0259%（100 单位 -0.0639%）、1 rETH 折 -0.1393%（10 单位 -3.86% 冲击后）。"
       ],
       "coverage_gaps": [
-        "30天规则与提款重开/关闭窗口未覆盖，源码不是生效历史。",
-        "7天代表性活动未覆盖，无区块/交易/事件。",
-        "链身份42161、token code、官方Lido映射、份额率未链上核验。",
-        "未发现可验证具体DEX池，无现货退出价/指定数量报价。",
-        "协议本链即时赎回缓冲、排队出口、权限/等待/罚没风险unknown。"
+        "跨链出口实际等待时间与 L1 侧状态未核：L2 网关 withdrawals enabled=true，但 L1 网关是否启用、争议窗口天数、L1 释放后领取流程未读。",
+        "折价对照使用 Ethereum 14:31:47Z 的 L1 读数，与 Arbitrum 14:51 不同链且时差约 20 分钟，只能作参考；缺同链同机制的权威参考值。",
+        "未做完整路径只读模拟（跨链+L1 领取）；未测 L2 gas 笔数、L1 数据费与 L1 领取 gas。",
+        "30 天规则变化与 7 天活动窗口未覆盖；未扫其他 LST（stETH 其他封装、sfrxETH 等）与 L2 原生质押衍生品是否存在本链赎回。",
+        "rETH 容量仅测 1/10 单位；wstETH 容量未做 1000 档；L1/L2 费用口径未合并测算。"
       ],
-      "report": "reports/agents/ARB03/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ARB03/2026-11-09/live-20261109T141903Z.md",
       "task": "质押衍生品折价赎回",
       "chain": "ARB",
       "owner": "worker_c",
       "prompt": "prompts/agents/ARB03.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-        "verified_at": "2026-11-08T15:35:55.555537+00:00",
-        "record": "evidence/ARB03/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "ARB04",

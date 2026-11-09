@@ -1,0 +1,192 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:47:34.382338+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:47:35.404357+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "u_s2w_10",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:35.861422+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "s_w2s_10",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:36.309033+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "s_s2w_10",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:36.735588+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "u_w2s_10",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:37.175870+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "u_s2w_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:37.604989+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "s_w2s_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:38.042941+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "s_s2w_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:38.476527+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "u_w2s_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:38.917401+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_slot0_recheck",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:39.368171+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "sushi_reserves_recheck",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:39.853440+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "code_blpx_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:47:40.339554+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:40.805425+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:41.235859+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:41.657065+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:42.122361+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:42.549826+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_quote_100usdc",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:42.976689+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blpx_quote_1BLPX",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:47:43.413734+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_blpx_pairs",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0xf2925a78adac85ca330643bc5584a694199afb76",
+  "at_utc": "2026-11-09T14:47:43.859180+00:00",
+  "http_status": 200,
+  "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d"
+ }
+]

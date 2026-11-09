@@ -1,0 +1,31 @@
+{
+  "finding_id": "ARB-WETH-USDCe-UNIV3-VS-SUSHI-ROUNDTRIP",
+  "status": "REJECTED",
+  "chain": "ARB",
+  "market_id": "ARB:UNISWAP_V3:POOL:0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+  "first_seen_at": "2026-11-09T14:47:44+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "同资产对 WETH/USDC.e 在 Uniswap V3(fee=500) 与 SushiSwap V2 的同块报价：同块中间价 Uniswap 2125.394 vs Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps）；往返费率 0.05%+0.30%=35bps 高于中间价差，且 Sushi 储备仅 37.04 WETH，冲击使大额更差。10/100/1000/10000/100000 USDC 五档两个方向实测全部净负（最小 −0.33%），无闭环正收益。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+    "https://arbiscan.io/address/0x905dfcd5649217c42684f23958568e533c711aa3",
+    "https://arbiscan.io/address/0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
+  ],
+  "net_result": "同块 10 档往返全部净负；最小 −0.033427 USDC.e（−0.33% @10 USDC），1000 USDC 档 −1.67%",
+  "unknown_costs": [
+    "L1 数据费",
+    "两笔交易时间差",
+    "授权/账户初始化"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "中间价差 >35bps+冲击+gas",
+    "Sushi 储备显著增加",
+    "出现更低费率/更深第二市场"
+  ],
+  "owner": "ARB01",
+  "source_record": "evidence/ARB01/live-20261109T141903Z/record.json"
+}

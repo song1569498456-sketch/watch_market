@@ -2,18 +2,70 @@
   "agent_id": "ARB02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:48:33+00:00",
   "observed_cursor": {
-    "sdk_document_read": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
-    "code_mechanisms_read": [
-      "quoteExactInput",
-      "gasEstimateComponents"
-    ],
-    "actual_pools_read": 0,
-    "cycles_quoted": 0,
-    "transactions_analyzed": 0,
-    "last_block": null,
+    "kind": "same_block_quoter_v2_path_quotes",
+    "run_id": "live-20261109T141903Z",
+    "chain": "arbitrum-one",
+    "chain_id": 42161,
+    "latest_block": 522706727,
+    "pinned_block": 522706717,
+    "latest_block_time_utc": "2026-11-09T14:47:59+00:00",
+    "quoter_v2": {
+      "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+      "code_bytes": 8273,
+      "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "WETH9()": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    },
+    "pools": {
+      "WETH/USDC_500": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+      "USDC/USD0_100": "0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+      "USD0/WETH_500": "0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+      "WETH/USDC_3000": "0xc473e2aee3441bf9240be85eb122abb059a3b57c",
+      "USDC/WBTC_3000": "0x6985cb98ce393fce8d6272127f39013f61e36166",
+      "WBTC/WETH_3000": "0x149e36e72726e0bcea5c59d40df2c43f60f5a22d"
+    },
+    "assets": {
+      "WETH": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1 (18)",
+      "USDC": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831 (6)",
+      "USD0": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9 (6, symbol=USD₮0)",
+      "WBTC": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f (8)"
+    },
+    "triangles_quoted": {
+      "WETH-USDC-USD0": {
+        "fees": [
+          500,
+          100,
+          500
+        ],
+        "quotes": 4,
+        "best_net_bps": "-9.57",
+        "worst_net_bps": "-122.19"
+      },
+      "WETH-USDC-WBTC": {
+        "fees": [
+          500,
+          3000,
+          3000
+        ],
+        "quotes": 4,
+        "best_net_bps": "-29.86",
+        "worst_net_bps": "-1358"
+      },
+      "USDC-USD0-WETH": {
+        "fees": [
+          100,
+          500,
+          500
+        ],
+        "quotes": 4,
+        "best_net_bps": "-9.35",
+        "worst_net_bps": "-20.48"
+      }
+    },
+    "all_negative": true,
+    "quotes_count": 12,
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -36,28 +88,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方SDK ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3工厂文档地址=0x1F98431c8aD98523631AE4a59f267346ea31F984；本轮未核代码。",
-    "SDK默认quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6；未把它当QuoterV2实现，也未调用任何部署。",
-    "QuoterV2源代码quoteExactInput逐腿amountIn=_amountOut并累积内部gasEstimate，未执行本轮报价。",
-    "官方NodeInterface注释定义gasEstimate为总gas、gasEstimateForL1为其中L1分量；不能total之外重复加L1。"
+    "链身份：eth_chainId=0xa4b1（42161），最新块 52,270,6727（2026-11-09T14:47:59Z），pinned 报价块 52,270,6717。",
+    "QuoterV2 身份链上核验：0x61fFE014… 代码 8,273B，factory()=0x1F98431…（官方 V3 工厂，与 SDK 地址表一致）、WETH9()=WETH Arbitrum；返回四元组编码。",
+    "三条腿池经工厂 getPool 核验存在：WETH/USDC(500) 0xc6962004…、USDC/USD₮0(100) 0xbe3ad6a5…、USD₮0/WETH(500) 0x641c00a8…；另核 WETH/USDC(3000)、USDC/WBTC(3000)、WBTC/WETH(3000)。",
+    "同 pinned 块 12 条 QuoterV2 三跳闭环报价：3 个闭环 × 4 数量，全部输出<输入；最好 T3 小额 −9.35bps，T1 1 WETH −11.71bps，T2 1 WETH −59.33bps；数量放大更差。",
+    "池状态同 pinned 块：WETH/USDC liquidity 2.0828e18/tick −199694；USDC/USD₮0 2.9438e15/tick 10；USD₮0/WETH 2.1500e17/tick −199685。",
+    "代币身份链上读：WETH 18、USDC 6、USD₮0 6（symbol 链上为 USD₮0）、WBTC 8；未把 USDC 与 USD₮0 合并。",
+    "30 天规则窗口与 7 天活动窗口未覆盖（本轮只有单块报价；未扫治理/事件/真实成交）。"
   ],
   "pending_questions": [
-    "当前池图未建立：Arbitrum RPC与DEX发现入口均代理CONNECT403，三腿实际池地址、代币地址、区块和数量全部未取得。",
-    "30天规则窗口未覆盖：只读SDK/Quoter/NodeInterface当前源码，没有治理/部署变更历史与链上生效证据。",
-    "7天真实三角交易与旧小池轮转未覆盖，没有事件扫描或交易复盘。",
-    "SDK默认quoterAddress和QuoterV2源码不是同一已核对实现；ABI、部署代码/当前费用、转账税均待核验。",
-    "自有本金/闪电贷两种融资都未测，额度、费用、同笔偿还和完整L2费用unknown。"
+    "30 天规则窗口未覆盖：未扫 Uniswap 治理、工厂 fee tier、池创建/迁移事件。",
+    "7 天活动窗口未覆盖：未复盘真实三角成交、大额换币与流动性变化。",
+    "仅 Uniswap V3 三个闭环；未覆盖 Sushi/Camelot/Balancer 和跨 DEX 三腿组合。",
+    "未计 gas（L2+L1）、授权、滑点、失败成本；QuoterV2 gasEstimate 字段未使用/未校验。",
+    "未做融资（自有本金/闪电贷）与只读模拟；容量只到 50 WETH / 10,000 USDC。",
+    "报价为 pinned 块历史证据，报告时已 >60 秒；执行前必须重取。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:35:29.566307+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ARB02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-    "verified_at": "2026-11-08T15:35:55.555537+00:00",
-    "record": "evidence/ARB02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:52:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ARB02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ARB02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

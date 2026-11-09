@@ -1,0 +1,102 @@
+{
+ "started_at_utc": "2026-11-09T14:47:34.382323+00:00",
+ "head_block": 522706632,
+ "head_block_time_utc": "2026-11-09T14:47:34+00:00",
+ "quotes_block": 522706375,
+ "small_tier_quotes": [
+  {
+   "input_stable": 10,
+   "block": 522706375,
+   "univ3_stable_to_weth": {
+    "amount_in": "10000000",
+    "amount_out": 4715670195594033,
+    "error": null
+   },
+   "sushi_weth_to_stable_from_uni": {
+    "amount_in": "4715670195594033",
+    "amount_out": 9966573,
+    "error": null
+   },
+   "sushi_stable_to_weth": {
+    "amount_in": "10000000",
+    "amount_out": 4701945547005634,
+    "error": null
+   },
+   "univ3_weth_to_stable_from_sushi": {
+    "amount_in": "4701945547005634",
+    "amount_out": 9960727,
+    "error": null
+   }
+  },
+  {
+   "input_stable": 100,
+   "block": 522706375,
+   "univ3_stable_to_weth": {
+    "amount_in": "100000000",
+    "amount_out": 47152355816894610,
+    "error": null
+   },
+   "sushi_weth_to_stable_from_uni": {
+    "amount_in": "47152355816894610",
+    "amount_out": 99542852,
+    "error": null
+   },
+   "sushi_stable_to_weth": {
+    "amount_in": "100000000",
+    "amount_out": 46965793851176871,
+    "error": null
+   },
+   "univ3_weth_to_stable_from_sushi": {
+    "amount_in": "46965793851176871",
+    "amount_out": 99484637,
+    "error": null
+   }
+  }
+ ],
+ "mid_prices": {
+  "uniswap_v3_mid_usdce_per_weth": "2125.394044428001424726872394",
+  "sushi_v2_mid_usdce_per_weth": "2120.129675847325988028838535",
+  "spread_bps_sushi_minus_uni": "-24.76890623871214716796462092",
+  "sushi_reserves": {
+   "reserve0_WETH": "37037187636938966194",
+   "reserve1_USDCe": "78523640619",
+   "ts": 1794234929
+  }
+ },
+ "n_arb_new_pool": {
+  "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+  "suspected_token": "0xf2925a78adac85ca330643bc5584a694199afb76",
+  "stable": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+  "pool_code_bytes": 22142,
+  "pool_code_sha256": "df4352d1ddf0c382fe7b4e5f10c0d12ab8cb5fdbb6c1a39d4dacca8ca4fb8363",
+  "token0": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+  "token0_error": null,
+  "token1": "0xf2925a78adac85ca330643bc5584a694199afb76",
+  "token1_error": null,
+  "fee": 3000,
+  "fee_error": null,
+  "slot0": {
+   "sqrtPriceX96": "1120455419495722798374638764549163435",
+   "tick": 329309
+  },
+  "slot0_error": null,
+  "liquidity": "24259911431500377",
+  "liquidity_error": null,
+  "quote_100USDC_to_BLPX": {
+   "amount_in": "100000000",
+   "amount_out": 18844754615093570206089,
+   "error": null
+  },
+  "quote_1BLPX_to_USDC": {
+   "amount_in": "1000000000000000000",
+   "amount_out": 4984,
+   "error": null
+  }
+ },
+ "dexscreener_blpx": {
+  "http_status": 200,
+  "pairs": []
+ },
+ "finished_at_utc": "2026-11-09T14:47:44.893037+00:00",
+ "request_count_this_script": 21
+}

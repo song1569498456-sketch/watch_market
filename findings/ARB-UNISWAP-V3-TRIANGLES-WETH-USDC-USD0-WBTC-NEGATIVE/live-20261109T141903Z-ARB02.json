@@ -1,0 +1,39 @@
+{
+  "finding_id": "ARB-UNISWAP-V3-TRIANGLES-WETH-USDC-USD0-WBTC-NEGATIVE",
+  "status": "QUOTED",
+  "chain": "ARB",
+  "protocol": "Uniswap V3",
+  "market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0 / WETH-USDC-WBTC / USDC-USD0-WETH",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+    "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+  ],
+  "mechanism": "用 Uniswap V3 QuoterV2 的 quoteExactInput 在单一 pinned 区块对三腿闭环做整路径报价（合约内部逐腿 amountIn=上腿 amountOut，费率与冲击已计入）。3 个闭环 12 条报价全部输出<输入：最好 T3 小额 −9.35bps，T1 1 WETH −11.71bps，T2 1 WETH −59.33bps；数量放大更差。三腿费率下限 11/65bps 已接近或超过可捕获价差，gas 未计更负。结论：本轮不存在正收益 A→B→C→A。",
+  "net_result": {
+    "value": "-0.000935",
+    "unit": "USDC per 1 USDC",
+    "type": "estimated_from_quotes",
+    "note": "最好档；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "gas L2/L1",
+    "授权",
+    "滑点/失败",
+    "融资成本"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "同块状态不一致",
+    "代币/路径不符",
+    "gas 后更负（不改变排除）",
+    "报价过期需重取"
+  ],
+  "owner": "ARB02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ARB02/live-20261109T141903Z/record.json"
+}

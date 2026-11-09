@@ -169,6 +169,19 @@
         "N-SONIC"
       ],
       "merged_at": "2026-11-09T14:49:14.267988+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "47b2ab52e6cf07ae7f0c9dba4da92a0cf39b3ffc",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T14:49:28.824175+00:00"
+    },
+    {
+      "batch": 5,
+      "agents": [
+        "ARB01",
+        "ARB02",
+        "ARB03"
+      ],
+      "merged_at": "2026-11-09T14:53:20.066326+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -204,6 +217,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 4
+    "completed": 5
   }
 }

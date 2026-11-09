@@ -1,0 +1,27 @@
+{
+  "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+  "status": "QUOTED",
+  "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+  "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 wstETH=1.24849749 WETH、100=124.80245，对比 Ethereum 块 26377950 的 L1 协议比 1.24882206（跨链跨时刻参考）低约 0.0259%（100 单位 -0.0639%）；但 L2 无协议赎回，折价只能通过即卖实现或承担跨链等待。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+  ],
+  "net_result": "折价约 -0.0259%（1 wstETH）/ -0.0639%（100 wstETH）相对于跨链参考，未实现净额 null",
+  "unknown_costs": [
+    "跨链等待与 gas",
+    "L1 同口径参考",
+    "容量上限"
+  ],
+  "handoff_to": [
+    "Q00",
+    "X-ARB"
+  ],
+  "invalidation_conditions": [
+    "DEX 价差消失",
+    "跨链等待不可行",
+    "L1 参考变化"
+  ],
+  "owner": "ARB03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ARB03/live-20261109T141903Z/record.json"
+}

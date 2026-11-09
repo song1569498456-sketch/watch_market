@@ -1,0 +1,246 @@
+{
+  "agent_id": "ARB02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One 42161 三资产多池闭环兑换：Uniswap V3 QuoterV2 同区块三腿闭环真实报价（WETH/USDC/USD₮0、WETH/USDC/WBTC、USDC/USD₮0/WETH），含每腿费率与价格冲击，验证是否存在正收益闭环",
+  "started_at": "2026-11-09T14:46:30+00:00",
+  "finished_at": "2026-11-09T14:52:00+00:00",
+  "duration_seconds": 330,
+  "execution_status": "PARTIAL",
+  "status": "QUOTED",
+  "as_of": {
+    "utc": "2026-11-09T14:48:33+00:00",
+    "beijing": "2026-11-09T22:48:33+08:00",
+    "data_time": "报价钉块 52,270,6717（2026-11-09T14:47:57Z 附近）；最新块 52,270,6727（2026-11-09T14:47:59Z）；池状态与报价同 pinned 块读取；报告落盘时报价已超过 60 秒，按历史证据处理，执行前须重取"
+  },
+  "block_or_slot": 522706717,
+  "market_ids": [
+    "ARB:42161:uniswap-v3-pool:0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "ARB:42161:uniswap-v3-pool:0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+    "ARB:42161:uniswap-v3-pool:0x641c00a822e8b671738d32a431a4fb6074e5c79d"
+  ],
+  "asset_ids": [
+    "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+    "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+  ],
+  "discovery_source": [
+    {
+      "source": "Uniswap 官方 SDK 地址表（raw.githubusercontent.com，无 key）",
+      "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "retrieved_at_utc": "2026-11-09T14:47:59+00:00",
+      "http_status": 200,
+      "request": "默认 quoterAddress=0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（Quoter V1）；mixedRouteQuoterV2Address 等；本轮 QuoterV2 改用链上 getter/行为核验，不依赖 SDK 默认 quoter"
+    },
+    {
+      "source": "Arbitrum One 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-09T14:47:59+00:00～14:48:33+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（factory.getPool、token symbol/decimals、QuoterV2 quoteExactInput、QuoterV2 factory()/WETH9()、pool liquidity/slot0）；共 10 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "三资产闭环使用 Uniswap V3 QuoterV2 的 quoteExactInput(bytes path, uint256 amountIn)，在单一 pinned 区块把三腿组成一条 path（token→fee→token→fee→token→fee→首 token），由 quoter 合约内部逐腿传递上一腿输出并计入每腿费率与价格冲击，只读取最终 amountOut 与输入比较，避免上一轮'逐腿独立同数量报价/展示价拼循环'的错误。QuoterV2 身份链上核验：factory()=0x1F98431c8aD98523631AE4a59f267346ea31F984（官方 V3 工厂，与 SDK 地址表一致）、WETH9()=WETH Arbitrum；返回四元组编码（amountOut + sqrtPriceX96AfterList + initializedTicksCrossedList + gasEstimate）。三个闭环 12 条同区块报价全部输出<输入，最好 T3 小额 −9.35 bps（三腿费率下限约 11 bps），数量放大更差；gas/L2/L1 费未计（只会更负）。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "arbitrum-one",
+      "fields": {"eth_chainId": "0xa4b1", "chain_id": 42161, "latest_block": 522706727,
+                 "latest_block_time_utc": "2026-11-09T14:47:59+00:00", "pinned_block": 522706717,
+                 "block_time_approx": "0.25s（10 块约 2.5 秒）"},
+      "evidence_file": "raw/arb02_summary.json"
+    },
+    {
+      "type": "quoter_identity",
+      "protocol": "Uniswap V3 QuoterV2",
+      "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+      "fields": {"code_bytes": 8273, "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+                 "WETH9()": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+                 "factory_code_bytes": 24535},
+      "block": 522706717,
+      "evidence_file": "raw/final_check.json"
+    },
+    {
+      "type": "triangle_quote",
+      "protocol": "Uniswap V3",
+      "address": "WETH→USDC(500)→USD₮0(100)→WETH(500)",
+      "fields": {"path_fees": [500, 100, 500], "total_fee_bps": 11,
+                 "quotes": [{"amount_in": "0.1 WETH", "amount_out": "0.09990427479369339 WETH", "net_bps": "-9.57"},
+                            {"amount_in": "1 WETH", "amount_out": "0.998829456896439891 WETH", "net_bps": "-11.71"},
+                            {"amount_in": "10 WETH", "amount_out": "9.967034302194314 WETH", "net_bps": "-32.97"},
+                            {"amount_in": "50 WETH", "amount_out": "49.3890540987274 WETH", "net_bps": "-122.19"}]},
+      "block": 522706717,
+      "evidence_file": "raw/arb02_summary.json"
+    },
+    {
+      "type": "triangle_quote",
+      "protocol": "Uniswap V3",
+      "address": "WETH→USDC(500)→WBTC(3000)→WETH(3000)",
+      "fields": {"path_fees": [500, 3000, 3000], "total_fee_bps": 65,
+                 "quotes": [{"amount_in": "0.1 WETH", "amount_out": "0.09970141321944745 WETH", "net_bps": "-29.86"},
+                            {"amount_in": "1 WETH", "amount_out": "0.9940669312993101 WETH", "net_bps": "-59.33"},
+                            {"amount_in": "10 WETH", "amount_out": "9.687370389592733 WETH", "net_bps": "-312.6"},
+                            {"amount_in": "50 WETH", "amount_out": "43.20876274419688 WETH", "net_bps": "-1358"}]},
+      "block": 522706717,
+      "evidence_file": "raw/arb02_summary.json"
+    },
+    {
+      "type": "triangle_quote",
+      "protocol": "Uniswap V3",
+      "address": "USDC→USD₮0(100)→WETH(500)→USDC(500)",
+      "fields": {"path_fees": [100, 500, 500], "total_fee_bps": 11,
+                 "quotes": [{"amount_in": "1 USDC", "amount_out": "0.999065 USDC", "net_bps": "-9.35"},
+                            {"amount_in": "10 USDC", "amount_out": "9.990652 USDC", "net_bps": "-9.35"},
+                            {"amount_in": "1000 USDC", "amount_out": "998.954995 USDC", "net_bps": "-10.45"},
+                            {"amount_in": "10000 USDC", "amount_out": "9979.52083 USDC", "net_bps": "-20.48"}]},
+      "block": 522706717,
+      "evidence_file": "raw/arb02_summary.json"
+    },
+    {
+      "type": "pool_state",
+      "protocol": "Uniswap V3",
+      "address": "0xc6962004f452be9203591991d15f6b388e09e8d0 / 0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6 / 0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+      "fields": {"WETH_USDC_500": {"liquidity": "2082757286957756332", "tick": -199694},
+                 "USDC_USD0_100": {"liquidity": "2943808332104589", "tick": 10},
+                 "USD0_WETH_500": {"liquidity": "214997102976435268", "tick": -199685},
+                 "note": "池 token0/token1 按地址排序；USD₮0 合约 0xFd086bC7… 链上 symbol 为 USD₮0"},
+      "block": 522706717,
+      "evidence_file": "raw/final_check.json"
+    },
+    {
+      "type": "token_identity",
+      "protocol": "ERC20",
+      "address": "0x82aF4944…Bab1 / 0xaf88d065…e5831 / 0xFd086bC7…FCbb9 / 0x2f2a2543…B0f",
+      "fields": {"WETH": {"symbol": "WETH", "decimals": 18},
+                 "USDC": {"symbol": "USDC", "decimals": 6},
+                 "USD0": {"symbol": "USD₮0", "decimals": 6},
+                 "WBTC": {"symbol": "WBTC", "decimals": 8}},
+      "block": 522706717,
+      "evidence_file": "raw/arb02_summary.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0", "amount_in": "0.1 WETH", "amount_out": "0.09990427479369339 WETH", "fees": "路径费 500/100/500（11bps），价格冲击由 QuoterV2 计入", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "同区块三腿闭环，净 −9.57bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0", "amount_in": "1 WETH", "amount_out": "0.998829456896439891 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −11.71bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0", "amount_in": "10 WETH", "amount_out": "9.967034302194314 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −32.97bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0", "amount_in": "50 WETH", "amount_out": "49.3890540987274 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −122.19bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-WBTC", "amount_in": "0.1 WETH", "amount_out": "0.09970141321944745 WETH", "fees": "路径费 500/3000/3000（65bps）", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −29.86bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-WBTC", "amount_in": "1 WETH", "amount_out": "0.9940669312993101 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −59.33bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-WBTC", "amount_in": "10 WETH", "amount_out": "9.687370389592733 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −312.6bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-WBTC", "amount_in": "50 WETH", "amount_out": "43.20876274419688 WETH", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −1358bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:USDC-USD0-WETH", "amount_in": "1 USDC", "amount_out": "0.999065 USDC", "fees": "路径费 100/500/500（11bps）", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −9.35bps（本轮最好）"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:USDC-USD0-WETH", "amount_in": "10 USDC", "amount_out": "9.990652 USDC", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −9.35bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:USDC-USD0-WETH", "amount_in": "1000 USDC", "amount_out": "998.954995 USDC", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −10.45bps"},
+    {"market_id": "ARB:42161:uniswap-v3-triangle:USDC-USD0-WETH", "amount_in": "10000 USDC", "amount_out": "9979.52083 USDC", "fees": "同上", "block": 522706717, "quote_time_utc": "2026-11-09T14:47:57+00:00", "note": "净 −20.48bps"}
+  ],
+  "net_result": {
+    "value": "-0.000935",
+    "unit": "USDC per 1 USDC（相对比例）",
+    "type": "estimated_from_quoter_quotes_not_simulated",
+    "realized": false,
+    "best_case": "T3 USDC→USD₮0→WETH→USDC，1/10 USDC 净 −9.35 bps；所有 12 条报价均负",
+    "unknown_costs": ["gas（L2 执行费）", "L1 数据费", "授权/账户初始化", "滑点保护与失败成本", "融资成本（若用闪电贷）", "QuoterV2 gasEstimate 未使用/未校验"]
+  },
+  "capacity": "仅测到 50 WETH / 10,000 USDC 档且全部净负；更大量级只会更差（T2 50 WETH 已 −1358bps）。池 liquidity 同 pinned 块：WETH/USDC 2.08e18、USDC/USD₮0 2.94e15、USD₮0/WETH 2.15e17（liquidity 非美元金额，仅作量级参考）。",
+  "permissions": "三腿池均为 Uniswap V3 标准池（factory.getPool 返回非零）；QuoterV2 只读 view 调用，无需权限；本轮未签名、未授权、未广播。",
+  "liabilities": "none（只读报价；未建仓、无债务、无在途资金）",
+  "waiting_time": "0（同块报价）；实际执行需两/三腿原子组合（Uniswap V3 可用一条 path 多跳，单笔交易即可完成 3 腿），但未模拟；gas/确认等待未计",
+  "invalidation_conditions": [
+    "两腿/三腿非同一区块状态（本轮钉块 52,270,6717 同批读取）",
+    "代币合约/decimals 与路径不一致（本轮链上 symbol/decimals 已核）",
+    "QuoterV2 部署与官方工厂/WETH9 不符（本轮 getter 核验一致）",
+    "报价超过 60 秒（报告落盘时已过期，按历史证据）",
+    "gas/L2/L1 费或滑点使净额进一步恶化（只会更负）"
+  ],
+  "evidence_urls": [
+    "https://arb1.arbitrum.io/rpc",
+    "https://arbiscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+    "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+    "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+  ],
+  "coverage_gaps": [
+    "30 天规则窗口未覆盖：未扫 Uniswap 治理/工厂 fee tier、池创建/迁移事件；只核当前 SDK 地址与链上 Quoter/工厂代码。",
+    "7 天活动窗口未覆盖：未扫真实三角交易、未复盘历史成交与大额换币；只有单 pinned 块快照。",
+    "仅 Uniswap V3 三个闭环，未覆盖 Sushi/Camelot/Balancer 等其他 DEX 三角与跨 DEX 组合。",
+    "未计 gas（L2+L1 数据费）、授权、滑点、失败成本；QuoterV2 返回的 gasEstimate 字段未使用/未校验解码。",
+    "未做融资（自有本金/闪电贷）与只读交易模拟；容量只到 50 WETH / 10,000 USDC。",
+    "报价为 pinned 块历史证据（报告落盘时已超过 60 秒），执行前必须重取。"
+  ],
+  "next_check": [
+    "重取最新 pinned 块报价并扩展数量档/fee tier 组合，确认是否有任何数量档转正。",
+    "扩到跨 DEX 三角（Uniswap + Camelot/Sushi/Balancer），逐腿用各自官方 quoter/池状态，禁止展示价拼循环。",
+    "补 30 天窗口（工厂 fee tier、池创建/迁移、治理与链上生效）与 7 天窗口（三角成交事件、流动性变化、是否已结束）。",
+    "用 NodeInterface.gasEstimateComponents 或官方估算器口径补完整 L2+L1 费用（total 已含 L1 分量，不重复加）。",
+    "若跨 DEX 出现价差，先做同块逐腿 quote，再考虑只读模拟；闪电贷假设单独核算不混用。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0xc6962004f452be9203591991d15f6b388e09e8d0",
+      "chain": "ARB", "protocol": "Uniswap V3",
+      "asset_ids": ["0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"],
+      "evidence_urls": ["https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（WETH/USDC 0.05%）",
+      "next_check": "同块重取 quote；跨 DEX 扩展时作一腿"
+    },
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+      "chain": "ARB", "protocol": "Uniswap V3",
+      "asset_ids": ["0xaf88d065e77c8cC2239327C5EDb3A432268e5831", "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"],
+      "evidence_urls": ["https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USDC/USD₮0 0.01%）",
+      "next_check": "同块重取 quote；USDC/USD₮0 视为两个不同稳定币合约"
+    },
+    {
+      "market_id": "ARB:42161:uniswap-v3-pool:0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+      "chain": "ARB", "protocol": "Uniswap V3",
+      "asset_ids": ["0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9", "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"],
+      "evidence_urls": ["https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_GETPOOL_AND_LIQUIDITY（USD₮0/WETH 0.05%）",
+      "next_check": "同块重取 quote；跨 DEX 扩展时作一腿"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ARB-UNISWAP-V3-TRIANGLES-WETH-USDC-USD0-WBTC-NEGATIVE",
+      "status": "QUOTED",
+      "chain": "ARB",
+      "protocol": "Uniswap V3",
+      "market_id": "ARB:42161:uniswap-v3-triangle:WETH-USDC-USD0 / WETH-USDC-WBTC / USDC-USD0-WETH",
+      "evidence_urls": ["https://arbiscan.io/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+                        "https://arbiscan.io/address/0xc6962004f452be9203591991d15f6b388e09e8d0",
+                        "https://arbiscan.io/address/0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+                        "https://arbiscan.io/address/0x641c00a822e8b671738d32a431a4fb6074e5c79d"],
+      "mechanism": "用 Uniswap V3 QuoterV2 的 quoteExactInput 在单一 pinned 区块对三腿闭环做整路径报价（合约内部逐腿 amountIn=上腿 amountOut，费率与冲击已计入）。3 个闭环 12 条报价全部输出<输入：最好 T3 小额 −9.35bps，T1 1 WETH −11.71bps，T2 1 WETH −59.33bps；数量放大更差。三腿费率下限 11/65bps 已接近或超过可捕获价差，gas 未计更负。结论：本轮不存在正收益 A→B→C→A。",
+      "net_result": {"value": "-0.000935", "unit": "USDC per 1 USDC", "type": "estimated_from_quotes", "note": "最好档；非模拟、非收益主张"},
+      "unknown_costs": ["gas L2/L1", "授权", "滑点/失败", "融资成本"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["同块状态不一致", "代币/路径不符", "gas 后更负（不改变排除）", "报价过期需重取"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "用三腿展示价相乘/每腿同数量独立报价拼循环可获利（上一轮被 Q00 否决的做法）",
+      "reason": "本轮改用 QuoterV2 单次三跳闭环报价（同块、内部逐腿传递实际输出、费率与冲击计入），12 条报价全部净负；该方法已排除。"
+    },
+    {
+      "claim": "本轮存在任何正收益三资产闭环",
+      "reason": "3 个候选闭环、0.1–50 WETH 与 1–10,000 USDC 档全部输出小于输入；最好 −9.35bps，且三腿费率下限约 11bps，未计 gas，排除正收益主张。"
+    },
+    {
+      "claim": "把 USDC 与 USD₮0 当同一稳定币权益",
+      "reason": "两者是不同合约（0xaf88… 与 0xFd08…），链上 symbol/decimals 与池内身份分别核验；只作为两个不同资产节点，不合并。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_block_quoter_v2_path_quotes",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T14:48:33+00:00",
+    "complete_block_range": "pinned 单块 52,270,6717（最新块 52,270,6727）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

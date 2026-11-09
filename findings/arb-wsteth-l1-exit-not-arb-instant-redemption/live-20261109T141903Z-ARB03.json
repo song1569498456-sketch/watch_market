@@ -1,0 +1,22 @@
+{
+  "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+  "status": "REJECTED",
+  "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+  "mechanism": "链上证实：wstETH L2 代币无 stEthPerToken/getStETHByWstETH/unwrap（均 revert），bridge()=0x07d46922… 且 isWithdrawalsEnabled=true；官方设计为 L2 销毁→L1 outbox 争议窗口后释放。因此该路径是跨链/等待出口，不是 Arbitrum 本链即时 ETH 赎回。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+  ],
+  "net_result": "n/a（排除性结论）",
+  "unknown_costs": [],
+  "handoff_to": [
+    "X-ARB"
+  ],
+  "invalidation_conditions": [
+    "L2 代币升级引入本地赎回函数",
+    "L1/L2 网关迁移或关闭"
+  ],
+  "owner": "ARB03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/ARB03/live-20261109T141903Z/record.json"
+}

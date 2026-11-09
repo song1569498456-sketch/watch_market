@@ -1,0 +1,362 @@
+{
+ "agent_id": "ARB03",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ARB",
+ "scope": "Arbitrum One 质押衍生品（wstETH/rETH L2 封装）折价与三出口分离：DEX 即时卖出、L2 协议即时赎回、跨链/排队等待；跨链退出不计为本链即时 ETH",
+ "started_at": "2026-11-09T14:50:00+00:00",
+ "finished_at": "2026-11-09T14:52:57.589409+00:00",
+ "duration_seconds": 177.6,
+ "execution_status": "PARTIAL",
+ "status": "QUOTED",
+ "as_of": {
+  "utc": "2026-11-09T14:51:15+00:00",
+  "beijing": "2026-11-09T22:51:15+08:00",
+  "data_time": "链状态/代码/报价固定在块 522,707,442（block timestamp 2026-11-09T14:51:05Z，抓取 14:50:09-14:51:15Z）；L1 参考值取自 Ethereum 块 26377950（14:31:47Z，跨链跨时刻仅参考）"
+ },
+ "block_or_slot": 522707442,
+ "market_ids": [
+  "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+  "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+  "42161:rocketpool-reth:0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+  "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+  "42161:lido-arbitrum-gateway:0x07d4692291b9e30e326fd31706f686f83f331b82"
+ ],
+ "asset_ids": [
+  "eip155:42161/erc20:0x5979d7b546e38e414f7e9822514be443a4800529",
+  "eip155:42161/erc20:0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+  "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+ ],
+ "discovery_source": [
+  {
+   "source": "arbitrum-rpc",
+   "url": "https://arb1.arbitrum.io/rpc",
+   "retrieved_at_utc": "2026-11-09T14:50:09+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x5/eth_call x47（含 revert 探测）；55 次请求全部返回结果",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "dexscreener-search-reth",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=rETH",
+   "retrieved_at_utc": "2026-11-09T14:50:28+00:00",
+   "http_status": 200,
+   "request": "发现 Arbitrum rETH/WETH Uniswap 交易对 0x09ba302a…（baseToken rETH 0xEC70Dcb4…）；地址已链上核验"
+  },
+  {
+   "source": "lido-l2-readme",
+   "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+   "retrieved_at_utc": "2026-11-09T14:50:33+00:00",
+   "http_status": 200,
+   "sha256": null,
+   "request": "部署参数 L1_WITHDRAWALS_ENABLED/L2_WITHDRAWALS_ENABLED 开关说明（默认值描述，非当前值）"
+  },
+  {
+   "source": "lido-l2-arbitrum-readme",
+   "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+   "retrieved_at_utc": "2026-11-09T14:50:35+00:00",
+   "http_status": 200,
+   "sha256": null,
+   "request": "Arbitrum Gateway 设计：L2GatewayRouter→L2Gateway→L1Gateway，L2→L1 通过 Outbox 消息释放"
+  }
+ ],
+ "mechanism": "Arbitrum 上的 wstETH/rETH 是跨链封装代币：wstETH L2 代币 0x5979… 无份额率/赎回函数（stEthPerToken/getStETHByWstETH/unwrap 均 revert），rETH 0xEC70… 无 getExchangeRate/getEthValue（均 revert）；其协议退出只能走 L2 销毁→L1 outbox 争议窗口释放（L2 网关 isWithdrawalsEnabled=true，但等待与 L1 状态未核）。因此本链唯一可即时执行的出口是 DEX 卖出；DEX 价与 L1 协议记账比之间的差异只能作为折价/机会成本测量，不能构成 L2 即时闭环。",
+ "observations": [
+  "链：eth_chainId=0xa4b1（42161）；head=522,707,445（2026-11-09T14:51:05Z，hash 0x41da8f41…）；固定块 522,707,442；head baseFee≈0.020 gwei（L2 部分，未计 L1 数据费）。",
+  "wstETH L2 0x5979D7b546E38E414F7E9822514be443A4800529：代码 3,296 B，keccak 0x93d3f113…；name=Wrapped liquid staked Ether 2.0、symbol=wstETH、decimals=18、totalSupply=47,840.945125478664582365；stEthPerToken()、getStETHByWstETH(uint256)、unwrap(uint256) 在固定块均 revert（空 data）→ L2 无份额率/赎回函数。",
+  "wstETH bridge() 返回 L2 网关 0x07d4692291b9e30e326fd31706f686f83f331b82；该网关 isWithdrawalsEnabled()=true（块 522,707,442）；gateway()/l1Address()/l1Token() 与 withdrawalsEnabled()/paused()/isPaused() 不可用（revert/无函数）。",
+  "rETH L2 0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8：代码仅 760 B，keccak 0x9bb54fba…；name=Rocket Pool ETH、symbol=rETH、decimals=18；getExchangeRate()/getEthValue(uint256) revert → L2 无协议赎回/汇率函数。",
+  "wstETH/WETH Uniswap V3 0.01% 池（factory.getPool）=0x35218a1cbac5bbc3e57fd9bd38219d37571b3537，liquidity=344,345.090898874533687755（uint128），slot0 tick=2220。",
+  "rETH/WETH Uniswap V3 0.05% 池（factory.getPool）=0x09ba302a3f5ad2bf8853266e271b005a5b3716fe，liquidity=4,957.058406180490529597（uint128），slot0 tick=-1610。",
+  "报告前重取报价（块 522,707,442，2026-11-09T14:51:12-15Z）：wstETH→WETH 1=1.248497488656218、100=124.80245003332676；WETH→wstETH 10=8.007790901227656、100=80.0565900940693；rETH→WETH 1=1.1737989660492183、10=11.30126028254181（冲击约 3.8%）。",
+  "折价对照（跨链跨时刻仅参考）：Ethereum 块 26377950（14:31:47Z）L1 stEthPerToken=1.248822059877191983、rETH getExchangeRate=1.175435950453622632；对比 Arbitrum 块 522,707,442 DEX 即卖：1 wstETH 折 -0.0259%（100 单位 -0.0639%）、1 rETH 折 -0.1393%（10 单位 -3.86% 冲击后）。",
+  "官方设计：Lido Arbitrum Gateway 的 L1/L2 提款有独立开关（README 默认值描述）；L2→L1 通过 Outbox 争议窗口释放。当前 L2 网关提款已启用；L1 侧状态与具体等待天数未读。",
+  "外部请求 55 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无签名/广播/交易。",
+  "定稿前最终重取（块 522707873，2026-11-09T14:52:57.589409+00:00）：wstETH->WETH 1→1.248497489 WETH；wstETH->WETH 100→124.802450033 WETH；rETH->WETH 1→1.173798966 WETH"
+ ],
+ "quotes": [
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "1 wstETH",
+   "amount_out": "1.248497488656218 WETH",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:12.090609+00:00",
+   "note": "DEX 即卖；报告前重取"
+  },
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "100 wstETH",
+   "amount_out": "124.80245003332676 WETH",
+   "fees": "Uniswap V3 0.01%（已含）；滑点约 0.038%",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:12.776273+00:00",
+   "note": "DEX 即卖；报告前重取"
+  },
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "10 WETH",
+   "amount_out": "8.007790901227656 wstETH",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:13.481170+00:00",
+   "note": "买入方向；隐含 wstETH 价格 1.248784 WETH"
+  },
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "100 WETH",
+   "amount_out": "80.0565900940693 wstETH",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:13.974121+00:00",
+   "note": "买入方向；隐含 1.249116 WETH/wstETH"
+  },
+  {
+   "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "amount_in": "1 rETH",
+   "amount_out": "1.1737989660492183 WETH",
+   "fees": "Uniswap V3 0.05%（已含）",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:14.864938+00:00",
+   "note": "DEX 即卖；报告前重取"
+  },
+  {
+   "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "amount_in": "10 rETH",
+   "amount_out": "11.30126028254181 WETH",
+   "fees": "Uniswap V3 0.05%（已含）；价格冲击约 3.8%",
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:15.550586+00:00",
+   "note": "容量很小；10 rETH 档不可按 1 rETH 价外推"
+  },
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "1 wstETH",
+   "amount_out": "1.248497488656218 WETH",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 522707873,
+   "quote_time_utc": "2026-11-09T14:52:58.362085+00:00",
+   "note": "报告定稿前最终重取（final requote）"
+  },
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "amount_in": "100 wstETH",
+   "amount_out": "124.80245003332676 WETH",
+   "fees": "Uniswap V3 0.01%（已含）",
+   "block": 522707873,
+   "quote_time_utc": "2026-11-09T14:52:59.138560+00:00",
+   "note": "报告定稿前最终重取（final requote）"
+  },
+  {
+   "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "amount_in": "1 rETH",
+   "amount_out": "1.1737989660492183 WETH",
+   "fees": "Uniswap V3 0.05%（已含）",
+   "block": 522707873,
+   "quote_time_utc": "2026-11-09T14:52:59.942832+00:00",
+   "note": "报告定稿前最终重取（final requote）"
+  }
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "ETH",
+  "type": "measured_discount_no_l2_native_exit_no_net",
+  "realized": false,
+  "unknown_costs": [
+   "跨链等待天数与 L1 领取时间（争议窗口未核实）",
+   "L2 销毁 + L1 释放 + L1 领取的 gas（L2 与 L1 两段，未测算）",
+   "L1 侧 wstETH 继续赎回的时间/费用",
+   "L1 同口径参考值（当前用跨链跨时刻读数）",
+   "DEX 容量/冲击（rETH 10 单位已见 3.8%）"
+  ]
+ },
+ "capacity": "wstETH/WETH 0.01% 池 liquidity=344,345.090898874533687755（uint128），100 wstETH 即卖滑点约 0.038%；rETH/WETH 0.05% 池 liquidity=4,957.058406180490529597（uint128），1 rETH 可用、10 rETH 冲击约 3.8% → 容量很小；跨链出口容量/等待 unknown",
+ "permissions": "wstETH L2 网关 0x07d46922… 的 isWithdrawalsEnabled()=true（L2 侧当前可发起跨链提款）；L1 侧提款开关与领取权限未读；wstETH/rETH 的 L2 代币无本地赎回权限入口（相关函数 revert）",
+ "liabilities": "未执行任何交易、无新增负债；若走跨链，L2 销毁后为在途应收（L1 outbox 释放），未释放前不是 L1 或 L2 自由资产",
+ "waiting_time": "unknown；官方设计为 L2 销毁→L1 outbox 争议窗口后释放，具体天数未核实；L2 即时出口不存在",
+ "invalidation_conditions": [
+  "L2 代币出现本地赎回/份额率函数（当前均 revert，若升级需重核）",
+  "跨链等待与 L1 状态导致折价不可实现",
+  "DEX 报价池流动性不足或价格冲击吞没折价（rETH 10 单位已见）",
+  "L1 协议记账比变化（跨链时差）",
+  "把 L2 DEX 折价当作本链即时套利（已排除）"
+ ],
+ "evidence_urls": [
+  "https://arb1.arbitrum.io/rpc",
+  "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+  "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+  "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529",
+  "https://arbiscan.io/address/0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+  "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+  "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+  "https://arbiscan.io/address/0x07d4692291b9e30e326fd31706f686f83f331b82"
+ ],
+ "coverage_gaps": [
+  "跨链出口实际等待时间与 L1 侧状态未核：L2 网关 withdrawals enabled=true，但 L1 网关是否启用、争议窗口天数、L1 释放后领取流程未读。",
+  "折价对照使用 Ethereum 14:31:47Z 的 L1 读数，与 Arbitrum 14:51 不同链且时差约 20 分钟，只能作参考；缺同链同机制的权威参考值。",
+  "未做完整路径只读模拟（跨链+L1 领取）；未测 L2 gas 笔数、L1 数据费与 L1 领取 gas。",
+  "30 天规则变化与 7 天活动窗口未覆盖；未扫其他 LST（stETH 其他封装、sfrxETH 等）与 L2 原生质押衍生品是否存在本链赎回。",
+  "rETH 容量仅测 1/10 单位；wstETH 容量未做 1000 档；L1/L2 费用口径未合并测算。"
+ ],
+ "next_check": [
+  "核跨链出口实际时长：读 Lido Arbitrum L1/L2 网关地址与配置（需官方部署清单；docs.lido.fi 此前 Cloudflare 拦截），确认争议窗口天数与 L1 withdrawals 状态；仍不计为本链即时 ETH。",
+  "取同链同机制权威 L1 参考值替代跨链对照；对 wstETH/rETH 做 1/10/100 档即卖价差表与容量；rETH 只按可承受冲击档报价。",
+  "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
+  "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
+ ],
+ "handoff_to": [
+  "X-ARB",
+  "Q00",
+  "M00"
+ ],
+ "markets": [
+  {
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "chain": "ARB",
+   "protocol": "Uniswap V3 wstETH/WETH 0.01%",
+   "asset_ids": [
+    "0x5979d7b546e38e414f7e9822514be443a4800529",
+    "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+   ],
+   "evidence_urls": [
+    "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+   ],
+   "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=344,345.0909，tick=2220；即卖 1/100 wstETH 报价值见 quotes",
+   "next_check": "容量档位（1/10/100/1000）与价差可持续时间"
+  },
+  {
+   "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "chain": "ARB",
+   "protocol": "Uniswap V3 rETH/WETH 0.05%",
+   "asset_ids": [
+    "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+    "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+   ],
+   "evidence_urls": [
+    "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+   ],
+   "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；liquidity=4,957.0584，tick=-1610；1 rETH 可卖、10 rETH 冲击约 3.8%",
+   "next_check": "更小档位报价与容量；是否存在其他更深池"
+  },
+  {
+   "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+   "chain": "ARB",
+   "protocol": "Lido wstETH L2 封装 + Arbitrum Gateway",
+   "asset_ids": [
+    "0x5979d7b546e38e414f7e9822514be443a4800529"
+   ],
+   "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+    "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529"
+   ],
+   "identity_status": "CHAIN_VERIFIED：代码 3,296 B；无 L2 份额率/赎回函数（revert）；bridge()=0x07d46922…，isWithdrawalsEnabled=true",
+   "next_check": "跨链等待与 L1 状态；不计为本链即时 ETH"
+  },
+  {
+   "market_id": "42161:rocketpool-reth:0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+   "chain": "ARB",
+   "protocol": "Rocket Pool rETH L2 封装",
+   "asset_ids": [
+    "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+   ],
+   "evidence_urls": [
+    "https://arbiscan.io/address/0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8"
+   ],
+   "identity_status": "CHAIN_VERIFIED：代码 760 B；name=Rocket Pool ETH/rETH/18；getExchangeRate/getEthValue revert（无 L2 赎回）",
+   "next_check": "L1 兑付规则与跨链路径；仅 DEX 即卖可行"
+  }
+ ],
+ "findings": [
+  {
+   "finding_id": "arb-wsteth-l1-exit-not-arb-instant-redemption",
+   "status": "REJECTED",
+   "market_id": "42161:lido-wsteth:0x5979d7b546e38e414f7e9822514be443a4800529",
+   "mechanism": "链上证实：wstETH L2 代币无 stEthPerToken/getStETHByWstETH/unwrap（均 revert），bridge()=0x07d46922… 且 isWithdrawalsEnabled=true；官方设计为 L2 销毁→L1 outbox 争议窗口后释放。因此该路径是跨链/等待出口，不是 Arbitrum 本链即时 ETH 赎回。",
+   "evidence_urls": [
+    "https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529",
+    "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md"
+   ],
+   "net_result": "n/a（排除性结论）",
+   "unknown_costs": [],
+   "handoff_to": [
+    "X-ARB"
+   ],
+   "invalidation_conditions": [
+    "L2 代币升级引入本地赎回函数",
+    "L1/L2 网关迁移或关闭"
+   ]
+  },
+  {
+   "finding_id": "ARB-WSTETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+   "status": "QUOTED",
+   "market_id": "42161:uniswap-v3:wsteth-weth-100:0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 wstETH=1.24849749 WETH、100=124.80245，对比 Ethereum 块 26377950 的 L1 协议比 1.24882206（跨链跨时刻参考）低约 0.0259%（100 单位 -0.0639%）；但 L2 无协议赎回，折价只能通过即卖实现或承担跨链等待。",
+   "evidence_urls": [
+    "https://arbiscan.io/address/0x35218a1cbac5bbc3e57fd9bd38219d37571b3537"
+   ],
+   "net_result": "折价约 -0.0259%（1 wstETH）/ -0.0639%（100 wstETH）相对于跨链参考，未实现净额 null",
+   "unknown_costs": [
+    "跨链等待与 gas",
+    "L1 同口径参考",
+    "容量上限"
+   ],
+   "handoff_to": [
+    "Q00",
+    "X-ARB"
+   ],
+   "invalidation_conditions": [
+    "DEX 价差消失",
+    "跨链等待不可行",
+    "L1 参考变化"
+   ]
+  },
+  {
+   "finding_id": "ARB-RETH-L2-DEX-DISCOUNT-VS-L1-REFERENCE",
+   "status": "QUOTED",
+   "market_id": "42161:uniswap-v3:reth-weth-500:0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "mechanism": "Arbitrum 块 522,707,442 的 DEX 即卖价 1 rETH=1.17379897 WETH，对比 Ethereum 块 26377950 的 L1 协议汇率 1.17543595（跨链跨时刻参考）低约 0.1393%；10 rETH 报价受 3.8% 冲击，容量很小；L2 无 getExchangeRate/getEthValue 等赎回函数，仅 DEX 即卖可行。",
+   "evidence_urls": [
+    "https://arbiscan.io/address/0x09ba302a3f5ad2bf8853266e271b005a5b3716fe"
+   ],
+   "net_result": "折价约 -0.1393%（1 rETH）相对于跨链参考，未实现净额 null",
+   "unknown_costs": [
+    "跨链等待与 gas",
+    "L1 同口径参考",
+    "容量上限"
+   ],
+   "handoff_to": [
+    "Q00",
+    "X-ARB"
+   ],
+   "invalidation_conditions": [
+    "DEX 价差消失",
+    "容量不足",
+    "L1 参考变化"
+   ]
+  }
+ ],
+ "rejections": [
+  {
+   "claim": "L2 DEX 折价 = 本链即时套利",
+   "reason": "链上证实 wstETH/rETH L2 代币均无赎回/份额率函数；跨链出口有 outbox 争议窗口与 L1 领取，本轮未核实等待，不能构成 L2 即时闭环。"
+  },
+  {
+   "claim": "1 wstETH = 1 stETH = 1 ETH 可直接套用 L1 提款规则",
+   "reason": "L2 代币无 stEthPerToken/getStETHByWstETH（revert），份额率只能查 L1；跨链时差与等待未定价。"
+  },
+  {
+   "claim": "canonical bridge 退出 = Arbitrum 本链即时 ETH",
+   "reason": "官方设计为 L2 销毁→L1 outbox 争议窗口后释放；L2 网关 isWithdrawalsEnabled=true 仅说明可发起，不改变跨链等待性质。"
+  },
+  {
+   "claim": "rETH 10 单位按 1 单位价格外推",
+   "reason": "10 rETH 报价较 1 rETH 低约 3.8%（池 liquidity 4,957），容量不足。"
+  }
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 4,
+  "retrieved_at_utc": "2026-11-09T14:51:15+00:00",
+  "complete_block_range": "代码/状态/报价：块 522,707,442；链 head 522,707,445",
+  "complete_event_time_window": "单块快照（报价 14:51:12-15Z 报告前重取）；30 天规则/7 天活动未覆盖"
+ }
+}

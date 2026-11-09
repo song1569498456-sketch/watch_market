@@ -1,0 +1,581 @@
+{
+ "agent_id": "ARB03",
+ "chain": "ARB",
+ "rpc": "https://arb1.arbitrum.io/rpc",
+ "started_at_utc": "2026-11-09T14:50:09.225874+00:00",
+ "observations": {
+  "chain_id": "0xa4b1",
+  "head_block_number": 522707239,
+  "head_block": {
+   "number": "0x1f27e127",
+   "hash": "0xe0110869577767bb074d1e1a8f8b656d6c35b110ee09d020ef38bbc9815726d6",
+   "timestamp": "0x6af1dda2",
+   "baseFeePerGas": "0x135b140",
+   "timestamp_utc": "2026-11-09T14:50:10+00:00"
+  },
+  "pinned_block": 522707236,
+  "wsteth_l2": {
+   "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+   "code": {
+    "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+    "bytecode_bytes": 3296,
+    "code_keccak256": "0x93d3f113d81097295a93cbfd054d390c99a34e1525054645567aa9c8c675812e"
+   },
+   "name()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001f57726170706564206c6971756964207374616b656420457468657220322e3000",
+    "decoded": [
+     "Wrapped liquid staked Ether 2.0"
+    ],
+    "error": null
+   },
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000067773744554480000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "wstETH"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   },
+   "totalSupply()": {
+    "raw": "0x000000000000000000000000000000000000000000000a21767c276ea77934dd",
+    "decoded": [
+     "47840945125478664582365"
+    ],
+    "error": null
+   },
+   "stEthPerToken()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   },
+   "getStETHByWstETH(uint256)": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   },
+   "unwrap(uint256)": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   }
+  },
+  "uniswap": {
+   "factory": {
+    "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "bytecode_bytes": 24535,
+    "code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69"
+   },
+   "quoter_v2": {
+    "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "bytecode_bytes": 8273,
+    "code_keccak256": "0xd8162b13ba57ce21a146063b10658bda0a3fd15c99f768c86283fce6640858a5"
+   },
+   "quoter_v1": {
+    "address": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+    "bytecode_bytes": 4631,
+    "code_keccak256": "0xff44eb8851b41c844ba98944dca9c9ba80c35f8708bbc6af2d75851caa480ed7"
+   }
+  },
+  "quote_mode": "quoterV2",
+  "quotes": [
+   {
+    "direction": "wstETH->WETH",
+    "quoter": "UniswapV3 QuoterV2",
+    "fee": 100,
+    "amount_in": "1",
+    "amount_out": 1.248497488656218,
+    "ratio": 1.248497488656218,
+    "quote_time_utc": "2026-11-09T14:50:21.572994+00:00",
+    "block": 522707236,
+    "error": null
+   },
+   {
+    "direction": "wstETH->WETH",
+    "quoter": "UniswapV3 QuoterV2",
+    "fee": 500,
+    "amount_in": "1",
+    "amount_out": 0.01041952148364552,
+    "ratio": 0.010419521483645519,
+    "quote_time_utc": "2026-11-09T14:50:22.360042+00:00",
+    "block": 522707236,
+    "error": null
+   },
+   {
+    "direction": "wstETH->WETH",
+    "quoter": "UniswapV3 QuoterV2",
+    "fee": 3000,
+    "amount_in": "1",
+    "amount_out": 0.6669636641755752,
+    "ratio": 0.6669636641755751,
+    "quote_time_utc": "2026-11-09T14:50:23.134150+00:00",
+    "block": 522707236,
+    "error": null
+   },
+   {
+    "direction": "WETH->wstETH",
+    "quoter": "UniswapV3 quoterV2",
+    "fee": 100,
+    "amount_in": "10",
+    "amount_out": 8.007790901227656,
+    "ratio": 0.8007790901227657,
+    "quote_time_utc": "2026-11-09T14:50:23.932949+00:00",
+    "block": 522707236,
+    "error": null
+   },
+   {
+    "direction": "WETH->wstETH",
+    "quoter": "UniswapV3 quoterV2",
+    "fee": 100,
+    "amount_in": "100",
+    "amount_out": 80.0565900940693,
+    "ratio": 0.800565900940693,
+    "quote_time_utc": "2026-11-09T14:50:24.706929+00:00",
+    "block": 522707236,
+    "error": null
+   }
+  ],
+  "reth_candidates": [
+   {
+    "dexId": "uniswap",
+    "pairAddress": "0x09ba302A3f5ad2bF8853266e271b005A5b3716fe",
+    "base": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+    "baseSymbol": "rETH",
+    "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "quoteSymbol": "WETH",
+    "createdAt": 1640854207000,
+    "liquidityUsd": 50725.64
+   },
+   {
+    "dexId": "uniswap",
+    "pairAddress": "0xAac7DE2b91293BA1791503d9127d2bDf2159db65",
+    "base": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+    "baseSymbol": "rETH",
+    "quote": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "quoteSymbol": "WETH",
+    "createdAt": 1637447080000,
+    "liquidityUsd": 6265.75
+   }
+  ],
+  "reth_l2": {
+   "address": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+   "code": {
+    "address": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+    "bytecode_bytes": 760,
+    "code_keccak256": "0x9bb54fba14f3f66acb4acfdcb38af3737d65543274ad5e9bc794080b876ddf18"
+   },
+   "name()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000f526f636b657420506f6f6c204554480000000000000000000000000000000000",
+    "decoded": [
+     "Rocket Pool ETH"
+    ],
+    "error": null
+   },
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000047245544800000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "rETH"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   },
+   "getExchangeRate()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   },
+   "getEthValue(uint256)": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    }
+   }
+  },
+  "reth_quotes": [
+   {
+    "direction": "rETH->WETH",
+    "fee": 100,
+    "amount_in": "1",
+    "amount_out": 0.07262046235076847,
+    "ratio": 0.07262046235076847,
+    "quote_time_utc": "2026-11-09T14:50:31.534895+00:00",
+    "block": 522707236
+   },
+   {
+    "direction": "rETH->WETH",
+    "fee": 500,
+    "amount_in": "1",
+    "amount_out": 1.1737989660492183,
+    "ratio": 1.1737989660492183,
+    "quote_time_utc": "2026-11-09T14:50:32.333521+00:00",
+    "block": 522707236
+   },
+   {
+    "direction": "rETH->WETH",
+    "fee": 3000,
+    "amount_in": "1",
+    "amount_out": 1.109944448640427,
+    "ratio": 1.1099444486404273,
+    "quote_time_utc": "2026-11-09T14:50:33.112588+00:00",
+    "block": 522707236
+   }
+  ],
+  "lido_l2_readme": {
+   "http_status": 200,
+   "sha256": "67374b6c736279148cb1e60fb91a623752acd2df030b8b7c58cb91111e24a61a",
+   "bytes": 19398,
+   "delay_lines": [
+    "- [`L1_WITHDRAWALS_ENABLED`](#L1_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L1 after the deployment. By default, withdrawals are disabled.",
+    "- [`L1_WITHDRAWALS_ENABLERS`](#L1_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L1 bridge.",
+    "- [`L1_WITHDRAWALS_DISABLERS`](#L1_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L1 bridge.",
+    "- [`L2_WITHDRAWALS_ENABLED`](#L2_WITHDRAWALS_ENABLED) - whether the withdrawals are enabled on the L2 after the deployment. By default, deposits are disabled.",
+    "- [`L2_WITHDRAWALS_ENABLERS`](#L2_WITHDRAWALS_ENABLES) - array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on the L2 bridge.",
+    "- [`L2_WITHDRAWALS_DISABLERS`](#L2_WITHDRAWALS_DISABLERS) - array of addresses to grant `WITHDRAWALS_DISABLER_ROLE` on the L2 bridge.",
+    "#### `L1_WITHDRAWALS_ENABLED`",
+    "#### `L1_WITHDRAWALS_ENABLERS`",
+    "The array of addresses to grant `WITHDRAWALS_ENABLER_ROLE` on L1 bridge/gateway. The value must be in the form of JSON array of strings. For example:",
+    "#### `L1_WITHDRAWALS_DISABLERS`"
+   ]
+  },
+  "lido_l2_arbitrum_readme": {
+   "http_status": 200,
+   "sha256": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f",
+   "bytes": 45612,
+   "key_lines": [
+    "# Lido's Arbitrum Gateway",
+    "[^*]: The current implementation might not support the non-standard functionality of the ERC20 tokens. For example, rebasable tokens or tokens with transfers fee will work incorrectly. In case your token implements some non-typical ERC20 logic, make sure it is compatible with the gateway before usage.",
+    "2. **Gateways**: Pairs of contracts (one on L1, one on L2) that implement a particular type of cross chain asset bridging.",
+    "3. **Routers**: Exactly two contracts - (one on L1, one on L2) that route each asset to its designated Gateway.",
+    "All Ethereum to Arbitrum token transfers are initiated via the `L1GatewayRouter` contract. `L1GatewayRouter` is responsible for mapping L1 token addresses to `L1Gateway`, thus acting as an L1/L2 address oracle and ensuring that each token corresponds to only one gateway. The `L1Gateway` communicates to an `L2Gateway` (typically/expectedly via retryable tickets).",
+    "Similarly, Arbitrum to Ethereum transfers are initiated via the `L2GatewayRouter` contract, which forwards calls the token's `L2Gateway`, which in turn communicates to its corresponding `L1Gateway` (typically/expectedly via sending messages to the Outbox.)",
+    "To be compatible with Arbitrum's `GatewayRouter`, both L1 and L2 gateways must conform to the `ITokenGateway` interface.",
+    "interface ITokenGateway {",
+    "function calculateL2TokenAddress(address l1ERC20)",
+    "returns (address);",
+    "address _token,",
+    "address _to,",
+    "address _token,",
+    "address _from,",
+    "address _to,",
+    "address _token,",
+    "address _from,",
+    "address _to,",
+    "The general process of tokens bridging via Arbitrum's `GatewayRouter` consists of next steps:",
+    "1. A user calls `L1GatewayRouter.outboundTransfer()` (with `L1Token`'s L1 address as an argument).",
+    "2. `L1GatewayRouter` looks up `L1Token`'s gateway.",
+    "3. `L1GatewayRouter` calls `L1TokensGateway.outboundTransfer()`, forwarding the appropriate parameters.",
+    "4. `L1TokensGateway` escrows tokens and triggers `L2TokensGateway.finalizeInboundTransfer()` method on L2 (typically via a creation of a retryable ticket).",
+    "1. On Arbitrum, a user calls `L2GatewayRouter.outboundTransfer()`, which in turn calls `outboundTransfer` on `L2Token`'s gateway (i.e., `L2TokensGateway`)."
+   ],
+   "addresses": []
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.026,
+   "retrieved_at_utc": "2026-11-09T14:50:10.252170+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.434,
+   "retrieved_at_utc": "2026-11-09T14:50:11.036138+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.435,
+   "retrieved_at_utc": "2026-11-09T14:50:11.821894+00:00"
+  },
+  {
+   "label": "getCode wstETH",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.429,
+   "retrieved_at_utc": "2026-11-09T14:50:12.601640+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:50:13.379241+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.425,
+   "retrieved_at_utc": "2026-11-09T14:50:14.154608+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.437,
+   "retrieved_at_utc": "2026-11-09T14:50:14.942790+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.432,
+   "retrieved_at_utc": "2026-11-09T14:50:15.725694+00:00"
+  },
+  {
+   "label": "eth_call stEthPerToken()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.429,
+   "retrieved_at_utc": "2026-11-09T14:50:16.505710+00:00"
+  },
+  {
+   "label": "eth_call getStETHByWstETH(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.445,
+   "retrieved_at_utc": "2026-11-09T14:50:17.301371+00:00"
+  },
+  {
+   "label": "eth_call unwrap(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:50:18.078800+00:00"
+  },
+  {
+   "label": "getCode univ3 factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.457,
+   "retrieved_at_utc": "2026-11-09T14:50:18.885505+00:00"
+  },
+  {
+   "label": "getCode quoter v2",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:50:19.663195+00:00"
+  },
+  {
+   "label": "getCode quoter v1",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.436,
+   "retrieved_at_utc": "2026-11-09T14:50:20.449629+00:00"
+  },
+  {
+   "label": "quoterV2 wstETH->WETH 1 fee100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.422,
+   "retrieved_at_utc": "2026-11-09T14:50:21.222505+00:00"
+  },
+  {
+   "label": "quoterV2 wstETH->WETH 1 fee500",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.436,
+   "retrieved_at_utc": "2026-11-09T14:50:22.009405+00:00"
+  },
+  {
+   "label": "quoterV2 wstETH->WETH 1 fee3000",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T14:50:22.783652+00:00"
+  },
+  {
+   "label": "quoterV2 WETH->wstETH 10 fee100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.448,
+   "retrieved_at_utc": "2026-11-09T14:50:23.582383+00:00"
+  },
+  {
+   "label": "quoterV2 WETH->wstETH 100 fee100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.423,
+   "retrieved_at_utc": "2026-11-09T14:50:24.356402+00:00"
+  },
+  {
+   "label": "dexscreener-search-reth",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=rETH",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.972,
+   "retrieved_at_utc": "2026-11-09T14:50:25.679356+00:00",
+   "bytes": 27181,
+   "sha256": "050bc8697320307a48318306af6b61d31519cb103cfb27ad06c97d6e09042d18"
+  },
+  {
+   "label": "getCode rETH",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.423,
+   "retrieved_at_utc": "2026-11-09T14:50:26.453431+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.422,
+   "retrieved_at_utc": "2026-11-09T14:50:27.226333+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.425,
+   "retrieved_at_utc": "2026-11-09T14:50:28.002414+00:00"
+  },
+  {
+   "label": "eth_call decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.44,
+   "retrieved_at_utc": "2026-11-09T14:50:28.792643+00:00"
+  },
+  {
+   "label": "eth_call getExchangeRate()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.431,
+   "retrieved_at_utc": "2026-11-09T14:50:29.574167+00:00"
+  },
+  {
+   "label": "eth_call getEthValue(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.456,
+   "retrieved_at_utc": "2026-11-09T14:50:30.380967+00:00"
+  },
+  {
+   "label": "quoterV2 rETH->WETH 1 fee100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.453,
+   "retrieved_at_utc": "2026-11-09T14:50:31.184281+00:00"
+  },
+  {
+   "label": "quoterV2 rETH->WETH 1 fee500",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.448,
+   "retrieved_at_utc": "2026-11-09T14:50:31.983042+00:00"
+  },
+  {
+   "label": "quoterV2 rETH->WETH 1 fee3000",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.428,
+   "retrieved_at_utc": "2026-11-09T14:50:32.761897+00:00"
+  },
+  {
+   "label": "lido-l2-readme",
+   "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/README.md",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.692,
+   "retrieved_at_utc": "2026-11-09T14:50:33.805074+00:00",
+   "bytes": 19398,
+   "sha256": "67374b6c736279148cb1e60fb91a623752acd2df030b8b7c58cb91111e24a61a"
+  },
+  {
+   "label": "lido-l2-arbitrum-readme",
+   "url": "https://raw.githubusercontent.com/lidofinance/lido-l2/main/contracts/arbitrum/README.md",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.689,
+   "retrieved_at_utc": "2026-11-09T14:50:34.846010+00:00",
+   "bytes": 45612,
+   "sha256": "63be934ede48eb8a7245251e64758946513f2408af014febca0138e746f3b39f"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:50:35.200016+00:00",
+ "request_count": 31
+}

@@ -1,0 +1,419 @@
+{
+ "chain": "ARB",
+ "retrieved_at_utc": "2026-11-09T14:51:05.498919+00:00",
+ "requests": [
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "error": null,
+   "elapsed_s": 0.658,
+   "retrieved_at_utc": "2026-11-09T14:51:06.157163+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "elapsed_s": 0.332,
+   "retrieved_at_utc": "2026-11-09T14:51:06.839345+00:00"
+  },
+  {
+   "label": "getPool wsteth_weth_100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.337,
+   "retrieved_at_utc": "2026-11-09T14:51:07.526959+00:00"
+  },
+  {
+   "label": "wsteth_weth_100 liquidity",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.339,
+   "retrieved_at_utc": "2026-11-09T14:51:08.216652+00:00"
+  },
+  {
+   "label": "wsteth_weth_100 slot0",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.336,
+   "retrieved_at_utc": "2026-11-09T14:51:08.903321+00:00"
+  },
+  {
+   "label": "getPool reth_weth_500",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.34,
+   "retrieved_at_utc": "2026-11-09T14:51:09.594478+00:00"
+  },
+  {
+   "label": "reth_weth_500 liquidity",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T14:51:10.333849+00:00"
+  },
+  {
+   "label": "reth_weth_500 slot0",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.376,
+   "retrieved_at_utc": "2026-11-09T14:51:11.061012+00:00"
+  },
+  {
+   "label": "requote wstETH->WETH 1 fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.328,
+   "retrieved_at_utc": "2026-11-09T14:51:11.739863+00:00"
+  },
+  {
+   "label": "requote wstETH->WETH 100 fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.335,
+   "retrieved_at_utc": "2026-11-09T14:51:12.425613+00:00"
+  },
+  {
+   "label": "requote WETH->wstETH 10 fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.354,
+   "retrieved_at_utc": "2026-11-09T14:51:13.130588+00:00"
+  },
+  {
+   "label": "requote WETH->wstETH 100 fee100",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.332,
+   "retrieved_at_utc": "2026-11-09T14:51:13.813210+00:00"
+  },
+  {
+   "label": "requote rETH->WETH 1 fee500",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.35,
+   "retrieved_at_utc": "2026-11-09T14:51:14.514626+00:00"
+  },
+  {
+   "label": "requote rETH->WETH 10 fee500",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.335,
+   "retrieved_at_utc": "2026-11-09T14:51:15.199589+00:00"
+  },
+  {
+   "label": "wstETH gateway()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.34,
+   "retrieved_at_utc": "2026-11-09T14:51:15.890539+00:00"
+  },
+  {
+   "label": "wstETH l1Address()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.454,
+   "retrieved_at_utc": "2026-11-09T14:51:16.695196+00:00"
+  },
+  {
+   "label": "wstETH l1Token()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.348,
+   "retrieved_at_utc": "2026-11-09T14:51:17.394337+00:00"
+  },
+  {
+   "label": "wstETH bridge()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.347,
+   "retrieved_at_utc": "2026-11-09T14:51:18.092595+00:00"
+  },
+  {
+   "label": "wstETH isWithdrawalsEnabled()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.335,
+   "retrieved_at_utc": "2026-11-09T14:51:18.778350+00:00"
+  },
+  {
+   "label": "wstETH withdrawalsEnabled()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.352,
+   "retrieved_at_utc": "2026-11-09T14:51:19.481114+00:00"
+  },
+  {
+   "label": "gateway isWithdrawalsEnabled()",
+   "method": "eth_call",
+   "error": null,
+   "elapsed_s": 0.377,
+   "retrieved_at_utc": "2026-11-09T14:51:20.208994+00:00"
+  },
+  {
+   "label": "gateway withdrawalsEnabled()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.351,
+   "retrieved_at_utc": "2026-11-09T14:51:20.910332+00:00"
+  },
+  {
+   "label": "gateway paused()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.335,
+   "retrieved_at_utc": "2026-11-09T14:51:21.595956+00:00"
+  },
+  {
+   "label": "gateway isPaused()",
+   "method": "eth_call",
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.34,
+   "retrieved_at_utc": "2026-11-09T14:51:22.286190+00:00"
+  }
+ ],
+ "head": {
+  "number": 522707445,
+  "hash": "0x41da8f41db0f72f41d047d64a3574a096db18e479f4735819b28d991c05a6558",
+  "timestamp_utc": "2026-11-09T14:51:05+00:00"
+ },
+ "pinned_block": 522707442,
+ "pools": {
+  "wsteth_weth_100": {
+   "pool": "0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "getPool_raw": "0x00000000000000000000000035218a1cbac5bbc3e57fd9bd38219d37571b3537",
+   "error": null,
+   "liquidity": {
+    "raw": "0x0000000000000000000000000000000000000000000048eafc1aaa0b33d431cb",
+    "decoded": [
+     "344345090898874533687755"
+    ],
+    "error": null
+   },
+   "slot0": {
+    "raw": "0x00000000000000000000000000000000000000011e0f34ca2c64f785e80f8a1e00000000000000000000000000000000000000000000000000000000000008ac000000000000000000000000000000000000000000000000000000000000023a00000000000000000000000000000000000000000000000000000000000007d000000000000000000000000000000000000000000000000000000000000007d000000000000000000000000000000000000000000000000000000000000000440000000000000000000000000000000000000000000000000000000000000001",
+    "decoded": [
+     "88531095988697274993624451614",
+     "2220",
+     "570",
+     "2000",
+     "2000",
+     "68",
+     "True"
+    ],
+    "error": null
+   }
+  },
+  "reth_weth_500": {
+   "pool": "0x09ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "getPool_raw": "0x00000000000000000000000009ba302a3f5ad2bf8853266e271b005a5b3716fe",
+   "error": null,
+   "liquidity": {
+    "raw": "0x00000000000000000000000000000000000000000000010cb90134ccd4274b3d",
+    "decoded": [
+     "4957058406180490529597"
+    ],
+    "error": null
+   },
+   "slot0": {
+    "raw": "0x0000000000000000000000000000000000000000ec34327946817b946ab82e44fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9b6000000000000000000000000000000000000000000000000000000000000035600000000000000000000000000000000000000000000000000000000000007d000000000000000000000000000000000000000000000000000000000000007d000000000000000000000000000000000000000000000000000000000000000440000000000000000000000000000000000000000000000000000000000000001",
+    "decoded": [
+     "73101564815918051069275942468",
+     "-1610",
+     "854",
+     "2000",
+     "2000",
+     "68",
+     "True"
+    ],
+    "error": null
+   }
+  }
+ },
+ "quotes": [
+  {
+   "direction": "wstETH->WETH",
+   "fee": 100,
+   "amount_in": "1",
+   "amount_out": 1.248497488656218,
+   "ratio": 1.248497488656218,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:12.090609+00:00"
+  },
+  {
+   "direction": "wstETH->WETH",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 124.80245003332676,
+   "ratio": 1.2480245003332675,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:12.776273+00:00"
+  },
+  {
+   "direction": "WETH->wstETH",
+   "fee": 100,
+   "amount_in": "10",
+   "amount_out": 8.007790901227656,
+   "ratio": 0.8007790901227657,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:13.481170+00:00"
+  },
+  {
+   "direction": "WETH->wstETH",
+   "fee": 100,
+   "amount_in": "100",
+   "amount_out": 80.0565900940693,
+   "ratio": 0.800565900940693,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:14.164121+00:00"
+  },
+  {
+   "direction": "rETH->WETH",
+   "fee": 500,
+   "amount_in": "1",
+   "amount_out": 1.1737989660492183,
+   "ratio": 1.1737989660492183,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:14.864938+00:00"
+  },
+  {
+   "direction": "rETH->WETH",
+   "fee": 500,
+   "amount_in": "10",
+   "amount_out": 11.30126028254181,
+   "ratio": 1.130126028254181,
+   "error": null,
+   "block": 522707442,
+   "quote_time_utc": "2026-11-09T14:51:15.550586+00:00"
+  }
+ ],
+ "wsteth_bridge_getters": {
+  "gateway()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "l1Address()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "l1Token()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "bridge()": {
+   "raw": "0x00000000000000000000000007d4692291b9e30e326fd31706f686f83f331b82",
+   "decoded": [
+    "0x07d4692291b9e30e326fd31706f686f83f331b82"
+   ],
+   "error": null
+  },
+  "isWithdrawalsEnabled()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "withdrawalsEnabled()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  }
+ },
+ "gateway": "0x07d4692291b9e30e326fd31706f686f83f331b82",
+ "gateway_checks": {
+  "isWithdrawalsEnabled()": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+   "decoded": [
+    "True"
+   ],
+   "error": null
+  },
+  "withdrawalsEnabled()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "paused()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  },
+  "isPaused()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   }
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:51:22.636494+00:00",
+ "request_count": 24
+}

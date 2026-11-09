@@ -1,0 +1,255 @@
+{
+ "started_at_utc": "2026-11-09T14:46:30.106808+00:00",
+ "chain_id": 42161,
+ "head_block": 522706377,
+ "head_block_info": {
+  "number": "0x1f27ddc9",
+  "timestamp": "0x6af1dcc7",
+  "hash": "0xe15cef3ab95ced8b955f705f74e5002a7be622bb30304fc35342573e3dc46e17",
+  "gasLimit": "0x4000000000000",
+  "baseFeePerGas": "0x1322700"
+ },
+ "head_block_time_utc": "2026-11-09T14:46:31+00:00",
+ "pinned_block": 522706375,
+ "gas_price_wei": 20108000,
+ "contracts": {
+  "uniswap_v3_factory": {
+   "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+   "bytes": 24535,
+   "sha256": "fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572"
+  },
+  "sushi_v2_factory": {
+   "address": "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+   "bytes": 11264,
+   "sha256": "ac64b67a48884da66006b81bf9f3c9507b8faf085eee24bbe5a79396b080e15c"
+  },
+  "sushi_router": {
+   "address": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+   "bytes": 17762,
+   "sha256": "e6dfc26324145af5a48727547560776db13b5eaf41a8d6c29858b1d4ef49cc59"
+  },
+  "quoter_v1": {
+   "address": "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+   "bytes": 4631,
+   "sha256": "164604f0b606b874f73b6bb16f8a7cd7b9171574018d11b381cdabff2285bf6c"
+  }
+ },
+ "uniswap_pools": {
+  "WETH_USDCe_500": {
+   "tokenA": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+   "tokenB": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+   "fee": 500,
+   "pool": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+   "error": null
+  },
+  "WETH_USDCe_3000": {
+   "tokenA": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+   "tokenB": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+   "fee": 3000,
+   "pool": "0x17c14d2c404d167802b16c450d3c99f88f2c4f4d",
+   "error": null
+  },
+  "WETH_USDC_500": {
+   "tokenA": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+   "tokenB": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "fee": 500,
+   "pool": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+   "error": null
+  }
+ },
+ "sushi_pairs": {
+  "WETH_USDCe": {
+   "tokenA": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+   "tokenB": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+   "pair": "0x905dfcd5649217c42684f23958568e533c711aa3",
+   "error": null
+  },
+  "WETH_USDC": {
+   "tokenA": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+   "tokenB": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "pair": "0x57b85fef094e10b5eecdf350af688299e9553378",
+   "error": null
+  }
+ },
+ "chosen_pair": {
+  "stable_symbol": "USDC_E",
+  "stable": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+  "weth": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+  "uniswap_pool": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+  "sushi_pair": "0x905dfcd5649217c42684f23958568e533c711aa3",
+  "uniswap_fee": 500
+ },
+ "pool_state": {
+  "uniswap_pool": {
+   "address": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+   "code_bytes": 22142,
+   "code_sha256": "c7f641d334b0ee483b53267cffa5c71edfdd25224c18ac9e7f2a56b101543084",
+   "token0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "token0_error": null,
+   "token1": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+   "token1_error": null,
+   "fee": 500,
+   "fee_error": null,
+   "slot0_decoded": {
+    "sqrtPriceX96": "3647515015869329862770939",
+    "tick": -199731
+   },
+   "slot0_error": null,
+   "liquidity": "21599303645811515",
+   "liquidity_error": null
+  },
+  "sushi_pair": {
+   "address": "0x905dfcd5649217c42684f23958568e533c711aa3",
+   "code_bytes": 9079,
+   "code_sha256": "fb1fb4a7cf5d2213b95749762d7ab5268880008d5d0bcf1583df2aae021ceed0",
+   "token0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+   "token0_error": null,
+   "token1": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+   "token1_error": null,
+   "reserves": {
+    "reserve0": "37037187636938966194",
+    "reserve1": "78523640619",
+    "blockTimestampLast": 1794234929
+   },
+   "getReserves_error": null
+  }
+ },
+ "quotes": [
+  {
+   "input_stable": 1000,
+   "block": 522706375,
+   "univ3_stable_to_weth": {
+    "amount_in": "1000000000",
+    "amount_out": 471077713208782499,
+    "raw": "0x00000000000000000000000000000000000000000000000006899aaf2d69aea3",
+    "error": null
+   },
+   "sushi_weth_to_stable_from_uni": {
+    "amount_in": "471077713208782499",
+    "amount_out": 983280727,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000006899aaf2d69aea3000000000000000000000000000000000000000000000000000000003a9bac57",
+    "error": null
+   },
+   "sushi_stable_to_weth": {
+    "amount_in": "1000000000",
+    "amount_out": 464358382761888113,
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000003b9aca000000000000000000000000000000000000000000000000000671bb7d24ff4971",
+    "error": null
+   },
+   "univ3_weth_to_stable_from_sushi": {
+    "amount_in": "464358382761888113",
+    "amount_out": 982740745,
+    "raw": "0x000000000000000000000000000000000000000000000000000000003a936f09",
+    "error": null
+   }
+  },
+  {
+   "input_stable": 10000,
+   "block": 522706375,
+   "univ3_stable_to_weth": {
+    "amount_in": "10000000000",
+    "amount_out": 4667543838679158195,
+    "raw": "0x00000000000000000000000000000000000000000000000040c672643e08cdb3",
+    "error": null
+   },
+   "sushi_weth_to_stable_from_uni": {
+    "amount_in": "4667543838679158195",
+    "amount_out": 8764850303,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000040c672643e08cdb3000000000000000000000000000000000000000000000000000000020a6d007f",
+    "error": null
+   },
+   "sushi_stable_to_weth": {
+    "amount_in": "10000000000",
+    "amount_out": 4172737816608705263,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000002540be40000000000000000000000000000000000000000000000000039e88aefa3cd0aef",
+    "error": null
+   },
+   "univ3_weth_to_stable_from_sushi": {
+    "amount_in": "4172737816608705263",
+    "amount_out": 8765883930,
+    "raw": "0x000000000000000000000000000000000000000000000000000000020a7cc61a",
+    "error": null
+   }
+  },
+  {
+   "input_stable": 100000,
+   "block": 522706375,
+   "univ3_stable_to_weth": {
+    "amount_in": "100000000000",
+    "amount_out": 42771826882233533441,
+    "raw": "0x00000000000000000000000000000000000000000000000251940def3e088401",
+    "error": null
+   },
+   "sushi_weth_to_stable_from_uni": {
+    "amount_in": "42771826882233533441",
+    "amount_out": 42024276950,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000251940def3e08840100000000000000000000000000000000000000000000000000000009c8d793d6",
+    "error": null
+   },
+   "sushi_stable_to_weth": {
+    "amount_in": "100000000000",
+    "amount_out": 20718955098087895207,
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000174876e8000000000000000000000000000000000000000000000000011f8883e352cc30a7",
+    "error": null
+   },
+   "univ3_weth_to_stable_from_sushi": {
+    "amount_in": "20718955098087895207",
+    "amount_out": 42090238799,
+    "raw": "0x00000000000000000000000000000000000000000000000000000009ccc6134f",
+    "error": null
+   }
+  }
+ ],
+ "derived_round_trips": [
+  {
+   "input_stable": 1000,
+   "block": 522706375,
+   "route_uni_buy_sushi_sell": {
+    "stable_in": 1000,
+    "weth_bought": 0.4710777132087825,
+    "stable_back": 983.280727,
+    "net_stable": -16.719273
+   },
+   "route_sushi_buy_uni_sell": {
+    "stable_in": 1000,
+    "weth_bought": 0.4643583827618881,
+    "stable_back": 982.740745,
+    "net_stable": -17.259255
+   }
+  },
+  {
+   "input_stable": 10000,
+   "block": 522706375,
+   "route_uni_buy_sushi_sell": {
+    "stable_in": 10000,
+    "weth_bought": 4.6675438386791575,
+    "stable_back": 8764.850303,
+    "net_stable": -1235.149697
+   },
+   "route_sushi_buy_uni_sell": {
+    "stable_in": 10000,
+    "weth_bought": 4.172737816608705,
+    "stable_back": 8765.88393,
+    "net_stable": -1234.11607
+   }
+  },
+  {
+   "input_stable": 100000,
+   "block": 522706375,
+   "route_uni_buy_sushi_sell": {
+    "stable_in": 100000,
+    "weth_bought": 42.77182688223353,
+    "stable_back": 42024.27695,
+    "net_stable": -57975.72305
+   },
+   "route_sushi_buy_uni_sell": {
+    "stable_in": 100000,
+    "weth_bought": 20.718955098087896,
+    "stable_back": 42090.238799,
+    "net_stable": -57909.761201
+   }
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:46:46.471893+00:00",
+ "request_count_this_script": 35
+}

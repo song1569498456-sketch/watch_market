@@ -2,55 +2,120 @@
   "agent_id": "ARB01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:47:44+00:00",
   "observed_cursor": {
-    "type": "STATIC_FACTORY_DISCOVERY_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:35:07.091426+00:00",
-    "source_urls": [
-      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
-      "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
-    ],
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "block",
+    "chain_id": 42161,
+    "head_block": 522706632,
+    "head_block_time_utc": "2026-11-09T14:47:34+00:00",
+    "quotes_block": 522706375,
+    "quotes_block_time_utc": "2026-11-09T14:46:31+00:00",
+    "gas_price_wei": 20108000,
+    "pairs": {
+      "WETH_USDCe": {
+        "uniswap_v3_pool": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "uniswap_fee": 500,
+        "uniswap_liquidity": "21599303645811515",
+        "sushi_pair": "0x905dfcd5649217c42684f23958568e533c711aa3",
+        "sushi_reserves": {
+          "WETH": "37037187636938966194",
+          "USDCe": "78523640619"
+        },
+        "sushi_reserve_ts": 1794234929,
+        "mid_uniswap_usdce_per_weth": "2125.394044428001424726872394",
+        "mid_sushi_usdce_per_weth": "2120.129675847325988028838535",
+        "spread_bps_sushi_minus_uni": "-24.76890623871214716796462092"
+      },
+      "BLPX_USDC_new_pool": {
+        "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+        "token0": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "token1": "0xf2925a78adac85ca330643bc5584a694199afb76",
+        "fee": 3000,
+        "liquidity": "24259911431500377",
+        "quotable_100USDC_to_BLPX": "18844754615093570206089",
+        "dexscreener_pairs": 0
+      }
+    },
+    "net_results_usdce": {
+      "10": {
+        "univ3_buy_sushi_sell": -0.033427,
+        "sushi_buy_univ3_sell": -0.039273
+      },
+      "100": {
+        "univ3_buy_sushi_sell": -0.457148,
+        "sushi_buy_univ3_sell": -0.515363
+      },
+      "1000": {
+        "univ3_buy_sushi_sell": -16.719273,
+        "sushi_buy_univ3_sell": -17.259255
+      },
+      "10000": {
+        "univ3_buy_sushi_sell": -1235.149697,
+        "sushi_buy_univ3_sell": -1234.11607
+      },
+      "100000": {
+        "univ3_buy_sushi_sell": -57975.72305,
+        "sushi_buy_univ3_sell": -57909.761201
+      }
+    },
+    "chain_block": 522706632,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false,
+    "requests_this_run": 56
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "type": "STATIC_FACTORY_DISCOVERY_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:35:07.091426+00:00",
-      "source_urls": [
-        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
-        "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json"
-      ],
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "block",
+      "chain_id": 42161,
+      "quotes_block": 522706375,
+      "pair": "WETH/USDC.e on Uniswap V3 fee=500 vs SushiSwap V2",
+      "mid_spread_bps": -24.77,
+      "roundtrip_fee_floor_bps": 35,
+      "all_tiers_net_negative": true,
+      "min_loss_usdce": -0.033427,
+      "new_pool_checked": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+      "requests_this_run": 56,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "Uniswap官方SDK Arbitrum配置继承v3工厂地址；Sushi官方Arbitrum部署JSON返回不同v2工厂地址。",
-    "Sushi部署文件的transactionHash是静态部署字段，不是本轮交易/活动证据，未向链读回。",
-    "没有真实池级市场、指定数量报价、净收益或可交易候选。"
+    "链身份核验：eth_chainId=42161；head 522706632（2026-11-09T14:47:34Z）；gasPrice=20,108,000 wei。",
+    "同资产对两池身份互证：Uniswap V3 池 0xc31e54c7…（token0=WETH、token1=USDC.e、fee=500、slot0/liquidity 已读）与 Sushi V2 pair 0x905dfcd5…（同 token0/token1、getReserves 已读）资产权益一致。",
+    "同块（522706375）真实两腿报价：10/100/1000/10000/100000 USDC.e 五档 × 两个方向共 10 条往返；以第一腿实际输出为第二腿输入；Uniswap 用 Quoter v1、Sushi 用 Router getAmountsOut。",
+    "同块中间价：Uniswap 2125.394 vs Sushi 2120.130 USDC.e/WETH（Sushi 低 24.77bps）；往返费率下限 35bps（0.05%+0.30%）> 价差 → 全部档位净负（最小 −0.33% @10 USDC，1000 档 −1.67%）。",
+    "容量：Sushi 侧 WETH 储备 37.037187636938966194（≈78.5k USD），1000 USDC 占其 WETH 约 1.27%，冲击主导；Uniswap 侧 liquidity=21599303645811515。",
+    "N-ARB 新池 0x7c03126d…（USDC/BLPX fee=3000）链上可单边报价；Dexscreener 无任何收录、未发现第二市场 → 单市场候选，不构成跨 DEX 闭环。",
+    "合约身份：Uniswap factory 24535B（fd5e0ec0…）、Sushi factory 11264B（ac64b67a…）、Sushi router 17762B（e6dfc263…）、Uniswap Quoter v1 4631B（164604f0…）均 eth_getCode 核验。",
+    "上轮静态基线保留；本轮把两个工厂入口升级为池级链上核验与同块报价。"
   ],
   "pending_questions": [
-    "30天规则变更与7天活动均未回溯；无PoolCreated/PairCreated/Swap日志、代表交易或旧小池轮转。",
-    "Arbitrum PublicNode RPC与DEXScreener发现均CONNECT 403；链ID/代码/最终性未核验，无法从工厂自主列出真实交易池。",
-    "尚无两边池地址、相同token0/token1权益核验、可卖性或底层共享池排除。",
-    "无同块指定数量第一腿输出/第二腿输入、报价/模拟或gas/L1数据费，净额和容量unknown。",
-    "Sushi SDK配置猜测路径404；成功部署JSON已作为回退，不将404视为协议不存在。"
+    "只比较 Uniswap V3 fee=500 与 Sushi V2 一对；未轮转 Uniswap V3 fee=100/3000 同资产池、Camelot、Velodrome 等其它 Arbitrum DEX。",
+    "30 天规则变更与 7 天活动未回溯：未读 PoolCreated/PairCreated/Swap 事件，未解释价差出现前的交易/费率/流动性变化。",
+    "两腿不可原子组合；未做聚合器/多跳只读模拟与路由合约核验。",
+    "Arbitrum L1 数据费未按实际交易估算（unknown）；两笔交易的 gas 为粗略估算。",
+    "N-ARB 新池 BLPX 的 token 权限（税/黑名单）未读；Dexscreener 无收录不代表全链没有其它池。",
+    "Sushi 储备 blockTimestampLast 比报价块早约 11 分钟（仅成交时更新）；未做连续块监控。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:35:07.091426+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ARB01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "4ceee49c1c645f1a839bd9a27f528f8deefa7ad4",
-    "verified_at": "2026-11-08T15:35:55.555537+00:00",
-    "record": "evidence/ARB01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:47:44.893037+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ARB01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ARB01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 56,
+  "data_sources_used": [
+    "https://arb1.arbitrum.io/rpc",
+    "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts（上轮已抓取，复用）",
+    "https://raw.githubusercontent.com/sushiswap/v2-core/master/deployments/arbitrum/UniswapV2Factory.json（上轮已抓取，复用）",
+    "https://api.dexscreener.com/latest/dex/tokens/0xf2925a78adac85ca330643bc5584a694199afb76",
+    "evidence/N-ARB/live-20261109T141903Z/record.json（共享工作区候选来源）"
+  ]
 }
