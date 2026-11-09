@@ -1,0 +1,40 @@
+{
+ "started_at_utc": "2026-11-09T15:00:37.304211+00:00",
+ "dexscreener_bsc_stable_pairs": [],
+ "chain_id": 56,
+ "latest_block": 132604701,
+ "latest_block_time_utc": "2026-11-09T15:00:40+00:00",
+ "pinned_block": 132604696,
+ "pancake_v2_factory_code_bytes": 19084,
+ "token_identity": {
+  "USDC": {
+   "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+   "symbol": "USDC",
+   "decimals": 18
+  },
+  "USDT": {
+   "address": "0x55d398326f99059fF775485246999027B3197955",
+   "symbol": "USDT",
+   "decimals": 18
+  },
+  "DAI": {
+   "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+   "symbol": "DAI",
+   "decimals": 18
+  },
+  "BUSD": {
+   "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+   "symbol": "BUSD",
+   "decimals": 18
+  }
+ },
+ "v2_pairs": {
+  "USDC/USDT": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+  "USDT/DAI": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+  "DAI/USDC": "0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+  "USDC/BUSD": "0x2354ef4df11afacb85a5c7f98b624072eccddbb1",
+  "USDT/BUSD": "0x7efaef62fddcca950418312c6c91aef321375a00",
+  "USDT/USDC2": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+  "DAI/USDT2": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174"
+ }
+}

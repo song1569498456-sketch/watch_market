@@ -4350,6 +4350,193 @@
         "扩大 VAI 出口池发现（Thena/Uniswap 等）并测 100/1000/10000 VAI 的容量曲线。",
         "取得完整数据前不重开“铸造卖出即利润”结论；当前量化已为负。"
       ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "V3/Curve 等更深稳定池未报价：PancakeSwap V3 USDC/USDT 深池、BSC Curve 稳定池未取同块报价；本轮闭环两个池极浅，结论只在浅池路径成立。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Pancake V2 费率 0.25% 为协议常量假设，未从链上读取；两方向净负远超费率，结论不受影响。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做原子 Router 模拟（三跳可一次交易，但未构造 calldata/未模拟）；gas 与授权成本未计。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（池迁移、费率、BUSD 状态）与 7 天活动窗口（真实稳定币回路成交）未覆盖。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核 USDC/USDT/DAI 发行/桥接版本与转账税/黑名单状态（仅链上 symbol/decimals）。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未测更大数量容量曲线（浅池已明显不可用）；未比较其他 DEX 的稳定池。",
+      "next_check": [
+        "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+        "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+        "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+        "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+        "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "BNB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "V3 持仓样本 tokenId 7780350 的 token1（0x7138b48d…）身份与所属池 slot0 未取得（追加调用空返回），因此未做 V3 持仓估值/完整 LP→资产闭环。",
+      "next_check": [
+        "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+        "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+        "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+        "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+      ]
+    },
+    {
+      "agent_id": "BNB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "V2 未做 state-override 只读模拟 mint→burn；仅用同块储备与路由报价做比例核算；0.25% swap 费与协议费（kLast≠0）未单独扣减验证（未双计）。",
+      "next_check": [
+        "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+        "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+        "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+        "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+      ]
+    },
+    {
+      "agent_id": "BNB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "gas（BSC 费率未读）、转账税/黑名单/暂停未查；30 天规则/参数变更与 7 天真实加减仓交易未覆盖。",
+      "next_check": [
+        "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+        "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+        "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+        "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+      ]
+    },
+    {
+      "agent_id": "BNB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "V3 费用增长（feeGrowthGlobal）只读未按持仓快照算应计费；持仓 NFT 可转让性/剩余权利未核。",
+      "next_check": [
+        "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+        "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+        "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+        "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+      ]
+    },
+    {
+      "agent_id": "BNB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "bsc-dataseed eth_getLogs 限制（-32005）已记录；positions 固定块报 missing trie node 改用 latest。",
+      "next_check": [
+        "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+        "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+        "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+        "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+      ]
+    },
+    {
+      "agent_id": "BNB05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "当前部署映射未完全核验：Unitroller implementation() 无返回（应读 comptrollerImplementation()），未确认当前 RewardFacet 版本与上一轮源码对应；claimVenus 参数形态差异未解。",
+      "next_check": [
+        "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+        "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+        "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+        "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+        "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+      ]
+    },
+    {
+      "agent_id": "BNB05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "accrued 接口未读通：venusSupplierAccrued/venusBorrowerAccrued 返回空（ABI/函数名不匹配）；未用真实供/借地址测 accrued 与 claimVenusAsCollateral。",
+      "next_check": [
+        "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+        "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+        "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+        "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+        "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+      ]
+    },
+    {
+      "agent_id": "BNB05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未扫到新公开窗口/额度：DappBay 等公告入口上一轮 403，本轮未再查；未扫其他协议的公开 mint/claim 注册合约。",
+      "next_check": [
+        "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+        "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+        "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+        "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+        "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+      ]
+    },
+    {
+      "agent_id": "BNB05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "XVS 转账税/黑名单未读；卖出成本只按盘中储备粗算；gas 与申领成本未计。",
+      "next_check": [
+        "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+        "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+        "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+        "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+        "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+      ]
+    },
+    {
+      "agent_id": "BNB05",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（奖励规则/额度/blacklist）与 7 天活动窗口（真实 claim/卖出交易）未覆盖。",
+      "next_check": [
+        "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+        "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+        "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+        "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+        "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+      ]
     }
   ],
   "status": "OPEN",

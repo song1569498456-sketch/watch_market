@@ -1070,19 +1070,19 @@
       "chain": "BNB",
       "status": "REJECTED",
       "market_ids": [],
-      "mechanism": "排除将decreaseLiquidity返回amount0/amount1直接当持有人已到账自由资产的账法。官方PositionManager源码先将金额计入tokensOwed，collect另行按上限调用pool.collect；NFT burn要求liquidity和tokensOwed均清零。",
+      "mechanism": "官方 PositionManager 源码（sha256 f49775d3…，HTTP 200）显示 decreaseLiquidity 只把本金与费用增长累加到 tokensOwed0/1，collect 才实际收款（含上限与舍入），burn 要求 liquidity==0 且 tokensOwed 均清零（'Not cleared'）。因此 decreaseLiquidity 返回 amount0/amount1 不是持有人已到账自由资产，不能记现金或利润。",
       "evidence_urls": [
-        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+        "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
       ],
       "next_check": "正常持仓/模拟中区分liquidity、tokensOwed、实际collect到账、剩余NFT和余额；新铸NFT不是收益，减少流动性也不等于已收款。",
       "review_required": true,
       "handoff_to": [
-        "M00",
         "Q00"
       ],
       "owner": "BNB04",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/BNB04/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB04/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
         "claim_scope": "排除PancakeV3 decreaseLiquidity返回值等于实际到账自由资产",
@@ -1110,16 +1110,37 @@
       },
       "initial_research_status": "REJECTED",
       "first_seen_at": "2026-11-08T15:44:54.995487+00:00",
-      "last_observed_at": "2026-11-08T15:44:54.995487+00:00",
-      "last_verified_onchain_at": null,
-      "unknown_costs": [
-        "真实底层资产数量/价格",
-        "池费/冲击",
-        "gas/授权",
-        "转账税/卖出限制",
-        "NFT清理/舍入"
+      "last_observed_at": "2026-11-09T15:06:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:06:00+00:00",
+      "unknown_costs": [],
+      "capacity": "V2 WBNB/USDT 储备 18,741,364.344876 USDT / 27,266.009026 WBNB，LP 总供给 260,022.717421679607917237；V3 0.01% 池 liquidity=3,735,938.854921264596641430；容量上限/冲击未做逐档",
+      "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+      "net_result": "n/a（排除性结论）",
+      "invalidation_conditions": [
+        "PositionManager 实现升级改变 tokensOwed/collect 语义",
+        "把应收当现金（已排除）"
       ],
-      "capacity": "unknown"
+      "observations_by_role": {
+        "BNB04": {
+          "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+          "status": "REJECTED",
+          "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+          "mechanism": "官方 PositionManager 源码（sha256 f49775d3…，HTTP 200）显示 decreaseLiquidity 只把本金与费用增长累加到 tokensOwed0/1，collect 才实际收款（含上限与舍入），burn 要求 liquidity==0 且 tokensOwed 均清零（'Not cleared'）。因此 decreaseLiquidity 返回 amount0/amount1 不是持有人已到账自由资产，不能记现金或利润。",
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+            "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
+          ],
+          "net_result": "n/a（排除性结论）",
+          "unknown_costs": [],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "PositionManager 实现升级改变 tokensOwed/collect 语义",
+            "把应收当现金（已排除）"
+          ]
+        }
+      }
     },
     {
       "finding_id": "bnb-venus-public-claim-not-unconditional-sellable-reward",
@@ -4247,6 +4268,223 @@
             "实现升级",
             "Gauge 周期重启（排放仍需单列）",
             "数据过期需重取"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+      "first_seen_at": "2026-11-09T15:08:00+00:00",
+      "status": "QUOTED",
+      "market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC",
+      "mechanism": "USDC→USDT→DAI→USDC 三跳全在 PancakeSwap V2 恒定乘积池，逐腿用上一腿实际输出、同 pinned 块储备与 0.25%/腿费率：1/10/100/1,000 USDC 两方向全部净负，最好 −132.19 bps，最差 −8,874 bps（浅池冲击）；不存在可执行正收益稳定币闭环。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c",
+        "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+        "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+      ],
+      "net_result": {
+        "value": "-0.013219015087766748",
+        "unit": "USDC per 1 USDC",
+        "type": "estimated_from_quotes",
+        "note": "最优档；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "Pancake V2 费率假设",
+        "gas",
+        "授权",
+        "更深池未比较"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "池储备/费率变化",
+        "代币合约不符",
+        "V3 深池报价显示正收益（则需重测）",
+        "报价过期"
+      ],
+      "owner": "BNB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:08:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:08:00+00:00",
+      "capacity": "USDC/USDT 池约 660k USDT/659k USDC（较深），但 USDT/DAI 池仅约 134 USDT、DAI/USDC 池约 2.4k USDC，有效容量很小且价格冲击巨大（1 USDC 档已亏 132bps，10 USDC 亏 776bps）；更大数量不可用。",
+      "observations_by_role": {
+        "BNB03": {
+          "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+          "status": "QUOTED",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c",
+            "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+            "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+          ],
+          "mechanism": "USDC→USDT→DAI→USDC 三跳全在 PancakeSwap V2 恒定乘积池，逐腿用上一腿实际输出、同 pinned 块储备与 0.25%/腿费率：1/10/100/1,000 USDC 两方向全部净负，最好 −132.19 bps，最差 −8,874 bps（浅池冲击）；不存在可执行正收益稳定币闭环。",
+          "net_result": {
+            "value": "-0.013219015087766748",
+            "unit": "USDC per 1 USDC",
+            "type": "estimated_from_quotes",
+            "note": "最优档；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "Pancake V2 费率假设",
+            "gas",
+            "授权",
+            "更深池未比较"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "池储备/费率变化",
+            "代币合约不符",
+            "V3 深池报价显示正收益（则需重测）",
+            "报价过期"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP",
+      "first_seen_at": "2026-11-09T15:06:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+      "mechanism": "固定块 132,604,844：WBNB/USDT pair 储备 18,741,364.344876 USDT / 27,266.009026 WBNB、totalSupply 260,022.7174 LP；1 WBNB+687.3526788217 USDT 应铸 9.5365154898 LP（按储备比例），1 LP 退出返还 0.1048601034 WBNB+72.0758729495 USDT（≈143.967 USDT，同块路由 685.609 USDT/WBNB）。mint→burn 拿回同一组底层资产（仅舍入），swap 0.25% 费只在 swap 时发生，LP 本金退出无闭环正差；新铸 LP 不是收益。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+      ],
+      "net_result": "≈0（减 gas/舍入）；未实现，净额 null",
+      "unknown_costs": [
+        "gas",
+        "舍入",
+        "协议费"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "储备/总供给或 LP 精度变化",
+        "swap 费被重复计入（已避免）",
+        "出现非比例的特殊退出规则"
+      ],
+      "owner": "BNB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB04/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:06:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:06:00+00:00",
+      "capacity": "V2 WBNB/USDT 储备 18,741,364.344876 USDT / 27,266.009026 WBNB，LP 总供给 260,022.717421679607917237；V3 0.01% 池 liquidity=3,735,938.854921264596641430；容量上限/冲击未做逐档",
+      "observations_by_role": {
+        "BNB04": {
+          "finding_id": "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP",
+          "status": "REJECTED",
+          "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+          "mechanism": "固定块 132,604,844：WBNB/USDT pair 储备 18,741,364.344876 USDT / 27,266.009026 WBNB、totalSupply 260,022.7174 LP；1 WBNB+687.3526788217 USDT 应铸 9.5365154898 LP（按储备比例），1 LP 退出返还 0.1048601034 WBNB+72.0758729495 USDT（≈143.967 USDT，同块路由 685.609 USDT/WBNB）。mint→burn 拿回同一组底层资产（仅舍入），swap 0.25% 费只在 swap 时发生，LP 本金退出无闭环正差；新铸 LP 不是收益。",
+          "evidence_urls": [
+            "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+          ],
+          "net_result": "≈0（减 gas/舍入）；未实现，净额 null",
+          "unknown_costs": [
+            "gas",
+            "舍入",
+            "协议费"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "储备/总供给或 LP 精度变化",
+            "swap 费被重复计入（已避免）",
+            "出现非比例的特殊退出规则"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "BNB-VENUS-XVS-REWARD-CLAIM-PUBLIC-NOT-FREE",
+      "first_seen_at": "2026-11-09T15:11:00+00:00",
+      "status": "REJECTED",
+      "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+      "mechanism": "claimVenus(address,address[]) 公开可调用（0x…dEaD 调用成功返回 0x），但奖励按 holder 供/借 accrued 发放；新地址无头寸 accrued=0，名义可领=0，实际可售=0，净额=0。XVS 在 Pancake V2 有真实流动性（76.46 WBNB/18,848 XVS），但无可领取来源；为领取需先供/借（资金占用/利息/风险），公开 claim 函数不构成零成本可售奖励。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+        "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+        "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+      ],
+      "net_result": {
+        "value": "0",
+        "unit": "XVS（新参与者名义可领）",
+        "type": "rejected_no_public_zero_cost_claim",
+        "note": "claim 函数存在≠利润"
+      },
+      "unknown_costs": [
+        "供/借资金与利息",
+        "gas",
+        "XVS 卖出税/滑点",
+        "资格与限额",
+        "抵押化领取风险"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "发现新的公开零成本奖励窗口",
+        "accrued 读取证明新地址有奖励",
+        "claimVenusAsCollateral 给出可售现金",
+        "XVS 不可卖"
+      ],
+      "owner": "BNB05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB05/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:11:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:11:00+00:00",
+      "capacity": "名义可领：普通新参与者 0；现有供/借用户的 accrued 额度未读（union/接口未读通）。XVS 可售容量：Pancake V2 XVS/WBNB 池约 76.46 WBNB / 18,848 XVS，另有多个 XVS 池；但无可领取来源，容量对结论无意义。",
+      "observations_by_role": {
+        "BNB05": {
+          "finding_id": "BNB-VENUS-XVS-REWARD-CLAIM-PUBLIC-NOT-FREE",
+          "status": "REJECTED",
+          "chain": "BNB",
+          "protocol": "Venus XVS rewards",
+          "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+            "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+            "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+          ],
+          "mechanism": "claimVenus(address,address[]) 公开可调用（0x…dEaD 调用成功返回 0x），但奖励按 holder 供/借 accrued 发放；新地址无头寸 accrued=0，名义可领=0，实际可售=0，净额=0。XVS 在 Pancake V2 有真实流动性（76.46 WBNB/18,848 XVS），但无可领取来源；为领取需先供/借（资金占用/利息/风险），公开 claim 函数不构成零成本可售奖励。",
+          "net_result": {
+            "value": "0",
+            "unit": "XVS（新参与者名义可领）",
+            "type": "rejected_no_public_zero_cost_claim",
+            "note": "claim 函数存在≠利润"
+          },
+          "unknown_costs": [
+            "供/借资金与利息",
+            "gas",
+            "XVS 卖出税/滑点",
+            "资格与限额",
+            "抵押化领取风险"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "发现新的公开零成本奖励窗口",
+            "accrued 读取证明新地址有奖励",
+            "claimVenusAsCollateral 给出可售现金",
+            "XVS 不可卖"
           ]
         }
       },

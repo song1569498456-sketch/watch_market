@@ -1,0 +1,38 @@
+{
+  "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+  "status": "QUOTED",
+  "chain": "BNB",
+  "protocol": "PancakeSwap V2",
+  "market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c",
+    "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+    "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+  ],
+  "mechanism": "USDC→USDT→DAI→USDC 三跳全在 PancakeSwap V2 恒定乘积池，逐腿用上一腿实际输出、同 pinned 块储备与 0.25%/腿费率：1/10/100/1,000 USDC 两方向全部净负，最好 −132.19 bps，最差 −8,874 bps（浅池冲击）；不存在可执行正收益稳定币闭环。",
+  "net_result": {
+    "value": "-0.013219015087766748",
+    "unit": "USDC per 1 USDC",
+    "type": "estimated_from_quotes",
+    "note": "最优档；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "Pancake V2 费率假设",
+    "gas",
+    "授权",
+    "更深池未比较"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "池储备/费率变化",
+    "代币合约不符",
+    "V3 深池报价显示正收益（则需重测）",
+    "报价过期"
+  ],
+  "owner": "BNB03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BNB03/live-20261109T141903Z/record.json"
+}

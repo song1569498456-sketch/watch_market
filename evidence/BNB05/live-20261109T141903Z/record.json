@@ -1,0 +1,190 @@
+{
+  "agent_id": "BNB05",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 公开领取/铸币权益真实成本：链上核验 Venus XVS 领取合约（Comptroller 代理/claimVenus 权限/XVS 身份与流动性），把名义可领/实际可售/扣成本净额分开；普通新参与者无可领奖励则 REJECTED，不把 claim 函数当利润",
+  "started_at": "2026-11-09T15:02:20+00:00",
+  "finished_at": "2026-11-09T15:11:00+00:00",
+  "duration_seconds": 520,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:03:15+00:00",
+    "beijing": "2026-11-09T23:03:15+08:00",
+    "data_time": "链上读取 2026-11-09T15:03:12Z～15:03:15Z；最新块 132,605,043（2026-11-09T15:03:14Z）；读取钉 pinned 块 132,605,038；报告落盘时数据已超过 60 秒"
+  },
+  "block_or_slot": 132605038,
+  "market_ids": [
+    "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+    "BNB:56:pancake-v2-pair:0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+  ],
+  "asset_ids": [
+    "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+  ],
+  "discovery_source": [
+    {
+      "source": "DexScreener 官方 API（发现入口，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=XVS",
+      "retrieved_at_utc": "2026-11-09T15:03:12+00:00",
+      "http_status": 200,
+      "request": "BSC XVS 交易对：pancakeswap 0x77d5b256…（$308k）、0x7EB5D86F…（$104k）等；用于定位 XVS 可售出口（展示价仅发现用）"
+    },
+    {
+      "source": "BNB Chain 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "retrieved_at_utc": "2026-11-09T15:03:14+00:00～15:03:15+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（Comptroller admin/claimVenus 探针、XVS symbol/decimals/totalSupply、Pancake V2 getPair 与 XVS/WBNB 池 token0/token1/getReserves/factory）；共 3 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "Venus 奖励按 holder 的 supplier/borrower 已累积奖励发放（RewardFacet）；claimVenus 是公开函数（本轮从 0x…dEaD 地址调用 claimVenus(address,address[]) 成功返回 0x，无角色限制），但新地址没有供/借头寸就没有 accrued，名义可领=0；要产生 accrued 必须先供应资产（资金占用）或借款（利息+债务风险），不是公开零成本发放；claimVenusAsCollateral 还可能把奖励变为抵押头寸而非可卖现金，黑名单/shortfall 影响结果。XVS 可售性已核验（Pancake V2 XVS/WBNB 池 76.4639 WBNB / 18,848.42 XVS，1 XVS 约卖 0.004045 WBNB），但不存在可领取的 XVS 来源。三列分别为：名义可领（新参与者 0；持仓者为其自身奖励）、实际可售（XVS 有流动性，但新参与者可售 0）、扣成本净额（新参与者 0；为领取而供/借的成本与风险未证明正净额）。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "bnb-chain",
+      "fields": {"eth_chainId": "0x38", "chain_id": 56, "latest_block": 132605043,
+                 "latest_block_time_utc": "2026-11-09T15:03:14+00:00", "pinned_block": 132605038},
+      "evidence_file": "raw/bnb05_summary.json"
+    },
+    {
+      "type": "venus_claim_identity_and_probes",
+      "protocol": "Venus XVS rewards",
+      "address": "0xfD36E2c2a6789Db23113685031d7F16329158384",
+      "fields": {"comptroller_code_bytes": 1508, "admin": "0x939bd8d64c0a9583a7dcea9933f7b21697ab6396",
+                 "implementation_getter": "null（Unitroller 应读 comptrollerImplementation()，缺口）",
+                 "claimVenus_array_probe_from_fresh": "成功返回 0x（无 revert，公开可调用）",
+                 "claimVenus_single_probe": "revert market not listed（参数形态/版本差异，缺口）",
+                 "fresh_supplier_accrued_read": null,
+                 "fresh_borrower_accrued_read": null,
+                 "note": "公开函数可调用≠有奖励；新地址无供/借头寸即无 accrued（机制）"},
+      "block": 132605038,
+      "evidence_file": "raw/venus_probe.json"
+    },
+    {
+      "type": "xvs_token_identity",
+      "protocol": "XVS (BEP20)",
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "fields": {"code_bytes": 12781, "symbol": "XVS", "decimals": 18, "totalSupply": "30000000000000000000000000"},
+      "block": 132605038,
+      "evidence_file": "raw/venus_probe.json"
+    },
+    {
+      "type": "xvs_sell_liquidity",
+      "protocol": "PancakeSwap V2",
+      "address": "0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+      "fields": {"code_bytes": 14981, "token0": "WBNB 0xbb4CdB9C…", "token1": "XVS 0xcF6BB5389…",
+                 "factory": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+                 "reserve_WBNB": 76.46391709977648, "reserve_XVS": 18848.424376668287,
+                 "sell_1_XVS_WBNB_gross_0.25pct": 0.004045,
+                 "note": "仅说明 XVS 可卖；不提供可领取来源；DexScreener 另有多个 XVS 池（$100k～$300k 流动性）"},
+      "block": 132605038,
+      "evidence_file": "raw/bnb05_summary.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "BNB:56:pancake-v2-pair:0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2", "amount_in": "1 XVS（假设已持有，非可领取）", "amount_out": "≈0.004045 WBNB", "fees": "Pancake V2 0.25%（按储备粗算，未计滑点/gas）", "block": 132605038, "quote_time_utc": "2026-11-09T15:03:15+00:00", "note": "XVS→WBNB 可售性证据；名义可领 XVS=0，故不构成闭环"}
+  ],
+  "net_result": {
+    "value": "0",
+    "unit": "XVS（普通新参与者名义可领）",
+    "type": "rejected_no_public_zero_cost_claim",
+    "realized": false,
+    "note": "新参与者名义可领=0 → 实际可售=0 → 扣成本净额=0；为领取而先供/借的成本与风险未证明正净额",
+    "unknown_costs": ["供/借资金占用与利息", "claim 与退出 gas", "XVS 卖出费/滑点/转账税（未读）", "黑名单/地区/限额/等待", "claimVenusAsCollateral 可能变为抵押而非现金"]
+  },
+  "capacity": "名义可领：普通新参与者 0；现有供/借用户的 accrued 额度未读（union/接口未读通）。XVS 可售容量：Pancake V2 XVS/WBNB 池约 76.46 WBNB / 18,848 XVS，另有多个 XVS 池；但无可领取来源，容量对结论无意义。",
+  "permissions": "claimVenus(address,address[]) 从普通地址调用成功（无角色限制）；claimVenus(address) 参数/版本差异 revert；XVS 代币未读转账税/黑名单；Comptroller admin 为 Venus 管理时间锁 0x939bd8d6…；本轮未 claim/mint/approve/签名/广播。",
+  "liabilities": "none（只读调用；未建仓、无债务、无在途资金）",
+  "waiting_time": "claim 本身即时（若已 accrued）；新参与者需先供/借产生 accrued，无公开等待窗口；实际领取等待与抵押释放未测",
+  "invalidation_conditions": [
+    "存在未发现的新公开活动/额度（本轮未扫到）",
+    "普通新参与者实际可获得 accrued 奖励（需供/借成本对比）",
+    "claimVenusAsCollateral 结果变为可售现金（需真实地址测试）",
+    "XVS 转账税/黑名单使卖出不可行",
+    "数据超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+    "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+    "https://api.dexscreener.com/latest/dex/search?q=XVS"
+  ],
+  "coverage_gaps": [
+    "当前部署映射未完全核验：Unitroller implementation() 无返回（应读 comptrollerImplementation()），未确认当前 RewardFacet 版本与上一轮源码对应；claimVenus 参数形态差异未解。",
+    "accrued 接口未读通：venusSupplierAccrued/venusBorrowerAccrued 返回空（ABI/函数名不匹配）；未用真实供/借地址测 accrued 与 claimVenusAsCollateral。",
+    "未扫到新公开窗口/额度：DappBay 等公告入口上一轮 403，本轮未再查；未扫其他协议的公开 mint/claim 注册合约。",
+    "XVS 转账税/黑名单未读；卖出成本只按盘中储备粗算；gas 与申领成本未计。",
+    "30 天规则窗口（奖励规则/额度/blacklist）与 7 天活动窗口（真实 claim/卖出交易）未覆盖。"
+  ],
+  "next_check": [
+    "读 Unitroller comptrollerImplementation() 并核当前 RewardFacet 版本；用正确 ABI 读 accrued，测真实供/借地址的 claimVenus/claimVenusAsCollateral 结果。",
+    "检查新公开活动/额度（DappBay、Venus 治理、官方公告镜像），公告与链上生效分开；有窗口再核资格（历史快照/NFT/地区/每地址限额）。",
+    "对候选权益按“名义可领/实际可售/扣成本净额”三列指定数量报价，计入 gas、卖出税、深度；无可领量维持 REJECTED。",
+    "读 XVS 转账税/黑名单与 Pancake 池费用，补卖出成本；补 30 天/7 天窗口。",
+    "若收益依赖发行合约异常/访问控制缺陷，转 RISK_ONLY 并交主 agent，不给可利用路径。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+      "chain": "BNB", "protocol": "Venus XVS rewards",
+      "asset_ids": ["0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"],
+      "evidence_urls": ["https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+                        "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"],
+      "identity_status": "ONCHAIN_VERIFIED_COMPTROLLER_PROXY_AND_PUBLIC_CLAIM_PROBE",
+      "next_check": "comptrollerImplementation/accrued 正确读取；真实供借地址 claim 测试"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+      "chain": "BNB", "protocol": "PancakeSwap V2",
+      "asset_ids": ["0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+      "evidence_urls": ["https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（XVS 可售，~$104k 级）",
+      "next_check": "转账税/黑名单；卖出成本"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-VENUS-XVS-REWARD-CLAIM-PUBLIC-NOT-FREE",
+      "status": "REJECTED",
+      "chain": "BNB",
+      "protocol": "Venus XVS rewards",
+      "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+      "evidence_urls": ["https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+                        "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+                        "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"],
+      "mechanism": "claimVenus(address,address[]) 公开可调用（0x…dEaD 调用成功返回 0x），但奖励按 holder 供/借 accrued 发放；新地址无头寸 accrued=0，名义可领=0，实际可售=0，净额=0。XVS 在 Pancake V2 有真实流动性（76.46 WBNB/18,848 XVS），但无可领取来源；为领取需先供/借（资金占用/利息/风险），公开 claim 函数不构成零成本可售奖励。",
+      "net_result": {"value": "0", "unit": "XVS（新参与者名义可领）", "type": "rejected_no_public_zero_cost_claim", "note": "claim 函数存在≠利润"},
+      "unknown_costs": ["供/借资金与利息", "gas", "XVS 卖出税/滑点", "资格与限额", "抵押化领取风险"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["发现新的公开零成本奖励窗口", "accrued 读取证明新地址有奖励", "claimVenusAsCollateral 给出可售现金", "XVS 不可卖"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "claimVenus 是公开函数，所以普通新参与者可以零成本领取 XVS 并卖出获利（上轮 Q00 否决点）",
+      "reason": "本轮链上探针：公开调用确实成功，但奖励按 holder 供/借 accrued 发放，新地址无头寸 accrued=0 → 名义可领=0、实际可售=0；要 accrued 必须先供/借（资金/利息成本）。公开函数≠零成本可售奖励，明确排除。"
+    },
+    {
+      "claim": "XVS 有 Pancake 流动性，所以 claim 出的 XVS 必然可卖=利润",
+      "reason": "可售性成立（XVS/WBNB 池 76.46 WBNB/18,848 XVS），但可领取数量为 0；卖出能力不等于有资产可卖，排除。"
+    },
+    {
+      "claim": "把 claimVenusAsCollateral 得到的抵押头寸当可卖现金",
+      "reason": "源码显示该路径可能把奖励作为抵押而非现金；本轮未用真实地址测试，不能当可售收入，排除该会计处理。"
+    },
+    {
+      "claim": "存在其他未核验的公开 mint/claim 权益可零成本获利",
+      "reason": "本轮只核验 Venus 既有奖励机制，未发现新公开窗口/额度；不扫任意空投、不把他人转入代币当主动参与，未核验对象不下结论。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_claim_function_probe_plus_token_liquidity",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T15:03:15+00:00",
+    "complete_block_range": "pinned 单块 132,605,038（最新块 132,605,043）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

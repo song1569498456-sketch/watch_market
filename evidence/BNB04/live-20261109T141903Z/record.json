@@ -1,0 +1,129 @@
+{
+ "agent_id": "BNB04",
+ "run_id": "live-20261109T141903Z",
+ "chain": "BNB",
+ "scope": "BNB Chain 56 LP 正常存取差异：Pancake V2 WBNB/USDT 比例核算（固定块储备/总供给/路由报价）+ Pancake V3 PositionManager/池状态/规则再核验；不研究持仓年化、不操纵价格",
+ "started_at": "2026-11-09T15:01:44.063531+00:00",
+ "finished_at": "2026-11-09T15:06:00+00:00",
+ "duration_seconds": 256,
+ "execution_status": "PARTIAL",
+ "status": "UNVERIFIED",
+ "as_of": {
+  "utc": "2026-11-09T15:03:35+00:00",
+  "beijing": "2026-11-09T23:03:35+08:00",
+  "data_time": "V2/V3 储备、池状态、报价：固定块 132,604,844（head 132,604,847 / 2026-11-09T15:01:45Z）；V3 持仓 positions 读取用 latest（固定块 state 报 missing trie node）；IncreaseLiquidity 窗口 132,599,847-132,604,847（5,000 块）"
+ },
+ "block_or_slot": 132604844,
+ "market_ids": [
+  "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+  "BNB:PANCAKE_V3:POOL:0x172fcd41e0913e95784454622d1c3724f546f849",
+  "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364"
+ ],
+ "asset_ids": [
+  "eip155:56/erc20:0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+  "eip155:56/erc20:0x55d398326f99059ff775485246999027b3197955"
+ ],
+ "discovery_source": [
+  {"source": "bsc-rpc-dataseed", "url": "https://bsc-dataseed.bnbchain.org", "retrieved_at_utc": "2026-11-09T15:01:44+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x7/eth_call x27；eth_getLogs 因 -32005 limit exceeded 未成功", "http_status": 200, "error": "eth_getLogs -32005 limit exceeded（≥200 块窗口）"},
+  {"source": "bsc-rpc-publicnode", "url": "https://bsc-rpc.publicnode.com", "retrieved_at_utc": "2026-11-09T15:02:30+00:00",
+   "request": "eth_getLogs IncreaseLiquidity 5,000 块窗（362 条）", "http_status": 200, "error": null},
+  {"source": "pancake-v3-pm-source", "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol", "retrieved_at_utc": "2026-11-09T15:02:20+00:00", "http_status": 200, "bytes_read": 15180, "sha256": "f49775d339101d0ab836bc68fb283fc87f24ddcb73d9f70a777003b6e82f3e88"}
+ ],
+ "mechanism": "LP 正常存取是比例制：V2 恒定乘积池 LP 价值=储备/总供给，mint 按当时储备比例（或首铸 sqrt），burn 按 LP/总供给返还两种资产，swap 0.25% 费仅在 swap 时发生，与本金退出不可双计；V3 集中流动性退出分三步：decreaseLiquidity 只把本金与费用增长计入 tokensOwed，collect 才实际收款，burn 要求 liquidity 与 tokensOwed 全清零。新铸 LP/NFT 是对已投入资产的权利，不是收益；只有完整退出并扣除费用后的自由资产才是净结果。本轮 V2 固定块比例核算未发现闭环正差；V3 持仓样本 token1 身份未闭环，不做估值。",
+ "observations": [
+  "链：eth_chainId=0x38（56）；head=132,604,847（2026-11-09T15:01:45Z，hash 0x399a693b…）；固定块 132,604,844。",
+  "Pancake V2：factory 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73（19,084 B，keccak 0x9e8d17fa…）、router 0x10ED43C718714eb63d5aA57B78B54704E256024E（21,936 B，0x69aef35d…）、WBNB/USDT pair 0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE（14,981 B，0x60e4bcb1…）。",
+  "V2 pair 固定块：token0=USDT、token1=WBNB、reserves=(18,741,364.344876 USDT, 27,266.009026 WBNB)、blockTimestampLast=1,794,236,503、totalSupply=260,022.717421679607917237 LP、kLast=5.11e47（协议费启用，不影响用户侧比例返还）。",
+  "V2 路由同块报价：1 WBNB=685.6092147889823 USDT；10 WBNB=6,853.835563225498 USDT（685.3836/WBNB，冲击约 0.033%）。",
+  "V2 LP 比例核算（固定块）：1 WBNB+687.3526788217 USDT → 9.5365154897681829239 LP；1 LP → 0.1048601033651032598 WBNB+72.07587294952853595 USDT（≈143.967 USDT 按同块路由价）；mint 后立即 burn 返还同一组底层资产（仅舍入尘埃），无闭环正差。",
+  "Pancake V3 PositionManager 0x46A15B0b27311cedF172AB29E4f4766fbE7F4364：代码 24,466 B（keccak 0xf64dd823…）、name=Pancake V3 Positions NFT-V1、symbol=PCS-V3-POS、totalSupply=5,319,443；factory()=0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865（5,151 B）、WETH9=WBNB。",
+  "V3 WBNB/USDT 0.01% 池 0x172fcd41e0913e95784454622d1c3724f546f849：代码 22,962 B（0x6796316e…）、token0=USDT/token1=WBNB/fee=100/tickSpacing=1、liquidity=3,735,938.854921264596641430、slot0 sqrtPriceX96=3024723572613645284724310506、tick=-65314、feeGrowthGlobal0/1 已读。",
+  "V3 规则源 NonfungiblePositionManager.sol（HTTP 200，sha256 f49775d3…）：decreaseLiquidity 将金额计入 tokensOwed0/1；collect 另行收款；burn 要求 liquidity==0 且 tokensOwed0==0 且 tokensOwed1==0（'Not cleared'）。",
+  "真实 V3 持仓事件：tokenId 7780350，块 132,604,845，tx 0xcd54602da3bae7f526ec4f6e9b0c7dcc9bb5aefa622840943f0d324d97c14800，新增 liquidity=4,526.509187591190052205、amount0=43.999999999999999894、amount1=0.048743485658132455；positions(tokenId)（latest）token0=USDT、token1=0x7138b48d…（≠WBNB，属另一 fee=100 池）、ticks=-66206/-66193、tokensOwed0/1=0；该 token1/池身份未核验，未估值。",
+  "失败/限制：bsc-dataseed eth_getLogs 返回 -32005 limit exceeded（≥200 块窗口，3 次）；constants 改用 publicnode 5,000 块窗成功；positions() 固定块查询 missing trie node，改 latest；token1 symbol/getPool 追加调用空返回。",
+  "外部请求 45 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [
+  {"market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae", "amount_in": "1 WBNB", "amount_out": "685.6092147889823 USDT", "fees": "Pancake V2 swap 0.25%（getAmountsOut 已含）", "block": 132604844, "quote_time_utc": "2026-11-09T15:02:05.740600+00:00", "note": "固定块路由报价，用于统一计价；非候选执行价"},
+  {"market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae", "amount_in": "10 WBNB", "amount_out": "6853.835563225498 USDT", "fees": "Pancake V2 swap 0.25%（已含）", "block": 132604844, "quote_time_utc": "2026-11-09T15:02:06.354484+00:00", "note": "固定块路由报价；10 档 685.3836/WBNB"},
+  {"market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae", "amount_in": "1 WBNB + 687.3526788217 USDT", "amount_out": "9.5365154897681829239 LP（按储备比例）", "fees": "mint 无协议费；swap 费另计", "block": 132604844, "quote_time_utc": "2026-11-09T15:02:20+00:00", "note": "入池报价（按固定块 reserves/totalSupply 计算）"},
+  {"market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae", "amount_in": "1 LP", "amount_out": "0.1048601033651032598 WBNB + 72.07587294952853595 USDT", "fees": "burn 无协议费；舍入尘埃", "block": 132604844, "quote_time_utc": "2026-11-09T15:02:20+00:00", "note": "退出报价（按 LP/总供给比例）"}
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "debt_asset",
+  "type": "no_closed_loop_difference_found",
+  "realized": false,
+  "unknown_costs": [
+   "BSC gas 与授权成本（未读费率）",
+   "舍入/最小流动性（V2 MINIMUM_LIQUIDITY、V3 dust）",
+   "V3 持仓 token1/池身份与应计费（未闭环）",
+   "swap 0.25% 费仅在必要兑换时计入",
+   "转账税/黑名单/暂停风险（未查）"
+  ]
+ },
+ "capacity": "V2 WBNB/USDT 储备 18,741,364.344876 USDT / 27,266.009026 WBNB，LP 总供给 260,022.717421679607917237；V3 0.01% 池 liquidity=3,735,938.854921264596641430；容量上限/冲击未做逐档",
+ "permissions": "V2 mint/burn 公开无需白名单；V3 position 需 owner/approval 与 deadline，decreaseLiquidity/collect/burn 权限未逐项测；本轮未模拟任何账户",
+ "liabilities": "未执行任何交易、无新增负债、无 LP 仓位",
+ "waiting_time": "即时（V2 burn 同交易返还底层；V3 collect 需单独交易）",
+ "invalidation_conditions": [
+  "储备/总供给或 LP 精度被误读（本轮已同块读取）",
+  "把 tokensOwed/新 NFT/未来手续费增长当作现金（已排除）",
+  "V2/V3 公式互套（已分别建模）",
+  "V3 持仓 token1/池身份与估值不成立（本轮未估值）",
+  "gas/税费/舍入吞没差异（本轮本就无正差）"
+ ],
+ "evidence_urls": [
+  "https://bsc-dataseed.bnbchain.org",
+  "https://bsc-rpc.publicnode.com",
+  "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+  "https://bscscan.com/address/0x172fcd41e0913e95784454622d1c3724f546f849",
+  "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+  "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol"
+ ],
+ "coverage_gaps": [
+  "V3 持仓样本 tokenId 7780350 的 token1（0x7138b48d…）身份与所属池 slot0 未取得（追加调用空返回），因此未做 V3 持仓估值/完整 LP→资产闭环。",
+  "V2 未做 state-override 只读模拟 mint→burn；仅用同块储备与路由报价做比例核算；0.25% swap 费与协议费（kLast≠0）未单独扣减验证（未双计）。",
+  "gas（BSC 费率未读）、转账税/黑名单/暂停未查；30 天规则/参数变更与 7 天真实加减仓交易未覆盖。",
+  "V3 费用增长（feeGrowthGlobal）只读未按持仓快照算应计费；持仓 NFT 可转让性/剩余权利未核。",
+  "bsc-dataseed eth_getLogs 限制（-32005）已记录；positions 固定块报 missing trie node 改用 latest。"
+ ],
+ "next_check": [
+  "补齐 tokenId 7780350 的 token1 身份与所属池（小窗日志/按 tx 日志），用该池 slot0 计算 tokensOwed 与 decreaseLiquidity 应收（不把应收当现金），完成 V3 LP→资产闭环。",
+  "对 V2 做 state-override 只读模拟（mint→burn）验证比例与舍入；核对 kLast 协议费铸造对用户赎回比例无影响。",
+  "补 30 天参数/费率变更与 7 天真实加/减仓交易；gas、转账税、黑名单、暂停纳入成本台账。",
+  "只读模拟发现正差才升级；Q00 复核 BNB-PANCAKEV3-DECREASE-VS-COLLECT 与 V2 比例核算卡。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae", "chain": "BNB", "protocol": "PancakeSwap V2 WBNB/USDT pair（恒定乘积）", "asset_ids": ["0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", "0x55d398326f99059ff775485246999027b3197955"], "evidence_urls": ["https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"], "identity_status": "CHAIN_VERIFIED：factory.getPair 读得，代码 14,981 B/keccak 0x60e4bcb1…；token0=USDT/token1=WBNB；储备/LP 总供给/kLast 已读", "next_check": "state-override 模拟 mint→burn、gas/舍入核算；逐档容量"},
+  {"market_id": "BNB:PANCAKE_V3:POOL:0x172fcd41e0913e95784454622d1c3724f546f849", "chain": "BNB", "protocol": "PancakeSwap V3 WBNB/USDT 0.01%", "asset_ids": ["0x55d398326f99059ff775485246999027b3197955", "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"], "evidence_urls": ["https://bscscan.com/address/0x172fcd41e0913e95784454622d1c3724f546f849"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；代码 22,962 B；token0/token1/fee/tickSpacing/liquidity/slot0/feeGrowth 已读", "next_check": "用真实持仓完成 decreaseLiquidity→collect→burn 闭环；费用增长核算"},
+  {"market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364", "chain": "BNB", "protocol": "PancakeSwap V3 PositionManager", "asset_ids": [], "evidence_urls": ["https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"], "identity_status": "CHAIN_VERIFIED：代码 24,466 B；name/symbol/totalSupply；factory()/WETH9 已读；mint→tokensOwed→collect→burn 规则由官方源码复核", "next_check": "V3 持仓 token1/池身份补核（tokenId 7780350）"}
+ ],
+ "findings": [
+  {"finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT", "status": "REJECTED", "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+   "mechanism": "官方 PositionManager 源码（sha256 f49775d3…，HTTP 200）显示 decreaseLiquidity 只把本金与费用增长累加到 tokensOwed0/1，collect 才实际收款（含上限与舍入），burn 要求 liquidity==0 且 tokensOwed 均清零（'Not cleared'）。因此 decreaseLiquidity 返回 amount0/amount1 不是持有人已到账自由资产，不能记现金或利润。",
+   "evidence_urls": ["https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol", "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"],
+   "net_result": "n/a（排除性结论）", "unknown_costs": [], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["PositionManager 实现升级改变 tokensOwed/collect 语义", "把应收当现金（已排除）"]},
+  {"finding_id": "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP", "status": "REJECTED", "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+   "mechanism": "固定块 132,604,844：WBNB/USDT pair 储备 18,741,364.344876 USDT / 27,266.009026 WBNB、totalSupply 260,022.7174 LP；1 WBNB+687.3526788217 USDT 应铸 9.5365154898 LP（按储备比例），1 LP 退出返还 0.1048601034 WBNB+72.0758729495 USDT（≈143.967 USDT，同块路由 685.609 USDT/WBNB）。mint→burn 拿回同一组底层资产（仅舍入），swap 0.25% 费只在 swap 时发生，LP 本金退出无闭环正差；新铸 LP 不是收益。",
+   "evidence_urls": ["https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"],
+   "net_result": "≈0（减 gas/舍入）；未实现，净额 null", "unknown_costs": ["gas", "舍入", "协议费"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["储备/总供给或 LP 精度变化", "swap 费被重复计入（已避免）", "出现非比例的特殊退出规则"]}
+ ],
+ "rejections": [
+  {"claim": "decreaseLiquidity 返回值即现金到账/利润", "reason": "源码显示只增加 tokensOwed，collect 另行收款，burn 需清空 NFT；本轮以同版源码 sha 与链上 PM 代码复核。"},
+  {"claim": "新铸 LP/NFT 或未来手续费增长=收益", "reason": "LP/NFT 是对已投入底层资产的权利；手续费增长是价值变化（需真实交易兑现），与本金退出不可双计。"},
+  {"claim": "V2/V3 同一 LP 公式", "reason": "V2 恒定乘积按储备/总供给比例；V3 集中流动性按 tick 区间 liquidity 与 tokensOwed 三步结算，本轮分别建模。"},
+  {"claim": "LP 比例核算显示正差", "reason": "固定块比例核算 mint→burn 仅剩舍入尘埃；未扣 gas 前也无正差。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 3,
+  "retrieved_at_utc": "2026-11-09T15:03:35+00:00",
+  "complete_block_range": "V2 储备/供给/报价：块 132,604,844；V3 池状态：块 132,604,844；V3 持仓事件窗口 132,599,847-132,604,847（5,000 块）；positions() 用 latest；head 132,604,847",
+  "complete_event_time_window": "IncreaseLiquidity 窗口约 2026-11-09T13:58Z-15:01Z（5,000 块，按 BSC ~0.75s/块推断）；30 天规则与 7 天活动未覆盖"
+ }
+}

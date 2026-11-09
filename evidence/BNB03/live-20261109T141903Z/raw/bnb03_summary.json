@@ -1,0 +1,107 @@
+{
+ "started_at_utc": "2026-11-09T15:00:37.304211+00:00",
+ "dexscreener_bsc_stable_pairs": [],
+ "chain_id": 56,
+ "latest_block": 132604701,
+ "latest_block_time_utc": "2026-11-09T15:00:40+00:00",
+ "pinned_block": 132604696,
+ "pancake_v2_factory_code_bytes": 19084,
+ "token_identity": {
+  "USDC": {
+   "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+   "symbol": "USDC",
+   "decimals": 18
+  },
+  "USDT": {
+   "address": "0x55d398326f99059fF775485246999027B3197955",
+   "symbol": "USDT",
+   "decimals": 18
+  },
+  "DAI": {
+   "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+   "symbol": "DAI",
+   "decimals": 18
+  },
+  "BUSD": {
+   "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+   "symbol": "BUSD",
+   "decimals": 18
+  }
+ },
+ "v2_pairs": {
+  "USDC/USDT": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+  "USDT/DAI": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+  "DAI/USDC": "0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+  "USDC/BUSD": "0x2354ef4df11afacb85a5c7f98b624072eccddbb1",
+  "USDT/BUSD": "0x7efaef62fddcca950418312c6c91aef321375a00",
+  "USDT/USDC2": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+  "DAI/USDT2": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174"
+ },
+ "pair_states": {
+  "USDC/USDT": {
+   "code_bytes": 0
+  }
+ },
+ "loops": [
+  {
+   "loop": "USDC->USDT->DAI->USDC",
+   "amount_in_usdc": 1.0,
+   "out_usdc": 0.0,
+   "net_usdc": -1.0,
+   "net_bps": -10000.0
+  },
+  {
+   "loop": "USDC->USDT->DAI->USDC",
+   "amount_in_usdc": 10.0,
+   "out_usdc": 0.0,
+   "net_usdc": -10.0,
+   "net_bps": -10000.0
+  },
+  {
+   "loop": "USDC->USDT->DAI->USDC",
+   "amount_in_usdc": 100.0,
+   "out_usdc": 0.0,
+   "net_usdc": -100.0,
+   "net_bps": -10000.0
+  },
+  {
+   "loop": "USDC->USDT->DAI->USDC",
+   "amount_in_usdc": 1000.0,
+   "out_usdc": 0.0,
+   "net_usdc": -1000.0,
+   "net_bps": -10000.0
+  }
+ ],
+ "fee_assumption": "PancakeSwap V2 0.25% (9975/10000)；协议常量，本轮未从链上读费率",
+ "finished_at_utc": "2026-11-09T15:00:41.311081+00:00",
+ "requests": [
+  {
+   "name": "dexscreener_usdc_usdt",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=USDC%20USDT",
+   "http_status": 200,
+   "at": "2026-11-09T15:00:38.386872+00:00",
+   "bytes": 67941,
+   "sha256": "5192c8be449530958e7bef5ac708950ab95c3b8259d9e8263b6b39a81bad2e64",
+   "elapsed_s": 1.083
+  },
+  {
+   "name": "identity_pairs",
+   "http_status": 200,
+   "at": "2026-11-09T15:00:40.197009+00:00",
+   "n_calls": 19,
+   "bytes": 54934,
+   "sha256": "012a24add2502b52231e613a5fd4a869af6ea2d99af2b6870a6a7715b0f9ea33",
+   "elapsed_s": 1.408
+  },
+  {
+   "name": "pair_states",
+   "http_status": 200,
+   "at": "2026-11-09T15:00:40.909633+00:00",
+   "n_calls": 42,
+   "bytes": 111,
+   "sha256": "8c95bfa47211d510111e0e3bdc7fcd2a8eec2f06d30621fa18eb74b935e4bbcc",
+   "elapsed_s": 0.311
+  }
+ ],
+ "request_count": 3
+}

@@ -1,0 +1,39 @@
+{
+  "finding_id": "BNB-VENUS-XVS-REWARD-CLAIM-PUBLIC-NOT-FREE",
+  "status": "REJECTED",
+  "chain": "BNB",
+  "protocol": "Venus XVS rewards",
+  "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+    "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+  ],
+  "mechanism": "claimVenus(address,address[]) 公开可调用（0x…dEaD 调用成功返回 0x），但奖励按 holder 供/借 accrued 发放；新地址无头寸 accrued=0，名义可领=0，实际可售=0，净额=0。XVS 在 Pancake V2 有真实流动性（76.46 WBNB/18,848 XVS），但无可领取来源；为领取需先供/借（资金占用/利息/风险），公开 claim 函数不构成零成本可售奖励。",
+  "net_result": {
+    "value": "0",
+    "unit": "XVS（新参与者名义可领）",
+    "type": "rejected_no_public_zero_cost_claim",
+    "note": "claim 函数存在≠利润"
+  },
+  "unknown_costs": [
+    "供/借资金与利息",
+    "gas",
+    "XVS 卖出税/滑点",
+    "资格与限额",
+    "抵押化领取风险"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "发现新的公开零成本奖励窗口",
+    "accrued 读取证明新地址有奖励",
+    "claimVenusAsCollateral 给出可售现金",
+    "XVS 不可卖"
+  ],
+  "owner": "BNB05",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BNB05/live-20261109T141903Z/record.json"
+}

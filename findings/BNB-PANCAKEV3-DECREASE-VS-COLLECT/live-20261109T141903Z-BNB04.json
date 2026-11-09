@@ -1,0 +1,22 @@
+{
+  "finding_id": "BNB-PANCAKEV3-DECREASE-VS-COLLECT",
+  "status": "REJECTED",
+  "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+  "mechanism": "官方 PositionManager 源码（sha256 f49775d3…，HTTP 200）显示 decreaseLiquidity 只把本金与费用增长累加到 tokensOwed0/1，collect 才实际收款（含上限与舍入），burn 要求 liquidity==0 且 tokensOwed 均清零（'Not cleared'）。因此 decreaseLiquidity 返回 amount0/amount1 不是持有人已到账自由资产，不能记现金或利润。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+    "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
+  ],
+  "net_result": "n/a（排除性结论）",
+  "unknown_costs": [],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "PositionManager 实现升级改变 tokensOwed/collect 语义",
+    "把应收当现金（已排除）"
+  ],
+  "owner": "BNB04",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BNB04/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,585 @@
+{
+ "agent_id": "BNB04",
+ "chain": "BNB",
+ "rpc": "https://bsc-dataseed.bnbchain.org",
+ "started_at_utc": "2026-11-09T15:01:44.063531+00:00",
+ "observations": {
+  "chain_id": "0x38",
+  "head_block_number": 132604847,
+  "head_block": {
+   "number": "0x7e763af",
+   "hash": "0x399a693bff4caee23c890a86178bdd65649efeb629b1a816a818ad08665d56e8",
+   "timestamp": "0x6af1e059",
+   "baseFeePerGas": "0x0",
+   "timestamp_utc": "2026-11-09T15:01:45+00:00"
+  },
+  "pinned_block": 132604844,
+  "v3_pm": {
+   "pm": {
+    "address": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+    "bytecode_bytes": 24466,
+    "code_keccak256": "0xf64dd82357e77afddcd6dd56f4ba161f44fe90a6f72da5433f8fc6901440197f"
+   },
+   "factory": {
+    "raw": "0x0000000000000000000000000bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+    "decoded": [
+     "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865"
+    ],
+    "error": null
+   },
+   "WETH9": {
+    "raw": "0x000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "decoded": [
+     "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+    ],
+    "error": null
+   },
+   "name": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b50616e63616b6520563320506f736974696f6e73204e46542d56310000000000",
+    "decoded": [
+     "Pancake V3 Positions NFT-V1"
+    ],
+    "error": null
+   },
+   "symbol": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a5043532d56332d504f5300000000000000000000000000000000000000000000",
+    "decoded": [
+     "PCS-V3-POS"
+    ],
+    "error": null
+   },
+   "totalSupply": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000512b13",
+    "decoded": [
+     "5319443"
+    ],
+    "error": null
+   }
+  },
+  "v3_factory_address": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+  "v3_factory_code": {
+   "address": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+   "bytecode_bytes": 5151,
+   "code_keccak256": "0x8191d3ab1d55d3da9822199f28865415c99566b6f1aee4a4b16713f57930678c"
+  },
+  "v3_pools": {
+   "100": {
+    "pool": "0x172fcd41e0913e95784454622d1c3724f546f849",
+    "code": {
+     "address": "0x172fcd41e0913e95784454622d1c3724f546f849",
+     "bytecode_bytes": 22962,
+     "code_keccak256": "0x6796316e56ef0dd38755758b3239f271b2398ef028c8200bcf7fc8cc00ae1cfd"
+    },
+    "token0()": {
+     "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+     "decoded": [
+      "0x55d398326f99059ff775485246999027b3197955"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+     "decoded": [
+      "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+     ],
+     "error": null
+    },
+    "fee()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000064",
+     "decoded": [
+      "100"
+     ],
+     "error": null
+    },
+    "liquidity()": {
+     "raw": "0x00000000000000000000000000000000000000000003171da6b10a82b3fde696",
+     "decoded": [
+      "3735938854921264596641430"
+     ],
+     "error": null
+    },
+    "slot0()": {
+     "raw": "0x000000000000000000000000000000000000000009c5fe216e06d15e2f6601eaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00de00000000000000000000000000000000000000000000000000000000000006e100000000000000000000000000000000000000000000000000000000000011940000000000000000000000000000000000000000000000000000000000001194000000000000000000000000000000000000000000000000000000000ce40ce40000000000000000000000000000000000000000000000000000000000000001",
+     "decoded": {
+      "decode_error": "NonEmptyPaddingBytes(\"Padding bytes were not empty: b'\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x0c\\\\xe4\\\\x0c'\")",
+      "raw": "0x000000000000000000000000000000000000000009c5fe216e06d15e2f6601eaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00de00000000000000000000000000000000000000000000000000000000000006e1000000"
+     },
+     "error": null
+    },
+    "tickSpacing()": {
+     "raw": "0x0000000000000000000000000000000000000000000000000000000000000001",
+     "decoded": [
+      "1"
+     ],
+     "error": null
+    },
+    "feeGrowthGlobal0X128()": {
+     "raw": "0x0000000000000000000000000000000628013cbca9a5e5f4fd6690c3a5c60d01",
+     "decoded": [
+      "2094869745545860247667182664390885641473"
+     ],
+     "error": null
+    },
+    "feeGrowthGlobal1X128()": {
+     "raw": "0x00000000000000000000000000000000016e51b7ff725c01d16332fb5b1f5e9a",
+     "decoded": [
+      "1902038103212312346850468565964775066"
+     ],
+     "error": null
+    }
+   }
+  },
+  "position_attempts": [
+   {
+    "blocks": 20000,
+    "from": 132584847,
+    "to": 132604847,
+    "count": null,
+    "error": {
+     "code": -32005,
+     "message": "limit exceeded"
+    }
+   },
+   {
+    "blocks": 5000,
+    "from": 132599847,
+    "to": 132604847,
+    "count": null,
+    "error": {
+     "code": -32005,
+     "message": "limit exceeded"
+    }
+   },
+   {
+    "blocks": 1000,
+    "from": 132603847,
+    "to": 132604847,
+    "count": null,
+    "error": {
+     "code": -32005,
+     "message": "limit exceeded"
+    }
+   }
+  ],
+  "recent_position": null,
+  "v3_withdraw_math": {},
+  "v2": {
+   "factory": {
+    "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+    "bytecode_bytes": 19084,
+    "code_keccak256": "0x9e8d17faaee69b053be6ac65b2b2c317741d770cb5fbdd9512536d17e9e076ca"
+   },
+   "router": {
+    "address": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+    "bytecode_bytes": 21936,
+    "code_keccak256": "0x69aef35de7236f9ae83edadff736f01ea40edd8919b2e73d87dea5d3255b8c3e"
+   },
+   "getPair": {
+    "raw": "0x00000000000000000000000016b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+    "decoded": [
+     "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae"
+    ],
+    "error": null
+   },
+   "pair": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+   "pair_code": {
+    "address": "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+    "bytecode_bytes": 14981,
+    "code_keccak256": "0x60e4bcb14447615ab7c14fda2c2d70ca4191570e8841c75618e627c8f72662f8"
+   },
+   "token0()": {
+    "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+    "decoded": [
+     "0x55d398326f99059ff775485246999027b3197955"
+    ],
+    "error": null
+   },
+   "token1()": {
+    "raw": "0x000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "decoded": [
+     "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+    ],
+    "error": null
+   },
+   "getReserves()": {
+    "raw": "0x0000000000000000000000000000000000000000000f80a3659b6cea4b9777f50000000000000000000000000000000000000000000005c617e33bbdf5b1b8a9000000000000000000000000000000000000000000000000000000006af1e057",
+    "decoded": [
+     "18741364344876139632097269",
+     "27266009026112359872681",
+     "1794236503"
+    ],
+    "error": null
+   },
+   "totalSupply()": {
+    "raw": "0x00000000000000000000000000000000000000000000370fdc18fb9dec49aab5",
+    "decoded": [
+     "260022717421679607917237"
+    ],
+    "error": null
+   },
+   "kLast()": {
+    "raw": "0x0000000000000000000000005982212a0f30e7d997a1b81aab59d2d2568f82ea",
+    "decoded": [
+     "511002164496618210094745114448213796862229971690"
+    ],
+    "error": null
+   },
+   "swap_quotes": [
+    {
+     "direction": "WBNB->USDT",
+     "amount_in": "1",
+     "amount_out_usdt": 685.6092147889823,
+     "price_usdt_per_wbnb": 685.6092147889823,
+     "error": null,
+     "block": 132604844,
+     "quote_time_utc": "2026-11-09T15:02:05.740600+00:00"
+    },
+    {
+     "direction": "WBNB->USDT",
+     "amount_in": "10",
+     "amount_out_usdt": 6853.835563225498,
+     "price_usdt_per_wbnb": 685.3835563225498,
+     "error": null,
+     "block": 132604844,
+     "quote_time_utc": "2026-11-09T15:02:06.354484+00:00"
+    }
+   ]
+  },
+  "v2_lp_math": {
+   "reserve_wbnb_raw": "27266009026112359872681",
+   "reserve_usdt_raw": "18741364344876139632097269",
+   "reserve_wbnb": "27266.009026112359872681",
+   "reserve_usdt": "18741364.344876139632097269",
+   "lp_total_supply_raw": "260022717421679607917237",
+   "mint_1wbnb_equiv": {
+    "wbnb_in": 1,
+    "usdt_needed_at_reserve_ratio": "687.352678821742453149363001786808143398836644304363721589360",
+    "lp_minted_est_raw": "9536515489768182923.91136182001440671992000303768123742101269"
+   },
+   "burn_1lp_outputs": {
+    "wbnb": "0.104860103365103259802962959046268496924913178772375203479731",
+    "usdt": "72.0758729495285359488320693503268607075532683577390552861926",
+    "wbnb_human": "1.04860103365103259802962959046268496924913178772375203479731E-19",
+    "usdt_human": "7.20758729495285359488320693503268607075532683577390552861926E-17"
+   },
+   "note": "V2 正常 mint 按当时储备比例；burn 按 LP/总供给比例返还两种资产，无协议费；swap 0.25% 费另计，不重复"
+  },
+  "v3_pm_source": {
+   "http_status": 200,
+   "sha256": "f49775d339101d0ab836bc68fb283fc87f24ddcb73d9f70a777003b6e82f3e88",
+   "bytes": 15180,
+   "decreaseLines": [
+    "uint128 tokensOwed0;",
+    "uint128 tokensOwed1;",
+    "uint128 tokensOwed0,",
+    "uint128 tokensOwed1",
+    "position.tokensOwed0,",
+    "position.tokensOwed1",
+    "tokensOwed0: 0,",
+    "tokensOwed1: 0",
+    "position.tokensOwed0 += uint128(",
+    "position.tokensOwed1 += uint128(",
+    "function decreaseLiquidity(DecreaseLiquidityParams calldata params)",
+    "position.tokensOwed0 +="
+   ],
+   "burnLines": [
+    "require(position.liquidity == 0 && position.tokensOwed0 == 0 && position.tokensOwed1 == 0, 'Not cleared');"
+   ]
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.299,
+   "retrieved_at_utc": "2026-11-09T15:01:45.362895+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.285,
+   "retrieved_at_utc": "2026-11-09T15:01:45.998062+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.276,
+   "retrieved_at_utc": "2026-11-09T15:01:46.624765+00:00"
+  },
+  {
+   "label": "getCode V3 PM",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.347,
+   "retrieved_at_utc": "2026-11-09T15:01:47.321952+00:00"
+  },
+  {
+   "label": "eth_call factory()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.265,
+   "retrieved_at_utc": "2026-11-09T15:01:47.938672+00:00"
+  },
+  {
+   "label": "eth_call WETH9()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.264,
+   "retrieved_at_utc": "2026-11-09T15:01:48.553758+00:00"
+  },
+  {
+   "label": "eth_call name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.264,
+   "retrieved_at_utc": "2026-11-09T15:01:49.169560+00:00"
+  },
+  {
+   "label": "eth_call symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.264,
+   "retrieved_at_utc": "2026-11-09T15:01:49.784663+00:00"
+  },
+  {
+   "label": "eth_call totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:01:50.399068+00:00"
+  },
+  {
+   "label": "getCode V3 factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.286,
+   "retrieved_at_utc": "2026-11-09T15:01:51.035846+00:00"
+  },
+  {
+   "label": "v3 getPool 100",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.267,
+   "retrieved_at_utc": "2026-11-09T15:01:51.653763+00:00"
+  },
+  {
+   "label": "getCode pool 100",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.344,
+   "retrieved_at_utc": "2026-11-09T15:01:52.348440+00:00"
+  },
+  {
+   "label": "pool100 token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.267,
+   "retrieved_at_utc": "2026-11-09T15:01:52.966398+00:00"
+  },
+  {
+   "label": "pool100 token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:01:53.579328+00:00"
+  },
+  {
+   "label": "pool100 fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:01:54.192757+00:00"
+  },
+  {
+   "label": "pool100 liquidity()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.264,
+   "retrieved_at_utc": "2026-11-09T15:01:54.807409+00:00"
+  },
+  {
+   "label": "pool100 slot0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.266,
+   "retrieved_at_utc": "2026-11-09T15:01:55.424358+00:00"
+  },
+  {
+   "label": "pool100 tickSpacing()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.266,
+   "retrieved_at_utc": "2026-11-09T15:01:56.041267+00:00"
+  },
+  {
+   "label": "pool100 feeGrowthGlobal0X128()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.268,
+   "retrieved_at_utc": "2026-11-09T15:01:56.660251+00:00"
+  },
+  {
+   "label": "pool100 feeGrowthGlobal1X128()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.262,
+   "retrieved_at_utc": "2026-11-09T15:01:57.273051+00:00"
+  },
+  {
+   "label": "pm increaseLiquidity 20000",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": {
+    "code": -32005,
+    "message": "limit exceeded"
+   },
+   "elapsed_s": 0.262,
+   "retrieved_at_utc": "2026-11-09T15:01:57.885315+00:00"
+  },
+  {
+   "label": "pm increaseLiquidity 5000",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": {
+    "code": -32005,
+    "message": "limit exceeded"
+   },
+   "elapsed_s": 0.262,
+   "retrieved_at_utc": "2026-11-09T15:01:58.498206+00:00"
+  },
+  {
+   "label": "pm increaseLiquidity 1000",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": {
+    "code": -32005,
+    "message": "limit exceeded"
+   },
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:01:59.111242+00:00"
+  },
+  {
+   "label": "getCode V2 factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.282,
+   "retrieved_at_utc": "2026-11-09T15:01:59.744000+00:00"
+  },
+  {
+   "label": "getCode V2 router",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.293,
+   "retrieved_at_utc": "2026-11-09T15:02:00.387000+00:00"
+  },
+  {
+   "label": "v2 getPair",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.276,
+   "retrieved_at_utc": "2026-11-09T15:02:01.013401+00:00"
+  },
+  {
+   "label": "getCode v2 pair",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.281,
+   "retrieved_at_utc": "2026-11-09T15:02:01.645082+00:00"
+  },
+  {
+   "label": "v2 pair token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.277,
+   "retrieved_at_utc": "2026-11-09T15:02:02.272725+00:00"
+  },
+  {
+   "label": "v2 pair token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.307,
+   "retrieved_at_utc": "2026-11-09T15:02:02.929982+00:00"
+  },
+  {
+   "label": "v2 pair getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.265,
+   "retrieved_at_utc": "2026-11-09T15:02:03.545475+00:00"
+  },
+  {
+   "label": "v2 pair totalSupply()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.265,
+   "retrieved_at_utc": "2026-11-09T15:02:04.161111+00:00"
+  },
+  {
+   "label": "v2 pair kLast()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.264,
+   "retrieved_at_utc": "2026-11-09T15:02:04.775952+00:00"
+  },
+  {
+   "label": "v2 getAmountsOut 1 WBNB->USDT",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:02:05.389396+00:00"
+  },
+  {
+   "label": "v2 getAmountsOut 10 WBNB->USDT",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.263,
+   "retrieved_at_utc": "2026-11-09T15:02:06.004042+00:00"
+  },
+  {
+   "label": "pancake-v3-pm-source",
+   "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/projects/v3-periphery/contracts/NonfungiblePositionManager.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.131,
+   "retrieved_at_utc": "2026-11-09T15:02:07.485778+00:00",
+   "bytes": 15180,
+   "sha256": "f49775d339101d0ab836bc68fb283fc87f24ddcb73d9f70a777003b6e82f3e88"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:02:07.836895+00:00",
+ "request_count": 35
+}

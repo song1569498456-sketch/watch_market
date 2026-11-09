@@ -1,0 +1,69 @@
+{
+ "retrieved_at_utc": "2026-11-09T15:03:29.519417+00:00",
+ "requests": [
+  {
+   "label": "token1 symbol()",
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  },
+  {
+   "label": "token1 name()",
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  },
+  {
+   "label": "token1 decimals()",
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  },
+  {
+   "label": "getPool pos-pair 100",
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  }
+ ],
+ "token1": {
+  "symbol()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  },
+  "name()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  },
+  "decimals()": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  }
+ },
+ "pool": {
+  "getPool": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  }
+ }
+}

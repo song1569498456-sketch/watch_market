@@ -1,0 +1,54 @@
+{
+ "chain": "BNB",
+ "pinned_block": 132604844,
+ "head_block": 132604847,
+ "retrieved_at_utc": "2026-11-09T15:02:49.957078+00:00",
+ "requests": [
+  {
+   "label": "incrliq 5000",
+   "host": "https://bsc-rpc.publicnode.com",
+   "method": "eth_getLogs",
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T15:02:51.748304+00:00"
+  },
+  {
+   "label": "positions",
+   "host": "https://bsc-dataseed.bnbchain.org",
+   "method": "eth_call",
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   },
+   "retrieved_at_utc": "2026-11-09T15:02:53.200850+00:00"
+  }
+ ],
+ "attempts": [
+  {
+   "blocks": 5000,
+   "from": 132599847,
+   "to": 132604847,
+   "count": 362,
+   "error": null
+  }
+ ],
+ "recent_position": {
+  "tokenId": 7780350,
+  "block": 132604845,
+  "tx": "0xcd54602da3bae7f526ec4f6e9b0c7dcc9bb5aefa622840943f0d324d97c14800",
+  "liquidity_added": 4526509187591190052205,
+  "amount0_added": 43999999999999999894,
+  "amount1_added": 48743485658132455,
+  "window_from": 132599847,
+  "window_to": 132604847
+ },
+ "position_state": {
+  "raw": null,
+  "error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ "v3_withdraw_math": {},
+ "finished_at_utc": "2026-11-09T15:02:53.551011+00:00",
+ "request_count": 2
+}

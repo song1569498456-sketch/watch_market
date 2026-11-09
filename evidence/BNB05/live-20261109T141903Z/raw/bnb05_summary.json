@@ -1,0 +1,147 @@
+{
+ "started_at_utc": "2026-11-09T15:03:11.982908+00:00",
+ "dexscreener_xvs_pairs": [
+  {
+   "pair": "0x77d5b2560e4B84b3fC58875Cb0133F39560e8AE3",
+   "dexId": "pancakeswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "WBNB",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "priceUsd": "2.78",
+   "liquidityUsd": 308738.78
+  },
+  {
+   "pair": "0xD9ED290a55aC8E1C31398BB7E931A0cA0f356314",
+   "dexId": "uniswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "比特币",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0x18d0e455B3491E09210292d3953157A4Bf104444",
+   "priceUsd": "2.74",
+   "liquidityUsd": 215066.06
+  },
+  {
+   "pair": "0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+   "dexId": "pancakeswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "WBNB",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "priceUsd": "2.77",
+   "liquidityUsd": 104702.04
+  },
+  {
+   "pair": "0x95AC9B3e39b8b2D6e61A955fD65A1d4fb110f41c",
+   "dexId": "uniswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "比特币",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0x18d0e455B3491E09210292d3953157A4Bf104444",
+   "priceUsd": "2.76",
+   "liquidityUsd": 59966.01
+  },
+  {
+   "pair": "0x41182c32F854dd97bA0e0B1816022e0aCB2fc0bb",
+   "dexId": "pancakeswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "WBNB",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "priceUsd": "2.77",
+   "liquidityUsd": 19760.91
+  },
+  {
+   "pair": "0xe1cA7042713734F31186D850f77b1E023b24aF3B",
+   "dexId": "uniswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "ETH",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+   "priceUsd": "2.78",
+   "liquidityUsd": 17778.25
+  },
+  {
+   "pair": "0x753C734Dfe05aF28A732C033e26Ea6D369e07662",
+   "dexId": "biswap",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "WBNB",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "priceUsd": "2.77",
+   "liquidityUsd": 16628.55
+  },
+  {
+   "pair": "0xfA4f77C240EB9c1ce45344Ce4B6d4b4bACc7c09b",
+   "dexId": "mdex",
+   "baseSymbol": "XVS",
+   "quoteSymbol": "BUSD",
+   "base": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+   "quote": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+   "priceUsd": "2.75",
+   "liquidityUsd": 4100.8
+  }
+ ],
+ "chain_id": 56,
+ "latest_block": 132605043,
+ "latest_block_time_utc": "2026-11-09T15:03:14+00:00",
+ "pinned_block": 132605038,
+ "comptroller_code_bytes": 1508,
+ "xvs_code_bytes": 12781,
+ "xvs": {
+  "symbol": "XVS",
+  "decimals": 18,
+  "totalSupply": 30000000000000000000000000
+ },
+ "comptroller_admin": "0x939bd8d64c0a9583a7dcea9933f7b21697ab6396",
+ "comptroller_implementation": null,
+ "claimVenus_single_probe": {
+  "code": 3,
+  "message": "execution reverted: market not listed: 0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000116d61726b6574206e6f74206c6973746564000000000000000000000000000000",
+  "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000116d61726b6574206e6f74206c6973746564000000000000000000000000000000"
+ },
+ "claimVenus_array_probe": "0x",
+ "fresh_supplier_accrued": null,
+ "fresh_borrower_accrued": null,
+ "xvs_wbnb_pair": "0x7eb5d86fd78f3852a3e0e064f2842d45a3db6ea2",
+ "xvs_wbnb_pair_state": {
+  "pair": "0x7eb5d86fd78f3852a3e0e064f2842d45a3db6ea2",
+  "token0": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+  "token1": "0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63",
+  "factory": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+  "code_bytes": 14981,
+  "reserve0": 76463917099776480617,
+  "reserve1": 18848424376668287227066
+ },
+ "finished_at_utc": "2026-11-09T15:03:15.351344+00:00",
+ "requests": [
+  {
+   "name": "dexscreener_xvs",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=XVS",
+   "http_status": 200,
+   "at": "2026-11-09T15:03:12.764425+00:00",
+   "bytes": 22743,
+   "sha256": "39f1be6f28ecaa90a801018ff4621b98aae8ae72d24ff0ab9f4b654db6d73740",
+   "elapsed_s": 0.782
+  },
+  {
+   "name": "venus_probe",
+   "http_status": 200,
+   "at": "2026-11-09T15:03:14.669971+00:00",
+   "n_calls": 15,
+   "bytes": 39947,
+   "sha256": "55facb0d66b978ab075e643b081fb633d4e4d896de59c6cc9b5c151109ff8b87",
+   "elapsed_s": 1.505
+  },
+  {
+   "name": "xvs_pair_state",
+   "http_status": 200,
+   "at": "2026-11-09T15:03:15.351211+00:00",
+   "n_calls": 5,
+   "bytes": 30542,
+   "sha256": "5d2096bba3e36291689f069b1b097b7109fac4fc0e9cbd8b63fad47606ae891d",
+   "elapsed_s": 0.279
+  }
+ ],
+ "request_count": 3
+}

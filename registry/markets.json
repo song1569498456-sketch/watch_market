@@ -3206,6 +3206,280 @@
       },
       "current_onchain_verified": true,
       "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xec6557348085aa57c72514d67070dc863c0a5a8c",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": [
+        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "0x55d398326f99059fF775485246999027B3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES",
+      "next_check": "V3 深池对比；转账税/黑名单",
+      "owner": "BNB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB03": {
+          "market_id": "BNB:56:pancake-v2-pair:0xec6557348085aa57c72514d67070dc863c0a5a8c",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "asset_ids": [
+            "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+            "0x55d398326f99059fF775485246999027B3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES",
+          "next_check": "V3 深池对比；转账税/黑名单"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": [
+        "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+        "0x55d398326f99059fF775485246999027B3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（极浅：约134 USDT）",
+      "next_check": "深池替代路径；容量",
+      "owner": "BNB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB03": {
+          "market_id": "BNB:56:pancake-v2-pair:0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "asset_ids": [
+            "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+            "0x55d398326f99059fF775485246999027B3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（极浅：约134 USDT）",
+          "next_check": "深池替代路径；容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": [
+        "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（浅：约2.4k USDC）",
+      "next_check": "深池替代路径；容量",
+      "owner": "BNB03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB03": {
+          "market_id": "BNB:56:pancake-v2-pair:0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "asset_ids": [
+            "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+            "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（浅：约2.4k USDC）",
+          "next_check": "深池替代路径；容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2 WBNB/USDT pair（恒定乘积）",
+      "asset_ids": [
+        "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "0x55d398326f99059ff775485246999027b3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPair 读得，代码 14,981 B/keccak 0x60e4bcb1…；token0=USDT/token1=WBNB；储备/LP 总供给/kLast 已读",
+      "next_check": "state-override 模拟 mint→burn、gas/舍入核算；逐档容量",
+      "owner": "BNB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB04": {
+          "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2 WBNB/USDT pair（恒定乘积）",
+          "asset_ids": [
+            "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+            "0x55d398326f99059ff775485246999027b3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPair 读得，代码 14,981 B/keccak 0x60e4bcb1…；token0=USDT/token1=WBNB；储备/LP 总供给/kLast 已读",
+          "next_check": "state-override 模拟 mint→burn、gas/舍入核算；逐档容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:PANCAKE_V3:POOL:0x172fcd41e0913e95784454622d1c3724f546f849",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 WBNB/USDT 0.01%",
+      "asset_ids": [
+        "0x55d398326f99059ff775485246999027b3197955",
+        "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x172fcd41e0913e95784454622d1c3724f546f849"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；代码 22,962 B；token0/token1/fee/tickSpacing/liquidity/slot0/feeGrowth 已读",
+      "next_check": "用真实持仓完成 decreaseLiquidity→collect→burn 闭环；费用增长核算",
+      "owner": "BNB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB04": {
+          "market_id": "BNB:PANCAKE_V3:POOL:0x172fcd41e0913e95784454622d1c3724f546f849",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3 WBNB/USDT 0.01%",
+          "asset_ids": [
+            "0x55d398326f99059ff775485246999027b3197955",
+            "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x172fcd41e0913e95784454622d1c3724f546f849"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；代码 22,962 B；token0/token1/fee/tickSpacing/liquidity/slot0/feeGrowth 已读",
+          "next_check": "用真实持仓完成 decreaseLiquidity→collect→burn 闭环；费用增长核算"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3 PositionManager",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
+      ],
+      "identity_status": "CHAIN_VERIFIED：代码 24,466 B；name/symbol/totalSupply；factory()/WETH9 已读；mint→tokensOwed→collect→burn 规则由官方源码复核",
+      "next_check": "V3 持仓 token1/池身份补核（tokenId 7780350）",
+      "owner": "BNB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB04": {
+          "market_id": "BNB:PANCAKE_V3:POSITION_MANAGER:0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3 PositionManager",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 24,466 B；name/symbol/totalSupply；factory()/WETH9 已读；mint→tokensOwed→collect→burn 规则由官方源码复核",
+          "next_check": "V3 持仓 token1/池身份补核（tokenId 7780350）"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+      "chain": "BNB",
+      "protocol": "Venus XVS rewards",
+      "asset_ids": [
+        "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+        "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_COMPTROLLER_PROXY_AND_PUBLIC_CLAIM_PROBE",
+      "next_check": "comptrollerImplementation/accrued 正确读取；真实供借地址 claim 测试",
+      "owner": "BNB05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB05/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB05": {
+          "market_id": "BNB:56:venus-comptroller:0xfD36E2c2a6789Db23113685031d7F16329158384",
+          "chain": "BNB",
+          "protocol": "Venus XVS rewards",
+          "asset_ids": [
+            "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xfD36E2c2a6789Db23113685031d7F16329158384",
+            "https://bscscan.com/address/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_COMPTROLLER_PROXY_AND_PUBLIC_CLAIM_PROBE",
+          "next_check": "comptrollerImplementation/accrued 正确读取；真实供借地址 claim 测试"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": [
+        "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+        "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（XVS 可售，~$104k 级）",
+      "next_check": "转账税/黑名单；卖出成本",
+      "owner": "BNB05",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/BNB05/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "BNB05": {
+          "market_id": "BNB:56:pancake-v2-pair:0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "asset_ids": [
+            "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+            "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（XVS 可售，~$104k 级）",
+          "next_check": "转账税/黑名单；卖出成本"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

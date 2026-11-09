@@ -2,13 +2,125 @@
   "agent_id": "BNB03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:01:01+00:00",
   "observed_cursor": {
-    "type": "STATIC_TOKEN_IDENTITY_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:44:27.270968+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "same_block_pancake_v2_reserves_plus_chain_quotes",
+    "run_id": "live-20261109T141903Z",
+    "chain": "bnb-chain",
+    "chain_id": 56,
+    "latest_block": 132604701,
+    "pinned_block": 132604696,
+    "latest_block_time_utc": "2026-11-09T15:00:40+00:00",
+    "tokens": {
+      "USDC": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d (symbol USDC, 18, Binance-Peg)",
+      "USDT": "0x55d398326f99059fF775485246999027B3197955 (symbol USDT, 18, Binance-Peg)",
+      "DAI": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3 (symbol DAI, 18)",
+      "BUSD": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56 (symbol BUSD, 18, 历史资产未入闭环)"
+    },
+    "factory": {
+      "protocol": "PancakeSwap V2",
+      "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+      "code_bytes": 19084
+    },
+    "pools": [
+      {
+        "pair": "0xec6557348085aa57c72514d67070dc863c0a5a8c",
+        "tokens": [
+          "USDT",
+          "USDC"
+        ],
+        "reserves_human": {
+          "USDT": 660397.3878847071,
+          "USDC": 659044.7224190424
+        },
+        "lp_total_supply": 491250.7447437264
+      },
+      {
+        "pair": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+        "tokens": [
+          "DAI",
+          "USDT"
+        ],
+        "reserves_human": {
+          "DAI": 134.46280433477557,
+          "USDT": 134.874027603884
+        },
+        "note": "极浅",
+        "lp_total_supply": 22.70484324297838
+      },
+      {
+        "pair": "0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+        "tokens": [
+          "DAI",
+          "USDC"
+        ],
+        "reserves_human": {
+          "DAI": 2365.879111796706,
+          "USDC": 2372.95929172151
+        },
+        "note": "浅",
+        "lp_total_supply": 1640.116092266025
+      },
+      {
+        "pair": "0x2354ef4df11afacb85a5c7f98b624072eccddbb1",
+        "tokens": [
+          "USDC",
+          "BUSD"
+        ],
+        "reserves_human": {
+          "USDC": 412133.7695337397,
+          "BUSD": 412322.1918487006
+        }
+      },
+      {
+        "pair": "0x7efaef62fddcca950418312c6c91aef321375a00",
+        "tokens": [
+          "USDT",
+          "BUSD"
+        ],
+        "reserves_human": {
+          "USDT": 1467317.5127182715,
+          "BUSD": 1464204.9078384785
+        }
+      }
+    ],
+    "loops": {
+      "USDC_to_USDT_to_DAI_to_USDC": {
+        "net_bps": [
+          -132.19,
+          -775.78,
+          -4417.07,
+          -8871.57
+        ],
+        "tiers_USDC": [
+          1,
+          10,
+          100,
+          1000
+        ]
+      },
+      "USDC_to_DAI_to_USDT_to_USDC": {
+        "net_bps": [
+          -171.16,
+          -811.19,
+          -4435.0,
+          -8874.33
+        ],
+        "tiers_USDC": [
+          1,
+          10,
+          100,
+          1000
+        ]
+      },
+      "all_negative": true,
+      "fee_assumption": "Pancake V2 0.25%/腿（协议常量，未链上读）"
+    },
+    "result": "QUOTED：同 pinned 块三池闭环两方向全档净负，无可执行正收益",
+    "quotes_count": 8,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,27 +134,27 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "自主发现BNB地址书USDC/USDT具体合约，两者静态标18 decimals，与其他链常见6位不能混用。",
-    "无已核DEX池，所列USDC→USDT→USDC仅待建立测试骨架，不是报价路线。",
-    "未取得当前发行/桥接版本与兑换限制，不默认稳定币=1USD或永久在用。"
+    "链身份：eth_chainId=0x38（56），最新块 132,604,701（2026-11-09T15:00:40Z），池状态钉 pinned 块 132,604,696。",
+    "逐 token 链上核验：USDC 0x8AC7…（symbol USDC, 18 位 Binance-Peg）、USDT 0x55d3…（USDT, 18, Binance-Peg）、DAI 0x1AF3…（18）、BUSD 0xe9e7…（18，历史资产仅登记）；不同合约不按名称 1:1 合并。",
+    "Pancake V2 工厂 0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73 代码 19,084B；5 个真实 pair 的 factory() 均指向它、代码均 14,981B。",
+    "三池闭环 USDC→USDT→DAI→USDC 及反向：1/10/100/1,000 USDC 两方向 8 条同 pinned 块报价全部净负（最好 −132.19bps，最差 −8,874.33bps）；三腿费率 75bps + USDT/DAI（约134 USDT）与 DAI/USDC（约2.4k USDC）浅池冲击。",
+    "容量：USDC/USDT 池较深（约660k/659k），另两池极浅；有效容量小，10 USDC 档已亏约 7.8%。",
+    "结论 QUOTED：无可执行正收益稳定币闭环；BUSD 池只登记未入闭环。",
+    "30 天规则/7 天活动窗口未覆盖；Pancake V2 费率 0.25% 为协议常量假设；未做 Router calldata 模拟与 gas；V3/Curve 深池未对比。"
   ],
   "pending_questions": [
-    "最近30天规则/迁移/费率与7天活动未回溯，无Swap/池事件/区块/交易。",
-    "BNB RPC和DEXScreener均CONNECT 403，chainId=56、资产代码/版本、代币限制未核验。",
-    "两个Pancake raw SDK路径404，未取得当期工厂/稳定池部署，不能把路径404当DEX或链不存在。",
-    "官方Aave地址书只有稳定资产合约与18位精度线索；不是池级身份、发行担保或赎回资格证据。",
-    "无两三腿真实池地址、费用、不变量/储备、上一腿输出衔接、报价或原子模拟，净额/容量unknown。"
+    "更深稳定池（PancakeSwap V3、BSC Curve）同块逐腿报价未取；本轮结论只在浅 V2 路径成立，需确认深池路径是否也净负。",
+    "Pancake V2 费率 0.25% 未链上读（协议常量假设）；需确认池费/协议费配置。",
+    "未做 Pancake Router 三跳 calldata 只读模拟；gas/授权成本未计。",
+    "USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单状态未核（仅链上 symbol/decimals）。",
+    "30 天规则窗口（池迁移/费率/BUSD 状态）与 7 天活动窗口（真实稳定币回路成交）未覆盖。",
+    "未测更大数量容量曲线与其他 DEX 稳定池。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:44:27.270968+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BNB03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
-    "verified_at": "2026-11-08T15:45:17.258417+00:00",
-    "record": "evidence/BNB03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:08:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BNB03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BNB03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

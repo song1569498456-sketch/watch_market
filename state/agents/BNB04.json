@@ -2,8 +2,9 @@
   "agent_id": "BNB04",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "UNVERIFIED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:03:35+00:00",
   "observed_cursor": {
     "source_functions_read": [
       "mint",
@@ -11,13 +12,18 @@
       "collect",
       "burn"
     ],
-    "document_position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
-    "actual_pools_read": 0,
+    "position_manager": "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+    "position_manager_identity": "CHAIN_VERIFIED（代码 24,466 B / keccak 0xf64dd823…；name=Pancake V3 Positions NFT-V1；factory()=0x0bfbcf9f…；WETH9=WBNB）",
+    "actual_pools_read": 2,
+    "v2_pair": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
+    "v3_pool": "0x172fcd41e0913e95784454622d1c3724f546f849",
     "cycles_simulated": 0,
-    "transactions_analyzed": 0,
-    "last_block": null,
+    "transactions_analyzed": 1,
+    "last_block": 132604847,
+    "pinned_block": 132604844,
     "history_30d_complete": false,
-    "activity_7d_complete": false
+    "activity_7d_complete": false,
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -40,30 +46,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "从可读Pancake V3官方bscMainnet部署表发现PositionManager=0x46A15B0b27311cedF172AB29E4f4766fbE7F4364，仅文档身份。",
-    "mint记录tickLower/tickUpper、token0/1、fee和liquidity，不能套用普通恒定乘积LP份额公式。",
-    "decreaseLiquidity经持仓授权和deadline检查调用pool.burn，把本金和费用增长加入tokensOwed；collect另行收款且存在舍入。",
-    "burn NFT要求liquidity==0、tokensOwed0==0、tokensOwed1==0；必须核剩余资产权利，未执行本轮模拟。"
+    "链：eth_chainId=0x38（56），head=132,604,847（2026-11-09T15:01:45Z），固定块 132,604,844。",
+    "Pancake V2 身份/状态：factory 0xcA143Ce3…（19,084 B）、router 0x10ED43C7…（21,936 B）、WBNB/USDT pair 0x16b9a828…（14,981 B）；token0=USDT/token1=WBNB；储备 18,741,364.344876 USDT / 27,266.009026 WBNB；totalSupply 260,022.717421679607917237 LP；kLast≠0。",
+    "V2 固定块证据：路由 1 WBNB=685.6092147889823 USDT、10 WBNB=6,853.835563225498 USDT；1 WBNB+687.3526788217 USDT→9.5365154898 LP；1 LP→0.1048601034 WBNB+72.0758729495 USDT（≈143.967 USDT）；mint→burn 同组底层资产（仅舍入），无闭环正差。",
+    "Pancake V3 身份/状态：PM 0x46A15B0b…（24,466 B，name=Pancake V3 Positions NFT-V1/PCS-V3-POS/totalSupply 5,319,443）；factory()=0x0bfbcf9f…（5,151 B）；WETH9=WBNB；WBNB/USDT 0.01% 池 0x172fcd41…（22,962 B，token0=USDT/token1=WBNB/fee=100/tickSpacing=1/liquidity=3,735,938.8549/slot0 tick=-65314/feeGrowth 已读）。",
+    "规则源复核：NonfungiblePositionManager.sol sha256 f49775d3…（200）：decreaseLiquidity→tokensOwed0/1；collect 另收款；burn 要求 liquidity==0 && tokensOwed0==0 && tokensOwed1==0（'Not cleared'）。",
+    "真实 V3 持仓事件 tokenId 7780350（块 132,604,845，liquidity 4,526.5092，amount0 44 USDT/amount1 0.048743 WBNB→但 positions() token1=0x7138b48d…≠WBNB，属另一 fee=100 池，身份未闭环，未估值）。",
+    "外部请求 45 次（≤80）；bsc-dataseed eth_getLogs 限制（-32005）后改用 bsc-rpc.publicnode.com；positions 固定块 missing trie node 改 latest。"
   ],
   "pending_questions": [
-    "RPC和池发现API代理CONNECT403，无当前chainId/区块、真实池/资产/持仓tokenId、字节码或实现核验。",
-    "Pancake V2相关猜测路径共5个404，未取得V2规则或部署；本轮回退到可读官方V3资料，不把V3模型套给V2。",
-    "没有指定数量完整mint→decreaseLiquidity→collect→必要swap模拟，前/中/后状态、剩余LP/自由资产全部unknown。",
-    "30天参数/部署/费率/存取窗口变更未覆盖；7天真实加减仓交易/旧小池状态未覆盖。",
-    "真实gas、转账税/卖出限制、持仓费率/价格冲击、奖励归属与可提现容量均未核验。"
+    "V3 持仓 tokenId 7780350 的 token1（0x7138b48d…）身份与所属池 slot0 未取得，未做 V3 持仓估值/完整 LP→资产闭环。",
+    "V2 未做 state-override 只读模拟 mint→burn；gas 费率、舍入、协议费（kLast≠0）未单独验证（未双计）。",
+    "gas、转账税/黑名单/暂停未查；30 天规则/参数变更与 7 天真实加/减仓交易未覆盖。",
+    "V3 feeGrowthGlobal 已读但未按持仓快照算应计费；NFT 可转让性/剩余权利未核。",
+    "bsc-dataseed eth_getLogs -32005 限制与 positions 固定块 missing trie node 已记录，未再扩窗口。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:44:54.995487+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/BNB04/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/BNB04/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "f9cec8bf16d46370303867c6a73af60da22b2bbb",
-    "verified_at": "2026-11-08T15:45:17.258417+00:00",
-    "record": "evidence/BNB04/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T15:06:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/BNB04/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/BNB04/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

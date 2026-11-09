@@ -1,0 +1,26 @@
+{
+  "finding_id": "BNB-PANCAKEV2-LP-PROPORTIONAL-NO-FEE-GAP",
+  "status": "REJECTED",
+  "market_id": "BNB:PANCAKE_V2:PAIR:0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae",
+  "mechanism": "固定块 132,604,844：WBNB/USDT pair 储备 18,741,364.344876 USDT / 27,266.009026 WBNB、totalSupply 260,022.7174 LP；1 WBNB+687.3526788217 USDT 应铸 9.5365154898 LP（按储备比例），1 LP 退出返还 0.1048601034 WBNB+72.0758729495 USDT（≈143.967 USDT，同块路由 685.609 USDT/WBNB）。mint→burn 拿回同一组底层资产（仅舍入），swap 0.25% 费只在 swap 时发生，LP 本金退出无闭环正差；新铸 LP 不是收益。",
+  "evidence_urls": [
+    "https://bscscan.com/address/0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+  ],
+  "net_result": "≈0（减 gas/舍入）；未实现，净额 null",
+  "unknown_costs": [
+    "gas",
+    "舍入",
+    "协议费"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "储备/总供给或 LP 精度变化",
+    "swap 费被重复计入（已避免）",
+    "出现非比例的特殊退出规则"
+  ],
+  "owner": "BNB04",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/BNB04/live-20261109T141903Z/record.json"
+}

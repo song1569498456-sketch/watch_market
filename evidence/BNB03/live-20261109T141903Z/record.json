@@ -1,0 +1,217 @@
+{
+  "agent_id": "BNB03",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56 稳定币池闭环兑换：逐 token 链上核验（USDC/USDT/DAI/BUSD，均 18 位 Binance-Peg/历史资产不混同）、PancakeSwap V2 三个真实池同 pinned 块逐腿闭环报价（USDC→USDT→DAI→USDC 及反向）、逐档净额；无正收益则排除",
+  "started_at": "2026-11-09T14:59:30+00:00",
+  "finished_at": "2026-11-09T15:08:00+00:00",
+  "duration_seconds": 510,
+  "execution_status": "PARTIAL",
+  "status": "QUOTED",
+  "as_of": {
+    "utc": "2026-11-09T15:01:01+00:00",
+    "beijing": "2026-11-09T23:01:01+08:00",
+    "data_time": "链上读取/报价 2026-11-09T15:00:40Z～15:01:01Z；最新块 132,604,701（2026-11-09T15:00:40Z）；池状态钉 pinned 块 132,604,696；报告落盘时报价已超过 60 秒，按历史证据处理"
+  },
+  "block_or_slot": 132604696,
+  "market_ids": [
+    "BNB:56:pancake-v2-pair:0xec6557348085aa57c72514d67070dc863c0a5a8c",
+    "BNB:56:pancake-v2-pair:0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+    "BNB:56:pancake-v2-pair:0xadbba1ef326a33fdb754f14e62a96d5278b942bd"
+  ],
+  "asset_ids": [
+    "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "0x55d398326f99059fF775485246999027B3197955",
+    "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+    "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+  ],
+  "discovery_source": [
+    {
+      "source": "DexScreener 官方 API（发现入口，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=USDC%20USDT",
+      "retrieved_at_utc": "2026-11-09T15:00:40+00:00",
+      "http_status": 200,
+      "request": "筛选 chainId=bsc，获得 PancakeSwap USDC/USDT 等稳定对候选（展示价仅发现用）"
+    },
+    {
+      "source": "BNB Chain 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "retrieved_at_utc": "2026-11-09T15:00:40+00:00～15:01:01+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（token symbol/decimals、Pancake V2 factory getPair、pair token0/token1/getReserves/factory/totalSupply）；共 8 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "BSC 上 USDC/USDT 均为 Binance-Peg 18 位代币，DAI 为 18 位，BUSD 为历史资产；不同合约不按名称 1:1 合并。闭环 USDC→USDT→DAI→USDC 走三个 PancakeSwap V2 恒定乘积池：每腿用上一腿实际输出，按 Pancake V2 0.25% 费（9975/10000）与同 pinned 块储备计算。三腿费率约 75 bps，且 USDT/DAI 池仅约 134 USDT、DAI/USDC 池仅约 2.4k USDC，价格冲击使 1 USDC 档即 −132～−171 bps、10 USDC 档 −776～−811 bps、100/1,000 USDC 档 −44%～−89%。两方向全部净负，不存在可执行正收益稳定币闭环。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "bnb-chain",
+      "fields": {"eth_chainId": "0x38", "chain_id": 56, "latest_block": 132604701,
+                 "latest_block_time_utc": "2026-11-09T15:00:40+00:00", "pinned_block": 132604696},
+      "evidence_file": "raw/discovery.json"
+    },
+    {
+      "type": "token_identity",
+      "protocol": "BEP20 stablecoins",
+      "fields": {"USDC": {"address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", "symbol": "USDC", "decimals": 18, "note": "Binance-Peg，非其他链 6 位原生 USDC"},
+                 "USDT": {"address": "0x55d398326f99059fF775485246999027B3197955", "symbol": "USDT", "decimals": 18, "note": "Binance-Peg"},
+                 "DAI": {"address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3", "symbol": "DAI", "decimals": 18},
+                 "BUSD": {"address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", "symbol": "BUSD", "decimals": 18, "note": "历史停用风险资产，仅登记不入闭环"}},
+      "block": 132604696,
+      "evidence_file": "raw/discovery.json"
+    },
+    {
+      "type": "factory_and_pools",
+      "protocol": "PancakeSwap V2",
+      "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+      "fields": {"factory_code_bytes": 19084,
+                 "pairs": {
+                   "USDC/USDT": {"pair": "0xec6557348085aa57c72514d67070dc863c0a5a8c", "token0": "USDT", "token1": "USDC",
+                                 "reserve0_USDT": 660397.3878847071, "reserve1_USDC": 659044.7224190424, "lp_total_supply": 491250.7447437264},
+                   "USDT/DAI": {"pair": "0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174", "token0": "DAI", "token1": "USDT",
+                                "reserve0_DAI": 134.46280433477558, "reserve1_USDT": 134.87402760388399, "note": "极浅"},
+                   "DAI/USDC": {"pair": "0xadbba1ef326a33fdb754f14e62a96d5278b942bd", "token0": "DAI", "token1": "USDC",
+                                "reserve0_DAI": 2365.879111796706, "reserve1_USDC": 2372.959291721510, "note": "浅"},
+                   "USDC/BUSD": {"pair": "0x2354ef4df11afacb85a5c7f98b624072eccddbb1", "reserve0_USDC": 412133.7695337397, "reserve1_BUSD": 412322.1918487006},
+                   "USDT/BUSD": {"pair": "0x7efaef62fddcca950418312c6c91aef321375a00", "reserve0_USDT": 1467317.5127182714, "reserve1_BUSD": 1464204.9078384784}},
+                 "all_pairs_factory": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73，代码 14,981B"},
+      "block": 132604696,
+      "evidence_file": "raw/loops.json"
+    },
+    {
+      "type": "closed_loop_quotes",
+      "protocol": "PancakeSwap V2",
+      "fields": {"fee_assumption": "0.25%/腿（9975/10000，协议常量，本轮未链上读费率）",
+                 "USDC_to_USDT_to_DAI_to_USDC": {"1 USDC": 0.9867809849122332, "10 USDC": 9.224215094949635,
+                                                  "100 USDC": 55.82933944751566, "1000 USDC": 112.84298607382986,
+                                                  "net_bps": [-132.19, -775.78, -4417.07, -8871.57]},
+                 "USDC_to_DAI_to_USDT_to_USDC": {"1 USDC": 0.9828844735454525, "10 USDC": 9.188811349270528,
+                                                  "100 USDC": 55.650013039118654, "1000 USDC": 112.56707777541335,
+                                                  "net_bps": [-171.16, -811.19, -4435.0, -8874.33]},
+                 "conclusion": "两方向所有档净负；费率 75bps + 浅池冲击，无正收益闭环"},
+      "block": 132604696,
+      "evidence_file": "raw/loops.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC", "amount_in": "1 USDC", "amount_out": "0.9867809849122332 USDC", "fees": "3×0.25% Pancake V2 + 价格冲击；gas 未计", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "净 −132.19 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC", "amount_in": "10 USDC", "amount_out": "9.224215094949635 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "净 −775.78 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC", "amount_in": "100 USDC", "amount_out": "55.82933944751566 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "净 −4,417 bps（浅池冲击）"},
+    {"market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC", "amount_in": "1000 USDC", "amount_out": "112.84298607382986 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "净 −8,871.6 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→DAI→USDT→USDC", "amount_in": "1 USDC", "amount_out": "0.9828844735454525 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "反向，净 −171.16 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→DAI→USDT→USDC", "amount_in": "10 USDC", "amount_out": "9.188811349270528 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "反向，净 −811.19 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→DAI→USDT→USDC", "amount_in": "100 USDC", "amount_out": "55.650013039118654 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "反向，净 −4,435 bps"},
+    {"market_id": "BNB:56:pancake-v2:USDC→DAI→USDT→USDC", "amount_in": "1000 USDC", "amount_out": "112.56707777541335 USDC", "fees": "同上", "block": 132604696, "quote_time_utc": "2026-11-09T15:01:01+00:00", "note": "反向，净 −8,874.33 bps"}
+  ],
+  "net_result": {
+    "value": "-0.013219015087766748",
+    "unit": "USDC per 1 USDC",
+    "type": "estimated_from_same_block_onchain_reserves_not_simulated",
+    "realized": false,
+    "best_case": "1 USDC 最优方向 −132.19 bps；所有 8 条报价均负",
+    "unknown_costs": ["Pancake V2 费率（协议常量假设，未链上读）", "gas/优先费", "授权/账户初始化", "更大数量容量曲线", "更深 V3/Curve 池未比较"]
+  },
+  "capacity": "USDC/USDT 池约 660k USDT/659k USDC（较深），但 USDT/DAI 池仅约 134 USDT、DAI/USDC 池约 2.4k USDC，有效容量很小且价格冲击巨大（1 USDC 档已亏 132bps，10 USDC 亏 776bps）；更大数量不可用。",
+  "permissions": "三个 Pancake V2 池均公开无许可；三跳可由同一个 Pancake Router 一次交易完成（原子），本轮未构造 calldata/未签名/未广播；未读代币转账税/黑名单状态。",
+  "liabilities": "none（只读池状态与数学计算；未建仓、无债务、无在途资金）",
+  "waiting_time": "0（同块静态计算）；实际需 1 笔 Router 交易（若原子），gas/确认等待未计",
+  "invalidation_conditions": [
+    "池储备/费率变化（本轮同 pinned 块）",
+    "token 合约/symbol/decimals 不符（本轮链上已核）",
+    "Pancake V2 费率非 0.25%（协议常量假设）",
+    "把不同稳定币按 1 美元等价（本轮未这样做）",
+    "报价超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://bscscan.com/address/0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+    "https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c",
+    "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+    "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+    "https://api.dexscreener.com/latest/dex/search?q=USDC%20USDT"
+  ],
+  "coverage_gaps": [
+    "V3/Curve 等更深稳定池未报价：PancakeSwap V3 USDC/USDT 深池、BSC Curve 稳定池未取同块报价；本轮闭环两个池极浅，结论只在浅池路径成立。",
+    "Pancake V2 费率 0.25% 为协议常量假设，未从链上读取；两方向净负远超费率，结论不受影响。",
+    "未做原子 Router 模拟（三跳可一次交易，但未构造 calldata/未模拟）；gas 与授权成本未计。",
+    "30 天规则窗口（池迁移、费率、BUSD 状态）与 7 天活动窗口（真实稳定币回路成交）未覆盖。",
+    "未核 USDC/USDT/DAI 发行/桥接版本与转账税/黑名单状态（仅链上 symbol/decimals）。",
+    "未测更大数量容量曲线（浅池已明显不可用）；未比较其他 DEX 的稳定池。"
+  ],
+  "next_check": [
+    "取 PancakeSwap V3（及 BSC Curve 稳定池）USDC/USDT、USDT/DAI、DAI/USDC 同块逐腿报价，确认深池路径是否也净负（费率 0.01%/0.05% 档）。",
+    "用 Pancake Router 三跳同块构造只读模拟（eth_call）验证净额；补 gas/授权成本。",
+    "读 USDC/USDT/DAI 的发行/桥接版本、转账税/黑名单（BEP20 特殊逻辑）与池子暂停状态。",
+    "补 30 天/7 天窗口：池迁移、BUSD 状态、真实稳定币回路成交与异常大额换币。",
+    "若发现浅池大价差，先确认不是极端流动性/无法卖出导致，再考虑风险任务。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xec6557348085aa57c72514d67070dc863c0a5a8c",
+      "chain": "BNB", "protocol": "PancakeSwap V2",
+      "asset_ids": ["0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", "0x55d398326f99059fF775485246999027B3197955"],
+      "evidence_urls": ["https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c"],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES",
+      "next_check": "V3 深池对比；转账税/黑名单"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+      "chain": "BNB", "protocol": "PancakeSwap V2",
+      "asset_ids": ["0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3", "0x55d398326f99059fF775485246999027B3197955"],
+      "evidence_urls": ["https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174"],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（极浅：约134 USDT）",
+      "next_check": "深池替代路径；容量"
+    },
+    {
+      "market_id": "BNB:56:pancake-v2-pair:0xadbba1ef326a33fdb754f14e62a96d5278b942bd",
+      "chain": "BNB", "protocol": "PancakeSwap V2",
+      "asset_ids": ["0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3", "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],
+      "evidence_urls": ["https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"],
+      "identity_status": "ONCHAIN_VERIFIED_PAIR_FACTORY_RESERVES（浅：约2.4k USDC）",
+      "next_check": "深池替代路径；容量"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-USDC-USDT-DAI-PANCAKE-V2-TRIANGLE-NEGATIVE",
+      "status": "QUOTED",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "market_id": "BNB:56:pancake-v2:USDC→USDT→DAI→USDC",
+      "evidence_urls": ["https://bscscan.com/address/0xec6557348085aa57c72514d67070dc863c0a5a8c",
+                        "https://bscscan.com/address/0xf6f5ce9a91dd4fae2d2ed92e25f2a4dc8564f174",
+                        "https://bscscan.com/address/0xadbba1ef326a33fdb754f14e62a96d5278b942bd"],
+      "mechanism": "USDC→USDT→DAI→USDC 三跳全在 PancakeSwap V2 恒定乘积池，逐腿用上一腿实际输出、同 pinned 块储备与 0.25%/腿费率：1/10/100/1,000 USDC 两方向全部净负，最好 −132.19 bps，最差 −8,874 bps（浅池冲击）；不存在可执行正收益稳定币闭环。",
+      "net_result": {"value": "-0.013219015087766748", "unit": "USDC per 1 USDC", "type": "estimated_from_quotes", "note": "最优档；非模拟、非收益主张"},
+      "unknown_costs": ["Pancake V2 费率假设", "gas", "授权", "更深池未比较"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["池储备/费率变化", "代币合约不符", "V3 深池报价显示正收益（则需重测）", "报价过期"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "BSC 上稳定币三池闭环存在正收益（USDC→USDT→DAI→USDC）",
+      "reason": "同 pinned 块两方向 1/10/100/1,000 USDC 共 8 条报价全部净负（最好 −132.19 bps）；三腿费率 75bps + USDT/DAI 与 DAI/USDC 浅池冲击，明确排除。"
+    },
+    {
+      "claim": "把 USDC/USDT/DAI 当 1 美元等价、只看单腿多拿就宣布利润",
+      "reason": "逐 token 链上核验 symbol/decimals（BSC 均 18 位 Binance-Peg，非其他链 6 位）；闭环起点终点同为 USDC 合约，按实际数量链式计算，排除等价假设。"
+    },
+    {
+      "claim": "把 BUSD 相关池并入闭环",
+      "reason": "BUSD 为历史停用风险资产，本轮只登记 USDC/BUSD、USDT/BUSD 池身份与储备，不用于闭环或利润计算。"
+    },
+    {
+      "claim": "Pancake V2 费率未链上读到所以闭环净额不可判断",
+      "reason": "按协议常量 0.25%/腿保守计算，两方向净负幅度（≥132bps）远超费率不确定性；即使降为 0 费率，浅池冲击仍使 10 USDC 档 −700bps 左右净负（后续需 V3 深池对比）。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_block_pancake_v2_reserves_plus_chain_quotes",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T15:01:01+00:00",
+    "complete_block_range": "pinned 单块 132,604,696（最新块 132,604,701）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}
