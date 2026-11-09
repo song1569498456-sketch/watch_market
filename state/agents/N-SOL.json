@@ -2,17 +2,46 @@
   "agent_id": "N-SOL",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:29:24+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
+    "kind": "onchain_point_reads_plus_api_snapshot",
+    "run_id": "live-20261109T141903Z",
+    "chain": "solana-mainnet-beta",
+    "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+    "solana_core": "4.4.0",
+    "slot_range": [
+      467350286,
+      467351335
+    ],
+    "primary_read_slots": [
+      467350933,
+      467351180,
+      467351194,
+      467351334,
+      467351335
+    ],
+    "retrieved_at_utc": "2026-11-09T14:24:28+00:00～2026-11-09T14:29:24+00:00",
     "fetched_urls": [
       "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
       "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
-      "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+      "https://api-v3.raydium.io/main/version",
+      "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "https://api.orca.so/v2/solana/pools?limit=10",
+      "https://api.dexscreener.com/token-profiles/latest/v1"
     ],
-    "chain_slot": null,
-    "historical_window_completed": false
+    "chain_reads": [
+      "getGenesisHash/getVersion/getSlot(finalized)/getEpochInfo",
+      "getMultipleAccounts: 6 个程序账户 + 5 个 ProgramData + 2 Orca 池与 3 mint + Raydium CLMM 池与 2 mint + 新 CPMM 池与 2 mint",
+      "getAccountInfo: NVDAV Token-2022 mint 全量扩展 TLV",
+      "getSignaturesForAddress: Orca SOL/USDC 池 limit10、新 CPMM 池 limit3",
+      "getBlockTime: 6 个程序 last_deploy_slot + 当前 slot 参照"
+    ],
+    "historical_window_completed": false,
+    "historical_window_notes": {
+      "30d_rule_window_2026-10-10_to_2026-11-09": "PARTIAL：仅通过 last_deploy_slot/blockTime 检测到 CPMM(2026-10-31)、Token-2022(2026-10-23)、CLMM(2026-10-22)、Whirlpool(2026-10-15) 升级；未比对字节码/官方变更日志",
+      "7d_activity_window_2026-11-02_to_2026-11-09": "NOT_COMPLETED：只读两池最近签名快照（约 55 秒/2 分钟窗口），无 7 天分页"
+    }
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -31,41 +60,94 @@
   },
   "coverage": [
     {
-      "protocol": "Raydium",
+      "protocol": "Raydium CLMM",
       "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
       "kind": "CLMM_PROGRAM_ID",
-      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED",
+      "last_deploy_slot": 459932378,
+      "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+      "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
     },
     {
-      "protocol": "Raydium",
+      "protocol": "Raydium CPMM",
       "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
       "kind": "CREATE_CPMM_POOL_PROGRAM",
-      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED",
+      "last_deploy_slot": 463522946,
+      "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+      "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+    },
+    {
+      "protocol": "Raydium AMM v4",
+      "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+      "kind": "AMM_V4",
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED",
+      "last_deploy_time_utc": "2026-09-10T01:52:56+00:00"
     },
     {
       "protocol": "Orca Whirlpools",
       "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
-      "kind": "README official deployment",
-      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+      "kind": "WHIRLPOOL_PROGRAM",
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED",
+      "last_deploy_slot": 457152296,
+      "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+      "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV"
+    },
+    {
+      "protocol": "SPL Token-2022",
+      "program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+      "kind": "TOKEN_2022_PROGRAM",
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED",
+      "last_deploy_slot": 460497271,
+      "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+      "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz"
+    },
+    {
+      "protocol": "SPL Token classic",
+      "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "kind": "TOKEN_PROGRAM",
+      "identity_status": "ONCHAIN_EXECUTABLE_VERIFIED_NO_UPGRADE_AUTHORITY",
+      "last_deploy_time_utc": "2026-05-13T12:39:34+00:00"
+    },
+    {
+      "protocol": "Raydium CPMM",
+      "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "kind": "NEW_POOL_2026-11-08",
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS",
+      "detail": "两腿 token program 不同：NVDAV...(Token-2022, 687B 扩展, tokenprogram=Tokenz...) vs FZxHL...(classic Tokenkeg, 82B)；Token-2022 扩展语义待复核"
+    },
+    {
+      "protocol": "Orca Whirlpools",
+      "market_id": "SOL:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "kind": "POOL_SAMPLE",
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS"
+    },
+    {
+      "protocol": "Orca Whirlpools",
+      "market_id": "SOL:orca-whirlpool:HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+      "kind": "POOL_SAMPLE",
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS"
+    },
+    {
+      "protocol": "Raydium CLMM",
+      "market_id": "SOL:raydium-clmm:3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+      "kind": "POOL_SAMPLE",
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER"
     }
   ],
   "pending_questions": [
-    "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
-    "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
-    "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
-    "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
-    "旧小池退出窗口、数量报价及完整成本未核验。"
+    "NVDAV Token-2022 mint 的扩展参数（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer）与发行方身份未解出/未核对；手工 TLV 解析未与官方 layout 对照。",
+    "7天活动窗口（2026-11-02～2026-11-09）未覆盖：只读两池最近签名快照，无 7 天分页与交易统计。",
+    "30天规则窗口只到‘升级发生过’：4 个升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的字节码/变更日志未比对。",
+    "新池 4HHcEX... 的同 slot 报价、储备、容量、费用（含 Token-2022 转账费）未取得，不能做任何经济比较。",
+    "Raydium/Orca 目录只有单页快照，无分页游标；DexScreener 30 条发现入口未消费。",
+    "未做交易指令级深读（0/5 组）；Orca SOL/USDC 池样本 9/10 签名失败，错误码未解析。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:24:55.859069+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-SOL/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "verified_at": "2026-11-08T15:25:36.912083+00:00",
-    "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:32:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-SOL/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

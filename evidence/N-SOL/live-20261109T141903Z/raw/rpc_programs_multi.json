@@ -1,0 +1,78 @@
+{
+ "jsonrpc": "2.0",
+ "result": {
+  "context": {
+   "apiVersion": "4.4.0",
+   "slot": 467350933
+  },
+  "value": [
+   {
+    "data": [
+     "AgAAAARZ+j9etGv4mq6oUDkLUFK+VxARD0GKFJCidOiJUHhP",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 1857389137,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   },
+   {
+    "data": [
+     "AgAAALeSOqTLrmBG3cfmLc9GAfb571+9EDJZEalEYeTomRIT",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 50334585,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   },
+   {
+    "data": [
+     "AgAAAIdnJOr8Zo4xtYrybRNhir9qQfk6LqWlPPPo6sR5xjpW",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 6389493637,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   },
+   {
+    "data": [
+     "AgAAALCj2NteOsPf+tyRpPc+hRFSbDKg2sRwo9znup2STWeS",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 76851581,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   },
+   {
+    "data": [
+     "AgAAAL4zkcMPRYarxgednZ3r504XyexzY/JuY/2bbqm+blYz",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 70228638,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   },
+   {
+    "data": [
+     "AgAAACfxkLHTr5i4znFMROjK3/n4/EXLjl+sQgLv+BENl903",
+     "base64"
+    ],
+    "executable": true,
+    "lamports": 230130698,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "rentEpoch": 18446744073709551615,
+    "space": 36
+   }
+  ]
+ },
+ "id": 1
+}

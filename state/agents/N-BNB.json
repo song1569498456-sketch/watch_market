@@ -2,54 +2,89 @@
   "agent_id": "N-BNB",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:28:00+00:00",
   "observed_cursor": {
+    "type": "block",
+    "chain_id": 56,
+    "head_block": 132600472,
+    "head_block_time_utc": "2026-11-09T14:27:51+00:00",
+    "event_scan_v3": {
+      "source": "bsc-rpc.publicnode.com eth_getLogs",
+      "factory": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+      "from_block": 132595236,
+      "to_block": 132600236,
+      "time_window_utc": "2026-11-09T13:48:35Z-2026-11-09T14:26:05Z",
+      "poolevent_count": 2
+    },
+    "event_scan_v2": {
+      "source": "bsc-rpc.publicnode.com eth_getLogs",
+      "factory": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+      "from_block": 132598236,
+      "to_block": 132600236,
+      "time_window_utc": "2026-11-09T14:11:05Z-2026-11-09T14:26:05Z",
+      "pairevent_count": 75
+    },
+    "quotes_block": 132600472,
     "official_release_tag": "v1.8.2",
-    "release_published_at": "2026-11-03T02:12:36Z",
-    "factory_document_read": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
-    "last_block": null,
-    "pool_events_scanned": 0,
+    "release_updated_at": "2026-11-03T12:58:47Z",
+    "pool_events_scanned": 2,
+    "pair_events_scanned": 75,
     "transactions_analyzed": 0,
     "history_window_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
+      "type": "block",
+      "chain_id": 56,
+      "head_block": 132600472,
+      "head_block_time_utc": "2026-11-09T14:27:51+00:00",
       "official_release_tag": "v1.8.2",
-      "release_published_at": "2026-11-03T02:12:36Z",
-      "factory_document_read": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
-      "last_block": null,
-      "pool_events_scanned": 0,
+      "release_updated_at": "2026-11-03T12:58:47Z",
+      "last_block": 132600472,
+      "pool_events_scanned": 2,
+      "pair_events_scanned": 75,
       "transactions_analyzed": 0,
       "history_window_complete": false
     },
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
-    "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
-    "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+    "链身份与 Pancake V3 工厂已链上核验：chainId=56（0x38）、head=132600472、工厂代码 5151 bytes sha256=d897214b5c44a04cf1e9be8546eaa60afd4bf29ad9ab17c16db40fa6c2c89d00、owner=0x0f6f9a6dd9f065dc4455bb2b8e3f0cffb6f2410c（owner 身份未核验）。",
+    "工厂 fee 档链上状态：100/500/2500/10000 全部 enabled=true、whitelistRequested=false（tickSpacing 1/10/50/200），code-and-storage 读取而非文档推断。",
+    "Pancake V3 PoolCreated 事件窗口 132595236-132600236（5000 块，13:48:35Z-14:26:05Z）共 2 条新池；已核验 fee=100 BSCDX/USDT 池与 fee=10000 池的对象身份（后者两侧资产未核验）。",
+    "Pancake V2 PairCreated 事件窗口 132598236-132600236（2000 块，15 分钟）共 75 条新 pair；样本 pair 0x1c007460… 为空池（reserves 全 0，报价 revert）。",
+    "four.meme 类毕业样本：真诚 0xf80e4db5…/WBNB pair 0xb7f46f38… 经 getPair 复核，储备 9.2540 WBNB/3.41998e8 token，0.01 BNB→368246.13 token（块 132600472）真实报价。",
+    "同区块多费率/多市场报价对照：V3 fee500 684.3993、fee2500 683.5565、V2 683.3727 USDT/WBNB（块 132600234，历史证据）。",
+    "BSC 官方 releases atom：30 天窗口内 v1.8.2（2026-11-03）、v1.8.1（2026-10-19）、v1.8.0-alpha（2026-08-26）；Jenner 计划 2026-12-08 02:30 UTC 未到，无链上生效证据。",
+    "实测出块间隔约 0.45s（5236 块/2356s），快于历史 0.75s，列为待复核链级时序变化线索。"
   ],
   "pending_questions": [
-    "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
-    "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
-    "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
-    "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+    "7 天/30 天事件窗口未覆盖：按实测 0.45s/块，7 天≈134 万块、30 天≈576 万块；本轮只扫 V3 5000 块、V2 2000 块。publicnode 的 eth_getLogs 分页上限与稳定性未测；dataseed 的 getLogs 已不可用（-32005 limit exceeded）。",
+    "BSCDX（0x0db878…）发行方/供应量/转账税/黑名单/卖出限制未知；0x4950755f…/0xe0b76b7c… 资产未核验；fee=10000 新池状态/报价未读。",
+    "BSCDX/USDT fee=100 池 slot0/liquidity/深度与 0.01/0.1/1/10 USDT 容量序列未测；真诚 pair 的 0.1/1/10 BNB 容量未测。",
+    "聚合器（Dexscreener priceUsd=1.443e-5）与链上储备隐含（≈1.85e-5 USDT/token）差 22-28%：是滞后、汇率口径还是聚合器对 4meme 毕业盘的口径问题，未定。",
+    "新池创建 tx 的 from 与集中创建者未读；无法判断 0.01%/1% 新池是否由同一做市方/发射台系统性创建。",
+    "Dexscreener 只取 token-profiles 最新 30 条（BSC 2 条）；www.bnbchain.org 按历史 403 策略未重试；Venus API HTTP 200 但 schema 非预期（data 非数组），本轮未使用。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:24:45.675031+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-BNB/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "verified_at": "2026-11-08T15:25:36.912083+00:00",
-    "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T14:28:00.185784+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-BNB/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 73,
+  "data_sources_used": [
+    "https://bsc-dataseed.bnbchain.org",
+    "https://bsc-rpc.publicnode.com",
+    "https://api.dexscreener.com/token-profiles/latest/v1",
+    "https://api.dexscreener.com/latest/dex/tokens/{address}",
+    "https://github.com/bnb-chain/bsc/releases.atom",
+    "https://api.venus.io/markets?chainId=56（HTTP 200，schema 非预期，未使用数据）"
+  ],
   "report_errata": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z-errata.md",
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"

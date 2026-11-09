@@ -15,7 +15,7 @@ RUN_ID = "live-20261109T141903Z"
 REPO = r"D:\ds-arb-test\watch_market"
 DATE_BJ = "2026-11-09"
 
-ALLOWED_PREFIXES = ("reports/", "evidence/", "state/agents/", "findings/")
+ALLOWED_PREFIXES = ("reports/", "evidence/", "state/agents/", "findings/", "runs/live-20261109T141903Z/")
 REQUIRED_RECORD_KEYS = [
     "agent_id", "run_id", "chain", "scope", "started_at", "finished_at", "duration_seconds",
     "execution_status", "status", "as_of", "block_or_slot", "market_ids", "asset_ids",
@@ -181,6 +181,7 @@ def main():
                 entry.setdefault("initial_research_status", f.get("status", "UNVERIFIED"))
                 finding_by_id[fid] = entry
                 findings["items"].append(entry)
+            os.makedirs(os.path.join(REPO, "findings", fid), exist_ok=True)
             save(f"findings/{fid}/{RUN_ID}-{role}.json", {
                 **f,
                 "owner": role,

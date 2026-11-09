@@ -1,0 +1,31 @@
+{
+  "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+  "status": "UNVERIFIED",
+  "chain": "BNB",
+  "market_id": null,
+  "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "BSC v1.8.2 发布说明计划 2026-12-08 02:30 UTC 激活 Jenner；BEP-702 CAS20 资产创建需治理任命管理员单独激活；BEP-703 payment lane 默认预留 5% 区块 gas 且比例/列表可治理调整。公告不等于生效，本轮日期仍早于计划时刻。",
+  "evidence_urls": [
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "https://github.com/bnb-chain/bsc/releases.atom"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "实际激活时刻",
+    "管理员/治理权限与资格",
+    "参与成本与退出市场"
+  ],
+  "handoff_to": [
+    "M00",
+    "BNB05",
+    "R-BNB"
+  ],
+  "invalidation_conditions": [
+    "计划变更/延后",
+    "另发新版本取代 v1.8.2",
+    "激活条件改变"
+  ],
+  "owner": "N-BNB",
+  "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json"
+}

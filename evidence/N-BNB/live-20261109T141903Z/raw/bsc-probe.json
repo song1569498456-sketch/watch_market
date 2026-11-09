@@ -1,0 +1,235 @@
+{
+ "started_at_utc": "2026-11-09T14:26:03.876222+00:00",
+ "rpc": "https://bsc-dataseed.bnbchain.org",
+ "selectors": {
+  "owner": "0x8da5cb5b",
+  "feeSpacing": "0x22afcccb",
+  "feeExtra": "0x88e8006d",
+  "getPool": "0x1698ee82",
+  "quoteSingle": "0xc6a5026a",
+  "getAmountsOut": "0xd06ca61f",
+  "slot0": "0x3850c7bd",
+  "liquidity": "0x1a686502",
+  "token0": "0x0dfe1681",
+  "token1": "0xd21220a7",
+  "getPair": "0xe6a43905"
+ },
+ "topics": {
+  "PoolCreated": "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+  "FeeAmountEnabled": "0xc66a3fdf07232cdd185febcc6579d408c241b47ae2f9907d84be655141eeaecc",
+  "FeeExtra": "0xed85b616dbfbc54d0f1180a7bd0f6e3bb645b269b234e7a9edcc269ef1443d88",
+  "PairCreated": "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
+ },
+ "chain_id_hex": "0x38",
+ "chain_id": 56,
+ "head_block": 132600236,
+ "head_block_info": {
+  "number": "0x7e751ac",
+  "timestamp": "0x6af1d7fd",
+  "hash": "0x2f84507b6f7b1bc5611542ee92af2a060ae9656a8d58464096d1e149e8e618e6",
+  "gasLimit": "0x42c1d80",
+  "baseFeePerGas": "0x0"
+ },
+ "head_block_time_utc": "2026-11-09T14:26:05+00:00",
+ "pinned_block": 132600234,
+ "factory_v3_code": {
+  "address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+  "bytes": 5151,
+  "sha256": "d897214b5c44a04cf1e9be8546eaa60afd4bf29ad9ab17c16db40fa6c2c89d00",
+  "error": null
+ },
+ "quoter_v2_code": {
+  "address": "0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997",
+  "bytes": 8331,
+  "sha256": "06feb5fff95f42876e3b8ddc4011c55118977088810330d11e217b00dfc16041",
+  "error": null
+ },
+ "factory_owner": "0x0f6f9a6dd9f065dc4455bb2b8e3f0cffb6f2410c",
+ "factory_fee_tiers": {
+  "100": {
+   "tickSpacing": 1,
+   "error": null,
+   "whitelistRequested": false,
+   "enabled": true
+  },
+  "500": {
+   "tickSpacing": 10,
+   "error": null,
+   "whitelistRequested": false,
+   "enabled": true
+  },
+  "2500": {
+   "tickSpacing": 50,
+   "error": null,
+   "whitelistRequested": false,
+   "enabled": true
+  },
+  "10000": {
+   "tickSpacing": 200,
+   "error": null,
+   "whitelistRequested": false,
+   "enabled": true
+  }
+ },
+ "get_pool": {
+  "WBNB_USDT_500": {
+   "tokenA": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "tokenB": "0x55d398326f99059fF775485246999027B3197955",
+   "fee": 500,
+   "pool": "0x36696169c63e42cd08ce11f5deebbcebae652050",
+   "error": null
+  },
+  "WBNB_USDT_2500": {
+   "tokenA": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "tokenB": "0x55d398326f99059fF775485246999027B3197955",
+   "fee": 2500,
+   "pool": "0x1401ff943d08a7e098328c1d3a9d388923b115d2",
+   "error": null
+  },
+  "WBNB_CAKE_2500": {
+   "tokenA": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "tokenB": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+   "fee": 2500,
+   "pool": "0x133b3d95bad5405d14d53473671200e9342896bf",
+   "error": null
+  },
+  "USDT_CAKE_500": {
+   "tokenA": "0x55d398326f99059fF775485246999027B3197955",
+   "tokenB": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+   "fee": 500,
+   "pool": "0x8ec186cd1ad51c380bd23fde29f852226647616c",
+   "error": null
+  },
+  "WBNB_USDT_10000": {
+   "tokenA": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "tokenB": "0x55d398326f99059fF775485246999027B3197955",
+   "fee": 10000,
+   "pool": "0x6805e0e5333c5c3accf2930be4734e2b98f4ce06",
+   "error": null
+  }
+ },
+ "quotes": [
+  {
+   "label": "1WBNB_to_USDT_fee500",
+   "token_in": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "token_out": "0x55d398326f99059fF775485246999027B3197955",
+   "amount_in": "1000000000000000000",
+   "fee": 500,
+   "block": 132600234,
+   "raw": "0x00000000000000000000000000000000000000000000002519f2ead2d5960020000000000000000000000000000000000000000009c87bc86e1e4fa36bd0a873000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000167d6",
+   "error": null,
+   "amount_out": "684399345713812996128",
+   "sqrtPriceX96After": "3027734800676106318516365427",
+   "initializedTicksCrossed": 1,
+   "gasEstimate": "92118"
+  },
+  {
+   "label": "100USDT_to_WBNB_fee500",
+   "token_in": "0x55d398326f99059fF775485246999027B3197955",
+   "token_out": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "amount_in": "100000000000000000000",
+   "fee": 500,
+   "block": 132600234,
+   "raw": "0x00000000000000000000000000000000000000000000000002069377f3bd826e000000000000000000000000000000000000000009c876399ce7425762b0946500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000016b08",
+   "error": null,
+   "amount_out": "145966181335794286",
+   "sqrtPriceX96After": "3027708554330500605666169957",
+   "initializedTicksCrossed": 1,
+   "gasEstimate": "92936"
+  },
+  {
+   "label": "1WBNB_to_USDT_fee2500",
+   "token_in": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "token_out": "0x55d398326f99059fF775485246999027B3197955",
+   "amount_in": "1000000000000000000",
+   "fee": 2500,
+   "block": 132600234,
+   "raw": "0x0000000000000000000000000000000000000000000000250e40799c3e0915bb000000000000000000000000000000000000000009c84b5a8bfda36661ae797c000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000281a3",
+   "error": null,
+   "amount_out": "683556485154256524731",
+   "sqrtPriceX96After": "3027506100095611711215532412",
+   "initializedTicksCrossed": 2,
+   "gasEstimate": "164259"
+  }
+ ],
+ "v2_router_quote": {
+  "block": 132600234,
+  "error": null,
+  "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000de0b6b3a76400000000000000000000000000000000000000000000000000250bb39f4f1bb68783",
+  "amounts_out": [
+   "1000000000000000000",
+   "683372723444618004355"
+  ]
+ },
+ "pool_state": {
+  "pool": "0x36696169c63e42cd08ce11f5deebbcebae652050",
+  "code_bytes": 22962,
+  "code_sha256": "6f7c2c383cf54526289aea7bf8f4008b0e10eed74c90a6f6ca1f1b83caa02703",
+  "slot0": {
+   "raw": "0x000000000000000000000000000000000000000009c876eeebfa93cbc90aedf0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00f2000000000000000000000000000000000000000000000000000000000000063b00000000000000000000000000000000000000000000000000000000000008340000000000000000000000000000000000000000000000000000000000000834000000000000000000000000000000000000000000000000000000000d480d480000000000000000000000000000000000000000000000000000000000000001",
+   "error": null
+  },
+  "liquidity": {
+   "raw": "0x00000000000000000000000000000000000000000002dc34c0f24aaef5aef469",
+   "error": null
+  },
+  "token0": {
+   "raw": "0x00000000000000000000000055d398326f99059ff775485246999027b3197955",
+   "error": null
+  },
+  "token1": {
+   "raw": "0x000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+   "error": null
+  },
+  "slot0_decoded": {
+   "sqrtPriceX96": "3027711898889165461024075248",
+   "tick": -65294,
+   "observationIndex": 1595,
+   "observationCardinality": 2100,
+   "observationCardinalityNext": 2100,
+   "feeProtocol": 222825800,
+   "unlocked": true
+  },
+  "spot_price_token1_per_token0": "0.001460393622584855234081224208",
+  "liquidity_decoded": "3457745399409528145900649"
+ },
+ "factory_events": {
+  "from_block": 132595236,
+  "to_block": 132600236,
+  "error": {
+   "code": -32005,
+   "message": "limit exceeded"
+  }
+ },
+ "dexscreener_profiles": {
+  "http_status": 200,
+  "count": 30,
+  "bsc": [
+   {
+    "tokenAddress": "0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF",
+    "description": "Sincerity is the only choice .💛\nSincerity is the ultimate weapon.💛",
+    "links": [
+     "https://four.meme/token/0xf80e4db5f779788c66e9186e03f5e0c12262ffff",
+     "https://x.com/heyibinance/status/2119772870813634755"
+    ]
+   },
+   {
+    "tokenAddress": "0x6E8ECa1cFe793e8f29606a6b969370134431fFfF",
+    "description": "astAI ($ASTAI) is an AI-powered token launchpad on BNB Chain, where every coin comes with its own autonomous AI trading agent.\n\nEach agent operates independentl",
+    "links": [
+     "https://astai.fun",
+     "https://x.com/astaifun"
+    ]
+   }
+  ],
+  "error": null
+ },
+ "venus_markets": {
+  "http_status": 200,
+  "error": null,
+  "count": null,
+  "markets": []
+ },
+ "finished_at_utc": "2026-11-09T14:26:17.843311+00:00",
+ "request_count": 32
+}

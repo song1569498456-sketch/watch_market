@@ -1,0 +1,101 @@
+{
+ "note": "原 getMultipleAccounts(base64) 响应含完整程序字节码（约21MB），仅保留解码字段；整包响应仅记字节数与sha256。",
+ "source_response": {
+  "file": "rpc_programdata_multi.json",
+  "bytes": 21170871,
+  "sha256": "f6c3df8c6ba29326fd42dc5e747b5bc9ef284babcfeb80e7c421341328ba0b5c"
+ },
+ "context_slot": 467350937,
+ "upgrade_evidence": [
+  {
+   "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "programdata_address": "HzD2cCXXT3UQNjMMY6kDv9w6gZ9qquSdfoGXrLL3LXx",
+   "last_deploy_slot": 459932378,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 1700205,
+   "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+   "age_slots": 7418555,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 18.34,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "programdata_address": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+   "last_deploy_slot": 463522946,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 793869,
+   "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+   "age_slots": 3827987,
+   "within_7d_slots": false,
+   "within_30d_slots": true,
+   "age_days_from_blocktime": 9.49,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "programdata_address": "A7ZG7ByDi8DpzT9Ab7CiXhvgYTJQmaDPJkMDoPitaCQV",
+   "last_deploy_slot": 445763204,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 1406429,
+   "last_deploy_time_utc": "2026-09-10T01:52:56+00:00",
+   "age_slots": 21587729,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 60.52,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": false
+  },
+  {
+   "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "programdata_address": "CtXfPzz36dH5Ws4UYKZvrQ1Xqzn42ecDW6y8NKuiN8nD",
+   "last_deploy_slot": 457152296,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV",
+   "data_len": 10485760,
+   "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+   "age_slots": 10198637,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 25.3,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "programdata_address": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY",
+   "last_deploy_slot": 460497271,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz",
+   "data_len": 1382061,
+   "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+   "age_slots": 6853662,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 16.95,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "programdata_address": "3gvYRKWyXRR9xKWe1ZjPhLY5ZJRN7KDB4rFZFGoJfFk2",
+   "last_deploy_slot": 419472000,
+   "has_upgrade_authority": false,
+   "upgrade_authority": null,
+   "data_len": 108645,
+   "last_deploy_time_utc": "2026-05-13T12:39:34+00:00",
+   "age_slots": 47878933,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 180.08,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": false
+  }
+ ]
+}

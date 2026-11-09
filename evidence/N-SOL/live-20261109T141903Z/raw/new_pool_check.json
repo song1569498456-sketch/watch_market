@@ -1,0 +1,89 @@
+{
+ "prior_raydium_pool_checks": [
+  {
+   "address": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+   "owner": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "executable": false,
+   "space": 1544
+  },
+  {
+   "address": "So11111111111111111111111111111111111111112",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  },
+  {
+   "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  }
+ ],
+ "prior_raydium_pool_rpc_slot": 467351194,
+ "prior_raydium_owner_match": true,
+ "target_new_pool": {
+  "id": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+  "type": "Standard",
+  "programId": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+  "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+  "mintB": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+  "tvl": 254612.5,
+  "day_volume": 4932907.921453107,
+  "feeRate": 0.01,
+  "createdAt": "1794169583"
+ },
+ "rpc": {
+  "http_status": 200,
+  "at": "2026-11-09T14:29:04.788736+00:00",
+  "bytes": 2459,
+  "sha256": "d53c9ecbdfdc08b5cc686e06a0b4befb50cd4331f3f0b2f31444ddf111da1b6d"
+ },
+ "slot": 467351334,
+ "checks": [
+  {
+   "address": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+   "owner": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "executable": false,
+   "space": 637,
+   "data_bytes": 637
+  },
+  {
+   "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "executable": false,
+   "space": 687,
+   "data_bytes": 687
+  },
+  {
+   "address": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82,
+   "data_bytes": 82
+  }
+ ],
+ "pool_owner_matches_program": true,
+ "sig": {
+  "http_status": 200,
+  "at": "2026-11-09T14:29:05.670617+00:00",
+  "count": 3,
+  "items": [
+   {
+    "signature": "4v5Z71cduBFPyeUrBZyt74kqsSBH9Qckn8PJ3vxThcebVwLKcmZHDrjU9eYUCFHczsLdsQ6r45Z3NPcKTkmk1LZs",
+    "slot": 467351335,
+    "blockTime_utc": "2026-11-09T14:29:04+00:00"
+   },
+   {
+    "signature": "4uUYz6o1tSVPxqp9W35pNSAfh5RawSuWbHrMJgmgmW7AzPMwErFQKAYrpbUobMbfgDUnSRzHxzP4JygTt7W64Xkg",
+    "slot": 467351334,
+    "blockTime_utc": "2026-11-09T14:29:04+00:00"
+   },
+   {
+    "signature": "4ExGXWAMs23HxVhzfbrku7n2pUPhuo5Xp3pJyYUEmEgHEC8YKcYPF7mC6rZSWusojMfYVsuMQNBxGkXZri6F7LCn",
+    "slot": 467351318,
+    "blockTime_utc": "2026-11-09T14:29:01+00:00"
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T14:29:05.670651+00:00"
+}

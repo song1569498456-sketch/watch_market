@@ -1,0 +1,33 @@
+{
+  "finding_id": "BNB-LAUNCHPAD-GRADUATION-NEW-V2-PAIR",
+  "status": "UNVERIFIED",
+  "chain": "BNB",
+  "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+  "first_seen_at": "2026-11-09T14:28:00+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "four.meme 类发射台 token 在完成募集后几分钟内转为 Pancake V2 pair：样本 token 真诚 0xf80e4db5…，聚合器时间 4meme 虚拟池 13:18:43Z、V2 pair 13:21:57Z；链上 pair 0xb7f46f… 经 getPair 复核匹配，储备 9.2540 WBNB/3.41998e8 token，0.01 BNB→368246.13 token（块 132600472）。聚合器 priceUsd 与链上储备隐含价相差约 22-28%，展示价不能当可执行价。新市场发现应跟踪“发射台→毕业→V2 流动性”的连续过程，而非只看聚合器最新列表。",
+  "evidence_urls": [
+    "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+    "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "买入/卖出税与限制",
+    "聚合器滞后幅度",
+    "流动性抽干风险",
+    "gas"
+  ],
+  "handoff_to": [
+    "M00",
+    "BNB03",
+    "BNB04",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "毕业规则为营销口径非链上规则",
+    "聚合器差异被证明只是汇率/时间口径",
+    "pair 流动性被抽干"
+  ],
+  "owner": "N-BNB",
+  "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json"
+}

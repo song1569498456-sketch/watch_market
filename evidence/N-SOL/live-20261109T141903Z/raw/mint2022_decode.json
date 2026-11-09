@@ -1,0 +1,72 @@
+{
+ "mint": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+ "rpc": {
+  "http_status": 200,
+  "at": "2026-11-09T14:29:23.930048+00:00",
+  "sha256": "593bbb8f387897efc3d2db7f52298c45d763c00aed04cc3670ddf5424610038e"
+ },
+ "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+ "space": 687,
+ "data_len": 687,
+ "base64_len": 916,
+ "base": {
+  "mint_authority_present": true,
+  "supply": "4675936223",
+  "decimals": 6,
+  "is_initialized": 1,
+  "freeze_authority_present": true
+ },
+ "account_type_byte_at_165": 1,
+ "extensions": [
+  {
+   "type": 18,
+   "name": "MetadataPointer",
+   "len": 64,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f05811804c522f006"
+  },
+  {
+   "type": 12,
+   "name": "PermanentDelegate",
+   "len": 32,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f"
+  },
+  {
+   "type": 6,
+   "name": "DefaultAccountState",
+   "len": 1,
+   "head_hex": "01"
+  },
+  {
+   "type": 26,
+   "name": "Unknown",
+   "len": 33,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f00"
+  },
+  {
+   "type": 4,
+   "name": "ConfidentialTransferMint",
+   "len": 65,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f0000000000000000"
+  },
+  {
+   "type": 14,
+   "name": "TransferHook",
+   "len": 64,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f0000000000000000"
+  },
+  {
+   "type": 25,
+   "name": "Unknown",
+   "len": 56,
+   "head_hex": "d829f7cabc8ddd6cc647714113576b921c53bc185614ac70a00337281c93fc65000000000000f03f"
+  },
+  {
+   "type": 19,
+   "name": "TokenMetadata",
+   "len": 174,
+   "head_hex": "17f34b976beaede1328778fe0fd0a5ce7d8cddfd565d13362ea2f53b7853160f05811804c522f006"
+  }
+ ],
+ "extensions_offset_used": 166,
+ "finished_at_utc": "2026-11-09T14:29:23.930304+00:00"
+}

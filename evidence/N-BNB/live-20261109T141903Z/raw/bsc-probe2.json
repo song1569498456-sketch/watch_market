@@ -1,0 +1,252 @@
+{
+ "started_at_utc": "2026-11-09T14:27:06.741056+00:00",
+ "factory_event_scan": {
+  "success": {
+   "from_block": 132595236,
+   "to_block": 132600236,
+   "count": 2
+  },
+  "parsed_pool_created": [
+   {
+    "block": 132597805,
+    "tx": "0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+    "pool": "0x0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+    "token0": "0x0db878add1f99a9191c4c4f4da5dd6683601ae52",
+    "token1": "0x55d398326f99059ff775485246999027b3197955",
+    "fee": 100,
+    "tickSpacing": 1
+   },
+   {
+    "block": 132598623,
+    "tx": "0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74",
+    "pool": "0x0x062a9cec2f1034006d8a70578083409859a72e58",
+    "token0": "0x4950755fd8fe56bd675c8ca75ad8de1b74356666",
+    "token1": "0xe0b76b7c6b093b0b101cfd62190a0781d63d9799",
+    "fee": 10000,
+    "tickSpacing": 200
+   }
+  ]
+ },
+ "v2_pair_scan": {
+  "success": {
+   "from_block": 132598236,
+   "to_block": 132600236,
+   "count": 75
+  },
+  "parsed_pairs": [
+   {
+    "block": 132600003,
+    "tx": "0x1ffce681c39a18d43b0e12ae1265ad2aaa464e9c2c31309976293ff30427537f",
+    "pair": "0x5de2c01eb6a0c141191dc59c2777046239f31b68",
+    "token0": "0x48968c68fe43c9a66a1c53377d7e0bb3e3dd7777",
+    "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+   },
+   {
+    "block": 132600065,
+    "tx": "0x9b87a4da5a5dfbd89aa511a3763c671acbc11cd03d4d8d79fd976980259510ee",
+    "pair": "0x170fd9fb01cd8028aba8aba8b4c30bedea827ea1",
+    "token0": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "token1": "0xc1f32cda172a8b1fbc9c7d13dd7e1e4b72ae7777"
+   },
+   {
+    "block": 132600079,
+    "tx": "0xe653d78904ecb61c82d74d2e59c78297a7a2f525a376cb6828382eb3c650549e",
+    "pair": "0xbe6be1336299407f6bb3f49116092bc192648833",
+    "token0": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "token1": "0xd57950c5bf1a39f2c0f9b2714c5c381f26127777"
+   },
+   {
+    "block": 132600089,
+    "tx": "0x52ec00f46e1f7c0d79aad262a755e3ebbca790eb1df57a0ac054b146d05d87b8",
+    "pair": "0x528c307e739f17717f32d2f2c495fcaf7de4fba2",
+    "token0": "0x8f37cbd8c1b9214f2550ce49a1365275b42ac588",
+    "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+   },
+   {
+    "block": 132600094,
+    "tx": "0x0493ae19c9980cb6628825b4fd1992f92f20c119fb2fa159ffc8a43d485002db",
+    "pair": "0xa0eb69b999b97b3805ce4401f7553c1b4f235dbd",
+    "token0": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+    "token1": "0xdd4edba97d233132993f8e437670abd058d17777"
+   },
+   {
+    "block": 132600120,
+    "tx": "0x00a04c90d4cbf7b42889d39f995eabc7c3c8f2050db450c1280cc0cb1e51f785",
+    "pair": "0xa8005149b2212812b789c6fa09323bc87a827027",
+    "token0": "0x39024c75af6c498263778d2228ee88f76707422d",
+    "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+   },
+   {
+    "block": 132600177,
+    "tx": "0x30f45f614770be6e7c9119df28ac864b2cd48d5db38e79608150685dc7400469",
+    "pair": "0x7dd6695861a9cf33536dd5ffe6607eda909271e4",
+    "token0": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "token1": "0xe580eae0655c25bec7ab203d6a7b49c351687777"
+   },
+   {
+    "block": 132600179,
+    "tx": "0x01bb1f4d8a7272e663ac419f62fa6a7435d450e7923513f8bb1ccfbd84d37ea9",
+    "pair": "0x6cb5b86eed2cd0a00e07e30c8c5dc65182d813dc",
+    "token0": "0x01895b0430292e33e8a22509352a6aa624567777",
+    "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+   },
+   {
+    "block": 132600180,
+    "tx": "0xbac53387f4f4bf190fec6d91895c36600f78f1d74572dd5e7ed69ce80d284c70",
+    "pair": "0x3056e3339b124a317d757457fa50205f87143ce7",
+    "token0": "0x55d398326f99059ff775485246999027b3197955",
+    "token1": "0x7578d578f227356b0e418dcddd38d2f85dfc0aa7"
+   },
+   {
+    "block": 132600203,
+    "tx": "0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6",
+    "pair": "0x1c007460942ff6025a75976b71b1596720296704",
+    "token0": "0x30ddb30f10126c6614c9865ac45de4718ff67777",
+    "token1": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+   }
+  ]
+ },
+ "dexscreener_pairs": {
+  "fourmeme_sample": {
+   "http_status": 200,
+   "error": null,
+   "pairs": [
+    {
+     "chainId": "bsc",
+     "dexId": "pancakeswap",
+     "pairAddress": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+     "baseToken": "0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF",
+     "quoteToken": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+     "priceUsd": "0.00001443",
+     "liquidityUsd": 11176.07,
+     "fdv": 14431,
+     "pairCreatedAt": 1794230517000,
+     "labels": [
+      "v2"
+     ]
+    },
+    {
+     "chainId": "bsc",
+     "dexId": "fourmeme",
+     "pairAddress": "0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF:4meme",
+     "baseToken": "0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF",
+     "quoteToken": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+     "priceUsd": "0.00004898",
+     "liquidityUsd": null,
+     "fdv": 48981.29,
+     "pairCreatedAt": 1794230323000,
+     "labels": null
+    }
+   ]
+  },
+  "astai": {
+   "http_status": 200,
+   "error": null,
+   "pairs": [
+    {
+     "chainId": "bsc",
+     "dexId": "fourmeme",
+     "pairAddress": "0x6E8ECa1cFe793e8f29606a6b969370134431fFfF:4meme",
+     "baseToken": "0x6E8ECa1cFe793e8f29606a6b969370134431fFfF",
+     "quoteToken": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+     "priceUsd": "0.000003723",
+     "liquidityUsd": null,
+     "fdv": 3723.17,
+     "pairCreatedAt": 1794232844000,
+     "labels": null
+    }
+   ]
+  }
+ },
+ "pair_verification": {
+  "factory_getPair": {
+   "pair": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+   "what": "getPair(WBNB, baseToken)",
+   "raw": null,
+   "match": false
+  },
+  "pair_state": {
+   "pair": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+   "code_bytes": 14981,
+   "code_sha256": "ab89a0244c7e5a86aa8e1673b4c5b825db93bc406c7934e923ebb0a7c4548ac7",
+   "token0": {
+    "raw": null,
+    "error": {
+     "code": -32000,
+     "message": "missing trie node"
+    }
+   },
+   "token1": {
+    "raw": null,
+    "error": {
+     "code": -32000,
+     "message": "missing trie node"
+    }
+   },
+   "getReserves": {
+    "raw": null,
+    "error": {
+     "code": -32000,
+     "message": "missing trie node"
+    }
+   }
+  },
+  "quote_001BNB_to_token": {
+   "block": 132600234,
+   "amount_in_wei": "10000000000000000",
+   "raw": null,
+   "error": {
+    "code": -32000,
+    "message": "missing trie node"
+   }
+  }
+ },
+ "bsc_releases_atom": {
+  "http_status": 200,
+  "error": null,
+  "entries": [
+   {
+    "title": "v1.8.2",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+    "updated": "2026-11-03T12:58:47Z"
+   },
+   {
+    "title": "v1.8.1",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.1",
+    "updated": "2026-10-19T07:20:34Z"
+   },
+   {
+    "title": "v1.8.0-alpha",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.8.0-alpha",
+    "updated": "2026-08-26T06:45:00Z"
+   },
+   {
+    "title": "v1.7.8",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.7.8",
+    "updated": "2026-08-11T06:28:13Z"
+   },
+   {
+    "title": "v1.7.7",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.7.7",
+    "updated": "2026-08-11T02:30:26Z"
+   },
+   {
+    "title": "v1.7.6",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.7.6",
+    "updated": "2026-07-09T03:13:21Z"
+   },
+   {
+    "title": "v1.7.5",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.7.5",
+    "updated": "2026-07-07T09:03:26Z"
+   },
+   {
+    "title": "v1.7.4",
+    "link": "https://github.com/bnb-chain/bsc/releases/tag/v1.7.4",
+    "updated": "2026-07-06T12:28:32Z"
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T14:27:11.758360+00:00",
+ "request_count_this_script": 11
+}

@@ -3,34 +3,37 @@
   "items": [
     {
       "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
-      "status": "UNVERIFIED",
+      "status": "QUOTED",
       "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
-      "mechanism": "官方源码在每次请求时铸造NFT、claim时销毁；finalize需FINALIZE_ROLE并检查resumed。仅表明退出为带条件的队列权益，不能将stETH名义数量直接当即刻可得ETH。",
+      "mechanism": "ETH 在 Curve 换入 stETH（当前约 1.000075 stETH/ETH）→ WithdrawalQueue requestWithdrawals（转为 shares/铸 NFT 进入队列）→ finalize 后 claimWithdrawal 领取按结束质押率折算的 ETH；以协议平价兑付替代池内折价卖出，测量到约 +0.00747%（100 ETH 档）粗价差，但需等待最终化并承担记账率漂移。",
       "evidence_urls": [
         "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
-        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+        "https://ethereum-rpc.publicnode.com"
       ],
-      "net_result": "unknown",
+      "net_result": "估算粗价差 +0.00746579 ETH/100 ETH 输入（+0.00747%），未实现；扣未测的 queue gas、等待成本与记账率风险后可能低于该值",
       "unknown_costs": [
-        "买入/卖出费与冲击",
-        "gas",
-        "等待机会成本",
-        "赎回差额/可兑数量"
+        "队列 request/claim gas",
+        "等待最终化的时间/机会成本",
+        "记账率漂移",
+        "容量上限",
+        "NFT 等待期流动性"
       ],
       "handoff_to": [
         "ETH01",
         "Q00"
       ],
       "invalidation_conditions": [
-        "主网代理实现与所读源码不一致",
-        "队列暂停或资格不满足",
-        "实际赎回状态/金额不支持假设",
-        "当前报价无差异或费用耗尽差额"
+        "Curve 买方向隐含价格≥1.0 ETH/stETH",
+        "队列暂停/资格限制",
+        "finalize 等待或记账率下行抵消价差",
+        "代理实现/队列行为与官方部署不符",
+        "实际容量远小于测量档"
       ],
       "owner": "N-ETH",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "ETH01": {
           "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
@@ -61,6 +64,37 @@
           "owner": "ETH01",
           "last_observed_run": "full-20261108T152118Z",
           "source_record": "evidence/ETH01/full-20261108T152118Z/record.json"
+        },
+        "N-ETH": {
+          "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+          "status": "QUOTED",
+          "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+          "mechanism": "ETH 在 Curve 换入 stETH（当前约 1.000075 stETH/ETH）→ WithdrawalQueue requestWithdrawals（转为 shares/铸 NFT 进入队列）→ finalize 后 claimWithdrawal 领取按结束质押率折算的 ETH；以协议平价兑付替代池内折价卖出，测量到约 +0.00747%（100 ETH 档）粗价差，但需等待最终化并承担记账率漂移。",
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+            "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "net_result": "估算粗价差 +0.00746579 ETH/100 ETH 输入（+0.00747%），未实现；扣未测的 queue gas、等待成本与记账率风险后可能低于该值",
+          "unknown_costs": [
+            "队列 request/claim gas",
+            "等待最终化的时间/机会成本",
+            "记账率漂移",
+            "容量上限",
+            "NFT 等待期流动性"
+          ],
+          "handoff_to": [
+            "ETH01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "Curve 买方向隐含价格≥1.0 ETH/stETH",
+            "队列暂停/资格限制",
+            "finalize 等待或记账率下行抵消价差",
+            "代理实现/队列行为与官方部署不符",
+            "实际容量远小于测量档"
+          ]
         }
       },
       "q00_review": {
@@ -115,24 +149,25 @@
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:52.450934+00:00",
-      "last_observed_at": "2026-11-08T15:24:52.450934+00:00",
-      "last_verified_onchain_at": null,
-      "capacity": "unknown"
+      "last_observed_at": "2026-11-09T14:29:35+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:29:35+00:00",
+      "capacity": "unknown；Curve view 报价支持 100 ETH 单笔（比率 1.00007466），未测逐级容量上限；队列未最终化 3969.03 stETH（25 笔），finalize 周期/单次可最终化容量未读"
     },
     {
       "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
       "chain": "BNB",
       "status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
-      "mechanism": "BSC v1.8.2官方发布说明计划2026-12-08 02:30 UTC激活Jenner；BEP-702 CAS20资产创建还需治理任命管理员单独激活。此为待生效规则监控，不能当当前开放铸造权益或利润。",
+      "mechanism": "BSC v1.8.2 发布说明计划 2026-12-08 02:30 UTC 激活 Jenner；BEP-702 CAS20 资产创建需治理任命管理员单独激活；BEP-703 payment lane 默认预留 5% 区块 gas 且比例/列表可治理调整。公告不等于生效，本轮日期仍早于计划时刻。",
       "evidence_urls": [
-        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2"
+        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+        "https://github.com/bnb-chain/bsc/releases.atom"
       ],
       "market_ids": [],
       "unknown_costs": [
-        "发行/参与资格",
-        "gas与优先费",
-        "资产买卖/退出容量"
+        "实际激活时刻",
+        "管理员/治理权限与资格",
+        "参与成本与退出市场"
       ],
       "next_check": "对官方v1.8.2的BEP-702/703变更建立待生效事件，2026-12-08 02:30 UTC前后核对实际激活及管理员/治理权限；不要把计划当现状。",
       "handoff_to": [
@@ -142,8 +177,8 @@
       ],
       "review_required": true,
       "owner": "N-BNB",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
         "claim_scope": "仅确认BSC v1.8.2公告中Jenner与CAS20的计划时间/治理激活条件；不确认当前生效或参与收益",
@@ -169,9 +204,47 @@
         "next_check": "到计划时刻前后读chain配置和治理/管理员生效证据；不据未来计划创建当前铸造机会。"
       },
       "initial_research_status": "UNVERIFIED",
-      "last_observed_at": "2026-11-08T15:24:45.675031+00:00",
-      "last_verified_onchain_at": null,
-      "capacity": "unknown"
+      "last_observed_at": "2026-11-09T14:28:00.185784+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:28:00.185784+00:00",
+      "capacity": "unknown；仅知 0.01 BNB 与 1 USDT 数量级报价可返回；BSCDX 池与真诚 pair 的深度、滑点、可退出规模未测",
+      "market_id": null,
+      "net_result": null,
+      "invalidation_conditions": [
+        "计划变更/延后",
+        "另发新版本取代 v1.8.2",
+        "激活条件改变"
+      ],
+      "observations_by_role": {
+        "N-BNB": {
+          "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+          "status": "UNVERIFIED",
+          "chain": "BNB",
+          "market_id": null,
+          "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "BSC v1.8.2 发布说明计划 2026-12-08 02:30 UTC 激活 Jenner；BEP-702 CAS20 资产创建需治理任命管理员单独激活；BEP-703 payment lane 默认预留 5% 区块 gas 且比例/列表可治理调整。公告不等于生效，本轮日期仍早于计划时刻。",
+          "evidence_urls": [
+            "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+            "https://github.com/bnb-chain/bsc/releases.atom"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "实际激活时刻",
+            "管理员/治理权限与资格",
+            "参与成本与退出市场"
+          ],
+          "handoff_to": [
+            "M00",
+            "BNB05",
+            "R-BNB"
+          ],
+          "invalidation_conditions": [
+            "计划变更/延后",
+            "另发新版本取代 v1.8.2",
+            "激活条件改变"
+          ]
+        }
+      }
     },
     {
       "finding_id": "sol-whirlpool-token-interface-identity-check",
@@ -182,13 +255,15 @@
       "market_id": null,
       "claim": "存在值得专项核对的mint owner/Token Program身份约束；不是盈利或新规则生效主张",
       "evidence_urls": [
-        "https://raw.githubusercontent.com/orca-so/whirlpools/main/programs/whirlpool/src/instructions/v2/initialize_pool.rs"
+        "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+        "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE"
       ],
       "next_check": "验证部署代码和真实池mint/Token Program/扩展后才能比较取得与退出成本。",
       "net_profit": null,
       "owner": "N-SOL",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-SOL/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
       "q00_review": {
         "finding_id": "sol-whirlpool-token-interface-identity-check",
         "claim_scope": "仅确认Orca源码mint-owner/Token Program约束；不确认新规则、当前部署或具体池可交易",
@@ -216,16 +291,53 @@
       },
       "initial_research_status": "UNVERIFIED",
       "first_seen_at": "2026-11-08T15:24:55.859069+00:00",
-      "last_observed_at": "2026-11-08T15:24:55.859069+00:00",
-      "last_verified_onchain_at": null,
+      "last_observed_at": "2026-11-09T14:32:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:32:00+00:00",
       "unknown_costs": [
-        "转账费/transfer hook",
-        "优先费",
-        "账户创建与可退租金",
-        "AMM费和滑点",
-        "退出费用"
+        "所有交易成本",
+        "Token-2022 扩展（样本池未涉及）",
+        "容量"
       ],
-      "capacity": "unknown"
+      "capacity": "unknown（未取池储备/深度；API TVL/volume 只是指数器展示值，不可当可执行容量）",
+      "mechanism": "上一轮的源代码规则（mint owner 分别约束 token_program_a/b）本轮已能在链上落地核验：Whirlpool 程序 executable、两个样本池 owner=程序、池内 mint 均由 classic Tokenkeg 持有。方法成立，但样本池无 Token-2022 腿，尚无费用/容量/报价证据。",
+      "net_result": null,
+      "handoff_to": [
+        "SOL01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现 Token-2022 腿的 Whirlpool 池时该身份规则需要重测",
+        "程序升级改变 mint/token program 校验逻辑"
+      ],
+      "observations_by_role": {
+        "N-SOL": {
+          "finding_id": "sol-whirlpool-token-interface-identity-check",
+          "status": "UNVERIFIED",
+          "chain": "SOL",
+          "protocol": "Orca Whirlpools",
+          "market_id": null,
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+            "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE"
+          ],
+          "mechanism": "上一轮的源代码规则（mint owner 分别约束 token_program_a/b）本轮已能在链上落地核验：Whirlpool 程序 executable、两个样本池 owner=程序、池内 mint 均由 classic Tokenkeg 持有。方法成立，但样本池无 Token-2022 腿，尚无费用/容量/报价证据。",
+          "net_result": null,
+          "unknown_costs": [
+            "所有交易成本",
+            "Token-2022 扩展（样本池未涉及）",
+            "容量"
+          ],
+          "handoff_to": [
+            "SOL01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现 Token-2022 腿的 Whirlpool 池时该身份规则需要重测",
+            "程序升级改变 mint/token program 校验逻辑"
+          ]
+        }
+      }
     },
     {
       "finding_id": "BNB-LISUSD-PUBLIC-REDEMPTION-ASSUMPTION",
@@ -1737,8 +1849,288 @@
         "等待与清算风险"
       ],
       "capacity": "unknown"
+    },
+    {
+      "finding_id": "BNB-PANCAKEV3-FEE100-NEW-POOLS",
+      "first_seen_at": "2026-11-09T14:28:00.185784+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+      "mechanism": "Pancake V3 工厂链上事件显示新的 0.01%（fee=100）池被创建并在使用：BSCDX/USDT 池 0x89d58f…（创建块 132597805），QuoterV2 于块 132600472 返回 1 USDT→1.66658 BSCDX。同一工厂另有 fee=10000（1%）新池。规约要点：同一权益在不同费用档必须分池读费率/池状态，不能用默认 0.25% 费率或同名池推断报价。",
+      "evidence_urls": [
+        "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+        "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+        "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "BSCDX 转账税/黑名单",
+        "池深度与容量",
+        "gas 与优先费"
+      ],
+      "handoff_to": [
+        "M00",
+        "BNB04",
+        "BNB05",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "BSCDX 代币有交易限制",
+        "池流动性不足或无退出路径",
+        "事件/读取源覆盖不一致"
+      ],
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:28:00.185784+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:28:00.185784+00:00",
+      "capacity": "unknown；仅知 0.01 BNB 与 1 USDT 数量级报价可返回；BSCDX 池与真诚 pair 的深度、滑点、可退出规模未测",
+      "observations_by_role": {
+        "N-BNB": {
+          "finding_id": "BNB-PANCAKEV3-FEE100-NEW-POOLS",
+          "status": "UNVERIFIED",
+          "chain": "BNB",
+          "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+          "first_seen_at": "2026-11-09T14:28:00+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "Pancake V3 工厂链上事件显示新的 0.01%（fee=100）池被创建并在使用：BSCDX/USDT 池 0x89d58f…（创建块 132597805），QuoterV2 于块 132600472 返回 1 USDT→1.66658 BSCDX。同一工厂另有 fee=10000（1%）新池。规约要点：同一权益在不同费用档必须分池读费率/池状态，不能用默认 0.25% 费率或同名池推断报价。",
+          "evidence_urls": [
+            "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+            "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+            "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "BSCDX 转账税/黑名单",
+            "池深度与容量",
+            "gas 与优先费"
+          ],
+          "handoff_to": [
+            "M00",
+            "BNB04",
+            "BNB05",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "BSCDX 代币有交易限制",
+            "池流动性不足或无退出路径",
+            "事件/读取源覆盖不一致"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BNB-LAUNCHPAD-GRADUATION-NEW-V2-PAIR",
+      "first_seen_at": "2026-11-09T14:28:00.185784+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+      "mechanism": "four.meme 类发射台 token 在完成募集后几分钟内转为 Pancake V2 pair：样本 token 真诚 0xf80e4db5…，聚合器时间 4meme 虚拟池 13:18:43Z、V2 pair 13:21:57Z；链上 pair 0xb7f46f… 经 getPair 复核匹配，储备 9.2540 WBNB/3.41998e8 token，0.01 BNB→368246.13 token（块 132600472）。聚合器 priceUsd 与链上储备隐含价相差约 22-28%，展示价不能当可执行价。新市场发现应跟踪“发射台→毕业→V2 流动性”的连续过程，而非只看聚合器最新列表。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+        "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "买入/卖出税与限制",
+        "聚合器滞后幅度",
+        "流动性抽干风险",
+        "gas"
+      ],
+      "handoff_to": [
+        "M00",
+        "BNB03",
+        "BNB04",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "毕业规则为营销口径非链上规则",
+        "聚合器差异被证明只是汇率/时间口径",
+        "pair 流动性被抽干"
+      ],
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:28:00.185784+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:28:00.185784+00:00",
+      "capacity": "unknown；仅知 0.01 BNB 与 1 USDT 数量级报价可返回；BSCDX 池与真诚 pair 的深度、滑点、可退出规模未测",
+      "observations_by_role": {
+        "N-BNB": {
+          "finding_id": "BNB-LAUNCHPAD-GRADUATION-NEW-V2-PAIR",
+          "status": "UNVERIFIED",
+          "chain": "BNB",
+          "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+          "first_seen_at": "2026-11-09T14:28:00+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "four.meme 类发射台 token 在完成募集后几分钟内转为 Pancake V2 pair：样本 token 真诚 0xf80e4db5…，聚合器时间 4meme 虚拟池 13:18:43Z、V2 pair 13:21:57Z；链上 pair 0xb7f46f… 经 getPair 复核匹配，储备 9.2540 WBNB/3.41998e8 token，0.01 BNB→368246.13 token（块 132600472）。聚合器 priceUsd 与链上储备隐含价相差约 22-28%，展示价不能当可执行价。新市场发现应跟踪“发射台→毕业→V2 流动性”的连续过程，而非只看聚合器最新列表。",
+          "evidence_urls": [
+            "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+            "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "买入/卖出税与限制",
+            "聚合器滞后幅度",
+            "流动性抽干风险",
+            "gas"
+          ],
+          "handoff_to": [
+            "M00",
+            "BNB03",
+            "BNB04",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "毕业规则为营销口径非链上规则",
+            "聚合器差异被证明只是汇率/时间口径",
+            "pair 流动性被抽干"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "SOL-RAYDIUM-CPMM-NEW-POOL-TOKEN2022-EXTENSION-RULES",
+      "first_seen_at": "2026-11-09T14:32:00+00:00",
+      "status": "RULE_GAP",
+      "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "mechanism": "2026-11-08 新建的 Raydium CPMM 池，两腿 token program 不同（Token-2022 扩展 mint vs classic SPL）。CPMM 以原始金额定价；Token-2022 可能对转入/转出加收转账费或施加 hook/冻结/永久委托规则，使展示价与可执行兑付量不一致。这是同一权益在不同规则接口下的差异线索，须先解出扩展参数再做指定数量报价。",
+      "evidence_urls": [
+        "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+        "https://solscan.io/token/NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+        "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "Token-2022 转账费",
+        "TransferHook 程序开销/约束",
+        "优先费",
+        "ATA 账户创建与租金",
+        "CPMM 1% 费与滑点",
+        "退出费用"
+      ],
+      "handoff_to": [
+        "M00",
+        "SOL01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "扩展实际不含转账费/hook/永久委托",
+        "同 slot 报价显示展示价与可执行量一致且容量足够",
+        "池被暂停/迁移/流动性撤出",
+        "NVDAV 身份与发行方不符"
+      ],
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:32:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:32:00+00:00",
+      "capacity": "unknown（未取池储备/深度；API TVL/volume 只是指数器展示值，不可当可执行容量）",
+      "observations_by_role": {
+        "N-SOL": {
+          "finding_id": "SOL-RAYDIUM-CPMM-NEW-POOL-TOKEN2022-EXTENSION-RULES",
+          "status": "RULE_GAP",
+          "chain": "SOL",
+          "protocol": "Raydium CPMM",
+          "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+          "evidence_urls": [
+            "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+            "https://solscan.io/token/NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+            "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+            "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+          ],
+          "mechanism": "2026-11-08 新建的 Raydium CPMM 池，两腿 token program 不同（Token-2022 扩展 mint vs classic SPL）。CPMM 以原始金额定价；Token-2022 可能对转入/转出加收转账费或施加 hook/冻结/永久委托规则，使展示价与可执行兑付量不一致。这是同一权益在不同规则接口下的差异线索，须先解出扩展参数再做指定数量报价。",
+          "net_result": null,
+          "unknown_costs": [
+            "Token-2022 转账费",
+            "TransferHook 程序开销/约束",
+            "优先费",
+            "ATA 账户创建与租金",
+            "CPMM 1% 费与滑点",
+            "退出费用"
+          ],
+          "handoff_to": [
+            "M00",
+            "SOL01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "扩展实际不含转账费/hook/永久委托",
+            "同 slot 报价显示展示价与可执行量一致且容量足够",
+            "池被暂停/迁移/流动性撤出",
+            "NVDAV 身份与发行方不符"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "SOL-CORE-PROGRAM-UPGRADE-WINDOW-30D",
+      "first_seen_at": "2026-11-09T14:32:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": null,
+      "mechanism": "4 个核心程序 last_deploy_slot 在 30 天窗口内且升级权限仍有效：CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15。旧快照下的费率/指令/权限假设可能已过期；但升级内容未比对，只是规则变更候选，不是已确认规则差异或收益。",
+      "evidence_urls": [
+        "https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+        "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+        "https://solscan.io/account/TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "未知（不涉及交易成本）"
+      ],
+      "handoff_to": [
+        "M00",
+        "SOL01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "升级仅为补丁/回滚且不改变对外规则",
+        "字节码/版本与官方 release 一致且语义未变"
+      ],
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:32:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:32:00+00:00",
+      "capacity": "unknown（未取池储备/深度；API TVL/volume 只是指数器展示值，不可当可执行容量）",
+      "observations_by_role": {
+        "N-SOL": {
+          "finding_id": "SOL-CORE-PROGRAM-UPGRADE-WINDOW-30D",
+          "status": "UNVERIFIED",
+          "chain": "SOL",
+          "protocol": "Raydium / Orca / SPL Token-2022",
+          "market_id": null,
+          "evidence_urls": [
+            "https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+            "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+            "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "https://solscan.io/account/TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+          ],
+          "mechanism": "4 个核心程序 last_deploy_slot 在 30 天窗口内且升级权限仍有效：CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15。旧快照下的费率/指令/权限假设可能已过期；但升级内容未比对，只是规则变更候选，不是已确认规则差异或收益。",
+          "net_result": null,
+          "unknown_costs": [
+            "未知（不涉及交易成本）"
+          ],
+          "handoff_to": [
+            "M00",
+            "SOL01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "升级仅为补丁/回滚且不改变对外规则",
+            "字节码/版本与官方 release 一致且语义未变"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
     }
   ],
-  "status": "BASELINE_PARTIAL",
+  "status": "LIVE_ROUND_IN_PROGRESS",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }

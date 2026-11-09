@@ -1,0 +1,1219 @@
+{
+ "chain": "ETH",
+ "rpc": "https://ethereum-rpc.publicnode.com",
+ "started_at_utc": "2026-11-09T14:26:00.444376+00:00",
+ "observations": {
+  "chain_id": "0x1",
+  "head_block_number": 26377921,
+  "head_block": {
+   "number": "0x1927ec1",
+   "hash": "0x7c3c6cd1fb75bfb380f9959995beeacbe075a1fd25c17de3a90cedaa2e86f067",
+   "parentHash": "0x5a467520f76f923873692acca29e00c47e29ede7c4320819421c2264fa14df5d",
+   "timestamp": "0x6af1d7f7",
+   "baseFeePerGas": "0x74bbb8d"
+  },
+  "head_block_timestamp_utc": "2026-11-09T14:25:59+00:00",
+  "pinned_block": 26377918,
+  "code": {
+   "stETH": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "bytecode_bytes": 1035,
+    "code_keccak256": "0xb9c1c929064cd21734c102a698e68bf617feefcfa5a9f62407c45401546736bf"
+   },
+   "wstETH": {
+    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "bytecode_bytes": 6492,
+    "code_keccak256": "0x630181884786c962140041cffa3acffbf39d8c93bde1a62b7b55046e57400557"
+   },
+   "WithdrawalQueue": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "bytecode_bytes": 2497,
+    "code_keccak256": "0x9bc25fa4b2f98d56db4aa4156a6dc98360ccd4ef9c7bc7f891797b0024272100"
+   },
+   "CurvePool": {
+    "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "bytecode_bytes": 15735,
+    "code_keccak256": "0xe2c45ce8268580c40b4c12c574f8a210375ab92998c1555451fef63630e96b35"
+   }
+  },
+  "proxy_storage": {
+   "queue_eip1967_impl": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "value": "0x000000000000000000000000e42c659dc09109566720ea8b2de186c2be7d94d9",
+    "error": null
+   },
+   "queue_eip1967_admin": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "slot": "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+    "value": "0x0000000000000000000000003e40d73eb977dc6a537af587d48316fee66e9c8c",
+    "error": null
+   },
+   "steth_aragon_kernel": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "slot": "0x4172f0f7d2289153072b0a6ca36959e0cbe2efc3afe50fc81636caa96338137b",
+    "value": "0x000000000000000000000000b8ffc3cd6e7cf5a098a1c92f48009765b24088dc",
+    "error": null
+   }
+  },
+  "state": {
+   "stETH.getTotalShares": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "signature": "getTotalShares()",
+    "block": 26377918,
+    "raw": "0x000000000000000000000000000000000000000000066d5b3edb228e63743d48",
+    "error": null,
+    "decoded": [
+     "7769976047283119146155336"
+    ]
+   },
+   "stETH.getTotalPooledEther": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "signature": "getTotalPooledEther()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000806c1e5319407c8cd69c7",
+    "error": null,
+    "decoded": [
+     "9703317492564546911300039"
+    ]
+   },
+   "stETH.getTotalSupply": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "signature": "totalSupply()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000806c1e5319407c8cd69c7",
+    "error": null,
+    "decoded": [
+     "9703317492564546911300039"
+    ]
+   },
+   "stETH.getContractVersion": {
+    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "signature": "getContractVersion()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000004",
+    "error": null,
+    "decoded": [
+     "4"
+    ]
+   },
+   "wstETH.stEthPerToken": {
+    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "signature": "stEthPerToken()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000001154b50c02a6d12f",
+    "error": null,
+    "decoded": [
+     "1248822059877191983"
+    ]
+   },
+   "wstETH.tokensPerStEth": {
+    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "signature": "tokensPerStEth()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000b1cda0f3e5bdc8c",
+    "error": null,
+    "decoded": [
+     "800754592770677900"
+    ]
+   },
+   "queue.getLastRequestId": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "signature": "getLastRequestId()",
+    "block": 26377918,
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000227a5",
+    "error": null,
+    "decoded": [
+     "141221"
+    ]
+   },
+   "queue.getLastFinalizedRequestId": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "signature": "getLastFinalizedRequestId()",
+    "block": 26377918,
+    "raw": "0x000000000000000000000000000000000000000000000000000000000002278c",
+    "error": null,
+    "decoded": [
+     "141196"
+    ]
+   },
+   "queue.unfinalizedStETH": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "signature": "unfinalizedStETH()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000d7296aeee700205c47",
+    "error": null,
+    "decoded": [
+     "3969034436226546949191"
+    ]
+   },
+   "queue.isPaused": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "signature": "isPaused()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "error": null,
+    "decoded": [
+     "False"
+    ]
+   },
+   "queue.getResumeSinceTimestamp": {
+    "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "signature": "getResumeSinceTimestamp()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000064624caf",
+    "error": null,
+    "decoded": [
+     "1684163759"
+    ]
+   },
+   "curve.paused": {
+    "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "signature": "paused()",
+    "block": 26377918,
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    },
+    "decoded": null
+   },
+   "curve.fee": {
+    "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "signature": "fee()",
+    "block": 26377918,
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000f4240",
+    "error": null,
+    "decoded": [
+     "1000000"
+    ]
+   },
+   "curve.A": {
+    "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "signature": "A()",
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000384",
+    "error": null,
+    "decoded": [
+     "900"
+    ]
+   }
+  },
+  "queue_ids": {
+   "last_request": 141221,
+   "last_finalized": 141196
+  },
+  "queue_status": {
+   "last_request": {
+    "request_id": 141221,
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    },
+    "decoded": null
+   },
+   "last_finalized": {
+    "request_id": 141196,
+    "raw": null,
+    "error": {
+     "code": 3,
+     "message": "execution reverted",
+     "data": "0x"
+    },
+    "decoded": null
+   }
+  },
+  "curve_quotes": [
+   {
+    "amount_in_stETH": "0.01",
+    "amount_in_raw": "10000000000000000",
+    "amount_out_raw": "9997160735119382",
+    "amount_out_ETH": 0.009997160735119382,
+    "implied_ratio": 0.9997160735119383,
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000023845d5e611816",
+    "error": null,
+    "quote_time_utc": "2026-11-09T14:26:20.609708+00:00"
+   },
+   {
+    "amount_in_stETH": "0.1",
+    "amount_in_raw": "100000000000000000",
+    "amount_out_raw": "99971606799220294",
+    "amount_out_ETH": 0.09997160679922029,
+    "implied_ratio": 0.9997160679922029,
+    "block": 26377918,
+    "raw": "0x00000000000000000000000000000000000000000000000001632ba58ee47e46",
+    "error": null,
+    "quote_time_utc": "2026-11-09T14:26:21.324188+00:00"
+   },
+   {
+    "amount_in_stETH": "1",
+    "amount_in_raw": "1000000000000000000",
+    "amount_out_raw": "999716012793912544",
+    "amount_out_ETH": 0.9997160127939125,
+    "implied_ratio": 0.9997160127939125,
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000000ddfb46abad9dce0",
+    "error": null,
+    "quote_time_utc": "2026-11-09T14:26:22.052105+00:00"
+   },
+   {
+    "amount_in_stETH": "10",
+    "amount_in_raw": "10000000000000000000",
+    "amount_out_raw": "9997154607170560538",
+    "amount_out_ETH": 9.99715460717056,
+    "implied_ratio": 0.9997154607170561,
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000008abd0725e50fa21a",
+    "error": null,
+    "quote_time_utc": "2026-11-09T14:26:22.772671+00:00"
+   },
+   {
+    "amount_in_stETH": "100",
+    "amount_in_raw": "100000000000000000000",
+    "amount_out_raw": "99970993039005615505",
+    "amount_out_ETH": 99.97099303900562,
+    "implied_ratio": 0.9997099303900562,
+    "block": 26377918,
+    "raw": "0x0000000000000000000000000000000000000000000000056b60507ffcfa8591",
+    "error": null,
+    "quote_time_utc": "2026-11-09T14:26:23.493335+00:00"
+   }
+  ],
+  "curve_reverse_quotes": [
+   {
+    "amount_in_ETH": "0.01",
+    "amount_out_stETH": 0.010000839590994529,
+    "implied_ratio": 1.0000839590994528,
+    "block": 26377918,
+    "error": null
+   },
+   {
+    "amount_in_ETH": "0.1",
+    "amount_out_stETH": 0.10000839535766913,
+    "implied_ratio": 1.0000839535766912,
+    "block": 26377918,
+    "error": null
+   },
+   {
+    "amount_in_ETH": "1",
+    "amount_out_stETH": 1.000083898350022,
+    "implied_ratio": 1.000083898350022,
+    "block": 26377918,
+    "error": null
+   }
+  ],
+  "new_pools_univ3": {
+   "contract": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+   "event": "PoolCreated(address,address,uint24,int24,address)",
+   "topic0": "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+   "7d": {
+    "from_block": 26327521,
+    "to_block": 26377921,
+    "count": null,
+    "error": {
+     "code": -32602,
+     "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+    }
+   },
+   "1d": {
+    "from_block": 26370721,
+    "to_block": 26377921,
+    "count": 26,
+    "pools": [
+     {
+      "block": 26370787,
+      "tx": "0xb24d656e4d018e535b2ec7001b07184ecc97b4370f6d879e5f4379dad6d2ca04",
+      "token0": "0x8d9a25887658bab10c2b596ee6c7df60a73a71fc",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26370914,
+      "tx": "0xd93d760c5a66122ccd3eb0bfd9e77beb77303d88893cd4cfd6949f437d4224f4",
+      "token0": "0xbcd05ea81dc64c463882572be25387ddd887b1dd",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26371178,
+      "tx": "0xbabb1c60c1399e25bddf90ffbe327a5fed4b21ec2c4638296b786ee9bbdc057c",
+      "token0": "0x19f2521c0da252af567e7a92d47647f72bd65f39",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26371927,
+      "tx": "0x22afda5c99a31044de73906e1439b83fade2fa1290eb7350c7d3aa9d1760e38b",
+      "token0": "0x4da345052a16aa2a855e9dbc00a866c942a1cdac",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372251,
+      "tx": "0x6ee1d2ff02ece392263b413c78847710744f09a8d8f1adaa5145a06f5bbb632a",
+      "token0": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "token1": "0xc092ba14b89164b5ddb0e5ef68aa4bc0d2da9b55",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372338,
+      "tx": "0xbfce039e4137635df41a076105f50739e1d65828616d3ed19edbb2631fdb334e",
+      "token0": "0x5884c696b527d2e0f55a1a6d8fa02c30d72b5614",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372343,
+      "tx": "0x85d0423ff230fccd18ea35582c2255ed7011ad15ecd7fdd095a2ddfc8a8509df",
+      "token0": "0x0fa3de2aa34d247121ac42306710ef1b1fa6ea1e",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372403,
+      "tx": "0x822eabfea67a90987307b7bf3ef88e99d373e8dccd6083745fb60d0426d04fbc",
+      "token0": "0x2e5d16ba5878283a711731ce218c8045144a1630",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372470,
+      "tx": "0x4e0503f67ea313cdf81aa2ad3d3117135d716d26e6d7a2daba2389ac36f2ec1d",
+      "token0": "0x281ba833e41c033c07954cfb34dbcb45287fb458",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372528,
+      "tx": "0x35e01fecff2e78c67688593991c93967ea70daa030daab852b28149251577ceb",
+      "token0": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "token1": "0xf25b075ec87abf9b7b151d2d516d745202cf9c8f",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372567,
+      "tx": "0xbdd133276bc6f1f8d5701d07e96269bee5290f802f89ec7ebd36c721cd810218",
+      "token0": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372803,
+      "tx": "0x59a9898374666e8cd10361da97f9369138d5b51138161b7e42cb421484f13637",
+      "token0": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "token1": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372813,
+      "tx": "0xeb13569393ca2f2255d4374ad24833350589fe4523303588074316ddfb7da33c",
+      "token0": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "token1": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372815,
+      "tx": "0xc43ad7848b792d3a1911153615e0b8483f3b2f9f8af1bf0cc5ef6c85c36a6c30",
+      "token0": "0x152649ea73beab28c5b49b26eb48f7ead6d4c898",
+      "token1": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372822,
+      "tx": "0x82bcdcac132b3505731a62bd326feb64096d8e69f0da76e58901016dd37fc965",
+      "token0": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "token1": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26372841,
+      "tx": "0xeab94465c8f6271aa9f777987a19e24280f3e00ea8e921202bff54c67e90c72a",
+      "token0": "0x6af9b9f049062df14e3df99e042653b656666666",
+      "token1": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26373348,
+      "tx": "0x30ae0ec1020c799424a53cb0199a56be1ae1b7e0bbe03d804a0a80fc37ae10b6",
+      "token0": "0x76ae96cc0ece561295602f18b166f4ad0576d838",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26373810,
+      "tx": "0x6cce6364066fb0837cf89419d0e865e9e7301bb5daa95d170dda3d76cd35f26f",
+      "token0": "0x3c8b0938f130cbad5fdd1b8b7f804f7b0a2aaa9f",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26373846,
+      "tx": "0xfd6eb3b017bd952dda05f48f285c4f27c75bb0f44c11cc790a27e7ef6831f489",
+      "token0": "0x3d90feec1ec985a9f09d2269af0f77195e542297",
+      "token1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26373986,
+      "tx": "0x20d81f30c03947a2ee90d41978e184022135647bad076b0da467143386c0f89d",
+      "token0": "0x201b70a3f8b141b46ad41c7d50ea4f4da83acaa6",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26374016,
+      "tx": "0xcd0ce188c7dd76281b95397bb979e8e49ad6eee2be7b7ba2cc9c88f7ab259a02",
+      "token0": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "token1": "0xce853db3359326db6d03981c9fb42983bbcdd007",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26374335,
+      "tx": "0xa99677238104c722325e01b032a1ee8c46dd9fc75ded569b45f0d4cabbf3a17b",
+      "token0": "0xb6d682536eb884f07f44bd4e0778fbfa2808c79c",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26374532,
+      "tx": "0x1d701b75da7dc2b0b67ed1dfa0e51ccc56cdb243b893fbd51ac1572fcbe31f54",
+      "token0": "0x0e397938c1aa0680954093495b70a9f5e2249aba",
+      "token1": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26376436,
+      "tx": "0xa9fdffb1710fcc87b6d4b358f19b8b2062790e9003c00d4611e5d2cd17460d76",
+      "token0": "0x3d90feec1ec985a9f09d2269af0f77195e542297",
+      "token1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26377428,
+      "tx": "0xd658d011908712ae845ec37a7855bad54633a48a5625021203c4927f3b97b249",
+      "token0": "0x946f2e69bea080617c5615769747f58182508203",
+      "token1": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     },
+     {
+      "block": 26377641,
+      "tx": "0xe064a35863eef8381567708690039f32c48402b5975cb1900f84bcc958ca4c59",
+      "token0": "0x63a1aca4b8a265c8c03571717a90d3a3eee81b7e",
+      "token1": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "fee": null,
+      "tickSpacing": null,
+      "pool": null
+     }
+    ],
+    "truncated_in_record": false,
+    "error": null
+   }
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "params": [],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.969,
+   "retrieved_at_utc": "2026-11-09T14:26:01.413056+00:00",
+   "result_digest": "32d74fe09a60fb247229b49f6dfc2a06ba10e72cb813e62e8852415654381784"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "params": [],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T14:26:02.129412+00:00",
+   "result_digest": "d048e38e07764eb930db1ada48a36588fcc380fc92e395c099abd553cdf1b5db"
+  },
+  {
+   "label": "block head",
+   "method": "eth_getBlockByNumber",
+   "params": [
+    "0x1927ec1",
+    false
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:26:02.864485+00:00",
+   "result_digest": "bce29a04879a7745c2e65c6e98e1960d9e3a418203ca7adbd43d33e21aac83aa"
+  },
+  {
+   "label": "getCode stETH",
+   "method": "eth_getCode",
+   "params": [
+    "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.375,
+   "retrieved_at_utc": "2026-11-09T14:26:03.590595+00:00",
+   "result_digest": "964d22e69fc5be718638b32cceb900efc0e29e7bdc592566afad154e05d27fb5"
+  },
+  {
+   "label": "getCode wstETH",
+   "method": "eth_getCode",
+   "params": [
+    "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.364,
+   "retrieved_at_utc": "2026-11-09T14:26:04.305652+00:00",
+   "result_digest": "71850ed98025ab03eac74d021d2f25e341d8822b7ef41a3adc951c75a4a5f2a1"
+  },
+  {
+   "label": "getCode WithdrawalQueue",
+   "method": "eth_getCode",
+   "params": [
+    "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.363,
+   "retrieved_at_utc": "2026-11-09T14:26:05.019256+00:00",
+   "result_digest": "efaf0c4d82cf70d8f20761e204a3d3eaa93e8f50c12f126d28a138bcca231d86"
+  },
+  {
+   "label": "getCode CurvePool",
+   "method": "eth_getCode",
+   "params": [
+    "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T14:26:05.757107+00:00",
+   "result_digest": "e55f927a1d192ac1c416cde30afbc7c980882f38705a71710b923863f0a28965"
+  },
+  {
+   "label": "storage queue_eip1967_impl",
+   "method": "eth_getStorageAt",
+   "params": [
+    "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T14:26:06.477208+00:00",
+   "result_digest": "daf4e5e0ee9beba6dc825f04b1073981bfa91a115ee5e158a42f3f1a405f5151"
+  },
+  {
+   "label": "storage queue_eip1967_admin",
+   "method": "eth_getStorageAt",
+   "params": [
+    "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.364,
+   "retrieved_at_utc": "2026-11-09T14:26:07.192154+00:00",
+   "result_digest": "d44d7efadf503fc3db5b2137f62750d8a970aead4a0465055b1d1dfdf18cdefc"
+  },
+  {
+   "label": "storage steth_aragon_kernel",
+   "method": "eth_getStorageAt",
+   "params": [
+    "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "0x4172f0f7d2289153072b0a6ca36959e0cbe2efc3afe50fc81636caa96338137b",
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.385,
+   "retrieved_at_utc": "2026-11-09T14:26:07.926868+00:00",
+   "result_digest": "fe00e1ef15ce7877eec0bac8762483372e70d2aaa5587077119091c3ff04b10a"
+  },
+  {
+   "label": "eth_call getTotalShares() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+     "data": "0xd5002f2e"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.376,
+   "retrieved_at_utc": "2026-11-09T14:26:08.653549+00:00",
+   "result_digest": "7c4701deca442532e9492849a292884defdcdeb5ec67ae34c54c152167ae341c"
+  },
+  {
+   "label": "eth_call getTotalPooledEther() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+     "data": "0x37cfdaca"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.363,
+   "retrieved_at_utc": "2026-11-09T14:26:09.367674+00:00",
+   "result_digest": "33b4c723325f3863bd04d998a0dc266a7323840c888a428cdb166afffbb74546"
+  },
+  {
+   "label": "eth_call totalSupply() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+     "data": "0x18160ddd"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.497,
+   "retrieved_at_utc": "2026-11-09T14:26:10.215233+00:00",
+   "result_digest": "33b4c723325f3863bd04d998a0dc266a7323840c888a428cdb166afffbb74546"
+  },
+  {
+   "label": "eth_call getContractVersion() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+     "data": "0x8aa10435"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.367,
+   "retrieved_at_utc": "2026-11-09T14:26:10.932189+00:00",
+   "result_digest": "249ec322b5438344955d215b78c8945cd5d5c8db895b5f46f6173f10ba938349"
+  },
+  {
+   "label": "eth_call stEthPerToken() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+     "data": "0x035faf82"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.357,
+   "retrieved_at_utc": "2026-11-09T14:26:11.639590+00:00",
+   "result_digest": "cc93e0ee1f0fc0511a42f2932d73407a20b9ce658e273f2abfbf4e7dfffdeb54"
+  },
+  {
+   "label": "eth_call tokensPerStEth() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+     "data": "0x9576a0c8"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.377,
+   "retrieved_at_utc": "2026-11-09T14:26:12.366769+00:00",
+   "result_digest": "8a402261d379e7c72812c11f2d698442c904b7cc77d118da81c6e13370fbfe85"
+  },
+  {
+   "label": "eth_call getLastRequestId() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0x19c2b4c3"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.355,
+   "retrieved_at_utc": "2026-11-09T14:26:13.072736+00:00",
+   "result_digest": "b429f571123750c863a95cb36a57fe1320dbf1ab3903885f23004b8f5e714890"
+  },
+  {
+   "label": "eth_call getLastFinalizedRequestI @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0x4f069a13"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.357,
+   "retrieved_at_utc": "2026-11-09T14:26:13.780671+00:00",
+   "result_digest": "c6cff20d99b9087e16edf0f1cb9a877a8db4ebdbbff9eb2512d65ec93892f83d"
+  },
+  {
+   "label": "eth_call unfinalizedStETH() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0xd0fb84e8"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.383,
+   "retrieved_at_utc": "2026-11-09T14:26:14.514145+00:00",
+   "result_digest": "6b39fb80ec25a30ae5108f49ca0d4637cbe70548ce0a28c957dfb6fb0023e3a4"
+  },
+  {
+   "label": "eth_call isPaused() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0xb187bd26"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.384,
+   "retrieved_at_utc": "2026-11-09T14:26:15.249153+00:00",
+   "result_digest": "88700ae849c5ddd12e1d8a2c3221be6bec9061deee12e0a7aa7f7e8a0eda2d5f"
+  },
+  {
+   "label": "eth_call getResumeSinceTimestamp( @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0x589ff76c"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.359,
+   "retrieved_at_utc": "2026-11-09T14:26:15.959215+00:00",
+   "result_digest": "da52bc9c7859247ba13e0662275975d1b2953dedefc2dab7fca5fd6b9cb63a50"
+  },
+  {
+   "label": "eth_call paused() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5c975abb"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.379,
+   "retrieved_at_utc": "2026-11-09T14:26:16.688799+00:00",
+   "result_digest": null
+  },
+  {
+   "label": "eth_call fee() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0xddca3f43"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:26:17.401994+00:00",
+   "result_digest": "774696c5e27d27c995569402ebcd5b576826b46664140f798e682f4b7201ec67"
+  },
+  {
+   "label": "eth_call A() @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0xf446c1d0"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.359,
+   "retrieved_at_utc": "2026-11-09T14:26:18.111526+00:00",
+   "result_digest": "9dae9ac61606c9774501ff62f8636336fc6f02d8b1614b0bf0b9e3f3a0d6db26"
+  },
+  {
+   "label": "eth_call getWithdrawalStatus(uint @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0x637b6b3f00000000000000000000000000000000000000000000000000000000000227a5"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.358,
+   "retrieved_at_utc": "2026-11-09T14:26:18.819651+00:00",
+   "result_digest": null
+  },
+  {
+   "label": "eth_call getWithdrawalStatus(uint @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+     "data": "0x637b6b3f000000000000000000000000000000000000000000000000000000000002278c"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.372,
+   "retrieved_at_utc": "2026-11-09T14:26:19.542487+00:00",
+   "result_digest": null
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.366,
+   "retrieved_at_utc": "2026-11-09T14:26:20.258933+00:00",
+   "result_digest": "90ef2d421b65636b8c9bbb15e82be6f4a8bae73b275ed7648f65639949bd9049"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016345785d8a0000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.364,
+   "retrieved_at_utc": "2026-11-09T14:26:20.973641+00:00",
+   "result_digest": "2d59163a30f11da0c9b59f85a030efd855a40728ac465c3209865dd7258ee678"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000de0b6b3a7640000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.377,
+   "retrieved_at_utc": "2026-11-09T14:26:21.701601+00:00",
+   "result_digest": "f9444e82c09b09dba497b65ffde58ed74760f0c7c0ab492581df639e44ddd314"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008ac7230489e80000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T14:26:22.422383+00:00",
+   "result_digest": "2b146c1d5d16ee36c68136a32e5d9471773623c6c11a0af7deae5f3a35d94db8"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000056bc75e2d63100000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.37,
+   "retrieved_at_utc": "2026-11-09T14:26:23.142824+00:00",
+   "result_digest": "a142eb4a2606a1e1dabe1997c4ed7674f481756ce4c42df8d1c3a5aaafd38ebd"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000002386f26fc10000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.368,
+   "retrieved_at_utc": "2026-11-09T14:26:23.861648+00:00",
+   "result_digest": "624fb00e97e589ba744a6a2fb8619f8d1cb514a2de10ff6ac0c34b79813f3df0"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000016345785d8a0000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.369,
+   "retrieved_at_utc": "2026-11-09T14:26:24.581384+00:00",
+   "result_digest": "e94610f3359c3b7f1573c0ce667930320a665530a09ac1ce5bc8ca95942db348"
+  },
+  {
+   "label": "eth_call get_dy(int128,int128,uin @0x1927ebe",
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+     "data": "0x5e0d443f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000de0b6b3a7640000"
+    },
+    "0x1927ebe"
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.362,
+   "retrieved_at_utc": "2026-11-09T14:26:25.294251+00:00",
+   "result_digest": "0d8652f996d811553a206d2b1e729bfbd6eb74202b06b32ce38e9ba4baa098db"
+  },
+  {
+   "label": "getLogs univ3 7d",
+   "method": "eth_getLogs",
+   "params": [
+    {
+     "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+     "fromBlock": "0x191b9e1",
+     "toBlock": "0x1927ec1",
+     "topics": [
+      "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118"
+     ]
+    }
+   ],
+   "http_status": 403,
+   "error": {
+    "code": -32602,
+    "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+   },
+   "elapsed_s": 0.363,
+   "retrieved_at_utc": "2026-11-09T14:26:26.008199+00:00",
+   "result_digest": null
+  },
+  {
+   "label": "getLogs univ3 1d",
+   "method": "eth_getLogs",
+   "params": [
+    {
+     "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+     "fromBlock": "0x19262a1",
+     "toBlock": "0x1927ec1",
+     "topics": [
+      "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118"
+     ]
+    }
+   ],
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.375,
+   "retrieved_at_utc": "2026-11-09T14:26:26.734215+00:00",
+   "result_digest": "c3ffc86cc427f1c8ad48e6c7e29c806e9a65cbe1ad205752444706dab0987551"
+  },
+  {
+   "label": "lido-deployment",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.079,
+   "retrieved_at_utc": "2026-11-09T14:26:28.166189+00:00",
+   "bytes": 61362,
+   "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+  },
+  {
+   "label": "lido-core-commits-30d",
+   "url": "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.258,
+   "retrieved_at_utc": "2026-11-09T14:26:29.774600+00:00",
+   "bytes": 19953,
+   "sha256": "42b19c15368e5068d63ff2076f61a74c7c5a34a525f54b39bbb06ab4a6e683a9"
+  },
+  {
+   "label": "iwithdrawalqueue-interface",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/interfaces/IWithdrawalQueue.sol",
+   "http_status": 404,
+   "error": null,
+   "elapsed_s": 0.595,
+   "retrieved_at_utc": "2026-11-09T14:26:30.719775+00:00",
+   "bytes": 14,
+   "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  }
+ ],
+ "official_deployment": {
+  "chainId": 1,
+  "withdrawalQueueERC721_proxy": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+  "withdrawalQueueERC721_impl": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+  "app_lido_proxy": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+  "app_lido_impl": "0x028271E30a695c0527A0C50cA30603feD004cDb0",
+  "keccak_full": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+ },
+ "lido_core_commits_30d": {
+  "url": "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100",
+  "http_status": 200,
+  "count": 5,
+  "commits": [
+   {
+    "sha": "2bd532298d85",
+    "date": "2026-10-13T16:55:27Z",
+    "message": "Merge pull request #1995 from lidofinance/feature/oss-scanner"
+   },
+   {
+    "sha": "ab89c5fd3bc3",
+    "date": "2026-10-13T16:27:42Z",
+    "message": "fix: remove dual governance reference from Dockerfile and update threat model for clarity"
+   },
+   {
+    "sha": "b10d195edb97",
+    "date": "2026-10-13T15:44:25Z",
+    "message": "fix: refactor code structure for improved readability and maintainability"
+   },
+   {
+    "sha": "84970401770f",
+    "date": "2026-10-11T11:31:39Z",
+    "message": "chore: lint threat_model.md"
+   },
+   {
+    "sha": "1eb113fd70dd",
+    "date": "2026-10-11T11:23:58Z",
+    "message": "feat: oss scanner"
+   }
+  ]
+ },
+ "interface_source": {
+  "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/interfaces/IWithdrawalQueue.sol",
+  "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+  "bytes": 14,
+  "has_getWithdrawalStatus": false,
+  "has_getClaimableEther": false,
+  "has_isPaused": false,
+  "has_unfinalizedStETH": false,
+  "sel_getWithdrawalStatus": "0x637b6b3f",
+  "sel_getClaimableEther": "0xc97912d8"
+ },
+ "request_count": 39,
+ "finished_at_utc": "2026-11-09T14:26:31.070335+00:00",
+ "fail_counts": {
+  "ethereum-rpc.publicnode.com": 0
+ }
+}

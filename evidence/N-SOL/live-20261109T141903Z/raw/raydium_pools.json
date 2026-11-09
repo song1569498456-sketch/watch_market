@@ -1,0 +1,117 @@
+{
+ "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+ "http_status": 200,
+ "retrieved_at_utc": "2026-11-09T14:28:34.307324+00:00",
+ "pools": [
+  {
+   "id": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 6619880.18,
+   "day_volume": 15900169.86757642,
+   "feeRate": 0.0004,
+   "createdAt": "1723037622"
+  },
+  {
+   "id": "49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 2572104.28,
+   "day_volume": 8815375.534837108,
+   "feeRate": 0.001,
+   "createdAt": "0"
+  },
+  {
+   "id": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+   "type": "Standard",
+   "programId": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "mintB": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+   "tvl": 254612.5,
+   "day_volume": 4932907.921453107,
+   "feeRate": 0.01,
+   "createdAt": "1794169583"
+  },
+  {
+   "id": "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+   "type": "Standard",
+   "programId": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 17381857.82,
+   "day_volume": 2751595.527622847,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "FjuBy7jjf9DXj9d3R7cHpvcnoFW2iQxf7F7P3vqx4Jza",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 2442353.57,
+   "day_volume": 2677521.4808831024,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "2AXXcN6oN9bBT5owwmTH53C7QHUXvhLeu718Kqt8rvY2",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+   "tvl": 1962265.05,
+   "day_volume": 2541876.514947216,
+   "feeRate": 0.0005,
+   "createdAt": "0"
+  },
+  {
+   "id": "8HLazC9JupCbmQViNXmZCaQAHZ5opSk2YHH1Yim5SLaQ",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 104001.92,
+   "day_volume": 2244811.408798444,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "3nMFwZXwY1s1M5s8vYAHqd4wGs4iSxXE4LRoUMMYqEgF",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+   "tvl": 671410.82,
+   "day_volume": 2219951.5753813465,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  },
+  {
+   "id": "GUWFT7bbLphGrcpAPnnEnBbe1uErv9e6LLC2qPx2wZy1",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "mintB": "G7vQWurMkMMm2dU3iZpXYFTHT9Biio4F4gZCrwFpKNwG",
+   "tvl": 1686055.55,
+   "day_volume": 1923570.229305151,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  },
+  {
+   "id": "4pCZCVEiYyT4efNdXUdL2tJF8VGMgiMXrZWq6FiNXhRw",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 359805.34,
+   "day_volume": 1897268.4578386438,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  }
+ ]
+}

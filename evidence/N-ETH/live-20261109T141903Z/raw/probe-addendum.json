@@ -1,0 +1,152 @@
+{
+ "chain": "ETH",
+ "pinned_block": 26377918,
+ "buy_quotes": [
+  {
+   "amount_in_ETH": "10",
+   "amount_out_stETH": 10.000833461776603,
+   "stETH_per_ETH": 1.0000833461776604,
+   "implied_price_ETH_per_stETH": 0.9999166607683462,
+   "raw": "0x0000000000000000000000000000000000000000000000008aca190bfb08d6a2",
+   "error": null,
+   "quote_time_utc": "2026-11-09T14:27:25.253338+00:00"
+  },
+  {
+   "amount_in_ETH": "100",
+   "amount_out_stETH": 100.00778337243705,
+   "stETH_per_ETH": 1.0000778337243705,
+   "implied_price_ETH_per_stETH": 0.9999221723332467,
+   "raw": "0x0000000000000000000000000000000000000000000000056be3051d0053cd50",
+   "error": null,
+   "quote_time_utc": "2026-11-09T14:27:25.893135+00:00"
+  }
+ ],
+ "queue_status_retry": {
+  "141221": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "selector": "0x637b6b3f"
+  },
+  "141200": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "selector": "0x637b6b3f"
+  },
+  "140000": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "selector": "0x637b6b3f"
+  },
+  "1": {
+   "raw": null,
+   "decoded": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "selector": "0x637b6b3f"
+  }
+ },
+ "source_check": {
+  "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+  "http_status": 200,
+  "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+  "has_getWithdrawalStatus": false,
+  "has_getClaimableEther": false,
+  "has_unfinalizedStETH": false,
+  "has_isPaused": false,
+  "has_requestWithdrawals": false,
+  "has_claimWithdrawal": false
+ },
+ "requests": [
+  {
+   "label": "get_dy 0->1 10 ETH",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.651,
+   "retrieved_at_utc": "2026-11-09T14:27:24.903048+00:00"
+  },
+  {
+   "label": "get_dy 0->1 100 ETH",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.289,
+   "retrieved_at_utc": "2026-11-09T14:27:25.542890+00:00"
+  },
+  {
+   "label": "getWithdrawalStatus 141221",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.274,
+   "retrieved_at_utc": "2026-11-09T14:27:26.167068+00:00"
+  },
+  {
+   "label": "getWithdrawalStatus 141200",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.302,
+   "retrieved_at_utc": "2026-11-09T14:27:26.820176+00:00"
+  },
+  {
+   "label": "getWithdrawalStatus 140000",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.281,
+   "retrieved_at_utc": "2026-11-09T14:27:27.451018+00:00"
+  },
+  {
+   "label": "getWithdrawalStatus 1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": 3,
+    "message": "execution reverted",
+    "data": "0x"
+   },
+   "elapsed_s": 0.265,
+   "retrieved_at_utc": "2026-11-09T14:27:28.067342+00:00"
+  },
+  {
+   "label": "source WithdrawalQueueERC721.sol",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+   "http_status": 200,
+   "elapsed_s": 0.797,
+   "retrieved_at_utc": "2026-11-09T14:27:29.215400+00:00",
+   "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+   "bytes": 17218
+  }
+ ]
+}

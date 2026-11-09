@@ -1,0 +1,219 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:27:50.745580+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:27:51.987904+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:52.338222+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:52.688395+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_token_code",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:27:53.038497+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_token_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:53.388678+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_token_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:53.739375+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "A_quote_1USDT_to_token_fee100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:54.089601+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_getPair",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:54.440098+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_reserves",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:54.790576+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:55.140697+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:55.491230+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_token_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:55.841400+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_token_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:56.191926+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "C_quote_001BNB_to_token",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:56.542679+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: PancakeLibrary: INSUFFICIENT_LIQUIDITY: 0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002650616e63616b654c6962726172793a20494e53554646494349454e545f4c49515549444954590000000000000000000000000000000000000000000000000000",
+   "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002650616e63616b654c6962726172793a20494e53554646494349454e545f4c49515549444954590000000000000000000000000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "publicnode",
+  "tag": "C_quote_001BNB_to_token",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:56.809146+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: PancakeLibrary: INSUFFICIENT_LIQUIDITY",
+   "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002650616e63616b654c6962726172793a20494e53554646494349454e545f4c49515549444954590000000000000000000000000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_getPair",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:57.818078+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_reserves",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:58.168495+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:58.519132+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:58.869453+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_token_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:59.219585+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_token_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:59.570151+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "dataseed",
+  "tag": "D_quote_001BNB_to_token",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:27:59.920567+00:00",
+  "http_status": 200
+ }
+]

@@ -1,0 +1,355 @@
+{
+ "agent_id": "N-ETH",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ETH",
+ "scope": "Ethereum 主网新市场/新规则/新操作自主发现：本轮优先完成上一轮 next_check（Lido 赎回队列候选的链上身份/状态核验、同块指定数量报价），并做 24h Uniswap V3 新池窗口与 Lido 官方仓库 30 天提交窗口发现",
+ "started_at": "2026-11-09T14:26:00.444376+00:00",
+ "finished_at": "2026-11-09T14:29:35+00:00",
+ "duration_seconds": 214.6,
+ "execution_status": "PARTIAL",
+ "status": "QUOTED",
+ "as_of": {
+  "utc": "2026-11-09T14:28:35+00:00",
+  "beijing": "2026-11-09T22:28:35+08:00",
+  "data_time": "身份/状态字段取自块 26377918（block timestamp 2026-11-09T14:25:59Z）；新鲜报价取自块 26377930（block timestamp 2026-11-09T14:27:47Z，抓取 14:28:32-35Z）；Uniswap V3 新池日志窗口 26370721-26377921（head 时间 14:25:59Z）；官方部署文件抓取 14:26:30Z"
+ },
+ "block_or_slot": 26377930,
+ "market_ids": [
+  "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+  "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022"
+ ],
+ "asset_ids": [
+  "eip155:1/erc20:0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+  "eip155:1/erc20:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+  "eip155:1/native:ETH"
+ ],
+ "discovery_source": [
+  {
+   "source": "ethereum-rpc-publicnode",
+   "url": "https://ethereum-rpc.publicnode.com",
+   "retrieved_at_utc": "2026-11-09T14:26:00.444376+00:00",
+   "request": "JSON-RPC 只读：eth_chainId, eth_blockNumber, eth_getBlockByNumber, eth_getCode x4, eth_getStorageAt x3, eth_call x14（状态/报价）, eth_getLogs x1；全部返回 JSON-RPC 结果",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "lido-official-deployment",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+   "retrieved_at_utc": "2026-11-09T14:26:30+00:00",
+   "http_status": 200,
+   "bytes_read": 61362,
+   "sha256": "3c05a183c69feded90e6a16fa50a6084e76f050a32ef59e5434809914def8851"
+  },
+  {
+   "source": "lidofinance-core-commits-30d",
+   "url": "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "retrieved_at_utc": "2026-11-09T14:26:31+00:00",
+   "http_status": 200,
+   "request": "未认证公开 GET；返回 5 条提交（无合约规则变更提交）"
+  },
+  {
+   "source": "lido-iwq-interface",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/interfaces/IWithdrawalQueue.sol",
+   "retrieved_at_utc": "2026-11-09T14:27:25+00:00",
+   "http_status": 404,
+   "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+   "error": "HTTP 404，正文 14 字节；路径已失效，未用于结论"
+  },
+  {
+   "source": "lido-withdrawalqueue-source",
+   "url": "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
+   "retrieved_at_utc": "2026-11-09T14:27:25+00:00",
+   "http_status": 200,
+   "sha256": "f28f0974b484f26cc8b37672c6579fd05585d82e41c8e58aa4bdd6e0c0383542",
+   "error": null,
+   "note": "200 但已不含 requestWithdrawals/claimWithdrawal/getWithdrawalStatus 等预期函数（文件已重构），不作为规则生效证据"
+  },
+  {
+   "source": "uniswap-v3-factory-poolcreated-24h",
+   "url": "https://ethereum-rpc.publicnode.com (eth_getLogs, factory 0x1F98431c8aD98523631AE4a59f267346ea31F984)",
+   "retrieved_at_utc": "2026-11-09T14:27:40+00:00",
+   "request": "eth_getLogs topics=[PoolCreated] 块 26370721..26377921，返回 26 条；7 天窗口 26327521..26377921 被 RPC 以 'Archive requests require a personal token' 拒绝",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "ethereum-rpc-publicnode-requote",
+   "url": "https://ethereum-rpc.publicnode.com",
+   "retrieved_at_utc": "2026-11-09T14:28:35+00:00",
+   "request": "JSON-RPC 只读复取：eth_blockNumber, eth_getBlockByNumber(pinned), eth_call x8（4 条报价 + 4 个队列状态字段）",
+   "http_status": 200,
+   "error": null
+  }
+ ],
+ "mechanism": "stETH 在 Lido 协议内按 totalPooledEther/totalShares 记账（当前 totalSupply==totalPooledEther，1 stETH≈1 ETH）。用 ETH 在 Curve stETH/ETH 池买入 stETH（当前约 1.000075-1.000080 stETH/ETH，含 0.01% 池费），再经 WithdrawalQueueERC721 requestWithdrawals 把 stETH 转为 shares 记账进入退出队列，finalize 后以 claimWithdrawal 领取按结束质押率折算的 ETH；即把 Curve 市价折扣换成协议平价，替代直接在池内卖出（卖出仅 0.99971）。两腿非同时完成，需等待最终化并承担记账率漂移。",
+ "observations": [
+  "链身份：eth_chainId=0x1；head=26377933（2026-11-09T14:28:31Z，hash 0x7c3c6cd1...）；身份/状态固定块 26377918、新鲜报价固定块 26377930（hash 0x8f78086c0b1653b687a0507108e0f08174a7c70403331ae6a2fe865098f2c070，14:27:47Z）。",
+  "合约身份：stETH 代理 0xae7ab965...（1035 B，keccak 0xb9c1c929...），Aragon kernel 槽=0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc（与官方 kernel 一致）；wstETH 0x7f39C581...（6492 B，keccak 0x63018188...）；WithdrawalQueue 代理 0x889edC2e...（2497 B，keccak 0x9bc25fa4...）。",
+  "WithdrawalQueue EIP-1967 实现槽=0xE42C659Dc09109566720EA8b2De186c2Be7D94D9，与官方 deployed-mainnet.json 的 withdrawalQueueERC721.implementation 一致；admin 槽=0x3e40d73e...66e9c8c。stETH 官方 implementation 字段 0x028271E...（Aragon 代理未用 getApp 独立读取，仅 kernel 槽对照）。",
+  "协议状态（块 26377918/26377930 复读一致）：queue lastRequestId=141221、lastFinalizedRequestId=141196、unfinalizedStETH=3969.034436226547 stETH、isPaused=false（resumeSince=1684163759=2023-05-15）；stETH totalShares=7769976.047283119146155336、totalPooledEther=totalSupply=9703317.492564546911300039、contractVersion=4；wstETH stEthPerToken=1248822059877191983、tokensPerStEth=800754592770677900。",
+  "Curve stETH/ETH 池 0xDC24316b...（15735 B，keccak 0xe2c45ce8...；coins[0]=native ETH、coins[1]=stETH；fee()=1000000，按 FEE_DENOMINATOR=1e10 为 0.01%；A()=900；paused() 调用 revert，未确认暂停字段）。",
+  "新鲜报价（块 26377930）：ETH→stETH 100 ETH=100.00746578971597 stETH（1.0000746579 stETH/ETH，隐含 0.99992534 ETH/stETH）、10 ETH=10.000801631696874（1.0000801632）；stETH→ETH 1=0.9997191955388933、100=99.97131213679346。",
+  "历史报价（块 26377918，抓取已超 60 秒，仅作尺度参考）：ETH→stETH 0.01/0.1/1/10/100 ETH 比率为 1.00008396/1.00008395/1.00008390/1.00008335/1.00007783；stETH→ETH 同档为 0.99971607/0.99971607/0.99971601/0.99971546/0.99970993。",
+  "价差：以 100 ETH 买入 100.00746579 stETH 计，若队列按协议平价（1 stETH≈1 ETH）兑付，粗价差=+0.00746579 ETH（+0.00747%）；10 ETH 档粗价差=+0.00080163 ETH；0.01/0.1/1 ETH 档毛价差小于最小成本量级。直接池内卖出的损失约 0.028-0.029%，队列路径主要优势是替代卖出腿。",
+  "成本参照：M00 本轮单市场门实测 Curve approve=47720 gas、exchange=150760 gas（合计 198480 gas 单位）；本块 baseFee=144515332 wei（0.1445 gwei），两笔约 2.87e-5 ETH。队列 request/claim 的 gas 未实测（unknown），未填 0。",
+  "发现：Uniswap V3 工厂 0x1F98431c8aD98523631AE4a59f267346ea31F984 在块 26370721-26377921（约 24h）新增 26 个池：fee 档 500:13、3000:6、100:4、10000:3；其中无 stETH/wstETH 池；已保存 token0/token1/tx/pool/tickSpacing。代币身份未核验。",
+  "官方规则窗口：Lido core 仓库 2026-10-10 至 2026-11-09 仅 5 条提交（oss scanner、threat model、Dockerfile、lint 等），未发现合约规则变更提交；治理提案/论坛/公告未覆盖。",
+  "失败/缺口：getWithdrawalStatus(uint256) 在 requestId=141221/141200/140000/1 上均 revert（空 data，原因未确认，未用于结论）；7 天 eth_getLogs 因 archive token 限制失败（仅覆盖 7200 块≈24h）；IWithdrawalQueue.sol 路径 404。"
+ ],
+ "quotes": [
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "100 ETH",
+   "amount_out": "100.00746578971597 stETH",
+   "fees": "Curve 池费 0.01%（fee=1000000/1e10，已含在 get_dy 输出）",
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:32.577423+00:00",
+   "note": "ETH→stETH 买方向，新鲜报价（报告时≤60s）；隐含 0.99992534 ETH/stETH，用于与队列平价比较"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "10 ETH",
+   "amount_out": "10.000801631696874 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:33.297866+00:00",
+   "note": "ETH→stETH 买方向，新鲜报价；比率 1.0000801632"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "1 stETH",
+   "amount_out": "0.9997191955388933 ETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:34.022609+00:00",
+   "note": "stETH→ETH 卖方向对照，新鲜报价；直接卖出即损失约 0.028%"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "100 stETH",
+   "amount_out": "99.97131213679346 ETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:34.752183+00:00",
+   "note": "stETH→ETH 卖方向对照，新鲜报价；比率 0.9997131214"
+  },
+  {
+   "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+   "amount_in": "100.00746578971597 stETH（队列请求数量）",
+   "amount_out": "≈100.00746579 ETH（按协议记账比 1:1 估算，finalize 后按结束质押率折算；未取 claimWithdrawal 实际值）",
+   "fees": "Lido 不收取赎回费；gas（request+claim）unknown",
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:35+00:00",
+   "note": "非 get_dy 报价，是按队列合约规则与当前记账比推导的平价兑付金额，属估算；等待时间 unknown"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "0.01 ETH",
+   "amount_out": "0.010000839590994529 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（抓取超过 60 秒），仅作尺度参考；比率 1.0000839591"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "0.1 ETH",
+   "amount_out": "0.10000839535766913 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（>60 秒）"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "1 ETH",
+   "amount_out": "1.000083898350022 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（>60 秒）"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "10 ETH",
+   "amount_out": "10.000833461776603 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（>60 秒）"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "100 ETH",
+   "amount_out": "100.00778337243705 stETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（>60 秒）"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "amount_in": "0.01/0.1/1/10/100 stETH",
+   "amount_out": "0.00999716/0.09997161/0.99971601/9.99715461/99.97099304 ETH",
+   "fees": "Curve 池费 0.01%（已含）",
+   "block": 26377918,
+   "quote_time_utc": "2026-11-09T14:26:30+00:00",
+   "note": "历史证据（>60 秒），卖方向比率 0.99971607/0.99971607/0.99971601/0.99971546/0.99970993"
+  }
+ ],
+ "net_result": {
+  "value": 0.00746578971597,
+  "unit": "ETH",
+  "type": "GROSS_SPREAD_ESTIMATE_NOT_REALIZED（100 ETH 输入档：Curve 买入 stETH 后按队列平价兑付，扣已知 Curve approve+exchange gas 前）",
+  "realized": false,
+  "unknown_costs": [
+   "队列 requestWithdrawals 与 claimWithdrawal 的实际 gas（未测，不填 0）",
+   "等待最终化的时间/机会成本与 finalize 延迟风险",
+   "stETH 记账率漂移（request 与 finalize 之间）",
+   "容量上限与价格冲击在高数量档的表现（仅 view 报价，未成交）",
+   "队列 NFT 在等待期的流动性/转让风险"
+  ]
+ },
+ "capacity": "unknown；Curve view 报价支持 100 ETH 单笔（比率 1.00007466），未测逐级容量上限；队列未最终化 3969.03 stETH（25 笔），finalize 周期/单次可最终化容量未读",
+ "permissions": "队列 isPaused=false；任何地址可先 approve stETH 给 queue 再 requestWithdrawals；claim 需持有对应 withdrawal NFT 且该请求已 finalize；FINALIZE_ROLE/finalizer 权限未读",
+ "liabilities": "未执行任何交易、无新增负债；若执行，路径中 stETH 转为 withdrawal NFT 的异步应收，未领取前不是自由 ETH",
+ "waiting_time": "unknown；lastFinalizedRequestId=141196 落后 lastRequestId=141221（25 笔/3969.03 stETH 未最终化），finalize 节奏本轮未读",
+ "invalidation_conditions": [
+  "Curve 买方向隐含价格回到或高于 1.0 ETH/stETH（价差消失）",
+  "队列暂停、资格限制或 request/claim 成本（含 gas）超过价差",
+  "finalize 等待过长或记账率下行，抵消 0.00747% 毛价差",
+  "主网代理实现与官方部署/源码不一致，或队列行为改变",
+  "容量不足：实际可请求/可最终化数量远小于测量档"
+ ],
+ "evidence_urls": [
+  "https://ethereum-rpc.publicnode.com",
+  "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+  "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100",
+  "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+  "https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+  "https://etherscan.io/address/0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+  "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+  "https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
+ ],
+ "coverage_gaps": [
+  "30 天（2026-10-10～2026-11-09）规则变更仅覆盖 Lido core GitHub 仓库提交（5 条，无合约规则变更）；Lido 治理提案/论坛/公告与 Aragon 链上投票未覆盖，不能推断全网无规则变化。",
+  "7 天活动窗口未覆盖：Uniswap V3 PoolCreated 的 7 天范围请求被 RPC 以 archive token 为由拒绝，实际只覆盖 7200 块（约 2026-11-08T14:26Z～2026-11-09T14:26Z，24h）；代表性交易未抽样。",
+  "26 个新池的代币身份、流动性、费率适配与可交易性未核验，仅登记事件；未做旧小池轮转。",
+  "队列 request/claim gas、getClaimableEther、finalize 节奏/权限、withdrawal NFT 状态未读；getWithdrawalStatus 在 4 个 requestId 上 revert 原因未确认。",
+  "Curve 池 paused() 调用 revert（字段/实现未知）；未测价差可持续时间与反向（卖出 stETH→买入 ETH→再请求）路径的成本。",
+  "IWithdrawalQueue.sol 路径 404、WithdrawalQueueERC721.sol 内容与预期接口不符（源已重构），本轮规则证据仅来自链上读取与官方部署清单。"
+ ],
+ "next_check": [
+  "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+  "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+  "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+  "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+ ],
+ "handoff_to": [
+  "ETH01",
+  "Q00"
+ ],
+ "markets": [
+  {
+   "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+   "chain": "ETH",
+   "protocol": "Lido WithdrawalQueueERC721（OssifiableProxy）",
+   "asset_ids": [
+    "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+    "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+   ],
+   "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "https://ethereum-rpc.publicnode.com"
+   ],
+   "identity_status": "CHAIN_VERIFIED：EIP-1967 impl 槽=0xE42C659D...，与官方部署清单一致；stETH Aragon kernel 槽与官方 kernel 一致；队列未暂停",
+   "next_check": "ETH01 量测 request/claim gas 与可领取额、finalize 节奏；确认等待时间与容量后推进结论等级"
+  },
+  {
+   "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+   "chain": "ETH",
+   "protocol": "Curve StableSwap stETH/ETH",
+   "asset_ids": [
+    "eip155:1/native:ETH",
+    "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+   ],
+   "evidence_urls": [
+    "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "https://ethereum-rpc.publicnode.com"
+   ],
+   "identity_status": "CHAIN_VERIFIED：code 15735 B/keccak 0xe2c45ce8...，coins[0]=native、coins[1]=stETH，fee=1000000/1e10，A=900；paused 字段 revert 未确认",
+   "next_check": "量化 100 ETH 以上档的容量上限与价差可持续时间；补 paused/管理权限读法"
+  },
+  {
+   "market_id": "ETH:UNISWAP_V3:NEW_POOLS_20261109_24H",
+   "chain": "ETH",
+   "protocol": "Uniswap V3 Factory（PoolCreated 事件批次）",
+   "asset_ids": [],
+   "evidence_urls": [
+    "https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "https://ethereum-rpc.publicnode.com"
+   ],
+   "identity_status": "EVENTS_OBSERVED_TOKENS_UNVERIFIED：块 26370721-26377921 新增 26 池（fee 500:13/3000:6/100:4/10000:3），无 stETH/wstETH 池；明细见 raw/new-pools-univ3-24h.json",
+   "next_check": "N-ETH 下轮核验代币身份与流动性，按结构新颖度筛 5 个深读；补 7 天窗口"
+  }
+ ],
+ "findings": [
+  {
+   "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+   "status": "QUOTED",
+   "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+   "mechanism": "ETH 在 Curve 换入 stETH（当前约 1.000075 stETH/ETH）→ WithdrawalQueue requestWithdrawals（转为 shares/铸 NFT 进入队列）→ finalize 后 claimWithdrawal 领取按结束质押率折算的 ETH；以协议平价兑付替代池内折价卖出，测量到约 +0.00747%（100 ETH 档）粗价差，但需等待最终化并承担记账率漂移。",
+   "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "https://ethereum-rpc.publicnode.com"
+   ],
+   "net_result": "估算粗价差 +0.00746579 ETH/100 ETH 输入（+0.00747%），未实现；扣未测的 queue gas、等待成本与记账率风险后可能低于该值",
+   "unknown_costs": [
+    "队列 request/claim gas",
+    "等待最终化的时间/机会成本",
+    "记账率漂移",
+    "容量上限",
+    "NFT 等待期流动性"
+   ],
+   "handoff_to": [
+    "ETH01",
+    "Q00"
+   ],
+   "invalidation_conditions": [
+    "Curve 买方向隐含价格≥1.0 ETH/stETH",
+    "队列暂停/资格限制",
+    "finalize 等待或记账率下行抵消价差",
+    "代理实现/队列行为与官方部署不符",
+    "实际容量远小于测量档"
+   ]
+  }
+ ],
+ "rejections": [
+  {
+   "claim": "把 100 ETH 档 +0.00747% 粗价差视为已实现净利或可立即执行机会",
+   "reason": "未扣队列 request/claim gas、等待机会成本与记账率漂移；容量与等待时间未知；报价为固定块 view 报价而非成交。仅保留为 QUOTED 级测量，不是收益主张。"
+  },
+  {
+   "claim": "由 getWithdrawalStatus 多 ID revert 推断队列无请求或合约异常",
+   "reason": "lastRequestId/lastFinalizedRequestId/unfinalizedStETH/isPaused 均正常返回；revert 原因未确认，本轮未用该调用作任何结论。"
+  },
+  {
+   "claim": "7 天 Uniswap V3 新池窗口已覆盖（无新证据即无新池）",
+   "reason": "7 天范围（50,400 块）被 RPC archive token 限制拒绝，实际仅覆盖 7,200 块（≈24h，26 个新池）；不能推断 7 天无新池。"
+  },
+  {
+   "claim": "Lido core 仓库 30 天无规则变更提交=本轮已证明无规则变化",
+   "reason": "仅覆盖一个 GitHub 仓库的提交；治理提案、论坛、公告与链上投票未读，不成立为全局结论。"
+  }
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 7,
+  "retrieved_at_utc": "2026-11-09T14:28:35+00:00",
+  "complete_block_range": "代码/存储/状态字段：块 26377918；报价：块 26377918（历史）与 26377930（新鲜）；Uniswap V3 PoolCreated 日志：26370721-26377921（26 条，完整覆盖该窗口）",
+  "complete_event_time_window": "Uniswap V3 新池事件窗口约 2026-11-08T14:26Z～2026-11-09T14:26Z（7,200 块≈24h）；Lido core 提交窗口 2026-10-10～2026-11-09（5 条）；30 天规则回溯与 7 天活动窗口未完整覆盖"
+ }
+}

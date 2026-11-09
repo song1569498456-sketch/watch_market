@@ -1,0 +1,346 @@
+{
+  "agent_id": "N-BNB",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BNB",
+  "scope": "BNB Chain 56：新市场/新规则/新操作发现（官方发布、Pancake V3/V2 工厂事件、新池身份与报价、PancakeSwap 与 four.meme 毕业市场）",
+  "started_at": "2026-11-09T14:26:03.876222+00:00",
+  "finished_at": "2026-11-09T14:28:00.185784+00:00",
+  "duration_seconds": 116.3,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T14:28:00+00:00",
+    "beijing": "2026-11-09T22:28:00+08:00",
+    "data_time": "block 132600472 @ 2026-11-09T14:27:51Z；工厂事件窗口 132595236-132600236（2026-11-09T13:48:35Z-14:26:05Z）"
+  },
+  "block_or_slot": 132600472,
+  "market_ids": [
+    "BNB:56:PancakeV3Factory:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+    "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+    "BNB:56:PancakeV3Pool:0x062a9cec2f1034006d8a70578083409859a72e58",
+    "BNB:56:PancakeV2Pair:0x1c007460942ff6025a75976b71b1596720296704",
+    "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c"
+  ],
+  "asset_ids": [
+    "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "0x55d398326f99059fF775485246999027B3197955",
+    "0x0db878add1f99a9191c4c4f4da5dd6683601ae52",
+    "0x4950755fd8fe56bd675c8ca75ad8de1b74356666",
+    "0xe0b76b7c6b093b0b101cfd62190a0781d63d9799",
+    "0x30ddb30f10126c6614c9865ac45de4718ff67777",
+    "0xf80e4db5f779788c66e9186e03f5e0c12262ffff",
+    "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+  ],
+  "discovery_source": [
+    {
+      "source": "bsc-dataseed.bnbchain.org（JSON-RPC 只读：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call）",
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "retrieved_at_utc": "2026-11-09T14:26:04Z-2026-11-09T14:28:00Z",
+      "request": "POST JSON-RPC ≈60 次（脚本1 32、脚本3 含回退重试 23、区块时间确认 5）；本轮外部请求合计 73 次",
+      "http_status": 200,
+      "error": null,
+      "sha256": null
+    },
+    {
+      "source": "bsc-rpc.publicnode.com（eth_getLogs：Pancake V3 Factory / V2 Factory 事件）",
+      "url": "https://bsc-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T14:27:06Z",
+      "request": "POST eth_getLogs ×3（工厂事件扫描；dataseed 同方法 2 次返回 -32005 limit exceeded）",
+      "http_status": 200,
+      "error": null,
+      "sha256": null
+    },
+    {
+      "source": "Dexscreener token-profiles 最新列表（仅发现入口，非独立验证）",
+      "url": "https://api.dexscreener.com/token-profiles/latest/v1",
+      "retrieved_at_utc": "2026-11-09T14:26:16Z",
+      "http_status": 200,
+      "sha256": "b783a75fb96abefe42f84aba013aef74f78fe69b1808e2c73e44dc705898247a"
+    },
+    {
+      "source": "Dexscreener 代币交易对查询（仅发现入口；pairCreatedAt/priceUsd 为聚合器数据）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF 与 .../0x6E8ECa1cFe793e8f29606a6b969370134431fFfF",
+      "retrieved_at_utc": "2026-11-09T14:27:07Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "BSC 官方发布 atom（30 天规则窗口内版本列表）",
+      "url": "https://github.com/bnb-chain/bsc/releases.atom",
+      "retrieved_at_utc": "2026-11-09T14:27:09Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Venus markets API（尝试失败：HTTP 200 但 schema 非预期，data 不是数组；未使用其数据）",
+      "url": "https://api.venus.io/markets?chainId=56",
+      "retrieved_at_utc": "2026-11-09T14:26:16Z",
+      "http_status": 200,
+      "error": "SCHEMA_UNEXPECTED: top-level data 非 list（字段可能已变更）；未再重试"
+    },
+    {
+      "source": "Pancake V3 官方部署表（上轮文档身份基线的来源；本轮未重复抓取，仅用于工厂地址入口）",
+      "url": "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json",
+      "retrieved_at_utc": "2026-11-08T15:23:23Z",
+      "http_status": 200,
+      "error": null,
+      "sha256": null
+    }
+  ],
+  "mechanism": "本链发现员：用 Pancake V3/V2 官方工厂链上事件（PoolCreated/PairCreated）发现新市场，再用 getPool/getPair、token0/token1、reserves/slot0 与 QuoterV2/router 报价核验身份与可执行性；同时把官方发布（BSC v1.8.2 Jenner/BEP-702/703）作为待生效规则窗口监控。新池存在≠可交易：本次同时发现已建高度活跃的新 V2/V3 池与立即 revert 的空池。",
+  "observations": [
+    "链身份：eth_chainId=0x38（56），head=132600472，区块时间 2026-11-09T14:27:51Z；实测出块间隔约 0.45s（5236 块/2356s，13:48:35Z→14:27:51Z），明显快于历史 0.75s 名义值，需作为“规则/时序变化”线索复核（可能影响事件扫描窗口与 MEV 判断）。",
+    "PancakeV3Factory 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865 链上代码 5151 bytes，sha256=d897214b5c44a04cf1e9be8546eaa60afd4bf29ad9ab17c16db40fa6c2c89d00；owner=0x0f6f9a6dd9f065dc4455bb2b8e3f0cffb6f2410c（身份未核验）。",
+    "factory fee 档链上状态（eth_call 于 latest）：fee=100 tickSpacing=1、500/10、2500/50、10000/200，全部 enabled=true 且 whitelistRequested=false；上一轮源码/文档推断在本轮首次得到链上证实。",
+    "V3 Factory PoolCreated 事件窗口 132595236-132600236（13:48:35Z-14:26:05Z，5000 块）共 2 条：①pool 0x89d58f83e57ae74362a83b23086c556a206ffeb2，fee=100（0.01%）、tickSpacing=1，创建块 132597805（14:07:51Z）、tx 0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410，token0=0x0db878add1f99a9191c4c4f4da5dd6683601ae52（symbol=BSCDX，18 位小数）、token1=USDT；②pool 0x062a9cec2f1034006d8a70578083409859a72e58，fee=10000（1%）、tickSpacing=200，创建块 132598623，tx 0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74，token0=0x4950755fd8fe56bd675c8ca75ad8de1b74356666、token1=0xe0b76b7c6b093b0b101cfd62190a0781d63d9799（两侧资产未核验）。",
+    "V2 Factory PairCreated 事件窗口 132598236-132600236（14:11:05Z-14:26:05Z，2000 块=15 分钟）共 75 条新 pair（约 5 条/分钟）；代表样本 pair 0x1c007460942ff6025a75976b71b1596720296704（token0=0x30ddb30f10126c6614c9865ac45de4718ff67777，symbol=Claude Ai；token1=WBNB；创建块 132600203/14:25:50Z，tx 0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6）。getPair 复核匹配，但 getReserves 全 0、0.01 BNB 报价 revert INSUFFICIENT_LIQUIDITY：新建 pair 尚不可交易。",
+    "four.meme 类发射台毕业样本：token 0xf80e4db5f779788c66e9186e03f5e0c12262ffff（symbol=真诚，18 位小数），聚合器显示 4meme 虚拟池 createdAt 13:18:43Z、Pancake V2 pair createdAt 13:21:57Z；链上 V2 pair 0xb7f46f38dd432fd160b0c7965771309838ae5c7c 经 getPair 复核匹配，reserve0=9.254000590220671038 WBNB、reserve1=341997507.428337977404975939 token、blockTimestampLast=14:27:53Z。",
+    "聚合器与链上价格不一致：真诚 pair 链上储备隐含 ≈1.85e-5 USDT/token（用同窗口 1 WBNB≈684.4 USDT 折算），而 Dexscreener priceUsd=1.443e-5（低约 22-28%）；说明展示价可能滞后/口径不同，不能当可执行价。",
+    "同区块（132600234, 14:26:05Z）Pancake 同权益多池报价：1 WBNB→USDT 在 V3 fee=500 为 684.399345713812996128、fee=2500 为 683.556485154256524731、V2 router 为 683.372723444618004355；fee=500 优于 V2 约 0.15%，但按 fee=500 反向报价折算往返仍损失约 0.10%（≈2×5bp+冲击），不构成闭环。",
+    "BSC 官方 releases atom 最新仍为 v1.8.2（updated 2026-11-03T12:58:47Z），30 天窗口内另有 v1.8.1（2026-10-19T07:20:34Z）、v1.8.0-alpha（2026-08-26T06:45:00Z）；计划 Jenner 硬分叉 2026-12-08 02:30 UTC 尚未到，无新增发布，当前未链上生效核验。",
+    "eth_getLogs 在 bsc-dataseed.bnbchain.org 对 2000/5000 块窗口均返回 -32005 limit exceeded（同服务连续 2 次失败后未再重试该 host）；改用 bsc-rpc.publicnode.com 成功，属“回退数据源”并已记录覆盖差异。"
+  ],
+  "quotes": [
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+      "amount_in": "1 USDT (1e18)",
+      "amount_out": "1.666581207643882946 BSCDX",
+      "fees": "pool fee=100 (0.01%)，已由 QuoterV2 计入；gas 未计入",
+      "block": 132600472,
+      "quote_time_utc": "2026-11-09T14:27:51Z",
+      "note": "QuoterV2 quoteExactInputSingle USDT->BSCDX fee=100；gasEstimate=90714；隐含 1 BSCDX≈0.6000 USDT；BSCDX 总供应/流动性/转账限制未读"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+      "amount_in": "0.01 BNB (1e16 wei)",
+      "amount_out": "368246.132342134909664074 真诚",
+      "fees": "Pancake V2 0.25% 已由 router getAmountsOut 计入；gas 未计入",
+      "block": 132600472,
+      "quote_time_utc": "2026-11-09T14:27:51Z",
+      "note": "Pancake V2 Router getAmountsOut(WBNB->真诚)；同时刻 pair 储备 9.2540 WBNB / 3.41998e8 token；与 Dexscreener 展示价存在约 22-28% 差异"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x36696169c63e42cd08ce11f5deebbcebae652050",
+      "amount_in": "1 WBNB (1e18)",
+      "amount_out": "684.399345713812996128 USDT",
+      "fees": "pool fee=500 (0.05%)，QuoterV2 已计入；gas 未计入",
+      "block": 132600234,
+      "quote_time_utc": "2026-11-09T14:26:05Z",
+      "note": "历史证据（报价时间距报告收尾约 2 分钟，>60s）：用于同窗口多费率/多市场比较"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x1401ff943d08a7e098328c1d3a9d388923b115d2",
+      "amount_in": "1 WBNB (1e18)",
+      "amount_out": "683.556485154256524731 USDT",
+      "fees": "pool fee=2500 (0.25%)，QuoterV2 已计入",
+      "block": 132600234,
+      "quote_time_utc": "2026-11-09T14:26:05Z",
+      "note": "历史证据（>60s）；与 fee=500 池相差约 0.12%，说明同权益不同费用档必须分池读"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:WBNB/USDT（V2 router 路径）",
+      "amount_in": "1 WBNB (1e18)",
+      "amount_out": "683.372723444618004355 USDT",
+      "fees": "V2 0.25% 已计入；gas 未计入",
+      "block": 132600234,
+      "quote_time_utc": "2026-11-09T14:26:05Z",
+      "note": "历史证据（>60s）；作为 V3 fee500 的对照，未形成闭环净利"
+    }
+  ],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "not_computed",
+    "realized": false,
+    "unknown_costs": [
+      "gas 与优先费（BNB）",
+      "新代币转账税/黑名单/卖出限制",
+      "价格冲击与容量（BSCDX、真诚、新 V2 pair 均未做 8 档容量）",
+      "授权/账户初始化",
+      "退出/流动性风险（新池 TVL 小、可被抽干）"
+    ]
+  },
+  "capacity": "unknown；仅知 0.01 BNB 与 1 USDT 数量级报价可返回；BSCDX 池与真诚 pair 的深度、滑点、可退出规模未测",
+  "permissions": "Pancake V3 fee 档 100/500/2500/10000 全部 enabled 且无白名单（链上读数）；BSCDX/token 的转账与交易限制未核验；无任何签名或授权行为",
+  "liabilities": "unknown；无借款、无未结算仓位（本轮纯只读）",
+  "waiting_time": "无。Jenner/CAS20 属未来规则窗口（计划 2026-12-08 02:30 UTC），不计入本轮可执行等待",
+  "invalidation_conditions": [
+    "新池/新 pair 后续被移除、暂停或流动性抽干",
+    "BSCDX 或真诚存在转账限制/税率，导致报价不可执行",
+    "聚合器展示价与链上报价差异被证明是口径/汇率而非滞后",
+    "eth_getLogs 回退源 publicnode 覆盖与原 host 不一致导致事件遗漏",
+    "BSC v1.8.2 计划变更：Jenner 延后/取消或另发新版本"
+  ],
+  "evidence_urls": [
+    "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+    "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+    "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+    "https://bscscan.com/address/0x062a9cec2f1034006d8a70578083409859a72e58",
+    "https://bscscan.com/tx/0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6",
+    "https://bscscan.com/address/0x1c007460942ff6025a75976b71b1596720296704",
+    "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+    "https://github.com/bnb-chain/bsc/releases.atom",
+    "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2"
+  ],
+  "coverage_gaps": [
+    "7 天/30 天窗口远未完成：本轮仅扫 V3 5000 块（≈37.5 分钟）、V2 2000 块（≈15 分钟）事件；按实测约 0.45s/块，7 天≈134 万块、30 天≈576 万块，公开 RPC 事件分页无法在时限内覆盖。",
+    "eth_getLogs 在 bsc-dataseed 被 limit exceeded 拒绝（2000/5000 块窗口各 1 次）；回退 publicnode 只验证了短窗口，未测其分页上限与稳定性。",
+    "未深读 5 组代表交易（只核验 2 个新市场身份 + 2 个新 pair），未做输入→协议→输出→剩余仓位闭环。",
+    "BSCDX（0x0db878…）发行方、供应量、转账税/黑名单/卖出限制未知；0x4950755f…/0xe0b76b7c… 两侧资产未核验；0x062a9cec… 1% 池未读状态/报价。",
+    "BSCDX/USDT 0.01% 池的 slot0/liquidity/流动性深度、0.01/0.1/1/10 USDT 容量序列未测；真诚 pair 的 0.1/1/10 BNB 容量未测。",
+    "Dexscreener 发现仅取 token-profiles 最新 30 条（其中 BSC 2 条），未做趋势/新池/多页轮转；www.bnbchain.org 生态目录按历史 403 策略未重试；Venus API 返回结构非预期未使用。",
+    "30 天规则窗口只核 bsc releases atom（8 条版本），未遍历 BSC 治理/生态协议公告；Jenner/BEP-702/703 无链上生效证据（日期未到）。",
+    "Pancake V3 Factory owner 0x0f6f… 身份未核验；未核对新 pool 创建者（tx from）是否同一实体/做市方。"
+  ],
+  "next_check": [
+    "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+    "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+    "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+    "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+    "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+  ],
+  "handoff_to": ["M00", "BNB04", "BNB05", "R-BNB", "Q00"],
+  "markets": [
+    {
+      "market_id": "BNB:56:PancakeV3Factory:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [],
+      "evidence_urls": ["https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"],
+      "identity_status": "CHAIN_VERIFIED",
+      "kind": "factory_registry",
+      "next_check": "继续用 PoolCreated 事件分页发现新池；读新 pool 创建者与 fee 档分布"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": ["0x0db878add1f99a9191c4c4f4da5dd6683601ae52", "0x55d398326f99059fF775485246999027B3197955"],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+        "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2"
+      ],
+      "identity_status": "POOL_IDENTITY_VERIFIED_TOKEN_RULES_UNKNOWN",
+      "kind": "new_v3_pool_fee100",
+      "next_check": "读 slot0/liquidity；核验 BSCDX 转账限制与供应；做容量序列"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x062a9cec2f1034006d8a70578083409859a72e58",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": ["0x4950755fd8fe56bd675c8ca75ad8de1b74356666", "0xe0b76b7c6b093b0b101cfd62190a0781d63d9799"],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74",
+        "https://bscscan.com/address/0x062a9cec2f1034006d8a70578083409859a72e58"
+      ],
+      "identity_status": "FACTORY_LOG_ONLY",
+      "kind": "new_v3_pool_fee10000",
+      "next_check": "核验两侧资产身份、池状态与是否存在报价"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0x1c007460942ff6025a75976b71b1596720296704",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": ["0x30ddb30f10126c6614c9865ac45de4718ff67777", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6",
+        "https://bscscan.com/address/0x1c007460942ff6025a75976b71b1596720296704"
+      ],
+      "identity_status": "PAIR_IDENTITY_VERIFIED_EMPTY_POOL",
+      "kind": "new_v2_pair_empty",
+      "next_check": "跟踪是否注入流动性；空池不计机会"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2（four.meme 发射台毕业）",
+      "asset_ids": ["0xf80e4db5f779788c66e9186e03f5e0c12262ffff", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+        "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+      ],
+      "identity_status": "PAIR_IDENTITY_VERIFIED_ACTIVE",
+      "kind": "launchpad_graduated_new_pair",
+      "next_check": "核验发射台规则（毕业门槛/锁仓/交易限制）与聚合器价格差异；做容量序列"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BNB-JENNER-CAS20-ACTIVATION",
+      "status": "UNVERIFIED",
+      "chain": "BNB",
+      "market_id": null,
+      "first_seen_at": "2026-11-08T15:24:45.675031+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "BSC v1.8.2 发布说明计划 2026-12-08 02:30 UTC 激活 Jenner；BEP-702 CAS20 资产创建需治理任命管理员单独激活；BEP-703 payment lane 默认预留 5% 区块 gas 且比例/列表可治理调整。公告不等于生效，本轮日期仍早于计划时刻。",
+      "evidence_urls": [
+        "https://github.com/bnb-chain/bsc/releases/tag/v1.8.2",
+        "https://github.com/bnb-chain/bsc/releases.atom"
+      ],
+      "net_result": null,
+      "unknown_costs": ["实际激活时刻", "管理员/治理权限与资格", "参与成本与退出市场"],
+      "handoff_to": ["M00", "BNB05", "R-BNB"],
+      "invalidation_conditions": ["计划变更/延后", "另发新版本取代 v1.8.2", "激活条件改变"]
+    },
+    {
+      "finding_id": "BNB-PANCAKEV3-FEE100-NEW-POOLS",
+      "status": "UNVERIFIED",
+      "chain": "BNB",
+      "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+      "first_seen_at": "2026-11-09T14:28:00+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "Pancake V3 工厂链上事件显示新的 0.01%（fee=100）池被创建并在使用：BSCDX/USDT 池 0x89d58f…（创建块 132597805），QuoterV2 于块 132600472 返回 1 USDT→1.66658 BSCDX。同一工厂另有 fee=10000（1%）新池。规约要点：同一权益在不同费用档必须分池读费率/池状态，不能用默认 0.25% 费率或同名池推断报价。",
+      "evidence_urls": [
+        "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+        "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+        "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+      ],
+      "net_result": null,
+      "unknown_costs": ["BSCDX 转账税/黑名单", "池深度与容量", "gas 与优先费"],
+      "handoff_to": ["M00", "BNB04", "BNB05", "Q00"],
+      "invalidation_conditions": ["BSCDX 代币有交易限制", "池流动性不足或无退出路径", "事件/读取源覆盖不一致"]
+    },
+    {
+      "finding_id": "BNB-LAUNCHPAD-GRADUATION-NEW-V2-PAIR",
+      "status": "UNVERIFIED",
+      "chain": "BNB",
+      "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+      "first_seen_at": "2026-11-09T14:28:00+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "four.meme 类发射台 token 在完成募集后几分钟内转为 Pancake V2 pair：样本 token 真诚 0xf80e4db5…，聚合器时间 4meme 虚拟池 13:18:43Z、V2 pair 13:21:57Z；链上 pair 0xb7f46f… 经 getPair 复核匹配，储备 9.2540 WBNB/3.41998e8 token，0.01 BNB→368246.13 token（块 132600472）。聚合器 priceUsd 与链上储备隐含价相差约 22-28%，展示价不能当可执行价。新市场发现应跟踪“发射台→毕业→V2 流动性”的连续过程，而非只看聚合器最新列表。",
+      "evidence_urls": [
+        "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+        "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+      ],
+      "net_result": null,
+      "unknown_costs": ["买入/卖出税与限制", "聚合器滞后幅度", "流动性抽干风险", "gas"],
+      "handoff_to": ["M00", "BNB03", "BNB04", "Q00"],
+      "invalidation_conditions": ["毕业规则为营销口径非链上规则", "聚合器差异被证明只是汇率/时间口径", "pair 流动性被抽干"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "V2 工厂新建 pair 立即构成可交易市场/可套利机会",
+      "reason": "样本 pair 0x1c007460… 创建于块 132600203，至块 132600472 reserves 仍全 0，0.01 BNB 报价 revert PancakeLibrary: INSUFFICIENT_LIQUIDITY；新建 pair 仅证明市场对象存在，不证明有流动性或报价。"
+    },
+    {
+      "claim": "Dexscreener 展示 priceUsd 可直接作为执行价/套利依据",
+      "reason": "真诚 pair 链上储备隐含 ≈1.85e-5 USDT/token，聚合器展示 1.443e-5（低约 22-28%）；聚合器为发现入口，展示价与链上状态/报价口径不同，不能当可执行值。"
+    },
+    {
+      "claim": "同轮 V3 fee=500 与 V2 报价差异（约 0.15%）可构成无风险闭环",
+      "reason": "按同区块反向报价折算，1 WBNB→USDT→WBNB 往返损失约 0.10%（约 2×5bp 费+冲击），不满足净利条件；只保留为费率规则对报价影响的证据。"
+    },
+    {
+      "claim": "BSC v1.8.2 公告即当前已生效规则",
+      "reason": "releases atom 确认最新版本仍为 v1.8.2（updated 2026-11-03），计划硬分叉 2026-12-08 02:30 UTC 未到；公告不等于链上激活。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T14:28:00Z",
+    "complete_block_range": "132595236-132600472（事件扫描窗口：V3 132595236-132600236；V2 132598236-132600236；状态/报价块 132600472）",
+    "complete_event_time_window": "2026-11-09T13:48:35Z-2026-11-09T14:27:51Z"
+  }
+}

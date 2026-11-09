@@ -1,0 +1,385 @@
+{
+  "agent_id": "N-SOL",
+  "run_id": "live-20261109T141903Z",
+  "chain": "SOL",
+  "scope": "Solana mainnet-beta 新市场/新规则/新操作发现：链上核验上一轮静态程序线索、检测 30 天窗口内程序升级（规则变更候选）、发现并核验一个 <24h 的 Raydium CPMM 新池（Token-2022 扩展 mint 对 classic SPL mint）、核验 Orca/Raydium 样本池身份；不做报价与收益判断",
+  "started_at": "2026-11-09T14:24:28+00:00",
+  "finished_at": "2026-11-09T14:32:00+00:00",
+  "duration_seconds": 452,
+  "execution_status": "PARTIAL",
+  "status": "RULE_GAP",
+  "as_of": {
+    "utc": "2026-11-09T14:30:00+00:00",
+    "beijing": "2026-11-09T22:30:00+08:00",
+    "data_time": "链上读取 2026-11-09T14:24:28Z～14:29:24Z；官方/目录 API 抓取 2026-11-09T14:26:23Z～14:29:05Z；程序身份读 slot 467350933（区块时间 2026-11-09T14:27:37Z）"
+  },
+  "block_or_slot": 467350933,
+  "slot_range_read": [467350286, 467351335],
+  "market_ids": [
+    "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+    "SOL:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "SOL:orca-whirlpool:HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+    "SOL:raydium-clmm:3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv"
+  ],
+  "asset_ids": [
+    "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+    "So11111111111111111111111111111111111111112",
+    "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij"
+  ],
+  "discovery_source": [
+    {
+      "source": "Solana mainnet-beta 公共 RPC（只读 JSON-RPC）",
+      "url": "https://api.mainnet-beta.solana.com",
+      "retrieved_at_utc": "2026-11-09T14:24:28+00:00～2026-11-09T14:29:24+00:00",
+      "http_status": 200,
+      "request": "getGenesisHash, getVersion, getSlot(finalized), getEpochInfo, getMultipleAccounts, getAccountInfo, getSignaturesForAddress, getBlockTime；合计 40 次外部 HTTP 请求中的主要部分；一次批量 getAccountInfo 于 14:26:24Z 附近返回 429（方法级限流），改 getMultipleAccounts 后成功"
+    },
+    {
+      "source": "Raydium 官方 SDK 程序登记表（raw.githubusercontent.com）",
+      "url": "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+      "retrieved_at_utc": "2026-11-09T14:27:01+00:00",
+      "http_status": 200,
+      "request": "5316 字节；主网导出常量 CLMM_PROGRAM_ID=CAMMCzo...、CREATE_CPMM_POOL_PROGRAM=CPMMoo...、AMM_V4=675kPX...；文件后半段另有 DRay... 的 devnet 映射（已排除误用）"
+    },
+    {
+      "source": "Orca Whirlpools 官方 README（raw.githubusercontent.com）",
+      "url": "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+      "retrieved_at_utc": "2026-11-09T14:26:24+00:00",
+      "http_status": 200,
+      "request": "官方部署程序 ID 含 whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc，与链上 executable 校验一致"
+    },
+    {
+      "source": "Raydium 官方目录 API",
+      "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+      "retrieved_at_utc": "2026-11-09T14:28:19+00:00",
+      "http_status": 200,
+      "request": "第 1 页 10 个池；/main/version 返回 V3.0.1；发现 createdAt=1794169583 的新 CPMM 池 4HHcEX..."
+    },
+    {
+      "source": "Orca 官方 API",
+      "url": "https://api.orca.so/v2/solana/pools?limit=10",
+      "retrieved_at_utc": "2026-11-09T14:24:28+00:00",
+      "http_status": 200,
+      "request": "取前 2 个池（SOL/USDC、cbbtc/USDC）做链上 owner 与 mint Token Program 核验"
+    },
+    {
+      "source": "DexScreener latest token profiles（发现入口，未深入）",
+      "url": "https://api.dexscreener.com/token-profiles/latest/v1",
+      "retrieved_at_utc": "2026-11-09T14:24:28+00:00",
+      "http_status": 200,
+      "request": "返回 30 条，其中 Solana 15 条；仅登记为后续发现入口，本轮未消费"
+    }
+  ],
+  "mechanism": "（1）身份规则：Solana 上资产必须用 mint + 所属 Token Program（Tokenkeg... 或 Tokenz...）+ 市场账户 owner 程序三者共同标识；同一币名/显示价格不等于同一可执行权益。（2）本轮新池 4HHcEX... 两腿 token program 不同：NVDAV... 是 Token-2022（687 字节，含扩展、mint/freeze authority 存在），FZxHL... 是 classic SPL（82 字节）。CPMM 按原始金额定价，而 Token-2022 扩展可能带来转账费/hook/冻结/永久委托等额外规则，导致展示价与可执行兑付数量不一致——这是待报价核对的规则接口线索。（3）程序可升级性：4 个核心程序在 30 天内 last_deploy_slot 变化且仍持有升级权限，旧部署快照下的规则假设可能过期；升级语义未比对。（4）Token-2022 程序自身在 2026-10-23 升级过，其扩展规则版本可能影响所有 Token-2022 资产。",
+  "observations": [
+    {
+      "type": "cluster_identity",
+      "protocol": "Solana",
+      "address": "genesis 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "fields": {"getVersion": "solana-core 4.4.0, feature-set 2681577653", "epoch": 1081,
+                 "getSlot_finalized_at_probe": 467350286, "blocktime_at_slot_467350931": "2026-11-09T14:27:37Z"},
+      "evidence_file": "raw/rpc_programs_multi.json"
+    },
+    {
+      "type": "program_onchain_identity",
+      "protocol": "Raydium CLMM",
+      "address": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "fields": {"executable": true, "owner": "BPFLoaderUpgradeab1e11111111111111111111111", "space": 36,
+                 "programdata_address": "HzD2cCXXT3UQNjMMY6kDv9w6gZ9qquSdfoGXrLL3LXx",
+                 "last_deploy_slot": 459932378, "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+                 "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK", "age_days": 18.34},
+      "slot": 467350933,
+      "evidence_file": "raw/rpc_programdata_extract.json"
+    },
+    {
+      "type": "program_onchain_identity",
+      "protocol": "Raydium CPMM",
+      "address": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "fields": {"executable": true, "owner": "BPFLoaderUpgradeab1e11111111111111111111111", "space": 36,
+                 "programdata_address": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+                 "last_deploy_slot": 463522946, "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+                 "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK", "age_days": 9.49},
+      "slot": 467350933,
+      "evidence_file": "raw/rpc_programdata_extract.json"
+    },
+    {
+      "type": "program_onchain_identity",
+      "protocol": "Orca Whirlpools",
+      "address": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "fields": {"executable": true, "owner": "BPFLoaderUpgradeab1e11111111111111111111111", "space": 36,
+                 "programdata_address": "CtXfPzz36dH5Ws4UYKZvrQ1Xqzn42ecDW6y8NKuiN8nD",
+                 "last_deploy_slot": 457152296, "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+                 "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV", "age_days": 25.3},
+      "slot": 467350933,
+      "evidence_file": "raw/rpc_programdata_extract.json"
+    },
+    {
+      "type": "program_onchain_identity",
+      "protocol": "SPL Token-2022",
+      "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+      "fields": {"executable": true, "owner": "BPFLoaderUpgradeab1e11111111111111111111111", "space": 36,
+                 "programdata_address": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY",
+                 "last_deploy_slot": 460497271, "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+                 "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz", "age_days": 16.95},
+      "slot": 467350933,
+      "evidence_file": "raw/rpc_programdata_extract.json"
+    },
+    {
+      "type": "program_onchain_identity",
+      "protocol": "Raydium AMM v4 / SPL Token classic",
+      "address": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8 / TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "fields": {"executable": true, "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+                 "AMM_v4_last_deploy_time_utc": "2026-09-10T01:52:56+00:00",
+                 "token_classic_last_deploy_time_utc": "2026-05-13T12:39:34+00:00",
+                 "token_classic_has_upgrade_authority": false},
+      "slot": 467350933,
+      "evidence_file": "raw/rpc_programdata_extract.json"
+    },
+    {
+      "type": "new_market_identity",
+      "protocol": "Raydium CPMM",
+      "address": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "fields": {"owner_program": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C", "space": 637,
+                 "api_createdAt": "1794169583", "api_createdAt_utc": "2026-11-08T20:26:23+00:00",
+                 "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+                 "mintA_owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb", "mintA_space": 687,
+                 "mintB": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+                 "mintB_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "mintB_space": 82,
+                 "feeRate_api": 0.01, "day_volume_api": 4932907.92, "tvl_api": 254612.5},
+      "slot": 467351334,
+      "blocktime_utc": "2026-11-09T14:29:04+00:00",
+      "evidence_file": "raw/new_pool_check.json"
+    },
+    {
+      "type": "token2022_mint_extensions",
+      "protocol": "SPL Token-2022 mint",
+      "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+      "fields": {"owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb", "data_len": 687,
+                 "mint_authority_present": true, "freeze_authority_present": true,
+                 "supply": "4675936223", "decimals": 6,
+                 "extensions_manual_parse": ["MetadataPointer(len64)", "PermanentDelegate(len32)", "DefaultAccountState(len1)",
+                                             "ConfidentialTransferMint(len65)", "TransferHook(len64)", "TokenMetadata(len174)",
+                                             "Unknown(25,len56)", "Unknown(26,len33)"],
+                 "decode_status": "MANUAL_TLV_UNVERIFIED"},
+      "slot": 467351334,
+      "evidence_file": "raw/mint2022_decode.json"
+    },
+    {
+      "type": "market_identity_sample",
+      "protocol": "Orca Whirlpools",
+      "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE / HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+      "fields": {"both_pools_owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc", "space": 653,
+                 "mints": ["So11111111111111111111111111111111111111112", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                            "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij"],
+                 "all_sample_mints_token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "mint_space": 82},
+      "slot": 467351180,
+      "evidence_file": "raw/rpc_pools_mints_multi.json"
+    },
+    {
+      "type": "market_identity_sample",
+      "protocol": "Raydium CLMM",
+      "address": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+      "fields": {"owner_program": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK", "space": 1544,
+                 "mintA": "So11111111111111111111111111111111111111112",
+                 "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                 "createdAt_api": "1723037622", "createdAt_utc": "2024-08-07T13:33:42+00:00"},
+      "slot": 467351194,
+      "evidence_file": "raw/rpc_raydium_pool_multi.json"
+    },
+    {
+      "type": "recent_activity_snapshot",
+      "protocol": "Orca",
+      "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "fields": {"getSignaturesForAddress_limit": 10, "window_s": 55,
+                 "latest_slot": 467351183, "latest_blocktime_utc": "2026-11-09T14:28:32+00:00",
+                 "err_count_in_sample": 9},
+      "slot": 467351183,
+      "evidence_file": "raw/rpc_signatures.json"
+    },
+    {
+      "type": "recent_activity_snapshot",
+      "protocol": "Raydium CPMM",
+      "address": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "fields": {"getSignaturesForAddress_limit": 3, "latest_slot": 467351335,
+                 "latest_blocktime_utc": "2026-11-09T14:29:04+00:00", "err_count_in_sample": 0},
+      "slot": 467351335,
+      "evidence_file": "raw/new_pool_check.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "unknown",
+    "unknown_costs": [
+      "Token-2022 转账费（是否存在及数量未确认）",
+      "Token-2022 transfer hook 程序费用/约束（未确认）",
+      "优先费",
+      "账户创建与可退租金（Token-2022 mint 需 ATA 等）",
+      "AMM 费率与价格冲击",
+      "退出费用/冻结或永久委托限制造成的损耗"
+    ]
+  },
+  "capacity": "unknown（未取池储备/深度；API TVL/volume 只是指数器展示值，不可当可执行容量）",
+  "permissions": "Raydium CLMM/CPMM/AMM v4 升级权限 = FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK；Orca Whirlpool = GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV；Token-2022 = AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz；SPL Token classic 无升级权限；NVDAV mint 存在 mint authority 与 freeze authority（地址未解出）；Token-2022 扩展疑似 PermanentDelegate/TransferHook（待复核）；本轮未建任何头寸、未签名",
+  "liabilities": "none（只读读取，未建仓、无债务、无在途资金）",
+  "waiting_time": "unknown（未测取得/退出等待；Token-2022 扩展是否引入延迟未确认）",
+  "invalidation_conditions": [
+    "手工 TLV 解析与官方 Token-2022 layout 不符，或扩展实际不含转账费/hook/永久委托",
+    "NVDAV mint 的 TokenMetadata/发行方与链上身份不一致（币名不等于股票或基金权益）",
+    "程序 last_deploy_slot 变化只是补丁/回滚，未改变费率、权限或指令语义",
+    "新池被暂停、迁移或流动性撤出，或同 slot 报价显示展示价与可执行量无差异",
+    "链上部署与所读官方源码版本不一致（程序升级后源码未更新）"
+  ],
+  "evidence_urls": [
+    "https://api.mainnet-beta.solana.com",
+    "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+    "https://solscan.io/token/NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+    "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+    "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "https://solscan.io/account/TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "https://raw.githubusercontent.com/raydium-io/raydium-sdk-V2/master/src/common/programId.ts",
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+    "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+    "https://api.orca.so/v2/solana/pools?limit=10"
+  ],
+  "coverage_gaps": [
+    "7天活动窗口（2026-11-02～2026-11-09）未覆盖：只读 Orca SOL/USDC 池最近 10 条签名（约 55 秒窗口）与新池最近 3 条签名，无 7 天分页、无 24h/7d 交易统计。",
+    "30天规则窗口（2026-10-10～2026-11-09）部分覆盖：只用 last_deploy_slot/blockTime 检测到 4 个程序升级，未比对程序字节码/版本/官方 release 或公告，未确认规则语义变化。",
+    "Token-2022 mint 扩展为手工 TLV 解析，未与官方 layout 对照；2 个未知扩展类型（25/26）未识别；transfer fee 参数、hook program、permanent delegate 与 freeze authority 具体地址未解出。",
+    "新池资产身份未核对发行方：NVDAV token 名称/元数据与官方文档未互证，不能当作特定股票权益。",
+    "目录覆盖仅单页：Raydium pageSize=10、Orca limit=10、DexScreener latest profiles 30 条（15 Solana）未深入；无分页游标，不声称覆盖全链新池。",
+    "未做交易指令级深读（0/5 组）；Orca 池样本 9/10 条签名失败，错误码与原因未解析。",
+    "无数量报价、费用、容量、滑点、优先费、账户租金数据；本岗位不报价（交 SOL01）。",
+    "Solana 公共 RPC 批量 getAccountInfo 于 14:26:24Z 返回方法级 429（Too many requests for a specific RPC call），已改 getMultipleAccounts 成功；记录该端点限流行为。"
+  ],
+  "next_check": [
+    "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+    "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+    "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+    "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+    "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+    "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+  ],
+  "handoff_to": ["M00", "SOL01", "Q00"],
+  "markets": [
+    {
+      "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "chain": "SOL",
+      "protocol": "Raydium CPMM",
+      "asset_ids": ["NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv", "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat"],
+      "evidence_urls": ["https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+                        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS；Token-2022 扩展语义待复核",
+      "next_check": "解扩展参数 + 同 slot 报价/储备，交 SOL01"
+    },
+    {
+      "market_id": "SOL:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": ["So11111111111111111111111111111111111111112", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE", "https://api.orca.so/v2/solana/pools?limit=10"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+      "next_check": "补 7 天签名分页与失败交易错误码；与 SOL01 报价同 slot"
+    },
+    {
+      "market_id": "SOL:orca-whirlpool:HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": ["cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM", "https://api.orca.so/v2/solana/pools?limit=10"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+      "next_check": "核对 cbbtc 发行方与池深度，再决定是否交 SOL01"
+    },
+    {
+      "market_id": "SOL:raydium-clmm:3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+      "chain": "SOL",
+      "protocol": "Raydium CLMM",
+      "asset_ids": ["So11111111111111111111111111111111111111112", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv", "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER（owner=CAMMCzo...，space 1544）",
+      "next_check": "与 Orca/CPMM 同 slot 报价比较（交 SOL01）；关注 CLMM 程序升级后的指令语义"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "sol-whirlpool-token-interface-identity-check",
+      "status": "UNVERIFIED",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "market_id": null,
+      "evidence_urls": ["https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+                        "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+                        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE"],
+      "mechanism": "上一轮的源代码规则（mint owner 分别约束 token_program_a/b）本轮已能在链上落地核验：Whirlpool 程序 executable、两个样本池 owner=程序、池内 mint 均由 classic Tokenkeg 持有。方法成立，但样本池无 Token-2022 腿，尚无费用/容量/报价证据。",
+      "net_result": null,
+      "unknown_costs": ["所有交易成本", "Token-2022 扩展（样本池未涉及）", "容量"],
+      "handoff_to": ["SOL01", "Q00"],
+      "invalidation_conditions": ["出现 Token-2022 腿的 Whirlpool 池时该身份规则需要重测", "程序升级改变 mint/token program 校验逻辑"]
+    },
+    {
+      "finding_id": "SOL-RAYDIUM-CPMM-NEW-POOL-TOKEN2022-EXTENSION-RULES",
+      "status": "RULE_GAP",
+      "chain": "SOL",
+      "protocol": "Raydium CPMM",
+      "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "evidence_urls": ["https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+                        "https://solscan.io/token/NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+                        "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+                        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"],
+      "mechanism": "2026-11-08 新建的 Raydium CPMM 池，两腿 token program 不同（Token-2022 扩展 mint vs classic SPL）。CPMM 以原始金额定价；Token-2022 可能对转入/转出加收转账费或施加 hook/冻结/永久委托规则，使展示价与可执行兑付量不一致。这是同一权益在不同规则接口下的差异线索，须先解出扩展参数再做指定数量报价。",
+      "net_result": null,
+      "unknown_costs": ["Token-2022 转账费", "TransferHook 程序开销/约束", "优先费", "ATA 账户创建与租金", "CPMM 1% 费与滑点", "退出费用"],
+      "handoff_to": ["M00", "SOL01", "Q00"],
+      "invalidation_conditions": ["扩展实际不含转账费/hook/永久委托", "同 slot 报价显示展示价与可执行量一致且容量足够", "池被暂停/迁移/流动性撤出", "NVDAV 身份与发行方不符"]
+    },
+    {
+      "finding_id": "SOL-CORE-PROGRAM-UPGRADE-WINDOW-30D",
+      "status": "UNVERIFIED",
+      "chain": "SOL",
+      "protocol": "Raydium / Orca / SPL Token-2022",
+      "market_id": null,
+      "evidence_urls": ["https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+                        "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+                        "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+                        "https://solscan.io/account/TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"],
+      "mechanism": "4 个核心程序 last_deploy_slot 在 30 天窗口内且升级权限仍有效：CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15。旧快照下的费率/指令/权限假设可能已过期；但升级内容未比对，只是规则变更候选，不是已确认规则差异或收益。",
+      "net_result": null,
+      "unknown_costs": ["未知（不涉及交易成本）"],
+      "handoff_to": ["M00", "SOL01", "Q00"],
+      "invalidation_conditions": ["升级仅为补丁/回滚且不改变对外规则", "字节码/版本与官方 release 一致且语义未变"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "用 Raydium programId.ts 中的 DRay... 地址作为主网程序 ID",
+      "reason": "该文件同时含主网导出常量与 DRay... devnet 映射；DRay... 地址未被链上 executable 校验通过，主网以 CAMMCzo.../CPMMoo.../675kPX... 为准，明确排除。"
+    },
+    {
+      "claim": "API createdAt 显示 2026-11-08 新池，因此存在可套利价差",
+      "reason": "仅有池/mint 身份与规则线索；无同 slot 报价、费用、容量与闭环，不能把新市场当利润主张。"
+    },
+    {
+      "claim": "Token-2022 mint 手工解析出的扩展（含 PermanentDelegate/TransferHook）已是确认的转账费或风险结论",
+      "reason": "手工 TLV 解析未与官方 layout 对照，2 个类型未识别，参数未解出；只作为待复核风险线索。"
+    },
+    {
+      "claim": "最近 10 条签名/55 秒窗口覆盖了 7 天活动窗口",
+      "reason": "只是单池短期快照，无 7 天分页与统计，明确排除该覆盖主张。"
+    },
+    {
+      "claim": "Solana 公共 RPC 批量 getAccountInfo 返回 429 说明链不可用",
+      "reason": "是方法级限流；改用 getMultipleAccounts 单次读取后同 slot 范围全部成功，链数据可用，仅记录该端点限流特性。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_point_reads_plus_api_snapshot",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-09T14:29:24+00:00",
+    "complete_block_range": "不完整：finalized 点读 slot 467350286～467351335（主要 467350933/467351180/467351194/467351334），无连续区块范围",
+    "complete_event_time_window": "不完整：最近签名窗口约 2026-11-09T14:28:31Z～14:29:04Z；7 天活动窗口未覆盖"
+  }
+}

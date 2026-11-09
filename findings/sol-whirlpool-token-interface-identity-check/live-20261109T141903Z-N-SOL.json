@@ -1,0 +1,30 @@
+{
+  "finding_id": "sol-whirlpool-token-interface-identity-check",
+  "status": "UNVERIFIED",
+  "chain": "SOL",
+  "protocol": "Orca Whirlpools",
+  "market_id": null,
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/orca-so/whirlpools/main/README.md",
+    "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE"
+  ],
+  "mechanism": "上一轮的源代码规则（mint owner 分别约束 token_program_a/b）本轮已能在链上落地核验：Whirlpool 程序 executable、两个样本池 owner=程序、池内 mint 均由 classic Tokenkeg 持有。方法成立，但样本池无 Token-2022 腿，尚无费用/容量/报价证据。",
+  "net_result": null,
+  "unknown_costs": [
+    "所有交易成本",
+    "Token-2022 扩展（样本池未涉及）",
+    "容量"
+  ],
+  "handoff_to": [
+    "SOL01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现 Token-2022 腿的 Whirlpool 池时该身份规则需要重测",
+    "程序升级改变 mint/token program 校验逻辑"
+  ],
+  "owner": "N-SOL",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,37 @@
+{
+  "finding_id": "SOL-RAYDIUM-CPMM-NEW-POOL-TOKEN2022-EXTENSION-RULES",
+  "status": "RULE_GAP",
+  "chain": "SOL",
+  "protocol": "Raydium CPMM",
+  "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+  "evidence_urls": [
+    "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+    "https://solscan.io/token/NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+    "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+    "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+  ],
+  "mechanism": "2026-11-08 新建的 Raydium CPMM 池，两腿 token program 不同（Token-2022 扩展 mint vs classic SPL）。CPMM 以原始金额定价；Token-2022 可能对转入/转出加收转账费或施加 hook/冻结/永久委托规则，使展示价与可执行兑付量不一致。这是同一权益在不同规则接口下的差异线索，须先解出扩展参数再做指定数量报价。",
+  "net_result": null,
+  "unknown_costs": [
+    "Token-2022 转账费",
+    "TransferHook 程序开销/约束",
+    "优先费",
+    "ATA 账户创建与租金",
+    "CPMM 1% 费与滑点",
+    "退出费用"
+  ],
+  "handoff_to": [
+    "M00",
+    "SOL01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "扩展实际不含转账费/hook/永久委托",
+    "同 slot 报价显示展示价与可执行量一致且容量足够",
+    "池被暂停/迁移/流动性撤出",
+    "NVDAV 身份与发行方不符"
+  ],
+  "owner": "N-SOL",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json"
+}

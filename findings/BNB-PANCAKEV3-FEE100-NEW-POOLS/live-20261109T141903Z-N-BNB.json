@@ -1,0 +1,33 @@
+{
+  "finding_id": "BNB-PANCAKEV3-FEE100-NEW-POOLS",
+  "status": "UNVERIFIED",
+  "chain": "BNB",
+  "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+  "first_seen_at": "2026-11-09T14:28:00+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "Pancake V3 工厂链上事件显示新的 0.01%（fee=100）池被创建并在使用：BSCDX/USDT 池 0x89d58f…（创建块 132597805），QuoterV2 于块 132600472 返回 1 USDT→1.66658 BSCDX。同一工厂另有 fee=10000（1%）新池。规约要点：同一权益在不同费用档必须分池读费率/池状态，不能用默认 0.25% 费率或同名池推断报价。",
+  "evidence_urls": [
+    "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+    "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+    "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "BSCDX 转账税/黑名单",
+    "池深度与容量",
+    "gas 与优先费"
+  ],
+  "handoff_to": [
+    "M00",
+    "BNB04",
+    "BNB05",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "BSCDX 代币有交易限制",
+    "池流动性不足或无退出路径",
+    "事件/读取源覆盖不一致"
+  ],
+  "owner": "N-BNB",
+  "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json"
+}

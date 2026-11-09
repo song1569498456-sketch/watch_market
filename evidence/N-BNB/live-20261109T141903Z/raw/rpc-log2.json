@@ -1,0 +1,197 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "bsc-rpc.publicnode.com",
+  "tag": "pn_factory_PoolCreated_5000",
+  "at_utc": "2026-11-09T14:27:06.761320+00:00",
+  "rpc_method": "eth_getLogs",
+  "rpc_params": [
+   {
+    "address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+    "fromBlock": "0x7e73e24",
+    "toBlock": "0x7e751ac",
+    "topics": [
+     "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118"
+    ]
+   }
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.637
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "bsc-rpc.publicnode.com",
+  "tag": "pn_v2_PairCreated_2000",
+  "at_utc": "2026-11-09T14:27:07.398667+00:00",
+  "rpc_method": "eth_getLogs",
+  "rpc_params": [
+   {
+    "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+    "fromBlock": "0x7e749dc",
+    "toBlock": "0x7e751ac",
+    "topics": [
+     "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
+    ]
+   }
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.391
+ },
+ {
+  "n": 3,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_pairs_fourmeme_sample",
+  "at_utc": "2026-11-09T14:27:07.790169+00:00",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF",
+  "http_status": 200,
+  "elapsed_s": 0.35,
+  "bytes": 2756,
+  "sha256": "eb0e4acf8e6dfa7c40ed6244fe30c557a29473eb0c8abc9e017ca1fa0a086a22"
+ },
+ {
+  "n": 4,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_pairs_astai",
+  "at_utc": "2026-11-09T14:27:08.140221+00:00",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x6E8ECa1cFe793e8f29606a6b969370134431fFfF",
+  "http_status": 200,
+  "elapsed_s": 0.099,
+  "bytes": 1277,
+  "sha256": "9b1cc04f32e1bc9f193e8c958644dbe714159fe126de48bb7144947d8626c337"
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_getPair_verify",
+  "at_utc": "2026-11-09T14:27:08.239916+00:00",
+  "rpc_method": "eth_call",
+  "rpc_params": [
+   {
+    "to": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+    "data": "0xe6a43905000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c000000000000000000000000f80e4db5f779788c66e9186e03f5e0c12262ffff"
+   },
+   "0x7e751aa"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.726,
+  "rpc_error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_pair_code",
+  "at_utc": "2026-11-09T14:27:08.966419+00:00",
+  "rpc_method": "eth_getCode",
+  "rpc_params": [
+   "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+   "latest"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.171
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_pair_token0",
+  "at_utc": "2026-11-09T14:27:09.316601+00:00",
+  "rpc_method": "eth_call",
+  "rpc_params": [
+   {
+    "to": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+    "data": "0x0dfe1681"
+   },
+   "0x7e751aa"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.157,
+  "rpc_error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_pair_token1",
+  "at_utc": "2026-11-09T14:27:09.666849+00:00",
+  "rpc_method": "eth_call",
+  "rpc_params": [
+   {
+    "to": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+    "data": "0xd21220a7"
+   },
+   "0x7e751aa"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.164,
+  "rpc_error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_pair_getReserves",
+  "at_utc": "2026-11-09T14:27:10.017338+00:00",
+  "rpc_method": "eth_call",
+  "rpc_params": [
+   {
+    "to": "0xb7f46F38DD432Fd160b0C7965771309838Ae5C7c",
+    "data": "0x0902f1ac"
+   },
+   "0x7e751aa"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.159,
+  "rpc_error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "bsc-dataseed.bnbchain.org",
+  "tag": "v2_getAmountsOut_newpair",
+  "at_utc": "2026-11-09T14:27:10.367888+00:00",
+  "rpc_method": "eth_call",
+  "rpc_params": [
+   {
+    "to": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+    "data": "0xd06ca61f000000000000000000000000000000000000000000000000002386f26fc1000000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000bb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c000000000000000000000000f80e4db5f779788c66e9186e03f5e0c12262ffff"
+   },
+   "0x7e751aa"
+  ],
+  "http_status": 200,
+  "elapsed_s": 0.168,
+  "rpc_error": {
+   "code": -32000,
+   "message": "missing trie node"
+  }
+ },
+ {
+  "n": 11,
+  "kind": "GET",
+  "host": "github.com",
+  "tag": "bsc_releases_atom",
+  "at_utc": "2026-11-09T14:27:10.535890+00:00",
+  "url": "https://github.com/bnb-chain/bsc/releases.atom",
+  "http_status": 200,
+  "elapsed_s": 1.221,
+  "bytes": 70898,
+  "sha256": "6a6635416aad9d8eb419f59503a689c73c87ed1a27939575880487bfdf62dd24"
+ }
+]

@@ -1,0 +1,50 @@
+{
+ "refetch_at_utc": "2026-11-09T14:28:31.855203+00:00",
+ "rpc": "https://ethereum-rpc.publicnode.com",
+ "head_block": 26377933,
+ "pinned_block": 26377930,
+ "pinned_block_hash": "0x8f78086c0b1653b687a0507108e0f08174a7c70403331ae6a2fe865098f2c070",
+ "pinned_block_timestamp_utc": "2026-11-09T14:27:47+00:00",
+ "base_fee_per_gas_wei": 144515332,
+ "quotes": [
+  {
+   "direction": "ETH->stETH",
+   "amount_in": "100",
+   "amount_out": 100.00746578971597,
+   "implied_ratio": 1.0000746578971598,
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:32.577423+00:00"
+  },
+  {
+   "direction": "ETH->stETH",
+   "amount_in": "10",
+   "amount_out": 10.000801631696874,
+   "implied_ratio": 1.0000801631696872,
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:33.297866+00:00"
+  },
+  {
+   "direction": "stETH->ETH",
+   "amount_in": "1",
+   "amount_out": 0.9997191955388933,
+   "implied_ratio": 0.9997191955388933,
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:34.022609+00:00"
+  },
+  {
+   "direction": "stETH->ETH",
+   "amount_in": "100",
+   "amount_out": 99.97131213679346,
+   "implied_ratio": 0.9997131213679347,
+   "block": 26377930,
+   "quote_time_utc": "2026-11-09T14:28:34.752183+00:00"
+  }
+ ],
+ "queue": {
+  "last_request_id": 141221,
+  "last_finalized_request_id": 141196,
+  "unfinalized_stETH": 3969.034436226547,
+  "is_paused": false,
+  "block": 26377930
+ }
+}

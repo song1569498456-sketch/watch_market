@@ -2,17 +2,25 @@
   "agent_id": "N-ETH",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "QUOTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:28:35+00:00",
   "observed_cursor": {
-    "type": "STATIC_SOURCE_SNAPSHOT_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:24:52.450934+00:00",
-    "urls": [
-      "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-      "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol"
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "retrieved_at_utc": "2026-11-09T14:28:35+00:00",
+    "chain_id": 1,
+    "head_block": 26377933,
+    "pinned_blocks": [
+      26377918,
+      26377930
     ],
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "urls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+      "https://api.github.com/repos/lidofinance/core/commits?since=2026-10-10T00:00:00Z&per_page=100"
+    ],
+    "complete_block_range": "代码/存储/队列状态：块 26377918；Curve 报价：块 26377918（历史）与 26377930（新鲜）；Uniswap V3 PoolCreated 日志：26370721-26377921（26 条，完整覆盖该窗口）",
+    "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-08T14:26Z～2026-11-09T14:26Z（7,200 块≈24h）；Lido core 提交 2026-10-10～2026-11-09（5 条）；30 天规则回溯与 7 天活动窗口未完整覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,29 +38,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
-    "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
-    "WithdrawalQueueERC721.sol第29-30行描述request铸NFT/claim销毁；第147-155行finalize有_checkResumed与FINALIZE_ROLE权限。"
+    "链身份已链上核验：eth_chainId=1，head=26377933（2026-11-09T14:28:31Z）；代码/状态固定在块 26377918、报价固定在块 26377930。",
+    "Lido WithdrawalQueue 代理 EIP-1967 实现槽读得 0xE42C659D...，与官方 deployed-mainnet.json 一致；stETH Aragon kernel 槽与官方 kernel 一致；wstETH/Curve 池代码读取成功。",
+    "队列状态：lastRequestId=141221、lastFinalizedRequestId=141196（25 笔未最终化）、unfinalizedStETH≈3969.03、isPaused=false；stETH totalPooledEther==totalSupply=9703317.49 表明协议内 1 stETH≈1 ETH。",
+    "Curve stETH/ETH 同块报价 0.01/0.1/1/10/100 五个数量档（两个块，其中块 26377930 的 4 条为 60 秒内新鲜报价），测出买入方向约 1.000075-1.000080 stETH/ETH、卖出方向约 0.99971。",
+    "finding ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT 由 UNVERIFIED 升级为 QUOTED：100 ETH 档粗价差约 +0.00747%，未实现，队列 gas/等待/记账率漂移为 unknown_costs。",
+    "发现入口：Uniswap V3 工厂 26370721-26377921（约 24h）新增 26 个池，无 stETH/wstETH 池，代币身份未核验；Lido core 最近 30 天 5 条提交，无合约规则变更提交。",
+    "外部请求 57 次（≤80），同 host 间隔≥0.35s；失败：getWithdrawalStatus x4 revert（原因未确认）、7 天 eth_getLogs 被 archive token 限制、IWithdrawalQueue.sol 404。"
   ],
   "pending_questions": [
-    "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
-    "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
-    "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
-    "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
-    "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
+    "Lido 队列 requestWithdrawals 与 claimWithdrawal 的实际 gas、getClaimableEther 可领取额、finalize 节奏与权限未测，等待时间 unknown。",
+    "30 天（2026-10-10～2026-11-09）规则变更仅覆盖 Lido core 仓库提交；治理提案/论坛/公告/链上投票未覆盖。",
+    "7 天（2026-11-02～2026-11-09）代表性活动未抽样；Uniswap V3 新池只覆盖最近 7,200 块（≈24h），26 个新池的代币身份/流动性未核验。",
+    "getWithdrawalStatus(uint256) 在 requestId=1/140000/141200/141221 均 revert 空数据，原因未确认；Curve 池 paused() 调用 revert。",
+    "Curve 买入 stETH→队列平价路径的容量上限、价差可持续时间与反向路径成本未量化；未做旧小池轮转。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:24:52.450934+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-ETH/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-    "verified_at": "2026-11-08T15:25:36.912083+00:00",
-    "record": "evidence/N-ETH/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T14:29:35+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-ETH/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

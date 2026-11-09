@@ -221,76 +221,81 @@
       "agent_id": "N-BNB",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:24:45.675031+00:00",
+      "last_success_at": "2026-11-09T14:28:00.185784+00:00",
+      "last_attempt_at": "2026-11-09T14:28:00.185784+00:00",
       "actual_coverage": [
-        "官方bsc v1.8.2发布页含2026-11-03时间，计划硬分叉时刻晚于本轮，公告不等于生效。",
-        "官方部署表列PancakeV3Factory=0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865；仅文档身份，未核对链上代码。",
-        "工厂源代码显示PoolCreated(token0,token1,fee,tickSpacing,pool)，费用档需info.enabled，whitelistRequested可能要求资格；源码默认值不是本轮链上值。"
+        "链身份：eth_chainId=0x38（56），head=132600472，区块时间 2026-11-09T14:27:51Z；实测出块间隔约 0.45s（5236 块/2356s，13:48:35Z→14:27:51Z），明显快于历史 0.75s 名义值，需作为“规则/时序变化”线索复核（可能影响事件扫描窗口与 MEV 判断）。",
+        "PancakeV3Factory 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865 链上代码 5151 bytes，sha256=d897214b5c44a04cf1e9be8546eaa60afd4bf29ad9ab17c16db40fa6c2c89d00；owner=0x0f6f9a6dd9f065dc4455bb2b8e3f0cffb6f2410c（身份未核验）。",
+        "factory fee 档链上状态（eth_call 于 latest）：fee=100 tickSpacing=1、500/10、2500/50、10000/200，全部 enabled=true 且 whitelistRequested=false；上一轮源码/文档推断在本轮首次得到链上证实。",
+        "V3 Factory PoolCreated 事件窗口 132595236-132600236（13:48:35Z-14:26:05Z，5000 块）共 2 条：①pool 0x89d58f83e57ae74362a83b23086c556a206ffeb2，fee=100（0.01%）、tickSpacing=1，创建块 132597805（14:07:51Z）、tx 0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410，token0=0x0db878add1f99a9191c4c4f4da5dd6683601ae52（symbol=BSCDX，18 位小数）、token1=USDT；②pool 0x062a9cec2f1034006d8a70578083409859a72e58，fee=10000（1%）、tickSpacing=200，创建块 132598623，tx 0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74，token0=0x4950755fd8fe56bd675c8ca75ad8de1b74356666、token1=0xe0b76b7c6b093b0b101cfd62190a0781d63d9799（两侧资产未核验）。",
+        "V2 Factory PairCreated 事件窗口 132598236-132600236（14:11:05Z-14:26:05Z，2000 块=15 分钟）共 75 条新 pair（约 5 条/分钟）；代表样本 pair 0x1c007460942ff6025a75976b71b1596720296704（token0=0x30ddb30f10126c6614c9865ac45de4718ff67777，symbol=Claude Ai；token1=WBNB；创建块 132600203/14:25:50Z，tx 0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6）。getPair 复核匹配，但 getReserves 全 0、0.01 BNB 报价 revert INSUFFICIENT_LIQUIDITY：新建 pair 尚不可交易。",
+        "four.meme 类发射台毕业样本：token 0xf80e4db5f779788c66e9186e03f5e0c12262ffff（symbol=真诚，18 位小数），聚合器显示 4meme 虚拟池 createdAt 13:18:43Z、Pancake V2 pair createdAt 13:21:57Z；链上 V2 pair 0xb7f46f38dd432fd160b0c7965771309838ae5c7c 经 getPair 复核匹配，reserve0=9.254000590220671038 WBNB、reserve1=341997507.428337977404975939 token、blockTimestampLast=14:27:53Z。",
+        "聚合器与链上价格不一致：真诚 pair 链上储备隐含 ≈1.85e-5 USDT/token（用同窗口 1 WBNB≈684.4 USDT 折算），而 Dexscreener priceUsd=1.443e-5（低约 22-28%）；说明展示价可能滞后/口径不同，不能当可执行价。",
+        "同区块（132600234, 14:26:05Z）Pancake 同权益多池报价：1 WBNB→USDT 在 V3 fee=500 为 684.399345713812996128、fee=2500 为 683.556485154256524731、V2 router 为 683.372723444618004355；fee=500 优于 V2 约 0.15%，但按 fee=500 反向报价折算往返仍损失约 0.10%（≈2×5bp+冲击），不构成闭环。"
       ],
       "coverage_gaps": [
-        "30天规则窗口仅核对BSC官方v1.8.2（发布时间2026-11-03），未分页遍历全生态治理/公告；无链上生效核验。",
-        "7天代表性活动未覆盖：RPC目标代理CONNECT 403，未取得chainId、区块、日志、交易或PoolCreated事件。",
-        "当前池/资产身份、工厂bytecode、流动性、费率开关/白名单及报价均未链上验证；源代码不能当当前状态。",
-        "生态目录www.bnbchain.org被代理403；旧小池轮转和退出窗口未完成。"
+        "7 天/30 天窗口远未完成：本轮仅扫 V3 5000 块（≈37.5 分钟）、V2 2000 块（≈15 分钟）事件；按实测约 0.45s/块，7 天≈134 万块、30 天≈576 万块，公开 RPC 事件分页无法在时限内覆盖。",
+        "eth_getLogs 在 bsc-dataseed 被 limit exceeded 拒绝（2000/5000 块窗口各 1 次）；回退 publicnode 只验证了短窗口，未测其分页上限与稳定性。",
+        "未深读 5 组代表交易（只核验 2 个新市场身份 + 2 个新 pair），未做输入→协议→输出→剩余仓位闭环。",
+        "BSCDX（0x0db878…）发行方、供应量、转账税/黑名单/卖出限制未知；0x4950755f…/0xe0b76b7c… 两侧资产未核验；0x062a9cec… 1% 池未读状态/报价。",
+        "BSCDX/USDT 0.01% 池的 slot0/liquidity/流动性深度、0.01/0.1/1/10 USDT 容量序列未测；真诚 pair 的 0.1/1/10 BNB 容量未测。",
+        "Dexscreener 发现仅取 token-profiles 最新 30 条（其中 BSC 2 条），未做趋势/新池/多页轮转；www.bnbchain.org 生态目录按历史 403 策略未重试；Venus API 返回结构非预期未使用。",
+        "30 天规则窗口只核 bsc releases atom（8 条版本），未遍历 BSC 治理/生态协议公告；Jenner/BEP-702/703 无链上生效证据（日期未到）。",
+        "Pancake V3 Factory owner 0x0f6f… 身份未核验；未核对新 pool 创建者（tx from）是否同一实体/做市方。"
       ],
-      "report": "reports/agents/N-BNB/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-BNB/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "BNB",
       "owner": "worker_b",
       "prompt": "prompts/agents/N-BNB.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 7,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-        "verified_at": "2026-11-08T15:25:36.912083+00:00",
-        "record": "evidence/N-BNB/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-ETH",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:24:52.450934+00:00",
+      "last_success_at": "2026-11-09T14:29:35+00:00",
+      "last_attempt_at": "2026-11-09T14:29:35+00:00",
       "actual_coverage": [
-        "从Lido官方部署文件读到chainId=networkId=1、stETH/wstETH/WithdrawalQueue代理和实现地址；尚未独立链核验。",
-        "Uniswap官方v3-core README可访问，但本轮未取部署表和工厂事件，不登记已验证池。",
-        "WithdrawalQueueERC721.sol第29-30行描述request铸NFT/claim销毁；第147-155行finalize有_checkResumed与FINALIZE_ROLE权限。"
+        "链身份：eth_chainId=0x1；head=26377933（2026-11-09T14:28:31Z，hash 0x7c3c6cd1...）；身份/状态固定块 26377918、新鲜报价固定块 26377930（hash 0x8f78086c0b1653b687a0507108e0f08174a7c70403331ae6a2fe865098f2c070，14:27:47Z）。",
+        "合约身份：stETH 代理 0xae7ab965...（1035 B，keccak 0xb9c1c929...），Aragon kernel 槽=0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc（与官方 kernel 一致）；wstETH 0x7f39C581...（6492 B，keccak 0x63018188...）；WithdrawalQueue 代理 0x889edC2e...（2497 B，keccak 0x9bc25fa4...）。",
+        "WithdrawalQueue EIP-1967 实现槽=0xE42C659Dc09109566720EA8b2De186c2Be7D94D9，与官方 deployed-mainnet.json 的 withdrawalQueueERC721.implementation 一致；admin 槽=0x3e40d73e...66e9c8c。stETH 官方 implementation 字段 0x028271E...（Aragon 代理未用 getApp 独立读取，仅 kernel 槽对照）。",
+        "协议状态（块 26377918/26377930 复读一致）：queue lastRequestId=141221、lastFinalizedRequestId=141196、unfinalizedStETH=3969.034436226547 stETH、isPaused=false（resumeSince=1684163759=2023-05-15）；stETH totalShares=7769976.047283119146155336、totalPooledEther=totalSupply=9703317.492564546911300039、contractVersion=4；wstETH stEthPerToken=1248822059877191983、tokensPerStEth=800754592770677900。",
+        "Curve stETH/ETH 池 0xDC24316b...（15735 B，keccak 0xe2c45ce8...；coins[0]=native ETH、coins[1]=stETH；fee()=1000000，按 FEE_DENOMINATOR=1e10 为 0.01%；A()=900；paused() 调用 revert，未确认暂停字段）。",
+        "新鲜报价（块 26377930）：ETH→stETH 100 ETH=100.00746578971597 stETH（1.0000746579 stETH/ETH，隐含 0.99992534 ETH/stETH）、10 ETH=10.000801631696874（1.0000801632）；stETH→ETH 1=0.9997191955388933、100=99.97131213679346。",
+        "历史报价（块 26377918，抓取已超 60 秒，仅作尺度参考）：ETH→stETH 0.01/0.1/1/10/100 ETH 比率为 1.00008396/1.00008395/1.00008390/1.00008335/1.00007783；stETH→ETH 同档为 0.99971607/0.99971607/0.99971601/0.99971546/0.99970993。",
+        "价差：以 100 ETH 买入 100.00746579 stETH 计，若队列按协议平价（1 stETH≈1 ETH）兑付，粗价差=+0.00746579 ETH（+0.00747%）；10 ETH 档粗价差=+0.00080163 ETH；0.01/0.1/1 ETH 档毛价差小于最小成本量级。直接池内卖出的损失约 0.028-0.029%，队列路径主要优势是替代卖出腿。"
       ],
       "coverage_gaps": [
-        "最近30天（2026-10-09至2026-11-08）规则变更未回溯；没有公告/治理/事件时间线，不将当前master源码当变更生效证据。",
-        "最近7天（2026-11-01至2026-11-08）代表性活动未读取；无交易、日志或完整区块范围。",
-        "当前Ethereum RPC eth_chainId因代理CONNECT 403失败；链存活、代理实现、合约代码和区块均未实时核验。",
-        "当前赎回队列状态、容量、暂停状态、实际等待、费用与市场指定数量报价未知。",
-        "未取得Ethereum官方生态入口；DEX工厂白名单、新池事件、旧小池轮转均未建立，只完成静态文档发现子集。"
+        "30 天（2026-10-10～2026-11-09）规则变更仅覆盖 Lido core GitHub 仓库提交（5 条，无合约规则变更）；Lido 治理提案/论坛/公告与 Aragon 链上投票未覆盖，不能推断全网无规则变化。",
+        "7 天活动窗口未覆盖：Uniswap V3 PoolCreated 的 7 天范围请求被 RPC 以 archive token 为由拒绝，实际只覆盖 7200 块（约 2026-11-08T14:26Z～2026-11-09T14:26Z，24h）；代表性交易未抽样。",
+        "26 个新池的代币身份、流动性、费率适配与可交易性未核验，仅登记事件；未做旧小池轮转。",
+        "队列 request/claim gas、getClaimableEther、finalize 节奏/权限、withdrawal NFT 状态未读；getWithdrawalStatus 在 4 个 requestId 上 revert 原因未确认。",
+        "Curve 池 paused() 调用 revert（字段/实现未知）；未测价差可持续时间与反向（卖出 stETH→买入 ETH→再请求）路径的成本。",
+        "IWithdrawalQueue.sol 路径 404、WithdrawalQueueERC721.sol 内容与预期接口不符（源已重构），本轮规则证据仅来自链上读取与官方部署清单。"
       ],
-      "report": "reports/agents/N-ETH/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-ETH/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "ETH",
       "owner": "worker_a",
       "prompt": "prompts/agents/N-ETH.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 7,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-        "verified_at": "2026-11-08T15:25:36.912083+00:00",
-        "record": "evidence/N-ETH/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-OP",
@@ -382,54 +387,177 @@
       "agent_id": "N-SOL",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:24:55.859069+00:00",
+      "last_success_at": "2026-11-09T14:32:00+00:00",
+      "last_attempt_at": "2026-11-09T14:32:00+00:00",
       "actual_coverage": [
         {
-          "protocol": "Raydium",
-          "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
-          "kind": "CLMM_PROGRAM_ID",
-          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+          "type": "cluster_identity",
+          "protocol": "Solana",
+          "address": "genesis 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+          "fields": {
+            "getVersion": "solana-core 4.4.0, feature-set 2681577653",
+            "epoch": 1081,
+            "getSlot_finalized_at_probe": 467350286,
+            "blocktime_at_slot_467350931": "2026-11-09T14:27:37Z"
+          },
+          "evidence_file": "raw/rpc_programs_multi.json"
         },
         {
-          "protocol": "Raydium",
-          "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
-          "kind": "CREATE_CPMM_POOL_PROGRAM",
-          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+          "type": "program_onchain_identity",
+          "protocol": "Raydium CLMM",
+          "address": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+          "fields": {
+            "executable": true,
+            "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+            "space": 36,
+            "programdata_address": "HzD2cCXXT3UQNjMMY6kDv9w6gZ9qquSdfoGXrLL3LXx",
+            "last_deploy_slot": 459932378,
+            "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+            "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+            "age_days": 18.34
+          },
+          "slot": 467350933,
+          "evidence_file": "raw/rpc_programdata_extract.json"
         },
         {
+          "type": "program_onchain_identity",
+          "protocol": "Raydium CPMM",
+          "address": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+          "fields": {
+            "executable": true,
+            "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+            "space": 36,
+            "programdata_address": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+            "last_deploy_slot": 463522946,
+            "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+            "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+            "age_days": 9.49
+          },
+          "slot": 467350933,
+          "evidence_file": "raw/rpc_programdata_extract.json"
+        },
+        {
+          "type": "program_onchain_identity",
           "protocol": "Orca Whirlpools",
-          "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
-          "kind": "README official deployment",
-          "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
+          "address": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+          "fields": {
+            "executable": true,
+            "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+            "space": 36,
+            "programdata_address": "CtXfPzz36dH5Ws4UYKZvrQ1Xqzn42ecDW6y8NKuiN8nD",
+            "last_deploy_slot": 457152296,
+            "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+            "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV",
+            "age_days": 25.3
+          },
+          "slot": 467350933,
+          "evidence_file": "raw/rpc_programdata_extract.json"
+        },
+        {
+          "type": "program_onchain_identity",
+          "protocol": "SPL Token-2022",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "fields": {
+            "executable": true,
+            "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+            "space": 36,
+            "programdata_address": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY",
+            "last_deploy_slot": 460497271,
+            "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+            "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz",
+            "age_days": 16.95
+          },
+          "slot": 467350933,
+          "evidence_file": "raw/rpc_programdata_extract.json"
+        },
+        {
+          "type": "program_onchain_identity",
+          "protocol": "Raydium AMM v4 / SPL Token classic",
+          "address": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8 / TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "fields": {
+            "executable": true,
+            "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+            "AMM_v4_last_deploy_time_utc": "2026-09-10T01:52:56+00:00",
+            "token_classic_last_deploy_time_utc": "2026-05-13T12:39:34+00:00",
+            "token_classic_has_upgrade_authority": false
+          },
+          "slot": 467350933,
+          "evidence_file": "raw/rpc_programdata_extract.json"
+        },
+        {
+          "type": "new_market_identity",
+          "protocol": "Raydium CPMM",
+          "address": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+          "fields": {
+            "owner_program": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+            "space": 637,
+            "api_createdAt": "1794169583",
+            "api_createdAt_utc": "2026-11-08T20:26:23+00:00",
+            "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+            "mintA_owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "mintA_space": 687,
+            "mintB": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+            "mintB_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "mintB_space": 82,
+            "feeRate_api": 0.01,
+            "day_volume_api": 4932907.92,
+            "tvl_api": 254612.5
+          },
+          "slot": 467351334,
+          "blocktime_utc": "2026-11-09T14:29:04+00:00",
+          "evidence_file": "raw/new_pool_check.json"
+        },
+        {
+          "type": "token2022_mint_extensions",
+          "protocol": "SPL Token-2022 mint",
+          "address": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+          "fields": {
+            "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+            "data_len": 687,
+            "mint_authority_present": true,
+            "freeze_authority_present": true,
+            "supply": "4675936223",
+            "decimals": 6,
+            "extensions_manual_parse": [
+              "MetadataPointer(len64)",
+              "PermanentDelegate(len32)",
+              "DefaultAccountState(len1)",
+              "ConfidentialTransferMint(len65)",
+              "TransferHook(len64)",
+              "TokenMetadata(len174)",
+              "Unknown(25,len56)",
+              "Unknown(26,len33)"
+            ],
+            "decode_status": "MANUAL_TLV_UNVERIFIED"
+          },
+          "slot": 467351334,
+          "evidence_file": "raw/mint2022_decode.json"
         }
       ],
       "coverage_gaps": [
-        "30天规则窗口2026-10-09至2026-11-08未覆盖：未取得历史提交/公告生效/链上事件。",
-        "7天活动窗口2026-11-01至2026-11-08未覆盖：RPC被CONNECT 403拒绝，无slot或交易。",
-        "当前集群genesis/slot/commitment、program owner/代码和市场账户未核验。",
-        "未扫描已核验工厂/注册表，无分页与事件游标，未发现具体池或mint。",
-        "旧小池退出窗口、数量报价及完整成本未核验。"
+        "7天活动窗口（2026-11-02～2026-11-09）未覆盖：只读 Orca SOL/USDC 池最近 10 条签名（约 55 秒窗口）与新池最近 3 条签名，无 7 天分页、无 24h/7d 交易统计。",
+        "30天规则窗口（2026-10-10～2026-11-09）部分覆盖：只用 last_deploy_slot/blockTime 检测到 4 个程序升级，未比对程序字节码/版本/官方 release 或公告，未确认规则语义变化。",
+        "Token-2022 mint 扩展为手工 TLV 解析，未与官方 layout 对照；2 个未知扩展类型（25/26）未识别；transfer fee 参数、hook program、permanent delegate 与 freeze authority 具体地址未解出。",
+        "新池资产身份未核对发行方：NVDAV token 名称/元数据与官方文档未互证，不能当作特定股票权益。",
+        "目录覆盖仅单页：Raydium pageSize=10、Orca limit=10、DexScreener latest profiles 30 条（15 Solana）未深入；无分页游标，不声称覆盖全链新池。",
+        "未做交易指令级深读（0/5 组）；Orca 池样本 9/10 条签名失败，错误码与原因未解析。",
+        "无数量报价、费用、容量、滑点、优先费、账户租金数据；本岗位不报价（交 SOL01）。",
+        "Solana 公共 RPC 批量 getAccountInfo 于 14:26:24Z 返回方法级 429（Too many requests for a specific RPC call），已改 getMultipleAccounts 成功；记录该端点限流行为。"
       ],
-      "report": "reports/agents/N-SOL/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-SOL/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "SOL",
       "owner": "worker_c",
       "prompt": "prompts/agents/N-SOL.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 6,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "aff6699b9b0aa22fbf0fef9ea5160b3bd70167d9",
-        "verified_at": "2026-11-08T15:25:36.912083+00:00",
-        "record": "evidence/N-SOL/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-SONIC",
@@ -2352,5 +2480,6 @@
         "record": "evidence/X-BASE/full-20261108T152118Z/record.json"
       }
     }
-  ]
+  ],
+  "status": "LIVE_ROUND_IN_PROGRESS"
 }

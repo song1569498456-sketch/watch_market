@@ -1,0 +1,106 @@
+{
+ "url": "https://api.orca.so/v2/solana/pools?limit=10",
+ "retrieved_at_utc": "2026-11-09T14:26:29.340369+00:00",
+ "pools": [
+  {
+   "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "446328917892158",
+   "sqrtPrice": "5437723352397395479",
+   "tickCurrentIndex": -24432
+  },
+  {
+   "address": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "1324009858740",
+   "sqrtPrice": "503618443487818456831",
+   "tickCurrentIndex": 66141
+  },
+  {
+   "address": "HktfL7iwGKT5QHjywQkcDnZXScoh811k7akrMZJkCcEF",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "54768296318476",
+   "sqrtPrice": "1181118333124149574",
+   "tickCurrentIndex": -54972
+  },
+  {
+   "address": "B5EwJVDuAauzUEEdwvbuXzbFFgEYnUqqS37TUM1c4PQA",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+   "feeRate": 500,
+   "tickSpacing": 8,
+   "liquidity": "2392625712450",
+   "sqrtPrice": "199307753443981624",
+   "tickCurrentIndex": -90561
+  },
+  {
+   "address": "GTHKH8s82ZR8GTSFZ1dUu6wfdxhy59wpMShxzG5zjiPm",
+   "tokenMintA": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "6514143735894",
+   "sqrtPrice": "64337502765945775641",
+   "tickCurrentIndex": 24986
+  },
+  {
+   "address": "2TAgfogn8JRwwTnsGKUa6WUT5Xdv1iMEzfEDMor68X9C",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "31105750204907",
+   "sqrtPrice": "1558713345711332628",
+   "tickCurrentIndex": -49424
+  },
+  {
+   "address": "9tXiuRRw7kbejLhZXtxDxYs2REe43uH2e7k1kocgdM9B",
+   "tokenMintA": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "33456950999615258",
+   "sqrtPrice": "18448085710097392151",
+   "tickCurrentIndex": 1
+  },
+  {
+   "address": "4v8ufj8Hj7UvFgtofQJAtzUud5xomwZfEqfCTHZ4wM72",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+   "feeRate": 100,
+   "tickSpacing": 1,
+   "liquidity": "3447398432278",
+   "sqrtPrice": "18458635553761909688",
+   "tickCurrentIndex": 12
+  },
+  {
+   "address": "BofA2ViUSudPBTUms2KRuG6AHNeMawjNfwqTJDgx5BKW",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+   "feeRate": 1600,
+   "tickSpacing": 16,
+   "liquidity": "1040872594736784",
+   "sqrtPrice": "90027179041251354187",
+   "tickCurrentIndex": 31706
+  },
+  {
+   "address": "3Vj5gFHtctCTLU3u6XAjncjo5mKjAiD6VYU8dSNFL4mb",
+   "tokenMintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 3000,
+   "tickSpacing": 64,
+   "liquidity": "233856332107",
+   "sqrtPrice": "243810006089948963374",
+   "tickCurrentIndex": 51632
+  }
+ ]
+}

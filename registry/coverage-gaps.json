@@ -2575,6 +2575,272 @@
         "先读远端本轮状态，修复逐岗来源访问，再补链身份、30/7窗口和完整数量路径。",
         "保留稳定finding_id，Q00纠错追加；不把未核验列为利润。"
       ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天（2026-10-10～2026-11-09）规则变更仅覆盖 Lido core GitHub 仓库提交（5 条，无合约规则变更）；Lido 治理提案/论坛/公告与 Aragon 链上投票未覆盖，不能推断全网无规则变化。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动窗口未覆盖：Uniswap V3 PoolCreated 的 7 天范围请求被 RPC 以 archive token 为由拒绝，实际只覆盖 7200 块（约 2026-11-08T14:26Z～2026-11-09T14:26Z，24h）；代表性交易未抽样。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "26 个新池的代币身份、流动性、费率适配与可交易性未核验，仅登记事件；未做旧小池轮转。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "队列 request/claim gas、getClaimableEther、finalize 节奏/权限、withdrawal NFT 状态未读；getWithdrawalStatus 在 4 个 requestId 上 revert 原因未确认。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Curve 池 paused() 调用 revert（字段/实现未知）；未测价差可持续时间与反向（卖出 stETH→买入 ETH→再请求）路径的成本。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-ETH",
+      "run_id": "live-20261109T141903Z",
+      "gap": "IWithdrawalQueue.sol 路径 404、WithdrawalQueueERC721.sol 内容与预期接口不符（源已重构），本轮规则证据仅来自链上读取与官方部署清单。",
+      "next_check": [
+        "ETH01：固定块量测 requestWithdrawals+claimWithdrawal gas 与 getClaimableEther 实际可领取额，读 finalize 计划/权限与等待时间，把 finding 从 QUOTED 推进到 SIMULATED 或降级。",
+        "N-ETH：下轮补 7 天 DEX 工厂事件（用支持 archive 的 RPC 或分段游标）与 26 个新池代币身份核验；轮转旧小池；补 Lido 治理/公告 30 天规则时间线。",
+        "诊断 getWithdrawalStatus revert 原因（selector/实现版本）一次；确认 Curve paused 字段来源。",
+        "Q00：复核 +0.00747%（100 ETH 档）粗价差的成本/等待/记账率假设，尤其不得把记账率漂移设为 0、不得把 view 报价当成交。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天/30 天窗口远未完成：本轮仅扫 V3 5000 块（≈37.5 分钟）、V2 2000 块（≈15 分钟）事件；按实测约 0.45s/块，7 天≈134 万块、30 天≈576 万块，公开 RPC 事件分页无法在时限内覆盖。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "eth_getLogs 在 bsc-dataseed 被 limit exceeded 拒绝（2000/5000 块窗口各 1 次）；回退 publicnode 只验证了短窗口，未测其分页上限与稳定性。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未深读 5 组代表交易（只核验 2 个新市场身份 + 2 个新 pair），未做输入→协议→输出→剩余仓位闭环。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "BSCDX（0x0db878…）发行方、供应量、转账税/黑名单/卖出限制未知；0x4950755f…/0xe0b76b7c… 两侧资产未核验；0x062a9cec… 1% 池未读状态/报价。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "BSCDX/USDT 0.01% 池的 slot0/liquidity/流动性深度、0.01/0.1/1/10 USDT 容量序列未测；真诚 pair 的 0.1/1/10 BNB 容量未测。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Dexscreener 发现仅取 token-profiles 最新 30 条（其中 BSC 2 条），未做趋势/新池/多页轮转；www.bnbchain.org 生态目录按历史 403 策略未重试；Venus API 返回结构非预期未使用。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口只核 bsc releases atom（8 条版本），未遍历 BSC 治理/生态协议公告；Jenner/BEP-702/703 无链上生效证据（日期未到）。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-BNB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Pancake V3 Factory owner 0x0f6f… 身份未核验；未核对新 pool 创建者（tx from）是否同一实体/做市方。",
+      "next_check": [
+        "用 bsc-rpc.publicnode.com 从 132600472 起分页扫描 PancakeV3 PoolCreated 与 V2 PairCreated（先测该 host 单次最大块跨度），登记 24h 新市场队列，并读新 pool 创建 tx 的 from 以识别集中创建者。",
+        "对 BSCDX/USDT fee=100 池读 slot0/liquidity/token 权限（是否可税/黑名单），做 0.01/0.1/1/10 USDT 与反向报价；确认 0.01% 费档是否被系统性用于新币发行。",
+        "对真诚/WBNB pair 在同一区块比较 QuoterV2/ router 报价与 Dexscreener priceUsd，读其 4meme 虚拟池合约（pairCreatedAt 链上证据）与毕业规则，确认聚合器差异是滞后还是口径。",
+        "实测 BSC 出块间隔约 0.45s 的来源：核对 v1.8.x 发布说明/链参数与 7 天前后区块时间，判断是否为近期规则变化。",
+        "2026-12-08 02:30 UTC 前后核对 Jenner 激活、CAS20 管理员任命与 BEP-703 payment lane 比例/合约列表是否链上生效。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7天活动窗口（2026-11-02～2026-11-09）未覆盖：只读 Orca SOL/USDC 池最近 10 条签名（约 55 秒窗口）与新池最近 3 条签名，无 7 天分页、无 24h/7d 交易统计。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30天规则窗口（2026-10-10～2026-11-09）部分覆盖：只用 last_deploy_slot/blockTime 检测到 4 个程序升级，未比对程序字节码/版本/官方 release 或公告，未确认规则语义变化。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Token-2022 mint 扩展为手工 TLV 解析，未与官方 layout 对照；2 个未知扩展类型（25/26）未识别；transfer fee 参数、hook program、permanent delegate 与 freeze authority 具体地址未解出。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "新池资产身份未核对发行方：NVDAV token 名称/元数据与官方文档未互证，不能当作特定股票权益。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "目录覆盖仅单页：Raydium pageSize=10、Orca limit=10、DexScreener latest profiles 30 条（15 Solana）未深入；无分页游标，不声称覆盖全链新池。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做交易指令级深读（0/5 组）；Orca 池样本 9/10 条签名失败，错误码与原因未解析。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "无数量报价、费用、容量、滑点、优先费、账户租金数据；本岗位不报价（交 SOL01）。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
+    },
+    {
+      "agent_id": "N-SOL",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Solana 公共 RPC 批量 getAccountInfo 于 14:26:24Z 返回方法级 429（Too many requests for a specific RPC call），已改 getMultipleAccounts 成功；记录该端点限流行为。",
+      "next_check": [
+        "解码 NVDAV... 的 Token-2022 扩展（TransferFeeConfig/TransferHook/PermanentDelegate/MetadataPointer 具体参数），读 TokenMetadata 名称与发行方，与官方发行文档核对身份。",
+        "对 4HHcEX... 池取同一 slot 的储备/价格（Raydium API + 链上池账户），交 SOL01 做 0.01/0.1/1/10 SOL 数量报价；成本单列 Token-2022 转账费（若存在）、优先费、账户创建租金。",
+        "取 4 个 30 天内升级程序（CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15）的 ProgramData 字节码哈希/版本，与官方 release/tag/变更日志比对，确认是否规则变更。",
+        "用 getSignaturesForAddress before 游标补 7 天窗口：新池 4HHcEX... 与 Orca SOL/USDC 池，统计成功/失败与错误码分布。",
+        "用 Raydium/Orca API 第 2 页起及 createdAt 排序补新池清单，登记新对象队列并轮转深读。",
+        "复核手工 TLV 解析（与官方 Token-2022 extension layout 对照，确认类型 25/26 与偏移），再决定该池是否升级为可报价对象。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -1,0 +1,34 @@
+{
+  "finding_id": "ETH-LIDO-STETH-WITHDRAWAL-QUEUE-EXIT",
+  "status": "QUOTED",
+  "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+  "mechanism": "ETH 在 Curve 换入 stETH（当前约 1.000075 stETH/ETH）→ WithdrawalQueue requestWithdrawals（转为 shares/铸 NFT 进入队列）→ finalize 后 claimWithdrawal 领取按结束质押率折算的 ETH；以协议平价兑付替代池内折价卖出，测量到约 +0.00747%（100 ETH 档）粗价差，但需等待最终化并承担记账率漂移。",
+  "evidence_urls": [
+    "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+    "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+    "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "https://ethereum-rpc.publicnode.com"
+  ],
+  "net_result": "估算粗价差 +0.00746579 ETH/100 ETH 输入（+0.00747%），未实现；扣未测的 queue gas、等待成本与记账率风险后可能低于该值",
+  "unknown_costs": [
+    "队列 request/claim gas",
+    "等待最终化的时间/机会成本",
+    "记账率漂移",
+    "容量上限",
+    "NFT 等待期流动性"
+  ],
+  "handoff_to": [
+    "ETH01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "Curve 买方向隐含价格≥1.0 ETH/stETH",
+    "队列暂停/资格限制",
+    "finalize 等待或记账率下行抵消价差",
+    "代理实现/队列行为与官方部署不符",
+    "实际容量远小于测量档"
+  ],
+  "owner": "N-ETH",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,97 @@
+{
+ "reference_blocktime_utc": "2026-11-09T14:27:37+00:00",
+ "reference_slot": 467350933,
+ "pool_created_at": {
+  "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv": "2024-08-07T13:33:42+00:00",
+  "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj": "2026-11-08T20:26:23+00:00"
+ },
+ "upgrades": [
+  {
+   "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "last_deploy_slot": 459932378,
+   "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+   "age_days": 18.34,
+   "within_30d": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+  },
+  {
+   "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "last_deploy_slot": 463522946,
+   "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+   "age_days": 9.49,
+   "within_30d": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+  },
+  {
+   "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "last_deploy_slot": 445763204,
+   "last_deploy_time_utc": "2026-09-10T01:52:56+00:00",
+   "age_days": 60.52,
+   "within_30d": false,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+  },
+  {
+   "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "last_deploy_slot": 457152296,
+   "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+   "age_days": 25.3,
+   "within_30d": true,
+   "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV"
+  },
+  {
+   "program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "last_deploy_slot": 460497271,
+   "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+   "age_days": 16.95,
+   "within_30d": true,
+   "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz"
+  },
+  {
+   "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "last_deploy_slot": 419472000,
+   "last_deploy_time_utc": "2026-05-13T12:39:34+00:00",
+   "age_days": 180.08,
+   "within_30d": false,
+   "upgrade_authority": null
+  }
+ ],
+ "files_after": [
+  "cleanup.py",
+  "final.py",
+  "mint2022_decode.json",
+  "mint2022_decode.py",
+  "new_pool_check.json",
+  "new_pool_check.py",
+  "orca_pools.json",
+  "orca_readme.extract.json",
+  "raydium_pools.json",
+  "raydium_programId.mainnet.json",
+  "raydium_programId.ts.txt",
+  "rpc_pools_mints_multi.json",
+  "rpc_programdata_extract.json",
+  "rpc_programs_multi.json",
+  "rpc_raydium_pool_multi.json",
+  "rpc_signatures.json",
+  "summary.json"
+ ],
+ "pool_checks_raydium": [
+  {
+   "address": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+   "owner": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "executable": false,
+   "space": 1544
+  },
+  {
+   "address": "So11111111111111111111111111111111111111112",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  },
+  {
+   "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  }
+ ]
+}

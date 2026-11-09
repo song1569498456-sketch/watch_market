@@ -1,0 +1,30 @@
+{
+  "finding_id": "SOL-CORE-PROGRAM-UPGRADE-WINDOW-30D",
+  "status": "UNVERIFIED",
+  "chain": "SOL",
+  "protocol": "Raydium / Orca / SPL Token-2022",
+  "market_id": null,
+  "evidence_urls": [
+    "https://solscan.io/account/CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+    "https://solscan.io/account/CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+    "https://solscan.io/account/whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "https://solscan.io/account/TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+  ],
+  "mechanism": "4 个核心程序 last_deploy_slot 在 30 天窗口内且升级权限仍有效：CPMM 2026-10-31、Token-2022 2026-10-23、CLMM 2026-10-22、Whirlpool 2026-10-15。旧快照下的费率/指令/权限假设可能已过期；但升级内容未比对，只是规则变更候选，不是已确认规则差异或收益。",
+  "net_result": null,
+  "unknown_costs": [
+    "未知（不涉及交易成本）"
+  ],
+  "handoff_to": [
+    "M00",
+    "SOL01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "升级仅为补丁/回滚且不改变对外规则",
+    "字节码/版本与官方 release 一致且语义未变"
+  ],
+  "owner": "N-SOL",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json"
+}

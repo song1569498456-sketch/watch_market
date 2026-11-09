@@ -121,7 +121,20 @@
     "不创建定时任务，不宣称可无人值守运行",
     "不使用上一轮静态结论冒充本轮链上状态"
   ],
-  "batches": [],
+  "batches": [
+    {
+      "batch": 1,
+      "agents": [
+        "N-ETH",
+        "N-BNB",
+        "N-SOL"
+      ],
+      "merged_at": "2026-11-09T14:32:59.069483+00:00",
+      "storage_status": "PUSH_PENDING",
+      "evidence_commit": null,
+      "notes": "M00 merge_batch.py"
+    }
+  ],
   "started_at_utc": "2026-11-09T14:19:03Z",
   "started_at_beijing": "2026-11-09T22:19:03+08:00",
   "phases_status": {
@@ -152,6 +165,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 0
+    "completed": 1
   }
 }

@@ -1,0 +1,603 @@
+{
+ "started_at_utc": "2026-11-09T14:27:37.286188+00:00",
+ "raydium_mainnet_consts": {
+  "AMM_V4": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+  "AMM_STABLE": "5quBtoiQqxF9Jv6KYKctB59NT3gtJD2Y65kdnB1Uev3h",
+  "CLMM_PROGRAM_ID": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+  "CREATE_CPMM_POOL_PROGRAM": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+  "CLMM_LOCK_PROGRAM_ID": "LockrWmn6K5twhz3y9w1dQERbmgSaRkfnTeTKbpofwE",
+  "Router": "routeUGWgWzqBWFcrCfv8tritsqukccJPu3q5GPP3xS"
+ },
+ "orca_readme_ids": [
+  "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+ ],
+ "programs": [
+  {
+   "protocol": "Raydium",
+   "key": "CLMM_PROGRAM_ID",
+   "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "official_source": "raydium-sdk-V2 programId.ts (fetched 2026-11-09T14:27:01Z)",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 1857389137,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "HzD2cCXXT3UQNjMMY6kDv9w6gZ9qquSdfoGXrLL3LXx"
+  },
+  {
+   "protocol": "Raydium",
+   "key": "CREATE_CPMM_POOL_PROGRAM",
+   "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "official_source": "raydium-sdk-V2 programId.ts",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 50334585,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU"
+  },
+  {
+   "protocol": "Raydium",
+   "key": "AMM_V4",
+   "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "official_source": "raydium-sdk-V2 programId.ts",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 6389493637,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "A7ZG7ByDi8DpzT9Ab7CiXhvgYTJQmaDPJkMDoPitaCQV"
+  },
+  {
+   "protocol": "Orca Whirlpools",
+   "key": "WHIRLPOOL_PROGRAM",
+   "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "official_source": "orca-so/whirlpools README (fetched 2026-11-09T14:27Z)",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 76851581,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "CtXfPzz36dH5Ws4UYKZvrQ1Xqzn42ecDW6y8NKuiN8nD"
+  },
+  {
+   "protocol": "SPL Token-2022",
+   "key": "TOKEN_2022_PROGRAM",
+   "program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "official_source": "NOT_FETCHED_THIS_ROUND; widely documented ID",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 70228638,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY"
+  },
+  {
+   "protocol": "SPL Token (classic)",
+   "key": "TOKEN_PROGRAM",
+   "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "official_source": "NOT_FETCHED_THIS_ROUND; widely documented ID",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 230130698,
+   "space": 36,
+   "rpc_slot": 467350933,
+   "identity_status": "ONCHAIN_EXECUTABLE",
+   "programdata_address": "3gvYRKWyXRR9xKWe1ZjPhLY5ZJRN7KDB4rFZFGoJfFk2"
+  }
+ ],
+ "slot_from_program_reads": 467350933,
+ "programdata_rpc_slot": 467350937,
+ "program_upgrades": [
+  {
+   "program_id": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "programdata_address": "HzD2cCXXT3UQNjMMY6kDv9w6gZ9qquSdfoGXrLL3LXx",
+   "last_deploy_slot": 459932378,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 1700205,
+   "last_deploy_time_utc": "2026-10-22T06:24:28+00:00",
+   "age_slots": 7418555,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 18.34,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "programdata_address": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+   "last_deploy_slot": 463522946,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 793869,
+   "last_deploy_time_utc": "2026-10-31T02:37:24+00:00",
+   "age_slots": 3827987,
+   "within_7d_slots": false,
+   "within_30d_slots": true,
+   "age_days_from_blocktime": 9.49,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "programdata_address": "A7ZG7ByDi8DpzT9Ab7CiXhvgYTJQmaDPJkMDoPitaCQV",
+   "last_deploy_slot": 445763204,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+   "data_len": 1406429,
+   "last_deploy_time_utc": "2026-09-10T01:52:56+00:00",
+   "age_slots": 21587729,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 60.52,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": false
+  },
+  {
+   "program_id": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "programdata_address": "CtXfPzz36dH5Ws4UYKZvrQ1Xqzn42ecDW6y8NKuiN8nD",
+   "last_deploy_slot": 457152296,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "GwH3Hiv5mACLX3ufTw1pFsrhSPon5tdw252DBs4Rx4PV",
+   "data_len": 10485760,
+   "last_deploy_time_utc": "2026-10-15T07:22:05+00:00",
+   "age_slots": 10198637,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 25.3,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "programdata_address": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY",
+   "last_deploy_slot": 460497271,
+   "has_upgrade_authority": true,
+   "upgrade_authority": "AeLmXCbPaQHGWRLr2saFsEVfmMNuKnxRAbWCT9P5twgz",
+   "data_len": 1382061,
+   "last_deploy_time_utc": "2026-10-23T15:39:54+00:00",
+   "age_slots": 6853662,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 16.95,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": true
+  },
+  {
+   "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "programdata_address": "3gvYRKWyXRR9xKWe1ZjPhLY5ZJRN7KDB4rFZFGoJfFk2",
+   "last_deploy_slot": 419472000,
+   "has_upgrade_authority": false,
+   "upgrade_authority": null,
+   "data_len": 108645,
+   "last_deploy_time_utc": "2026-05-13T12:39:34+00:00",
+   "age_slots": 47878933,
+   "within_7d_slots": false,
+   "within_30d_slots": false,
+   "age_days_from_blocktime": 180.08,
+   "within_7d_by_blocktime": false,
+   "within_30d_by_blocktime": false
+  }
+ ],
+ "current_blocktime_utc": "2026-11-09T14:27:37+00:00",
+ "current_slot": 467350933,
+ "current_slot_note": "getBlockTime(467350931)",
+ "pool_mint_rpc_slot": 467351180,
+ "pool_checks": [
+  {
+   "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+   "owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "executable": false,
+   "space": 653,
+   "is_orca_whirlpool_program_owned": true,
+   "data_bytes": 653
+  },
+  {
+   "address": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+   "owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+   "executable": false,
+   "space": 653,
+   "is_orca_whirlpool_program_owned": true,
+   "data_bytes": 653
+  }
+ ],
+ "mint_checks": {
+  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+   "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  },
+  "So11111111111111111111111111111111111111112": {
+   "address": "So11111111111111111111111111111111111111112",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  },
+  "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij": {
+   "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  }
+ },
+ "orca_pools_verified": [
+  {
+   "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+   "tokenMintA": "So11111111111111111111111111111111111111112",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "446328917892158",
+   "sqrtPrice": "5437723352397395479",
+   "tickCurrentIndex": -24432,
+   "onchain": {
+    "address": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "executable": false,
+    "space": 653,
+    "is_orca_whirlpool_program_owned": true,
+    "data_bytes": 653
+   },
+   "mintA_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "mintB_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  },
+  {
+   "address": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+   "tokenMintA": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+   "tokenMintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "feeRate": 400,
+   "tickSpacing": 4,
+   "liquidity": "1324009858740",
+   "sqrtPrice": "503618443487818456831",
+   "tickCurrentIndex": 66141,
+   "onchain": {
+    "address": "HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+    "owner": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+    "executable": false,
+    "space": 653,
+    "is_orca_whirlpool_program_owned": true,
+    "data_bytes": 653
+   },
+   "mintA_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "mintB_owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  }
+ ],
+ "recent_signatures": [
+  {
+   "signature": "5EUv2uYs2XiAiZ3jrkvNxFj1PRvATL4BX9zpEx7sWwKKocmm5orvwVtY6bnUiiiwxup7ZZhwqxZpo2e6sFT5dERW",
+   "slot": 467351183,
+   "blockTime_utc": "2026-11-09T14:28:32+00:00",
+   "err": true
+  },
+  {
+   "signature": "4A6KCfi6ruGfRQjmTtEtejBo7xRZDpUCCus3WbdUyYQsgkfV63cNNhSw2VkKBvN3jiL22r2DQmEG9CxfDq5Wopks",
+   "slot": 467351182,
+   "blockTime_utc": "2026-11-09T14:28:32+00:00",
+   "err": true
+  },
+  {
+   "signature": "2xreUwvCm5ArH9thHNFUdmm58Jr1wXGgjAh9U7Tg7EPPVeDrzSBScj9w2WcPVnxLmNgdwn2Wk4kVxhtZHFjZBRV3",
+   "slot": 467351182,
+   "blockTime_utc": "2026-11-09T14:28:32+00:00",
+   "err": true
+  },
+  {
+   "signature": "4yackQpQW271qvGViD5deirqerGanzomSCpJ5FRYxCiAxqM6DbrbEidLE3afpw2o2Jk78cnxbvpDcawTbBzLNytA",
+   "slot": 467351181,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  },
+  {
+   "signature": "3HUxY7dFWok8wnTbbaF4VaouFnJ8bGzJfxeABeXnUbW1Gd6N7kCF9RUwQJduFXbMnpKwW6tpz6i6cPp9FkH3Rb86",
+   "slot": 467351181,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  },
+  {
+   "signature": "29nZygPVLaqT6Tb1MrN4VQnKnjS22J1BAtatLSRZ43w5GtpB5US4k9nqF4mL1Ma42HALQbahPG9MbkyPzeRTgCJp",
+   "slot": 467351181,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": false
+  },
+  {
+   "signature": "TcgAz1xfQAYL532KMrmNEs9BXaBmn6DqHqihKcDxUu4P81hADHMgiwnx6tqSKsrmD3E4grPJbfyH7LiTqV7A88t",
+   "slot": 467351180,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  },
+  {
+   "signature": "22TxPq58z8ZeCdcmCYYFgbN8WwMb4yqydWGzefgNH1QCiMebsndJvLBm4um9pSXB9FxojSRUzYig7iiNd2qctKr4",
+   "slot": 467351179,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  },
+  {
+   "signature": "3DTkSmhx1rQ5WzJLscshtb16HpA1W6K12scS6ko5WZFfXGRbJAGjwEMMn9V7SXMEXYRDkbBtPnfirhxTW59HYH2x",
+   "slot": 467351178,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  },
+  {
+   "signature": "5GCEqGBsLCHYAVAE1zUZuhjCtuyUVbu3RWfEnpQV4LcQ3AyzY18QmJ4Eyr3jMiXeASbMkBfVMYfjKHq8muKqQmcC",
+   "slot": 467351178,
+   "blockTime_utc": "2026-11-09T14:28:31+00:00",
+   "err": true
+  }
+ ],
+ "signature_read_at_utc": "2026-11-09T14:28:32.715115+00:00",
+ "raydium_pools": [
+  {
+   "id": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 6619880.18,
+   "day_volume": 15900169.86757642,
+   "feeRate": 0.0004,
+   "createdAt": "1723037622"
+  },
+  {
+   "id": "49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 2572104.28,
+   "day_volume": 8815375.534837108,
+   "feeRate": 0.001,
+   "createdAt": "0"
+  },
+  {
+   "id": "4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+   "type": "Standard",
+   "programId": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+   "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "mintB": "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat",
+   "tvl": 254612.5,
+   "day_volume": 4932907.921453107,
+   "feeRate": 0.01,
+   "createdAt": "1794169583"
+  },
+  {
+   "id": "58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2",
+   "type": "Standard",
+   "programId": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 17381857.82,
+   "day_volume": 2751595.527622847,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "FjuBy7jjf9DXj9d3R7cHpvcnoFW2iQxf7F7P3vqx4Jza",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 2442353.57,
+   "day_volume": 2677521.4808831024,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "2AXXcN6oN9bBT5owwmTH53C7QHUXvhLeu718Kqt8rvY2",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+   "tvl": 1962265.05,
+   "day_volume": 2541876.514947216,
+   "feeRate": 0.0005,
+   "createdAt": "0"
+  },
+  {
+   "id": "8HLazC9JupCbmQViNXmZCaQAHZ5opSk2YHH1Yim5SLaQ",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 104001.92,
+   "day_volume": 2244811.408798444,
+   "feeRate": 0.0025,
+   "createdAt": "0"
+  },
+  {
+   "id": "3nMFwZXwY1s1M5s8vYAHqd4wGs4iSxXE4LRoUMMYqEgF",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "So11111111111111111111111111111111111111112",
+   "mintB": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+   "tvl": 671410.82,
+   "day_volume": 2219951.5753813465,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  },
+  {
+   "id": "GUWFT7bbLphGrcpAPnnEnBbe1uErv9e6LLC2qPx2wZy1",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "mintB": "G7vQWurMkMMm2dU3iZpXYFTHT9Biio4F4gZCrwFpKNwG",
+   "tvl": 1686055.55,
+   "day_volume": 1923570.229305151,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  },
+  {
+   "id": "4pCZCVEiYyT4efNdXUdL2tJF8VGMgiMXrZWq6FiNXhRw",
+   "type": "Concentrated",
+   "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "mintA": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+   "mintB": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "tvl": 359805.34,
+   "day_volume": 1897268.4578386438,
+   "feeRate": 0.0001,
+   "createdAt": "0"
+  }
+ ],
+ "raydium_pool_checks": [
+  {
+   "address": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+   "owner": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+   "executable": false,
+   "space": 1544
+  },
+  {
+   "address": "So11111111111111111111111111111111111111112",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  },
+  {
+   "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+   "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+   "executable": false,
+   "space": 82
+  }
+ ],
+ "raydium_pool_rpc_slot": 467351194,
+ "raydium_pool_owner_matches_program": true,
+ "finished_at_utc": "2026-11-09T14:28:35.826586+00:00",
+ "requests": [
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "rpc_programs_multi",
+   "method": "getMultipleAccounts",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:27:38.388757+00:00",
+   "bytes": 1343,
+   "sha256": "f5c9fb1bdc8a1b00367ad8915fb9fb092575ecfb18fb1747debfbee3fdbc1e55",
+   "elapsed_s": 1.09
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "rpc_programdata_multi",
+   "method": "getMultipleAccounts",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:27:43.269638+00:00",
+   "bytes": 21170393,
+   "sha256": "b8c20b8b12a4c86eebcd37a98d9989399d4372462d38d58c837b7214dad15847",
+   "elapsed_s": 4.19
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_459932378",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:27:52.163253+00:00",
+   "bytes": 45,
+   "sha256": "08b47595944d43a767a12250dc5700cc2d05d1eb199d3c7abc00dbf5c71f81bd",
+   "elapsed_s": 7.947
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_463522946",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:27:59.696590+00:00",
+   "bytes": 45,
+   "sha256": "61cba8ae21906ebc8826f55b6ffc37041a07855eb808e0c6c5cdcfdface6f6ff",
+   "elapsed_s": 6.833
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_445763204",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:07.202733+00:00",
+   "bytes": 45,
+   "sha256": "fac2732436e7305352aae4181b21444701c572c18753952e6e7b0abb5a4df7a0",
+   "elapsed_s": 6.805
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_457152296",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:15.497404+00:00",
+   "bytes": 45,
+   "sha256": "9fd6496f7451268de26e26ec51fcdedaa7f7561021b7c074504aace52db03513",
+   "elapsed_s": 7.594
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_460497271",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:22.870302+00:00",
+   "bytes": 45,
+   "sha256": "51eb7ecbd5f9e99d8628f7b0548ca1d1119ed6599901c90512fd6258d06c2d5a",
+   "elapsed_s": 6.673
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_419472000",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:30.291468+00:00",
+   "bytes": 45,
+   "sha256": "f82caba2457b0007b5db3cba15a673218a95f774fdcdcc442f661118afbaabe1",
+   "elapsed_s": 6.72
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "getBlockTime_current",
+   "method": "getBlockTime",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:31.103884+00:00",
+   "bytes": 45,
+   "sha256": "7788deb70091221e3cd8929cf1f9abecc9dfd59ef5faa7ba056d703625d2bc32",
+   "elapsed_s": 0.112
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "rpc_pools_mints_multi",
+   "method": "getMultipleAccounts",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:31.914184+00:00",
+   "bytes": 2991,
+   "sha256": "ee6507dabbfc7557e90c4b867f6f864f958a9d0855de06a0019146d63da9a337",
+   "elapsed_s": 0.099
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "rpc_signatures",
+   "method": "getSignaturesForAddress",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:32.714224+00:00",
+   "bytes": 2587,
+   "sha256": "cfa43871f0afa7126439ebb8be1ed9e807e327eeb204be0b8e684ef20d212916",
+   "elapsed_s": 0.099
+  },
+  {
+   "url": "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1",
+   "name": "raydium_pool_list",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:34.306546+00:00",
+   "bytes": 23035,
+   "sha256": "3cfe8d21ac58e4caafae189029b8cca09b005170d5ea7d5f3fd55f988d08297c",
+   "elapsed_s": 0.891
+  },
+  {
+   "url": "https://api.mainnet-beta.solana.com",
+   "name": "rpc_raydium_pool_multi",
+   "method": "getMultipleAccounts",
+   "http_status": 200,
+   "retrieved_at_utc": "2026-11-09T14:28:35.125483+00:00",
+   "bytes": 2874,
+   "sha256": "b64d2b98d10ce35d89544472572b533d7be4eb105de636389a11dac6262f4681",
+   "elapsed_s": 0.117
+  }
+ ],
+ "request_count": 13,
+ "slot_threshold_note": "脚本内先按 400ms/槽 估算的 within_*_slots 阈值不适用于本轮实测槽速（实测约5槽/秒），已改用区块时间判断；以 *_by_blocktime 为准。"
+}

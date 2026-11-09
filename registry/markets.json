@@ -4,21 +4,21 @@
     {
       "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
       "chain": "ETH",
-      "protocol": "Lido WithdrawalQueueERC721",
+      "protocol": "Lido WithdrawalQueueERC721（OssifiableProxy）",
       "asset_ids": [
         "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
         "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
       ],
       "evidence_urls": [
         "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
-        "https://raw.githubusercontent.com/lidofinance/core/master/contracts/0.8.9/WithdrawalQueueERC721.sol",
-        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1"
+        "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+        "https://ethereum-rpc.publicnode.com"
       ],
-      "identity_status": "OFFICIAL_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
-      "next_check": "ETH01核对RPC chainId=1与当前区块；eth_getCode(queue/stETH/wstETH)以及代理实现；对照官方部署字段。",
+      "identity_status": "CHAIN_VERIFIED：EIP-1967 impl 槽=0xE42C659D...，与官方部署清单一致；stETH Aragon kernel 槽与官方 kernel 一致；队列未暂停",
+      "next_check": "ETH01 量测 request/claim gas 与可领取额、finalize 节奏；确认等待时间与容量后推进结论等级",
       "owner": "N-ETH",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ETH/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "ETH01": {
           "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
@@ -57,10 +57,26 @@
           "owner": "ETH05",
           "last_observed_run": "full-20261108T152118Z",
           "source_record": "evidence/ETH05/full-20261108T152118Z/record.json"
+        },
+        "N-ETH": {
+          "market_id": "ETH:LIDO:WITHDRAWAL_QUEUE:0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+          "chain": "ETH",
+          "protocol": "Lido WithdrawalQueueERC721（OssifiableProxy）",
+          "asset_ids": [
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+            "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+          ],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/lidofinance/core/master/deployed-mainnet.json",
+            "https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "identity_status": "CHAIN_VERIFIED：EIP-1967 impl 槽=0xE42C659D...，与官方部署清单一致；stETH Aragon kernel 槽与官方 kernel 一致；队列未暂停",
+          "next_check": "ETH01 量测 request/claim gas 与可领取额、finalize 节奏；确认等待时间与容量后推进结论等级"
         }
       },
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
+      "current_onchain_verified": true,
       "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
     },
     {
@@ -69,17 +85,31 @@
       "protocol": "PancakeSwap V3",
       "asset_ids": [],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/pancakeswap/pancake-v3-contracts/main/deployments/bscMainnet.json"
+        "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
       ],
-      "identity_status": "DOCUMENT_ONLY_NOT_CHAIN_VERIFIED",
+      "identity_status": "CHAIN_VERIFIED",
       "kind": "factory_discovery_queue",
-      "next_check": "获准访问BNB只读RPC后先核对eth_chainId=0x38、最新区块与工厂eth_getCode，分段查询PoolCreated和FeeAmount事件，记录确切起止区块。",
+      "next_check": "继续用 PoolCreated 事件分页发现新池；读新 pool 创建者与 fee 档分布",
       "owner": "N-BNB",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-BNB/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "N-BNB": {
+          "market_id": "BNB:56:PancakeV3Factory:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://bscscan.com/address/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+          ],
+          "identity_status": "CHAIN_VERIFIED",
+          "kind": "factory_registry",
+          "next_check": "继续用 PoolCreated 事件分页发现新池；读新 pool 创建者与 fee 档分布"
+        }
+      }
     },
     {
       "market_id": "BNB:56:Lista:Interaction:0xb68443ee3e828bad1526b3e0bdf2dfc6b1975ec4",
@@ -809,8 +839,376 @@
       "protocol_version": "unknown",
       "current_onchain_verified": false,
       "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+    },
+    {
+      "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+      "chain": "ETH",
+      "protocol": "Curve StableSwap stETH/ETH",
+      "asset_ids": [
+        "eip155:1/native:ETH",
+        "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+      ],
+      "evidence_urls": [
+        "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+        "https://ethereum-rpc.publicnode.com"
+      ],
+      "identity_status": "CHAIN_VERIFIED：code 15735 B/keccak 0xe2c45ce8...，coins[0]=native、coins[1]=stETH，fee=1000000/1e10，A=900；paused 字段 revert 未确认",
+      "next_check": "量化 100 ETH 以上档的容量上限与价差可持续时间；补 paused/管理权限读法",
+      "owner": "N-ETH",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-ETH": {
+          "market_id": "ETH:CURVE:STETH_ETH:0xdc24316b9ae028f1497c275eb9192a3ea0f67022",
+          "chain": "ETH",
+          "protocol": "Curve StableSwap stETH/ETH",
+          "asset_ids": [
+            "eip155:1/native:ETH",
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+          ],
+          "evidence_urls": [
+            "https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "identity_status": "CHAIN_VERIFIED：code 15735 B/keccak 0xe2c45ce8...，coins[0]=native、coins[1]=stETH，fee=1000000/1e10，A=900；paused 字段 revert 未确认",
+          "next_check": "量化 100 ETH 以上档的容量上限与价差可持续时间；补 paused/管理权限读法"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ETH:UNISWAP_V3:NEW_POOLS_20261109_24H",
+      "chain": "ETH",
+      "protocol": "Uniswap V3 Factory（PoolCreated 事件批次）",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "https://ethereum-rpc.publicnode.com"
+      ],
+      "identity_status": "EVENTS_OBSERVED_TOKENS_UNVERIFIED：块 26370721-26377921 新增 26 池（fee 500:13/3000:6/100:4/10000:3），无 stETH/wstETH 池；明细见 raw/new-pools-univ3-24h.json",
+      "next_check": "N-ETH 下轮核验代币身份与流动性，按结构新颖度筛 5 个深读；补 7 天窗口",
+      "owner": "N-ETH",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ETH/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-ETH": {
+          "market_id": "ETH:UNISWAP_V3:NEW_POOLS_20261109_24H",
+          "chain": "ETH",
+          "protocol": "Uniswap V3 Factory（PoolCreated 事件批次）",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "identity_status": "EVENTS_OBSERVED_TOKENS_UNVERIFIED：块 26370721-26377921 新增 26 池（fee 500:13/3000:6/100:4/10000:3），无 stETH/wstETH 池；明细见 raw/new-pools-univ3-24h.json",
+          "next_check": "N-ETH 下轮核验代币身份与流动性，按结构新颖度筛 5 个深读；补 7 天窗口"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [
+        "0x0db878add1f99a9191c4c4f4da5dd6683601ae52",
+        "0x55d398326f99059fF775485246999027B3197955"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+        "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2"
+      ],
+      "identity_status": "POOL_IDENTITY_VERIFIED_TOKEN_RULES_UNKNOWN",
+      "next_check": "读 slot0/liquidity；核验 BSCDX 转账限制与供应；做容量序列",
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BNB": {
+          "market_id": "BNB:56:PancakeV3Pool:0x89d58f83e57ae74362a83b23086c556a206ffeb2",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3",
+          "asset_ids": [
+            "0x0db878add1f99a9191c4c4f4da5dd6683601ae52",
+            "0x55d398326f99059fF775485246999027B3197955"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/tx/0x742846d2908b6fbc00192e4d54bdc937766e6d8aa18ff39b3b282cce685a5410",
+            "https://bscscan.com/address/0x89d58f83e57ae74362a83b23086c556a206ffeb2"
+          ],
+          "identity_status": "POOL_IDENTITY_VERIFIED_TOKEN_RULES_UNKNOWN",
+          "kind": "new_v3_pool_fee100",
+          "next_check": "读 slot0/liquidity；核验 BSCDX 转账限制与供应；做容量序列"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV3Pool:0x062a9cec2f1034006d8a70578083409859a72e58",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V3",
+      "asset_ids": [
+        "0x4950755fd8fe56bd675c8ca75ad8de1b74356666",
+        "0xe0b76b7c6b093b0b101cfd62190a0781d63d9799"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74",
+        "https://bscscan.com/address/0x062a9cec2f1034006d8a70578083409859a72e58"
+      ],
+      "identity_status": "FACTORY_LOG_ONLY",
+      "next_check": "核验两侧资产身份、池状态与是否存在报价",
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BNB": {
+          "market_id": "BNB:56:PancakeV3Pool:0x062a9cec2f1034006d8a70578083409859a72e58",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V3",
+          "asset_ids": [
+            "0x4950755fd8fe56bd675c8ca75ad8de1b74356666",
+            "0xe0b76b7c6b093b0b101cfd62190a0781d63d9799"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/tx/0xd47cd7d0f3f8ef23afee68bcd849085d053476c1dbfd8f9838c0afe8d592fc74",
+            "https://bscscan.com/address/0x062a9cec2f1034006d8a70578083409859a72e58"
+          ],
+          "identity_status": "FACTORY_LOG_ONLY",
+          "kind": "new_v3_pool_fee10000",
+          "next_check": "核验两侧资产身份、池状态与是否存在报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0x1c007460942ff6025a75976b71b1596720296704",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2",
+      "asset_ids": [
+        "0x30ddb30f10126c6614c9865ac45de4718ff67777",
+        "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/tx/0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6",
+        "https://bscscan.com/address/0x1c007460942ff6025a75976b71b1596720296704"
+      ],
+      "identity_status": "PAIR_IDENTITY_VERIFIED_EMPTY_POOL",
+      "next_check": "跟踪是否注入流动性；空池不计机会",
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BNB": {
+          "market_id": "BNB:56:PancakeV2Pair:0x1c007460942ff6025a75976b71b1596720296704",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2",
+          "asset_ids": [
+            "0x30ddb30f10126c6614c9865ac45de4718ff67777",
+            "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/tx/0xaa40d9ab07587187a8550102fa5054d94dff65d7b56e27fbe7c6c332b62f2ee6",
+            "https://bscscan.com/address/0x1c007460942ff6025a75976b71b1596720296704"
+          ],
+          "identity_status": "PAIR_IDENTITY_VERIFIED_EMPTY_POOL",
+          "kind": "new_v2_pair_empty",
+          "next_check": "跟踪是否注入流动性；空池不计机会"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+      "chain": "BNB",
+      "protocol": "PancakeSwap V2（four.meme 发射台毕业）",
+      "asset_ids": [
+        "0xf80e4db5f779788c66e9186e03f5e0c12262ffff",
+        "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+      ],
+      "evidence_urls": [
+        "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+        "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+      ],
+      "identity_status": "PAIR_IDENTITY_VERIFIED_ACTIVE",
+      "next_check": "核验发射台规则（毕业门槛/锁仓/交易限制）与聚合器价格差异；做容量序列",
+      "owner": "N-BNB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BNB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BNB": {
+          "market_id": "BNB:56:PancakeV2Pair:0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+          "chain": "BNB",
+          "protocol": "PancakeSwap V2（four.meme 发射台毕业）",
+          "asset_ids": [
+            "0xf80e4db5f779788c66e9186e03f5e0c12262ffff",
+            "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+          ],
+          "evidence_urls": [
+            "https://bscscan.com/address/0xb7f46f38dd432fd160b0c7965771309838ae5c7c",
+            "https://api.dexscreener.com/latest/dex/tokens/0xf80e4DB5f779788c66E9186E03F5e0C12262ffFF"
+          ],
+          "identity_status": "PAIR_IDENTITY_VERIFIED_ACTIVE",
+          "kind": "launchpad_graduated_new_pair",
+          "next_check": "核验发射台规则（毕业门槛/锁仓/交易限制）与聚合器价格差异；做容量序列"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+      "chain": "SOL",
+      "protocol": "Raydium CPMM",
+      "asset_ids": [
+        "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+        "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS；Token-2022 扩展语义待复核",
+      "next_check": "解扩展参数 + 同 slot 报价/储备，交 SOL01",
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SOL": {
+          "market_id": "SOL:raydium-cpmm:4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+          "chain": "SOL",
+          "protocol": "Raydium CPMM",
+          "asset_ids": [
+            "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+            "FZxHLUGiGchY5uvvoeqh1EKiXTrGdN67WUBhUc1fLoat"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/4HHcEXZvCYQjSpLrGei5GpRwaZPUmNqFs6eh1BXssfsj",
+            "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS；Token-2022 扩展语义待复核",
+          "next_check": "解扩展参数 + 同 slot 报价/储备，交 SOL01"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": [
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+        "https://api.orca.so/v2/solana/pools?limit=10"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+      "next_check": "补 7 天签名分页与失败交易错误码；与 SOL01 报价同 slot",
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SOL": {
+          "market_id": "SOL:orca-whirlpool:Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+          "chain": "SOL",
+          "protocol": "Orca Whirlpools",
+          "asset_ids": [
+            "So11111111111111111111111111111111111111112",
+            "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+            "https://api.orca.so/v2/solana/pools?limit=10"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+          "next_check": "补 7 天签名分页与失败交易错误码；与 SOL01 报价同 slot"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:orca-whirlpool:HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+      "chain": "SOL",
+      "protocol": "Orca Whirlpools",
+      "asset_ids": [
+        "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+        "https://api.orca.so/v2/solana/pools?limit=10"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+      "next_check": "核对 cbbtc 发行方与池深度，再决定是否交 SOL01",
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SOL": {
+          "market_id": "SOL:orca-whirlpool:HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+          "chain": "SOL",
+          "protocol": "Orca Whirlpools",
+          "asset_ids": [
+            "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+            "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/HxA6SKW5qA4o12fjVgTpXdq2YnZ5Zv1s7SB4FFomsyLM",
+            "https://api.orca.so/v2/solana/pools?limit=10"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINT_TOKEN_PROGRAMS（两腿均 classic Tokenkeg）",
+          "next_check": "核对 cbbtc 发行方与池深度，再决定是否交 SOL01"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:raydium-clmm:3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+      "chain": "SOL",
+      "protocol": "Raydium CLMM",
+      "asset_ids": [
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+        "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER（owner=CAMMCzo...，space 1544）",
+      "next_check": "与 Orca/CPMM 同 slot 报价比较（交 SOL01）；关注 CLMM 程序升级后的指令语义",
+      "owner": "N-SOL",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-SOL/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-SOL": {
+          "market_id": "SOL:raydium-clmm:3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+          "chain": "SOL",
+          "protocol": "Raydium CLMM",
+          "asset_ids": [
+            "So11111111111111111111111111111111111111112",
+            "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+            "https://api-v3.raydium.io/pools/info/list?poolType=all&poolSortField=default&sortType=desc&pageSize=10&page=1"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER（owner=CAMMCzo...，space 1544）",
+          "next_check": "与 Orca/CPMM 同 slot 报价比较（交 SOL01）；关注 CLMM 程序升级后的指令语义"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
-  "status": "BASELINE_PARTIAL",
+  "status": "LIVE_ROUND_IN_PROGRESS",
   "note": "空列表表示尚未研究，不表示没有市场或机会。"
 }
