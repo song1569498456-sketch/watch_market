@@ -2,19 +2,67 @@
   "agent_id": "AVAX01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:50:44+00:00",
   "observed_cursor": {
-    "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
-    "underlying_document_addresses": [
-      "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
-      "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-      "0xc7198437980c041c805A1EDcbA50c1Ce5db95118"
-    ],
-    "pools_chain_verified": 0,
-    "cycles_quoted": 0,
-    "transactions_analyzed": 0,
-    "last_block": null,
+    "kind": "same_block_onchain_curve_quotes",
+    "run_id": "live-20261109T141903Z",
+    "chain": "avalanche-c-chain",
+    "chain_id": 43114,
+    "latest_block": 99858977,
+    "pinned_block": 99858972,
+    "latest_block_time_utc": "2026-11-09T14:50:37+00:00",
+    "base_fee_wei": 2500000000,
+    "pool": {
+      "protocol": "Curve StableSwap (Aave pool)",
+      "address": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+      "code_bytes": 20347,
+      "A": 500,
+      "fee": 100000,
+      "balances_human": {
+        "DAI.e": "543360.0741355088",
+        "USDC.e": "313627.316419",
+        "USDT.e": "442713.178736"
+      }
+    },
+    "assets": {
+      "DAI.e": "0xd586e7f844cea2f87f50152665bcbc2c279d8d70 (18, symbol DAI.e)",
+      "USDC.e": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664 (6, symbol USDC.e)",
+      "USDT.e": "0xc7198437980c041c805a1edcba50c1ce5db95118 (6, symbol USDT.e)",
+      "native_USDC_not_used": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E (6, symbol USDC)",
+      "wrapped_not_used": {
+        "avDAI": "0x47afa96cdc9fab46904a55a6ad4bf6660b53c38a",
+        "avUSDC": "0x46a51127c3ce23fb7ab1de06226147f446e4a857",
+        "avUSDT": "0x532e6537fea298397212f09a61e03311686f548e"
+      }
+    },
+    "cycle": {
+      "path": "DAI.e→USDC.e→USDT.e→DAI.e",
+      "same_pool_all_legs": true,
+      "quotes": [
+        {
+          "amount_in": "1 DAI.e",
+          "net_bps": "-0.303"
+        },
+        {
+          "amount_in": "10 DAI.e",
+          "net_bps": "-0.313"
+        },
+        {
+          "amount_in": "100 DAI.e",
+          "net_bps": "-0.330"
+        },
+        {
+          "amount_in": "1000 DAI.e",
+          "net_bps": "-0.498"
+        }
+      ],
+      "all_negative": true,
+      "caveat": "get_dy_underlying view 不更新储备；同池三腿储备影响未模拟"
+    },
+    "pools_chain_verified": 1,
+    "cycles_quoted": 1,
+    "quotes_count": 4,
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -38,28 +86,25 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
-    "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
-    "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
-    "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+    "链身份：eth_chainId=0xa86a（43114），最新块 99,858,977（2026-11-09T14:50:37Z），base fee 2.5 gwei；所有报价/池状态钉在 pinned 块 99,858,972。",
+    "Curve Aave 池 0x7f90122B… 链上核验：代码 20,347B、A=500、fee=100000（≈0.001%/腿）、balances DAI.e 543,360.074/ USDC.e 313,627.316/ USDT.e 442,713.179；coins 为 aToken avDAI/avUSDC/avUSDT，underlying 为 DAI.e/USDC.e/USDT.e。",
+    "逐 token 身份核验：DAI.e(18)/USDC.e(6)/USDT.e(6) 链上 symbol/decimals；原生 USDC 0xB97E…（symbol USDC）与 USDC.e 0xA7D7…（symbol USDC.e）为不同合约；aToken 与底层分开——未把三者混为同一现金节点。",
+    "同一 pinned 块三腿闭环 DAI.e→USDC.e→USDT.e→DAI.e 四条数量档报价（1/10/100/1,000 DAI.e）：净 −0.303/−0.313/−0.330/−0.498 bps，全部为负；起点终点同为 DAI.e 合约。",
+    "30 天规则窗口与 7 天活动窗口未覆盖（未扫池参数/暂停/迁移/真实回路交易）。",
+    "同池重复使用的储备更新未模拟（get_dy_underlying 为 view），gas 未实测。"
   ],
   "pending_questions": [
-    "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
-    "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
-    "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
-    "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
-    "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+    "同池三腿顺序模拟未做：get_dy_underlying 不更新储备，0.1 bp 级精确净额需 StableSwap 不变量完整模拟证明。",
+    "gas（C-Chain 三笔交易 + L1 数据费）未实测；需官方/节点估算器口径。",
+    "30 天规则窗口未覆盖：Curve 池参数/A 值/fee 变更、暂停/迁移、aToken 汇率历史。",
+    "7 天活动窗口未覆盖：真实稳定币回路交易、代表成交与大额换币。",
+    "仅一个 Curve 池、一个起点（DAI.e）；未比较其他稳定池（LFJ/Pangolin/其他 Curve）与反向回路；原子性未验证（需三笔或自建路由）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:37:39.140492+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/AVAX01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "verified_at": "2026-11-08T15:38:02.616211+00:00",
-    "record": "evidence/AVAX01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:55:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/AVAX01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/AVAX01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

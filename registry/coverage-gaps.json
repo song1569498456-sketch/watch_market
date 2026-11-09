@@ -3712,6 +3712,210 @@
         "补 30 天规则/7 天活动窗口；查其他 L2 LST 与原生借贷抵押品是否有本链赎回。",
         "若跨链路径可行交 X-ARB 评估固定 ETH+ARB 流程，净收益主张交 Q00 复核。"
       ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/升级与 7 天活动未回溯：未读金库事件（Transfer/Deposit/Withdraw/Upgraded）、未查 redeem 实现历史变化。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做用户级 redeem/withdraw 只读模拟：需要持有人份额与授权假设；本轮只用 convertToAssets/previewRedeem + Aave 池流动性做结构性判断。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "二级市场只查了 Uniswap V3（四档）与 Sushi V2 及 Dexscreener；未查 Camelot、Balancer、Curve 等其它 Arbitrum DEX 是否有份额 token 池。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Beefy vault 的策略（Morpho Steakhouse 市场）回款能力未读：其 available=0 时实际 withdraw 到账时间/可能调减 unknown。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未核验旧 STATIC_A 的实现版本历史与是否被官方标记弃用/迁移；其池 liquidity=0 可能长期不可交易。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "ARB04",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 77 次（≤80，符合硬性上限）。",
+      "next_check": [
+        "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+        "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+        "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+        "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+        "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "同池重复使用的储备更新未模拟：get_dy_underlying 是 view，前腿对余额的影响未带入后腿；误差量级估计 <0.5 bps，未做完整 StableSwap 顺序模拟证明。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "gas 未实测：C-Chain 基础费 2.5 gwei，三笔交易 gas 与 L1 数据费未计（只会更负）；ABI 静态 gas 不是真实成本。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口未覆盖：未读 Curve 池参数/A 值/fee 变更、暂停/迁移与 aToken 汇率历史。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动窗口未覆盖：未扫真实稳定币回路交易、代表成交与大额换币。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅一个 Curve 池、一个起点（DAI.e）；未比较其他稳定池（LFJ/Curve 其他/Pangolin）与反向回路。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做 aToken/底层兑换路径与原生 USDC 桥接路径闭环；未做只读完整模拟，未验证原子性。",
+      "next_check": [
+        "用 StableSwap 不变量做完整三腿顺序模拟（更新每腿后余额），确认 0.1 bp 级净额并与 get_dy_underlying 近似对比；若仍为负则固化排除。",
+        "扫 Curve 池事件/A 值/fee 变更与暂停状态（30 天窗口），补真实稳定币回路交易（7 天窗口）。",
+        "加其他稳定池（LFJ V2.1 稳定对、Pangolin、其他 Curve 池）做跨池对比，起点/终点同合约；不同稳定币表示分别登记。",
+        "用官方/节点估算器补三笔交易 gas 与 L1 数据费（C-Chain total 口径），确认含 gas 后仍净负。",
+        "桥接路径（原生 USDC↔USDC.e）单独登记为不同权益，不并入闭环；aToken 与底层汇率单独跟踪。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "排队/解锁请求出口完全未测：sAVAX redeem 的 unlock request 生命周期（申请入口、最小份额、索引 NFT 可转让性、领取权限、等待期、退出费、缓冲、罚没/汇率风险）未读；ggAVAX withdrawal queue 角色/等待同样未测。",
+      "next_check": [
+        "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+        "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+        "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+        "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+        "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "协议即时赎回：只排除已探针的 sAVAX withdraw/redeem 与 ggAVAX withdrawAVAX/redeemAVAX，不等于协议全部出口；未找到无许可即时兑换函数。",
+      "next_check": [
+        "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+        "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+        "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+        "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+        "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "DEX 池费率未链上确认：Pangolin/TJ V1 的 0.2%/0.3% 为情景假设；LB 池 spot 未做 bin 深度遍历与数量报价。",
+      "next_check": [
+        "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+        "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+        "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+        "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+        "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅单 pinned 块，30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）未覆盖。",
+      "next_check": [
+        "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+        "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+        "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+        "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+        "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+      ]
+    },
+    {
+      "agent_id": "AVAX02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未比较 tAVAX/yyAVAX 等其他封装（DexScreener 出现但未核）与 ggAVAX DEX 池报价；未做完整路径模拟与 gas 估算。",
+      "next_check": [
+        "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+        "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+        "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+        "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+        "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+      ]
     }
   ],
   "status": "OPEN",

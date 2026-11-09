@@ -1,0 +1,299 @@
+{
+  "agent_id": "ARB04",
+  "run_id": "live-20261109T141903Z",
+  "chain": "ARB",
+  "scope": "Arbitrum One 金库份额（Aave waArbUSDCn / stataArbUSDCn、Beefy morpho USDC vault）的链上 NAV/份额价与真实可退出路径（协议即时赎回、二级市场、策略回款），不研究 NAV 操纵",
+  "started_at": "2026-11-09T14:50:10.720271+00:00",
+  "finished_at": "2026-11-09T14:52:08.445534+00:00",
+  "duration_seconds": 117.7,
+  "execution_status": "PARTIAL",
+  "status": "RULE_GAP",
+  "as_of": {
+    "utc": "2026-11-09T14:52:08+00:00",
+    "beijing": "2026-11-09T22:52:08+08:00",
+    "data_time": "head 522707654（2026-11-09T14:52:08Z）；份额报价块：waArbUSDCn=522707241、stataArbUSDCn=522707533、Beefy vault=522707652；二级市场检查块 522707404（Uni/Sushi getPool/getPair）"
+  },
+  "block_or_slot": 522707652,
+  "market_ids": [
+    "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+    "ARB:AAVE_STATA_V1:USDCn:0x7cfadfd5645b50be87d546f42699d863648251ad",
+    "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+    "ARB:UNISWAP_V3:POOL:0x11092be90af6553434e0962cddfd7d84a4444154"
+  ],
+  "asset_ids": [
+    "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "eip155:42161/erc20:0x724dc807b04555b71ed48a6896b6f41593b8c637",
+    "eip155:42161/erc20:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+    "eip155:42161/erc20:0x7cfadfd5645b50be87d546f42699d863648251ad",
+    "eip155:42161/erc20:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a"
+  ],
+  "discovery_source": [
+    {
+      "source": "Aave 官方地址簿 AaveV3Arbitrum.sol（上轮抓取复用：USDCn_UNDERLYING / USDCn_STATA_TOKEN / USDCn_STATIC_A_TOKEN）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "retrieved_at_utc": "2026-11-08T15:36:52Z",
+      "http_status": 200,
+      "sha256": "6b8f9a12a904a2c13d59423fe9c60fd66ec868761704cbcc776d0c2fe1510b1c"
+    },
+    {
+      "source": "Beefy 官方 vault 列表（本次恢复可读；返回 list 3385 条，filter chain=arbitrum 且 status=active、token 含 USD 得 24 个候选）",
+      "url": "https://api.beefy.finance/vaults",
+      "retrieved_at_utc": "2026-11-09T14:51:58Z-2026-11-09T14:52:08Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "选中活跃候选 morpho-arb-steakhouse-usdc（Beefy vault 0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a，底层 USDCn）"
+    },
+    {
+      "source": "Arbitrum One 只读 RPC（arb1.arbitrum.io），eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call/eth_getLogs",
+      "url": "https://arb1.arbitrum.io/rpc",
+      "retrieved_at_utc": "2026-11-09T14:50:10Z-2026-11-09T14:52:08Z",
+      "request": "POST JSON-RPC 共 77 次（本轮总计，全部只读）；含 1 次本地补测 selector 的 eth_getCode",
+      "http_status": 200
+    },
+    {
+      "source": "Dexscreener 代币交易对查询（仅发现入口：份额 token 是否有二级池）",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/{waArbUSDCn,stataArbUSDCn,moo vault token}",
+      "retrieved_at_utc": "2026-11-09T14:50:56Z-2026-11-09T14:52:07Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "三个 token 的 pairs 均为 []（聚合器未收录任何交易对）"
+    }
+  ],
+  "mechanism": "金库份额的显示 NAV 与实际可兑现现金必须分开：①Aave waArbUSDCn（v2）与 stataArbUSDCn（v1）都是 ERC-4626、asset()=USDCn、同步 redeem（impl 有 redeem(uint256,address,address) 与 previewRedeem/convertToAssets/maxRedeem，无 ERC-7540 异步函数），份额→USDCn 的记账价为 1.183494；②但两者在已核验 DEX（Uniswap V3 四档、Sushi V2）与 Dexscreener 上都没有二级流动性——旧 v1 的 Uniswap V3 fee=100 池 0x11092be9… 存在但 liquidity=0，Quoter 全部 revert，无法以折价买入；③Beefy morpho-arb-steakhouse-usdc vault 的 getPricePerFullShare=1.0255669，但 available()=0（全部 26,329.65 USDC 在策略 0x2ea13561… 内），NAV 不等于即时现金且无二级市场。结论：本轮三个对象均不存在可执行的“二级折价买入→正常赎回”闭环。",
+  "observations": [
+    "链身份：eth_chainId=42161；head=522707654（2026-11-09T14:52:08Z）。",
+    "waArbUSDCn（Aave STATA v2）0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc：proxy 代码 1137B（sha256=932478c7…），impl=0x86b752a647db629d6c65e8ca0eb52bfef3a9eb52（19991B）；name=Wrapped Aave Arbitrum USDCn、symbol=waArbUSDCn、decimals=6、asset()=USDCn 0xaf88…；totalAssets=17,325,556.906535、totalSupply=14,639,324.366098；convertToAssets(1 share=1e6)=previewRedeem(1e6)=1,183,494（即 1 份额=1.183494 USDC）。selector 检查：ERC-4626 的 asset/totalAssets/totalSupply/convertToAssets/previewRedeem/previewWithdraw/maxRedeem/maxWithdraw/redeem/withdraw/deposit 全部存在；requestRedeem/claimRedeem/pendingRedeemRequest 均不存在 → 同步赎回，非 ERC-7540 队列。",
+    "Aave v3 Arbitrum USDCn 备用流动性（块 522707241）：aToken 0x724dc807… totalSupply=204,233,192.747228；variableDebt 0xf611aeb5… totalSupply=166,612,432.164199；stableDebt totalSupply=0 → 可提现金约 37,620,760.58 USDC，大于 STATA totalAssets 17,325,556.91，说明协议侧赎回的现金容量结构性充足（但本轮未做用户级 redeem 模拟）。",
+    "stataArbUSDCn（Aave STATA v1）0x7CFaDFD5645B50bE87d546f42699d863648251ad：proxy 代码 2161B；impl=0x9bf9df78b1f7c76a473588c41321b5059b62981e（17885B，sha256=93196f5d…）；name=Static Aave Arbitrum USDCn、symbol=stataArbUSDCn、decimals=6、asset()=USDCn；totalSupply=124,197.961732、rate=1.183494380196761461418246685（1e27）、previewRedeem(1e6)=1,183,494；aToken()=0x724dc807…，wrapper 持有 aToken 146,987.603948 → 份额背书 NAV=1.183494。impl selector 有 redeem(uint256,address,address)、withdraw(uint256,address,address)、maxRedeem/maxWithdraw、convertToAssets、asset() → 同属 ERC-4626 同步赎回；无 request/claim 异步函数。",
+    "旧 STATIC_A 的二级市场（块 522707533）：Uniswap V3 池 0x11092be90af6553434e0962cddfd7d84a4444154（token0=STATIC_A、token1=USDCn、fee=100、代码 22142B sha256=c1cb6f49…）存在但 liquidity=0、slot0 tick=1227；Quoter v1 对 100/1000/10000 USDC 买入与 100/1000 STATIC_A 卖出全部 revert（'Unexpected error'）→ 当前无可执行报价。其余 fee 档 getPool=null、Sushi getPair=null、Dexscreener pairs=[]。"
+
+    ,
+    "waArbUSDCn 的二级市场检查（块 522707404）：Uniswap V3 getPool(waArbUSDCn, USDCn, 100/500/3000/10000) 全部 null；Sushi getPair=null；Dexscreener pairs=[] → 无二级流动性，无法以折价买入。",
+    "Beefy 官方列表恢复可读：API 返回 list 3385 条（不是 dict，之前过滤逻辑失效）；Arbitrum 且 active、token 含 USD 的候选 24 个。选中 Beefy vault 0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a（id=morpho-arb-steakhouse-usdc、name=USDC (Steakhouse, High Yield)、want=USDCn、strategy=0x2ea13561b0c041d51e47d7e98c2c28584eac95ae）。",
+    "Beefy vault 链上状态（块 522707652）：totalSupply=25,673.260185 份额、balance()=26,329.646497 USDC（含策略）、available()=0（金库闲置现金为零）、strategy balance=26,329.646497、getPricePerFullShare=1,025,566,924,779,717,064（1e18 → 1 份额=1.025566924779717064 USDC）。即 NAV/份额 1.0255669 但即时可提现金 0：提现完全依赖策略（Morpho Steakhouse 市场）回款，未验证其可立即赎回。",
+    "Beefy vault 的二级市场检查：Uniswap V3 getPool(moo, USDCn, 4 档) 全部 null、Dexscreener pairs=[] → 无二级市场，不存在“买折价份额再赎回”的入口。",
+    "旧 STATIC_A 与 waArbUSDCn 共享 asset=USDCn 与同一 aToken 底层（0x724dc807…），NAV 均为 1.183494（v1 与新 v2 记账一致）；但 v1 的二级池为空、v2 无池，均无法构成折价闭环。"
+  ],
+  "quotes": [
+    {
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "amount_in": "1 share (1e6, 6 decimals)",
+      "amount_out": "1183494 USDCn (1.183494 USDC)",
+      "fees": "协议赎回无显式费用字段；gas 未计",
+      "block": 522707241,
+      "quote_time_utc": "2026-11-09T14:50:11Z",
+      "note": "convertToAssets(1e6)=previewRedeem(1e6)=1,183,494（同块固定读取）；属协议记账/赎回价，不是二级买入价；实际 redeem 未模拟"
+    },
+    {
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "amount_in": "1000 shares (1e9)",
+      "amount_out": "1183494000 USDCn (约 1183.494 USDC)",
+      "fees": "按 NAV 线性折算（无冲击假设）；gas 未计",
+      "block": 522707241,
+      "quote_time_utc": "2026-11-09T14:50:11Z",
+      "note": "由同块 convertToAssets 线性推导；redeem 上限需用户级 maxRedeem/池流动性，本轮未模拟"
+    },
+    {
+      "market_id": "ARB:AAVE_STATA_V1:USDCn:0x7cfadfd5645b50be87d546f42699d863648251ad",
+      "amount_in": "1 share (1e6, 6 decimals)",
+      "amount_out": "1183494 USDCn (1.183494 USDC)",
+      "fees": "协议赎回无显式费用字段；gas 未计",
+      "block": 522707533,
+      "quote_time_utc": "2026-11-09T14:51:28Z",
+      "note": "previewRedeem(1e6)=1,183,494；ERC-4626 同步赎回存在；但无二级买入通道（池 liquidity=0）"
+    },
+    {
+      "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+      "amount_in": "1 share (1e6, 6 decimals)",
+      "amount_out": "1.025566924779717064 USDCn (NAV)",
+      "fees": "unknown（Beefy 提现可能按策略实际回款调减；available=0）",
+      "block": 522707652,
+      "quote_time_utc": "2026-11-09T14:52:07Z",
+      "note": "getPricePerFullShare=1.025566924779717064e18；balance 26,329.646497 / totalSupply 25,673.260185 交叉一致；NAV 不是即时现金（available()=0）"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x11092be90af6553434e0962cddfd7d84a4444154",
+      "amount_in": "100 / 1000 / 10000 USDCn",
+      "amount_out": null,
+      "fees": "无：pool liquidity=0",
+      "block": 522707533,
+      "quote_time_utc": "2026-11-09T14:51:28Z",
+      "note": "Quoter v1 对旧 STATIC_A/USDCn fee=100 池全部 revert 'Unexpected error'（liquidity=0）；反向 100/1000 STATIC_A→USDCn 同样 revert；池存在但不可交易"
+    }
+  ],
+  "net_result": {
+    "value": null,
+    "unit": "USDCn",
+    "type": "not_computed_no_secondary_entry",
+    "realized": false,
+    "unknown_costs": [
+      "无二级买入通道（不适用）",
+      "协议赎回 gas 与 L1 数据费",
+      "Aave 用户级 maxRedeem/流动性（结构容量足够但未模拟用户级）",
+      "Beefy 策略回款时间与可能调减（available=0）"
+    ],
+    "note": "三个对象均无可用二级买入市场或池为空 → 不存在‘二级折价买入→正常赎回’的可核算净结果；不以 share price/NAV 当可兑现价。"
+  },
+  "capacity": "Aave USDCn 协议侧可提现金约 37,620,760.58 USDC（aToken 204,233,192.747228 − variableDebt 166,612,432.164199 − stableDebt 0），大于 STATA totalAssets 17,325,556.91；Beefy vault 即时现金 0、全部 26,329.646497 USDC 在 strategy；二级市场：旧 STATIC_A 池 liquidity=0，waArbUSDCn 与 Beefy vault 无池。",
+  "permissions": "两份 Aave 包装份额均为 ERC-4626 公开 redeem/withdraw（impl selector 核实，无白名单读取）；Beefy vault withdraw 为公开函数（V7），但即时可提现金 0、依赖策略。未做用户级权限/暂停读取。",
+  "liabilities": "unknown；本轮纯只读，无仓位/借款/授权。",
+  "waiting_time": "waArbUSDCn/stataArbUSDCn：同步 redeem（无 ERC-7540 队列函数），无显式等待字段；Beefy vault：available=0，提现需策略回款，等待时间 unknown。",
+  "invalidation_conditions": [
+    "出现真实二级市场（份额 token 的 DEX 池有非零 liquidity）且价格低于 previewRedeem 价值",
+    "Aave 暂停/冻结 USDCn reserve 或 redeem 受限",
+    "Beefy 策略回款能力/份额价格出现损失或调减",
+    "ERC-4626 实现升级改变赎回规则",
+    "旧 STATIC_A 池流动性恢复（当前 liquidity=0）"
+  ],
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+    "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+    "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154",
+    "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+    "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "https://api.beefy.finance/vaults"
+  ],
+  "coverage_gaps": [
+    "30 天规则/升级与 7 天活动未回溯：未读金库事件（Transfer/Deposit/Withdraw/Upgraded）、未查 redeem 实现历史变化。",
+    "未做用户级 redeem/withdraw 只读模拟：需要持有人份额与授权假设；本轮只用 convertToAssets/previewRedeem + Aave 池流动性做结构性判断。",
+    "二级市场只查了 Uniswap V3（四档）与 Sushi V2 及 Dexscreener；未查 Camelot、Balancer、Curve 等其它 Arbitrum DEX 是否有份额 token 池。",
+    "Beefy vault 的策略（Morpho Steakhouse 市场）回款能力未读：其 available=0 时实际 withdraw 到账时间/可能调减 unknown。",
+    "未核验旧 STATIC_A 的实现版本历史与是否被官方标记弃用/迁移；其池 liquidity=0 可能长期不可交易。",
+    "本轮外部请求 77 次（≤80，符合硬性上限）。"
+  ],
+  "next_check": [
+    "对 waArbUSDCn 与 stataArbUSDCn 做用户级只读 redeem 模拟（stateOverride 若可用）或读取最近 Withdraw 事件的真实到账；确认 Aave maxRedeem 与暂停状态。",
+    "扩大二级市场搜索到 Camelot/Balancer/Curve 等，并监控旧 STATIC_A 池 liquidity 是否恢复；只有出现非零流动性且折价 < 赎回成本时才登记机会。",
+    "补 30 天规则窗口：读两份包装份额 impl 升级事件与 Aave USDCn reserve 配置变更；Beefy vault 的策略/费率调整。",
+    "对 Beefy vault 读 strategy 的可用流动性（Morpho 市场 withdraw 能力），确认 available=0 时的真实提现等待与潜在调减。",
+    "跟踪份额 NAV 与二级价格（若出现）的偏离，区分市场折价、正常退出规则与可疑错误估值。"
+  ],
+  "handoff_to": ["M00", "Q00", "ARB02"],
+  "markets": [
+    {
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "chain": "ARB",
+      "protocol": "Aave STATA v2 (waArbUSDCn, ERC-4626)",
+      "asset_ids": ["eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"],
+      "evidence_urls": ["https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"],
+      "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_NO_SECONDARY",
+      "next_check": "用户级 redeem 模拟；扩散二级市场搜索；监控 NAV/流动性"
+    },
+    {
+      "market_id": "ARB:AAVE_STATA_V1:USDCn:0x7cfadfd5645b50be87d546f42699d863648251ad",
+      "chain": "ARB",
+      "protocol": "Aave STATA v1 (stataArbUSDCn, ERC-4626)",
+      "asset_ids": ["eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+        "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_SECONDARY_POOL_EMPTY",
+      "next_check": "监控旧池 liquidity 恢复；核验是否弃用/迁移"
+    },
+    {
+      "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+      "chain": "ARB",
+      "protocol": "Beefy Vault V7 (Morpho Steakhouse USDC)",
+      "asset_ids": ["eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"],
+      "evidence_urls": ["https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"],
+      "identity_status": "CHAIN_VERIFIED_NAV_READ_AVAILABLE_ZERO_NO_SECONDARY",
+      "next_check": "读策略回款能力与提现调减规则；监控 available()"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x11092be90af6553434e0962cddfd7d84a4444154",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 (STATIC_A/USDCn fee=100, liquidity=0)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x7cfadfd5645b50be87d546f42699d863648251ad",
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": ["https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"],
+      "identity_status": "CHAIN_VERIFIED_POOL_EMPTY_LIQUIDITY_ZERO",
+      "next_check": "监控 liquidity 是否注入"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "ARB-VAULT-SHARES-NO-SECONDARY-DISCOUNT",
+      "status": "REJECTED",
+      "chain": "ARB",
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "first_seen_at": "2026-11-09T14:52:08+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "本轮核验三个可转让金库份额：Aave waArbUSDCn(v2) 与 stataArbUSDCn(v1) 均为 ERC-4626 同步赎回、NAV=1.183494 USDC/份额（asset=USDCn），但都不存在可用二级市场——waArbUSDCn 在 Uniswap V3 四档/Sushi/Dexscreener 全无池；v1 的 Uniswap V3 fee=100 池存在但 liquidity=0、Quoter 全部 revert；Beefy vault 同样无二级市场。故不存在‘二级折价买入→按 NAV 赎回’的闭环，无法给出正收益。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+        "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+        "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+      ],
+      "net_result": null,
+      "unknown_costs": ["gas/L1 数据费（无二级入口，不适用）", "用户级 redeem 限额", "其它 DEX 未覆盖"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["出现非零流动性的二级份额池且折价低于赎回成本", "金库实现升级改变赎回规则"]
+    },
+    {
+      "finding_id": "ARB-BEEFY-MORPHO-USDC-ZERO-IDLE-CASH",
+      "status": "RULE_GAP",
+      "chain": "ARB",
+      "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+      "first_seen_at": "2026-11-09T14:52:08+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "Beefy vault 0x13EaA791…（Steakhouse Morpho USDC）显示份额 NAV=1.025566924779717064 USDC（balance 26,329.646497 / totalSupply 25,673.260185），但金库闲置现金 available()=0，全部资产在 strategy 0x2ea13561… 内；无二级市场可买折价。规则差异：显示 NAV 不等于即时可提现金，提现依赖策略回款（V7 withdraw 可能按实际回款调减），因此不能把 getPricePerFullShare 当可兑现价。",
+      "evidence_urls": ["https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"],
+      "net_result": null,
+      "unknown_costs": ["策略回款等待", "提现调减", "gas"],
+      "handoff_to": ["M00", "Q00", "ARB02"],
+      "invalidation_conditions": ["available() 出现闲置现金", "策略流动性/价格变化", "出现二级市场"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "waArbUSDCn 或 stataArbUSDCn 可以二级折价买入再按 NAV 赎回获利",
+      "reason": "waArbUSDCn 无任何二级池（Uni V3 四档 getPool=null、Sushi pair=null、Dexscreener 无）；stataArbUSDCn v1 的 Uni V3 fee=100 池 0x11092be9… 虽存在但 liquidity=0，Quoter v1 全部 revert，无法买入。",
+      "evidence": "getPool/getPair 链上读数（块 522707404）+ Quoter 报价 revert（块 522707533）"
+    },
+    {
+      "claim": "份额 getPricePerFullShare / previewRedeem 显示价即可当可兑现价",
+      "reason": "Beefy vault NAV=1.0255669 但 available()=0、全部资产在策略内；Aave STATAs 的 previewRedeem 是协议记账价而非二级可买价；两者都需按真实退出路径核算。",
+      "evidence": "Beefy available()/balance()/strategy 读数；STATA convertToAssets/previewRedeem 读数"
+    },
+    {
+      "claim": "旧 STATIC_A token 池存在即可交易",
+      "reason": "池 0x11092be9… liquidity=0、slot0 可读但无 in-range liquidity；Quoter 对买入/卖出全部 revert 'Unexpected error'。池对象存在不等于可交易市场。",
+      "evidence": "pool liquidity()=0 + Quoter v1 revert 记录"
+    },
+    {
+      "claim": "Beefy V7 的 balance() 含策略资产，所以 stake 份额即可按账面退出",
+      "reason": "V7 withdraw 在策略回款不足时按实际回款调减 r（上轮官方源码 139–154 行记录）；本轮该 vault available()=0，提现需策略回款，且无二级市场，不能把账面值当现金。",
+      "evidence": "Beefy API + vault 链上 available/balance 读数"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 4,
+    "retrieved_at_utc": "2026-11-09T14:52:08Z",
+    "complete_block_range": "522707241-522707654（份额 NAV/赎回价块 522707241/522707533/522707652；二级市场检查块 522707404）",
+    "complete_event_time_window": "2026-11-09T14:50:11Z-2026-11-09T14:52:08Z"
+  },
+  "exit_value_columns": {
+    "waArbUSDCn": {
+      "secondary_buy_cost": "无二级市场（不可买）",
+      "displayed_nav": "1.183494 USDC/share",
+      "instant_redeem_value": "结构上 1.183494 USDC/share（ERC-4626 同步 redeem，未模拟；Aave USDCn 池可提现金 37.62M）",
+      "async_claim_value": "无（非 ERC-7540）"
+    },
+    "stataArbUSDCn_v1": {
+      "secondary_buy_cost": "无可执行报价（Uni V3 fee=100 池 liquidity=0，Quoter revert）",
+      "displayed_nav": "1.183494 USDC/share",
+      "instant_redeem_value": "ERC-4626 redeem/withdraw 存在（未模拟）；无二级买入即可达",
+      "async_claim_value": "无（同步）"
+    },
+    "beefy_morpho_usdc_vault": {
+      "secondary_buy_cost": "无二级市场（Uni V3 四档无池、Dexscreener 无）",
+      "displayed_nav": "1.025566924779717064 USDC/share",
+      "instant_redeem_value": "未知：available()=0，需 strategy 回款（Morpho 市场流动性未验证）",
+      "async_claim_value": "unknown（策略回款时间/可能调减）"
+    }
+  }
+}

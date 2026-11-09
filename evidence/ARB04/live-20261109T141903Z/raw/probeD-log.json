@@ -1,0 +1,139 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:51:58.387550+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:51:59.460511+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "GET",
+  "host": "api.beefy.finance",
+  "tag": "beefy_list",
+  "url": "https://api.beefy.finance/vaults",
+  "at_utc": "2026-11-09T14:51:59.902662+00:00",
+  "http_status": 200,
+  "sha256": "71f3203c385131de0eb2da120e024d0470255f337c6920338117dc3d804ba4da"
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_want",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:02.239436+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_strategy",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:02.674672+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:03.123100+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:03.556036+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_available",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:04.202337+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_getPricePerFullShare",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:04.641934+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "beefy_strategy_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:05.067934+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:05.774808+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:06.226863+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:06.660618+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:52:07.089925+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_beefy_moo",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+  "at_utc": "2026-11-09T14:52:07.517117+00:00",
+  "http_status": 200,
+  "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d"
+ }
+]

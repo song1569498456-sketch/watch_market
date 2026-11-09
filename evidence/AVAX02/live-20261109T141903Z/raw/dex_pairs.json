@@ -1,0 +1,228 @@
+{
+ "at_utc": "2026-11-09T14:53:31.083770+00:00",
+ "pinned_block": 99859130,
+ "requests_meta": {
+  "http_status": 200,
+  "n_calls": 25,
+  "sha256": "087c07f5fd64e68c8bc1851d25f5b35040c45507d6b1b54740ed3f001d805ff0",
+  "elapsed_s": 1.555
+ },
+ "pairs": {
+  "pangolin_wavax_savax": {
+   "code_bytes": 14946,
+   "token0()": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+   "token1()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "reserves_raw": "0x00000000000000000000000000000000000000000000001bfd0d62814d200af30000000000000000000000000000000000000000000000240fb082b5188c3694000000000000000000000000000000000000000000000000000000006af0f329",
+   "getTokenX()": null,
+   "getTokenY()": null,
+   "getBinStep()": null,
+   "getActiveId()": null
+  },
+  "traderjoe_v1_wavax_savax": {
+   "code_bytes": 8945,
+   "token0()": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+   "token1()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "reserves_raw": "0x000000000000000000000000000000000000000000000231057fa576f0fda4f80000000000000000000000000000000000000000000002d2e18e6e8329939c1c000000000000000000000000000000000000000000000000000000006af1c8ba",
+   "getTokenX()": null,
+   "getTokenY()": null,
+   "getBinStep()": null,
+   "getActiveId()": null
+  },
+  "traderjoe_v21_wavax_savax": {
+   "code_bytes": 97,
+   "token0()": null,
+   "token1()": null,
+   "reserves_raw": "0x0000000000000000000000000000000000000000000002136da187f7676b6eaa000000000000000000000000000000000000000000000094a224d7bf8c019142",
+   "getTokenX()": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+   "getTokenY()": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "getBinStep()": 5,
+   "getActiveId()": 8389118
+  }
+ },
+ "pinned_block_time_utc": "2026-11-09T14:52:41+00:00",
+ "univ2_quotes": {
+  "pangolin_wavax_savax": {
+   "token0": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+   "token1": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "reserve0_raw": "516296428763935148787",
+   "reserve1_raw": "665213333874326386324",
+   "spot_WAVAX_per_sAVAX_gross": 1.2884329559801782,
+   "quotes": [
+    {
+     "amount_in_sAVAX": 1.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 1.2833753280369031,
+     "out_per_in": 1.2833753280369031,
+     "net_vs_redemption_pct": -0.8088092604300243
+    },
+    {
+     "amount_in_sAVAX": 1.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 1.2820918592711532,
+     "out_per_in": 1.2820918592711532,
+     "net_vs_redemption_pct": -0.9080076729057538
+    },
+    {
+     "amount_in_sAVAX": 10.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 12.614718633054473,
+     "out_per_in": 1.2614718633054471,
+     "net_vs_redemption_pct": -2.5017128877411636
+    },
+    {
+     "amount_in_sAVAX": 10.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 12.602318096376234,
+     "out_per_in": 1.2602318096376235,
+     "net_vs_redemption_pct": -2.5975557773505074
+    },
+    {
+     "amount_in_sAVAX": 100.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 107.75633102410866,
+     "out_per_in": 1.0775633102410866,
+     "net_vs_redemption_pct": -16.715877650865522
+    },
+    {
+     "amount_in_sAVAX": 100.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 107.66583423276056,
+     "out_per_in": 1.0766583423276057,
+     "net_vs_redemption_pct": -16.785821994471206
+    }
+   ]
+  },
+  "traderjoe_v1_wavax_savax": {
+   "token0": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+   "token1": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+   "reserve0_raw": "10349019642573558228216",
+   "reserve1_raw": "13334802270833140276252",
+   "spot_WAVAX_per_sAVAX_gross": 1.2885087410576301,
+   "quotes": [
+    {
+     "amount_in_sAVAX": 1.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 1.2858077276651263,
+     "out_per_in": 1.2858077276651263,
+     "net_vs_redemption_pct": -0.620810776894416
+    },
+    {
+     "amount_in_sAVAX": 1.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 1.2845194672764173,
+     "out_per_in": 1.2845194672764173,
+     "net_vs_redemption_pct": -0.7203795305918561
+    },
+    {
+     "amount_in_sAVAX": 10.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 12.846928396056246,
+     "out_per_in": 1.2846928396056245,
+     "net_vs_redemption_pct": -0.7069797032773835
+    },
+    {
+     "amount_in_sAVAX": 10.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 12.83406811160564,
+     "out_per_in": 1.2834068111605639,
+     "net_vs_redemption_pct": -0.8063759515952
+    },
+    {
+     "amount_in_sAVAX": 100.0,
+     "fee_assumption": 0.002,
+     "out_WAVAX": 127.36493806503931,
+     "out_per_in": 1.273649380650393,
+     "net_vs_redemption_pct": -1.560521001541673
+    },
+    {
+     "amount_in_sAVAX": 100.0,
+     "fee_assumption": 0.003,
+     "out_WAVAX": 127.23853561780592,
+     "out_per_in": 1.2723853561780591,
+     "net_vs_redemption_pct": -1.6582165780387896
+    }
+   ]
+  }
+ },
+ "lb_spot": {
+  "tokenX": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+  "tokenY": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+  "binStep": 5,
+  "activeId": 8389118,
+  "spot_WAVAX_per_sAVAX": 1.2903793839770088,
+  "net_vs_redemption_pct": -0.2674706250922725
+ },
+ "requests": [
+  {
+   "name": "dexscreener_savax",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=sAVAX",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:51.283281+00:00",
+   "bytes": 9237,
+   "sha256": "d1dadf96ce54084dcfc331cd99ee4d5096b6e4529d45e9320a6a9488add524a5",
+   "elapsed_s": 0.92
+  },
+  {
+   "name": "chain_identity",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:52.817838+00:00",
+   "n_calls": 3,
+   "bytes": 2774,
+   "sha256": "8c041f5a1ed75de6d967ddd71c33f186494c7a8a0c340e0b37f4b338502a2112",
+   "elapsed_s": 1.134
+  },
+  {
+   "name": "token_codes",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:53.814706+00:00",
+   "n_calls": 9,
+   "bytes": 17066,
+   "sha256": "41cfcce9f1a8ccb772465b22344dc2a882dd3a8b6f6114d611b758ea08312f97",
+   "elapsed_s": 0.596
+  },
+  {
+   "name": "savax_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:54.199204+00:00",
+   "n_calls": 7,
+   "bytes": 1119,
+   "sha256": "fd79e33238679867798624cefff05f9a2beb64c79ef5ebfd78b9ae24da033ac8",
+   "elapsed_s": 0.384
+  },
+  {
+   "name": "ggavax_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:54.989852+00:00",
+   "n_calls": 6,
+   "bytes": 799,
+   "sha256": "c73b10cea3930dd5fed2f9d5b8d17b28cf685d23ad5f553836ae2ba33a794503",
+   "elapsed_s": 0.389
+  },
+  {
+   "name": "lfj_pair_info",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:55.804017+00:00",
+   "n_calls": 14,
+   "bytes": 4135,
+   "sha256": "6d6e4a9c07965366eace6a33a69f31ac0d13a7765c731544ad0870f531abd8dd",
+   "elapsed_s": 0.412
+  },
+  {
+   "name": "lb_pair_state",
+   "http_status": 200,
+   "at": "2026-11-09T14:52:56.601061+00:00",
+   "n_calls": 5,
+   "bytes": 396,
+   "sha256": "5daac8aea00933e96fcb5a97722a859b4e445766c596abb256dec6d0a519d1db",
+   "elapsed_s": 0.396
+  },
+  {
+   "name": "pairs_state",
+   "http_status": 200,
+   "n_calls": 25,
+   "sha256": "087c07f5fd64e68c8bc1851d25f5b35040c45507d6b1b54740ed3f001d805ff0",
+   "elapsed_s": 1.555
+  }
+ ],
+ "request_count": 8
+}

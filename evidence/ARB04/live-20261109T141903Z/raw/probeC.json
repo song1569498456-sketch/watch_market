@@ -1,0 +1,137 @@
+{
+ "started_at_utc": "2026-11-09T14:51:27.921771+00:00",
+ "head_block": 522707535,
+ "head_block_time_utc": "2026-11-09T14:51:27+00:00",
+ "pinned_block": 522707533,
+ "static_a": {
+  "address": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+  "impl_slot": "0x0000000000000000000000009bf9df78b1f7c76a473588c41321b5059b62981e",
+  "impl": "0x9bf9df78b1f7c76a473588c41321b5059b62981e",
+  "impl_code_bytes": 17885,
+  "impl_code_sha256": "93196f5de6fbbc28fb248b5d81474266775a023eea12bac8cc4cec0772e2849f",
+  "selector_presence": {
+   "redeem(uint256,address,bool)": false,
+   "redeem(uint256,address)": false,
+   "redeem(uint256)": false,
+   "previewRedeem(uint256)": true,
+   "rate()": true,
+   "aToken()": true,
+   "asset()": true,
+   "totalSupply()": true,
+   "balanceOf(address)": true,
+   "convertToAssets(uint256)": true,
+   "maxRedeem(address)": true
+  },
+  "selector_count": 89,
+  "totalSupply": "124197961732",
+  "totalSupply_error": null,
+  "rate": "1183494380196761461418246685",
+  "rate_error": null,
+  "aToken": "0x724dc807b04555b71ed48a6896b6f41593b8c637",
+  "aToken_error": null,
+  "underlying": null,
+  "underlying_error": {
+   "code": 3,
+   "message": "execution reverted",
+   "data": "0x"
+  },
+  "asset": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+  "asset_error": null,
+  "previewRedeem_1": "1183494",
+  "previewRedeem_1_error": null,
+  "aToken_balance": "146987603948",
+  "aToken_balance_error": null
+ },
+ "uni_pool": {
+  "address": "0x11092be90af6553434e0962cddfd7d84a4444154",
+  "code_bytes": 22142,
+  "code_sha256": "c1cb6f49c1756fed51dbf174f9442a4ae279b47190164e45cdcbad0687ad392f",
+  "token0": "0x7cfadfd5645b50be87d546f42699d863648251ad",
+  "token0_error": null,
+  "token1": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+  "token1_error": null,
+  "fee": 100,
+  "fee_error": null,
+  "slot0_decoded": {
+   "sqrtPriceX96": "84244956991279538720693956739",
+   "tick": 1227
+  },
+  "slot0_error": null,
+  "liquidity": "0",
+  "liquidity_error": null
+ },
+ "quotes": [
+  {
+   "label": "100USDC_to_staticA",
+   "token_in": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "token_out": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "amount_in": "100000000",
+   "fee": 100,
+   "block": 522707533,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  },
+  {
+   "label": "1000USDC_to_staticA",
+   "token_in": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "token_out": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "amount_in": "1000000000",
+   "fee": 100,
+   "block": 522707533,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  },
+  {
+   "label": "10000USDC_to_staticA",
+   "token_in": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "token_out": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "amount_in": "10000000000",
+   "fee": 100,
+   "block": 522707533,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  },
+  {
+   "label": "100staticA_to_USDC",
+   "token_in": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "token_out": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "amount_in": "100000000",
+   "fee": 100,
+   "block": 522707533,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  },
+  {
+   "label": "1000staticA_to_USDC",
+   "token_in": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "token_out": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+   "amount_in": "1000000000",
+   "fee": 100,
+   "block": 522707533,
+   "amount_out": null,
+   "error": {
+    "code": 3,
+    "message": "execution reverted: Unexpected error",
+    "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+   }
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:51:36.486512+00:00",
+ "request_count_this_script": 22
+}

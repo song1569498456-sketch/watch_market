@@ -1,0 +1,30 @@
+{
+  "finding_id": "AVAX-GGAVAX-REDEMPTION-QUEUE-ROLE",
+  "status": "UNVERIFIED",
+  "chain": "AVAX",
+  "protocol": "GoGoPool ggAVAX",
+  "market_id": null,
+  "evidence_urls": [
+    "https://snowtrace.io/token/0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3"
+  ],
+  "mechanism": "ggAVAX 链上 symbol 为 stAVAX（18 位），convertToAssets(1e18)=previewRedeem(1e18)=1.196439817864 AVAX；上一轮源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)，本轮普通地址探针 revert 算术 panic（不能独立验证角色）。目前没有证据表明普通用户可即时赎回，也无 DEX 池报价；排队/等待未测。",
+  "net_result": null,
+  "unknown_costs": [
+    "队列角色/等待",
+    "退出费",
+    "DEX 费",
+    "gas"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "找到公开赎回/请求入口",
+    "角色或规则变化",
+    "部署与源码不符"
+  ],
+  "owner": "AVAX02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json"
+}

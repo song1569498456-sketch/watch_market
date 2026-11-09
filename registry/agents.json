@@ -1199,130 +1199,348 @@
       "agent_id": "ARB04",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:37:35.789019+00:00",
+      "last_success_at": "2026-11-09T14:52:08.445534+00:00",
+      "last_attempt_at": "2026-11-09T14:52:08.445534+00:00",
       "actual_coverage": [
-        "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
-        "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
-        "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+        "链身份：eth_chainId=42161；head=522707654（2026-11-09T14:52:08Z）。",
+        "waArbUSDCn（Aave STATA v2）0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc：proxy 代码 1137B（sha256=932478c7…），impl=0x86b752a647db629d6c65e8ca0eb52bfef3a9eb52（19991B）；name=Wrapped Aave Arbitrum USDCn、symbol=waArbUSDCn、decimals=6、asset()=USDCn 0xaf88…；totalAssets=17,325,556.906535、totalSupply=14,639,324.366098；convertToAssets(1 share=1e6)=previewRedeem(1e6)=1,183,494（即 1 份额=1.183494 USDC）。selector 检查：ERC-4626 的 asset/totalAssets/totalSupply/convertToAssets/previewRedeem/previewWithdraw/maxRedeem/maxWithdraw/redeem/withdraw/deposit 全部存在；requestRedeem/claimRedeem/pendingRedeemRequest 均不存在 → 同步赎回，非 ERC-7540 队列。",
+        "Aave v3 Arbitrum USDCn 备用流动性（块 522707241）：aToken 0x724dc807… totalSupply=204,233,192.747228；variableDebt 0xf611aeb5… totalSupply=166,612,432.164199；stableDebt totalSupply=0 → 可提现金约 37,620,760.58 USDC，大于 STATA totalAssets 17,325,556.91，说明协议侧赎回的现金容量结构性充足（但本轮未做用户级 redeem 模拟）。",
+        "stataArbUSDCn（Aave STATA v1）0x7CFaDFD5645B50bE87d546f42699d863648251ad：proxy 代码 2161B；impl=0x9bf9df78b1f7c76a473588c41321b5059b62981e（17885B，sha256=93196f5d…）；name=Static Aave Arbitrum USDCn、symbol=stataArbUSDCn、decimals=6、asset()=USDCn；totalSupply=124,197.961732、rate=1.183494380196761461418246685（1e27）、previewRedeem(1e6)=1,183,494；aToken()=0x724dc807…，wrapper 持有 aToken 146,987.603948 → 份额背书 NAV=1.183494。impl selector 有 redeem(uint256,address,address)、withdraw(uint256,address,address)、maxRedeem/maxWithdraw、convertToAssets、asset() → 同属 ERC-4626 同步赎回；无 request/claim 异步函数。",
+        "旧 STATIC_A 的二级市场（块 522707533）：Uniswap V3 池 0x11092be90af6553434e0962cddfd7d84a4444154（token0=STATIC_A、token1=USDCn、fee=100、代码 22142B sha256=c1cb6f49…）存在但 liquidity=0、slot0 tick=1227；Quoter v1 对 100/1000/10000 USDC 买入与 100/1000 STATIC_A 卖出全部 revert（'Unexpected error'）→ 当前无可执行报价。其余 fee 档 getPool=null、Sushi getPair=null、Dexscreener pairs=[]。",
+        "waArbUSDCn 的二级市场检查（块 522707404）：Uniswap V3 getPool(waArbUSDCn, USDCn, 100/500/3000/10000) 全部 null；Sushi getPair=null；Dexscreener pairs=[] → 无二级流动性，无法以折价买入。",
+        "Beefy 官方列表恢复可读：API 返回 list 3385 条（不是 dict，之前过滤逻辑失效）；Arbitrum 且 active、token 含 USD 的候选 24 个。选中 Beefy vault 0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a（id=morpho-arb-steakhouse-usdc、name=USDC (Steakhouse, High Yield)、want=USDCn、strategy=0x2ea13561b0c041d51e47d7e98c2c28584eac95ae）。",
+        "Beefy vault 链上状态（块 522707652）：totalSupply=25,673.260185 份额、balance()=26,329.646497 USDC（含策略）、available()=0（金库闲置现金为零）、strategy balance=26,329.646497、getPricePerFullShare=1,025,566,924,779,717,064（1e18 → 1 份额=1.025566924779717064 USDC）。即 NAV/份额 1.0255669 但即时可提现金 0：提现完全依赖策略（Morpho Steakhouse 市场）回款，未验证其可立即赎回。"
       ],
       "coverage_gaps": [
-        "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
-        "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
-        "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
-        "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+        "30 天规则/升级与 7 天活动未回溯：未读金库事件（Transfer/Deposit/Withdraw/Upgraded）、未查 redeem 实现历史变化。",
+        "未做用户级 redeem/withdraw 只读模拟：需要持有人份额与授权假设；本轮只用 convertToAssets/previewRedeem + Aave 池流动性做结构性判断。",
+        "二级市场只查了 Uniswap V3（四档）与 Sushi V2 及 Dexscreener；未查 Camelot、Balancer、Curve 等其它 Arbitrum DEX 是否有份额 token 池。",
+        "Beefy vault 的策略（Morpho Steakhouse 市场）回款能力未读：其 available=0 时实际 withdraw 到账时间/可能调减 unknown。",
+        "未核验旧 STATIC_A 的实现版本历史与是否被官方标记弃用/迁移；其池 liquidity=0 可能长期不可交易。",
+        "本轮外部请求 77 次（≤80，符合硬性上限）。"
       ],
-      "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/ARB04/2026-11-09/live-20261109T141903Z.md",
       "task": "金库份额二级折价",
       "chain": "ARB",
       "owner": "worker_a",
       "prompt": "prompts/agents/ARB04.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 4,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-        "verified_at": "2026-11-08T15:38:02.616211+00:00",
-        "record": "evidence/ARB04/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "AVAX01",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:37:39.140492+00:00",
+      "last_success_at": "2026-11-09T14:55:00+00:00",
+      "last_attempt_at": "2026-11-09T14:55:00+00:00",
       "actual_coverage": [
-        "Curve官方SDK文档列aave swap=0x7f90122BF0700F9E7e1F688fe926940E8839F353，标is_lending=true，underlying decimals=[18,6,6]，use_lending=[true,true,true]。",
-        "SDK列原生USDC=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E与USDC.e分别地址，不能币名去重。",
-        "Curve ABI存在get_dy_underlying、exchange_underlying、balances、coins、underlying_coins、A、fee；未调用或广播。",
-        "独立重新读取LFJ SDK的AVALANCHE V2/V2.1工厂/Quoter行，仅入口，未把发现员结论当本轮链上结果。"
+        {
+          "type": "chain_identity",
+          "address": "avalanche-c-chain",
+          "fields": {
+            "eth_chainId": "0xa86a",
+            "chain_id": 43114,
+            "latest_block": 99858977,
+            "latest_block_time_utc": "2026-11-09T14:50:37+00:00",
+            "base_fee_wei": 2500000000,
+            "pinned_block": 99858972
+          },
+          "evidence_file": "raw/avax01_quotes.json"
+        },
+        {
+          "type": "pool_identity",
+          "protocol": "Curve StableSwap (Aave lending pool)",
+          "address": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+          "fields": {
+            "code_bytes": 20347,
+            "A": 500,
+            "fee": 100000,
+            "fee_note": "fee/1e10 ≈ 0.001%/腿",
+            "balances_raw": {
+              "DAI.e": "543360074135508784750588",
+              "USDC.e": "313627316419",
+              "USDT.e": "442713178736"
+            },
+            "balances_human": {
+              "DAI.e": "543360.0741355088",
+              "USDC.e": "313627.316419",
+              "USDT.e": "442713.178736"
+            }
+          },
+          "block": 99858972,
+          "evidence_file": "raw/avax01_static.json"
+        },
+        {
+          "type": "asset_identity",
+          "protocol": "Curve underlying vs wrapped vs native",
+          "fields": {
+            "underlying": {
+              "DAI.e": {
+                "address": "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+                "symbol": "DAI.e",
+                "decimals": 18
+              },
+              "USDC.e": {
+                "address": "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+                "symbol": "USDC.e",
+                "decimals": 6
+              },
+              "USDT.e": {
+                "address": "0xc7198437980c041c805a1edcba50c1ce5db95118",
+                "symbol": "USDT.e",
+                "decimals": 6
+              }
+            },
+            "wrapped_coins_not_used": {
+              "avDAI": "0x47afa96cdc9fab46904a55a6ad4bf6660b53c38a",
+              "avUSDC": "0x46a51127c3ce23fb7ab1de06226147f446e4a857",
+              "avUSDT": "0x532e6537fea298397212f09a61e03311686f548e"
+            },
+            "native_usdc_not_used": {
+              "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+              "symbol": "USDC",
+              "decimals": 6
+            },
+            "note": "原生 USDC 与 USDC.e 是不同合约；aToken 与底层分开；本轮闭环只用底层 DAI.e/USDC.e/USDT.e，且起点终点同为 DAI.e"
+          },
+          "block": 99858972,
+          "evidence_file": "raw/avax01_static.json"
+        },
+        {
+          "type": "cycle_quote",
+          "protocol": "Curve StableSwap",
+          "address": "DAI.e(0)→USDC.e(1)→USDT.e(2)→DAI.e(0)",
+          "fields": {
+            "same_pool_used_3_legs": true,
+            "legs": [
+              {
+                "leg": "DAI.e→USDC.e",
+                "function": "get_dy_underlying(0,1,dx)"
+              },
+              {
+                "leg": "USDC.e→USDT.e",
+                "function": "get_dy_underlying(1,2,last_out)"
+              },
+              {
+                "leg": "USDT.e→DAI.e",
+                "function": "get_dy_underlying(2,0,last_out)"
+              }
+            ],
+            "quotes": [
+              {
+                "amount_in": "1 DAI.e",
+                "amount_out": "0.9999697189904806 DAI.e",
+                "net_bps": "-0.303"
+              },
+              {
+                "amount_in": "10 DAI.e",
+                "amount_out": "9.99968682290956 DAI.e",
+                "net_bps": "-0.313"
+              },
+              {
+                "amount_in": "100 DAI.e",
+                "amount_out": "99.9966978815946 DAI.e",
+                "net_bps": "-0.330"
+              },
+              {
+                "amount_in": "1000 DAI.e",
+                "amount_out": "999.950161085259 DAI.e",
+                "net_bps": "-0.498"
+              }
+            ],
+            "caveat": "get_dy_underlying 为 view，不把前腿对储备的影响带入后腿；储备更新未模拟（缺口）"
+          },
+          "block": 99858972,
+          "evidence_file": "raw/avax01_quotes.json"
+        }
       ],
       "coverage_gaps": [
-        "30天规则、迁移、暂停和费率变更未覆盖；读取的Curve/LFJ当前静态配置无变更时序证明。",
-        "7天真实稳定币回路与代表交易未覆盖，RPC代理CONNECT403，无区块/日志/历史状态。",
-        "Curve aave池和底层/包装资产仅SDK文档身份，未与发行方/桥和链上代码独立核验；原生USDC与USDC.e必须分开。",
-        "DEX发现API遭403，未获同状态三腿get_dy_underlying、储备、可执行额度及动态费用；重复同池状态变化未模拟。",
-        "完整gas、代币限制、授权、潜在融资/等待成本unknown；ABI静态gas字段不是真实成本。"
+        "同池重复使用的储备更新未模拟：get_dy_underlying 是 view，前腿对余额的影响未带入后腿；误差量级估计 <0.5 bps，未做完整 StableSwap 顺序模拟证明。",
+        "gas 未实测：C-Chain 基础费 2.5 gwei，三笔交易 gas 与 L1 数据费未计（只会更负）；ABI 静态 gas 不是真实成本。",
+        "30 天规则窗口未覆盖：未读 Curve 池参数/A 值/fee 变更、暂停/迁移与 aToken 汇率历史。",
+        "7 天活动窗口未覆盖：未扫真实稳定币回路交易、代表成交与大额换币。",
+        "仅一个 Curve 池、一个起点（DAI.e）；未比较其他稳定池（LFJ/Curve 其他/Pangolin）与反向回路。",
+        "未做 aToken/底层兑换路径与原生 USDC 桥接路径闭环；未做只读完整模拟，未验证原子性。"
       ],
-      "report": "reports/agents/AVAX01/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/AVAX01/2026-11-09/live-20261109T141903Z.md",
       "task": "稳定币池闭环兑换",
       "chain": "AVAX",
       "owner": "worker_b",
       "prompt": "prompts/agents/AVAX01.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 2,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-        "verified_at": "2026-11-08T15:38:02.616211+00:00",
-        "record": "evidence/AVAX01/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "AVAX02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:37:20.904921+00:00",
+      "last_success_at": "2026-11-09T14:59:00+00:00",
+      "last_attempt_at": "2026-11-09T14:59:00+00:00",
       "actual_coverage": [
         {
-          "protocol": "BENQI sAVAX",
-          "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
-          "decimals": 18,
-          "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
-          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
+          "type": "chain_identity",
+          "address": "avalanche-c-chain",
+          "fields": {
+            "eth_chainId": "0xa86a",
+            "chain_id": 43114,
+            "latest_block": 99859135,
+            "latest_block_time_utc": "2026-11-09T14:52:51+00:00",
+            "base_fee_wei": 2500000000,
+            "pinned_block": 99859130,
+            "pinned_block_time_utc": "2026-11-09T14:52:41+00:00"
+          },
+          "evidence_file": "raw/avax02_summary.json / raw/dex_pairs.json"
         },
         {
+          "type": "savax_identity_and_share_ratio",
+          "protocol": "BENQI sAVAX",
+          "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+          "fields": {
+            "code_bytes": 2141,
+            "symbol": "sAVAX",
+            "decimals": 18,
+            "totalSupply": "18631299756825931271643567",
+            "totalPooledAvax": "24105921361453771611390693",
+            "getPooledAvaxByShares_1e18": "1293840025982197431",
+            "avax_per_share_ratio": 1.2938400259821974,
+            "getSharesByPooledAvax_1e18": "772893077906494973"
+          },
+          "block": 99859130,
+          "evidence_file": "raw/savax.json"
+        },
+        {
+          "type": "savax_exit_probes",
+          "protocol": "BENQI sAVAX",
+          "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+          "fields": {
+            "withdraw_uint256_probe": {
+              "reverted": true,
+              "reason": "ROLE_WITHDRAW"
+            },
+            "redeem_uint256_probe": {
+              "reverted": true,
+              "reason": "Invalid unlock request index"
+            },
+            "note": "普通地址 eth_call 直接探针；只排除这两个函数为无许可即时兑付，不等于协议所有出口"
+          },
+          "block": 99859130,
+          "evidence_file": "raw/savax.json"
+        },
+        {
+          "type": "ggavax_identity_and_share_ratio",
           "protocol": "GoGoPool ggAVAX",
-          "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
-          "fields": [
-            "totalAssets L182-198 reward release",
-            "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
-            "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
-          ],
-          "deployment_address": null,
-          "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
+          "address": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+          "fields": {
+            "code_bytes": 2583,
+            "onchain_symbol": "stAVAX",
+            "decimals": 18,
+            "totalAssets": "39743647584108532098419",
+            "totalSupply": "33218258863250354591799",
+            "convertToAssets_1e18": "1196439817864062440",
+            "previewRedeem_1e18": "1196439817864062440",
+            "assets_per_share_ratio": 1.1964398178640625,
+            "withdrawAVAX_probe": {
+              "reverted": true,
+              "reason": "arithmetic underflow or overflow (Panic 0x11)"
+            },
+            "redeemAVAX_probe": {
+              "reverted": true,
+              "reason": "arithmetic underflow or overflow (Panic 0x11)"
+            },
+            "source_role_restriction": "上一轮源码：withdrawAVAX/redeemAVAX onlyRole(WITHDRAW_QUEUE_ROLE)；本轮探针不能独立证明角色，故与源码分开记录"
+          },
+          "block": 99859130,
+          "evidence_file": "raw/ggavax.json"
+        },
+        {
+          "type": "dex_pool_state_and_quotes",
+          "protocol": "Pangolin / Trader Joe V1 / Trader Joe V2.1",
+          "address": "0x4E9A38F0…f70D / 0x4b946c91…094d / 0x883eA72c…c5c0",
+          "fields": {
+            "pangolin": {
+              "token0": "sAVAX",
+              "token1": "WAVAX",
+              "reserve0_raw": "516296428763935148787",
+              "reserve1_raw": "665213333874326386324",
+              "spot_WAVAX_per_sAVAX_gross": 1.2884329559801782,
+              "sell_1_savax": {
+                "fee_0.2pct": 1.2833753280369031,
+                "fee_0.3pct": 1.2820918592711532
+              }
+            },
+            "traderjoe_v1": {
+              "token0": "sAVAX",
+              "token1": "WAVAX",
+              "reserve0_raw": "10349019642573558228216",
+              "reserve1_raw": "13334802270833140276252",
+              "spot_WAVAX_per_sAVAX_gross": 1.2885087410576301,
+              "sell_1_savax": {
+                "fee_0.2pct": 1.2858077276651263,
+                "fee_0.3pct": 1.2845194672764173
+              }
+            },
+            "traderjoe_v21_lb": {
+              "pair_bytes": 97,
+              "tokenX": "sAVAX",
+              "tokenY": "WAVAX",
+              "binStep": 5,
+              "activeId": 8389118,
+              "spot_WAVAX_per_sAVAX": 1.2903793839770088
+            }
+          },
+          "block": 99859130,
+          "evidence_file": "raw/dex_pairs.json"
+        },
+        {
+          "type": "discount_vs_redemption",
+          "protocol": "sAVAX",
+          "fields": {
+            "redemption_value_avax_per_share": 1.2938400259821974,
+            "dex_spot_pangolin": 1.2884329559801782,
+            "dex_spot_traderjoe_v1": 1.2885087410576301,
+            "dex_spot_traderjoe_v21_lb": 1.2903793839770088,
+            "discount_pct_range": "-0.267% ～ -0.42%（spot 口径）；小额卖出含费后约 -0.62% ～ -0.9%",
+            "interpretation": "DEX 折价存在但无公开即时赎回出口；不能把折价当可兑现收益"
+          },
+          "block": 99859130,
+          "evidence_file": "raw/dex_pairs.json"
         }
       ],
       "coverage_gaps": [
-        "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
-        "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
-        "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
-        "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
-        "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+        "排队/解锁请求出口完全未测：sAVAX redeem 的 unlock request 生命周期（申请入口、最小份额、索引 NFT 可转让性、领取权限、等待期、退出费、缓冲、罚没/汇率风险）未读；ggAVAX withdrawal queue 角色/等待同样未测。",
+        "协议即时赎回：只排除已探针的 sAVAX withdraw/redeem 与 ggAVAX withdrawAVAX/redeemAVAX，不等于协议全部出口；未找到无许可即时兑换函数。",
+        "DEX 池费率未链上确认：Pangolin/TJ V1 的 0.2%/0.3% 为情景假设；LB 池 spot 未做 bin 深度遍历与数量报价。",
+        "仅单 pinned 块，30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）未覆盖。",
+        "未比较 tAVAX/yyAVAX 等其他封装（DexScreener 出现但未核）与 ggAVAX DEX 池报价；未做完整路径模拟与 gas 估算。"
       ],
-      "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/AVAX02/2026-11-09/live-20261109T141903Z.md",
       "task": "质押衍生品折价赎回",
       "chain": "AVAX",
       "owner": "worker_c",
       "prompt": "prompts/agents/AVAX02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 2,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-        "verified_at": "2026-11-08T15:38:02.616211+00:00",
-        "record": "evidence/AVAX02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "BASE01",

@@ -1,0 +1,30 @@
+{
+  "finding_id": "ARB-BEEFY-MORPHO-USDC-ZERO-IDLE-CASH",
+  "status": "RULE_GAP",
+  "chain": "ARB",
+  "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+  "first_seen_at": "2026-11-09T14:52:08+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "Beefy vault 0x13EaA791…（Steakhouse Morpho USDC）显示份额 NAV=1.025566924779717064 USDC（balance 26,329.646497 / totalSupply 25,673.260185），但金库闲置现金 available()=0，全部资产在 strategy 0x2ea13561… 内；无二级市场可买折价。规则差异：显示 NAV 不等于即时可提现金，提现依赖策略回款（V7 withdraw 可能按实际回款调减），因此不能把 getPricePerFullShare 当可兑现价。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "策略回款等待",
+    "提现调减",
+    "gas"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00",
+    "ARB02"
+  ],
+  "invalidation_conditions": [
+    "available() 出现闲置现金",
+    "策略流动性/价格变化",
+    "出现二级市场"
+  ],
+  "owner": "ARB04",
+  "source_record": "evidence/ARB04/live-20261109T141903Z/record.json"
+}

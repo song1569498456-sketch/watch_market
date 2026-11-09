@@ -1,0 +1,69 @@
+{
+ "started_at_utc": "2026-11-09T14:50:38.344151+00:00",
+ "chain_id": 43114,
+ "latest_block": 99858977,
+ "latest_block_time_utc": "2026-11-09T14:50:37+00:00",
+ "base_fee_wei": "0x9502f900",
+ "pinned_block": 99858972,
+ "static_raw": {
+  "pool_code": 20347,
+  "coin_0": 409255734158312768369217135971486719274059547530,
+  "underlying_0": 1219023541461618577476913700405176380076679073136,
+  "balance_0": 543360074135508784750588,
+  "coin_1": 403310471355569271494960420782072973498043902039,
+  "underlying_1": 958196781496191500749492833627164619010516239972,
+  "balance_1": 313627316419,
+  "coin_2": 474880885652388528110408864557781561377429607566,
+  "underlying_2": 1136658199763285550214466495421557379492992340248,
+  "balance_2": 442713178736,
+  "A": 500,
+  "fee": 100000
+ },
+ "coins": [
+  "0x47afa96cdc9fab46904a55a6ad4bf6660b53c38a",
+  "0x46a51127c3ce23fb7ab1de06226147f446e4a857",
+  "0x532e6537fea298397212f09a61e03311686f548e"
+ ],
+ "underlying_coins": [
+  "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+  "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+  "0xc7198437980c041c805a1edcba50c1ce5db95118"
+ ],
+ "balances": [
+  "543360074135508784750588",
+  "313627316419",
+  "442713178736"
+ ],
+ "A": 500,
+ "fee": 100000,
+ "token_meta": {
+  "0xd586e7f844cea2f87f50152665bcbc2c279d8d70": {
+   "symbol": "DAI.e",
+   "decimals": 18
+  },
+  "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664": {
+   "symbol": "USDC.e",
+   "decimals": 6
+  },
+  "0xc7198437980c041c805a1edcba50c1ce5db95118": {
+   "symbol": "USDT.e",
+   "decimals": 6
+  },
+  "0x47afa96cdc9fab46904a55a6ad4bf6660b53c38a": {
+   "symbol": "avDAI",
+   "decimals": 18
+  },
+  "0x46a51127c3ce23fb7ab1de06226147f446e4a857": {
+   "symbol": "avUSDC",
+   "decimals": 6
+  },
+  "0x532e6537fea298397212f09a61e03311686f548e": {
+   "symbol": "avUSDT",
+   "decimals": 6
+  },
+  "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E": {
+   "symbol": "USDC",
+   "decimals": 6
+  }
+ }
+}

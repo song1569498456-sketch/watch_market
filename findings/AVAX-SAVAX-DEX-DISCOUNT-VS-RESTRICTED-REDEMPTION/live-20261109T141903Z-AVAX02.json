@@ -1,0 +1,39 @@
+{
+  "finding_id": "AVAX-SAVAX-DEX-DISCOUNT-VS-RESTRICTED-REDEMPTION",
+  "status": "RULE_GAP",
+  "chain": "AVAX",
+  "protocol": "BENQI sAVAX / DEX",
+  "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d | AVAX:43114:pangolin-pool:0x4E9A38F0… | AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c…",
+  "evidence_urls": [
+    "https://snowtrace.io/token/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+    "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+    "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+  ],
+  "mechanism": "sAVAX 协议记账赎回价值 1.29384 AVAX/份额；三个真实 DEX 池同 pinned 块 spot 1.28843–1.29038（折扣 −0.27%～−0.42%，小额卖出含费 −0.62%～−0.9%）。但协议即时赎回对普通地址不可用：withdraw revert ROLE_WITHDRAW、redeem 走 unlock request index；排队出口未测。折价是退出受限的定价，不是可兑现收益。",
+  "net_result": {
+    "value": null,
+    "unit": "AVAX",
+    "type": "not_applicable_restricted_exit",
+    "note": "无可执行闭环；不把份额价当可兑现价"
+  },
+  "unknown_costs": [
+    "排队等待与资金占用",
+    "请求/退出费",
+    "DEX 费（情景未确认）",
+    "gas",
+    "罚没/汇率风险"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "赎回权限/请求规则变化",
+    "份额换算率变化",
+    "DEX 费率与假设不符",
+    "报价过期"
+  ],
+  "owner": "AVAX02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json"
+}

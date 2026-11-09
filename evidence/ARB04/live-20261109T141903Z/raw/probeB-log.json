@@ -1,0 +1,149 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:50:55.207780+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:50:55.824584+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_stata_waArbUSDCn_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:56.162219+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_stata_waArbUSDCn_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:56.507633+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_stata_waArbUSDCn_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:56.829432+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_stata_waArbUSDCn_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:57.170453+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "sushi_stata_waArbUSDCn",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:57.544028+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_static_a_token_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:57.898997+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_static_a_token_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:58.289852+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_static_a_token_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:58.619130+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "uni_static_a_token_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:58.968598+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "sushi_static_a_token",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:59.419140+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_stata",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+  "at_utc": "2026-11-09T14:50:59.760710+00:00",
+  "http_status": 200,
+  "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d"
+ },
+ {
+  "n": 14,
+  "kind": "GET",
+  "host": "api.dexscreener.com",
+  "tag": "ds_static_a",
+  "url": "https://api.dexscreener.com/latest/dex/tokens/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+  "at_utc": "2026-11-09T14:51:00.445167+00:00",
+  "http_status": 200,
+  "sha256": "3ed91fc5d32dde18de933f252927edabd035d03668a2fd13a17c6c17c2c58e0d"
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_transfer_logs",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:51:00.859767+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "GET",
+  "host": "api.beefy.finance",
+  "tag": "beefy_vaults_recheck",
+  "url": "https://api.beefy.finance/vaults",
+  "at_utc": "2026-11-09T14:51:01.466494+00:00",
+  "http_status": 200,
+  "sha256": "6dbd015ab83b3e89621051a9e2af2ca9d47c1219bd29fb0f52b83b65b98c0811"
+ }
+]

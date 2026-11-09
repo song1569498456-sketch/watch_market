@@ -1,0 +1,250 @@
+{
+  "agent_id": "AVAX02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "AVAX",
+  "scope": "Avalanche C-Chain 43114 质押衍生品折价与真实赎回：sAVAX/ggAVAX 份额换算、DEX 即时卖出（Pangolin/Trader Joe V1/V2.1 同 pinned 块）、协议即时赎回与排队/解锁请求出口核验；不把份额价当可兑现价",
+  "started_at": "2026-11-09T14:51:30+00:00",
+  "finished_at": "2026-11-09T14:59:00+00:00",
+  "duration_seconds": 450,
+  "execution_status": "PARTIAL",
+  "status": "RULE_GAP",
+  "as_of": {
+    "utc": "2026-11-09T14:52:56+00:00",
+    "beijing": "2026-11-09T22:52:56+08:00",
+    "data_time": "链上读取 2026-11-09T14:52:51Z～14:52:56Z；最新块 99,859,135（2026-11-09T14:52:51Z）；DEX 价格/储备 pinned 块 99,859,130（2026-11-09T14:52:41Z）；报告落盘时报价已超过 60 秒，按历史证据处理"
+  },
+  "block_or_slot": 99859130,
+  "market_ids": [
+    "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+    "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+    "AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+  ],
+  "asset_ids": [
+    "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+    "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+    "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+  ],
+  "discovery_source": [
+    {
+      "source": "DexScreener 官方 API（发现入口，无 key）",
+      "url": "https://api.dexscreener.com/latest/dex/search?q=sAVAX",
+      "retrieved_at_utc": "2026-11-09T14:52:51+00:00",
+      "http_status": 200,
+      "request": "返回 Avalanche sAVAX 对：traderjoe 0x883eA72c…、pharaoh 0x65B9016c…、traderjoe 0x4b946c91…、pangolin 0x4E9A38F0…、blackhole 等；据此定位真实池地址，再到链上读状态"
+    },
+    {
+      "source": "Avalanche C-Chain 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://api.avax.network/ext/bc/C/rpc",
+      "retrieved_at_utc": "2026-11-09T14:52:52+00:00～14:52:56+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（symbol/decimals、totalSupply/totalAssets/totalPooledAvax/getPooledAvaxByShares/convertToAssets/previewRedeem、withdraw/redeem/withdrawAVAX/redeemAVAX 探针、token0/token1/getReserves/getTokenX/getTokenY/getBinStep/getActiveId）；共 8 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "sAVAX 与 ggAVAX 是两类不同凭证：sAVAX 是 BENQI 份额（getPooledAvaxByShares 给出协议记账赎回价值 1.29384 AVAX/sAVAX），ggAVAX 是 ERC4626 型（链上 symbol 为 stAVAX，convertToAssets(1e18)=1.19644 AVAX）。三种出口必须分开：DEX 即时卖出有链上池状态可换算（Pangolin/TJ V1 为 UniV2 型储备、TJ V2.1 为 LB bin 价格，pinned 块 99,859,130）；协议即时赎回不可用——sAVAX withdraw 直接 revert ROLE_WITHDRAW，redeem 报 Invalid unlock request index（走解锁请求流程），ggAVAX 源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)；排队/到期出口本轮未测生命周期与等待。故 DEX 相对协议记账价值的 −0.27%～−0.9% 折价不能按即时赎回闭环兑现，是流动性/退出限制定价（风险线索），不是可执行机会。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "avalanche-c-chain",
+      "fields": {"eth_chainId": "0xa86a", "chain_id": 43114, "latest_block": 99859135,
+                 "latest_block_time_utc": "2026-11-09T14:52:51+00:00", "base_fee_wei": 2500000000,
+                 "pinned_block": 99859130, "pinned_block_time_utc": "2026-11-09T14:52:41+00:00"},
+      "evidence_file": "raw/avax02_summary.json / raw/dex_pairs.json"
+    },
+    {
+      "type": "savax_identity_and_share_ratio",
+      "protocol": "BENQI sAVAX",
+      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+      "fields": {"code_bytes": 2141, "symbol": "sAVAX", "decimals": 18,
+                 "totalSupply": "18631299756825931271643567", "totalPooledAvax": "24105921361453771611390693",
+                 "getPooledAvaxByShares_1e18": "1293840025982197431",
+                 "avax_per_share_ratio": 1.2938400259821974,
+                 "getSharesByPooledAvax_1e18": "772893077906494973"},
+      "block": 99859130,
+      "evidence_file": "raw/savax.json"
+    },
+    {
+      "type": "savax_exit_probes",
+      "protocol": "BENQI sAVAX",
+      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+      "fields": {"withdraw_uint256_probe": {"reverted": true, "reason": "ROLE_WITHDRAW"},
+                 "redeem_uint256_probe": {"reverted": true, "reason": "Invalid unlock request index"},
+                 "note": "普通地址 eth_call 直接探针；只排除这两个函数为无许可即时兑付，不等于协议所有出口"},
+      "block": 99859130,
+      "evidence_file": "raw/savax.json"
+    },
+    {
+      "type": "ggavax_identity_and_share_ratio",
+      "protocol": "GoGoPool ggAVAX",
+      "address": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+      "fields": {"code_bytes": 2583, "onchain_symbol": "stAVAX", "decimals": 18,
+                 "totalAssets": "39743647584108532098419", "totalSupply": "33218258863250354591799",
+                 "convertToAssets_1e18": "1196439817864062440", "previewRedeem_1e18": "1196439817864062440",
+                 "assets_per_share_ratio": 1.1964398178640625,
+                 "withdrawAVAX_probe": {"reverted": true, "reason": "arithmetic underflow or overflow (Panic 0x11)"},
+                 "redeemAVAX_probe": {"reverted": true, "reason": "arithmetic underflow or overflow (Panic 0x11)"},
+                 "source_role_restriction": "上一轮源码：withdrawAVAX/redeemAVAX onlyRole(WITHDRAW_QUEUE_ROLE)；本轮探针不能独立证明角色，故与源码分开记录"},
+      "block": 99859130,
+      "evidence_file": "raw/ggavax.json"
+    },
+    {
+      "type": "dex_pool_state_and_quotes",
+      "protocol": "Pangolin / Trader Joe V1 / Trader Joe V2.1",
+      "address": "0x4E9A38F0…f70D / 0x4b946c91…094d / 0x883eA72c…c5c0",
+      "fields": {
+        "pangolin": {"token0": "sAVAX", "token1": "WAVAX", "reserve0_raw": "516296428763935148787", "reserve1_raw": "665213333874326386324",
+                     "spot_WAVAX_per_sAVAX_gross": 1.2884329559801782,
+                     "sell_1_savax": {"fee_0.2pct": 1.2833753280369031, "fee_0.3pct": 1.2820918592711532}},
+        "traderjoe_v1": {"token0": "sAVAX", "token1": "WAVAX", "reserve0_raw": "10349019642573558228216", "reserve1_raw": "13334802270833140276252",
+                         "spot_WAVAX_per_sAVAX_gross": 1.2885087410576301,
+                         "sell_1_savax": {"fee_0.2pct": 1.2858077276651263, "fee_0.3pct": 1.2845194672764173}},
+        "traderjoe_v21_lb": {"pair_bytes": 97, "tokenX": "sAVAX", "tokenY": "WAVAX", "binStep": 5, "activeId": 8389118,
+                             "spot_WAVAX_per_sAVAX": 1.2903793839770088}},
+      "block": 99859130,
+      "evidence_file": "raw/dex_pairs.json"
+    },
+    {
+      "type": "discount_vs_redemption",
+      "protocol": "sAVAX",
+      "fields": {"redemption_value_avax_per_share": 1.2938400259821974,
+                 "dex_spot_pangolin": 1.2884329559801782, "dex_spot_traderjoe_v1": 1.2885087410576301,
+                 "dex_spot_traderjoe_v21_lb": 1.2903793839770088,
+                 "discount_pct_range": "-0.267% ～ -0.42%（spot 口径）；小额卖出含费后约 -0.62% ～ -0.9%",
+                 "interpretation": "DEX 折价存在但无公开即时赎回出口；不能把折价当可兑现收益"},
+      "block": 99859130,
+      "evidence_file": "raw/dex_pairs.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d", "amount_in": "1 sAVAX", "amount_out": "1.2845194672764173 WAVAX", "fees": "假设 UniV2 型费 0.30%（Pangolin/TJ V1 池 fee 参数未链上确认）；gas 未计", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价（费 0.3% 情景）"},
+    {"market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d", "amount_in": "10 sAVAX", "amount_out": "12.83406811160564 WAVAX", "fees": "同上", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价"},
+    {"market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d", "amount_in": "100 sAVAX", "amount_out": "127.23853561780592 WAVAX", "fees": "同上", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价"},
+    {"market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D", "amount_in": "1 sAVAX", "amount_out": "1.2820918592711532 WAVAX", "fees": "假设 0.30%（情景）；gas 未计", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价"},
+    {"market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D", "amount_in": "10 sAVAX", "amount_out": "12.602318096376234 WAVAX", "fees": "同上", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价"},
+    {"market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D", "amount_in": "100 sAVAX", "amount_out": "107.66583423276056 WAVAX", "fees": "同上", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "DEX 即时卖出价（小额近似，100 sAVAX 冲击已明显）"},
+    {"market_id": "AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c2A46F7AcB3820855344C43666c6cc5c0", "amount_in": "null（spot 口径，非数量报价）", "amount_out": "1.2903793839770088 WAVAX/sAVAX", "fees": "LB fee 未在报价内另计（bin 价格口径）", "block": 99859130, "quote_time_utc": "2026-11-09T14:52:41+00:00", "note": "LB spot（binStep5/activeId 8389118），非数量遍历报价"}
+  ],
+  "net_result": {
+    "value": null,
+    "unit": "AVAX",
+    "type": "not_applicable_restricted_exit",
+    "realized": false,
+    "note": "DEX 即时卖出相对协议赎回价值的折价 −0.267%～−0.9%，但协议即时赎回对普通地址不可用（ROLE_WITHDRAW / unlock request index），无可执行闭环；排队出口未测时间与容量，不锁定未来兑付",
+    "unknown_costs": ["排队等待期与资金占用", "退出/请求费", "DEX 费（0.2%/0.3% 情景未链上确认）", "gas（C-Chain）", "汇率/罚没风险", "解锁请求 NFT/索引的转让与领取限制"]
+  },
+  "capacity": "DEX 可卖容量：Pangolin 池 516.296 sAVAX / 665.213 WAVAX（小额）；TJ V1 池 10,349.02 sAVAX / 13,334.80 WAVAX；TJ V2.1 LB 池 spot 有效但未做 bin 深度遍历。协议即时赎回归零；排队/到期可用容量与缓冲 unknown。",
+  "permissions": "sAVAX withdraw(uint256) 普通地址 revert ROLE_WITHDRAW；redeem(uint256) 走 unlock request index（申请流程）；ggAVAX 源码 withdrawAVAX/redeemAVAX onlyRole(WITHDRAW_QUEUE_ROLE)（本轮探针 panic 不能独立验证角色）。DEX 卖出需 ERC20 授权；本轮未签名/未授权/未广播。",
+  "liabilities": "none（只读读取与 view 报价；未建仓、无债务、无在途资金）",
+  "waiting_time": "DEX 即时（同块报价，0 等待）；协议即时不可用；排队/到期等待时间 unknown（未读请求生命周期），不给资金成本假设",
+  "invalidation_conditions": [
+    "sAVAX/ggAVAX 实际部署与已读源码不符",
+    "份额换算率变化（rebase/reward release）",
+    "协议赎回权限或解锁请求规则变化",
+    "DEX 池费率与假设不符",
+    "报价超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://api.avax.network/ext/bc/C/rpc",
+    "https://snowtrace.io/token/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+    "https://snowtrace.io/token/0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+    "https://snowtrace.io/address/0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+    "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+    "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+    "https://api.dexscreener.com/latest/dex/search?q=sAVAX"
+  ],
+  "coverage_gaps": [
+    "排队/解锁请求出口完全未测：sAVAX redeem 的 unlock request 生命周期（申请入口、最小份额、索引 NFT 可转让性、领取权限、等待期、退出费、缓冲、罚没/汇率风险）未读；ggAVAX withdrawal queue 角色/等待同样未测。",
+    "协议即时赎回：只排除已探针的 sAVAX withdraw/redeem 与 ggAVAX withdrawAVAX/redeemAVAX，不等于协议全部出口；未找到无许可即时兑换函数。",
+    "DEX 池费率未链上确认：Pangolin/TJ V1 的 0.2%/0.3% 为情景假设；LB 池 spot 未做 bin 深度遍历与数量报价。",
+    "仅单 pinned 块，30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）未覆盖。",
+    "未比较 tAVAX/yyAVAX 等其他封装（DexScreener 出现但未核）与 ggAVAX DEX 池报价；未做完整路径模拟与 gas 估算。"
+  ],
+  "next_check": [
+    "读 sAVAX unlock request 入口/索引 NFT（可转让性、领取权限、等待期、费用、可用缓冲），给出现在可兑/排队预计数量与时间；同样读 ggAVAX withdrawal queue。",
+    "链上确认 Pangolin/TJ V1 池费率；LB 池用 LBRouter getSwapOut 或 bin 遍历给 1/10/100 sAVAX 精确卖出报价。",
+    "补 30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、实测到账时间）。",
+    "对 tAVAX/yyAVAX 等其他封装建池报价，分别登记，不假设 1:1 底层；补 ggAVAX DEX 池。",
+    "若赎回出口重开或折价扩大，重测三种出口并解释“折价变大+出口变差”的风险信号，不机械提高机会评级。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+      "chain": "AVAX", "protocol": "Pangolin (UniV2-like)",
+      "asset_ids": ["0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D"],
+      "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+      "next_check": "确认 pool fee；小额精确报价；容量"
+    },
+    {
+      "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+      "chain": "AVAX", "protocol": "Trader Joe V1 (UniV2-like)",
+      "asset_ids": ["0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d"],
+      "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+      "next_check": "确认 pool fee；精确报价；容量"
+    },
+    {
+      "market_id": "AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+      "chain": "AVAX", "protocol": "Trader Joe V2.1 Liquidity Book",
+      "asset_ids": ["0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"],
+      "evidence_urls": ["https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"],
+      "identity_status": "ONCHAIN_VERIFIED_LB_PAIR_BINSTEP_ACTIVEID（97B 克隆）",
+      "next_check": "LBRouter getSwapOut 或 bin 遍历给数量报价"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "AVAX-SAVAX-DEX-DISCOUNT-VS-RESTRICTED-REDEMPTION",
+      "status": "RULE_GAP",
+      "chain": "AVAX",
+      "protocol": "BENQI sAVAX / DEX",
+      "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d | AVAX:43114:pangolin-pool:0x4E9A38F0… | AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c…",
+      "evidence_urls": ["https://snowtrace.io/token/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+                        "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+                        "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"],
+      "mechanism": "sAVAX 协议记账赎回价值 1.29384 AVAX/份额；三个真实 DEX 池同 pinned 块 spot 1.28843–1.29038（折扣 −0.27%～−0.42%，小额卖出含费 −0.62%～−0.9%）。但协议即时赎回对普通地址不可用：withdraw revert ROLE_WITHDRAW、redeem 走 unlock request index；排队出口未测。折价是退出受限的定价，不是可兑现收益。",
+      "net_result": {"value": null, "unit": "AVAX", "type": "not_applicable_restricted_exit", "note": "无可执行闭环；不把份额价当可兑现价"},
+      "unknown_costs": ["排队等待与资金占用", "请求/退出费", "DEX 费（情景未确认）", "gas", "罚没/汇率风险"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["赎回权限/请求规则变化", "份额换算率变化", "DEX 费率与假设不符", "报价过期"]
+    },
+    {
+      "finding_id": "AVAX-GGAVAX-REDEMPTION-QUEUE-ROLE",
+      "status": "UNVERIFIED",
+      "chain": "AVAX",
+      "protocol": "GoGoPool ggAVAX",
+      "market_id": null,
+      "evidence_urls": ["https://snowtrace.io/token/0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3"],
+      "mechanism": "ggAVAX 链上 symbol 为 stAVAX（18 位），convertToAssets(1e18)=previewRedeem(1e18)=1.196439817864 AVAX；上一轮源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)，本轮普通地址探针 revert 算术 panic（不能独立验证角色）。目前没有证据表明普通用户可即时赎回，也无 DEX 池报价；排队/等待未测。",
+      "net_result": null,
+      "unknown_costs": ["队列角色/等待", "退出费", "DEX 费", "gas"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["找到公开赎回/请求入口", "角色或规则变化", "部署与源码不符"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "把 sAVAX 的 DEX 折价当可兑现利润（买入折价份额→协议赎回差额）",
+      "reason": "协议即时赎回对普通地址不可用：sAVAX withdraw revert ROLE_WITHDRAW、redeem 报 Invalid unlock request index（解锁请求流程）；排队出口未测时间/费用/容量，未锁定未来兑付，排除该利润主张。"
+    },
+    {
+      "claim": "用份额价（换算率）当可兑现价",
+      "reason": "getPooledAvaxByShares 是协议记账赎回价值，不等于当前可售出/可兑付价；本轮三种出口分列，DEX 价与赎回价值分别记录，排除混用。"
+    },
+    {
+      "claim": "ggAVAX 普通用户可即时赎回",
+      "reason": "上一轮源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)；本轮探针 revert panic 未能推翻该限制，也无公开即时出口证据，排除该断言。"
+    },
+    {
+      "claim": "DexScreener 展示的 sAVAX 价格即固定区块可执行报价",
+      "reason": "展示价仅用于发现池地址；本报告的可执行报价来自同一 pinned 块链上储备/bin 状态换算，并标明费率情景，不用展示价直接做结论。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_share_ratios_plus_same_block_dex_state",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T14:52:56+00:00",
+    "complete_block_range": "pinned 单块 99,859,130（最新块 99,859,135）；无区块范围扫描",
+    "complete_event_time_window": "排队赎回事件/7 天活动窗口未覆盖；30 天规则窗口未覆盖"
+  }
+}

@@ -1,0 +1,30 @@
+{
+ "impl": "0x9bf9df78b1f7c76a473588c41321b5059b62981e",
+ "code_bytes": 17885,
+ "selector_count": 89,
+ "presence": {
+  "redeem(uint256,address,address)": true,
+  "redeem(uint256,address,bool)": false,
+  "redeem(uint256,address)": false,
+  "redeem(uint256)": false,
+  "withdraw(uint256,address,address)": true,
+  "withdraw(uint256,address,bool)": false,
+  "withdraw(uint256,address)": false,
+  "withdraw(uint256)": false,
+  "maxRedeem(address)": true,
+  "previewRedeem(uint256)": true,
+  "convertToAssets(uint256)": true,
+  "asset()": true,
+  "aToken()": true,
+  "rate()": true,
+  "totalAssets()": true,
+  "maxWithdraw(address)": true,
+  "deposit(uint256,address)": true,
+  "deposit(uint256,address,bool)": false,
+  "claimRedeem(address)": false,
+  "requestRedeem(uint256,address,address)": false,
+  "pendingRedeemRequest(address)": false,
+  "exit(uint256)": false,
+  "exit(bool)": false
+ }
+}

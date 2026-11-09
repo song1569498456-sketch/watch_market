@@ -1,0 +1,30 @@
+{
+  "finding_id": "ARB-VAULT-SHARES-NO-SECONDARY-DISCOUNT",
+  "status": "REJECTED",
+  "chain": "ARB",
+  "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+  "first_seen_at": "2026-11-09T14:52:08+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "本轮核验三个可转让金库份额：Aave waArbUSDCn(v2) 与 stataArbUSDCn(v1) 均为 ERC-4626 同步赎回、NAV=1.183494 USDC/份额（asset=USDCn），但都不存在可用二级市场——waArbUSDCn 在 Uniswap V3 四档/Sushi/Dexscreener 全无池；v1 的 Uniswap V3 fee=100 池存在但 liquidity=0、Quoter 全部 revert；Beefy vault 同样无二级市场。故不存在‘二级折价买入→按 NAV 赎回’的闭环，无法给出正收益。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+    "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+    "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "gas/L1 数据费（无二级入口，不适用）",
+    "用户级 redeem 限额",
+    "其它 DEX 未覆盖"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现非零流动性的二级份额池且折价低于赎回成本",
+    "金库实现升级改变赎回规则"
+  ],
+  "owner": "ARB04",
+  "source_record": "evidence/ARB04/live-20261109T141903Z/record.json"
+}

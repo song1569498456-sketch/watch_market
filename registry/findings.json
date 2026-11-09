@@ -3405,6 +3405,357 @@
       },
       "q00_review": null,
       "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "ARB-VAULT-SHARES-NO-SECONDARY-DISCOUNT",
+      "first_seen_at": "2026-11-09T14:52:08.445534+00:00",
+      "status": "REJECTED",
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "mechanism": "本轮核验三个可转让金库份额：Aave waArbUSDCn(v2) 与 stataArbUSDCn(v1) 均为 ERC-4626 同步赎回、NAV=1.183494 USDC/份额（asset=USDCn），但都不存在可用二级市场——waArbUSDCn 在 Uniswap V3 四档/Sushi/Dexscreener 全无池；v1 的 Uniswap V3 fee=100 池存在但 liquidity=0、Quoter 全部 revert；Beefy vault 同样无二级市场。故不存在‘二级折价买入→按 NAV 赎回’的闭环，无法给出正收益。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+        "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+        "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "gas/L1 数据费（无二级入口，不适用）",
+        "用户级 redeem 限额",
+        "其它 DEX 未覆盖"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现非零流动性的二级份额池且折价低于赎回成本",
+        "金库实现升级改变赎回规则"
+      ],
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:52:08.445534+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:08.445534+00:00",
+      "capacity": "Aave USDCn 协议侧可提现金约 37,620,760.58 USDC（aToken 204,233,192.747228 − variableDebt 166,612,432.164199 − stableDebt 0），大于 STATA totalAssets 17,325,556.91；Beefy vault 即时现金 0、全部 26,329.646497 USDC 在 strategy；二级市场：旧 STATIC_A 池 liquidity=0，waArbUSDCn 与 Beefy vault 无池。",
+      "observations_by_role": {
+        "ARB04": {
+          "finding_id": "ARB-VAULT-SHARES-NO-SECONDARY-DISCOUNT",
+          "status": "REJECTED",
+          "chain": "ARB",
+          "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+          "first_seen_at": "2026-11-09T14:52:08+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "本轮核验三个可转让金库份额：Aave waArbUSDCn(v2) 与 stataArbUSDCn(v1) 均为 ERC-4626 同步赎回、NAV=1.183494 USDC/份额（asset=USDCn），但都不存在可用二级市场——waArbUSDCn 在 Uniswap V3 四档/Sushi/Dexscreener 全无池；v1 的 Uniswap V3 fee=100 池存在但 liquidity=0、Quoter 全部 revert；Beefy vault 同样无二级市场。故不存在‘二级折价买入→按 NAV 赎回’的闭环，无法给出正收益。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+            "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+            "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "gas/L1 数据费（无二级入口，不适用）",
+            "用户级 redeem 限额",
+            "其它 DEX 未覆盖"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现非零流动性的二级份额池且折价低于赎回成本",
+            "金库实现升级改变赎回规则"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "ARB-BEEFY-MORPHO-USDC-ZERO-IDLE-CASH",
+      "first_seen_at": "2026-11-09T14:52:08.445534+00:00",
+      "status": "RULE_GAP",
+      "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+      "mechanism": "Beefy vault 0x13EaA791…（Steakhouse Morpho USDC）显示份额 NAV=1.025566924779717064 USDC（balance 26,329.646497 / totalSupply 25,673.260185），但金库闲置现金 available()=0，全部资产在 strategy 0x2ea13561… 内；无二级市场可买折价。规则差异：显示 NAV 不等于即时可提现金，提现依赖策略回款（V7 withdraw 可能按实际回款调减），因此不能把 getPricePerFullShare 当可兑现价。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "策略回款等待",
+        "提现调减",
+        "gas"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00",
+        "ARB02"
+      ],
+      "invalidation_conditions": [
+        "available() 出现闲置现金",
+        "策略流动性/价格变化",
+        "出现二级市场"
+      ],
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:52:08.445534+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:52:08.445534+00:00",
+      "capacity": "Aave USDCn 协议侧可提现金约 37,620,760.58 USDC（aToken 204,233,192.747228 − variableDebt 166,612,432.164199 − stableDebt 0），大于 STATA totalAssets 17,325,556.91；Beefy vault 即时现金 0、全部 26,329.646497 USDC 在 strategy；二级市场：旧 STATIC_A 池 liquidity=0，waArbUSDCn 与 Beefy vault 无池。",
+      "observations_by_role": {
+        "ARB04": {
+          "finding_id": "ARB-BEEFY-MORPHO-USDC-ZERO-IDLE-CASH",
+          "status": "RULE_GAP",
+          "chain": "ARB",
+          "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+          "first_seen_at": "2026-11-09T14:52:08+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "Beefy vault 0x13EaA791…（Steakhouse Morpho USDC）显示份额 NAV=1.025566924779717064 USDC（balance 26,329.646497 / totalSupply 25,673.260185），但金库闲置现金 available()=0，全部资产在 strategy 0x2ea13561… 内；无二级市场可买折价。规则差异：显示 NAV 不等于即时可提现金，提现依赖策略回款（V7 withdraw 可能按实际回款调减），因此不能把 getPricePerFullShare 当可兑现价。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "策略回款等待",
+            "提现调减",
+            "gas"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00",
+            "ARB02"
+          ],
+          "invalidation_conditions": [
+            "available() 出现闲置现金",
+            "策略流动性/价格变化",
+            "出现二级市场"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+      "first_seen_at": "2026-11-09T14:55:00+00:00",
+      "status": "QUOTED",
+      "market_id": "AVAX:43114:curve-aave-pool:0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+      "mechanism": "同一 Curve 池内 DAI.e→USDC.e→USDT.e→DAI.e 三腿闭环，起点终点同为 DAI.e 合约；逐腿用上一腿实际输出，全部钉同一块 99,858,972。池 A=500、fee=0.001%/腿，观测净 −0.303～−0.498 bps，与三腿费率同量级；原生 USDC 与 aToken 未并入。不存在正收益稳定币闭环。",
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+        "https://snowtrace.io/token/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+        "https://snowtrace.io/token/0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+      ],
+      "net_result": {
+        "value": "-0.00000303",
+        "unit": "DAI.e per 1 DAI.e",
+        "type": "estimated_from_quotes",
+        "note": "最好档；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "gas L2/L1",
+        "授权",
+        "同池储备更新误差",
+        "滑点/失败"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "同块状态不一致",
+        "代币合约不符",
+        "gas 后更负（不改变排除）",
+        "报价过期需重取"
+      ],
+      "owner": "AVAX01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:55:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:55:00+00:00",
+      "capacity": "池状态 pinned 块：DAI.e 543,360.074、USDC.e 313,627.316、USDT.e 442,713.179（原始单位）；本轮仅测 1/10/100/1,000 DAI.e 档且全负；更大数量未测（价格冲击随余额失衡变化，方向只会更负或需完整模拟）。",
+      "observations_by_role": {
+        "AVAX01": {
+          "finding_id": "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+          "status": "QUOTED",
+          "chain": "AVAX",
+          "protocol": "Curve StableSwap (Aave pool)",
+          "market_id": "AVAX:43114:curve-aave-pool:0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+            "https://snowtrace.io/token/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+            "https://snowtrace.io/token/0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+          ],
+          "mechanism": "同一 Curve 池内 DAI.e→USDC.e→USDT.e→DAI.e 三腿闭环，起点终点同为 DAI.e 合约；逐腿用上一腿实际输出，全部钉同一块 99,858,972。池 A=500、fee=0.001%/腿，观测净 −0.303～−0.498 bps，与三腿费率同量级；原生 USDC 与 aToken 未并入。不存在正收益稳定币闭环。",
+          "net_result": {
+            "value": "-0.00000303",
+            "unit": "DAI.e per 1 DAI.e",
+            "type": "estimated_from_quotes",
+            "note": "最好档；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "gas L2/L1",
+            "授权",
+            "同池储备更新误差",
+            "滑点/失败"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "同块状态不一致",
+            "代币合约不符",
+            "gas 后更负（不改变排除）",
+            "报价过期需重取"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "AVAX-SAVAX-DEX-DISCOUNT-VS-RESTRICTED-REDEMPTION",
+      "first_seen_at": "2026-11-09T14:59:00+00:00",
+      "status": "RULE_GAP",
+      "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d | AVAX:43114:pangolin-pool:0x4E9A38F0… | AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c…",
+      "mechanism": "sAVAX 协议记账赎回价值 1.29384 AVAX/份额；三个真实 DEX 池同 pinned 块 spot 1.28843–1.29038（折扣 −0.27%～−0.42%，小额卖出含费 −0.62%～−0.9%）。但协议即时赎回对普通地址不可用：withdraw revert ROLE_WITHDRAW、redeem 走 unlock request index；排队出口未测。折价是退出受限的定价，不是可兑现收益。",
+      "evidence_urls": [
+        "https://snowtrace.io/token/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+        "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+        "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+      ],
+      "net_result": {
+        "value": null,
+        "unit": "AVAX",
+        "type": "not_applicable_restricted_exit",
+        "note": "无可执行闭环；不把份额价当可兑现价"
+      },
+      "unknown_costs": [
+        "排队等待与资金占用",
+        "请求/退出费",
+        "DEX 费（情景未确认）",
+        "gas",
+        "罚没/汇率风险"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "赎回权限/请求规则变化",
+        "份额换算率变化",
+        "DEX 费率与假设不符",
+        "报价过期"
+      ],
+      "owner": "AVAX02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:59:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:59:00+00:00",
+      "capacity": "DEX 可卖容量：Pangolin 池 516.296 sAVAX / 665.213 WAVAX（小额）；TJ V1 池 10,349.02 sAVAX / 13,334.80 WAVAX；TJ V2.1 LB 池 spot 有效但未做 bin 深度遍历。协议即时赎回归零；排队/到期可用容量与缓冲 unknown。",
+      "observations_by_role": {
+        "AVAX02": {
+          "finding_id": "AVAX-SAVAX-DEX-DISCOUNT-VS-RESTRICTED-REDEMPTION",
+          "status": "RULE_GAP",
+          "chain": "AVAX",
+          "protocol": "BENQI sAVAX / DEX",
+          "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d | AVAX:43114:pangolin-pool:0x4E9A38F0… | AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c…",
+          "evidence_urls": [
+            "https://snowtrace.io/token/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+            "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+            "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+          ],
+          "mechanism": "sAVAX 协议记账赎回价值 1.29384 AVAX/份额；三个真实 DEX 池同 pinned 块 spot 1.28843–1.29038（折扣 −0.27%～−0.42%，小额卖出含费 −0.62%～−0.9%）。但协议即时赎回对普通地址不可用：withdraw revert ROLE_WITHDRAW、redeem 走 unlock request index；排队出口未测。折价是退出受限的定价，不是可兑现收益。",
+          "net_result": {
+            "value": null,
+            "unit": "AVAX",
+            "type": "not_applicable_restricted_exit",
+            "note": "无可执行闭环；不把份额价当可兑现价"
+          },
+          "unknown_costs": [
+            "排队等待与资金占用",
+            "请求/退出费",
+            "DEX 费（情景未确认）",
+            "gas",
+            "罚没/汇率风险"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "赎回权限/请求规则变化",
+            "份额换算率变化",
+            "DEX 费率与假设不符",
+            "报价过期"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "AVAX-GGAVAX-REDEMPTION-QUEUE-ROLE",
+      "first_seen_at": "2026-11-09T14:59:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": null,
+      "mechanism": "ggAVAX 链上 symbol 为 stAVAX（18 位），convertToAssets(1e18)=previewRedeem(1e18)=1.196439817864 AVAX；上一轮源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)，本轮普通地址探针 revert 算术 panic（不能独立验证角色）。目前没有证据表明普通用户可即时赎回，也无 DEX 池报价；排队/等待未测。",
+      "evidence_urls": [
+        "https://snowtrace.io/token/0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "队列角色/等待",
+        "退出费",
+        "DEX 费",
+        "gas"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "找到公开赎回/请求入口",
+        "角色或规则变化",
+        "部署与源码不符"
+      ],
+      "owner": "AVAX02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:59:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:59:00+00:00",
+      "capacity": "DEX 可卖容量：Pangolin 池 516.296 sAVAX / 665.213 WAVAX（小额）；TJ V1 池 10,349.02 sAVAX / 13,334.80 WAVAX；TJ V2.1 LB 池 spot 有效但未做 bin 深度遍历。协议即时赎回归零；排队/到期可用容量与缓冲 unknown。",
+      "observations_by_role": {
+        "AVAX02": {
+          "finding_id": "AVAX-GGAVAX-REDEMPTION-QUEUE-ROLE",
+          "status": "UNVERIFIED",
+          "chain": "AVAX",
+          "protocol": "GoGoPool ggAVAX",
+          "market_id": null,
+          "evidence_urls": [
+            "https://snowtrace.io/token/0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3"
+          ],
+          "mechanism": "ggAVAX 链上 symbol 为 stAVAX（18 位），convertToAssets(1e18)=previewRedeem(1e18)=1.196439817864 AVAX；上一轮源码 withdrawAVAX/redeemAVAX 带 onlyRole(WITHDRAW_QUEUE_ROLE)，本轮普通地址探针 revert 算术 panic（不能独立验证角色）。目前没有证据表明普通用户可即时赎回，也无 DEX 池报价；排队/等待未测。",
+          "net_result": null,
+          "unknown_costs": [
+            "队列角色/等待",
+            "退出费",
+            "DEX 费",
+            "gas"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "找到公开赎回/请求入口",
+            "角色或规则变化",
+            "部署与源码不符"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

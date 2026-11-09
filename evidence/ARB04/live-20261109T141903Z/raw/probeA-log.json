@@ -1,0 +1,211 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T14:50:10.720295+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:50:11.714531+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:50:12.153079+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "GET",
+  "host": "api.beefy.finance",
+  "tag": "beefy_vaults",
+  "url": "https://api.beefy.finance/vaults",
+  "at_utc": "2026-11-09T14:50:12.613288+00:00",
+  "http_status": 200,
+  "sha256": "71f3203c385131de0eb2da120e024d0470255f337c6920338117dc3d804ba4da",
+  "bytes": 4179697
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "code_stata",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:50:15.120806+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:50:15.564733+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "code_stata_impl",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:50:16.001594+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:16.528166+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:17.001454+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:17.455286+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_asset",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:17.892556+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_totalAssets",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:18.331551+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:18.779403+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_convertToAssets_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:19.262299+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "stata_previewRedeem_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:19.707288+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "code_static_a",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:50:20.148040+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_name",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:20.587751+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:21.052663+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:21.503665+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "aave_reserve_data_usdc",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:21.931606+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "aave_aToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:22.355342+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "aave_stableDebtToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:22.792585+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "aave_variableDebtToken_supply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:50:23.232520+00:00",
+  "http_status": 200
+ }
+]

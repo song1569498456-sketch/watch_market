@@ -2,46 +2,118 @@
   "agent_id": "ARB04",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:52:08+00:00",
   "observed_cursor": {
-    "type": "STATIC_VAULT_DISCOVERY_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:37:35.789019+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "type": "block",
+    "chain_id": 42161,
+    "head_block": 522707654,
+    "head_block_time_utc": "2026-11-09T14:52:08+00:00",
+    "nav_blocks": {
+      "waArbUSDCn": 522707241,
+      "stataArbUSDCn": 522707533,
+      "beefy_morpho_usdc_vault": 522707652
+    },
+    "secondary_check_block": 522707404,
+    "waArbUSDCn": {
+      "address": "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+      "impl": "0x86b752a647db629d6c65e8ca0eb52bfef3a9eb52",
+      "asset": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "decimals": 6,
+      "totalAssets": "17325556906535",
+      "totalSupply": "14639324366098",
+      "nav_per_share_usdc": "1.183494",
+      "erc4626_sync": true,
+      "erc7540_async": false,
+      "secondary_market": "NONE"
+    },
+    "stataArbUSDCn": {
+      "address": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+      "impl": "0x9bf9df78b1f7c76a473588c41321b5059b62981e",
+      "asset": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "totalSupply": "124197961732",
+      "previewRedeem_1share": "1183494",
+      "atoken_balance": "146987603948",
+      "uniswap_v3_fee100_pool": "0x11092be90af6553434e0962cddfd7d84a4444154",
+      "pool_liquidity": "0",
+      "secondary_market": "POOL_EXISTS_LIQUIDITY_ZERO"
+    },
+    "beefy_vault": {
+      "address": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+      "want": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "strategy": "0x2ea13561b0c041d51e47d7e98c2c28584eac95ae",
+      "totalSupply": "25673260185",
+      "balance": "26329646497",
+      "available": "0",
+      "getPricePerFullShare": "1025566924779717064",
+      "strategy_balance": "26329646497",
+      "secondary_market": "NONE"
+    },
+    "aave_usdc_liquidity": {
+      "aToken": "0x724dc807b04555b71ed48a6896b6f41593b8c637",
+      "aToken_totalSupply": "204233192747228",
+      "variableDebt_totalSupply": "166612432164199",
+      "stableDebt_totalSupply": "0",
+      "withdrawable_estimate": "37620760583029"
+    },
+    "beefy_api": {
+      "http_status": 200,
+      "list_entries": 3385,
+      "arbitrum_usd_active_candidates": 24
+    },
+    "requests_this_run": 77,
+    "event_pages_completed": 0,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "type": "STATIC_VAULT_DISCOVERY_ONLY",
-      "retrieved_at_utc": "2026-11-08T15:37:35.789019+00:00",
-      "complete_block_range": null,
-      "complete_event_time_window": null
+      "type": "block",
+      "chain_id": 42161,
+      "head_block": 522707654,
+      "vaults_checked": 3,
+      "nav_blocks": "522707241/522707533/522707652",
+      "secondary_market_result": "waArbUSDCn=NONE; stataArbUSDCn=POOL_LIQUIDITY_ZERO; beefy=NONE",
+      "beefy_available_cash": "0",
+      "requests_this_run": 77,
+      "event_pages_completed": 0,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "官方Arbitrum地址书给USDCn底层与STATA/STATIC_A_TOKEN不同地址，登记STATA待验证对象。",
-    "未找到STATA二级交易池或当前NAV/赎回值，不声称折价。",
-    "BeefyVaultV7.sol:67-86账面balance含策略资产；139-154提现可能按实际策略回款调低r。未确认该源码对应任何本轮Arbitrum部署。"
+    "链身份：eth_chainId=42161；head 522707654（2026-11-09T14:52:08Z）。",
+    "waArbUSDCn（Aave STATA v2）0x7F6501d3…：链上核验 proxy/impl（0x86b752a6…，19991B）、asset=USDCn、decimals=6、totalAssets=17,325,556.906535、totalSupply=14,639,324.366098、convertToAssets/previewRedeem(1 share)=1.183494 USDC；selector 证明 ERC-4626 同步赎回（redeem/withdraw/maxRedeem 存在，ERC-7540 request/claim 不存在）。",
+    "stataArbUSDCn（Aave STATA v1）0x7CFaDFD5…：proxy/impl（0x9bf9df78…，17885B）、asset=USDCn、totalSupply=124,197.961732、previewRedeem=1,183,494、wrapper 持有 aToken 146,987.603948；impl selector 有 redeem(uint256,address,address)/withdraw(uint256,address,address)/maxRedeem。",
+    "二级市场：waArbUSDCn 在 Uniswap V3 四档 getPool 全 null、Sushi getPair=null、Dexscreener pairs=[]；stataArbUSDCn 的 Uni V3 fee=100 池 0x11092be9… 存在但 liquidity=0，Quoter v1 五个方向/数量报价全部 revert → 无可执行二级报价。",
+    "Beefy 官方 API 恢复：list 3385 条，Arbitrum/USD/active 候选 24 个；选中 morpho-arb-steakhouse-usdc vault 0x13EaA791…（want=USDCn、strategy=0x2ea13561…）。",
+    "Beefy vault 链上状态：totalSupply=25,673.260185、balance()=26,329.646497（含策略）、available()=0、getPricePerFullShare=1.025566924779717064e18、strategy balance=26,329.646497；Uni V3 四档无池、Dexscreener pairs=[]。",
+    "Aave USDCn 协议侧可提现金（块 522707241）：aToken 204,233,192.747228 − variableDebt 166,612,432.164199 − stableDebt 0 = 37,620,760.583029 USDC（大于 STATA totalAssets 17,325,556.91）；未做用户级 redeem 模拟。",
+    "上轮静态候选已从 OFFICIAL_ADDRESS_BOOK_ONLY 升级为 CHAIN_VERIFIED；结论：无二级折价买入通道，NAV 不等于即时现金（Beefy available=0）。"
   ],
   "pending_questions": [
-    "30天规则/升级和7天活动均未回溯；无金库事件、区块或历史提款。",
-    "Beefy实时vault列表与Arbitrum RPC CONNECT 403；旧raw pools路径404，没有找到Beefy Arbitrum具体部署，不编地址。",
-    "官方Aave地址表仅静态STATA与底层资产身份，未核验代码/实现、标准接口、转让规则或资产关系。",
-    "没有任何已核实二级份额池/买入报价，因此不能说金库有折价；实际NAV、现金、限额、损失、费用、队列和净结果unknown。"
+    "未做用户级 redeem/withdraw 只读模拟（需持有人份额与授权假设）；convertToAssets/previewRedeem 只作协议记账价。",
+    "30 天规则/升级与 7 天活动未回溯：未读 Upgraded/Deposit/Withdraw 事件、Aave USDCn reserve 配置变更、赎回实现历史。",
+    "二级市场仅查 Uniswap V3（四档）、Sushi V2、Dexscreener；未查 Camelot/Balancer/Curve 等。",
+    "Beefy 策略（Morpho Steakhouse 市场）回款能力未读：available()=0 时提现等待与可能调减 unknown。",
+    "旧 STATIC_A 是否弃用/迁移未核验；池 liquidity=0 可能长期不可交易。",
+    "Aave 用户级 maxRedeem/暂停/冻结状态未读（仅结构容量）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:37:35.789019+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/ARB04/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/ARB04/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "verified_at": "2026-11-08T15:38:02.616211+00:00",
-    "record": "evidence/ARB04/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:52:08.445534+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/ARB04/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/ARB04/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 77,
+  "data_sources_used": [
+    "https://arb1.arbitrum.io/rpc",
+    "https://api.beefy.finance/vaults",
+    "https://api.dexscreener.com/latest/dex/tokens/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc 等 3 个 token",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol（上轮已抓取，复用）"
+  ]
 }

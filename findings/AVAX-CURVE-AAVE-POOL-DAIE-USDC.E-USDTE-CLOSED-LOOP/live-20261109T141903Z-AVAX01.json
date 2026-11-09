@@ -1,0 +1,38 @@
+{
+  "finding_id": "AVAX-CURVE-AAVE-POOL-DAIE-USDC.E-USDTE-CLOSED-LOOP",
+  "status": "QUOTED",
+  "chain": "AVAX",
+  "protocol": "Curve StableSwap (Aave pool)",
+  "market_id": "AVAX:43114:curve-aave-pool:0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+  "evidence_urls": [
+    "https://snowtrace.io/address/0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "https://snowtrace.io/token/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+    "https://snowtrace.io/token/0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+  ],
+  "mechanism": "同一 Curve 池内 DAI.e→USDC.e→USDT.e→DAI.e 三腿闭环，起点终点同为 DAI.e 合约；逐腿用上一腿实际输出，全部钉同一块 99,858,972。池 A=500、fee=0.001%/腿，观测净 −0.303～−0.498 bps，与三腿费率同量级；原生 USDC 与 aToken 未并入。不存在正收益稳定币闭环。",
+  "net_result": {
+    "value": "-0.00000303",
+    "unit": "DAI.e per 1 DAI.e",
+    "type": "estimated_from_quotes",
+    "note": "最好档；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "gas L2/L1",
+    "授权",
+    "同池储备更新误差",
+    "滑点/失败"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "同块状态不一致",
+    "代币合约不符",
+    "gas 后更负（不改变排除）",
+    "报价过期需重取"
+  ],
+  "owner": "AVAX01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/AVAX01/live-20261109T141903Z/record.json"
+}

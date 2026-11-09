@@ -2,16 +2,61 @@
   "agent_id": "AVAX02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:52:56+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "chain_block": null,
+    "kind": "onchain_share_ratios_plus_same_block_dex_state",
+    "run_id": "live-20261109T141903Z",
+    "chain": "avalanche-c-chain",
+    "chain_id": 43114,
+    "latest_block": 99859135,
+    "pinned_block": 99859130,
+    "latest_block_time_utc": "2026-11-09T14:52:51+00:00",
+    "pinned_block_time_utc": "2026-11-09T14:52:41+00:00",
+    "savax": {
+      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+      "code_bytes": 2141,
+      "redemption_avax_per_share": 1.2938400259821974,
+      "totalSupply": "18631299756825931271643567",
+      "totalPooledAvax": "24105921361453771611390693",
+      "withdraw_probe": "revert ROLE_WITHDRAW",
+      "redeem_probe": "revert Invalid unlock request index"
+    },
+    "ggavax": {
+      "address": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+      "code_bytes": 2583,
+      "onchain_symbol": "stAVAX",
+      "assets_per_share": 1.1964398178640625,
+      "totalAssets": "39743647584108532098419",
+      "totalSupply": "33218258863250354591799",
+      "withdrawAVAX_probe": "revert arithmetic underflow or overflow (0x11)",
+      "source_role_restriction": "withdrawAVAX/redeemAVAX onlyRole(WITHDRAW_QUEUE_ROLE)（上一轮源码）"
+    },
+    "dex_pools": {
+      "pangolin": {
+        "pair": "0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+        "spot_WAVAX_per_sAVAX": 1.2884329559801782
+      },
+      "traderjoe_v1": {
+        "pair": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+        "spot_WAVAX_per_sAVAX": 1.2885087410576301
+      },
+      "traderjoe_v21_lb": {
+        "pair": "0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+        "binStep": 5,
+        "activeId": 8389118,
+        "spot_WAVAX_per_sAVAX": 1.2903793839770088
+      }
+    },
+    "discount_pct_range": "-0.267% ～ -0.42%（spot）；小额卖出含费 -0.62% ～ -0.9%",
+    "exits": {
+      "dex_immediate": "有同块报价",
+      "protocol_immediate": "不可用（角色/解锁请求索引）",
+      "queued_or_maturity": "存在但未测生命周期/等待/容量"
+    },
+    "pool_document": "0x7f90122BF0700F9E7e1F688fe926940E8839F353（上一轮 Curve 线索，非本岗本轮对象）",
     "historical_window_complete": false,
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Avalanche.sol",
-      "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol"
-    ]
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -28,42 +73,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "protocol": "BENQI sAVAX",
-      "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
-      "decimals": 18,
-      "source": "AaveV3AvalancheAssets.sAVAX_UNDERLYING",
-      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_LIVE_VERIFIED"
-    },
-    {
-      "protocol": "GoGoPool ggAVAX",
-      "source": "https://raw.githubusercontent.com/multisig-labs/gogopool/main/contracts/contract/tokens/TokenggAVAX.sol",
-      "fields": [
-        "totalAssets L182-198 reward release",
-        "withdrawAVAX L310 onlyRole(WITHDRAW_QUEUE_ROLE)",
-        "redeemAVAX L324 onlyRole(WITHDRAW_QUEUE_ROLE)"
-      ],
-      "deployment_address": null,
-      "identity_status": "SOURCE_ONLY_NO_DEPLOYMENT_MATCH"
-    }
+    "链身份：eth_chainId=0xa86a（43114），最新块 99,859,135（2026-11-09T14:52:51Z），base fee 2.5 gwei；DEX 状态钉 pinned 块 99,859,130（14:52:41Z）。",
+    "sAVAX 0x2b2C81e0…（代码 2,141B，symbol sAVAX，18 位）：totalSupply/totalPooledAvax 直读；getPooledAvaxByShares(1e18)=1.293840025982 AVAX/份额。",
+    "sAVAX 出口探针：withdraw(uint256) 普通地址 revert ROLE_WITHDRAW；redeem(uint256) revert Invalid unlock request index（解锁请求流程）；未发现无许可即时赎回。",
+    "ggAVAX 0xA25EaF29…（代码 2,583B，链上 symbol stAVAX，18 位）：totalAssets/totalSupply 直读；convertToAssets=previewRedeem=1.196439817864 AVAX/份额；withdrawAVAX/redeemAVAX 探针 revert panic（源码角色限制，探针不独立证明）。",
+    "DEX 即时卖出同 pinned 块：Pangolin 0x4E9A38F0… spot 1.28843、TJ V1 0x4b946c91… spot 1.28851、TJ V2.1 LB 0x883eA72c… spot 1.29038（WAVAX/sAVAX）；相对赎回价值 1.29384 折价 −0.267%～−0.42%（spot），小额卖出含费 −0.62%～−0.9%。",
+    "三种出口分列：DEX 即时（有报价）；协议即时（不可用）；排队/到期（机制存在但未测生命周期、等待、费用、容量）。",
+    "30 天规则窗口与 7 天活动窗口未覆盖；DEX 池费率（0.2%/0.3%）为情景假设未链上确认；未做完整模拟/gas。"
   ],
   "pending_questions": [
-    "30天规则/提款窗口变化未覆盖：无治理生效或历史状态。",
-    "7天代表性活动未覆盖：C-Chain RPC CONNECT403，无区块/事件。",
-    "chainId43114、sAVAX代码/官方BENQI映射、ggAVAX实际部署均未链上核验。",
-    "无真实DEX池与指定数量现货报价，份额率、即时缓冲和队列长度unknown。",
-    "最小份额、领取权限/凭证转让、等待期/退出费用/罚没风险未核验。"
+    "sAVAX unlock request 出口未读：申请入口、最小份额、索引 NFT 可转让性、领取权限、等待期、退出费、可用缓冲、罚没/汇率风险。",
+    "ggAVAX withdrawal queue 角色/等待时间未读；普通用户是否有其他公开赎回入口未知。",
+    "DEX 池费率未链上确认（Pangolin/TJ V1 情景 0.2%/0.3%）；LB 池未做 bin 深度遍历与数量报价。",
+    "30 天规则窗口（赎回规则/权限/费率/暂停）与 7 天活动窗口（真实赎回/排队结算交易、到账时间）未覆盖。",
+    "tAVAX/yyAVAX 等其他封装未核；ggAVAX DEX 池未报价；gas 未估算。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:37:20.904921+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/AVAX02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/AVAX02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "a3ad1b8c19212d7cb407f6e932c9d9a940ead577",
-    "verified_at": "2026-11-08T15:38:02.616211+00:00",
-    "record": "evidence/AVAX02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:59:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/AVAX02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

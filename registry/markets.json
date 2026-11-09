@@ -2493,6 +2493,284 @@
       },
       "current_onchain_verified": true,
       "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+      "chain": "ARB",
+      "protocol": "Aave STATA v2 (waArbUSDCn, ERC-4626)",
+      "asset_ids": [
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_NO_SECONDARY",
+      "next_check": "用户级 redeem 模拟；扩散二级市场搜索；监控 NAV/流动性",
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB04": {
+          "market_id": "ARB:AAVE_STATA_V2:USDCn:0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+          "chain": "ARB",
+          "protocol": "Aave STATA v2 (waArbUSDCn, ERC-4626)",
+          "asset_ids": [
+            "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc"
+          ],
+          "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_NO_SECONDARY",
+          "next_check": "用户级 redeem 模拟；扩散二级市场搜索；监控 NAV/流动性"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:AAVE_STATA_V1:USDCn:0x7cfadfd5645b50be87d546f42699d863648251ad",
+      "chain": "ARB",
+      "protocol": "Aave STATA v1 (stataArbUSDCn, ERC-4626)",
+      "asset_ids": [
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+        "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+      ],
+      "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_SECONDARY_POOL_EMPTY",
+      "next_check": "监控旧池 liquidity 恢复；核验是否弃用/迁移",
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB04": {
+          "market_id": "ARB:AAVE_STATA_V1:USDCn:0x7cfadfd5645b50be87d546f42699d863648251ad",
+          "chain": "ARB",
+          "protocol": "Aave STATA v1 (stataArbUSDCn, ERC-4626)",
+          "asset_ids": [
+            "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+            "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+          ],
+          "identity_status": "CHAIN_VERIFIED_ERC4626_SYNC_REDEEM_SECONDARY_POOL_EMPTY",
+          "next_check": "监控旧池 liquidity 恢复；核验是否弃用/迁移"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+      "chain": "ARB",
+      "protocol": "Beefy Vault V7 (Morpho Steakhouse USDC)",
+      "asset_ids": [
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"
+      ],
+      "identity_status": "CHAIN_VERIFIED_NAV_READ_AVAILABLE_ZERO_NO_SECONDARY",
+      "next_check": "读策略回款能力与提现调减规则；监控 available()",
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB04": {
+          "market_id": "ARB:BEEFY_VAULT:morpho-arb-steakhouse-usdc:0x13eaa79178f2b6c0a43ca265b66d70b9d60f827a",
+          "chain": "ARB",
+          "protocol": "Beefy Vault V7 (Morpho Steakhouse USDC)",
+          "asset_ids": [
+            "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a"
+          ],
+          "identity_status": "CHAIN_VERIFIED_NAV_READ_AVAILABLE_ZERO_NO_SECONDARY",
+          "next_check": "读策略回款能力与提现调减规则；监控 available()"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x11092be90af6553434e0962cddfd7d84a4444154",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 (STATIC_A/USDCn fee=100, liquidity=0)",
+      "asset_ids": [
+        "eip155:42161/erc20:0x7cfadfd5645b50be87d546f42699d863648251ad",
+        "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_EMPTY_LIQUIDITY_ZERO",
+      "next_check": "监控 liquidity 是否注入",
+      "owner": "ARB04",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/ARB04/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "ARB04": {
+          "market_id": "ARB:UNISWAP_V3:POOL:0x11092be90af6553434e0962cddfd7d84a4444154",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 (STATIC_A/USDCn fee=100, liquidity=0)",
+          "asset_ids": [
+            "eip155:42161/erc20:0x7cfadfd5645b50be87d546f42699d863648251ad",
+            "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x11092be90af6553434e0962cddfd7d84a4444154"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_EMPTY_LIQUIDITY_ZERO",
+          "next_check": "监控 liquidity 是否注入"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:curve-aave-pool:0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+      "chain": "AVAX",
+      "protocol": "Curve StableSwap (Aave pool)",
+      "asset_ids": [
+        "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+        "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+        "0xc7198437980c041c805a1edcba50c1ce5db95118"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x7f90122BF0700F9E7e1F688fe926940E8839F353"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_UNDERLYING_AND_WRAPPED_AND_BALANCES",
+      "next_check": "完整 StableSwap 顺序模拟 + gas；跨池对比",
+      "owner": "AVAX01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "AVAX01": {
+          "market_id": "AVAX:43114:curve-aave-pool:0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+          "chain": "AVAX",
+          "protocol": "Curve StableSwap (Aave pool)",
+          "asset_ids": [
+            "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+            "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+            "0xc7198437980c041c805a1edcba50c1ce5db95118"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x7f90122BF0700F9E7e1F688fe926940E8839F353"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_UNDERLYING_AND_WRAPPED_AND_BALANCES",
+          "next_check": "完整 StableSwap 顺序模拟 + gas；跨池对比"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+      "chain": "AVAX",
+      "protocol": "Pangolin (UniV2-like)",
+      "asset_ids": [
+        "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+        "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+      "next_check": "确认 pool fee；小额精确报价；容量",
+      "owner": "AVAX02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "AVAX02": {
+          "market_id": "AVAX:43114:pangolin-pool:0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+          "chain": "AVAX",
+          "protocol": "Pangolin (UniV2-like)",
+          "asset_ids": [
+            "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+            "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+          "next_check": "确认 pool fee；小额精确报价；容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+      "chain": "AVAX",
+      "protocol": "Trader Joe V1 (UniV2-like)",
+      "asset_ids": [
+        "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+        "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+      "next_check": "确认 pool fee；精确报价；容量",
+      "owner": "AVAX02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "AVAX02": {
+          "market_id": "AVAX:43114:traderjoe-v1-pool:0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+          "chain": "AVAX",
+          "protocol": "Trader Joe V1 (UniV2-like)",
+          "asset_ids": [
+            "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+            "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_TOKENS_AND_RESERVES",
+          "next_check": "确认 pool fee；精确报价；容量"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+      "chain": "AVAX",
+      "protocol": "Trader Joe V2.1 Liquidity Book",
+      "asset_ids": [
+        "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+        "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+      ],
+      "evidence_urls": [
+        "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_LB_PAIR_BINSTEP_ACTIVEID（97B 克隆）",
+      "next_check": "LBRouter getSwapOut 或 bin 遍历给数量报价",
+      "owner": "AVAX02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/AVAX02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "AVAX02": {
+          "market_id": "AVAX:43114:traderjoe-v21-lb-pool:0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+          "chain": "AVAX",
+          "protocol": "Trader Joe V2.1 Liquidity Book",
+          "asset_ids": [
+            "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+            "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+          ],
+          "evidence_urls": [
+            "https://snowtrace.io/address/0x883eA72c2A46F7AcB3820855344C43666c6cc5c0"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_LB_PAIR_BINSTEP_ACTIVEID（97B 克隆）",
+          "next_check": "LBRouter getSwapOut 或 bin 遍历给数量报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

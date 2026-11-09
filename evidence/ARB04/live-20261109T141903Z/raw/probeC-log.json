@@ -1,0 +1,230 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:51:27.921786+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:51:28.548757+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:51:28.884349+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_impl_code",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:51:29.215835+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_totalSupply",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:29.597444+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_rate",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:29.937338+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_aToken",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:30.272124+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_underlying",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:30.614062+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted",
+   "data": "0x"
+  }
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_asset",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:30.952425+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_previewRedeem_1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:31.298395+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "static_a_atoken_balance",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:31.634079+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "code_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:51:31.976295+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "pool_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:32.351481+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "pool_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:32.679943+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "pool_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:33.019013+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "pool_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:33.351072+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "pool_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:33.682964+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "quote_100USDC_to_staticA",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:34.020287+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "quote_1000USDC_to_staticA",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:34.503447+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "quote_10000USDC_to_staticA",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:35.006153+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "quote_100staticA_to_USDC",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:35.502256+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "arb1",
+  "tag": "quote_1000staticA_to_USDC",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:51:35.994182+00:00",
+  "http_status": 200,
+  "rpc_error": {
+   "code": 3,
+   "message": "execution reverted: Unexpected error",
+   "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000010556e6578706563746564206572726f7200000000000000000000000000000000"
+  }
+ }
+]

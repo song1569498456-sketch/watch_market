@@ -1,0 +1,155 @@
+{
+ "started_at_utc": "2026-11-09T14:51:58.387536+00:00",
+ "head_block": 522707654,
+ "head_block_time_utc": "2026-11-09T14:51:58+00:00",
+ "pinned_block": 522707652,
+ "beefy": {
+  "http_status": 200,
+  "arbitrum_usd_candidates": [
+   {
+    "id": "morpho-arb-steakhouse-usdc",
+    "name": "USDC (Steakhouse, High Yield)",
+    "token": "USDC",
+    "tokenAddress": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "tokenDecimals": 6,
+    "earnContractAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+    "earnedTokenAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+    "platformId": "morpho"
+   },
+   {
+    "id": "curve-arb-crvusd-usdc",
+    "name": "crvUSD/USDC",
+    "token": "crvUSDC",
+    "tokenAddress": "0xec090cf6DD891D2d014beA6edAda6e05E025D93d",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x174897AD878c614D7Bc563Eaf23A4a0D75D58d2C",
+    "earnedTokenAddress": "0x174897AD878c614D7Bc563Eaf23A4a0D75D58d2C",
+    "platformId": "convex"
+   },
+   {
+    "id": "uniswap-cow-arb-usdc-usdt-vault",
+    "name": "USDC-USD₮0",
+    "token": "USDC-USDT",
+    "tokenAddress": "0xFBebeDa38450bBf12aFe5B64df9aC507380C0Cca",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x195DE404648C4E9f8778816d1E31566272FBff6b",
+    "earnedTokenAddress": "0x195DE404648C4E9f8778816d1E31566272FBff6b",
+    "platformId": "uniswap"
+   },
+   {
+    "id": "morpho-arb-steakhouse-usdt",
+    "name": "USD₮0 (Steakhouse, High Yield V2)",
+    "token": "USD₮0",
+    "tokenAddress": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+    "tokenDecimals": 6,
+    "earnContractAddress": "0x1d23D806c8e78E862285464A91673486219acd9c",
+    "earnedTokenAddress": "0x1d23D806c8e78E862285464A91673486219acd9c",
+    "platformId": "morpho"
+   },
+   {
+    "id": "uniswap-cow-arb-usdc-uni-vault",
+    "name": "UNI-USDC",
+    "token": "UNI-USDC",
+    "tokenAddress": "0x18c2CC67AbC8A18efF7d9485ef81d1Eb2d074383",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x21bf1E6736E7c5BF9ddc36F25f5cbfc5d465C154",
+    "earnedTokenAddress": "0x21bf1E6736E7c5BF9ddc36F25f5cbfc5d465C154",
+    "platformId": "uniswap"
+   },
+   {
+    "id": "curve-arb-crvusd-usdt",
+    "name": "crvUSD/USD₮0",
+    "token": "crvUSDT",
+    "tokenAddress": "0x73aF1150F265419Ef8a5DB41908B700C32D49135",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x25071C7Cf437F756a4AF9260aDCe5a639e143F93",
+    "earnedTokenAddress": "0x25071C7Cf437F756a4AF9260aDCe5a639e143F93",
+    "platformId": "convex"
+   },
+   {
+    "id": "pancake-cow-arb-weth-usdt-500-vault",
+    "name": "WETH-USD₮0",
+    "token": "WETH-USDT",
+    "tokenAddress": "0x0481ad5b536139472af5ce692330dbF00bbd8672",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x329C8AbA35381169c9Ed4D0Cf522413157663Ca3",
+    "earnedTokenAddress": "0x329C8AbA35381169c9Ed4D0Cf522413157663Ca3",
+    "platformId": "pancakeswap"
+   },
+   {
+    "id": "curve-arb-crvusd-usdc.e",
+    "name": "crvUSD/USDC.e",
+    "token": "crvUSDC.e",
+    "tokenAddress": "0x3aDf984c937FA6846E5a24E0A68521Bdaf767cE1",
+    "tokenDecimals": 18,
+    "earnContractAddress": "0x36295709Ebb6df19f6D78127F8D2e5580AE7336f",
+    "earnedTokenAddress": "0x36295709Ebb6df19f6D78127F8D2e5580AE7336f",
+    "platformId": "convex"
+   }
+  ],
+  "count": 24
+ },
+ "chosen_beefy_vault": {
+  "id": "morpho-arb-steakhouse-usdc",
+  "name": "USDC (Steakhouse, High Yield)",
+  "token": "USDC",
+  "tokenAddress": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+  "tokenDecimals": 6,
+  "earnContractAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+  "earnedTokenAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+  "platformId": "morpho"
+ },
+ "secondary_check": {
+  "beefy_vault": {
+   "api": {
+    "id": "morpho-arb-steakhouse-usdc",
+    "name": "USDC (Steakhouse, High Yield)",
+    "token": "USDC",
+    "tokenAddress": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "tokenDecimals": 6,
+    "earnContractAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+    "earnedTokenAddress": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+    "platformId": "morpho"
+   },
+   "address": "0x13EaA79178f2b6C0A43cA265B66d70b9d60F827a",
+   "want": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+   "want_error": null,
+   "strategy": "0x2ea13561b0c041d51e47d7e98c2c28584eac95ae",
+   "strategy_error": null,
+   "totalSupply": "25673260185",
+   "totalSupply_error": null,
+   "balance": "26329646497",
+   "balance_error": null,
+   "available": "0",
+   "available_error": null,
+   "getPricePerFullShare": "1025566924779717064",
+   "getPricePerFullShare_error": null,
+   "strategy_balance": "26329646497",
+   "strategy_balance_error": null,
+   "uniswap_v3": {
+    "100": {
+     "pool": null,
+     "error": null
+    },
+    "500": {
+     "pool": null,
+     "error": null
+    },
+    "3000": {
+     "pool": null,
+     "error": null
+    },
+    "10000": {
+     "pool": null,
+     "error": null
+    }
+   }
+  },
+  "dexscreener": {
+   "http_status": 200,
+   "pairs": []
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:52:08.445534+00:00",
+ "request_count_this_script": 15
+}

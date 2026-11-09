@@ -1,0 +1,218 @@
+{
+ "started_at_utc": "2026-11-09T14:52:50.363564+00:00",
+ "dexscreener_savax_pairs": [
+  {
+   "dexId": "traderjoe",
+   "pairAddress": "0x883eA72c2A46F7AcB3820855344C43666c6cc5c0",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+   "quoteSymbol": "WAVAX",
+   "priceNative": "1.2903",
+   "priceUsd": "11.36",
+   "liquidityUsd": 135525.51,
+   "pairCreatedAt": 1721030388000
+  },
+  {
+   "dexId": "pharaoh",
+   "pairAddress": "0x65B9016c376604Fe0aF38c1E336Ffcec0F8ecBbD",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+   "quoteSymbol": "WAVAX",
+   "priceNative": "1.2907",
+   "priceUsd": "11.41",
+   "liquidityUsd": 103115.29,
+   "pairCreatedAt": 1758559400000
+  },
+  {
+   "dexId": "traderjoe",
+   "pairAddress": "0x4b946c91C2B1a7d7C40FB3C130CdfBaf8389094d",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+   "quoteSymbol": "WAVAX",
+   "priceNative": "1.2885",
+   "priceUsd": "10.92",
+   "liquidityUsd": 226181.15,
+   "pairCreatedAt": 1643514081000
+  },
+  {
+   "dexId": "pangolin",
+   "pairAddress": "0x4E9A38F05c38106C1cf5c145Df24959ec50ff70D",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+   "quoteSymbol": "WAVAX",
+   "priceNative": "1.2884",
+   "priceUsd": "10.21",
+   "liquidityUsd": 10546.74,
+   "pairCreatedAt": 1643514093000
+  },
+  {
+   "dexId": "blackhole",
+   "pairAddress": "0xeE2Ceda742bfb2ef566aB57642D47aBA1909B653",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+   "quoteSymbol": "WAVAX",
+   "priceNative": "1.2903",
+   "priceUsd": "10.35",
+   "liquidityUsd": 3117.18,
+   "pairCreatedAt": null
+  },
+  {
+   "dexId": "traderjoe",
+   "pairAddress": "0xb33935CddEDca41538803b533B0E622236b7cba9",
+   "base": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "baseSymbol": "sAVAX",
+   "quote": "0x420FcA0121DC28039145009570975747295f2329",
+   "quoteSymbol": "COQ",
+   "priceNative": "117069380.9055",
+   "priceUsd": "10.38",
+   "liquidityUsd": 75.49,
+   "pairCreatedAt": 1703695757000
+  },
+  {
+   "dexId": "pharaoh",
+   "pairAddress": "0x8F818360a1a4B5919639D383f0cb507F5Be90A48",
+   "base": "0x14A84F1a61cCd7D1BE596A6cc11FE33A36Bc1646",
+   "baseSymbol": "tAVAX",
+   "quote": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "quoteSymbol": "sAVAX",
+   "priceNative": "1.009715",
+   "priceUsd": "10.62",
+   "liquidityUsd": 173239.14,
+   "pairCreatedAt": null
+  },
+  {
+   "dexId": "kyberswap",
+   "pairAddress": "0xDF9Aa2156Be229783e8b18c38E51b0C01778c9CA",
+   "base": "0x111111111111ed1D73f860F57b2798b683f2d325",
+   "baseSymbol": "YUSD",
+   "quote": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "quoteSymbol": "sAVAX",
+   "priceNative": "0.08943",
+   "priceUsd": "0.9772",
+   "liquidityUsd": 1064.89,
+   "pairCreatedAt": 1660464969000
+  },
+  {
+   "dexId": "traderjoe",
+   "pairAddress": "0xfB438Ed9a34E056F700579B36D2530F7DC2DDC05",
+   "base": "0x24dE8771bC5DdB3362Db529Fc3358F2df3A0E346",
+   "baseSymbol": "avUSD",
+   "quote": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "quoteSymbol": "sAVAX",
+   "priceNative": "0.08717",
+   "priceUsd": "0.9526",
+   "liquidityUsd": 256.43,
+   "pairCreatedAt": 1737581141000
+  },
+  {
+   "dexId": "pangolin",
+   "pairAddress": "0xF2e0DaF3C5cdD9AD988a0398634f72d4021077E1",
+   "base": "0xF7D9281e8e363584973F946201b82ba72C965D27",
+   "baseSymbol": "yyAVAX",
+   "quote": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+   "quoteSymbol": "sAVAX",
+   "priceNative": "0.8922",
+   "priceUsd": "9.39",
+   "liquidityUsd": 200.66,
+   "pairCreatedAt": 1658748849000
+  }
+ ],
+ "chain_id": 43114,
+ "latest_block": 99859135,
+ "latest_block_time_utc": "2026-11-09T14:52:51+00:00",
+ "base_fee_wei": "0x9502f900",
+ "pinned_block": 99859130,
+ "tokens": {
+  "sAVAX": {
+   "code_bytes": 2141,
+   "symbol": "sAVAX",
+   "decimals": 18
+  },
+  "ggAVAX": {
+   "code_bytes": 2583,
+   "symbol": "stAVAX",
+   "decimals": 18
+  },
+  "WAVAX": {
+   "code_bytes": 3249,
+   "symbol": "WAVAX",
+   "decimals": 18
+  }
+ },
+ "savax_state": {
+  "totalSupply": 18631299756825931271643567,
+  "totalPooledAvax": 24105921361453771611390693,
+  "avax_per_1_savax_raw": 1293840025982197431,
+  "shares_per_1_avax_raw": 772893077906494973,
+  "exchangeRate_result": null,
+  "withdraw_probe": {
+   "code": 3,
+   "message": "execution reverted: ROLE_WITHDRAW",
+   "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000d524f4c455f574954484452415700000000000000000000000000000000000000"
+  },
+  "redeem_probe": {
+   "code": 3,
+   "message": "execution reverted: Invalid unlock request index",
+   "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001c496e76616c696420756e6c6f636b207265717565737420696e64657800000000"
+  },
+  "avax_per_share_ratio": 1.2938400259821974
+ },
+ "ggavax_state": {
+  "totalAssets": 39743647584108532098419,
+  "totalSupply": 33218258863250354591799,
+  "assets_per_1_ggavax_raw": 1196439817864062440,
+  "previewRedeem_raw": 1196439817864062440,
+  "withdrawAVAX_probe": {
+   "code": 3,
+   "message": "execution reverted: arithmetic underflow or overflow",
+   "data": "0x4e487b710000000000000000000000000000000000000000000000000000000000000011"
+  },
+  "redeemAVAX_probe": {
+   "code": 3,
+   "message": "execution reverted: arithmetic underflow or overflow",
+   "data": "0x4e487b710000000000000000000000000000000000000000000000000000000000000011"
+  },
+  "avax_per_share_ratio": 1.1964398178640625
+ },
+ "lfj_pairs": {
+  "sAVAX": [
+   {
+    "binStep": 5,
+    "pair": "0x0000000000000000000000000000000000000005",
+    "createdByOwner": 381231398723226068026700126087841790054235471213,
+    "ignoredForRouting": 1
+   },
+   {
+    "binStep": 25,
+    "pair": "0x0000000000000000000000000000000000000019",
+    "createdByOwner": 625617125537678327143520923545852049871235989307,
+    "ignoredForRouting": 0
+   },
+   {
+    "binStep": 100,
+    "pair": "0x0000000000000000000000000000000000000064",
+    "createdByOwner": 1291598453168182400018284556108227083664049021627,
+    "ignoredForRouting": 0
+   }
+  ],
+  "ggAVAX": [
+   {
+    "binStep": 5,
+    "pair": "0x0000000000000000000000000000000000000005",
+    "createdByOwner": 238210756246343278549389211505327516296506995243,
+    "ignoredForRouting": 1
+   },
+   {
+    "binStep": 25,
+    "pair": "0x0000000000000000000000000000000000000019",
+    "createdByOwner": 1302874483036751299646778626208205196761307936262,
+    "ignoredForRouting": 0
+   }
+  ]
+ }
+}

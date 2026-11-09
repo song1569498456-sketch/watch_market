@@ -1,0 +1,108 @@
+{
+ "started_at_utc": "2026-11-09T14:50:55.207765+00:00",
+ "head_block": 522707406,
+ "head_block_time_utc": "2026-11-09T14:50:55+00:00",
+ "pinned_block": 522707404,
+ "secondary_markets_onchain": {
+  "stata_waArbUSDCn": {
+   "token": "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+   "uniswap_v3": {
+    "100": {
+     "pool": null,
+     "error": null
+    },
+    "500": {
+     "pool": null,
+     "error": null
+    },
+    "3000": {
+     "pool": null,
+     "error": null
+    },
+    "10000": {
+     "pool": null,
+     "error": null
+    }
+   },
+   "sushi": {
+    "pair": null,
+    "error": null
+   }
+  },
+  "static_a_token": {
+   "token": "0x7CFaDFD5645B50bE87d546f42699d863648251ad",
+   "uniswap_v3": {
+    "100": {
+     "pool": "0x11092be90af6553434e0962cddfd7d84a4444154",
+     "error": null
+    },
+    "500": {
+     "pool": null,
+     "error": null
+    },
+    "3000": {
+     "pool": null,
+     "error": null
+    },
+    "10000": {
+     "pool": null,
+     "error": null
+    }
+   },
+   "sushi": {
+    "pair": null,
+    "error": null
+   }
+  }
+ },
+ "dexscreener_stata": {
+  "http_status": 200,
+  "pairs": []
+ },
+ "dexscreener_static_a": {
+  "http_status": 200,
+  "pairs": []
+ },
+ "stata_transfer_logs": {
+  "count": 0,
+  "error": null,
+  "sample": []
+ },
+ "holder_sample": null,
+ "beefy_recheck": {
+  "http_status": 200,
+  "kind": "list",
+  "total_entries": 3385,
+  "chains": {},
+  "sample_keys": [
+   "id",
+   "name",
+   "type",
+   "token",
+   "tokenAddress",
+   "tokenDecimals",
+   "tokenProviderId",
+   "earnContractAddress",
+   "earnedToken",
+   "earnedTokenAddress",
+   "oracle",
+   "oracleId",
+   "status",
+   "createdAt",
+   "platformId",
+   "assets",
+   "migrationIds",
+   "risks",
+   "strategyTypeId",
+   "addLiquidityUrl",
+   "removeLiquidityUrl",
+   "network",
+   "zaps",
+   "isGovVault",
+   "chain"
+  ],
+  "arbitrum_usdc": []
+ },
+ "finished_at_utc": "2026-11-09T14:51:03.120631+00:00",
+ "request_count_this_script": 16
+}

@@ -182,6 +182,19 @@
         "ARB03"
       ],
       "merged_at": "2026-11-09T14:53:20.066326+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "992498e29fb2f736f9b8c5c316684eb7032e79e6",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T14:53:33.844340+00:00"
+    },
+    {
+      "batch": 6,
+      "agents": [
+        "ARB04",
+        "AVAX01",
+        "AVAX02"
+      ],
+      "merged_at": "2026-11-09T14:54:57.872115+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -217,6 +230,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 5
+    "completed": 6
   }
 }
