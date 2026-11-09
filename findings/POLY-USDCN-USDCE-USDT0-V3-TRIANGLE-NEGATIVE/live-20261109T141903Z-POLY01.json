@@ -1,0 +1,38 @@
+{
+  "finding_id": "POLY-USDCN-USDCE-USDT0-V3-TRIANGLE-NEGATIVE",
+  "status": "QUOTED",
+  "chain": "POLY",
+  "protocol": "Uniswap V3",
+  "market_id": "POLY:137:uniswap-v3-triangle:USDCn-USDT0-USDCe",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+    "https://polygonscan.com/token/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "https://polygonscan.com/token/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+  ],
+  "mechanism": "USDCn/USDCe/USDT0 在 Uniswap V3 有真实 fee=100 池；QuoterV2 同 pinned 块三跳闭环（两方向）1/10/100/1,000 USDCn 全部净负（−2.73～−3.30bps，≈三腿 1bp 费率），未见 USDCe 明显折价；DEX 即时退出≈费率无利，桥接/发行方兑付延迟或不可用。",
+  "net_result": {
+    "value": "-0.000273",
+    "unit": "USDCn per 1 USDCn",
+    "type": "estimated_from_quotes",
+    "note": "最好档；非模拟、非收益主张"
+  },
+  "unknown_costs": [
+    "gas",
+    "桥接 checkpoint 费用/时间",
+    "发行方赎回资格",
+    "其他 DEX 未比较"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "池深度/费率变化使闭环转正",
+    "代币/发行版本不符",
+    "报价过期"
+  ],
+  "owner": "POLY01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/POLY01/live-20261109T141903Z/record.json"
+}

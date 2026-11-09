@@ -2,13 +2,73 @@
   "agent_id": "POLY01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:09:49+00:00",
   "observed_cursor": {
-    "type": "STATIC_ASSET_AND_BRIDGE_RULES_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:51:10.147775+00:00",
-    "complete_block_range": null,
-    "complete_event_time_window": null
+    "kind": "same_block_quoter_v2_triangle_plus_token_identity",
+    "run_id": "live-20261109T141903Z",
+    "chain": "polygon-pos",
+    "chain_id": 137,
+    "latest_block": 97021021,
+    "pinned_block": 97021016,
+    "latest_block_time_utc": "2026-11-09T15:09:48+00:00",
+    "tokens": {
+      "USDCn": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359 (symbol USDC, 6, Circle 原生)",
+      "USDCe": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 (symbol USDC, 6, PoS 桥接，同名不同合约)",
+      "USDT0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F (symbol USDT0, 6)"
+    },
+    "quoter_v2": {
+      "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+      "code_bytes": 8273,
+      "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "WETH9()": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
+    },
+    "v3_pools": {
+      "USDCn/USDCe/100": "0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+      "USDCn/USDT0/100": "0x31083a78e11b18e450fd139f9abea98cd53181b7",
+      "USDT0/USDCe/100": "0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d"
+    },
+    "loops": {
+      "USDCn_to_USDT0_to_USDCe_to_USDCn": {
+        "net_bps": [
+          -3.3,
+          -3.27,
+          -3.27,
+          -3.29
+        ],
+        "tiers_USDCn": [
+          1,
+          10,
+          100,
+          1000
+        ]
+      },
+      "USDCn_to_USDCe_to_USDT0_to_USDCn": {
+        "net_bps": [
+          -2.75,
+          -2.73,
+          -2.73,
+          -2.75
+        ],
+        "tiers_USDCn": [
+          1,
+          10,
+          100,
+          1000
+        ]
+      },
+      "all_negative": true,
+      "fees_all_100": true
+    },
+    "exit_paths": {
+      "dex_sell": "即时，≈费率无利",
+      "issuer_redeem": "USDCn 无普通用户链上即时模块；USDCe ChildERC20 withdraw 仅 burn 需 L1 exit，deposit 受 DEPOSITOR_ROLE",
+      "bridge_to_L1": "USDCe 需 burn+checkpoint（约30分钟～数小时，DELAYED）"
+    },
+    "result": "QUOTED：同 pinned 块两方向三跳闭环全部净负（最好 −2.73bps），无折价买入→兑付正收益",
+    "quotes_count": 8,
+    "history_30d_complete": false,
+    "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -22,27 +82,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
-    "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
-    "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+    "链身份：eth_chainId=0x89（137），最新块 97,021,021（2026-11-09T15:09:48Z），读取钉 pinned 块 97,021,016。",
+    "逐 token 链上核验：USDCn 0x3c49…（symbol USDC,6，Circle原生）、USDCe 0x2791…（symbol USDC,6，PoS桥接）、USDT0 0xc213…（symbol USDT0,6）——同名不同合约，本轮按地址区分未合并。",
+    "QuoterV2 0x61fFE014…（代码 8,273B；factory=0x1F98431…；WETH9=0x0d500B1d…）身份核验；V3 工厂 getPool 确认 USDCn/USDCe（100/500/3000）、USDCn/USDT0（100/500）、USDT0/USDCe（100/500）池存在。",
+    "同 pinned 块三跳闭环（fee=100 全程）两方向 × 4 数量档 8 条报价全部净负：USDCn→USDT0→USDCe→USDCn 为 −3.30/−3.27/−3.27/−3.29bps；USDCn→USDCe→USDT0→USDCn 为 −2.75/−2.73/−2.73/−2.75bps（1/10/100/1,000 USDCn）。",
+    "三种退出路径分列：DEX 即时（≈费率无利）；发行方/协议赎回（USDCn 无普通用户链上即时模块；USDCe ChildERC20 withdraw 仅 burn、deposit 受 DEPOSITOR_ROLE）；跨链回 L1（USDCe burn+checkpoint 约30分钟～数小时，DELAYED，费用/容量未测）。",
+    "结论 QUOTED：无折价买入→真实兑付的可持续正收益；USDCn/USDCe 同名不同合约未合并；未把脱锚当机会、不做铸造卖出。",
+    "缺口：代币实现/发行版本未读代码；发行方赎回、桥接退出时效/费用/容量未测；未比较 Curve/QuickSwap 池与更大数量；30天/7天窗口未覆盖；gas/授权未计。"
   ],
   "pending_questions": [
-    "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
-    "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
-    "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
-    "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
-    "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+    "USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限未读代码（仅 symbol/decimals）。",
+    "发行方兑付入口未核：USDCn Circle 赎回（场外/KYC）与 USDCe PoS 桥接退出（checkpoint 时间、费用、容量、资格）未实测。",
+    "仅用 Uniswap V3 fee=100 三跳；未比较 Curve/QuickSwap 池与更大数量档。",
+    "未读 USDCe 桥接合约当前映射/根链状态与资金；无场外折价买单数据。",
+    "30 天规则窗口（发行/桥接/实现变更）与 7 天活动窗口（真实兑换/桥接退出）未覆盖；gas/授权未计。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:51:10.147775+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-    "verified_at": "2026-11-08T15:52:19.836508+00:00",
-    "record": "evidence/POLY01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:17:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/POLY01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/POLY01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

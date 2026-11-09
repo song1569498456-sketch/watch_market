@@ -2704,130 +2704,314 @@
       "agent_id": "POLY01",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:51:10.147775+00:00",
+      "last_success_at": "2026-11-09T15:17:00+00:00",
+      "last_attempt_at": "2026-11-09T15:17:00+00:00",
       "actual_coverage": [
-        "官方Aave Polygon地址书分别给USDCn/USDCe及各自6 decimals，尚无实时链独立核验。",
-        "Polygon官方ChildERC20.sol第61-66行withdraw烧毁用户代币，注释说明根链退出需验证；deposit受DEPOSITOR_ROLE。",
-        "没有确认本链公开即时兑换模块、恢复出口、折价或收益候选。"
+        {
+          "type": "chain_identity",
+          "address": "polygon-pos",
+          "fields": {
+            "eth_chainId": "0x89",
+            "chain_id": 137,
+            "latest_block": 97021021,
+            "latest_block_time_utc": "2026-11-09T15:09:48+00:00",
+            "pinned_block": 97021016
+          },
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "token_identity",
+          "protocol": "Polygon stablecoins",
+          "fields": {
+            "USDCn": {
+              "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+              "symbol_onchain": "USDC",
+              "decimals": 6,
+              "issuer": "Circle 原生"
+            },
+            "USDCe": {
+              "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+              "symbol_onchain": "USDC",
+              "decimals": 6,
+              "issuer": "Polygon PoS 桥接"
+            },
+            "USDT0": {
+              "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+              "symbol_onchain": "USDT0",
+              "decimals": 6
+            },
+            "note": "USDCn 与 USDCe 链上 symbol 相同、精度相同但合约不同，本轮按地址区分未合并"
+          },
+          "block": 97021016,
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "quoter_and_pools",
+          "protocol": "Uniswap V3",
+          "fields": {
+            "quoter_v2": {
+              "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+              "code_bytes": 8273,
+              "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+              "WETH9()": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
+            },
+            "pools": {
+              "USDCn/USDCe/100": "0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+              "USDCn/USDCe/500": "0xd9abecb39a5885d1e531ed3599adfed620e2fc8a",
+              "USDCn/USDCe/3000": "0x36f1f5d1fafb4b34bc42a39f06e5685d59a86166",
+              "USDCn/USDT0/100": "0x31083a78e11b18e450fd139f9abea98cd53181b7",
+              "USDCn/USDT0/500": "0xee95696f77693af4f9b93850a9f48b4ad8e7a30a",
+              "USDT0/USDCe/100": "0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+              "USDT0/USDCe/500": "0x3f5228d0e7d75467366be7de2c31d0d098ba2c23"
+            }
+          },
+          "block": 97021016,
+          "evidence_file": "raw/identity.json"
+        },
+        {
+          "type": "closed_loop_quotes",
+          "protocol": "Uniswap V3 QuoterV2",
+          "fields": {
+            "fees_all_100": true,
+            "USDCn_to_USDT0_to_USDCe_to_USDCn": {
+              "tiers_USDCn": [
+                1,
+                10,
+                100,
+                1000
+              ],
+              "net_bps": [
+                -3.3,
+                -3.27,
+                -3.27,
+                -3.29
+              ]
+            },
+            "USDCn_to_USDCe_to_USDT0_to_USDCn": {
+              "tiers_USDCn": [
+                1,
+                10,
+                100,
+                1000
+              ],
+              "net_bps": [
+                -2.75,
+                -2.73,
+                -2.73,
+                -2.75
+              ]
+            },
+            "conclusion": "两方向所有档净负（≈三腿 1bp 费率），无可执行正收益，也未见 USDCe 明显折价"
+          },
+          "block": 97021016,
+          "evidence_file": "raw/quotes.json"
+        },
+        {
+          "type": "exit_paths",
+          "protocol": "USDCn / USDCe",
+          "fields": {
+            "dex_sell": "即时，USDCn/USDCe/USDT0 V3 池存在；净负（≈费率）",
+            "issuer_redeem": "USDCn 无普通用户链上即时赎回模块可读（Circle 通道）；USDCe 为 PoS 桥接（ChildERC20 withdraw 仅 burn、deposit 受 DEPOSITOR_ROLE）",
+            "bridge_to_L1": "USDCe 需 burn+checkpoint（约30分钟～数小时，DELAYED）；费用/容量/资格未测"
+          },
+          "evidence_file": "raw/identity.json"
+        }
       ],
       "coverage_gaps": [
-        "30天发行/兑付/实现变更与7天活动均未回溯，没有事件/区块/交易。",
-        "Polygon映射资产文档和Polygon RPC CONNECT 403，137/代码/代理实现/原生gas资产元数据未核验。",
-        "原生USDCn当前普通账户/地区赎回资格、额度、准备金、费用和到账时间未知；Aave地址书不是发行方兑付承诺。",
-        "桥接USDCe当前实现/根链映射/退出证明和资金未核验；所读ChildERC20是一般官方实现，尚未与该代理绑定。",
-        "没有精确DEX池或分数量买入/退出报价、模拟，不能声称折价或正净额。"
+        "代币实现/代理与发行/桥接版本未读代码（仅 symbol/decimals）：USDCn/USDCe/USDT0 的 owner/implementation/铸烧权限未核。",
+        "发行方兑付入口未核：USDCn 的 Circle 赎回（场外/KYC）与 USDCe 的 PoS 桥接退出（checkpoint 时间、费用、容量、资格）未实测；跨链回 L1 属 DELAYED 未测时效。",
+        "仅用 Uniswap V3（fee=100 档）三跳；未比较 Curve/QuickSwap 等其他 DEX 池与更大数量档。",
+        "未读 USDCe 桥接合约当前映射/根链状态与资金；无场外折价买单数据。",
+        "30 天规则窗口（发行/桥接/实现变更）与 7 天活动窗口（真实兑换/桥接退出）未覆盖；gas/授权未计。"
       ],
-      "report": "reports/agents/POLY01/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/POLY01/2026-11-09/live-20261109T141903Z.md",
       "task": "稳定币折价与兑付",
       "chain": "POLY",
       "owner": "worker_a",
       "prompt": "prompts/agents/POLY01.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 2,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-        "verified_at": "2026-11-08T15:52:19.836508+00:00",
-        "record": "evidence/POLY01/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "POLY02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:51:39.625601+00:00",
+      "last_success_at": "2026-11-09T15:19:00+00:00",
+      "last_attempt_at": "2026-11-09T15:19:00+00:00",
       "actual_coverage": [
-        "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
-        "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
-        "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
-        "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+        {
+          "type": "chain_identity",
+          "address": "polygon-pos",
+          "fields": {
+            "eth_chainId": "0x89",
+            "chain_id": 137,
+            "latest_block": 97021090,
+            "latest_block_time_utc": "2026-11-09T15:11:31+00:00",
+            "pinned_block": 97021085
+          },
+          "evidence_file": "raw/poly02_summary.json"
+        },
+        {
+          "type": "pool_identity",
+          "protocol": "Aave V3 Polygon",
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "fields": {
+            "code_bytes": 2400,
+            "eip1967_impl": "0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+            "reserves_count": 21,
+            "reserves_sample": [
+              "USDCe 0x2791Bca1…",
+              "USDCn 0x3c499c54…",
+              "WMATIC 0x0d500B1d…",
+              "USDT0 0xc2132D05…"
+            ],
+            "oracle": "0xb023e699F5a33916Ea823A16485e259257cA8Bd1",
+            "oracle_code_bytes": 3405
+          },
+          "block": 97021085,
+          "evidence_file": "raw/pool_identity.json"
+        },
+        {
+          "type": "reserve_params",
+          "protocol": "Aave V3 Polygon",
+          "fields": {
+            "USDCn": {
+              "id": 20,
+              "ltv_bps": 0,
+              "liquidation_threshold_bps": 7800,
+              "liquidation_bonus_bps": 10500,
+              "decimals": 6,
+              "active": true,
+              "frozen": false,
+              "borrowingEnabled": true,
+              "paused": false,
+              "aToken": "0xa4d94019934d8333ef880abffbf2fdd611c762bd",
+              "variableDebtToken": "0xe701126012ec0290822eea17b794454d1af8b030"
+            },
+            "WMATIC": {
+              "id": 7,
+              "ltv_bps": 6800,
+              "liquidation_threshold_bps": 7300,
+              "liquidation_bonus_bps": 10700,
+              "decimals": 18,
+              "active": true,
+              "frozen": false,
+              "borrowingEnabled": false,
+              "paused": false,
+              "aToken": "0x6d80113e533a2c0fe82eabd35f1875dcea89ea97",
+              "variableDebtToken": "0x4a1c3ad6ed28a636ee1751c69071f6be75deb8b8"
+            },
+            "oracle_prices_8dec": {
+              "USDCn": 99978306,
+              "WMATIC": 9057200
+            }
+          },
+          "block": 97021085,
+          "evidence_file": "raw/pool_identity.json"
+        },
+        {
+          "type": "liquidation_event_scan",
+          "protocol": "Aave V3 Polygon",
+          "fields": {
+            "topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+            "window_5000_blocks": {
+              "range": [
+                97016090,
+                97021090
+              ],
+              "events": 0,
+              "approx_hours": 2.1
+            },
+            "window_50000_blocks": {
+              "error": {
+                "code": -32701,
+                "message": "exceed maximum block range: 10000"
+              }
+            },
+            "7d_window_coverage": "NOT_COMPLETED（需 120+ 次分页，超配额）"
+          },
+          "block": 97021085,
+          "evidence_file": "raw/poly02_summary.json"
+        },
+        {
+          "type": "candidate_status",
+          "protocol": "Aave V3 Polygon",
+          "fields": {
+            "borrower_indexer": "不可用（无 key/未部署）",
+            "positions_read": 0,
+            "health_factors": 0,
+            "candidates": 0,
+            "note": "无仓位枚举则不能声称无仓位，只能说采样窗口无清算事件"
+          },
+          "block": 97021085,
+          "evidence_file": "raw/poly02_summary.json"
+        }
       ],
       "coverage_gaps": [
-        "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
-        "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
-        "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
-        "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
-        "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+        "无借款人索引器：无法枚举 Aave V3 Polygon 借款账户/仓位与当前 HF；只能等事件或依赖外部索引（本轮不可用）。",
+        "7 天/30 天窗口未覆盖：getLogs 单次上限 10,000 块，7 天窗口需 120+ 分页（超配额）；本轮仅 1 个 5,000 块窗口（约 2.1 小时）0 事件。",
+        "未取任何真实仓位的债务本息/抵押数量/当前 HF/可代还上限；未模拟 receiveAToken 与底层退出。",
+        "抵押品（aToken→底层→DEX）退出深度、gas、融资与并发清算风险未测；WMATIC oracle 价格仅单源。",
+        "未复盘历史清算交易；30 天治理/参数变更未覆盖；未读 Pool 实现的完整清算逻辑代码。"
       ],
-      "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/POLY02/2026-11-09/live-20261109T141903Z.md",
       "task": "正常清算与抵押品兑现",
       "chain": "POLY",
       "owner": "worker_b",
       "prompt": "prompts/agents/POLY02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 2,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-        "verified_at": "2026-11-08T15:52:19.836508+00:00",
-        "record": "evidence/POLY02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "POLY03",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:51:15.311322+00:00",
+      "last_success_at": "2026-11-09T15:16:30+00:00",
+      "last_attempt_at": "2026-11-09T15:16:30+00:00",
       "actual_coverage": [
-        {
-          "asset_label": "USDCe",
-          "underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-          "decimals_static": 6,
-          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
-        },
-        {
-          "asset_label": "USDCn",
-          "underlying": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-          "decimals_static": 6,
-          "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
-          "fields": "token0/token1 L19-20，getReserves L38-41，swap L159-162按真实储备限制",
-          "deployment_match": "unknown"
-        }
+        "链：eth_chainId=0x89（137）；head=97,021,133（2026-11-09T15:12:36Z，hash 0x27aed16d…）；固定块 97,021,130；定稿前重取块 97,021,158；gasPrice=273,487,406,178→277,220,442,744 wei（约 273-277 gwei）。",
+        "资产身份（地址逐字符一致）：WETH 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619（代码 12,443 B；symbol=WETH；18 位）；USDCn 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359（代码 1,852 B；symbol=USDC；6 位）。",
+        "Uniswap V3 Polygon：工厂 0x1F98431c8…（24,535 B）、QuoterV2 0x61fFE014…（8,273 B）；WETH/USDC 0.05% 池 0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9（22,142 B），token0=USDC、token1=WETH、fee=500、liquidity=19,407,463,373,381,895。",
+        "QuickSwap V2：工厂 0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32（13,859 B）、路由 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff（21,943 B）；WETH/USDC 对 0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70（11,293 B），token0=USDC、token1=WETH，储备 raw 12,041,603,462 / 5,656,215,359,121,445,290，totalSupply raw 139,301,772,536,707，blockTimestampLast=1,794,235,923。",
+        "同块第一腿（块 97,021,130）：Uni V3 WETH→USDC 0.1/1/10 = 212.77352/2,123.18215/20,683.3121 USDC（2,127.74/2,123.18/2,068.33 每 WETH）；QuickSwap V2 WETH→USDC 0.1/1/10 = 208.576358/1,804.462655/768.2908737 USDC（2,085.76/1,804.46/768.29 每 WETH，薄池冲击 15%/64%）。",
+        "两腿闭环（第一腿实际输出作第二腿输入，同块）：Uni→QS 0.1/1/10 WETH 净 -0.0020803/-0.154344/-6.429024 WETH（-208/-1,543/-6,429 bps）；QS→Uni 净 -0.0021167/-0.154671/-6.421745 WETH（-212/-1,547/-6,422 bps）→ 全部净负，未计 gas 前已负。",
+        "定稿前重取（块 97,021,158，15:13:20Z）：Uni V3 1 WETH=2,121.430075 USDC；QuickSwap 0.1 WETH=208.576358 USDC（与首报一致）；gasPrice=277,220,442,744 wei → 结论不变。",
+        "外部请求 45 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
       ],
       "coverage_gaps": [
-        "30天规则/迁移/流动性变化未覆盖。",
-        "7天代表性活动/完整历史交易复盘未覆盖。",
-        "Polygon RPC和交易对目录CONNECT403，未核chainId137、code、实际池及token部署。",
-        "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
-        "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
+        "只测 WETH/USDCn 一对；WMATIC/USDCn、WBTC/USDCn 及其他 V3 fee 池、Curve/Balancer 未扫。",
+        "两笔 swap 实际 gas units 未测（gasPrice 277 gwei 已记录）；未做 state-override 完整路径模拟。",
+        "30 天规则/流动性变化与 7 天代表性活动未覆盖；未复盘 QuickSwap 池失衡来源。",
+        "更大档位（100/1000 WETH）未测；第二腿容量仅按储备估算。"
       ],
-      "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/POLY03/2026-11-09/live-20261109T141903Z.md",
       "task": "同资产对跨DEX价差",
       "chain": "POLY",
       "owner": "worker_c",
       "prompt": "prompts/agents/POLY03.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 1,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-        "verified_at": "2026-11-08T15:52:19.836508+00:00",
-        "record": "evidence/POLY03/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "R-BASE",

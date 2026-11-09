@@ -1,0 +1,219 @@
+{
+  "agent_id": "POLY01",
+  "run_id": "live-20261109T141903Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS 137 稳定币折价与兑付：USDCn/USDCe/USDT0 逐 token 链上身份核验（同名不同合约不合并）、Uniswap V3 QuoterV2 同 pinned 块三跳闭环两方向逐档报价、DEX 卖出/发行方赎回/跨链回 L1 三种退出路径分离；无正收益则排除",
+  "started_at": "2026-11-09T15:08:50+00:00",
+  "finished_at": "2026-11-09T15:17:00+00:00",
+  "duration_seconds": 490,
+  "execution_status": "PARTIAL",
+  "status": "QUOTED",
+  "as_of": {
+    "utc": "2026-11-09T15:09:49+00:00",
+    "beijing": "2026-11-09T23:09:49+08:00",
+    "data_time": "链上读取/报价 2026-11-09T15:09:47Z～15:09:49Z；最新块 97,021,021（2026-11-09T15:09:48Z）；钉 pinned 块 97,021,016；报告落盘时已超过 60 秒"
+  },
+  "block_or_slot": 97021016,
+  "market_ids": [
+    "POLY:137:uniswap-v3-pool:0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+    "POLY:137:uniswap-v3-pool:0x31083a78e11b18e450fd139f9abea98cd53181b7",
+    "POLY:137:uniswap-v3-pool:0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d"
+  ],
+  "asset_ids": [
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+  ],
+  "discovery_source": [
+    {
+      "source": "Aave Polygon 地址书（上一轮读取，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "（上一轮）2026-11-08；本轮用其合约地址做链上读取",
+      "request": "USDCn=0x3c499c54…、USDCe=0x2791Bca1…；本轮 symbol/decimals 与 V3 池核验"
+    },
+    {
+      "source": "Polygon PoS 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:09:47+00:00～15:09:49+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call（token symbol/decimals；QuoterV2 code/factory/WETH9；V3 factory getPool 与 quoteExactInput 两方向）；共 3 次外部 HTTP 请求"
+    }
+  ],
+  "mechanism": "Polygon 上 USDCn（Circle 原生）与 USDCe（PoS 桥接）链上 symbol 都是 \"USDC\"、均 6 位，但是不同合约，不能按名称/1 美元合并；USDT 链上 symbol 为 \"USDT0\"。三种退出路径：① DEX 即时卖出/兑换：USDCn/USDCe/USDT0 在 Uniswap V3 均有 fee=100 等档真实池；用 QuoterV2 的 quoteExactInput 在同一 pinned 块做三跳闭环（USDCn→USDT0→USDCe→USDCn 及反向），合约内部逐腿传上一腿输出、费率与冲击已含，1/10/100/1,000 USDCn 两方向全部净负（−2.73～−3.30 bps，≈三腿 1bp 费率），不存在正收益闭环；② 发行方/协议赎回：USDCn 为 Circle 原生发行（链上无普通用户即时赎回模块可读），USDCe 是 PoS 桥接（ChildERC20 withdraw 仅 burn、需 L1 exit 验证，deposit 受 DEPOSITOR_ROLE），无本链即时 1:1 兑付；③ 跨链回 L1：USDCe 需 burn+checkpoint（约 30 分钟～数小时，DELAYED），费用/容量/资格未测。故无折价买入→真实兑付的可执行正收益。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "polygon-pos",
+      "fields": {"eth_chainId": "0x89", "chain_id": 137, "latest_block": 97021021,
+                 "latest_block_time_utc": "2026-11-09T15:09:48+00:00", "pinned_block": 97021016},
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "token_identity",
+      "protocol": "Polygon stablecoins",
+      "fields": {"USDCn": {"address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", "symbol_onchain": "USDC", "decimals": 6, "issuer": "Circle 原生"},
+                 "USDCe": {"address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "symbol_onchain": "USDC", "decimals": 6, "issuer": "Polygon PoS 桥接"},
+                 "USDT0": {"address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", "symbol_onchain": "USDT0", "decimals": 6},
+                 "note": "USDCn 与 USDCe 链上 symbol 相同、精度相同但合约不同，本轮按地址区分未合并"},
+      "block": 97021016,
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "quoter_and_pools",
+      "protocol": "Uniswap V3",
+      "fields": {"quoter_v2": {"address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e", "code_bytes": 8273,
+                               "factory()": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+                               "WETH9()": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"},
+                 "pools": {"USDCn/USDCe/100": "0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+                           "USDCn/USDCe/500": "0xd9abecb39a5885d1e531ed3599adfed620e2fc8a",
+                           "USDCn/USDCe/3000": "0x36f1f5d1fafb4b34bc42a39f06e5685d59a86166",
+                           "USDCn/USDT0/100": "0x31083a78e11b18e450fd139f9abea98cd53181b7",
+                           "USDCn/USDT0/500": "0xee95696f77693af4f9b93850a9f48b4ad8e7a30a",
+                           "USDT0/USDCe/100": "0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+                           "USDT0/USDCe/500": "0x3f5228d0e7d75467366be7de2c31d0d098ba2c23"}},
+      "block": 97021016,
+      "evidence_file": "raw/identity.json"
+    },
+    {
+      "type": "closed_loop_quotes",
+      "protocol": "Uniswap V3 QuoterV2",
+      "fields": {"fees_all_100": true,
+                 "USDCn_to_USDT0_to_USDCe_to_USDCn": {"tiers_USDCn": [1, 10, 100, 1000],
+                                                      "net_bps": [-3.30, -3.27, -3.27, -3.29]},
+                 "USDCn_to_USDCe_to_USDT0_to_USDCn": {"tiers_USDCn": [1, 10, 100, 1000],
+                                                      "net_bps": [-2.75, -2.73, -2.73, -2.75]},
+                 "conclusion": "两方向所有档净负（≈三腿 1bp 费率），无可执行正收益，也未见 USDCe 明显折价"},
+      "block": 97021016,
+      "evidence_file": "raw/quotes.json"
+    },
+    {
+      "type": "exit_paths",
+      "protocol": "USDCn / USDCe",
+      "fields": {"dex_sell": "即时，USDCn/USDCe/USDT0 V3 池存在；净负（≈费率）",
+                 "issuer_redeem": "USDCn 无普通用户链上即时赎回模块可读（Circle 通道）；USDCe 为 PoS 桥接（ChildERC20 withdraw 仅 burn、deposit 受 DEPOSITOR_ROLE）",
+                 "bridge_to_L1": "USDCe 需 burn+checkpoint（约30分钟～数小时，DELAYED）；费用/容量/资格未测"},
+      "evidence_file": "raw/identity.json"
+    }
+  ],
+  "quotes": [
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDT0->USDCe->USDCn", "amount_in": "1 USDCn", "amount_out": "0.99967 USDCn", "fees": "3×1bp（fee=100 档）+ 价格冲击；gas 未计", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −3.30 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDT0->USDCe->USDCn", "amount_in": "10 USDCn", "amount_out": "9.99673 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −3.27 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDT0->USDCe->USDCn", "amount_in": "100 USDCn", "amount_out": "99.967294 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −3.27 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDT0->USDCe->USDCn", "amount_in": "1000 USDCn", "amount_out": "999.671382 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −3.29 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDCe->USDT0->USDCn", "amount_in": "1 USDCn", "amount_out": "0.999725 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −2.75 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDCe->USDT0->USDCn", "amount_in": "10 USDCn", "amount_out": "9.997267 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −2.73 bps（本轮最好）"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDCe->USDT0->USDCn", "amount_in": "100 USDCn", "amount_out": "99.972673 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −2.73 bps"},
+    {"market_id": "POLY:137:uniswap-v3-triangle:USDCn->USDCe->USDT0->USDCn", "amount_in": "1000 USDCn", "amount_out": "999.725169 USDCn", "fees": "同上", "block": 97021016, "quote_time_utc": "2026-11-09T15:09:49+00:00", "note": "净 −2.75 bps"}
+  ],
+  "net_result": {
+    "value": "-0.000273",
+    "unit": "USDCn per 1 USDCn",
+    "type": "estimated_from_same_block_quoter_quotes_not_simulated",
+    "realized": false,
+    "best_case": "USDCn→USDCe→USDT0→USDCn，10/100 USDCn 净 −2.73 bps；所有 8 条报价均负",
+    "unknown_costs": ["gas/授权", "USDCe 跨链退出 checkpoint 时间与费用", "USDCn 发行方赎回资格/费用", "其他 DEX 池未比较", "更大数量与容量"]
+  },
+  "capacity": "Uniswap V3 fee=100 池存在且本轮测到 1,000 USDCn 档仍净负（价格冲击很小）；池深度未定量。USDCe 跨链退出容量/时间、USDCn 发行方赎回容量未知。",
+  "permissions": "三个 V3 池公开无许可；USDCn/USDCe 发行方赎回与桥接退出需资格/流程（未核）；USDCe ChildERC20 deposit 受 DEPOSITOR_ROLE（源码）。本轮未签名/未授权/未广播。",
+  "liabilities": "none（只读读取；未建仓、无债务、无在途资金）",
+  "waiting_time": "DEX 即时（0 等待）；USDCe 桥回 L1 需 burn+checkpoint（约30分钟～数小时，未实测）；USDCn 发行方赎回不可链上即时。",
+  "invalidation_conditions": [
+    "代币合约/发行版本与读取不符（本轮 symbol/decimals 链上已核，未读实现）",
+    "USDCn 与 USDCe 被当成同一权益（本轮按地址区分）",
+    "池深度/费率变化使闭环转正（需重测）",
+    "桥接/发行方退出规则变化",
+    "报价超过 60 秒（报告时已过期）"
+  ],
+  "evidence_urls": [
+    "https://polygon-bor-rpc.publicnode.com",
+    "https://polygonscan.com/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+    "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+    "https://polygonscan.com/token/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "https://polygonscan.com/token/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "https://polygonscan.com/token/0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+  ],
+  "coverage_gaps": [
+    "代币实现/代理与发行/桥接版本未读代码（仅 symbol/decimals）：USDCn/USDCe/USDT0 的 owner/implementation/铸烧权限未核。",
+    "发行方兑付入口未核：USDCn 的 Circle 赎回（场外/KYC）与 USDCe 的 PoS 桥接退出（checkpoint 时间、费用、容量、资格）未实测；跨链回 L1 属 DELAYED 未测时效。",
+    "仅用 Uniswap V3（fee=100 档）三跳；未比较 Curve/QuickSwap 等其他 DEX 池与更大数量档。",
+    "未读 USDCe 桥接合约当前映射/根链状态与资金；无场外折价买单数据。",
+    "30 天规则窗口（发行/桥接/实现变更）与 7 天活动窗口（真实兑换/桥接退出）未覆盖；gas/授权未计。"
+  ],
+  "next_check": [
+    "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+    "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+    "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+    "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+    "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+      "chain": "POLY", "protocol": "Uniswap V3",
+      "asset_ids": ["0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
+      "evidence_urls": ["https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418"],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比"
+    },
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0x31083a78e11b18e450fd139f9abea98cd53181b7",
+      "chain": "POLY", "protocol": "Uniswap V3",
+      "asset_ids": ["0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
+      "evidence_urls": ["https://polygonscan.com/address/0x31083a78e11b18e450fd139f9abea98cd53181b7"],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比"
+    },
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+      "chain": "POLY", "protocol": "Uniswap V3",
+      "asset_ids": ["0xc2132D05D31c914a87C6611C10748AEb04B58e8F", "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
+      "evidence_urls": ["https://polygonscan.com/address/0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d"],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "POLY-USDCN-USDCE-USDT0-V3-TRIANGLE-NEGATIVE",
+      "status": "QUOTED",
+      "chain": "POLY",
+      "protocol": "Uniswap V3",
+      "market_id": "POLY:137:uniswap-v3-triangle:USDCn-USDT0-USDCe",
+      "evidence_urls": ["https://polygonscan.com/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+                        "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+                        "https://polygonscan.com/token/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+                        "https://polygonscan.com/token/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
+      "mechanism": "USDCn/USDCe/USDT0 在 Uniswap V3 有真实 fee=100 池；QuoterV2 同 pinned 块三跳闭环（两方向）1/10/100/1,000 USDCn 全部净负（−2.73～−3.30bps，≈三腿 1bp 费率），未见 USDCe 明显折价；DEX 即时退出≈费率无利，桥接/发行方兑付延迟或不可用。",
+      "net_result": {"value": "-0.000273", "unit": "USDCn per 1 USDCn", "type": "estimated_from_quotes", "note": "最好档；非模拟、非收益主张"},
+      "unknown_costs": ["gas", "桥接 checkpoint 费用/时间", "发行方赎回资格", "其他 DEX 未比较"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["池深度/费率变化使闭环转正", "代币/发行版本不符", "报价过期"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Polygon 上 USDCn/USDCe/USDT0 存在正收益三跳闭环（DEX 折价买入）",
+      "reason": "QuoterV2 同 pinned 块两方向 8 条报价全部净负（最好 −2.73bps，≈三腿 1bp 费率）；明确排除。"
+    },
+    {
+      "claim": "把 USDCn 与 USDCe 当同一权益/1 美元等价套用",
+      "reason": "两者链上 symbol 都是 \"USDC\"、均 6 位但合约不同（0x3c49… vs 0x2791…）；本轮按合约地址分别计价，未合并，排除。"
+    },
+    {
+      "claim": "桥接 USDCe 本链 withdraw/burn 即等于现金到手",
+      "reason": "ChildERC20 withdraw 仅烧毁、需 L1 exit 验证（checkpoint 等待），deposit 受 DEPOSITOR_ROLE；跨链退出属 DELAYED，非本链即时现金，排除。"
+    },
+    {
+      "claim": "把 USDT0 链上 symbol 当普通 USDT（同名合并）",
+      "reason": "0xc2132D05… 链上 symbol 为 \"USDT0\"；本轮按合约计算并单列，未按名称合并。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "same_block_quoter_v2_triangle_plus_token_identity",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T15:09:49+00:00",
+    "complete_block_range": "pinned 单块 97,021,016（最新块 97,021,021）；无区块范围扫描",
+    "complete_event_time_window": "无事件窗口；30 天/7 天窗口未覆盖"
+  }
+}

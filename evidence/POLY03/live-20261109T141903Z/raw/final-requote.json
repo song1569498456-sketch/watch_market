@@ -1,0 +1,25 @@
+{
+ "head_block": 97021161,
+ "head_timestamp_utc": "2026-11-09T15:13:18+00:00",
+ "pinned_block": 97021158,
+ "retrieved_at_utc": "2026-11-09T15:13:18.831758+00:00",
+ "gas_price_wei": 277220442744,
+ "quotes": [
+  {
+   "venue": "UniswapV3",
+   "direction": "WETH->USDC",
+   "amount_in": "1",
+   "amount_out_usdc": 2121.430075,
+   "block": 97021158,
+   "quote_time_utc": "2026-11-09T15:13:20.416426+00:00"
+  },
+  {
+   "venue": "QuickSwapV2",
+   "direction": "WETH->USDC",
+   "amount_in": "0.1",
+   "amount_out_usdc": 208.576358,
+   "block": 97021158,
+   "quote_time_utc": "2026-11-09T15:13:21.082672+00:00"
+  }
+ ]
+}

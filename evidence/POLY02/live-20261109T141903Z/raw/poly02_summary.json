@@ -1,0 +1,128 @@
+{
+ "started_at_utc": "2026-11-09T15:11:31.035819+00:00",
+ "chain_id": 137,
+ "latest_block": 97021090,
+ "latest_block_time_utc": "2026-11-09T15:11:31+00:00",
+ "pinned_block": 97021085,
+ "pool_code_bytes": 2400,
+ "pool_impl_slot_value": "0x0000000000000000000000006030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+ "pool_impl": "0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+ "reserves_list": [
+  "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+  "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+  "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+  "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+  "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+  "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+  "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+  "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+  "0x172370d5cd63279efa6d502dab29171933a610af",
+  "0x0b3f868e0be5597d5db7feb59e1cadbb0fdda50a",
+  "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+  "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+  "0x85955046df4668e1dd369d2de9f3aeb98dd2a369",
+  "0xe111178a87a3bff0c8d18decba5798827539ae99",
+  "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+  "0xe0b52e49357fd4daf2c15e02058dce6bc0057db4",
+  "0xa3fa99a148fa48d14ed51d610c367c61876997f1",
+  "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+  "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6",
+  "0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd",
+  "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+ ],
+ "oracle_code_bytes": 3405,
+ "oracle_prices": {
+  "USDCn": 99978306,
+  "WMATIC": 9057200
+ },
+ "reserve_USDCn": {
+  "configuration": "0x100000000000000000000103e8002faf0800017d784007d0850629041e780000",
+  "ltv_bps": 0,
+  "liquidation_threshold_bps": 7800,
+  "liquidation_bonus_bps": 10500,
+  "decimals": 6,
+  "active": true,
+  "frozen": false,
+  "borrowingEnabled": true,
+  "paused": false,
+  "lastUpdateTimestamp": 1794236922,
+  "id": 20,
+  "aToken": "0xa4d94019934d8333ef880abffbf2fdd611c762bd",
+  "stableDebtToken": "0xd94112b5b62d53c9402e7a60289c6810def1dc9b",
+  "variableDebtToken": "0xe701126012ec0290822eea17b794454d1af8b030",
+  "interestRateStrategy": "0x56076f960980d453b5b749cb6a1c4d2e4e138b1a"
+ },
+ "reserve_WMATIC": {
+  "configuration": "0x100000000000000000000203e8003dfd2400017d784007d0811229cc1c841a90",
+  "ltv_bps": 6800,
+  "liquidation_threshold_bps": 7300,
+  "liquidation_bonus_bps": 10700,
+  "decimals": 18,
+  "active": true,
+  "frozen": false,
+  "borrowingEnabled": false,
+  "paused": false,
+  "lastUpdateTimestamp": 1794236562,
+  "id": 7,
+  "aToken": "0x6d80113e533a2c0fe82eabd35f1875dcea89ea97",
+  "stableDebtToken": "0xd94112b5b62d53c9402e7a60289c6810def1dc9b",
+  "variableDebtToken": "0x4a1c3ad6ed28a636ee1751c69071f6be75deb8b8",
+  "interestRateStrategy": "0x56076f960980d453b5b749cb6a1c4d2e4e138b1a"
+ },
+ "liquidation_topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+ "liquidation_scans": [
+  {
+   "span_blocks": 5000,
+   "range": [
+    97016090,
+    97021090
+   ],
+   "error": null,
+   "count": 0
+  },
+  {
+   "span_blocks": 50000,
+   "range": [
+    96971090,
+    97021090
+   ],
+   "error": {
+    "code": -32701,
+    "message": "exceed maximum block range: 10000"
+   },
+   "count": 0
+  }
+ ],
+ "liquidations_decoded": [],
+ "finished_at_utc": "2026-11-09T15:11:33.725499+00:00",
+ "requests": [
+  {
+   "name": "pool_identity_and_reserves",
+   "http_status": 200,
+   "at": "2026-11-09T15:11:32.045309+00:00",
+   "n_calls": 11,
+   "bytes": 23370,
+   "sha256": "bfd45d472a3b18df828a9d953a2b88f33a568702fd15f0ada52b54385f694dea",
+   "elapsed_s": 1.009
+  },
+  {
+   "name": "getlogs_liq_5000",
+   "http_status": 200,
+   "at": "2026-11-09T15:11:32.741175+00:00",
+   "n_calls": 1,
+   "bytes": 39,
+   "sha256": "6e742b2f94ec8a7ce4af693199ca9610d4ac8a04846f2b029b9e45f184976d64",
+   "elapsed_s": 0.395
+  },
+  {
+   "name": "getlogs_liq_50000",
+   "http_status": 403,
+   "at": "2026-11-09T15:11:33.424483+00:00",
+   "n_calls": 1,
+   "bytes": 97,
+   "sha256": "8e550dce388a673e1cea3f957d1174ad09b5e12f03f4bee02495f3de852ab13f",
+   "elapsed_s": 0.383
+  }
+ ],
+ "request_count": 3
+}

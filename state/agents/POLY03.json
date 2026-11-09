@@ -2,17 +2,20 @@
   "agent_id": "POLY03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "QUOTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:13:21+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
-      "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol"
-    ],
-    "chain_block": null,
-    "market_pages_completed": 0,
-    "history_complete": false
+    "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "chain_id": 137,
+    "current_block": 97021133,
+    "pinned_block": 97021130,
+    "requote_block": 97021158,
+    "market_pages_completed": 2,
+    "quotes_obtained": 12,
+    "history_complete": false,
+    "complete_block_range": "资产/池/首轮报价：块 97,021,130；定稿前重取：块 97,021,158；head 97,021,161",
+    "complete_event_time_window": "单块快照（2026-11-09T15:12:36-15:13:21Z）；30 天规则/7 天活动未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,41 +33,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "asset_label": "USDCe",
-      "underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "decimals_static": 6,
-      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
-    },
-    {
-      "asset_label": "USDCn",
-      "underlying": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-      "decimals_static": 6,
-      "identity_status": "SECONDARY_PROTOCOL_REGISTRY_NOT_ISSUER_OR_CHAIN_VERIFIED"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/QuickSwap/quickswap-core/master/contracts/UniswapV2Pair.sol",
-      "fields": "token0/token1 L19-20，getReserves L38-41，swap L159-162按真实储备限制",
-      "deployment_match": "unknown"
-    }
+    "链：eth_chainId=0x89（137）；head=97,021,133（2026-11-09T15:12:36Z）；固定块 97,021,130；定稿前重取块 97,021,158（head 97,021,161/15:13:18Z）；gasPrice=273,487,406,178→277,220,442,744 wei（约 273-277 gwei）。",
+    "同一资产（地址逐字符一致）：WETH 0x7ceB23fD…（12,443 B，WETH/18）与 USDCn 0x3c499c54…（1,852 B，USDC/6）；未混入 USDCe。",
+    "Uniswap V3 Polygon：工厂 0x1F98431c8…（24,535 B）、QuoterV2 0x61fFE014…（8,273 B）；WETH/USDC 0.05% 池 0xa4d8c89f…（22,142 B），token0=USDC/token1=WETH/fee=500/liquidity=19,407,463,373,381,895。",
+    "QuickSwap V2：工厂 0x57573714…（13,859 B）、路由 0xa5E0829C…（21,943 B）；WETH/USDC 对 0x7baf833f…（11,293 B），token0=USDC/token1=WETH，储备 12,041.603462 USDC/5.656215359 WETH，totalSupply 139,301,772,536,707（薄池）。",
+    "同块第一腿：Uni V3 0.1/1/10 WETH=212.77352/2,123.18215/20,683.3121 USDC；QuickSwap V2=208.576358/1,804.462655/768.2908737 USDC（冲击 15%/64%）。",
+    "两腿闭环（第一腿实际输出作第二腿输入，同块）：Uni→QS 0.1/1/10 WETH 净 -208/-1,543/-6,429 bps；QS→Uni 净 -212/-1,547/-6,422 bps；全部净负，未计 gas 前已负。",
+    "定稿前重取（块 97,021,158）：Uni 1 WETH=2,121.430075 USDC；QuickSwap 0.1 WETH=208.576358 USDC（一致）；结论不变。",
+    "外部请求 45 次（≤80），同 host 间隔≥0.35s；无报价外推、无交易/签名。"
   ],
   "pending_questions": [
-    "30天规则/迁移/流动性变化未覆盖。",
-    "7天代表性活动/完整历史交易复盘未覆盖。",
-    "Polygon RPC和交易对目录CONNECT403，未核chainId137、code、实际池及token部署。",
-    "没有两独立底层池或同状态两腿指定数量报价，容量、真实储备/税/卖出限制unknown。",
-    "没有当前gas资产/费用读数、完整只读模拟或最终重报价。"
+    "只测 WETH/USDCn 一对；WMATIC/USDCn、WBTC/USDCn 与其他 V3 fee 池、Curve/Balancer 未扫。",
+    "两笔 swap 实际 gas units 未测（仅 gasPrice 277 gwei）；未做 state-override 完整路径模拟。",
+    "30 天规则/流动性变化与 7 天代表性活动未覆盖；未复盘 QuickSwap 池失衡来源。",
+    "更大档位（100/1000 WETH）未测；第二腿容量仅按储备估算。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:51:15.311322+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/POLY03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-    "verified_at": "2026-11-08T15:52:19.836508+00:00",
-    "record": "evidence/POLY03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:16:30+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/POLY03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/POLY03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

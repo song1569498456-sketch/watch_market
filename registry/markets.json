@@ -4042,6 +4042,220 @@
       },
       "current_onchain_verified": true,
       "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+      "chain": "POLY",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比",
+      "owner": "POLY01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY01": {
+          "market_id": "POLY:137:uniswap-v3-pool:0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+          "chain": "POLY",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+            "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+          "next_check": "池深度；其他 DEX 对比"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0x31083a78e11b18e450fd139f9abea98cd53181b7",
+      "chain": "POLY",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x31083a78e11b18e450fd139f9abea98cd53181b7"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比",
+      "owner": "POLY01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY01": {
+          "market_id": "POLY:137:uniswap-v3-pool:0x31083a78e11b18e450fd139f9abea98cd53181b7",
+          "chain": "POLY",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+            "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x31083a78e11b18e450fd139f9abea98cd53181b7"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+          "next_check": "池深度；其他 DEX 对比"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:uniswap-v3-pool:0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+      "chain": "POLY",
+      "protocol": "Uniswap V3",
+      "asset_ids": [
+        "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+      "next_check": "池深度；其他 DEX 对比",
+      "owner": "POLY01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY01": {
+          "market_id": "POLY:137:uniswap-v3-pool:0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+          "chain": "POLY",
+          "protocol": "Uniswap V3",
+          "asset_ids": [
+            "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+            "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_V3_POOL_EXISTS（fee 100）",
+          "next_check": "池深度；其他 DEX 对比"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon",
+      "asset_ids": [
+        "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_PROXY_IMPL_ORACLE_AND_RESERVE_PARAMS",
+      "next_check": "借款人索引/HF 枚举；7 天分页扫描；receiveAToken 与退出深度",
+      "owner": "POLY02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY02": {
+          "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "chain": "POLY",
+          "protocol": "Aave V3 Polygon",
+          "asset_ids": [
+            "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+            "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_POOL_PROXY_IMPL_ORACLE_AND_RESERVE_PARAMS",
+          "next_check": "借款人索引/HF 枚举；7 天分页扫描；receiveAToken 与退出深度"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+      "chain": "POLY",
+      "protocol": "Uniswap V3 WETH/USDCn 0.05%",
+      "asset_ids": [
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+        "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0=USDC/token1=WETH/fee=500/liquidity=19,407,463,373,381,895",
+      "next_check": "其他 fee 档与更大档位；gas 计入",
+      "owner": "POLY03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY03": {
+          "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+          "chain": "POLY",
+          "protocol": "Uniswap V3 WETH/USDCn 0.05%",
+          "asset_ids": [
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0=USDC/token1=WETH/fee=500/liquidity=19,407,463,373,381,895",
+          "next_check": "其他 fee 档与更大档位；gas 计入"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70",
+      "chain": "POLY",
+      "protocol": "QuickSwap V2 WETH/USDCn",
+      "asset_ids": [
+        "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+      ],
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+      ],
+      "identity_status": "CHAIN_VERIFIED：factory.getPair 读得；token0=USDC/token1=WETH；储备 12,041.603462 USDC/5.656215359 WETH（薄池）",
+      "next_check": "流动性变化与失衡来源复盘",
+      "owner": "POLY03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "POLY03": {
+          "market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70",
+          "chain": "POLY",
+          "protocol": "QuickSwap V2 WETH/USDCn",
+          "asset_ids": [
+            "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+          ],
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+          ],
+          "identity_status": "CHAIN_VERIFIED：factory.getPair 读得；token0=USDC/token1=WETH；储备 12,041.603462 USDC/5.656215359 WETH（薄池）",
+          "next_check": "流动性变化与失衡来源复盘"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

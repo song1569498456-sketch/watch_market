@@ -1,0 +1,190 @@
+{
+  "agent_id": "POLY02",
+  "run_id": "live-20261109T141903Z",
+  "chain": "POLY",
+  "scope": "Polygon PoS 137 Aave V3 正常清算与抵押品兑现：池代理/实现/预言机链上核验、USDCn 与 WMATIC 储备级清算参数（LT/bonus/LTV/暂停/借款开关）读取、有限窗口 LiquidationCall 事件扫描（getLogs 上限如实记录）；无仓位索引器则无可清算候选，不把清算奖金当净利",
+  "started_at": "2026-11-09T15:11:00+00:00",
+  "finished_at": "2026-11-09T15:19:00+00:00",
+  "duration_seconds": 480,
+  "execution_status": "PARTIAL",
+  "status": "REJECTED",
+  "as_of": {
+    "utc": "2026-11-09T15:11:34+00:00",
+    "beijing": "2026-11-09T23:11:34+08:00",
+    "data_time": "链上读取 2026-11-09T15:11:31Z～15:11:34Z；最新块 97,021,090（2026-11-09T15:11:31Z）；参数钉 pinned 块 97,021,085；报告落盘时已超过 60 秒"
+  },
+  "block_or_slot": 97021085,
+  "market_ids": [
+    "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+  ],
+  "asset_ids": [
+    "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+  ],
+  "discovery_source": [
+    {
+      "source": "BGD/Aave 官方地址簿（上一轮读取，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+      "retrieved_at_utc": "（上一轮）2026-11-08；本轮用其 Pool/Oracle 地址做链上读取",
+      "request": "Pool=0x794a61358D…4814aD、POOL_IMPL=0x6030db98…e57e、Oracle=0xb023e699…8Bd1；本轮 EIP-1967 槽与代码核验一致"
+    },
+    {
+      "source": "Polygon PoS 公共 RPC（只读 JSON-RPC batch）",
+      "url": "https://polygon-bor-rpc.publicnode.com",
+      "retrieved_at_utc": "2026-11-09T15:11:31+00:00～15:11:34+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call（Pool getReservesList/getReserveData、Oracle getAssetPrice、getLogs LiquidationCall）；共 3 次外部 HTTP 请求；getLogs 50k 块被拒 -32701（max range 10000）"
+    }
+  ],
+  "mechanism": "Aave V3 Polygon Pool 是代理（代码 2,400B，EIP-1967 impl=0x6030db98…e57e，与官方地址簿一致），清算规则来自当前部署与储备配置位：USDCn（id20）LT=78%、liquidationBonus=105%、LTV=0、active/可借/未暂停；WMATIC（id7）LT=73%、bonus=107%、LTV=68%、active 但 borrowingEnabled=false、未暂停。Oracle 0xb023e699… 价格 USDCn=$0.99978306、WMATIC=$0.090572（8 位）。清算闭环需：代还债务（本金+利息）→取得抵押（可能是 aToken 而非底层）→出售/赎回抵押品（DEX 深度/滑点）→扣 gas/融资；清算奖金（+5%/+7%）只是协议规则，不是净利。本轮无借款人索引器，无法枚举仓位与当前 HF；getLogs 仅扫最近 5,000 块（约 2.1 小时）得到 0 条 LiquidationCall，7 天窗口因单次 1 万块上限与请求配额未覆盖 → 无清算候选，REJECTED。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "polygon-pos",
+      "fields": {"eth_chainId": "0x89", "chain_id": 137, "latest_block": 97021090,
+                 "latest_block_time_utc": "2026-11-09T15:11:31+00:00", "pinned_block": 97021085},
+      "evidence_file": "raw/poly02_summary.json"
+    },
+    {
+      "type": "pool_identity",
+      "protocol": "Aave V3 Polygon",
+      "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "fields": {"code_bytes": 2400, "eip1967_impl": "0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+                 "reserves_count": 21, "reserves_sample": ["USDCe 0x2791Bca1…", "USDCn 0x3c499c54…", "WMATIC 0x0d500B1d…", "USDT0 0xc2132D05…"],
+                 "oracle": "0xb023e699F5a33916Ea823A16485e259257cA8Bd1", "oracle_code_bytes": 3405},
+      "block": 97021085,
+      "evidence_file": "raw/pool_identity.json"
+    },
+    {
+      "type": "reserve_params",
+      "protocol": "Aave V3 Polygon",
+      "fields": {"USDCn": {"id": 20, "ltv_bps": 0, "liquidation_threshold_bps": 7800, "liquidation_bonus_bps": 10500,
+                           "decimals": 6, "active": true, "frozen": false, "borrowingEnabled": true, "paused": false,
+                           "aToken": "0xa4d94019934d8333ef880abffbf2fdd611c762bd",
+                           "variableDebtToken": "0xe701126012ec0290822eea17b794454d1af8b030"},
+                 "WMATIC": {"id": 7, "ltv_bps": 6800, "liquidation_threshold_bps": 7300, "liquidation_bonus_bps": 10700,
+                            "decimals": 18, "active": true, "frozen": false, "borrowingEnabled": false, "paused": false,
+                            "aToken": "0x6d80113e533a2c0fe82eabd35f1875dcea89ea97",
+                            "variableDebtToken": "0x4a1c3ad6ed28a636ee1751c69071f6be75deb8b8"},
+                 "oracle_prices_8dec": {"USDCn": 99978306, "WMATIC": 9057200}},
+      "block": 97021085,
+      "evidence_file": "raw/pool_identity.json"
+    },
+    {
+      "type": "liquidation_event_scan",
+      "protocol": "Aave V3 Polygon",
+      "fields": {"topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+                 "window_5000_blocks": {"range": [97016090, 97021090], "events": 0, "approx_hours": 2.1},
+                 "window_50000_blocks": {"error": {"code": -32701, "message": "exceed maximum block range: 10000"}},
+                 "7d_window_coverage": "NOT_COMPLETED（需 120+ 次分页，超配额）"},
+      "block": 97021085,
+      "evidence_file": "raw/poly02_summary.json"
+    },
+    {
+      "type": "candidate_status",
+      "protocol": "Aave V3 Polygon",
+      "fields": {"borrower_indexer": "不可用（无 key/未部署）", "positions_read": 0, "health_factors": 0,
+                 "candidates": 0, "note": "无仓位枚举则不能声称无仓位，只能说采样窗口无清算事件"},
+      "block": 97021085,
+      "evidence_file": "raw/poly02_summary.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": "USD（无候选仓位）",
+    "type": "rejected_no_liquidation_candidate",
+    "realized": false,
+    "note": "5,000 块窗口 0 条清算事件；无借款人索引器/仓位与 HF 数据；不把清算奖金（+5%/+7%）当净利；未做任何清算模拟",
+    "unknown_costs": ["代还本金+利息", "取得抵押品（aToken vs 底层）", "抵押品出售/赎回深度与滑点", "protocol fee/坏账规则", "gas 与融资成本", "并发清算风险"]
+  },
+  "capacity": "无候选仓位 → 清算容量 unknown；7 天窗口未覆盖；未读任何仓位的债务/抵押/可代还上限。",
+  "permissions": "Aave 清算函数公开无许可（任何人可代还），但需持有债务资产与授权（本轮未授权/未签名/未广播）；aToken 接收 vs 底层接收取决于调用参数与参数配置（未测）；未读 Pool 实现完整清算逻辑代码（仅参数与事件主题）。",
+  "liabilities": "none（只读读取；未建仓、无债务、无在途资金）",
+  "waiting_time": "清算即时（满足阈值后任何区块可执行，需 gas/价格竞争）；本轮无候选，无等待测量",
+  "invalidation_conditions": [
+    "储备参数/暂停/借款开关变化（本轮链上现读）",
+    "oracle 价格异常（未独立源交叉验证）",
+    "getLogs 窗口/索引器变化（本轮只覆盖 5,000 块）",
+    "仓位 HF 与可代还上限未读（无持仓数据）",
+    "把清算奖金当净利（已排除）"
+  ],
+  "evidence_urls": [
+    "https://polygon-bor-rpc.publicnode.com",
+    "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "https://polygonscan.com/address/0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+    "https://polygonscan.com/address/0xb023e699F5a33916Ea823A16485e259257cA8Bd1",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Polygon.sol",
+    "https://docs.morpho.org/learn/concepts/liquidation/"
+  ],
+  "coverage_gaps": [
+    "无借款人索引器：无法枚举 Aave V3 Polygon 借款账户/仓位与当前 HF；只能等事件或依赖外部索引（本轮不可用）。",
+    "7 天/30 天窗口未覆盖：getLogs 单次上限 10,000 块，7 天窗口需 120+ 分页（超配额）；本轮仅 1 个 5,000 块窗口（约 2.1 小时）0 事件。",
+    "未取任何真实仓位的债务本息/抵押数量/当前 HF/可代还上限；未模拟 receiveAToken 与底层退出。",
+    "抵押品（aToken→底层→DEX）退出深度、gas、融资与并发清算风险未测；WMATIC oracle 价格仅单源。",
+    "未复盘历史清算交易；30 天治理/参数变更未覆盖；未读 Pool 实现的完整清算逻辑代码。"
+  ],
+  "next_check": [
+    "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+    "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+    "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+    "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+    "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon",
+      "asset_ids": ["0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                    "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
+      "evidence_urls": ["https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"],
+      "identity_status": "ONCHAIN_VERIFIED_POOL_PROXY_IMPL_ORACLE_AND_RESERVE_PARAMS",
+      "next_check": "借款人索引/HF 枚举；7 天分页扫描；receiveAToken 与退出深度"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "POLY-AAVE-V3-LIQUIDATION-PARAMS-AND-WINDOW",
+      "status": "REJECTED",
+      "chain": "POLY",
+      "protocol": "Aave V3 Polygon",
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "evidence_urls": ["https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+                        "https://polygonscan.com/address/0xb023e699F5a33916Ea823A16485e259257cA8Bd1"],
+      "mechanism": "链上现读：Pool 代理→impl 0x6030db98…；USDCn LT 78%/bonus 5%/LTV 0、WMATIC LT 73%/bonus 7%/borrowingEnabled=false；Oracle USDCn $0.99978、WMATIC $0.090572。有限窗口（最近 5,000 块，约 2.1 小时）LiquidationCall 0 条；无借款人索引器无法枚举 HF → 本轮无可核验清算候选；清算奖金不是净利，须扣代还/退出/ gas。",
+      "net_result": null,
+      "unknown_costs": ["代还本金+利息", "抵押退出与卖出成本", "gas/融资", "protocol fee"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["出现满足阈值的仓位", "参数/暂停变化", "oracle 异常", "7 天窗口覆盖完成"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "Aave Polygon 存在可执行清算利润（由 LT/奖金参数与上轮文档推断）",
+      "reason": "本轮链上参数已核，但 5,000 块窗口 0 条 LiquidationCall、无借款人索引器与 HF 数据，无可核验候选；清算奖金（+5%/+7%）是规则不是净利，明确排除。"
+    },
+    {
+      "claim": "用上一轮 main 分支源码常数当当前 Polygon 清算规则",
+      "reason": "本轮改为链上读取 Pool 代理/impl 与储备配置位（USDCn LT 78%/bonus 10500；WMATIC 73%/10700、borrowingEnabled=false），不套源码常数或旧版本。"
+    },
+    {
+      "claim": "把清算奖金×抵押价值当净利（上轮 Q00 否决点）",
+      "reason": "未获任何仓位的债务/抵押/可代还上限，未扣代还本金利息、aToken→底层退出、DEX 卖出、gas 与融资；不做该净利主张。"
+    },
+    {
+      "claim": "7 天窗口已扫描/已证明 Pose 无清算",
+      "reason": "getLogs 单次上限 10,000 块（-32701），本轮只扫 5,000 块（约 2.1 小时）0 事件；7 天分页未做，排除该覆盖主张。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "onchain_aave_reserve_params_plus_limited_event_scan",
+    "source_count": 2,
+    "retrieved_at_utc": "2026-11-09T15:11:34+00:00",
+    "complete_block_range": "getLogs 单窗口 97,016,090～97,021,090（5,000 块）；参数钉 pinned 块 97,021,085",
+    "complete_event_time_window": "约 2.1 小时（LiquidationCall 0 条）；7 天窗口未覆盖"
+  }
+}

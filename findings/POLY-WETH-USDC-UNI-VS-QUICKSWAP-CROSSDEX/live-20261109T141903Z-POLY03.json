@@ -1,0 +1,26 @@
+{
+  "finding_id": "POLY-WETH-USDC-UNI-VS-QUICKSWAP-CROSSDEX",
+  "status": "REJECTED",
+  "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+  "mechanism": "同一块（97,021,130）同资产 WETH/USDCn 在 Uni V3（0.05%）与 QuickSwap V2 双向报价：Uni 1 WETH=2,123.18 USDC，QuickSwap 0.1 WETH=208.58 USDC（薄池），但用第一腿实际输出作第二腿输入后，Uni→QS 与 QS→Uni 的 0.1/1/10 WETH 闭环净额全部为负（-208 至 -6,429 bps），未计 gas 前已负；定稿前重取（块 97,021,158）结论不变。不存在可执行正价差。",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+    "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+  ],
+  "net_result": "全部档位净负（-208 至 -6,429 bps）；净额 null",
+  "unknown_costs": [
+    "gas units",
+    "优先费"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "QuickSwap 流动性大增或价格回归",
+    "出现更深的其他市场",
+    "把不同版本稳定币混入（已排除）"
+  ],
+  "owner": "POLY03",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/POLY03/live-20261109T141903Z/record.json"
+}

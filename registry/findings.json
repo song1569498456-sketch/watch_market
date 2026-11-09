@@ -5048,6 +5048,209 @@
       },
       "q00_review": null,
       "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "POLY-USDCN-USDCE-USDT0-V3-TRIANGLE-NEGATIVE",
+      "first_seen_at": "2026-11-09T15:17:00+00:00",
+      "status": "QUOTED",
+      "market_id": "POLY:137:uniswap-v3-triangle:USDCn-USDT0-USDCe",
+      "mechanism": "USDCn/USDCe/USDT0 在 Uniswap V3 有真实 fee=100 池；QuoterV2 同 pinned 块三跳闭环（两方向）1/10/100/1,000 USDCn 全部净负（−2.73～−3.30bps，≈三腿 1bp 费率），未见 USDCe 明显折价；DEX 即时退出≈费率无利，桥接/发行方兑付延迟或不可用。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+        "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+        "https://polygonscan.com/token/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "https://polygonscan.com/token/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      ],
+      "net_result": {
+        "value": "-0.000273",
+        "unit": "USDCn per 1 USDCn",
+        "type": "estimated_from_quotes",
+        "note": "最好档；非模拟、非收益主张"
+      },
+      "unknown_costs": [
+        "gas",
+        "桥接 checkpoint 费用/时间",
+        "发行方赎回资格",
+        "其他 DEX 未比较"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "池深度/费率变化使闭环转正",
+        "代币/发行版本不符",
+        "报价过期"
+      ],
+      "owner": "POLY01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:17:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:17:00+00:00",
+      "capacity": "Uniswap V3 fee=100 池存在且本轮测到 1,000 USDCn 档仍净负（价格冲击很小）；池深度未定量。USDCe 跨链退出容量/时间、USDCn 发行方赎回容量未知。",
+      "observations_by_role": {
+        "POLY01": {
+          "finding_id": "POLY-USDCN-USDCE-USDT0-V3-TRIANGLE-NEGATIVE",
+          "status": "QUOTED",
+          "chain": "POLY",
+          "protocol": "Uniswap V3",
+          "market_id": "POLY:137:uniswap-v3-triangle:USDCn-USDT0-USDCe",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+            "https://polygonscan.com/address/0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+            "https://polygonscan.com/token/0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+            "https://polygonscan.com/token/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+          ],
+          "mechanism": "USDCn/USDCe/USDT0 在 Uniswap V3 有真实 fee=100 池；QuoterV2 同 pinned 块三跳闭环（两方向）1/10/100/1,000 USDCn 全部净负（−2.73～−3.30bps，≈三腿 1bp 费率），未见 USDCe 明显折价；DEX 即时退出≈费率无利，桥接/发行方兑付延迟或不可用。",
+          "net_result": {
+            "value": "-0.000273",
+            "unit": "USDCn per 1 USDCn",
+            "type": "estimated_from_quotes",
+            "note": "最好档；非模拟、非收益主张"
+          },
+          "unknown_costs": [
+            "gas",
+            "桥接 checkpoint 费用/时间",
+            "发行方赎回资格",
+            "其他 DEX 未比较"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "池深度/费率变化使闭环转正",
+            "代币/发行版本不符",
+            "报价过期"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "POLY-AAVE-V3-LIQUIDATION-PARAMS-AND-WINDOW",
+      "first_seen_at": "2026-11-09T15:19:00+00:00",
+      "status": "REJECTED",
+      "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "mechanism": "链上现读：Pool 代理→impl 0x6030db98…；USDCn LT 78%/bonus 5%/LTV 0、WMATIC LT 73%/bonus 7%/borrowingEnabled=false；Oracle USDCn $0.99978、WMATIC $0.090572。有限窗口（最近 5,000 块，约 2.1 小时）LiquidationCall 0 条；无借款人索引器无法枚举 HF → 本轮无可核验清算候选；清算奖金不是净利，须扣代还/退出/ gas。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "https://polygonscan.com/address/0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "代还本金+利息",
+        "抵押退出与卖出成本",
+        "gas/融资",
+        "protocol fee"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "出现满足阈值的仓位",
+        "参数/暂停变化",
+        "oracle 异常",
+        "7 天窗口覆盖完成"
+      ],
+      "owner": "POLY02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:19:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:19:00+00:00",
+      "capacity": "无候选仓位 → 清算容量 unknown；7 天窗口未覆盖；未读任何仓位的债务/抵押/可代还上限。",
+      "observations_by_role": {
+        "POLY02": {
+          "finding_id": "POLY-AAVE-V3-LIQUIDATION-PARAMS-AND-WINDOW",
+          "status": "REJECTED",
+          "chain": "POLY",
+          "protocol": "Aave V3 Polygon",
+          "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+            "https://polygonscan.com/address/0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
+          ],
+          "mechanism": "链上现读：Pool 代理→impl 0x6030db98…；USDCn LT 78%/bonus 5%/LTV 0、WMATIC LT 73%/bonus 7%/borrowingEnabled=false；Oracle USDCn $0.99978、WMATIC $0.090572。有限窗口（最近 5,000 块，约 2.1 小时）LiquidationCall 0 条；无借款人索引器无法枚举 HF → 本轮无可核验清算候选；清算奖金不是净利，须扣代还/退出/ gas。",
+          "net_result": null,
+          "unknown_costs": [
+            "代还本金+利息",
+            "抵押退出与卖出成本",
+            "gas/融资",
+            "protocol fee"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "出现满足阈值的仓位",
+            "参数/暂停变化",
+            "oracle 异常",
+            "7 天窗口覆盖完成"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
+    },
+    {
+      "finding_id": "POLY-WETH-USDC-UNI-VS-QUICKSWAP-CROSSDEX",
+      "first_seen_at": "2026-11-09T15:16:30+00:00",
+      "status": "REJECTED",
+      "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+      "mechanism": "同一块（97,021,130）同资产 WETH/USDCn 在 Uni V3（0.05%）与 QuickSwap V2 双向报价：Uni 1 WETH=2,123.18 USDC，QuickSwap 0.1 WETH=208.58 USDC（薄池），但用第一腿实际输出作第二腿输入后，Uni→QS 与 QS→Uni 的 0.1/1/10 WETH 闭环净额全部为负（-208 至 -6,429 bps），未计 gas 前已负；定稿前重取（块 97,021,158）结论不变。不存在可执行正价差。",
+      "evidence_urls": [
+        "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+        "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+      ],
+      "net_result": "全部档位净负（-208 至 -6,429 bps）；净额 null",
+      "unknown_costs": [
+        "gas units",
+        "优先费"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "QuickSwap 流动性大增或价格回归",
+        "出现更深的其他市场",
+        "把不同版本稳定币混入（已排除）"
+      ],
+      "owner": "POLY03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/POLY03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:16:30+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:16:30+00:00",
+      "capacity": "Uni V3 池 liquidity=19,407,463,373,381,895；QuickSwap V2 对储备 12,041.603462 USDC / 5.656215359 WETH、totalSupply 139,301,772,536,707 → 第二腿容量极小；100 以上档未测（第一腿冲击已显著）",
+      "observations_by_role": {
+        "POLY03": {
+          "finding_id": "POLY-WETH-USDC-UNI-VS-QUICKSWAP-CROSSDEX",
+          "status": "REJECTED",
+          "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+          "mechanism": "同一块（97,021,130）同资产 WETH/USDCn 在 Uni V3（0.05%）与 QuickSwap V2 双向报价：Uni 1 WETH=2,123.18 USDC，QuickSwap 0.1 WETH=208.58 USDC（薄池），但用第一腿实际输出作第二腿输入后，Uni→QS 与 QS→Uni 的 0.1/1/10 WETH 闭环净额全部为负（-208 至 -6,429 bps），未计 gas 前已负；定稿前重取（块 97,021,158）结论不变。不存在可执行正价差。",
+          "evidence_urls": [
+            "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+            "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+          ],
+          "net_result": "全部档位净负（-208 至 -6,429 bps）；净额 null",
+          "unknown_costs": [
+            "gas units",
+            "优先费"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "QuickSwap 流动性大增或价格回归",
+            "出现更深的其他市场",
+            "把不同版本稳定币混入（已排除）"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

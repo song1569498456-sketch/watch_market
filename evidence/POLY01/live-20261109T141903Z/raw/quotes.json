@@ -1,0 +1,163 @@
+{
+ "started_at_utc": "2026-11-09T15:09:46.973090+00:00",
+ "chain_id": 137,
+ "latest_block": 97021021,
+ "latest_block_time_utc": "2026-11-09T15:09:48+00:00",
+ "pinned_block": 97021016,
+ "quoter": {
+  "address": "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+  "code_bytes": 8273,
+  "factory()": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+  "WETH9()": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270"
+ },
+ "token_meta": {
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359": {
+   "symbol": "USDC",
+   "decimals": 6
+  },
+  "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
+   "symbol": "USDC",
+   "decimals": 6
+  },
+  "0xc2132D05D31c914a87C6611C10748AEb04B58e8F": {
+   "symbol": "USDT0",
+   "decimals": 6
+  }
+ },
+ "v3_pools": {
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/100": "0xd36ec33c8bed5a9f7b6630855f1533455b98a418",
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/500": "0xd9abecb39a5885d1e531ed3599adfed620e2fc8a",
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/3000": "0x36f1f5d1fafb4b34bc42a39f06e5685d59a86166",
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359/0xc2132D05D31c914a87C6611C10748AEb04B58e8F/100": "0x31083a78e11b18e450fd139f9abea98cd53181b7",
+  "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359/0xc2132D05D31c914a87C6611C10748AEb04B58e8F/500": "0xee95696f77693af4f9b93850a9f48b4ad8e7a30a",
+  "0xc2132D05D31c914a87C6611C10748AEb04B58e8F/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/100": "0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+  "0xc2132D05D31c914a87C6611C10748AEb04B58e8F/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/500": "0x3f5228d0e7d75467366be7de2c31d0d098ba2c23"
+ },
+ "chosen_fees": {
+  "USDCn_USDT": 100,
+  "USDT_USDCe": 100,
+  "USDCe_USDCn": 100
+ },
+ "quotes": [
+  {
+   "loop": "USDCn->USDT->USDCe->USDCn",
+   "amount_in_usdcn": 1.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 0.99967,
+   "net_bps": -3.3
+  },
+  {
+   "loop": "USDCn->USDT->USDCe->USDCn",
+   "amount_in_usdcn": 10.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 9.99673,
+   "net_bps": -3.2699999999999996
+  },
+  {
+   "loop": "USDCn->USDT->USDCe->USDCn",
+   "amount_in_usdcn": 100.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 99.967294,
+   "net_bps": -3.2706
+  },
+  {
+   "loop": "USDCn->USDT->USDCe->USDCn",
+   "amount_in_usdcn": 1000.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 999.671382,
+   "net_bps": -3.28618
+  },
+  {
+   "loop": "USDCn->USDCe->USDT->USDCn",
+   "amount_in_usdcn": 1.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 0.999725,
+   "net_bps": -2.75
+  },
+  {
+   "loop": "USDCn->USDCe->USDT->USDCn",
+   "amount_in_usdcn": 10.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 9.997267,
+   "net_bps": -2.7329999999999997
+  },
+  {
+   "loop": "USDCn->USDCe->USDT->USDCn",
+   "amount_in_usdcn": 100.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 99.972673,
+   "net_bps": -2.7327
+  },
+  {
+   "loop": "USDCn->USDCe->USDT->USDCn",
+   "amount_in_usdcn": 1000.0,
+   "fees": [
+    100,
+    100,
+    100
+   ],
+   "amount_out_usdcn": 999.725169,
+   "net_bps": -2.74831
+  }
+ ],
+ "fee_assumption": "Uniswap V3 各池 fee 由 getPool 存在的档位决定（100/500/3000），quoter 报价已含费率与价格冲击",
+ "finished_at_utc": "2026-11-09T15:09:49.039307+00:00",
+ "requests": [
+  {
+   "name": "identity_and_pools",
+   "http_status": 200,
+   "at": "2026-11-09T15:09:47.987508+00:00",
+   "n_calls": 19,
+   "bytes": 27076,
+   "sha256": "71c7edd883ae572ede405bd265a12b372f46904f7a3ff0fc96c043507127a3a6",
+   "elapsed_s": 1.014
+  },
+  {
+   "name": "quote_forward",
+   "http_status": 200,
+   "at": "2026-11-09T15:09:48.659650+00:00",
+   "n_calls": 4,
+   "bytes": 3230,
+   "sha256": "7d7b1aa4c3d645159aa6a4a145bf1dc6635aaf774f53de5c124adeb033b42c11",
+   "elapsed_s": 0.371
+  },
+  {
+   "name": "quote_reverse",
+   "http_status": 200,
+   "at": "2026-11-09T15:09:49.039234+00:00",
+   "n_calls": 4,
+   "bytes": 3230,
+   "sha256": "735a5af7fa874b95294935647d2649e8ed8b76c24b390592378439a71d76e9ce",
+   "elapsed_s": 0.379
+  }
+ ],
+ "request_count": 3
+}

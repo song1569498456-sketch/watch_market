@@ -4923,6 +4923,170 @@
         "在 Velodrome 深度增加或费率可读后重跑 A→B→A；只有费后净额为正且两腿权限可证时才升级。",
         "30 天规则窗口：Velodrome factory 费率/暂停变更与 Uniswap 池迁移。"
       ]
+    },
+    {
+      "agent_id": "POLY01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "代币实现/代理与发行/桥接版本未读代码（仅 symbol/decimals）：USDCn/USDCe/USDT0 的 owner/implementation/铸烧权限未核。",
+      "next_check": [
+        "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+        "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+        "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+        "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+        "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "POLY01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "发行方兑付入口未核：USDCn 的 Circle 赎回（场外/KYC）与 USDCe 的 PoS 桥接退出（checkpoint 时间、费用、容量、资格）未实测；跨链回 L1 属 DELAYED 未测时效。",
+      "next_check": [
+        "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+        "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+        "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+        "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+        "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "POLY01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "仅用 Uniswap V3（fee=100 档）三跳；未比较 Curve/QuickSwap 等其他 DEX 池与更大数量档。",
+      "next_check": [
+        "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+        "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+        "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+        "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+        "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "POLY01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读 USDCe 桥接合约当前映射/根链状态与资金；无场外折价买单数据。",
+      "next_check": [
+        "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+        "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+        "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+        "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+        "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "POLY01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口（发行/桥接/实现变更）与 7 天活动窗口（真实兑换/桥接退出）未覆盖；gas/授权未计。",
+      "next_check": [
+        "读 USDCn/USDCe/USDT0 合约实现/代理/owner 与铸烧权限；确认 USDCe 当前 ChildERC20 代理绑定与根链映射。",
+        "取 Curve/QuickSwap 的 USDCn/USDCe/USDT0 池同块报价（更大数量档），确认是否存在 >3bps 可捕获差异。",
+        "实测 USDCe→L1 桥接退出：checkpoint 等待、费用、容量与资格（DELAYED 定量）；USDCn Circle 赎回是否对普通用户开放。",
+        "补 30 天/7 天窗口：发行/桥接变更、真实兑换/退出交易；gas/授权成本。",
+        "若发现明显脱锚或折价，先核对是否黑名单/暂停/流动性枯竭导致，再考虑风险任务。"
+      ]
+    },
+    {
+      "agent_id": "POLY02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "无借款人索引器：无法枚举 Aave V3 Polygon 借款账户/仓位与当前 HF；只能等事件或依赖外部索引（本轮不可用）。",
+      "next_check": [
+        "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+        "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+        "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+        "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+        "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+      ]
+    },
+    {
+      "agent_id": "POLY02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天/30 天窗口未覆盖：getLogs 单次上限 10,000 块，7 天窗口需 120+ 分页（超配额）；本轮仅 1 个 5,000 块窗口（约 2.1 小时）0 事件。",
+      "next_check": [
+        "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+        "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+        "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+        "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+        "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+      ]
+    },
+    {
+      "agent_id": "POLY02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未取任何真实仓位的债务本息/抵押数量/当前 HF/可代还上限；未模拟 receiveAToken 与底层退出。",
+      "next_check": [
+        "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+        "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+        "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+        "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+        "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+      ]
+    },
+    {
+      "agent_id": "POLY02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "抵押品（aToken→底层→DEX）退出深度、gas、融资与并发清算风险未测；WMATIC oracle 价格仅单源。",
+      "next_check": [
+        "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+        "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+        "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+        "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+        "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+      ]
+    },
+    {
+      "agent_id": "POLY02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未复盘历史清算交易；30 天治理/参数变更未覆盖；未读 Pool 实现的完整清算逻辑代码。",
+      "next_check": [
+        "接入可用索引器（无需 key 的 public indexer 或自建事件扫描分页）按块范围枚举借款账户与 HF，只对达到阈值的仓位建候选；7 天窗口用 10k 块/次分页（控制请求 ≤80）。",
+        "对候选仓位：读债务本息、抵押数量、当前 HF、close factor/可代还上限、receive aToken vs 底层、协议费，算“代还→取得抵押→卖出/赎回→扣成本”完整账本。",
+        "复核 WMATIC 价格与 aToken 提现流动性（WMATIC 借款禁用、USDCn LTV=0 对清算组合的影响）。",
+        "补 30 天窗口：治理/参数变更（LT/bonus/暂停）与历史清算复盘（须分页）。",
+        "若发现异常价格导致的清算，先判是否 oracle 异常/操纵风险，交 R-BASE/风险任务，不给利用路径。"
+      ]
+    },
+    {
+      "agent_id": "POLY03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "只测 WETH/USDCn 一对；WMATIC/USDCn、WBTC/USDCn 及其他 V3 fee 池、Curve/Balancer 未扫。",
+      "next_check": [
+        "扩到 WMATIC/USDCn 等同资产对，并与 Curve/Balancer/其他 V3 fee 池比价；逐档 ≤8 档同块测量。",
+        "用 eth_estimateGas + 固定块测两笔 swap gas，把 gas 计入净额；只有毛利 > 成本才升级。",
+        "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
+        "有正差额才交 Q00 复核；本轮无收益主张。"
+      ]
+    },
+    {
+      "agent_id": "POLY03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "两笔 swap 实际 gas units 未测（gasPrice 277 gwei 已记录）；未做 state-override 完整路径模拟。",
+      "next_check": [
+        "扩到 WMATIC/USDCn 等同资产对，并与 Curve/Balancer/其他 V3 fee 池比价；逐档 ≤8 档同块测量。",
+        "用 eth_estimateGas + 固定块测两笔 swap gas，把 gas 计入净额；只有毛利 > 成本才升级。",
+        "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
+        "有正差额才交 Q00 复核；本轮无收益主张。"
+      ]
+    },
+    {
+      "agent_id": "POLY03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/流动性变化与 7 天代表性活动未覆盖；未复盘 QuickSwap 池失衡来源。",
+      "next_check": [
+        "扩到 WMATIC/USDCn 等同资产对，并与 Curve/Balancer/其他 V3 fee 池比价；逐档 ≤8 档同块测量。",
+        "用 eth_estimateGas + 固定块测两笔 swap gas，把 gas 计入净额；只有毛利 > 成本才升级。",
+        "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
+        "有正差额才交 Q00 复核；本轮无收益主张。"
+      ]
+    },
+    {
+      "agent_id": "POLY03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "更大档位（100/1000 WETH）未测；第二腿容量仅按储备估算。",
+      "next_check": [
+        "扩到 WMATIC/USDCn 等同资产对，并与 Curve/Balancer/其他 V3 fee 池比价；逐档 ≤8 档同块测量。",
+        "用 eth_estimateGas + 固定块测两笔 swap gas，把 gas 计入净额；只有毛利 > 成本才升级。",
+        "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
+        "有正差额才交 Q00 复核；本轮无收益主张。"
+      ]
     }
   ],
   "status": "OPEN",

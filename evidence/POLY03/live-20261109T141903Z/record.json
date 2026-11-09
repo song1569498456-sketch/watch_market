@@ -1,0 +1,118 @@
+{
+ "agent_id": "POLY03",
+ "run_id": "live-20261109T141903Z",
+ "chain": "POLY",
+ "scope": "Polygon PoS 同资产跨 DEX 价差：仅对地址完全一致的 WETH/USDCn 在 Uniswap V3 与 QuickSwap V2 同块双向报价、第一腿实际输出作第二腿输入；不做跨链/三角",
+ "started_at": "2026-11-09T15:12:20+00:00",
+ "finished_at": "2026-11-09T15:16:30+00:00",
+ "duration_seconds": 250,
+ "execution_status": "PARTIAL",
+ "status": "QUOTED",
+ "as_of": {
+  "utc": "2026-11-09T15:13:21+00:00",
+  "beijing": "2026-11-09T23:13:21+08:00",
+  "data_time": "资产/池/首轮报价：固定块 97,021,130（head 97,021,133 / 2026-11-09T15:12:36Z）；定稿前重取：块 97,021,158（head 97,021,161 / 15:13:18Z）"
+ },
+ "block_or_slot": 97021130,
+ "market_ids": [
+  "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+  "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"
+ ],
+ "asset_ids": [
+  "eip155:137/erc20:0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+  "eip155:137/erc20:0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+ ],
+ "discovery_source": [
+  {"source": "polygon-rpc-publicnode", "url": "https://polygon-bor-rpc.publicnode.com", "retrieved_at_utc": "2026-11-09T15:12:20+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber x2/eth_getCode x8/eth_call x32/eth_gasPrice；45 次请求全部返回结果", "http_status": 200, "error": null}
+ ],
+ "mechanism": "同一资产（WETH、USDCn 原生 USDC）分别在 Uniswap V3（0.05%）与 QuickSwap V2（0.30% 恒定乘积）报价：第一腿在 A 市场卖出实际输出数量，第二腿用该输出在 B 市场买回，比较期末 WETH 与期初。两腿已含各自池费与价格冲击；Uni V3 池 liquidity 1.94e16、QuickSwap 对储备约 1.2 万 USDC/5.66 WETH（池极薄），第二腿冲击巨大。QuickSwap 报价显著低于 Uni V3，但两方向往返净额全部为负，且未计 gas 前已负，故不存在可执行正价差。",
+ "observations": [
+  "链：eth_chainId=0x89（137）；head=97,021,133（2026-11-09T15:12:36Z，hash 0x27aed16d…）；固定块 97,021,130；定稿前重取块 97,021,158；gasPrice=273,487,406,178→277,220,442,744 wei（约 273-277 gwei）。",
+  "资产身份（地址逐字符一致）：WETH 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619（代码 12,443 B；symbol=WETH；18 位）；USDCn 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359（代码 1,852 B；symbol=USDC；6 位）。",
+  "Uniswap V3 Polygon：工厂 0x1F98431c8…（24,535 B）、QuoterV2 0x61fFE014…（8,273 B）；WETH/USDC 0.05% 池 0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9（22,142 B），token0=USDC、token1=WETH、fee=500、liquidity=19,407,463,373,381,895。",
+  "QuickSwap V2：工厂 0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32（13,859 B）、路由 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff（21,943 B）；WETH/USDC 对 0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70（11,293 B），token0=USDC、token1=WETH，储备 raw 12,041,603,462 / 5,656,215,359,121,445,290，totalSupply raw 139,301,772,536,707，blockTimestampLast=1,794,235,923。",
+  "同块第一腿（块 97,021,130）：Uni V3 WETH→USDC 0.1/1/10 = 212.77352/2,123.18215/20,683.3121 USDC（2,127.74/2,123.18/2,068.33 每 WETH）；QuickSwap V2 WETH→USDC 0.1/1/10 = 208.576358/1,804.462655/768.2908737 USDC（2,085.76/1,804.46/768.29 每 WETH，薄池冲击 15%/64%）。",
+  "两腿闭环（第一腿实际输出作第二腿输入，同块）：Uni→QS 0.1/1/10 WETH 净 -0.0020803/-0.154344/-6.429024 WETH（-208/-1,543/-6,429 bps）；QS→Uni 净 -0.0021167/-0.154671/-6.421745 WETH（-212/-1,547/-6,422 bps）→ 全部净负，未计 gas 前已负。",
+  "定稿前重取（块 97,021,158，15:13:20Z）：Uni V3 1 WETH=2,121.430075 USDC；QuickSwap 0.1 WETH=208.576358 USDC（与首报一致）；gasPrice=277,220,442,744 wei → 结论不变。",
+  "外部请求 45 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [
+  {"market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9", "amount_in": "0.1 WETH", "amount_out": "212.77352 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:55.217990+00:00", "note": "第一腿 A；同块"},
+  {"market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9", "amount_in": "1 WETH", "amount_out": "2123.18215 USDC", "fees": "Uniswap V3 0.05%（已含）", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:55.917767+00:00", "note": "第一腿 A；定稿前块 97,021,158 重取=2,121.430075"},
+  {"market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9", "amount_in": "10 WETH", "amount_out": "20683.3121 USDC", "fees": "Uniswap V3 0.05%（已含）；冲击约 2.6%", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:56.628366+00:00", "note": "第一腿 A"},
+  {"market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70", "amount_in": "0.1 WETH", "amount_out": "208.576358 USDC", "fees": "QuickSwap V2 0.30%（已含）", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:57.354803+00:00", "note": "第一腿 B；定稿前重取同值"},
+  {"market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70", "amount_in": "1 WETH", "amount_out": "1804.462655 USDC", "fees": "QuickSwap V2 0.30%（已含）；冲击约 15%", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:58.053842+00:00", "note": "第一腿 B（薄池）"},
+  {"market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70", "amount_in": "10 WETH", "amount_out": "768.2908737 USDC", "fees": "QuickSwap V2 0.30%（已含）；冲击约 64%", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:58.795009+00:00", "note": "第一腿 B（薄池，仅作容量上限证据）"},
+  {"market_id": "POLY:ROUNDTRIP:UNI_TO_QS", "amount_in": "0.1 WETH", "amount_out": "0.0979196967 WETH", "fees": "两腿池费已含（Uni 0.05% + QuickSwap 0.30%）", "block": 97021130, "quote_time_utc": "2026-11-09T15:12:59.516082+00:00", "note": "Uni→QuickSwap 闭环：净 -0.0020803 WETH（-208 bps）"},
+  {"market_id": "POLY:ROUNDTRIP:UNI_TO_QS", "amount_in": "1 WETH", "amount_out": "0.8456558915 WETH", "fees": "两腿池费已含", "block": 97021130, "quote_time_utc": "2026-11-09T15:13:00.225767+00:00", "note": "Uni→QuickSwap 闭环：净 -0.154344 WETH（-1,543 bps）"},
+  {"market_id": "POLY:ROUNDTRIP:QUICKSWAP_TO_UNI", "amount_in": "0.1 WETH", "amount_out": "0.0978833471 WETH", "fees": "两腿池费已含", "block": 97021130, "quote_time_utc": "2026-11-09T15:13:01.625167+00:00", "note": "QuickSwap→Uni 闭环：净 -0.0021167 WETH（-212 bps）"},
+  {"market_id": "POLY:ROUNDTRIP:QUICKSWAP_TO_UNI", "amount_in": "1 WETH", "amount_out": "0.8453288460 WETH", "fees": "两腿池费已含", "block": 97021130, "quote_time_utc": "2026-11-09T15:13:02.350785+00:00", "note": "QuickSwap→Uni 闭环：净 -0.154671 WETH（-1,547 bps）"}
+ ],
+ "net_result": {
+  "value": null,
+  "unit": "WETH",
+  "type": "no_positive_spread_all_roundtrips_negative",
+  "realized": false,
+  "unknown_costs": [
+   "两笔 swap 的实际 gas units（只读 gasPrice=277 gwei 已记录，units 未测）",
+   "Polygon 交易优先费/MEV 竞争",
+   "聚合器/路由附加费（本路径为直接池，未用聚合器）",
+   "代币转账税/黑名单（WETH/USDCn 未见，未逐一测试）"
+  ]
+ },
+ "capacity": "Uni V3 池 liquidity=19,407,463,373,381,895；QuickSwap V2 对储备 12,041.603462 USDC / 5.656215359 WETH、totalSupply 139,301,772,536,707 → 第二腿容量极小；100 以上档未测（第一腿冲击已显著）",
+ "permissions": "两池公开交易；QuickSwap V2 对未被禁用/黑名单（token 读值正常）；Uni V3 池 token0/token1 与资产地址一致；未测执行权限/暂停状态",
+ "liabilities": "未执行任何交易、无新增负债、无仓位",
+ "waiting_time": "即时（同一区块两腿可组合；未模拟单笔原子路径）",
+ "invalidation_conditions": [
+  "两池任一 token 地址/费用档变化",
+  "QuickSwap 池流动性变化使第二腿冲击降低",
+  "毛价差 > 双腿费用+冲击+gas 才可能出现机会（本轮全部净负）",
+  "把不同版本稳定币混入同资产对（本轮已排除 USDCe）"
+ ],
+ "evidence_urls": [
+  "https://polygon-bor-rpc.publicnode.com",
+  "https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+  "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70",
+  "https://polygonscan.com/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+  "https://polygonscan.com/address/0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32"
+ ],
+ "coverage_gaps": [
+  "只测 WETH/USDCn 一对；WMATIC/USDCn、WBTC/USDCn 及其他 V3 fee 池、Curve/Balancer 未扫。",
+  "两笔 swap 实际 gas units 未测（gasPrice 277 gwei 已记录）；未做 state-override 完整路径模拟。",
+  "30 天规则/流动性变化与 7 天代表性活动未覆盖；未复盘 QuickSwap 池失衡来源。",
+  "更大档位（100/1000 WETH）未测；第二腿容量仅按储备估算。"
+ ],
+ "next_check": [
+  "扩到 WMATIC/USDCn 等同资产对，并与 Curve/Balancer/其他 V3 fee 池比价；逐档 ≤8 档同块测量。",
+  "用 eth_estimateGas + 固定块测两笔 swap gas，把 gas 计入净额；只有毛利 > 成本才升级。",
+  "复盘 QuickSwap 池失衡来源与持续时间，补 30 天/7 天窗口；三腿/跨链线索只交接。",
+  "有正差额才交 Q00 复核；本轮无收益主张。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9", "chain": "POLY", "protocol": "Uniswap V3 WETH/USDCn 0.05%", "asset_ids": ["0x7ceb23fd6bc0add59e62ac25578270cff1b9f619", "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"], "evidence_urls": ["https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9"], "identity_status": "CHAIN_VERIFIED：factory.getPool 读得；token0=USDC/token1=WETH/fee=500/liquidity=19,407,463,373,381,895", "next_check": "其他 fee 档与更大档位；gas 计入"},
+  {"market_id": "POLY:QUICKSWAP_V2:WETH_USDC:0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70", "chain": "POLY", "protocol": "QuickSwap V2 WETH/USDCn", "asset_ids": ["0x3c499c542cef5e3811e1192ce70d8cc03d5c3359", "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"], "evidence_urls": ["https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"], "identity_status": "CHAIN_VERIFIED：factory.getPair 读得；token0=USDC/token1=WETH；储备 12,041.603462 USDC/5.656215359 WETH（薄池）", "next_check": "流动性变化与失衡来源复盘"}
+ ],
+ "findings": [
+  {"finding_id": "POLY-WETH-USDC-UNI-VS-QUICKSWAP-CROSSDEX", "status": "REJECTED", "market_id": "POLY:UNISWAP_V3:WETH_USDC_500:0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9",
+   "mechanism": "同一块（97,021,130）同资产 WETH/USDCn 在 Uni V3（0.05%）与 QuickSwap V2 双向报价：Uni 1 WETH=2,123.18 USDC，QuickSwap 0.1 WETH=208.58 USDC（薄池），但用第一腿实际输出作第二腿输入后，Uni→QS 与 QS→Uni 的 0.1/1/10 WETH 闭环净额全部为负（-208 至 -6,429 bps），未计 gas 前已负；定稿前重取（块 97,021,158）结论不变。不存在可执行正价差。",
+   "evidence_urls": ["https://polygonscan.com/address/0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9", "https://polygonscan.com/address/0x7baf833f82bb1971f99a5a5d84bed1d5d0dedd70"],
+   "net_result": "全部档位净负（-208 至 -6,429 bps）；净额 null", "unknown_costs": ["gas units", "优先费"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["QuickSwap 流动性大增或价格回归", "出现更深的其他市场", "把不同版本稳定币混入（已排除）"]}
+ ],
+ "rejections": [
+  {"claim": "同资产跨 DEX 存在可执行正价差", "reason": "同块两方向 0.1/1/10 WETH 闭环全部净负，第二腿冲击吃掉了第一腿价差。"},
+  {"claim": "把 QuickSwap 报价直接当作可执行卖出价", "reason": "薄池（约 1.2 万 USDC/5.66 WETH）卖出 1 WETH 冲击约 15%，必须用实际输出作第二腿输入。"},
+  {"claim": "USDCe 与 USDCn 可拼成同资产对", "reason": "上轮已排除且本轮只使用地址完全一致的 USDCn；未混入 USDCe。"},
+  {"claim": "用旧状态两条报价拼闭环", "reason": "本轮两腿同块，第二腿用第一腿实际输出数量重报。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 1,
+  "retrieved_at_utc": "2026-11-09T15:13:21+00:00",
+  "complete_block_range": "资产/池/首轮报价：块 97,021,130；定稿前重取：块 97,021,158；head 97,021,161",
+  "complete_event_time_window": "单块快照（15:12:36-15:13:21Z）；30 天规则/7 天活动未覆盖"
+ }
+}

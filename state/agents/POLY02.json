@@ -2,15 +2,61 @@
   "agent_id": "POLY02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:11:34+00:00",
   "observed_cursor": {
-    "pool_document_address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
-    "logic_source_read": "aave-v3-origin/main",
-    "borrowers_read": 0,
-    "liquidations_analyzed": 0,
-    "quotes_obtained": 0,
-    "current_block": null,
+    "kind": "onchain_aave_reserve_params_plus_limited_event_scan",
+    "run_id": "live-20261109T141903Z",
+    "chain": "polygon-pos",
+    "chain_id": 137,
+    "latest_block": 97021090,
+    "pinned_block": 97021085,
+    "latest_block_time_utc": "2026-11-09T15:11:31+00:00",
+    "pool": {
+      "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "code_bytes": 2400,
+      "eip1967_impl": "0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e",
+      "reserves_count": 21,
+      "oracle": "0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
+    },
+    "reserve_params": {
+      "USDCn": {
+        "lt_bps": 7800,
+        "bonus_bps": 10500,
+        "ltv_bps": 0,
+        "borrowingEnabled": true,
+        "paused": false
+      },
+      "WMATIC": {
+        "lt_bps": 7300,
+        "bonus_bps": 10700,
+        "ltv_bps": 6800,
+        "borrowingEnabled": false,
+        "paused": false
+      }
+    },
+    "oracle_prices_8dec": {
+      "USDCn": 99978306,
+      "WMATIC": 9057200
+    },
+    "liquidation_scan": {
+      "topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+      "window_5000_blocks": {
+        "range": [
+          97016090,
+          97021090
+        ],
+        "events": 0
+      },
+      "window_50000_blocks": {
+        "error": "-32701 exceed maximum block range: 10000"
+      },
+      "7d_window": "NOT_COMPLETED"
+    },
+    "candidates": 0,
+    "positions_read": 0,
+    "health_factors": 0,
+    "result": "REJECTED：采样窗口内 0 条清算事件、无借款人索引器/HF，无候选；清算奖金不当净利",
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
@@ -30,28 +76,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "BGD/Aave地址簿列Polygon Pool=0x794a61358D6845594F94dc1DB02A252b5b4814aD、POOL_IMPL=0x6030dB989D47cD74FC17bB6F4FcD3A8B29FEe57e及Oracle=0xb023e699F5a33916Ea823A16485e259257cA8Bd1，均文档身份。",
-    "Origin validateLiquidationCall参考源码要求reserve active/unpaused、grace period已过、HF满足规则、抵押已启用、债务非零；无本轮具体仓位数据。",
-    "executeLiquidationCall按actualDebtToLiquidate/实际抵押和协议费核算，并区分receiveAToken；main代码未绑定当前Polygon部署。",
-    "不编造borrower、HF、奖励比例、close factor或已发生清算；不把旧版本常数当现行规则。"
+    "链身份：eth_chainId=0x89（137），最新块 97,021,090（2026-11-09T15:11:31Z），参数钉 pinned 块 97,021,085。",
+    "Aave V3 Polygon Pool 代理 0x794a61358D…：代码 2,400B；EIP-1967 impl=0x6030db989d47cd74fc17bb6f4fcd3a8b29fee57e（与官方地址簿一致）；getReservesList=21 个储备（含 USDCe 与 USDCn 两个不同合约）；Oracle 0xb023e699…（代码 3,405B）。",
+    "储备级参数链上解码：USDCn（id20）LTV=0、LT=78%、liquidationBonus=105%、active/可借/未暂停；WMATIC（id7）LTV=68%、LT=73%、bonus=107%、active 但 borrowingEnabled=false、未暂停；Oracle 价格 USDCn=$0.99978306、WMATIC=$0.090572（8 位）。",
+    "清算事件：topic0 计算；最近 5,000 块（97,016,090～97,021,090，约 2.1 小时）LiquidationCall=0 条；50,000 块请求被拒（-32701，max range 10000）→ 7 天窗口需 120+ 分页，未覆盖。",
+    "无借款人索引器：无法枚举仓位/当前 HF；本轮 positions_read=0、candidates=0；不把“窗口内无事件”当“全链无仓位”。",
+    "结论 REJECTED：无可核验清算候选；清算奖金（+5%/+7%）只是协议规则，不是净利；完整闭环（代还→取得抵押→卖出/赎回→扣成本）本轮无数据。",
+    "缺口：借款人索引/7 天分页、仓位 HF、receiveAToken 与退出深度、gas/融资、30 天参数变更与历史清算均未覆盖。"
   ],
   "pending_questions": [
-    "Polygon RPC与Aave indexer目标代理CONNECT403；没有chainId、当前区块/最终性、reserve、borrower/position或真实HF。",
-    "Aave地址簿列Pool/POOL_IMPL/Oracle，但未核代理存储和链上实现，main源代码与当前部署尚未对应。",
-    "无可代还数量、抵押品数量、清算奖励/协议抽成/close factor等现行参数；不套其他协议或旧版本固定比例。",
-    "30天治理/储备/清算规则变更未覆盖；7天已发生清算与退出复盘未覆盖。",
-    "抵押品出售/赎回深度、aToken可提现现金、完整gas/融资费及并发风险未测。"
+    "无借款人索引器：无法枚举 Aave V3 Polygon 借款账户/仓位与当前 HF。",
+    "7 天/30 天窗口未覆盖：getLogs 单次上限 10,000 块，7 天需 120+ 分页（超配额）；本轮仅 5,000 块窗口 0 事件。",
+    "未取真实仓位的债务本息/抵押数量/HF/可代还上限；未模拟 receiveAToken 与底层退出。",
+    "抵押品（aToken→底层→DEX）退出深度、gas、融资与并发清算风险未测；WMATIC oracle 价格仅单源。",
+    "未复盘历史清算交易；30 天治理/参数变更未覆盖；未读 Pool 实现的完整清算逻辑代码。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:51:39.625601+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/POLY02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/POLY02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "14339a53a416913ca1daddaa53cd7a972762800e",
-    "verified_at": "2026-11-08T15:52:19.836508+00:00",
-    "record": "evidence/POLY02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:19:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/POLY02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/POLY02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

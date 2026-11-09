@@ -263,6 +263,18 @@
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
+    },
+    {
+      "batch": 12,
+      "agents": [
+        "POLY01",
+        "POLY02",
+        "POLY03"
+      ],
+      "merged_at": "2026-11-09T15:14:44.642323+00:00",
+      "storage_status": "PUSH_PENDING",
+      "evidence_commit": null,
+      "notes": "M00 merge_batch.py"
     }
   ],
   "started_at_utc": "2026-11-09T14:19:03Z",
@@ -295,6 +307,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 11
+    "completed": 12
   }
 }

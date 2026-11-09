@@ -1,0 +1,32 @@
+{
+  "finding_id": "POLY-AAVE-V3-LIQUIDATION-PARAMS-AND-WINDOW",
+  "status": "REJECTED",
+  "chain": "POLY",
+  "protocol": "Aave V3 Polygon",
+  "market_id": "POLY:137:aave-v3-pool:0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "evidence_urls": [
+    "https://polygonscan.com/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "https://polygonscan.com/address/0xb023e699F5a33916Ea823A16485e259257cA8Bd1"
+  ],
+  "mechanism": "链上现读：Pool 代理→impl 0x6030db98…；USDCn LT 78%/bonus 5%/LTV 0、WMATIC LT 73%/bonus 7%/borrowingEnabled=false；Oracle USDCn $0.99978、WMATIC $0.090572。有限窗口（最近 5,000 块，约 2.1 小时）LiquidationCall 0 条；无借款人索引器无法枚举 HF → 本轮无可核验清算候选；清算奖金不是净利，须扣代还/退出/ gas。",
+  "net_result": null,
+  "unknown_costs": [
+    "代还本金+利息",
+    "抵押退出与卖出成本",
+    "gas/融资",
+    "protocol fee"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "出现满足阈值的仓位",
+    "参数/暂停变化",
+    "oracle 异常",
+    "7 天窗口覆盖完成"
+  ],
+  "owner": "POLY02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/POLY02/live-20261109T141903Z/record.json"
+}
