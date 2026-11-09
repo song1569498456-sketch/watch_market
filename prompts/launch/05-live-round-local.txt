@@ -1,0 +1,11 @@
+继续执行一轮调研（本地执行环境，run_id: live-20261109T141903Z）。
+
+背景：上一轮 data-check-20261108T163237Z 的唯一阻塞是原云端实例网络策略（49 域名 CONNECT403、平台配置通道 INVALID_ARGUMENT、48 岗实时就绪 0）。用户于 2026-11-09 明确指示：自行配置 GitHub 写权限，然后按仓库要求执行一轮调研。本机（用户 Windows）只读数据面实测可用，由当前会话担任 M00。
+
+本轮要求：
+1. 先核验 GitHub 写权限并 push→fetch 读回；初始化记录见 runs/live-20261109T141903Z/manifest.json、docs/execution-environment-live-20261109T141903Z.md。
+2. 先完成共享数据能力复核与 Ethereum Curve stETH/ETH 单市场数据门（固定区块、身份、报价、只读模拟、增量费用），证据在 evidence/M00/live-20261109T141903Z/。
+3. 使用真实子 agent（同时最多 3 个）按 16 个计划批次完成全部启用岗位的一轮自主发现与研究；子 agent 规则见 runs/live-20261109T141903Z/RESEARCHER_BRIEF.md；候选交 Q00 独立复核。
+4. 每批由 M00 合并、普通 push，并 fetch 读回核对后才推进批次；不覆盖旧报告，同一 finding_id 追加时间线。
+5. 更新 registry/、state/、runs/ 与日报；分别报告研究状态、存储状态、定时状态。不创建定时任务、不交易、不使用 API key。
+6. 执行环境不是原云端实例：不得把本机磁盘当作正式存档，不宣称可关机无人值守运行；定时状态保持 NOT_CONFIGURED。
