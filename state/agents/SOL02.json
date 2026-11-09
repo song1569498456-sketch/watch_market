@@ -2,14 +2,21 @@
   "agent_id": "SOL02",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "UNVERIFIED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:15:56+00:00",
   "observed_cursor": {
-    "type": "STATIC_PROGRAM_AND_STATE_CONFIG_ONLY",
-    "retrieved_at_utc": "2026-11-08T15:57:28.691174+00:00",
-    "slot_range": null,
-    "commitment": null,
-    "complete_event_time_window": null
+    "type": "FINALIZED_CLUSTER_ACCOUNT_READS",
+    "retrieved_at_utc": "2026-11-09T15:15:56+00:00",
+    "slot": 467364393,
+    "epoch": 1081,
+    "block_height": 445382306,
+    "commitment": "finalized",
+    "slot_range": "账户读取 slot 467,364,401-467,364,411（finalized）",
+    "complete_event_time_window": "单 slot 快照（2026-11-09T15:14:50-15:15:56Z）；30 天规则/7 天活动未覆盖",
+    "mints_verified": 3,
+    "stake_pool_rates_verified": 2,
+    "dex_onchain_quotes": 0
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -24,28 +31,30 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
-    "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
-    "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
-    "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+    "集群身份：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（预期一致）；finalized slot=467,364,393；blockHeight=445,382,306；epoch=1081。",
+    "mint 核验：mSOL/jitoSOL/bSOL 均为 SPL Token（owner Tokenkeg…）、decimals=9、freezeAuthority=null；supply 分别为 1,593,334.701665540 / 7,787,011.349938865 / 659,308.692219786；mintAuthority 已记录。",
+    "jitoSOL Stake Pool Jito4APy…（owner SPL Stake Pool 程序）：pool_mint/token_program 校验通过；total_lamports=10,205,589.766694027 SOL、pool_token_supply=7,787,011.349938865 → 1 jitoSOL=1.3105913563 SOL。",
+    "bSOL Stake Pool stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi（getProgramAccounts memcmp 唯一命中，owner SPL Stake Pool 程序）：total_lamports=873,463.658758201、pool_token_supply=659,308.692329841 → 1 bSOL=1.3248174473 SOL。",
+    "Marinade State 8szGkuLT…：len 2,616、owner=MarBms…（程序身份通过）；当前 mSOL 汇率未解析 unknown。",
+    "退出路径：jitoSOL/bSOL 即时 WithdrawSol（reserve 依赖、费率 unknown）/延迟 WithdrawStake+deactivate 约 1-2 epoch；mSOL 走 Marinade liq pool/延迟 ticket（规则未核）。",
+    "SPL Stake Pool 费率字段偏移解析不可靠（多个 Fee 值不合理），费率全程 unknown，不引用。",
+    "DEX：仅 DexScreener 发现快照（jitoSOL/SOL 对在 Orca/Raydium/Meteora），未读链上池状态，未取得可执行报价。",
+    "外部请求 12 次（≤80），同 host 间隔≥0.35s；无报价外推、无交易/签名。"
   ],
   "pending_questions": [
-    "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
-    "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
-    "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
-    "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
-    "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+    "没有链上 DEX 可执行报价（Orca/Raydium/Meteora 池状态未读），无法比较 DEX 价 vs 协议汇率，折价 unknown。",
+    "SPL Stake Pool 费率（WithdrawSol/WithdrawStake/epoch fee）偏移解析不可靠；reserve_stake 流动性与即时退出容量未读。",
+    "mSOL 汇率未解析（Marinade State 布局/版本）；liq pool 动态费与延迟 ticket 规则未核。",
+    "延迟退出实测等待未测；30 天规则变更与 7 天活动窗口未覆盖。",
+    "DexScreener 仅为聚合器发现，不得作结论；Token-2022 扩展未逐字段扫描（owner=Tokenkeg 已排除）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:57:28.691174+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL02/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "verified_at": "2026-11-08T15:57:47.943885+00:00",
-    "record": "evidence/SOL02/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:19:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SOL02/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SOL02/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

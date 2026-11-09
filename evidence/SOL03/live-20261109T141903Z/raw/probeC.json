@@ -1,0 +1,237 @@
+{
+ "started_at_utc": "2026-11-09T15:18:53.722670+00:00",
+ "slot": 467365242,
+ "programs": {
+  "kamino_klend": {
+   "program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+   "error": null,
+   "raw_result": {
+    "context": {
+     "apiVersion": "4.4.0",
+     "slot": 467365244
+    },
+    "value": {
+     "data": [
+      "AgAAAIRMohNu7QFIhSZnG4DdIQLFGAqjMqCcvme5zoE+LQAr",
+      "base64"
+     ],
+     "executable": true,
+     "lamports": 33141440,
+     "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+     "rentEpoch": 18446744073709551615,
+     "space": 36
+    }
+   },
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "space": 36,
+   "lamports": 33141440,
+   "data_type": "list",
+   "data_len": 36,
+   "data_prefix_hex": "02000000844ca2136eed01488526671b80dd2102c5180aa332a09cbe67b9ce813e2d002b",
+   "discriminant": 2,
+   "programdata": "9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA",
+   "programdata_info": {
+    "address": "9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA",
+    "error": null,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "executable": false,
+    "space": 10485760,
+    "data_len_sliced": 48,
+    "discriminant": 3,
+    "last_deploy_slot": 461744249,
+    "upgrade_authority_option": 1,
+    "upgrade_authority": "GzFgdRJXmawPhGeBsyRCDLx4jAKPsvbUqoqitzppkzkW"
+   }
+  },
+  "solend": {
+   "program_id": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+   "error": null,
+   "raw_result": {
+    "context": {
+     "apiVersion": "4.4.0",
+     "slot": 467365246
+    },
+    "value": {
+     "data": [
+      "AgAAALd5VermN3GAImByma8xRkcfPsbJkljqjdkZwDg8igZy",
+      "base64"
+     ],
+     "executable": true,
+     "lamports": 1141442,
+     "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+     "rentEpoch": 18446744073709551615,
+     "space": 36
+    }
+   },
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "space": 36,
+   "lamports": 1141442,
+   "data_type": "list",
+   "data_len": 36,
+   "data_prefix_hex": "02000000b77955eae637718022607299af3146471f3ec6c99258ea8dd919c0383c8a0672",
+   "discriminant": 2,
+   "programdata": "DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR",
+   "programdata_info": {
+    "address": "DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR",
+    "error": null,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "executable": false,
+    "space": 1240333,
+    "data_len_sliced": 48,
+    "discriminant": 3,
+    "last_deploy_slot": 350614570,
+    "upgrade_authority_option": 1,
+    "upgrade_authority": "RY93CZYe5g6drtG7W9PmHRPzaBLZ1uwihTzayQTmJfh"
+   }
+  }
+ },
+ "solend_main_market_selection": {
+  "main_market": "4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+  "total_rows": 753,
+  "main_rows": 90,
+  "selected_rows": [
+   {
+    "liquidity_mint": "BLZEEuZUBVqFhj8adcCFPJvPVCiCyVmh3hkJMrU8KuJA",
+    "availableAmount": "26735113888212945",
+    "borrowedAmountWads": "4468889394557502255",
+    "pythOracle": "FFv5yoCGhEgWv6mXhwv4KX8A2dYcVAzi88a6Yu8Tf3iB",
+    "switchboardOracle": "7czWHLuVnLF3Y4RPyGBV3MoWC3hfP2Dp3GVZX9SWr5sj",
+    "config": {
+     "loanToValueRatio": 0,
+     "liquidationBonus": 5,
+     "liquidationThreshold": 0,
+     "maxLiquidationBonus": 5,
+     "maxLiquidationThreshold": 0,
+     "depositLimit": "0",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "456296535",
+     "stale": 1
+    }
+   },
+   {
+    "liquidity_mint": "Bz7vVzQhm2KMW1XgcrDruYega1MiwrAs1DQysrx4tFkp",
+    "availableAmount": "349608580051334",
+    "borrowedAmountWads": "15689674381214035",
+    "pythOracle": "nu11111111111111111111111111111111111111111",
+    "switchboardOracle": "FHujndoJzTeXut9RCCPBmevsnge2mThUt3fsxsDp6jGQ",
+    "config": {
+     "loanToValueRatio": 0,
+     "liquidationBonus": 0,
+     "liquidationThreshold": 0,
+     "maxLiquidationBonus": 0,
+     "maxLiquidationThreshold": 0,
+     "depositLimit": "0",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "385829000",
+     "stale": 1
+    }
+   },
+   {
+    "liquidity_mint": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+    "availableAmount": "210442781242637",
+    "borrowedAmountWads": "52726801419922540",
+    "pythOracle": "2eUVzcYccqXzsDU1iBuatUaDCbRKBjegEaPPeChzfocG",
+    "switchboardOracle": "nu11111111111111111111111111111111111111111",
+    "config": {
+     "loanToValueRatio": 0,
+     "liquidationBonus": 0,
+     "liquidationThreshold": 0,
+     "maxLiquidationBonus": 0,
+     "maxLiquidationThreshold": 0,
+     "depositLimit": "0",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "454005138",
+     "stale": 1
+    }
+   },
+   {
+    "liquidity_mint": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    "availableAmount": "184089066363788",
+    "borrowedAmountWads": "6050325329883338496",
+    "pythOracle": "7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE",
+    "switchboardOracle": "nu11111111111111111111111111111111111111111",
+    "config": {
+     "loanToValueRatio": 69,
+     "liquidationBonus": 0,
+     "liquidationThreshold": 75,
+     "maxLiquidationBonus": 0,
+     "maxLiquidationThreshold": 75,
+     "depositLimit": "3100000000000000",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "467121857",
+     "stale": 0
+    }
+   },
+   {
+    "liquidity_mint": "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+    "availableAmount": "172057667145231",
+    "borrowedAmountWads": "0",
+    "pythOracle": "7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE",
+    "switchboardOracle": "nu11111111111111111111111111111111111111111",
+    "config": {
+     "loanToValueRatio": 69,
+     "liquidationBonus": 0,
+     "liquidationThreshold": 75,
+     "maxLiquidationBonus": 0,
+     "maxLiquidationThreshold": 75,
+     "depositLimit": "500000000000000",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "467080552",
+     "stale": 0
+    }
+   },
+   {
+    "liquidity_mint": "5LafQUrVco6o7KMz42eqVEJ9LW31StPyGjeeu5sKoMtA",
+    "availableAmount": "134186219515853",
+    "borrowedAmountWads": "19799281309511394",
+    "pythOracle": "nu11111111111111111111111111111111111111111",
+    "switchboardOracle": "13YLq66Z6PRXzsjURn2T92FPcGLiXRrPckKmMH9iFUAr",
+    "config": {
+     "loanToValueRatio": 0,
+     "liquidationBonus": 0,
+     "liquidationThreshold": 0,
+     "maxLiquidationBonus": 0,
+     "maxLiquidationThreshold": 0,
+     "depositLimit": "0",
+     "borrowLimit": "0",
+     "protocolLiquidationFee": 19,
+     "protocolTakeRate": 20,
+     "addedBorrowWeightBPS": "18446744073709551615"
+    },
+    "lastUpdate": {
+     "slot": "449057234",
+     "stale": 1
+    }
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T15:18:55.766043+00:00",
+ "request_count_this_script": 5
+}

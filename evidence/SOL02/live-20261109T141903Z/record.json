@@ -1,0 +1,118 @@
+{
+ "agent_id": "SOL02",
+ "run_id": "live-20261109T141903Z",
+ "chain": "SOL",
+ "scope": "Solana mainnet-beta 质押代币（mSOL/jitoSOL/bSOL）mint 与 Stake Pool/Marinade state 链上核验、协议汇率（份额→SOL）、退出路径（即时 unstake/延迟退出）规则分离；不做跨链/三角",
+ "started_at": "2026-11-09T15:14:40+00:00",
+ "finished_at": "2026-11-09T15:19:00+00:00",
+ "duration_seconds": 260,
+ "execution_status": "PARTIAL",
+ "status": "UNVERIFIED",
+ "as_of": {
+  "utc": "2026-11-09T15:15:56+00:00",
+  "beijing": "2026-11-09T23:15:56+08:00",
+  "data_time": "commitment=finalized；集群 getSlot=467,364,393、epoch 1081、blockHeight 445,382,306；mint 读取 slot 467,364,401-467,364,405；Stake Pool 读取 slot 467,364,407；Marinade state slot 467,364,411"
+ },
+ "block_or_slot": 467364393,
+ "market_ids": [
+  "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+  "SOL:SPL_STAKE_POOL:BSOL:stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi",
+  "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"
+ ],
+ "asset_ids": [
+  "solana:mint:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+  "solana:mint:J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+  "solana:mint:bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"
+ ],
+ "discovery_source": [
+  {"source": "solana-mainnet-rpc", "url": "https://api.mainnet-beta.solana.com", "retrieved_at_utc": "2026-11-09T15:14:40+00:00",
+   "request": "只读 JSON-RPC：getGenesisHash/getSlot/getBlockHeight/getEpochInfo/getRecentPrioritizationFees/getAccountInfo x5（3 mints + stake pool + Marinade state）/getProgramAccounts；12 次请求全部返回结果", "http_status": 200, "error": null},
+  {"source": "dexscreener-jitosol", "url": "https://api.dexscreener.com/latest/dex/search?q=jitoSOL", "retrieved_at_utc": "2026-11-09T15:15:30+00:00", "http_status": 200, "sha256": null,
+   "note": "仅发现入口（Orca/Raydium/Meteora 的 jitoSOL/SOL 对），聚合器展示价不是链上可执行报价，未用于结论"}
+ ],
+ "mechanism": "Solana LST 的账面汇率由 Stake Pool 状态 total_lamports/pool_token_supply 决定（本轮 jitoSOL 1.3105913563、bSOL 1.3248174473 SOL）；即时退 SOL 通过 SPL Stake Pool WithdrawSol（依赖 reserve_stake 流动性、收提取费），延迟退出为 WithdrawStake→deactivate→下一 epoch 领取；mSOL 走 Marinade liq pool 即时兑换（动态费）或延迟 ticket。DEX 价格可能偏离账面汇率，必须用链上报价比较三出口；本轮未取得链上 DEX 报价，故不构成折价结论。",
+ "observations": [
+  "集群身份：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（预期一致）；finalized slot=467,364,393；blockHeight=445,382,306；epoch=1081（slotIndex 372,397/432,000）；recentPrioritizationFees 已取前 10。",
+  "mint 核验（getAccountInfo jsonParsed，owner=TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA，decimals=9，freezeAuthority=null）：mSOL supply=1593334.701665540（mintAuthority 3JLPCS1q…）；jitoSOL supply=7787011.349938865（6iQKfEyh…）；bSOL supply=659308.692219786（6WecYymE…）。",
+  "jitoSOL Stake Pool 账户 Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb（owner=SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy，len=611，slot 467,364,407）：pool_mint=jitoSOL（匹配）、token_program=Tokenkeg（匹配）、total_lamports=10205589766694027、pool_token_supply=7787011349938865 → 1 jitoSOL=1.3105913563 SOL。",
+  "bSOL Stake Pool 经 getProgramAccounts（memcmp offset 162 = bSOL mint）唯一命中 stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi（owner=SPL Stake Pool 程序，len=611）：pool_mint=bSOL（匹配）、token_program=Tokenkeg、total_lamports=873463658758201、pool_token_supply=659308692329841 → 1 bSOL=1.3248174473 SOL。",
+  "SPL Stake Pool 费率字段偏移解析不可靠（stake_deposit_fee 等出现明显不合理值；epoch_fee 解析为 (100,4) 亦未经校验），本轮费率一律记 unknown，不引用。",
+  "Marinade State 账户 8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC：len=2,616，owner=MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD（Marinade 程序）；首字段不是 msol_mint（当前布局），mSOL 当前汇率未解析，记 unknown。",
+  "DEX 发现快照（DexScreener，仅入口）：jitoSOL/SOL 对在 Orca Hp53XEtt…（流动性约 495 万美元）、Raydium 2uoKbPEi…、Meteora 等；本轮未读 Orca Whirlpool/Raydium 池链上状态，未得到链上可执行报价。",
+  "外部请求 12 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
+ ],
+ "quotes": [],
+ "net_result": {
+  "value": null,
+  "unit": "SOL",
+  "type": "no_onchain_dex_quote_no_discount_claim",
+  "realized": false,
+  "unknown_costs": [
+   "SPL Stake Pool WithdrawSol/WithdrawStake 费（布局解析不可靠）",
+   "即时退出 reserve 流动性容量",
+   "延迟退出实测等待（约 1-2 epoch 设计，未测）",
+   "DEX 链上报价与滑点（未取）",
+   "Solana 优先费/账户创建/租金"
+  ]
+ },
+ "capacity": "jitoSOL Stake Pool total_lamports≈10,205,589.77 SOL；bSOL Stake Pool ≈873,463.66 SOL；即时可兑容量取决于各自 reserve_stake 余额（未读）；DEX 容量未知",
+ "permissions": "三个 mint 均无 freezeAuthority（不可冻结）；owner 为 SPL Token Program；Stake Pool/Marinade 程序的提取权限与暂停状态未逐项读",
+ "liabilities": "未执行任何交易、无新增负债、无仓位",
+ "waiting_time": "即时 WithdrawSol 依赖 reserve（unknown）；延迟退出约 1-2 epoch（设计量级，未实测）；mSOL 延迟 ticket 等待 unknown",
+ "invalidation_conditions": [
+  "mint/Token Program 身份错误（本轮已核 owner/decimals/freeze）",
+  "Stake Pool 状态变化或迁移",
+  "把账面汇率当可立即退出价（已按三出口分离）",
+  "聚合器展示价被当作可执行报价（未用于结论）",
+  "未扣提取费/等待风险"
+ ],
+ "evidence_urls": [
+  "https://api.mainnet-beta.solana.com",
+  "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+  "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi",
+  "https://solscan.io/account/8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC",
+  "https://solscan.io/token/J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+  "https://solscan.io/token/bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"
+ ],
+ "coverage_gaps": [
+  "没有链上 DEX 可执行报价（Orca Whirlpool/Raydium/Meteora 池状态未读），无法比较 DEX 价 vs 协议汇率，折价未知。",
+  "SPL Stake Pool 费率字段（WithdrawSol/WithdrawStake/epoch fee）偏移解析不可靠，费率 unknown；reserve_stake 流动性未读。",
+  "mSOL 汇率未解析（Marinade State 布局/版本），mSOL liq pool 动态费与延迟 ticket 规则未核。",
+  "即时退出容量与延迟退出实测等待未测；30 天规则变更与 7 天活动窗口未覆盖。",
+  "DexScreener 仅为聚合器发现快照，未用其展示价作结论；Token-2022 扩展未逐字段扫描（owner 为 SPL Token 已排除）。"
+ ],
+ "next_check": [
+  "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+  "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+  "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+  "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+ ],
+ "handoff_to": ["Q00", "M00"],
+ "markets": [
+  {"market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb", "chain": "SOL", "protocol": "Jito SPL Stake Pool（jitoSOL）", "asset_ids": ["solana:mint:J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn"], "evidence_urls": ["https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb"], "identity_status": "CHAIN_VERIFIED：owner=SPL Stake Pool 程序；pool_mint/token_program 校验通过；total_lamports/pool_token_supply 已读 → 1.3105913563 SOL/jitoSOL；费率/reserve unknown", "next_check": "费率/reserve 与实际退出容量；DEX 报价比较"},
+  {"market_id": "SOL:SPL_STAKE_POOL:BSOL:stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi", "chain": "SOL", "protocol": "SolBlaze SPL Stake Pool（bSOL）", "asset_ids": ["solana:mint:bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"], "evidence_urls": ["https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"], "identity_status": "CHAIN_VERIFIED：getProgramAccounts memcmp 唯一命中；pool_mint=bSOL；total_lamports/pool_token_supply 已读 → 1.3248174473 SOL/bSOL；费率 unknown", "next_check": "费率/reserve；DEX 报价比较"},
+  {"market_id": "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC", "chain": "SOL", "protocol": "Marinade State（mSOL）", "asset_ids": ["solana:mint:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"], "evidence_urls": ["https://solscan.io/account/8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"], "identity_status": "OWNER_VERIFIED（len 2,616，owner=MarBms… Marinade 程序）；mSOL 汇率/LIQ pool 状态未解析 unknown", "next_check": "解析 State 取 mSOL 汇率与 liq pool 动态费"}
+ ],
+ "findings": [
+  {"finding_id": "SOL-JITOSOL-BSOL-PROTOCOL-RATES-20261109", "status": "UNVERIFIED", "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+   "mechanism": "固定 finalized slot（467,364,393）链上读取：jitoSOL Stake Pool total_lamports=10,205,589.766694027 SOL、pool_token_supply=7,787,011.349938865 → 1 jitoSOL=1.3105913563 SOL；bSOL Stake Pool（getProgramAccounts 唯一命中）total_lamports=873,463.658758201、supply=659,308.692329841 → 1 bSOL=1.3248174473 SOL。mint 均为 SPL Token、9 位、无冻结权限。退出路径：即时 WithdrawSol（reserve 依赖、费率 unknown）/延迟 WithdrawStake+deactivate 约 1-2 epoch。本轮无链上 DEX 报价，无法判断 DEX 折价，故仅核验汇率与规则，不构成机会。",
+   "evidence_urls": ["https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb", "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"],
+   "net_result": "unknown（无 DEX 报价/无折价结论；净额 null）", "unknown_costs": ["Stake Pool 提取费", "reserve 容量", "延迟等待", "DEX 滑点", "优先费"], "handoff_to": ["Q00"],
+   "invalidation_conditions": ["Stake Pool 状态/程序迁移", "把账面汇率当可立即退出价", "无链上 DEX 报价"]}
+ ],
+ "rejections": [
+  {"claim": "1 个 LST 份额 = 1 SOL", "reason": "链上 Stake Pool 汇率分别 1.3105913563（jitoSOL）/1.3248174473（bSOL）；mint supply 与池内 lamports 不同。"},
+  {"claim": "账面汇率 = 可立即退出价", "reason": "即时 WithdrawSol 依赖 reserve 流动性与提取费；延迟退出需 deactivate 等 epoch；费率本轮 unknown。"},
+  {"claim": "聚合器展示价可当链上可执行报价", "reason": "DexScreener 仅作发现入口，未读取池链上状态，不能用于折价结论。"},
+  {"claim": "无 DEX 报价即可判定存在折价", "reason": "本轮未取得链上 DEX 报价，折价 unknown，不作机会主张。"}
+ ],
+ "observed_cursor": {
+  "type": "FINALIZED_CLUSTER_ACCOUNT_READS",
+  "source_count": 2,
+  "retrieved_at_utc": "2026-11-09T15:15:56+00:00",
+  "slot": 467364393,
+  "epoch": 1081,
+  "complete_block_range": null,
+  "complete_event_time_window": "单 slot 快照（finalized slot 467,364,393；账户读取 slot 467,364,401-467,364,411）；30 天/7 天窗口未覆盖"
+ }
+}

@@ -5510,6 +5510,198 @@
       },
       "q00_review": null,
       "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "SOL-JITOSOL-BSOL-PROTOCOL-RATES-20261109",
+      "first_seen_at": "2026-11-09T15:19:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+      "mechanism": "固定 finalized slot（467,364,393）链上读取：jitoSOL Stake Pool total_lamports=10,205,589.766694027 SOL、pool_token_supply=7,787,011.349938865 → 1 jitoSOL=1.3105913563 SOL；bSOL Stake Pool（getProgramAccounts 唯一命中）total_lamports=873,463.658758201、supply=659,308.692329841 → 1 bSOL=1.3248174473 SOL。mint 均为 SPL Token、9 位、无冻结权限。退出路径：即时 WithdrawSol（reserve 依赖、费率 unknown）/延迟 WithdrawStake+deactivate 约 1-2 epoch。本轮无链上 DEX 报价，无法判断 DEX 折价，故仅核验汇率与规则，不构成机会。",
+      "evidence_urls": [
+        "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+        "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+      ],
+      "net_result": "unknown（无 DEX 报价/无折价结论；净额 null）",
+      "unknown_costs": [
+        "Stake Pool 提取费",
+        "reserve 容量",
+        "延迟等待",
+        "DEX 滑点",
+        "优先费"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "Stake Pool 状态/程序迁移",
+        "把账面汇率当可立即退出价",
+        "无链上 DEX 报价"
+      ],
+      "owner": "SOL02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL02/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:19:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:19:00+00:00",
+      "capacity": "jitoSOL Stake Pool total_lamports≈10,205,589.77 SOL；bSOL Stake Pool ≈873,463.66 SOL；即时可兑容量取决于各自 reserve_stake 余额（未读）；DEX 容量未知",
+      "observations_by_role": {
+        "SOL02": {
+          "finding_id": "SOL-JITOSOL-BSOL-PROTOCOL-RATES-20261109",
+          "status": "UNVERIFIED",
+          "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+          "mechanism": "固定 finalized slot（467,364,393）链上读取：jitoSOL Stake Pool total_lamports=10,205,589.766694027 SOL、pool_token_supply=7,787,011.349938865 → 1 jitoSOL=1.3105913563 SOL；bSOL Stake Pool（getProgramAccounts 唯一命中）total_lamports=873,463.658758201、supply=659,308.692329841 → 1 bSOL=1.3248174473 SOL。mint 均为 SPL Token、9 位、无冻结权限。退出路径：即时 WithdrawSol（reserve 依赖、费率 unknown）/延迟 WithdrawStake+deactivate 约 1-2 epoch。本轮无链上 DEX 报价，无法判断 DEX 折价，故仅核验汇率与规则，不构成机会。",
+          "evidence_urls": [
+            "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+            "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+          ],
+          "net_result": "unknown（无 DEX 报价/无折价结论；净额 null）",
+          "unknown_costs": [
+            "Stake Pool 提取费",
+            "reserve 容量",
+            "延迟等待",
+            "DEX 滑点",
+            "优先费"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "Stake Pool 状态/程序迁移",
+            "把账面汇率当可立即退出价",
+            "无链上 DEX 报价"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "SOL-LEND-PROGRAM-VERIFIED-NO-LIQ-CANDIDATE",
+      "first_seen_at": "2026-11-09T15:18:55.766043+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+      "mechanism": "修正上轮 Q00 否决点：①集群/gensis 核验通过（genesis=5eykt4Us…，slot 467,364,930，epoch 1081，core 4.4.0）；②Kamino KLend、Solend、Marginfi v2 程序均 executable、owner=BPFLoaderUpgradeab1e；③Kamino ProgramData last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJX…；Solend ProgramData slot=350,614,570、upgrade_authority=RY93CZYe…；④Solend main 市场链上核验并读取 reserve 参数：USDC LTV70%/LT77%/bonus3%、USDT 70/77/3、SOL 65/72/3、mSOL 69/75/0（borrowLimit=0），pyth/switchboard oracle 地址已读；⑤未扫 obligation → 无 HF<1 样本、无已实现清算净利，不编仓位。结论：程序与参数核验完成，但“可清算兑现”仍未取得候选，保持 UNVERIFIED。",
+      "evidence_urls": [
+        "https://solscan.io/account/KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+        "https://solscan.io/account/So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+        "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+      ],
+      "net_result": "not_a_trade_no_liquidatable_position_found",
+      "unknown_costs": [
+        "obligation HF/规模（未扫）",
+        "抵押物变现滑点",
+        "Solana gas/优先费",
+        "协议清算费口径"
+      ],
+      "handoff_to": [
+        "M00",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "扫描到 HF<1 仓位",
+        "程序升级/参数变化",
+        "预言机异常"
+      ],
+      "owner": "SOL03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL03/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:18:55.766043+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:18:55.766043+00:00",
+      "capacity": "unknown；未扫 obligation，无法给出可清算规模。Solend main 市场仅 7 个 reserve 仍可借出（LTV>0 且 borrowLimit>0），其 borrowLimit 总量约：USDC 25e12、USDT 10e12、SOL 200e12（原始单位约 25M/10M/200M 美元量级，未逐一换算）。",
+      "observations_by_role": {
+        "SOL03": {
+          "finding_id": "SOL-LEND-PROGRAM-VERIFIED-NO-LIQ-CANDIDATE",
+          "status": "UNVERIFIED",
+          "chain": "SOL",
+          "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+          "first_seen_at": "2026-11-09T15:19:00+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "修正上轮 Q00 否决点：①集群/gensis 核验通过（genesis=5eykt4Us…，slot 467,364,930，epoch 1081，core 4.4.0）；②Kamino KLend、Solend、Marginfi v2 程序均 executable、owner=BPFLoaderUpgradeab1e；③Kamino ProgramData last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJX…；Solend ProgramData slot=350,614,570、upgrade_authority=RY93CZYe…；④Solend main 市场链上核验并读取 reserve 参数：USDC LTV70%/LT77%/bonus3%、USDT 70/77/3、SOL 65/72/3、mSOL 69/75/0（borrowLimit=0），pyth/switchboard oracle 地址已读；⑤未扫 obligation → 无 HF<1 样本、无已实现清算净利，不编仓位。结论：程序与参数核验完成，但“可清算兑现”仍未取得候选，保持 UNVERIFIED。",
+          "evidence_urls": [
+            "https://solscan.io/account/KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+            "https://solscan.io/account/So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+            "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+          ],
+          "net_result": "not_a_trade_no_liquidatable_position_found",
+          "unknown_costs": [
+            "obligation HF/规模（未扫）",
+            "抵押物变现滑点",
+            "Solana gas/优先费",
+            "协议清算费口径"
+          ],
+          "handoff_to": [
+            "M00",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "扫描到 HF<1 仓位",
+            "程序升级/参数变化",
+            "预言机异常"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "SONIC-USDC-USDT-SHADOW-CL-SINGLE-VENUE",
+      "first_seen_at": "2026-11-09T15:22:00+00:00",
+      "status": "REJECTED",
+      "market_id": "SONIC:SHADOW_EXCHANGE:USDC_USDT_CL:0x9053fe060f412ad5677f934f89e07524343ee8e7",
+      "mechanism": "链上固定块 82,308,364：Shadow CL USDC/USDT 池 token0=USDC/token1=USDT/fee=95/tick=11/liquidity=56188069421234，单 tick CL 推导 USDC→USDT 100=100.104009（约 +0.10% USDT 溢价）；但 USDT/USDC 仅此一个市场（Metropolis 只有 USDC/scUSD 且流动性约 $315、Curve Sonic API 0 池），无第二腿独立市场回兑 USDC → 无法闭环；推导价也未经官方 Quoter 验证。",
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x9053fE060f412ad5677f934F89e07524343eE8E7",
+        "https://api.dexscreener.com/token-pairs/v1/sonic/0x29219dd400f2Bf60E5a23d13Be72B486D4038894"
+      ],
+      "net_result": "unknown（无闭环；推导非可执行价；净额 null）",
+      "unknown_costs": [
+        "官方 Quoter 验证",
+        "第二市场",
+        "桥接/赎回",
+        "gas"
+      ],
+      "handoff_to": [
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "找到第二独立市场且净额为正",
+        "官方 quoter 验证推导不成立",
+        "池/费率变化"
+      ],
+      "owner": "SONIC01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC01/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T15:22:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T15:22:00+00:00",
+      "capacity": "Shadow USDC/USDT 池 DexScreener 快照流动性约 53.4 万美元；USDC/scUSD 约 3.1 万美元；Metropolis USDC/scUSD 约 315 美元；CL 池 100/1000 档推导未跨 tick（假设）；容量未逐档实测",
+      "observations_by_role": {
+        "SONIC01": {
+          "finding_id": "SONIC-USDC-USDT-SHADOW-CL-SINGLE-VENUE",
+          "status": "REJECTED",
+          "market_id": "SONIC:SHADOW_EXCHANGE:USDC_USDT_CL:0x9053fe060f412ad5677f934f89e07524343ee8e7",
+          "mechanism": "链上固定块 82,308,364：Shadow CL USDC/USDT 池 token0=USDC/token1=USDT/fee=95/tick=11/liquidity=56188069421234，单 tick CL 推导 USDC→USDT 100=100.104009（约 +0.10% USDT 溢价）；但 USDT/USDC 仅此一个市场（Metropolis 只有 USDC/scUSD 且流动性约 $315、Curve Sonic API 0 池），无第二腿独立市场回兑 USDC → 无法闭环；推导价也未经官方 Quoter 验证。",
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x9053fE060f412ad5677f934F89e07524343eE8E7",
+            "https://api.dexscreener.com/token-pairs/v1/sonic/0x29219dd400f2Bf60E5a23d13Be72B486D4038894"
+          ],
+          "net_result": "unknown（无闭环；推导非可执行价；净额 null）",
+          "unknown_costs": [
+            "官方 Quoter 验证",
+            "第二市场",
+            "桥接/赎回",
+            "gas"
+          ],
+          "handoff_to": [
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "找到第二独立市场且净额为正",
+            "官方 quoter 验证推导不成立",
+            "池/费率变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "REJECTED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

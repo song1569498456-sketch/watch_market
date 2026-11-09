@@ -1,0 +1,32 @@
+{
+  "finding_id": "SOL-LEND-PROGRAM-VERIFIED-NO-LIQ-CANDIDATE",
+  "status": "UNVERIFIED",
+  "chain": "SOL",
+  "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+  "first_seen_at": "2026-11-09T15:19:00+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "修正上轮 Q00 否决点：①集群/gensis 核验通过（genesis=5eykt4Us…，slot 467,364,930，epoch 1081，core 4.4.0）；②Kamino KLend、Solend、Marginfi v2 程序均 executable、owner=BPFLoaderUpgradeab1e；③Kamino ProgramData last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJX…；Solend ProgramData slot=350,614,570、upgrade_authority=RY93CZYe…；④Solend main 市场链上核验并读取 reserve 参数：USDC LTV70%/LT77%/bonus3%、USDT 70/77/3、SOL 65/72/3、mSOL 69/75/0（borrowLimit=0），pyth/switchboard oracle 地址已读；⑤未扫 obligation → 无 HF<1 样本、无已实现清算净利，不编仓位。结论：程序与参数核验完成，但“可清算兑现”仍未取得候选，保持 UNVERIFIED。",
+  "evidence_urls": [
+    "https://solscan.io/account/KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+    "https://solscan.io/account/So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+    "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+  ],
+  "net_result": "not_a_trade_no_liquidatable_position_found",
+  "unknown_costs": [
+    "obligation HF/规模（未扫）",
+    "抵押物变现滑点",
+    "Solana gas/优先费",
+    "协议清算费口径"
+  ],
+  "handoff_to": [
+    "M00",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "扫描到 HF<1 仓位",
+    "程序升级/参数变化",
+    "预言机异常"
+  ],
+  "owner": "SOL03",
+  "source_record": "evidence/SOL03/live-20261109T141903Z/record.json"
+}

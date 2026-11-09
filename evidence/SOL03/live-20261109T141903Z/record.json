@@ -1,0 +1,168 @@
+{
+  "agent_id": "SOL03",
+  "run_id": "live-20261109T141903Z",
+  "chain": "SOL",
+  "scope": "Solana 正常借贷清算兑现路径核验：借贷程序（Kamino KLend / Solend / Marginfi）program account 与 ProgramData 升级权限/部署时间；Solend main 市场及 reserve 的 LTV/清算阈值/清算奖励/预言机参数；样本仓位与 HF<1 候选（本轮未扫描 obligation）",
+  "started_at": "2026-11-09T15:17:08.058483+00:00",
+  "finished_at": "2026-11-09T15:18:55.766043+00:00",
+  "duration_seconds": 107.708,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T15:19:00+00:00",
+    "beijing": "2026-11-09T23:19:00+08:00",
+    "data_time": "Solana mainnet-beta slot 467,364,930–467,365,246（epoch 1081，2026-11-09T15:17-15:19Z）；Solend API reserves lastUpdate slot 见各 reserve"
+  },
+  "block_or_slot": 467364930,
+  "market_ids": [
+    "SOL:mainnet-beta:program:kamino_klend:KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+    "SOL:mainnet-beta:program:solend:So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+    "SOL:mainnet-beta:program:marginfi_v2:MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA",
+    "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+  ],
+  "asset_ids": [
+    "SOL:mainnet-beta:mint:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "SOL:mainnet-beta:mint:Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+    "SOL:mainnet-beta:mint:So11111111111111111111111111111111111111112",
+    "SOL:mainnet-beta:mint:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+  ],
+  "discovery_source": [
+    {
+      "source": "Solana mainnet-beta 只读 RPC（api.mainnet-beta.solana.com）：getGenesisHash/getSlot/getEpochInfo/getVersion/getAccountInfo/getMultipleAccounts",
+      "url": "https://api.mainnet-beta.solana.com",
+      "retrieved_at_utc": "2026-11-09T15:17:08Z-2026-11-09T15:19:00Z",
+      "request": "POST JSON-RPC 共 24 次（probeA 10 + probeB 9 + probeC 5；全部只读，≤80 硬性上限）",
+      "http_status": 200
+    },
+    {
+      "source": "Solend 官方 markets configs API（reserve 地址/预言机/上限）",
+      "url": "https://api.solend.fi/v1/markets/configs?scope=all&deployment=production",
+      "retrieved_at_utc": "2026-11-09T15:17:16Z",
+      "http_status": 200,
+      "sha256": null
+    },
+    {
+      "source": "Solend 官方 reserves API（LTV/清算阈值/清算奖励/预言机/availableAmount，limit=1000 分页首页）",
+      "url": "https://api.solend.fi/v1/reserves?scope=all&deployment=production&limit=1000",
+      "retrieved_at_utc": "2026-11-09T15:17:16Z",
+      "http_status": 200,
+      "sha256": null
+    }
+  ],
+  "mechanism": "Solana 借贷清算=清算人代还部分债务，按抵押物折价（liquidationThreshold/LTV 与 liquidationBonus 决定可清算性与奖励）取得抵押物；奖励规则（bonus bps）不等于已实现净利：需把抵押物在 DEX 卖出为偿还资产并扣滑点/费用/gas，且需存在 HF<1（或可清算）的仓位。本轮链上核验 3 个借贷程序 program account（owner=BPFLoaderUpgradeab1e、executable=true）与 Kamino/Solend 的 ProgramData（升级权限、最近部署 slot），读取 Solend main 市场 4UpD2… 与 reserve 参数（USDC LTV 70%/清算阈值 77%/奖励 3%，SOL 65/72/3，USDT 70/77/3，mSOL 69/75/0 但 borrowLimit=0），并核验 market/reserve 账户 owner=Solend program；未扫描 obligation 账户，未找到 HF<1 样本，不编造仓位。",
+  "observations": [
+    "集群核验：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（与 mainnet-beta 期望一致）；getVersion solana-core=4.4.0；slot 467,364,930–467,365,246；epoch 1081，blockHeight 445,382,667。",
+    "Kamino KLend 程序 KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD：getAccountInfo owner=BPFLoaderUpgradeab1e11111111111111111111111、executable=true、space=36、lamports=33,141,440；program 账户 data 36B（discriminant=2）+ programdata=9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA；ProgramData 账户 owner 同上、executable=false、space=10,485,760、discriminant=3、last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJXmawPhGeBsyRCDLx4jAKPsvbUqoqitzppkzkW（option=1，存在升级权限）。",
+    "Solend 程序 So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo：owner=BPFLoaderUpgradeab1e…、executable=true、space=36、lamports=1,141,442；programdata=DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR；ProgramData space=1,240,333、discriminant=3、last_deploy_slot=350,614,570、upgrade_authority=RY93CZYe5g6drtG7W9PmHRPzaBLZ1uwihTzayQTmJfh（option=1）。",
+    "Marginfi v2 程序 MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA：owner=BPFLoaderUpgradeab1e…、executable=true、space=36、lamports=1,141,459（本轮未读 ProgramData，属缺口）。",
+    "Solend main 市场 4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY（authorityAddress DdZR6zRFiUt4S5mg7AV1uKB2z1f1WzcNYCaTEEWPAuby）：市场账户链上存在，owner=So1endDq2…（executable=false，290B，lamports 2,909,280）；官方 configs API 中该市场 reserve 数=90（API 当页），其中同时满足 LTV>0 且 borrowLimit>0 的活跃 reserve 仅 7 个，其余多数 LTV=0/borrowLimit=0/stale（已弃用或迁移）。",
+    "Solend main 市场 reserve 参数（官方 reserves API，按 mint）：①USDC EPjFWdd5…：loanToValueRatio=70%（LTV 70%）、liquidationThreshold=77%、liquidationBonus=3%（maxLiquidationBonus=5%、maxLiquidationThreshold=79%）、borrowLimit=25,000,000,000,000、depositLimit=75,000,000,000,000、pythOracle=Dpw1EAVrSB1ibxiDQyTAW6Zip3J4Btk2x4SgApQCeFbX、switchboard=none、availableAmount=1,620,587,454,602、borrowedAmountWads=17.37e30（wads）、lastUpdate slot=467,343,196；②USDT Es9vMFrz…：LTV 70%/LT 77%/bonus 3%（max 5/79%）、borrowLimit=10,000,000,000,000；③SOL So111…：LTV 65%/LT 72%/bonus 3%（max 5/74%）、borrowLimit=200,000,000,000,000；④mSOL mSoLzY…：LTV 69%/LT 75%/bonus 0%（max 0/75%）、borrowLimit=0（借出已关闭）。",
+    "链上账户核验（getMultipleAccounts）：Solend main 市场账户存在；configs API 给出的两个 reserve 账户 CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6（mSOL）与 JMBiQLjvqrKkBApAFKT1WkGY5qphQzqu4NutEkU99KK（RETARDIO）均存在且 owner=So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo（619B），executable=false。",
+    "清算奖励规则 vs 已实现净利：Solend 配置的 liquidationBonus（USDC/USDT/SOL 为 3%，上限 5%）是清算人取得抵押物的折价上限规则；实际净利=抵押物变现价值−代偿债务−卖出滑点/池费−gas（Solana 交易费+优先费）−协议清算费（config 有 protocolLiquidationFee=19、protocolTakeRate=20，单位未在 API 中标注，标 unknown）；本轮未取到可清算仓位，不能得已实现净利。",
+    "HF<1 候选：本轮**没有**扫描 obligation 账户（公共 RPC 全量 getProgramAccounts 代价高、且无本轮可复现的 Obligation 布局解码），因此没有样本仓位、没有 HF<1 候选；不编造仓位。Solend main 市场 90 个 reserve 中仅 7 个可借出也限制了可清算面，需在下一轮扫描/复核。",
+    "窗口说明：本轮为单快照（slot 467,364,930–467,365,246）；未做连续槽监控，未观察清算事件；API reserves 的 lastUpdate slot 显示部分 reserve 数据较新（USDC 467,343,196、SOL 467,364,875），部分 stale=1 标记（API 计算口径未确认）。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "no_trade_no_liquidatable_position_found",
+    "realized": false,
+    "unknown_costs": [
+      "抵押物变现滑点/池费（未取价格）",
+      "Solana 交易费+优先费（未估）",
+      "协议清算费单位（protocolLiquidationFee=19 未标注口径）",
+      "实际仓位 HF 与可清算规模（未扫 obligation）"
+    ],
+    "note": "本轮核验程序/参数，未找到可清算样本；不把 liquidationBonus 规则当已实现利润。"
+  },
+  "capacity": "unknown；未扫 obligation，无法给出可清算规模。Solend main 市场仅 7 个 reserve 仍可借出（LTV>0 且 borrowLimit>0），其 borrowLimit 总量约：USDC 25e12、USDT 10e12、SOL 200e12（原始单位约 25M/10M/200M 美元量级，未逐一换算）。",
+  "permissions": "程序升级权限已读：Kamino upgrade_authority=GzFgdRJX…（最近部署 slot 461,744,249）、Solend upgrade_authority=RY93CZYe…（slot 350,614,570）；均存在升级权限（中心化升级风险维度，未做进一步权限归属核验）。",
+  "liabilities": "无；本轮纯只读，未借款/未交易。",
+  "waiting_time": "不适用；未提交交易。",
+  "invalidation_conditions": [
+    "集群/genesis 变化或程序升级",
+    "Solend reserve 参数变更（LTV/阈值/bonus/borrowLimit）",
+    "出现可扫描到 HF<1 的 obligation",
+    "预言机异常或抵押物价格剧烈变化"
+  ],
+  "evidence_urls": [
+    "https://solscan.io/account/KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+    "https://solscan.io/account/So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+    "https://solscan.io/account/MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA",
+    "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+    "https://api.solend.fi/v1/reserves?scope=all&deployment=production&limit=1000"
+  ],
+  "coverage_gaps": [
+    "未扫描 obligation 账户（未用 getProgramAccounts 过滤/未解 Obligation 布局）→ 无样本仓位与 HF<1 候选，不能断言当前无清算机会。",
+    "未读取 Kamino KLend 市场/reserve 的真实账户参数（本轮只核验程序身份与升级权限）；未读 MarginFi ProgramData。",
+    "Solend 参数取自官方 API，未 borsh 解码链上 Reserve 账户核对一致性；reserve 账户仅核验存在与 owner。",
+    "未校验预言机价格/新鲜度（pyth/switchboard 地址已读，价格未读）；未确认 stale=1 的 API 口径。",
+    "无 30 天规则/参数变更与 7 天清算事件历史；未观察实际清算交易。",
+    "未估算 Solana gas/优先费与抵押物变现滑点，无法给出已实现净利。",
+    "本轮外部请求 24 次（≤80 硬性上限，符合）。"
+  ],
+  "next_check": [
+    "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+    "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+    "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+    "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+    "核验 MarginFi ProgramData 升级权限与市场参数。"
+  ],
+  "handoff_to": ["M00", "Q00"],
+  "markets": [
+    {
+      "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+      "chain": "SOL",
+      "protocol": "Solend main market",
+      "asset_ids": ["SOL:mainnet-beta:mint:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"],
+      "evidence_urls": ["https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"],
+      "identity_status": "CHAIN_VERIFIED_MARKET_ACCOUNT_AND_PARAMS_READ",
+      "next_check": "扫 obligation 求 HF；核对链上 Reserve 数据"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "SOL-LEND-PROGRAM-VERIFIED-NO-LIQ-CANDIDATE",
+      "status": "UNVERIFIED",
+      "chain": "SOL",
+      "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+      "first_seen_at": "2026-11-09T15:19:00+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "修正上轮 Q00 否决点：①集群/gensis 核验通过（genesis=5eykt4Us…，slot 467,364,930，epoch 1081，core 4.4.0）；②Kamino KLend、Solend、Marginfi v2 程序均 executable、owner=BPFLoaderUpgradeab1e；③Kamino ProgramData last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJX…；Solend ProgramData slot=350,614,570、upgrade_authority=RY93CZYe…；④Solend main 市场链上核验并读取 reserve 参数：USDC LTV70%/LT77%/bonus3%、USDT 70/77/3、SOL 65/72/3、mSOL 69/75/0（borrowLimit=0），pyth/switchboard oracle 地址已读；⑤未扫 obligation → 无 HF<1 样本、无已实现清算净利，不编仓位。结论：程序与参数核验完成，但“可清算兑现”仍未取得候选，保持 UNVERIFIED。",
+      "evidence_urls": [
+        "https://solscan.io/account/KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+        "https://solscan.io/account/So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+        "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+      ],
+      "net_result": "not_a_trade_no_liquidatable_position_found",
+      "unknown_costs": ["obligation HF/规模（未扫）", "抵押物变现滑点", "Solana gas/优先费", "协议清算费口径"],
+      "handoff_to": ["M00", "Q00"],
+      "invalidation_conditions": ["扫描到 HF<1 仓位", "程序升级/参数变化", "预言机异常"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "上轮把 KLend 程序 ID 当作主网可清算证据",
+      "reason": "本轮核验 genesis=mainnet-beta、程序 executable、owner=BPFLoaderUpgradeab1e、ProgramData 与升级权限；程序身份已确认，但程序身份不等于存在可清算仓位。",
+      "evidence": "getGenesisHash/getAccountInfo/getMultipleAccounts 读数据"
+    },
+    {
+      "claim": "liquidationBonus（3%/5%）即清算净利",
+      "reason": "bonus 只是取得抵押物的折价规则；已实现净利需扣代偿债务、抵押物变现滑点/费用、Solana gas 与协议清算费，且需有 HF<1 仓位；本轮无样本。",
+      "evidence": "Solend reserve config（liquidationBonus/maxLiquidationBonus/protocolLiquidationFee）"
+    },
+    {
+      "claim": "Solend main 市场当前有大量可清算仓位",
+      "reason": "该市场 90 个 reserve 中仅 7 个 LTV>0 且 borrowLimit>0，其余已弃用/迁移；且本轮未扫 obligation，不能声称有仓位。",
+      "evidence": "官方 reserves API（main market 90 行筛选）+ 市场账户 owner 核验"
+    }
+  ],
+  "observed_cursor": {
+    "type": "slot",
+    "source_count": 3,
+    "retrieved_at_utc": "2026-11-09T15:19:00Z",
+    "complete_block_range": "467364930-467365246",
+    "complete_event_time_window": "2026-11-09T15:17:08Z-2026-11-09T15:19:00Z"
+  }
+}

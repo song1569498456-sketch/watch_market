@@ -1,0 +1,63 @@
+{
+ "retrieved_at_utc": "2026-11-09T15:19:38.208573+00:00",
+ "pinned_block": 82308364,
+ "note": "本地重算：sqrtP 已除以 2^96 归一；假设单 tick 内成交（不跨 tick），fee 记为 95/1e6；非官方 Quoter 输出，仅作固定 slot 推导汇率参考",
+ "quotes": [
+  {
+   "venue": "shadow_usdt_usdc",
+   "direction": "token0(USDC)->token1",
+   "amount_in_usdc": 100,
+   "sqrtPriceX96": "79273190208583106976735382350",
+   "tick": 11,
+   "liquidity": "56188069421234",
+   "fee_units": 95,
+   "sqrtP_real": "1.00056832940320511081800965602476394404101681831657853598283",
+   "amount_out_raw": "100104009",
+   "amount_out_human": "100.104009135993078366804817316164625206605784398337928686442",
+   "ratio": "1.00104009135993078366804817316164625206605784398337928686442",
+   "stays_in_tick_check": "approx_only"
+  },
+  {
+   "venue": "shadow_usdt_usdc",
+   "direction": "token0(USDC)->token1",
+   "amount_in_usdc": 1000,
+   "sqrtPriceX96": "79273190208583106976735382350",
+   "tick": 11,
+   "liquidity": "56188069421234",
+   "fee_units": 95,
+   "sqrtP_real": "1.00056832940320511081800965602476394404101681831657853598283",
+   "amount_out_raw": "1001024049",
+   "amount_out_human": "1001.02404976189736549510355269477104994735713076224791375816",
+   "ratio": "1.00102404976189736549510355269477104994735713076224791375816",
+   "stays_in_tick_check": "approx_only"
+  },
+  {
+   "venue": "shadow_scusd_usdc",
+   "direction": "token0(USDC)->token1",
+   "amount_in_usdc": 100,
+   "sqrtPriceX96": "79230078845522159985966181305",
+   "tick": 0,
+   "liquidity": "22571488127193",
+   "fee_units": 95,
+   "sqrtP_real": "1.00002418750097198548234439231939859686933864933766939134957",
+   "amount_out_raw": "99994894",
+   "amount_out_human": "99.9948941163170342653158010259986401188369302909649106358354",
+   "ratio": "0.999948941163170342653158010259986401188369302909649106358354",
+   "stays_in_tick_check": "approx_only"
+  },
+  {
+   "venue": "shadow_scusd_usdc",
+   "direction": "token0(USDC)->token1",
+   "amount_in_usdc": 1000,
+   "sqrtPriceX96": "79230078845522159985966181305",
+   "tick": 0,
+   "liquidity": "22571488127193",
+   "fee_units": 95,
+   "sqrtP_real": "1.00002418750097198548234439231939859686933864933766939134957",
+   "amount_out_raw": "999909074",
+   "amount_out_human": "999.909074476133617520222834885585895990482036564097948777638",
+   "ratio": "0.999909074476133617520222834885585895990482036564097948777638",
+   "stays_in_tick_check": "approx_only"
+  }
+ ]
+}

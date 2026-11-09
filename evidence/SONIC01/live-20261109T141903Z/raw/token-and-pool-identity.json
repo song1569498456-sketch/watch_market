@@ -1,0 +1,246 @@
+{
+ "retrieved_at_utc": "2026-11-09T15:18:39.947656+00:00",
+ "pinned_block": 82308364,
+ "tokens": {
+  "USDT": {
+   "address": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553445400000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "USDT"
+    ],
+    "error": null
+   },
+   "name()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a5465746865722055534400000000000000000000000000000000000000000000",
+    "decoded": [
+     "Tether USD"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+    "decoded": [
+     "6"
+    ],
+    "error": null
+   },
+   "code_bytes": 2227
+  },
+  "scUSD": {
+   "address": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000057363555344000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "scUSD"
+    ],
+    "error": null
+   },
+   "name()": {
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000009536f6e6963205553440000000000000000000000000000000000000000000000",
+    "decoded": [
+     "Sonic USD"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+    "decoded": [
+     "6"
+    ],
+    "error": null
+   },
+   "code_bytes": 7706
+  }
+ },
+ "pool_type": {
+  "shadow_usdt_usdc": {
+   "address": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+   "token0()": {
+    "raw": "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+    "decoded": [
+     "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+    ],
+    "error": null
+   },
+   "token1()": {
+    "raw": "0x0000000000000000000000006047828dc181963ba44974801ff68e538da5eaf9",
+    "decoded": [
+     "0x6047828dc181963ba44974801ff68e538da5eaf9"
+    ],
+    "error": null
+   },
+   "stable()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    }
+   },
+   "factory()": {
+    "raw": "0x000000000000000000000000cd2d0637c94fe77c2896bbcbb174ceffb08de6d7",
+    "decoded": [
+     "0xcd2d0637c94fe77c2896bbcbb174ceffb08de6d7"
+    ],
+    "error": null
+   },
+   "fee()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000005f",
+    "decoded": [
+     "95"
+    ],
+    "error": null
+   },
+   "getReserves()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    }
+   }
+  },
+  "shadow_scusd_usdc": {
+   "address": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+   "token0()": {
+    "raw": "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+    "decoded": [
+     "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+    ],
+    "error": null
+   },
+   "token1()": {
+    "raw": "0x000000000000000000000000d3dce716f3ef535c5ff8d041c1a41c3bd89b97ae",
+    "decoded": [
+     "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+    ],
+    "error": null
+   },
+   "stable()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    }
+   },
+   "factory()": {
+    "raw": "0x000000000000000000000000cd2d0637c94fe77c2896bbcbb174ceffb08de6d7",
+    "decoded": [
+     "0xcd2d0637c94fe77c2896bbcbb174ceffb08de6d7"
+    ],
+    "error": null
+   },
+   "fee()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000005f",
+    "decoded": [
+     "95"
+    ],
+    "error": null
+   },
+   "getReserves()": {
+    "raw": null,
+    "decoded": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    }
+   }
+  }
+ },
+ "requests": [
+  {
+   "label": "USDT symbol()",
+   "error": null
+  },
+  {
+   "label": "USDT name()",
+   "error": null
+  },
+  {
+   "label": "USDT decimals()",
+   "error": null
+  },
+  {
+   "label": "USDT code",
+   "error": null
+  },
+  {
+   "label": "scUSD symbol()",
+   "error": null
+  },
+  {
+   "label": "scUSD name()",
+   "error": null
+  },
+  {
+   "label": "scUSD decimals()",
+   "error": null
+  },
+  {
+   "label": "scUSD code",
+   "error": null
+  },
+  {
+   "label": "shadow_usdt_usdc token0()",
+   "error": null
+  },
+  {
+   "label": "shadow_usdt_usdc token1()",
+   "error": null
+  },
+  {
+   "label": "shadow_usdt_usdc stable()",
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "label": "shadow_usdt_usdc factory()",
+   "error": null
+  },
+  {
+   "label": "shadow_usdt_usdc fee()",
+   "error": null
+  },
+  {
+   "label": "shadow_usdt_usdc getReserves()",
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "label": "shadow_scusd_usdc token0()",
+   "error": null
+  },
+  {
+   "label": "shadow_scusd_usdc token1()",
+   "error": null
+  },
+  {
+   "label": "shadow_scusd_usdc stable()",
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  },
+  {
+   "label": "shadow_scusd_usdc factory()",
+   "error": null
+  },
+  {
+   "label": "shadow_scusd_usdc fee()",
+   "error": null
+  },
+  {
+   "label": "shadow_scusd_usdc getReserves()",
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   }
+  }
+ ]
+}

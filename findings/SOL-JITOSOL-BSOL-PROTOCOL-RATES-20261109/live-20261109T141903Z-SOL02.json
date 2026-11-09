@@ -1,0 +1,29 @@
+{
+  "finding_id": "SOL-JITOSOL-BSOL-PROTOCOL-RATES-20261109",
+  "status": "UNVERIFIED",
+  "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+  "mechanism": "固定 finalized slot（467,364,393）链上读取：jitoSOL Stake Pool total_lamports=10,205,589.766694027 SOL、pool_token_supply=7,787,011.349938865 → 1 jitoSOL=1.3105913563 SOL；bSOL Stake Pool（getProgramAccounts 唯一命中）total_lamports=873,463.658758201、supply=659,308.692329841 → 1 bSOL=1.3248174473 SOL。mint 均为 SPL Token、9 位、无冻结权限。退出路径：即时 WithdrawSol（reserve 依赖、费率 unknown）/延迟 WithdrawStake+deactivate 约 1-2 epoch。本轮无链上 DEX 报价，无法判断 DEX 折价，故仅核验汇率与规则，不构成机会。",
+  "evidence_urls": [
+    "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+    "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+  ],
+  "net_result": "unknown（无 DEX 报价/无折价结论；净额 null）",
+  "unknown_costs": [
+    "Stake Pool 提取费",
+    "reserve 容量",
+    "延迟等待",
+    "DEX 滑点",
+    "优先费"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "Stake Pool 状态/程序迁移",
+    "把账面汇率当可立即退出价",
+    "无链上 DEX 报价"
+  ],
+  "owner": "SOL02",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/SOL02/live-20261109T141903Z/record.json"
+}

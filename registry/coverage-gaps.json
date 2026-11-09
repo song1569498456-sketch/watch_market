@@ -5291,6 +5291,189 @@
         "补 30 天/7 天窗口：UMA 结算/争议、pUSD 供给与退出、借贷事件。",
         "若发现正常可清算且有真实兑换价值的抵押品，交 POLY02 单独验证；本岗位只报风险/规则差异。"
       ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "没有链上 DEX 可执行报价（Orca Whirlpool/Raydium/Meteora 池状态未读），无法比较 DEX 价 vs 协议汇率，折价未知。",
+      "next_check": [
+        "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+        "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+        "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+        "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "SPL Stake Pool 费率字段（WithdrawSol/WithdrawStake/epoch fee）偏移解析不可靠，费率 unknown；reserve_stake 流动性未读。",
+      "next_check": [
+        "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+        "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+        "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+        "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "mSOL 汇率未解析（Marinade State 布局/版本），mSOL liq pool 动态费与延迟 ticket 规则未核。",
+      "next_check": [
+        "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+        "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+        "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+        "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "即时退出容量与延迟退出实测等待未测；30 天规则变更与 7 天活动窗口未覆盖。",
+      "next_check": [
+        "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+        "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+        "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+        "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SOL02",
+      "run_id": "live-20261109T141903Z",
+      "gap": "DexScreener 仅为聚合器发现快照，未用其展示价作结论；Token-2022 扩展未逐字段扫描（owner 为 SPL Token 已排除）。",
+      "next_check": [
+        "用正确 SPL Stake Pool 布局（含 Option/Fee 对齐）重解 jitoSOL/bSOL 费率与 reserve_stake 余额，判断即时兑付容量。",
+        "读 Orca Whirlpool/Raydium AMM 链上池状态与指定数量报价（SOL 计价），与协议汇率 1.3105913563（jitoSOL）/1.3248174473（bSOL）比较，分三出口核算。",
+        "解析 Marinade State 取 mSOL 汇率与 liq pool 动态费；补延迟 ticket 规则。",
+        "补 30 天/7 天窗口；有可执行折价且扣费用/等待后为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未扫描 obligation 账户（未用 getProgramAccounts 过滤/未解 Obligation 布局）→ 无样本仓位与 HF<1 候选，不能断言当前无清算机会。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读取 Kamino KLend 市场/reserve 的真实账户参数（本轮只核验程序身份与升级权限）；未读 MarginFi ProgramData。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Solend 参数取自官方 API，未 borsh 解码链上 Reserve 账户核对一致性；reserve 账户仅核验存在与 owner。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未校验预言机价格/新鲜度（pyth/switchboard 地址已读，价格未读）；未确认 stale=1 的 API 口径。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "无 30 天规则/参数变更与 7 天清算事件历史；未观察实际清算交易。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未估算 Solana gas/优先费与抵押物变现滑点，无法给出已实现净利。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SOL03",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 24 次（≤80 硬性上限，符合）。",
+      "next_check": [
+        "用 Solend/Kamino SDK 的 Obligation 布局对目标市场做 getProgramAccounts（memcmp lendingMarket 过滤），计算 HF 并筛 HF<1 样本；或接索引器只读查询。",
+        "读 Kamino KLend main market/reserve 参数（LTV/清算阈值/奖励/预言机）并与 Solend 对比。",
+        "读预言机价格与新鲜度，核对 reserve.lastUpdate/stale 口径；监控参数变更与清算事件（7 天/30 天）。",
+        "对 HF<1 样本计算清算净额：代偿债务 vs 抵押物卖出（DEX 报价）−滑点/费用/gas，区分奖励规则与已实现利润。",
+        "核验 MarginFi ProgramData 升级权限与市场参数。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "没有第二独立市场报价（USDT/USDC 仅 Shadow 一个池；Metropolis USDC/scUSD 接口未知且流动性约 $315；Curve Sonic API 无池），2 腿闭环无法完成。",
+      "next_check": [
+        "取得 Shadow CL 官方 Quoter/部署表验证 fee 单位与报价；读 tickSpacing/下一 tick 流动性判断是否跨 tick。",
+        "寻找/核验第二个 USDT/USDC 独立市场完成 2 腿闭环；否则维持排除。",
+        "核 Metropolis USDC/scUSD 池接口并报价，作为 scUSD 腿候选；补 scUSD 发行/赎回规则与桥接出口。",
+        "补 30 天/7 天窗口；有官方 quoter+第二市场且净额为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Shadow CL 官方 Quoter/ABI 未取得；推导报价依赖 fee=95/1e6、单 tick 内成交假设，需官方验证；tickSpacing/流动性分布未读。",
+      "next_check": [
+        "取得 Shadow CL 官方 Quoter/部署表验证 fee 单位与报价；读 tickSpacing/下一 tick 流动性判断是否跨 tick。",
+        "寻找/核验第二个 USDT/USDC 独立市场完成 2 腿闭环；否则维持排除。",
+        "核 Metropolis USDC/scUSD 池接口并报价，作为 scUSD 腿候选；补 scUSD 发行/赎回规则与桥接出口。",
+        "补 30 天/7 天窗口；有官方 quoter+第二市场且净额为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "USDC.e/USDT 发行/桥接来源（Sonic gateway 映射）未取得官方文件；scUSD 铸/赎规则与储备未核。",
+      "next_check": [
+        "取得 Shadow CL 官方 Quoter/部署表验证 fee 单位与报价；读 tickSpacing/下一 tick 流动性判断是否跨 tick。",
+        "寻找/核验第二个 USDT/USDC 独立市场完成 2 腿闭环；否则维持排除。",
+        "核 Metropolis USDC/scUSD 池接口并报价，作为 scUSD 腿候选；补 scUSD 发行/赎回规则与桥接出口。",
+        "补 30 天/7 天窗口；有官方 quoter+第二市场且净额为正才升级，交 Q00 复核。"
+      ]
+    },
+    {
+      "agent_id": "SONIC01",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则/新池/费率变更与 7 天代表性活动未覆盖；池子失衡来源未复盘；未做完整只读模拟与更大档位。",
+      "next_check": [
+        "取得 Shadow CL 官方 Quoter/部署表验证 fee 单位与报价；读 tickSpacing/下一 tick 流动性判断是否跨 tick。",
+        "寻找/核验第二个 USDT/USDC 独立市场完成 2 腿闭环；否则维持排除。",
+        "核 Metropolis USDC/scUSD 池接口并报价，作为 scUSD 腿候选；补 scUSD 发行/赎回规则与桥接出口。",
+        "补 30 天/7 天窗口；有官方 quoter+第二市场且净额为正才升级，交 Q00 复核。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -286,6 +286,19 @@
         "R-POLY"
       ],
       "merged_at": "2026-11-09T15:17:52.658326+00:00",
+      "storage_status": "REMOTE_VERIFIED",
+      "evidence_commit": "5f58af8d17f3bf4047dacf433e837a332ac82ab2",
+      "notes": "M00 merge_batch.py",
+      "verified_at_utc": "2026-11-09T15:18:08.965126+00:00"
+    },
+    {
+      "batch": 14,
+      "agents": [
+        "SOL02",
+        "SOL03",
+        "SONIC01"
+      ],
+      "merged_at": "2026-11-09T15:20:46.995858+00:00",
       "storage_status": "PUSH_PENDING",
       "evidence_commit": null,
       "notes": "M00 merge_batch.py"
@@ -321,6 +334,6 @@
   },
   "researcher_batches": {
     "planned": 16,
-    "completed": 13
+    "completed": 14
   }
 }

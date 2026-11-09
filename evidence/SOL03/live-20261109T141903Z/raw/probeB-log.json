@@ -1,0 +1,87 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "slot",
+  "rpc_method": "getSlot",
+  "at_utc": "2026-11-09T15:17:46.114392+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "epochInfo",
+  "rpc_method": "getEpochInfo",
+  "at_utc": "2026-11-09T15:17:46.945047+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "acct_kamino_klend",
+  "rpc_method": "getAccountInfo",
+  "at_utc": "2026-11-09T15:17:47.295803+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "acct_solend",
+  "rpc_method": "getAccountInfo",
+  "at_utc": "2026-11-09T15:17:47.646373+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "acct_marginfi_v2",
+  "rpc_method": "getAccountInfo",
+  "at_utc": "2026-11-09T15:17:47.996678+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "GET",
+  "host": "api.solend.fi",
+  "tag": "solend_markets_configs",
+  "url": "https://api.solend.fi/v1/markets/configs?scope=all&deployment=production",
+  "at_utc": "2026-11-09T15:17:48.204760+00:00",
+  "http_status": 200,
+  "sha256": "dbf0d19bb27f15332662a1023f8e8af6df60829f90c739e98a867d807c1b16a7",
+  "bytes": 584045
+ },
+ {
+  "n": 7,
+  "kind": "GET",
+  "host": "api.solend.fi",
+  "tag": "solend_reserves_1000",
+  "url": "https://api.solend.fi/v1/reserves?scope=all&deployment=production&limit=1000",
+  "at_utc": "2026-11-09T15:17:50.935021+00:00",
+  "http_status": 200,
+  "sha256": "fc2b24d215f0f6a2eb533e048fe9b25c460ddd36ec39ac4b347c6034eb924f95",
+  "bytes": 1533107
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "multiple_accounts",
+  "rpc_method": "getMultipleAccounts",
+  "at_utc": "2026-11-09T15:17:52.821498+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "api.mainnet-beta.solana.com",
+  "tag": "slot_after",
+  "rpc_method": "getSlot",
+  "at_utc": "2026-11-09T15:17:53.171665+00:00",
+  "http_status": 200
+ }
+]

@@ -2,58 +2,172 @@
   "agent_id": "SOL03",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:18:55+00:00",
   "observed_cursor": {
-    "document_program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
-    "genesis_hash": null,
-    "slot": null,
-    "commitment": null,
-    "obligations_read": 0,
-    "liquidations_analyzed": 0,
-    "quotes_obtained": 0,
+    "type": "slot",
+    "cluster": "mainnet-beta",
+    "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+    "slot": 467364930,
+    "slot_end": 467365246,
+    "block_height": 445382667,
+    "epoch": 1081,
+    "solana_core_version": "4.4.0",
+    "programs": {
+      "kamino_klend": {
+        "program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+        "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+        "executable": true,
+        "space": 36,
+        "lamports": 33141440,
+        "programdata": "9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA",
+        "programdata_space": 10485760,
+        "last_deploy_slot": 461744249,
+        "upgrade_authority": "GzFgdRJXmawPhGeBsyRCDLx4jAKPsvbUqoqitzppkzkW"
+      },
+      "solend": {
+        "program_id": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+        "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+        "executable": true,
+        "space": 36,
+        "lamports": 1141442,
+        "programdata": "DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR",
+        "programdata_space": 1240333,
+        "last_deploy_slot": 350614570,
+        "upgrade_authority": "RY93CZYe5g6drtG7W9PmHRPzaBLZ1uwihTzayQTmJfh"
+      },
+      "marginfi_v2": {
+        "program_id": "MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA",
+        "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+        "executable": true,
+        "space": 36,
+        "programdata_read": false
+      }
+    },
+    "solend_market": {
+      "address": "4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+      "authorityAddress": "DdZR6zRFiUt4S5mg7AV1uKB2z1f1WzcNYCaTEEWPAuby",
+      "onchain_owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+      "onchain_space": 290,
+      "configs_api_reserves": 90,
+      "active_reserves_ltv_and_borrowlimit_positive": 7,
+      "reserves_verified_onchain": {
+        "CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6": {
+          "owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+          "space": 619
+        },
+        "JMBiQLjvqrKkBApAFKT1WkGY5qphQzqu4NutEkU99KK": {
+          "owner": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+          "space": 619
+        }
+      },
+      "reserve_params": {
+        "USDC": {
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "ltv_pct": 70,
+          "liquidation_threshold_pct": 77,
+          "liquidation_bonus_pct": 3,
+          "max_liquidation_bonus_pct": 5,
+          "max_liquidation_threshold_pct": 79,
+          "borrowLimit": "25000000000000",
+          "pythOracle": "Dpw1EAVrSB1ibxiDQyTAW6Zip3J4Btk2x4SgApQCeFbX",
+          "switchboardOracle": "nu11111111111111111111111111111111111111",
+          "lastUpdateSlot": 467343196
+        },
+        "USDT": {
+          "mint": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+          "ltv_pct": 70,
+          "liquidation_threshold_pct": 77,
+          "liquidation_bonus_pct": 3,
+          "max_liquidation_bonus_pct": 5,
+          "borrowLimit": "10000000000000"
+        },
+        "SOL": {
+          "mint": "So11111111111111111111111111111111111111112",
+          "ltv_pct": 65,
+          "liquidation_threshold_pct": 72,
+          "liquidation_bonus_pct": 3,
+          "max_liquidation_bonus_pct": 5,
+          "borrowLimit": "200000000000000"
+        },
+        "mSOL": {
+          "mint": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+          "ltv_pct": 69,
+          "liquidation_threshold_pct": 75,
+          "liquidation_bonus_pct": 0,
+          "max_liquidation_bonus_pct": 0,
+          "borrowLimit": "0"
+        }
+      }
+    },
+    "hf_candidates": [],
+    "obligations_scanned": false,
+    "status": "UNVERIFIED",
+    "no_liquidatable_position_found": true,
+    "requests_this_run": 24,
+    "event_pages_completed": 0,
     "history_30d_complete": false,
     "activity_7d_complete": false
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "document_program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
-      "genesis_hash": null,
-      "slot": null,
-      "commitment": null,
-      "obligations_read": 0,
-      "liquidations_analyzed": 0,
-      "quotes_obtained": 0,
+      "type": "slot",
+      "cluster": "mainnet-beta",
+      "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "slot": 467364930,
+      "programs_verified": [
+        "kamino_klend",
+        "solend",
+        "marginfi_v2"
+      ],
+      "solend_reserve_params_read": [
+        "USDC",
+        "USDT",
+        "SOL",
+        "mSOL"
+      ],
+      "obligations_scanned": false,
+      "hf_candidates": 0,
+      "requests_this_run": 24,
+      "event_pages_completed": 0,
       "history_30d_complete": false,
       "activity_7d_complete": false
     },
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
-    "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
-    "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
-    "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+    "集群核验：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（mainnet-beta 一致）；getVersion solana-core=4.4.0；slot 467,364,930–467,365,246；epoch 1081；blockHeight 445,382,667。",
+    "程序核验：Kamino KLend KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD、Solend So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo、Marginfi MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA 均 executable、owner=BPFLoaderUpgradeab1e11111111111111111111111、space=36。",
+    "ProgramData：Kamino 9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA（space 10,485,760、last_deploy_slot 461,744,249、upgrade_authority GzFgdRJX…）；Solend DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR（space 1,240,333、slot 350,614,570、authority RY93CZYe…）；Marginfi 未读 ProgramData（缺口）。",
+    "Solend main 市场 4UpD2fh7… 链上存在（owner=Solend program、290B）；官方 configs API 90 reserve，仅 7 个 LTV>0 且 borrowLimit>0；另两个 reserve 账户（mSOL CCpirWrg…、RETARDIO JMBiQLjv…）链上存在且 owner=Solend program（619B）。",
+    "Solend reserve 参数：USDC LTV70%/LT77%/bonus3%（max5/79%）、USDT 70/77/3、SOL 65/72/3、mSOL 69/75/0（borrowLimit=0）；USDC pythOracle=Dpw1EAVr…、mSOL pythOracle=7UVimffx…，switchboard 多为 none。",
+    "清算规则 vs 净利：liquidationBonus 为取得抵押物折价上限（3%，max 5%），已实现净利需扣代偿债务、抵押物卖出滑点/费用、Solana gas、协议清算费（protocolLiquidationFee=19/protocolTakeRate=20，单位未知）。",
+    "HF<1 候选：本轮未扫描 obligation → 无样本仓位、无 HF<1 候选；不编造仓位，net_result 置 null。窗口=单快照 slot 467,364,930–467,365,246。",
+    "上轮静态/未核验结论已升级：程序与市场账户/参数已链上核验，但‘可清算兑现’仍需 obligation 扫描，保持 UNVERIFIED。"
   ],
   "pending_questions": [
-    "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
-    "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
-    "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
-    "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
-    "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+    "未扫 obligation（无 getProgramAccounts/索引器过滤、未解 Obligation 布局）→ 无 HF<1 候选与样本仓位。",
+    "未读 Kamino KLend 市场/reserve 参数与 MarginFi ProgramData/参数。",
+    "Solend 参数来自官方 API，未链上 borsh 解码 Reserve 账户核对；reserve 账户仅核验存在/owner。",
+    "未读预言机价格/新鲜度；API stale=1 口径未确认。",
+    "无 30 天规则/参数变更与 7 天清算事件历史；未观察实际清算交易。",
+    "未估 Solana 交易费/优先费与抵押物变现滑点，无法给已实现净利。",
+    "本轮外部请求 24 次（≤80 硬性上限，符合；脚本均先 --check 自检）。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:57:10.826803+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SOL03/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "verified_at": "2026-11-08T15:57:47.943885+00:00",
-    "record": "evidence/SOL03/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:18:55.766043+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SOL03/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SOL03/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 24,
+  "request_discipline_note": "外部请求 24 次（≤80 硬性上限，符合）；probeA/B/C 均先 --check 离线自检再联网，无脚本崩溃/重跑浪费。",
+  "data_sources_used": [
+    "https://api.mainnet-beta.solana.com",
+    "https://api.solend.fi/v1/markets/configs?scope=all&deployment=production",
+    "https://api.solend.fi/v1/reserves?scope=all&deployment=production&limit=1000"
+  ]
 }

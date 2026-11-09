@@ -3455,127 +3455,116 @@
       "agent_id": "SOL02",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:57:28.691174+00:00",
+      "last_success_at": "2026-11-09T15:19:00+00:00",
+      "last_attempt_at": "2026-11-09T15:19:00+00:00",
       "actual_coverage": [
-        "官方SDK给Marinade program/state地址；资产mint未从链状态读取，asset_ids留空。",
-        "官方README明确mainnet分支才是部署版本，因此重新读取该分支，main分支仅保留对照，不冒充当前运行代码。",
-        "mainnet liquid_unstake.rs:61检查paused，80-102动态费/转换/池流动性，105-109最小提款。",
-        "README2026-10-TODO租金调整仅待确认变更线索，不作已升级/收益证据。"
+        "集群身份：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（预期一致）；finalized slot=467,364,393；blockHeight=445,382,306；epoch=1081（slotIndex 372,397/432,000）；recentPrioritizationFees 已取前 10。",
+        "mint 核验（getAccountInfo jsonParsed，owner=TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA，decimals=9，freezeAuthority=null）：mSOL supply=1593334.701665540（mintAuthority 3JLPCS1q…）；jitoSOL supply=7787011.349938865（6iQKfEyh…）；bSOL supply=659308.692219786（6WecYymE…）。",
+        "jitoSOL Stake Pool 账户 Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb（owner=SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy，len=611，slot 467,364,407）：pool_mint=jitoSOL（匹配）、token_program=Tokenkeg（匹配）、total_lamports=10205589766694027、pool_token_supply=7787011349938865 → 1 jitoSOL=1.3105913563 SOL。",
+        "bSOL Stake Pool 经 getProgramAccounts（memcmp offset 162 = bSOL mint）唯一命中 stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi（owner=SPL Stake Pool 程序，len=611）：pool_mint=bSOL（匹配）、token_program=Tokenkeg、total_lamports=873463658758201、pool_token_supply=659308692329841 → 1 bSOL=1.3248174473 SOL。",
+        "SPL Stake Pool 费率字段偏移解析不可靠（stake_deposit_fee 等出现明显不合理值；epoch_fee 解析为 (100,4) 亦未经校验），本轮费率一律记 unknown，不引用。",
+        "Marinade State 账户 8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC：len=2,616，owner=MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD（Marinade 程序）；首字段不是 msol_mint（当前布局），mSOL 当前汇率未解析，记 unknown。",
+        "DEX 发现快照（DexScreener，仅入口）：jitoSOL/SOL 对在 Orca Hp53XEtt…（流动性约 495 万美元）、Raydium 2uoKbPEi…、Meteora 等；本轮未读 Orca Whirlpool/Raydium 池链上状态，未得到链上可执行报价。",
+        "外部请求 12 次（≤80），同 host 间隔≥0.35s；无签名/广播/交易。"
       ],
       "coverage_gaps": [
-        "30天规则/程序升级与7天代表交易未回溯；无signature/slot/epoch区间。",
-        "Solana mainnet RPC getGenesisHash与Marinade文档CONNECT 403，集群身份/slot/commitment、账户owner和可执行程序未实时核验。",
-        "SDK只提供program/state；未读state.msol_mint和mint owner/Token Program、冻结权限或Token-2022扩展，不能从名称编mint。",
-        "没有DEX池/报价、即时SOL流动缓冲、份额比例/当前动态费或延期ticket与epoch规则；三出口数量/等待均unknown。",
-        "README标2026-10-TODO租金调整不是已生效事件；mainnet分支也仅官方声称部署版本，未独立核对程序data/升级slot。"
+        "没有链上 DEX 可执行报价（Orca Whirlpool/Raydium/Meteora 池状态未读），无法比较 DEX 价 vs 协议汇率，折价未知。",
+        "SPL Stake Pool 费率字段（WithdrawSol/WithdrawStake/epoch fee）偏移解析不可靠，费率 unknown；reserve_stake 流动性未读。",
+        "mSOL 汇率未解析（Marinade State 布局/版本），mSOL liq pool 动态费与延迟 ticket 规则未核。",
+        "即时退出容量与延迟退出实测等待未测；30 天规则变更与 7 天活动窗口未覆盖。",
+        "DexScreener 仅为聚合器发现快照，未用其展示价作结论；Token-2022 扩展未逐字段扫描（owner 为 SPL Token 已排除）。"
       ],
-      "report": "reports/agents/SOL02/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/SOL02/2026-11-09/live-20261109T141903Z.md",
       "task": "质押代币折价与退出",
       "chain": "SOL",
       "owner": "worker_a",
       "prompt": "prompts/agents/SOL02.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 2,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-        "verified_at": "2026-11-08T15:57:47.943885+00:00",
-        "record": "evidence/SOL02/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "SOL03",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:57:10.826803+00:00",
+      "last_success_at": "2026-11-09T15:18:55.766043+00:00",
+      "last_attempt_at": "2026-11-09T15:18:55.766043+00:00",
       "actual_coverage": [
-        "官方README明确Mainnet程序=KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD，Devnet也是同ID；staging另有ID。未通过文档推定当前集群。",
-        "lib.rs declare_id与README一致，只是源码，不是链上ProgramData或owner读取。",
-        "清算handler有liquidate_obligation_checks、redeem_reserve_collateral_checks及权限核查，结果分repay_amount/withdraw_collateral_amount/withdraw_amount/可选total_withdraw_liquidity_amount。",
-        "底层提款存在可选分支并扣protocol_fee，故抵押权利与真正可兑现底层不能混记；未读取现行任何账户或金额。"
+        "集群核验：getGenesisHash=5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d（与 mainnet-beta 期望一致）；getVersion solana-core=4.4.0；slot 467,364,930–467,365,246；epoch 1081，blockHeight 445,382,667。",
+        "Kamino KLend 程序 KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD：getAccountInfo owner=BPFLoaderUpgradeab1e11111111111111111111111、executable=true、space=36、lamports=33,141,440；program 账户 data 36B（discriminant=2）+ programdata=9uSbGW1y9H5Av6H5TKxQ1wnFApSq2t3oEpfF2YfjDQGA；ProgramData 账户 owner 同上、executable=false、space=10,485,760、discriminant=3、last_deploy_slot=461,744,249、upgrade_authority=GzFgdRJXmawPhGeBsyRCDLx4jAKPsvbUqoqitzppkzkW（option=1，存在升级权限）。",
+        "Solend 程序 So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo：owner=BPFLoaderUpgradeab1e…、executable=true、space=36、lamports=1,141,442；programdata=DMCvGv1fS5rMcAvEDPDDBawPqbDRSzJh2Bo6qXCmgJkR；ProgramData space=1,240,333、discriminant=3、last_deploy_slot=350,614,570、upgrade_authority=RY93CZYe5g6drtG7W9PmHRPzaBLZ1uwihTzayQTmJfh（option=1）。",
+        "Marginfi v2 程序 MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA：owner=BPFLoaderUpgradeab1e…、executable=true、space=36、lamports=1,141,459（本轮未读 ProgramData，属缺口）。",
+        "Solend main 市场 4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY（authorityAddress DdZR6zRFiUt4S5mg7AV1uKB2z1f1WzcNYCaTEEWPAuby）：市场账户链上存在，owner=So1endDq2…（executable=false，290B，lamports 2,909,280）；官方 configs API 中该市场 reserve 数=90（API 当页），其中同时满足 LTV>0 且 borrowLimit>0 的活跃 reserve 仅 7 个，其余多数 LTV=0/borrowLimit=0/stale（已弃用或迁移）。",
+        "Solend main 市场 reserve 参数（官方 reserves API，按 mint）：①USDC EPjFWdd5…：loanToValueRatio=70%（LTV 70%）、liquidationThreshold=77%、liquidationBonus=3%（maxLiquidationBonus=5%、maxLiquidationThreshold=79%）、borrowLimit=25,000,000,000,000、depositLimit=75,000,000,000,000、pythOracle=Dpw1EAVrSB1ibxiDQyTAW6Zip3J4Btk2x4SgApQCeFbX、switchboard=none、availableAmount=1,620,587,454,602、borrowedAmountWads=17.37e30（wads）、lastUpdate slot=467,343,196；②USDT Es9vMFrz…：LTV 70%/LT 77%/bonus 3%（max 5/79%）、borrowLimit=10,000,000,000,000；③SOL So111…：LTV 65%/LT 72%/bonus 3%（max 5/74%）、borrowLimit=200,000,000,000,000；④mSOL mSoLzY…：LTV 69%/LT 75%/bonus 0%（max 0/75%）、borrowLimit=0（借出已关闭）。",
+        "链上账户核验（getMultipleAccounts）：Solend main 市场账户存在；configs API 给出的两个 reserve 账户 CCpirWrgNuBVLdkP2haxLTbD6XqEgaYuVXixbbpxUB6（mSOL）与 JMBiQLjvqrKkBApAFKT1WkGY5qphQzqu4NutEkU99KK（RETARDIO）均存在且 owner=So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo（619B），executable=false。",
+        "清算奖励规则 vs 已实现净利：Solend 配置的 liquidationBonus（USDC/USDT/SOL 为 3%，上限 5%）是清算人取得抵押物的折价上限规则；实际净利=抵押物变现价值−代偿债务−卖出滑点/池费−gas（Solana 交易费+优先费）−协议清算费（config 有 protocolLiquidationFee=19、protocolTakeRate=20，单位未在 API 中标注，标 unknown）；本轮未取到可清算仓位，不能得已实现净利。"
       ],
       "coverage_gaps": [
-        "Solana RPC getGenesisHash及Kamino市场API目标代理CONNECT403；未获得集群身份、slot/commitment、program executable/owner/升级版本。",
-        "没有具体lending market/reserve/obligation账户、mint+Token Program、债务、当前清算阈值或允许代还额。",
-        "源码master未与当前ProgramData二进制对应；不能把所有Kamino市场套统一规则、奖励/权限或EVM HF。",
-        "30天程序升级/清算参数/权限/储备变更未覆盖，7天真实清算/抵押退出与资金注入复盘未覆盖。",
-        "没有抵押卖出/赎回报价、转账费/hook/冻结、优先费/账户创建/可退租金或融资成本实测。"
+        "未扫描 obligation 账户（未用 getProgramAccounts 过滤/未解 Obligation 布局）→ 无样本仓位与 HF<1 候选，不能断言当前无清算机会。",
+        "未读取 Kamino KLend 市场/reserve 的真实账户参数（本轮只核验程序身份与升级权限）；未读 MarginFi ProgramData。",
+        "Solend 参数取自官方 API，未 borsh 解码链上 Reserve 账户核对一致性；reserve 账户仅核验存在与 owner。",
+        "未校验预言机价格/新鲜度（pyth/switchboard 地址已读，价格未读）；未确认 stale=1 的 API 口径。",
+        "无 30 天规则/参数变更与 7 天清算事件历史；未观察实际清算交易。",
+        "未估算 Solana gas/优先费与抵押物变现滑点，无法给出已实现净利。",
+        "本轮外部请求 24 次（≤80 硬性上限，符合）。"
       ],
-      "report": "reports/agents/SOL03/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/SOL03/2026-11-09/live-20261109T141903Z.md",
       "task": "正常借贷清算兑现",
       "chain": "SOL",
       "owner": "worker_b",
       "prompt": "prompts/agents/SOL03.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 3,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-        "verified_at": "2026-11-08T15:57:47.943885+00:00",
-        "record": "evidence/SOL03/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "SONIC01",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:56:51.722665+00:00",
+      "last_success_at": "2026-11-09T15:22:00+00:00",
+      "last_attempt_at": "2026-11-09T15:22:00+00:00",
       "actual_coverage": [
-        {
-          "asset_label_from_registry": "USDC",
-          "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
-          "decimals_static": 6,
-          "chain_scope": "AaveV3Sonic.sol",
-          "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
-        },
-        {
-          "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
-          "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
-          "deployment_match": "unknown；未识别Sonic池"
-        }
+        "链：eth_chainId=0x92（146）；head=82,308,367（2026-11-09T15:17:45Z，hash 0xb87a949c…）；固定块 82,308,364；eth_gasPrice=55,000,000,000 wei（55 gwei）。",
+        "USDC.e 0x29219dd400f2Bf60E5a23d13Be72B486D4038894：代码 1,798 B（keccak 0xdc7d0316…）；name=USDC、symbol=USDC、decimals=6、paused=false。与原生 USDC 同名，需按地址/桥接来源区分（本轮未取得官方桥接映射文件）。",
+        "USDT 0x6047828dc181963ba44974801FF68e538dA5eaF9：代码 2,227 B；name=Tether USD、symbol=USDT、decimals=6。scUSD 0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE：代码 7,706 B；name=Sonic USD、symbol=scUSD、decimals=6。",
+        "Shadow USDC/USDT CL 池 0x9053fE060f412ad5677f934F89e07524343eE8E7：token0=USDC、token1=USDT、factory()=0xcd2d0637c94fe77c2896bbcbb174ceffb08de6d7、fee()=95、slot0 sqrtPriceX96=79273190208583106976735382350、tick=11、liquidity=56,188,069,421,234；DexScreener 快照流动性约 53.4 万美元。",
+        "Shadow USDC/scUSD CL 池 0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac：token0=USDC、token1=scUSD、同 factory、fee=95、tick=0、liquidity=22,571,488,127,193。",
+        "Metropolis USDC/scUSD 对 0x5015643B8dB50A1cB779A3e134176237d14ca67a：DexScreener 发现（流动性约 315 美元）；接口调用 revert，未报价。Curve Sonic API：HTTP 200 但 poolData 空（0 池）。",
+        "报价接口尝试：对两 Shadow 池依次调用 Curve get_dy(int128,int128,uint256) 与 Solidly getAmountOut(uint256,address)——全部 revert（空 data）；判定为 CL 类型/接口不匹配，非网络失败。",
+        "推导报价（固定块，本地单 tick CL 数学，非官方 Quoter；假设 fee=95/1e6=0.0095%、不跨 tick）：Shadow USDC→USDT 100=100.104009 USDT（1.00104）、1000=1001.02405（1.001024）；Shadow USDC→scUSD 100=99.994894、1000=999.909074。假设与推导记录在 raw/derived-cl-quotes.json。"
       ],
       "coverage_gaps": [
-        "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
-        "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
-        "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
-        "30天规则/新池/迁移/费率窗口未覆盖。",
-        "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
-        "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+        "没有第二独立市场报价（USDT/USDC 仅 Shadow 一个池；Metropolis USDC/scUSD 接口未知且流动性约 $315；Curve Sonic API 无池），2 腿闭环无法完成。",
+        "Shadow CL 官方 Quoter/ABI 未取得；推导报价依赖 fee=95/1e6、单 tick 内成交假设，需官方验证；tickSpacing/流动性分布未读。",
+        "USDC.e/USDT 发行/桥接来源（Sonic gateway 映射）未取得官方文件；scUSD 铸/赎规则与储备未核。",
+        "30 天规则/新池/费率变更与 7 天代表性活动未覆盖；池子失衡来源未复盘；未做完整只读模拟与更大档位。"
       ],
-      "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/SONIC01/2026-11-09/live-20261109T141903Z.md",
       "task": "稳定币完整循环核算",
       "chain": "SONIC",
       "owner": "worker_c",
       "prompt": "prompts/agents/SONIC01.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
-        "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "public_http_requests": 3,
+        "current_quote_obtained": true,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-        "verified_at": "2026-11-08T15:57:47.943885+00:00",
-        "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "SONIC02",

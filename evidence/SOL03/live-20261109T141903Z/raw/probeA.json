@@ -1,0 +1,61 @@
+{
+ "started_at_utc": "2026-11-09T15:17:08.058483+00:00",
+ "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+ "slot": 467364753,
+ "block_height": 445382667,
+ "epoch_info": {
+  "absoluteSlot": 467364758,
+  "blockHeight": 445382670,
+  "epoch": 1081,
+  "slotIndex": 372758,
+  "slotsInEpoch": 432000,
+  "transactionCount": 565911559998
+ },
+ "version": {
+  "feature-set": 2681577653,
+  "solana-core": "4.4.0"
+ },
+ "programs": {
+  "kamino_klend": {
+   "program_id": "KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
+   "program": "kamino_klend",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 33141440,
+   "space": 36
+  },
+  "solend": {
+   "program_id": "So1endDq2YkqhipRh3WViPa8hdiSpxWy6z3Z6tMCpAo",
+   "program": "solend",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 1141442,
+   "space": 36
+  },
+  "marginfi_v2": {
+   "program_id": "MFv2hWf31Z9kbCa1snEPYctwafyhdvnV7FZnsebVacA",
+   "program": "marginfi_v2",
+   "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+   "executable": true,
+   "lamports": 1141459,
+   "space": 36
+  }
+ },
+ "solend_api": {
+  "solend_markets_configs": {
+   "http_status": 200,
+   "keys": "list",
+   "raw_text_prefix": "[{\"name\":\"main\",\"isPrimary\":true,\"description\":\"\",\"creator\":\"5pHk2TmnqQzRF9L6egy5FfiyBgS7G9cMZ5RFaJAvghzw\",\"address\":\"4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY\",\"hidden\":false,\"isPermissionless\":false,\"authorityAddress\":\"DdZR6zRFiUt4S5mg7AV1uKB2z1f1WzcNYCaTEEWPAuby\",\"owner\":\"5pHk2TmnqQzRF9L6egy5FfiyBgS7G9cMZ5RFaJAvghzw\",\"reserves\":[{\"liquidityToken\":{\"coingeckoID\":\"msol\",\"decimals\":9,\"logo\":\"https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/mSoLzYCxHdYgdzU16g5QSh3i5"
+  },
+  "solend_reserves": {
+   "http_status": 200,
+   "keys": [
+    "results",
+    "next"
+   ],
+   "raw_text_prefix": "{\"results\":[{\"reserve\":{\"version\":1,\"lastUpdate\":{\"slot\":\"157559504\",\"stale\":1},\"lendingMarket\":\"3SS5HjEVy5jY41g24ACcLzizA2qNgtGonjiEo8yg2SFX\",\"liquidity\":{\"mintPubkey\":\"MangoCzJ36AjZyKwVj3VnYU4GTonjfVEnJmvvWaxLac\",\"mintDecimals\":6,\"supplyPubkey\":\"J77cekuwRzZDLYBU4dysyitUsuLziG16ji1MRMJux7RB\",\"oracleOption\":null,\"pythOracle\":\"HkGEau5xY1e8REXUFbwvWWvyJGywkgiAZZFpryyraWqJ\",\"switchboardOracle\":\"nu11111111111111111111111111111111111111111\",\"availableAmount\":\"10\",\"borrowedAmountWads\":\"0\",\"cumulativeB"
+  }
+ },
+ "finished_at_utc": "2026-11-09T15:17:16.384373+00:00",
+ "request_count_this_script": 10
+}

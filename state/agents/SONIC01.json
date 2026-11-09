@@ -2,18 +2,19 @@
   "agent_id": "SONIC01",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "REJECTED",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T15:19:38+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Sonic.sol",
-      "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy"
-    ],
-    "chain_block": null,
-    "pool_pages_completed": 0,
+    "kind": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "chain_id": 146,
+    "current_block": 82308367,
+    "pinned_block": 82308364,
+    "market_pages_completed": 3,
     "cycles_quoted": 0,
-    "history_complete": false
+    "history_complete": false,
+    "complete_block_range": "链/池状态固定块 82,308,364；head 82,308,367",
+    "complete_event_time_window": "单块快照（2026-11-09T15:17:45-15:19:38Z）；30 天规则/7 天活动未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -32,37 +33,29 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    {
-      "asset_label_from_registry": "USDC",
-      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
-      "decimals_static": 6,
-      "chain_scope": "AaveV3Sonic.sol",
-      "identity_status": "SECONDARY_PROTOCOL_STATIC_NOT_ISSUER_OR_CHAIN_VERIFIED"
-    },
-    {
-      "source": "https://raw.githubusercontent.com/curvefi/stableswap-ng/main/contracts/main/CurveStableSwapNG.vy",
-      "fields": "L378-425入/出更新stored_balances；L917-925动态费和rates换算；L943-972依赖当前xp/rates",
-      "deployment_match": "unknown；未识别Sonic池"
-    }
+    "链：eth_chainId=0x92（146）；head=82,308,367（2026-11-09T15:17:45Z，hash 0xb87a949c…）；固定块 82,308,364；gasPrice=55,000,000,000 wei（55 gwei）。",
+    "USDC.e 0x29219dd4…：代码 1,798 B；name/symbol 均为 USDC、6 位、paused=false（与原生 USDC 同名，需按地址/桥接来源区分）；USDT 0x6047828d…（2,227 B，Tether USD/USDT/6）；scUSD 0xd3DCe716…（7,706 B，Sonic USD/scUSD/6）。",
+    "市场发现：Shadow USDC/USDT CL 池 0x9053fE06…（token0=USDC/token1=USDT/factory 0xcd2d0637…/fee 95/slot0 sqrtP=79273190208583106976735382350/tick 11/liquidity 56188069421234，DexScreener 快照流动性约 53.4 万美元）；Shadow USDC/scUSD CL 池 0x2C133838…（fee 95/tick 0/liquidity 22571488127193）；Metropolis USDC/scUSD 0x5015643B…（发现快照约 $315，未报价）。",
+    "Curve Sonic：api.curve.finance/api/getPools/sonic/main HTTP 200 但 poolData 为空（0 池）→ 源限制。",
+    "报价接口：Shadow 池上 Curve get_dy 与 Solidly getAmountOut 全部 revert（CL 型接口不匹配，非网络失败）；官方 Quoter 未取得。",
+    "推导报价（本地单 tick CL 数学，固定块；假设 fee=95/1e6、不跨 tick；非官方 Quoter）：USDC→USDT 100=100.104009（+0.104%）、1000=1001.02405；USDC→scUSD 100=99.994894、1000=999.909074。",
+    "闭环排除：USDT/USDC 仅 Shadow 一个市场，无第二腿独立市场回兑 USDC；Metropolis 仅 USDC/scUSD 且约 $315 流动性、接口不匹配；Curve Sonic API 无池 → 2 腿闭环不成立（REJECTED）。",
+    "外部请求 74 次（≤80），同 host 间隔≥0.35s；无交易/签名。"
   ],
   "pending_questions": [
-    "Sonic网络存活/eth_chainId当前未核验：官方RPC CONNECT403。",
-    "Curve Sonic池目录CONNECT403，未得真实池地址、两种稳定币配对和当前储备。",
-    "仅有USDC静态协议登记，发行/桥接版本与当前code未核。",
-    "30天规则/新池/迁移/费率窗口未覆盖。",
-    "7天代表性兑换活动未覆盖，无区块/交易/事件游标。",
-    "没有2～3腿同状态回路、指定数量报价、历史走通证据或完整只读模拟。"
+    "没有第二独立市场报价（USDT/USDC 仅 Shadow；Metropolis USDC/scUSD 接口未知且流动性约 $315；Curve Sonic API 无池），2 腿闭环无法完成。",
+    "Shadow CL 官方 Quoter/ABI 未取得；推导报价依赖 fee=95/1e6、单 tick 内成交假设，需官方验证；tickSpacing/流动性分布未读。",
+    "USDC.e/USDT 发行或桥接来源（Sonic gateway 映射）未取得官方文件；scUSD 铸/赎规则与储备未核。",
+    "30 天规则/新池/费率变更与 7 天代表性活动未覆盖；池子失衡来源未复盘。",
+    "未做完整只读模拟（授权/账户创建/gas）与更大档位；推导价非可执行报价。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:56:51.722665+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/SONIC01/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/SONIC01/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "12d4b7a0a3100eaf9a7721270fe4cd08049eecab",
-    "verified_at": "2026-11-08T15:57:47.943885+00:00",
-    "record": "evidence/SONIC01/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T15:22:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/SONIC01/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/SONIC01/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
+  "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

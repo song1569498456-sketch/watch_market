@@ -1,0 +1,803 @@
+{
+ "agent_id": "SONIC01",
+ "chain": "SONIC",
+ "rpc": "https://rpc.soniclabs.com",
+ "started_at_utc": "2026-11-09T15:17:45.102604+00:00",
+ "observations": {
+  "chain_id": "0x92",
+  "head_block_number": 82308367,
+  "head_block": {
+   "number": "0x4e7ed0f",
+   "hash": "0xb87a949c309758a67622cf8de2dd736b15d4d57bdbe6aa2d70b49b8c019eb7be",
+   "timestamp": "0x6af1e419",
+   "baseFeePerGas": "0xba43b7400",
+   "timestamp_utc": "2026-11-09T15:17:45+00:00"
+  },
+  "pinned_block": 82308364,
+  "usdce": {
+   "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+   "code": {
+    "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "bytecode_bytes": 1798,
+    "code_keccak256": "0xdc7d03167b2b33566fa1cf50046e5bf4828f6d401678ed832d2cd7973ea17380"
+   },
+   "name()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "USDC"
+    ],
+    "error": null
+   },
+   "symbol()": {
+    "raw": "0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "USDC"
+    ],
+    "error": null
+   },
+   "decimals()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000006",
+    "decoded": [
+     "6"
+    ],
+    "error": null
+   },
+   "paused()": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "False"
+    ],
+    "error": null
+   }
+  },
+  "dexscreener": {
+   "http_status": 200,
+   "pair_count": 30
+  },
+  "stable_pairs": [
+   {
+    "chainId": "sonic",
+    "dexId": "shadow-exchange",
+    "pairAddress": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "base": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
+    "baseSymbol": "USDT",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "liquidityUsd": 534501.42,
+    "priceUsd": "0.9988"
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "shadow-exchange",
+    "pairAddress": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+    "base": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "baseSymbol": "scUSD",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quoteSymbol": "USDC",
+    "liquidityUsd": 30894.8,
+    "priceUsd": "0.9999"
+   },
+   {
+    "chainId": "sonic",
+    "dexId": "metropolis",
+    "pairAddress": "0x5015643B8dB50A1cB779A3e134176237d14ca67a",
+    "base": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "baseSymbol": "USDC",
+    "quote": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "quoteSymbol": "scUSD",
+    "liquidityUsd": 315.4,
+    "priceUsd": "1.00"
+   }
+  ],
+  "curve": {
+   "http_status": 200,
+   "pool_count": 0,
+   "pool_sample": []
+  },
+  "venue_probe": [
+   {
+    "dexId": "shadow-exchange",
+    "pair": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "pair_symbols": "USDT/USDC",
+    "code": {
+     "address": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+     "bytecode_bytes": 22933,
+     "code_keccak256": "0x34f351ddbd2a4ce60abbe2471cdc1161ca8b87768862bc7f45d69a24faa76971"
+    },
+    "base": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "liquidityUsd": 534501.42,
+    "token0()": {
+     "raw": "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+     "decoded": [
+      "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x0000000000000000000000006047828dc181963ba44974801ff68e538da5eaf9",
+     "decoded": [
+      "0x6047828dc181963ba44974801ff68e538da5eaf9"
+     ],
+     "error": null
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "fee()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000005f",
+     "decoded": [
+      "95"
+     ],
+     "error": null
+    },
+    "coins(uint256)": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    }
+   },
+   {
+    "dexId": "shadow-exchange",
+    "pair": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+    "pair_symbols": "scUSD/USDC",
+    "code": {
+     "address": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+     "bytecode_bytes": 22933,
+     "code_keccak256": "0x29ac2775a862eb6a841f2a85eae4de6635866caa490f49a7fb56d85427af219f"
+    },
+    "base": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "quote": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "liquidityUsd": 30894.8,
+    "token0()": {
+     "raw": "0x00000000000000000000000029219dd400f2bf60e5a23d13be72b486d4038894",
+     "decoded": [
+      "0x29219dd400f2bf60e5a23d13be72b486d4038894"
+     ],
+     "error": null
+    },
+    "token1()": {
+     "raw": "0x000000000000000000000000d3dce716f3ef535c5ff8d041c1a41c3bd89b97ae",
+     "decoded": [
+      "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+     ],
+     "error": null
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "fee()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000000005f",
+     "decoded": [
+      "95"
+     ],
+     "error": null
+    },
+    "coins(uint256)": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    }
+   },
+   {
+    "dexId": "metropolis",
+    "pair": "0x5015643B8dB50A1cB779A3e134176237d14ca67a",
+    "pair_symbols": "USDC/scUSD",
+    "code": {
+     "address": "0x5015643B8dB50A1cB779A3e134176237d14ca67a",
+     "bytecode_bytes": 97,
+     "code_keccak256": "0x2503b4559ef3939b652bdceb8bf170a58f8bf8962e91b90974f56445e4aa2d06"
+    },
+    "base": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "quote": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "liquidityUsd": 315.4,
+    "token0()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "token1()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "stable()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "getReserves()": {
+     "raw": "0x000000000000000000000000000000000000000000000000000000000adcbfea0000000000000000000000000000000000000000000000000000000007efdfba",
+     "decoded": {
+      "decode_error": "InsufficientDataBytes('Tried to read 32 bytes, only got 0 bytes.')",
+      "raw": "0x000000000000000000000000000000000000000000000000000000000adcbfea0000000000000000000000000000000000000000000000000000000007efdfba"
+     },
+     "error": null
+    },
+    "fee()": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    },
+    "coins(uint256)": {
+     "raw": null,
+     "decoded": null,
+     "error": {
+      "code": -32000,
+      "message": "execution reverted"
+     }
+    }
+   }
+  ],
+  "cycle_quotes": [
+   {
+    "venue": "shadow-exchange",
+    "pair": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "style": "solidly_getAmountOut",
+    "amount_in": "100",
+    "token_in": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
+    "token_out": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:12.138850+00:00"
+   },
+   {
+    "venue": "shadow-exchange",
+    "pair": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "style": "solidly_getAmountOut",
+    "amount_in": "1000",
+    "token_in": "0x6047828dc181963ba44974801FF68e538dA5eaF9",
+    "token_out": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:13.688324+00:00"
+   },
+   {
+    "venue": "shadow-exchange",
+    "pair": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+    "style": "solidly_getAmountOut",
+    "amount_in": "100",
+    "token_in": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "token_out": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:15.176679+00:00"
+   },
+   {
+    "venue": "shadow-exchange",
+    "pair": "0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac",
+    "style": "solidly_getAmountOut",
+    "amount_in": "1000",
+    "token_in": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "token_out": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:16.668410+00:00"
+   },
+   {
+    "venue": "metropolis",
+    "pair": "0x5015643B8dB50A1cB779A3e134176237d14ca67a",
+    "style": "solidly_getAmountOut",
+    "amount_in": "100",
+    "token_in": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "token_out": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:18.160615+00:00"
+   },
+   {
+    "venue": "metropolis",
+    "pair": "0x5015643B8dB50A1cB779A3e134176237d14ca67a",
+    "style": "solidly_getAmountOut",
+    "amount_in": "1000",
+    "token_in": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "token_out": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+    "amount_out": null,
+    "error": {
+     "code": -32000,
+     "message": "execution reverted"
+    },
+    "block": 82308364,
+    "quote_time_utc": "2026-11-09T15:18:19.636711+00:00"
+   }
+  ],
+  "gas_price_wei": {
+   "raw": "0xcce416600",
+   "value": 55000000000,
+   "error": null
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.485,
+   "retrieved_at_utc": "2026-11-09T15:17:46.587337+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T15:17:47.331769+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T15:17:48.072032+00:00"
+  },
+  {
+   "label": "getCode USDC.e",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T15:17:48.817346+00:00"
+  },
+  {
+   "label": "usdce name()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T15:17:49.553978+00:00"
+  },
+  {
+   "label": "usdce symbol()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.413,
+   "retrieved_at_utc": "2026-11-09T15:17:50.317503+00:00"
+  },
+  {
+   "label": "usdce decimals()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T15:17:51.055027+00:00"
+  },
+  {
+   "label": "usdce paused()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T15:17:51.793250+00:00"
+  },
+  {
+   "label": "dexscreener usdce pairs",
+   "url": "https://api.dexscreener.com/token-pairs/v1/sonic/0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+   "http_status": 200,
+   "error": null,
+   "sha256": "c3e97ae6c8cf8d4372edd6f834ee2959dae3cd900185fe21dd65cd594edf6576",
+   "bytes": 38384,
+   "retrieved_at_utc": "2026-11-09T15:17:53.189440+00:00",
+   "elapsed_s": 1.046
+  },
+  {
+   "label": "curve sonic pools",
+   "url": "https://api.curve.finance/api/getPools/sonic/main",
+   "http_status": 200,
+   "error": null,
+   "sha256": "6c6c4f57ddf852fc77f565b642ad0e30058c3dea057d0501a25b304c3856234e",
+   "bytes": 90,
+   "retrieved_at_utc": "2026-11-09T15:17:54.469290+00:00",
+   "elapsed_s": 0.929
+  },
+  {
+   "label": "getCode shadow-exchange",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T15:17:55.243884+00:00"
+  },
+  {
+   "label": "pair shadow-exchange token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.39,
+   "retrieved_at_utc": "2026-11-09T15:17:55.984947+00:00"
+  },
+  {
+   "label": "pair shadow-exchange token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.403,
+   "retrieved_at_utc": "2026-11-09T15:17:56.739447+00:00"
+  },
+  {
+   "label": "pair shadow-exchange stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.464,
+   "retrieved_at_utc": "2026-11-09T15:17:57.553308+00:00"
+  },
+  {
+   "label": "pair shadow-exchange getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.409,
+   "retrieved_at_utc": "2026-11-09T15:17:58.312689+00:00"
+  },
+  {
+   "label": "pair shadow-exchange fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T15:17:59.050157+00:00"
+  },
+  {
+   "label": "pair shadow-exchange coins(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T15:17:59.797466+00:00"
+  },
+  {
+   "label": "getCode shadow-exchange",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.441,
+   "retrieved_at_utc": "2026-11-09T15:18:00.589292+00:00"
+  },
+  {
+   "label": "pair shadow-exchange token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.392,
+   "retrieved_at_utc": "2026-11-09T15:18:01.332089+00:00"
+  },
+  {
+   "label": "pair shadow-exchange token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T15:18:02.081332+00:00"
+  },
+  {
+   "label": "pair shadow-exchange stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.388,
+   "retrieved_at_utc": "2026-11-09T15:18:02.819488+00:00"
+  },
+  {
+   "label": "pair shadow-exchange getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T15:18:03.565904+00:00"
+  },
+  {
+   "label": "pair shadow-exchange fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.403,
+   "retrieved_at_utc": "2026-11-09T15:18:04.319894+00:00"
+  },
+  {
+   "label": "pair shadow-exchange coins(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T15:18:05.060209+00:00"
+  },
+  {
+   "label": "getCode metropolis",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.395,
+   "retrieved_at_utc": "2026-11-09T15:18:05.804966+00:00"
+  },
+  {
+   "label": "pair metropolis token0()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.399,
+   "retrieved_at_utc": "2026-11-09T15:18:06.554078+00:00"
+  },
+  {
+   "label": "pair metropolis token1()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T15:18:07.328120+00:00"
+  },
+  {
+   "label": "pair metropolis stable()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.398,
+   "retrieved_at_utc": "2026-11-09T15:18:08.076894+00:00"
+  },
+  {
+   "label": "pair metropolis getReserves()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T15:18:08.816396+00:00"
+  },
+  {
+   "label": "pair metropolis fee()",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.387,
+   "retrieved_at_utc": "2026-11-09T15:18:09.554256+00:00"
+  },
+  {
+   "label": "pair metropolis coins(uint256)",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.401,
+   "retrieved_at_utc": "2026-11-09T15:18:10.305695+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T15:18:11.042104+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.396,
+   "retrieved_at_utc": "2026-11-09T15:18:11.788555+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.431,
+   "retrieved_at_utc": "2026-11-09T15:18:12.569824+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.418,
+   "retrieved_at_utc": "2026-11-09T15:18:13.337752+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T15:18:14.082225+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.393,
+   "retrieved_at_utc": "2026-11-09T15:18:14.826075+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.402,
+   "retrieved_at_utc": "2026-11-09T15:18:15.578781+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T15:18:16.318081+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.394,
+   "retrieved_at_utc": "2026-11-09T15:18:17.062152+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.397,
+   "retrieved_at_utc": "2026-11-09T15:18:17.810378+00:00"
+  },
+  {
+   "label": "curve get_dy 0->1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.389,
+   "retrieved_at_utc": "2026-11-09T15:18:18.549474+00:00"
+  },
+  {
+   "label": "solidly getAmountOut",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": {
+    "code": -32000,
+    "message": "execution reverted"
+   },
+   "elapsed_s": 0.386,
+   "retrieved_at_utc": "2026-11-09T15:18:19.286586+00:00"
+  },
+  {
+   "label": "eth_gasPrice",
+   "method": "eth_gasPrice",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.392,
+   "retrieved_at_utc": "2026-11-09T15:18:20.029021+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:18:20.379474+00:00",
+ "request_count": 44
+}

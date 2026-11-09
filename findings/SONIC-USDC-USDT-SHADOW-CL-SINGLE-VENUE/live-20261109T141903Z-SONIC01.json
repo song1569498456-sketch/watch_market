@@ -1,0 +1,28 @@
+{
+  "finding_id": "SONIC-USDC-USDT-SHADOW-CL-SINGLE-VENUE",
+  "status": "REJECTED",
+  "market_id": "SONIC:SHADOW_EXCHANGE:USDC_USDT_CL:0x9053fe060f412ad5677f934f89e07524343ee8e7",
+  "mechanism": "链上固定块 82,308,364：Shadow CL USDC/USDT 池 token0=USDC/token1=USDT/fee=95/tick=11/liquidity=56188069421234，单 tick CL 推导 USDC→USDT 100=100.104009（约 +0.10% USDT 溢价）；但 USDT/USDC 仅此一个市场（Metropolis 只有 USDC/scUSD 且流动性约 $315、Curve Sonic API 0 池），无第二腿独立市场回兑 USDC → 无法闭环；推导价也未经官方 Quoter 验证。",
+  "evidence_urls": [
+    "https://sonicscan.org/address/0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "https://api.dexscreener.com/token-pairs/v1/sonic/0x29219dd400f2Bf60E5a23d13Be72B486D4038894"
+  ],
+  "net_result": "unknown（无闭环；推导非可执行价；净额 null）",
+  "unknown_costs": [
+    "官方 Quoter 验证",
+    "第二市场",
+    "桥接/赎回",
+    "gas"
+  ],
+  "handoff_to": [
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "找到第二独立市场且净额为正",
+    "官方 quoter 验证推导不成立",
+    "池/费率变化"
+  ],
+  "owner": "SONIC01",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/SONIC01/live-20261109T141903Z/record.json"
+}

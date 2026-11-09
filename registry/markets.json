@@ -984,19 +984,36 @@
     {
       "market_id": "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC",
       "chain": "SOL",
-      "protocol": "Marinade liquid staking state discovery, mint pending",
-      "asset_ids": [],
-      "evidence_urls": [
-        "https://raw.githubusercontent.com/marinade-finance/marinade-ts-sdk/main/src/config/marinade-config.ts"
+      "protocol": "Marinade State（mSOL）",
+      "asset_ids": [
+        "solana:mint:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
       ],
-      "identity_status": "OFFICIAL_SDK_ONLY_NOT_CLUSTER_OWNER_OR_MINT_VERIFIED",
-      "next_check": "使用可用Solana RPC先getGenesisHash/getSlot(finalized)，getAccountInfo(program/state)核对owner/executable并读取state.msol_mint。",
+      "evidence_urls": [
+        "https://solscan.io/account/8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"
+      ],
+      "identity_status": "OWNER_VERIFIED（len 2,616，owner=MarBms… Marinade 程序）；mSOL 汇率/LIQ pool 状态未解析 unknown",
+      "next_check": "解析 State 取 mSOL 汇率与 liq pool 动态费",
       "owner": "SOL02",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/SOL02/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL02/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "SOL02": {
+          "market_id": "SOL:MARINADE:STATE:8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC",
+          "chain": "SOL",
+          "protocol": "Marinade State（mSOL）",
+          "asset_ids": [
+            "solana:mint:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC"
+          ],
+          "identity_status": "OWNER_VERIFIED（len 2,616，owner=MarBms… Marinade 程序）；mSOL 汇率/LIQ pool 状态未解析 unknown",
+          "next_check": "解析 State 取 mSOL 汇率与 liq pool 动态费"
+        }
+      }
     },
     {
       "market_id": "SOL:mainnet-beta:Kamino:program:KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD",
@@ -4495,6 +4512,210 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_MINIMAL_PROXY_IMPL_DRIFT_FROM_README",
           "next_check": "impl 源码/角色/暂停/退出；是否被借贷接受"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+      "chain": "SOL",
+      "protocol": "Jito SPL Stake Pool（jitoSOL）",
+      "asset_ids": [
+        "solana:mint:J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb"
+      ],
+      "identity_status": "CHAIN_VERIFIED：owner=SPL Stake Pool 程序；pool_mint/token_program 校验通过；total_lamports/pool_token_supply 已读 → 1.3105913563 SOL/jitoSOL；费率/reserve unknown",
+      "next_check": "费率/reserve 与实际退出容量；DEX 报价比较",
+      "owner": "SOL02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SOL02": {
+          "market_id": "SOL:SPL_STAKE_POOL:JITOSOL:Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+          "chain": "SOL",
+          "protocol": "Jito SPL Stake Pool（jitoSOL）",
+          "asset_ids": [
+            "solana:mint:J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb"
+          ],
+          "identity_status": "CHAIN_VERIFIED：owner=SPL Stake Pool 程序；pool_mint/token_program 校验通过；total_lamports/pool_token_supply 已读 → 1.3105913563 SOL/jitoSOL；费率/reserve unknown",
+          "next_check": "费率/reserve 与实际退出容量；DEX 报价比较"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:SPL_STAKE_POOL:BSOL:stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi",
+      "chain": "SOL",
+      "protocol": "SolBlaze SPL Stake Pool（bSOL）",
+      "asset_ids": [
+        "solana:mint:bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+      ],
+      "identity_status": "CHAIN_VERIFIED：getProgramAccounts memcmp 唯一命中；pool_mint=bSOL；total_lamports/pool_token_supply 已读 → 1.3248174473 SOL/bSOL；费率 unknown",
+      "next_check": "费率/reserve；DEX 报价比较",
+      "owner": "SOL02",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL02/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SOL02": {
+          "market_id": "SOL:SPL_STAKE_POOL:BSOL:stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi",
+          "chain": "SOL",
+          "protocol": "SolBlaze SPL Stake Pool（bSOL）",
+          "asset_ids": [
+            "solana:mint:bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+          ],
+          "identity_status": "CHAIN_VERIFIED：getProgramAccounts memcmp 唯一命中；pool_mint=bSOL；total_lamports/pool_token_supply 已读 → 1.3248174473 SOL/bSOL；费率 unknown",
+          "next_check": "费率/reserve；DEX 报价比较"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+      "chain": "SOL",
+      "protocol": "Solend main market",
+      "asset_ids": [
+        "SOL:mainnet-beta:mint:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      ],
+      "evidence_urls": [
+        "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+      ],
+      "identity_status": "CHAIN_VERIFIED_MARKET_ACCOUNT_AND_PARAMS_READ",
+      "next_check": "扫 obligation 求 HF；核对链上 Reserve 数据",
+      "owner": "SOL03",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SOL03/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SOL03": {
+          "market_id": "SOL:mainnet-beta:solend-market:4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY",
+          "chain": "SOL",
+          "protocol": "Solend main market",
+          "asset_ids": [
+            "SOL:mainnet-beta:mint:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          ],
+          "evidence_urls": [
+            "https://solscan.io/account/4UpD2fh7xH3VP9QQaXtsS1YY3bxzWhtfpks7FatyKvdY"
+          ],
+          "identity_status": "CHAIN_VERIFIED_MARKET_ACCOUNT_AND_PARAMS_READ",
+          "next_check": "扫 obligation 求 HF；核对链上 Reserve 数据"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:SHADOW_EXCHANGE:USDC_USDT_CL:0x9053fe060f412ad5677f934f89e07524343ee8e7",
+      "chain": "SONIC",
+      "protocol": "Shadow Exchange CL USDC/USDT",
+      "asset_ids": [
+        "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "0x6047828dc181963ba44974801ff68e538da5eaf9"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x9053fE060f412ad5677f934F89e07524343eE8E7"
+      ],
+      "identity_status": "CHAIN_VERIFIED：token0=USDC/token1=USDT/factory 0xcd2d0637…/fee 95/slot0/liquidity 56188069421234；CL 型（Solidly/Curve 接口 revert）；官方 Quoter 未取得",
+      "next_check": "官方 Quoter 验证与 tick 跨越判断；容量档位",
+      "owner": "SONIC01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC01": {
+          "market_id": "SONIC:SHADOW_EXCHANGE:USDC_USDT_CL:0x9053fe060f412ad5677f934f89e07524343ee8e7",
+          "chain": "SONIC",
+          "protocol": "Shadow Exchange CL USDC/USDT",
+          "asset_ids": [
+            "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+            "0x6047828dc181963ba44974801ff68e538da5eaf9"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x9053fE060f412ad5677f934F89e07524343eE8E7"
+          ],
+          "identity_status": "CHAIN_VERIFIED：token0=USDC/token1=USDT/factory 0xcd2d0637…/fee 95/slot0/liquidity 56188069421234；CL 型（Solidly/Curve 接口 revert）；官方 Quoter 未取得",
+          "next_check": "官方 Quoter 验证与 tick 跨越判断；容量档位"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:SHADOW_EXCHANGE:USDC_SCUSD_CL:0x2c13383855377faf5a562f1aef47e4be7a0f12ac",
+      "chain": "SONIC",
+      "protocol": "Shadow Exchange CL USDC/scUSD",
+      "asset_ids": [
+        "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac"
+      ],
+      "identity_status": "CHAIN_VERIFIED：token0=USDC/token1=scUSD/fee 95/tick 0/liquidity 22571488127193；scUSD 规则未核",
+      "next_check": "scUSD 发行/赎回规则；官方 Quoter",
+      "owner": "SONIC01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC01": {
+          "market_id": "SONIC:SHADOW_EXCHANGE:USDC_SCUSD_CL:0x2c13383855377faf5a562f1aef47e4be7a0f12ac",
+          "chain": "SONIC",
+          "protocol": "Shadow Exchange CL USDC/scUSD",
+          "asset_ids": [
+            "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+            "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x2C13383855377faf5A562F1AeF47E4be7A0f12Ac"
+          ],
+          "identity_status": "CHAIN_VERIFIED：token0=USDC/token1=scUSD/fee 95/tick 0/liquidity 22571488127193；scUSD 规则未核",
+          "next_check": "scUSD 发行/赎回规则；官方 Quoter"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "SONIC:METROPOLIS:USDC_SCUSD:0x5015643b8db50a1cb779a3e134176237d14ca67a",
+      "chain": "SONIC",
+      "protocol": "Metropolis USDC/scUSD",
+      "asset_ids": [
+        "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+        "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+      ],
+      "evidence_urls": [
+        "https://sonicscan.org/address/0x5015643B8dB50A1cB779A3e134176237d14ca67a"
+      ],
+      "identity_status": "DISCOVERY_ONLY（DexScreener 约 $315 流动性；接口不匹配未报价）",
+      "next_check": "识别接口并报价",
+      "owner": "SONIC01",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/SONIC01/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "SONIC01": {
+          "market_id": "SONIC:METROPOLIS:USDC_SCUSD:0x5015643b8db50a1cb779a3e134176237d14ca67a",
+          "chain": "SONIC",
+          "protocol": "Metropolis USDC/scUSD",
+          "asset_ids": [
+            "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+            "0xd3dce716f3ef535c5ff8d041c1a41c3bd89b97ae"
+          ],
+          "evidence_urls": [
+            "https://sonicscan.org/address/0x5015643B8dB50A1cB779A3e134176237d14ca67a"
+          ],
+          "identity_status": "DISCOVERY_ONLY（DexScreener 约 $315 流动性；接口不匹配未报价）",
+          "next_check": "识别接口并报价"
         }
       },
       "current_onchain_verified": true,

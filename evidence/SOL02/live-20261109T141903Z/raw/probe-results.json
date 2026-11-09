@@ -1,0 +1,406 @@
+{
+ "agent_id": "SOL02",
+ "chain": "SOL",
+ "rpc": "https://api.mainnet-beta.solana.com",
+ "started_at_utc": "2026-11-09T15:15:50.718109+00:00",
+ "observations": {
+  "genesis_hash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+  "slot_finalized": 467364393,
+  "block_height": 445382306,
+  "epoch_info": {
+   "absoluteSlot": 467364397,
+   "blockHeight": 445382309,
+   "epoch": 1081,
+   "slotIndex": 372397,
+   "slotsInEpoch": 432000,
+   "transactionCount": 565911353246
+  },
+  "recent_prioritization_fees": [
+   {
+    "prioritizationFee": 0,
+    "slot": 467364248
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364249
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364250
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364251
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364252
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364253
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364254
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364255
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364256
+   },
+   {
+    "prioritizationFee": 0,
+    "slot": 467364257
+   }
+  ],
+  "mints": {
+   "mSOL": {
+    "mint": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    "context_slot": 467364401,
+    "value": {
+     "data": {
+      "parsed": {
+       "info": {
+        "decimals": 9,
+        "freezeAuthority": null,
+        "isInitialized": true,
+        "mintAuthority": "3JLPCS1qM2zRw3Dp6V4hZnYHd4toMNPkNesXdX9tg6KM",
+        "supply": "1593334701665540"
+       },
+       "type": "mint"
+      },
+      "program": "spl-token",
+      "space": 82
+     },
+     "executable": false,
+     "lamports": 11891766013,
+     "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+     "rentEpoch": 18446744073709551615,
+     "space": 82
+    },
+    "error": null
+   },
+   "jitoSOL": {
+    "mint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "context_slot": 467364403,
+    "value": {
+     "data": {
+      "parsed": {
+       "info": {
+        "decimals": 9,
+        "freezeAuthority": null,
+        "isInitialized": true,
+        "mintAuthority": "6iQKfEyhr3bZMotVkW6beNZz5CPAkiwvgV2CTje9pVSS",
+        "supply": "7787011349938865"
+       },
+       "type": "mint"
+      },
+      "program": "spl-token",
+      "space": 82
+     },
+     "executable": false,
+     "lamports": 3826303234,
+     "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+     "rentEpoch": 18446744073709551615,
+     "space": 82
+    },
+    "error": null
+   },
+   "bSOL": {
+    "mint": "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+    "context_slot": 467364405,
+    "value": {
+     "data": {
+      "parsed": {
+       "info": {
+        "decimals": 9,
+        "freezeAuthority": null,
+        "isInitialized": true,
+        "mintAuthority": "6WecYymEARvjG5ZyqkrVQ6YkhPfujNzWpSPwNKXHCbV2",
+        "supply": "659308692219786"
+       },
+       "type": "mint"
+      },
+      "program": "spl-token",
+      "space": 82
+     },
+     "executable": false,
+     "lamports": 5302872943,
+     "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+     "rentEpoch": 18446744073709551615,
+     "space": 82
+    },
+    "error": null
+   }
+  },
+  "jito_pool_account": {
+   "context_slot": 467364407,
+   "error": null,
+   "parsed": {
+    "len": 611,
+    "account_type": 1,
+    "manager": "5eosrve6LktMZgVNszYzebgmmC7BjLK8NoWyRQtcmGTF",
+    "pool_mint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "pool_mint_matches_expected": true,
+    "token_program_is_spl_token": true,
+    "total_lamports": 10205589766694027,
+    "pool_token_supply": 7787011349938865,
+    "last_update_epoch": 1081,
+    "epoch_fee": [
+     100,
+     4
+    ],
+    "next_epoch_fee": [
+     0,
+     0
+    ],
+    "stake_deposit_fee": [
+     216212591329532584,
+     281474976710656
+    ],
+    "stake_withdrawal_fee": [
+     17798225727368200192,
+     11817468380253709390
+    ],
+    "next_stake_withdrawal_fee": [
+     24788293276299,
+     0
+    ],
+    "sol_deposit_fee": [
+     0,
+     0
+    ],
+    "sol_withdrawal_fee": [
+     0,
+     0
+    ],
+    "next_sol_withdrawal_fee": [
+     0,
+     0
+    ],
+    "last_epoch_pool_token_supply": 0,
+    "last_epoch_total_lamports": 0,
+    "lamports_per_pool_token": 1.3105913563069547,
+    "sol_per_token_9dec": 1.3105913563069547
+   },
+   "raw_len": 611,
+   "owner": "SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy"
+  },
+  "bsol_pool": {
+   "error": null,
+   "count": 1,
+   "parsed": {
+    "len": 611,
+    "account_type": 1,
+    "manager": "b1azeTfpBiKN6AhEGVd1iPBsX3vmZqnFmS7Kqau7a2w",
+    "pool_mint": "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+    "token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "pool_mint_matches_expected": true,
+    "token_program_is_spl_token": true,
+    "total_lamports": 873463658758201,
+    "pool_token_supply": 659308692329841,
+    "last_update_epoch": 1081,
+    "epoch_fee": [
+     10000,
+     500
+    ],
+    "next_epoch_fee": [
+     167772160000,
+     167772160
+    ],
+    "stake_deposit_fee": [
+     15276213347965463667,
+     3746998216318614908
+    ],
+    "stake_withdrawal_fee": [
+     4214925188003,
+     0
+    ],
+    "next_stake_withdrawal_fee": [
+     0,
+     0
+    ],
+    "sol_deposit_fee": [
+     0,
+     0
+    ],
+    "sol_withdrawal_fee": [
+     0,
+     0
+    ],
+    "next_sol_withdrawal_fee": [
+     0,
+     0
+    ],
+    "last_epoch_pool_token_supply": 0,
+    "last_epoch_total_lamports": 0,
+    "lamports_per_pool_token": 1.3248174473046714,
+    "sol_per_token_9dec": 1.3248174473046714,
+    "owner": "SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy"
+   },
+   "pubkey": "stk9ApL5HeVAwPLr3TLhDXdZS8ptVu7zp6ov8HFDuMi"
+  },
+  "marinade_state": {
+   "error": null,
+   "context_slot": 467364411,
+   "len": 2616,
+   "owner": "MarBmsSgKXdrN1egZf5sqe1TMai9K1rChYNDJgjq7aD",
+   "first_32_pubkey": "FaQZJ2HtnAWYuUVxw3koUDoAV2zS9n5agnK7GRtTUvSr",
+   "first_pubkey_is_msol_mint": false
+  },
+  "dexscreener": {
+   "http_status": 200,
+   "solana_pairs": [
+    {
+     "chainId": "solana",
+     "dexId": "orca",
+     "pairAddress": "5hWJUNTtEtKmKgDXpthJXXRRmJrz5vJ7uJzrUNVdrwLg",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "USDC",
+     "priceUsd": "114.21",
+     "liquidityUsd": 273478.97
+    },
+    {
+     "chainId": "solana",
+     "dexId": "orca",
+     "pairAddress": "Hp53XEtt4S8SvPCXarsLSdGfZBuUr5mMmZmX2DRNXQKp",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "SOL",
+     "priceUsd": "114.069",
+     "liquidityUsd": 4956734.89
+    },
+    {
+     "chainId": "solana",
+     "dexId": "raydium",
+     "pairAddress": "2uoKbPEidR7KAMYtY4x7xdkHXWqYib5k4CutJauSL3Mc",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "SOL",
+     "priceUsd": "114.058",
+     "liquidityUsd": 1424718.85
+    },
+    {
+     "chainId": "solana",
+     "dexId": "meteora",
+     "pairAddress": "BoeMUkCLHchTD31HdXsbDExuZZfcUppSLpYtV3LZTH6U",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "SOL",
+     "priceUsd": "114.070",
+     "liquidityUsd": 970950.55
+    },
+    {
+     "chainId": "solana",
+     "dexId": "meteora",
+     "pairAddress": "ERgpKaq59Nnfm9YRVAAhnq16cZhHxGcDoDWCzXbhiaNw",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "SOL",
+     "priceUsd": "114.0043",
+     "liquidityUsd": 2275715.49
+    },
+    {
+     "chainId": "solana",
+     "dexId": "orca",
+     "pairAddress": "CxvWVYvvSymLWQNLqo61zjr1L86B4HpxoELbAAjxyb8H",
+     "baseSymbol": "JitoSOL",
+     "quoteSymbol": "USDC",
+     "priceUsd": "114.39",
+     "liquidityUsd": 72127.37
+    }
+   ]
+  }
+ },
+ "requests": [
+  {
+   "label": "getGenesisHash",
+   "method": "getGenesisHash",
+   "error": null,
+   "elapsed_s": 0.393,
+   "retrieved_at_utc": "2026-11-09T15:15:51.110973+00:00"
+  },
+  {
+   "label": "getSlot finalized",
+   "method": "getSlot",
+   "error": null,
+   "elapsed_s": 0.083,
+   "retrieved_at_utc": "2026-11-09T15:15:51.544584+00:00"
+  },
+  {
+   "label": "getBlockHeight",
+   "method": "getBlockHeight",
+   "error": null,
+   "elapsed_s": 0.085,
+   "retrieved_at_utc": "2026-11-09T15:15:51.979787+00:00"
+  },
+  {
+   "label": "getEpochInfo",
+   "method": "getEpochInfo",
+   "error": null,
+   "elapsed_s": 0.076,
+   "retrieved_at_utc": "2026-11-09T15:15:52.406017+00:00"
+  },
+  {
+   "label": "getRecentPrioritizationFees",
+   "method": "getRecentPrioritizationFees",
+   "error": null,
+   "elapsed_s": 0.081,
+   "retrieved_at_utc": "2026-11-09T15:15:52.837854+00:00"
+  },
+  {
+   "label": "mint mSOL",
+   "method": "getAccountInfo",
+   "error": null,
+   "elapsed_s": 0.078,
+   "retrieved_at_utc": "2026-11-09T15:15:53.266272+00:00"
+  },
+  {
+   "label": "mint jitoSOL",
+   "method": "getAccountInfo",
+   "error": null,
+   "elapsed_s": 0.081,
+   "retrieved_at_utc": "2026-11-09T15:15:53.698353+00:00"
+  },
+  {
+   "label": "mint bSOL",
+   "method": "getAccountInfo",
+   "error": null,
+   "elapsed_s": 0.085,
+   "retrieved_at_utc": "2026-11-09T15:15:54.133348+00:00"
+  },
+  {
+   "label": "jito stake pool account",
+   "method": "getAccountInfo",
+   "error": null,
+   "elapsed_s": 0.09,
+   "retrieved_at_utc": "2026-11-09T15:15:54.573439+00:00"
+  },
+  {
+   "label": "gpa bSOL stake pool",
+   "method": "getProgramAccounts",
+   "error": null,
+   "elapsed_s": 0.19,
+   "retrieved_at_utc": "2026-11-09T15:15:55.114141+00:00"
+  },
+  {
+   "label": "marinade state account",
+   "method": "getAccountInfo",
+   "error": null,
+   "elapsed_s": 0.082,
+   "retrieved_at_utc": "2026-11-09T15:15:55.546627+00:00"
+  },
+  {
+   "label": "dexscreener jitoSOL",
+   "url": "https://api.dexscreener.com/latest/dex/search?q=jitoSOL",
+   "http_status": 200,
+   "error": null,
+   "sha256": "0205032f56a53cfafb52adadca7dccc4e304bd31f10ba84d928aa3e752ccd03b",
+   "bytes": 24178,
+   "retrieved_at_utc": "2026-11-09T15:15:56.570781+00:00"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T15:15:56.921709+00:00",
+ "request_count": 12
+}

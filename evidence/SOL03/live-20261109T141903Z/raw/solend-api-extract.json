@@ -1,0 +1,32 @@
+{
+  "note": "Solend 官方 API 快照(>1MB)按记录协议裁剪为摘要；完整文件以 sha256 标识，未丢失字段结论。",
+  "files": [
+    {
+      "file": "solend_reserves.json",
+      "bytes": 1533107,
+      "sha256": "cbfb648bda2e4764cf7fde90f22c05bc661eb1e357080b99ce9131d7e4729422",
+      "top_keys": [
+        "results",
+        "next"
+      ],
+      "item_count": 753,
+      "active_reserves_ltv_gt_0": []
+    },
+    {
+      "file": "solend_reserves_1000.json",
+      "bytes": 1533107,
+      "sha256": "fc2b24d215f0f6a2eb533e048fe9b25c460ddd36ec39ac4b347c6034eb924f95",
+      "top_keys": [
+        "results",
+        "next"
+      ],
+      "item_count": 753,
+      "active_reserves_ltv_gt_0": []
+    },
+    {
+      "file": "solend_markets_configs.json",
+      "bytes": 584045,
+      "sha256": "dbf0d19bb27f15332662a1023f8e8af6df60829f90c739e98a867d807c1b16a7"
+    }
+  ]
+}
