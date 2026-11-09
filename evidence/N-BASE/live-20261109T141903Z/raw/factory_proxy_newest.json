@@ -1,0 +1,92 @@
+{
+ "started_at_utc": "2026-11-09T14:40:58.437817+00:00",
+ "chain_id": 8453,
+ "latest_block": 55224420,
+ "latest_block_time_utc": "2026-11-09T14:40:59+00:00",
+ "base_fee_wei": "0x4c4b40",
+ "all_pools_length": 29931,
+ "factory_impl_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+ "factory_implementation_call": "0x000000000000000000000000a4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+ "newest_pools_by_index": [
+  {
+   "index": 29930,
+   "pool": "0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30"
+  },
+  {
+   "index": 29929,
+   "pool": "0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"
+  },
+  {
+   "index": 29928,
+   "pool": "0x5dea8409a7a56c906889d5cf3ec9779c699d7f5f"
+  },
+  {
+   "index": 29927,
+   "pool": "0x49151e461b25dbb772d6664ab182e70b42e0e86d"
+  },
+  {
+   "index": 29926,
+   "pool": "0x0a70a901fc2a4ad4613a177c4b6e1842c02fb16a"
+  },
+  {
+   "index": 29925,
+   "pool": "0x26d5bffc1dd6c7ecb403ad593eb74b8c4575a460"
+  },
+  {
+   "index": 29924,
+   "pool": "0xa8a7f59b1da67d0ce8b86c3a76b164f8a1ba016b"
+  },
+  {
+   "index": 29923,
+   "pool": "0x56b4de7161069069d8f6a7e060839f5c47945f87"
+  },
+  {
+   "index": 29922,
+   "pool": "0xc806c6503203f1020075941948abb36fa4f9bbd4"
+  },
+  {
+   "index": 29921,
+   "pool": "0xa3f8c9d6aa4de924acb49811f05cc5378cbd9de5"
+  },
+  {
+   "index": 29920,
+   "pool": "0xcf7bdcadb8713a9d4dca9f8c0a88bd1bdf343cf7"
+  },
+  {
+   "index": 29919,
+   "pool": "0xb657fff82444084b2a7301cb978b3ba4c9d03418"
+  },
+  {
+   "index": 29918,
+   "pool": "0xac55db43e7dd2e5831c724af76825a27dc1dbe9a"
+  },
+  {
+   "index": 29917,
+   "pool": "0x85892b6a9013ea695c779035e10a15c43b208d24"
+  },
+  {
+   "index": 29916,
+   "pool": "0x49b1b28d0025a8b8e81140eab998f5386ea4c711"
+  },
+  {
+   "index": 29915,
+   "pool": "0xdadc3df700a28a5632bb8260b2632313826a9be3"
+  },
+  {
+   "index": 29914,
+   "pool": "0x4f33f469271240b7c5b6d1039715beb98bb618d9"
+  },
+  {
+   "index": 29913,
+   "pool": "0xa201965d5a2e69c4359e5b2bdfe3aec52f60f7de"
+  },
+  {
+   "index": 29912,
+   "pool": "0xb4445e19cb103089fc6636b02de335366746fbbf"
+  },
+  {
+   "index": 29911,
+   "pool": "0x75829ad4352b449d8589997430ac5db45400a8fb"
+  }
+ ]
+}

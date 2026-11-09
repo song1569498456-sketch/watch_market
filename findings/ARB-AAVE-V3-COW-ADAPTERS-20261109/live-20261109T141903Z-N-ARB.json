@@ -1,0 +1,29 @@
+{
+  "finding_id": "ARB-AAVE-V3-COW-ADAPTERS-20261109",
+  "status": "RULE_GAP",
+  "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+  "mechanism": "Aave 官方地址书 2026-11-09T10:09:32Z 提交 cc662ae5377f 为 Arbitrum 新增 CoW 适配器组（factory + collateral swap / debt swap / repay-with-collateral / leverage）。若被 Aave/CoW 授权启用，可将 Aave 头寸的抵押品替换、债务替换、用抵押品还款、杠杆操作通过 CoW intent 单流程完成，改变清算阈值与退出成本的计算路径。链上 5 个地址代码已确认存在；授权/生效/行为未读。",
+  "evidence_urls": [
+    "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+    "https://arb1.arbitrum.io/rpc"
+  ],
+  "net_result": "unknown（仅机制线索，无报价/净额）",
+  "unknown_costs": [
+    "授权与开关状态",
+    "适配器 gas/撮合成本",
+    "Aave 清算阈值影响",
+    "L2 gas 与 L1 数据费"
+  ],
+  "handoff_to": [
+    "M00"
+  ],
+  "invalidation_conditions": [
+    "适配器未被注册授权/未启用",
+    "实现与描述不符",
+    "权限不允许公开使用"
+  ],
+  "owner": "N-ARB",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json"
+}

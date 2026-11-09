@@ -1,0 +1,32 @@
+{
+  "finding_id": "OP-CONTRACTS-V9-ALLOWLIST-RELEASE-NOT-ACTIVATED",
+  "status": "UNVERIFIED",
+  "chain": "OP",
+  "market_id": null,
+  "first_seen_at": "2026-11-09T14:41:15+00:00",
+  "last_observed_run": "live-20261109T141903Z",
+  "mechanism": "Optimism releases atom 显示 30 天窗口内（2026-10-10～2026-11-09）发布 op-contracts v9.0.0+allowlist（2026-11-06T01:51:48Z）与 op-deployer v0.9.0-allowlist（2026-11-06T02:06:22Z），命名含 allowlist，属 OP Stack 合约/部署器规则级发布；但未核验 OP Mainnet 链上激活或配置变更，不能当已生效规则。superchain-registry 的 op.toml 在 30 天内无提交，最新 hardfork 为 karst_time（2026-07-08），说明主网链配置尚未变化。",
+  "evidence_urls": [
+    "https://github.com/ethereum-optimism/optimism/releases.atom",
+    "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+    "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+  ],
+  "net_result": null,
+  "unknown_costs": [
+    "实际激活时间与影响面",
+    "是否需要 L1 合约升级",
+    "是否影响 L2 用户操作/费用"
+  ],
+  "handoff_to": [
+    "M00",
+    "OP01",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "发布只是 RC/测试网",
+    "OP Mainnet 已在窗口内升级但未反映在 op.toml",
+    "该 allowlist 与公开市场无关"
+  ],
+  "owner": "N-OP",
+  "source_record": "evidence/N-OP/live-20261109T141903Z/record.json"
+}

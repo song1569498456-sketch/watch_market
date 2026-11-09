@@ -1,0 +1,710 @@
+{
+ "agent_id": "N-ARB",
+ "chain": "ARB",
+ "rpc": "https://arb1.arbitrum.io/rpc",
+ "started_at_utc": "2026-11-09T14:36:34.525420+00:00",
+ "observations": {
+  "chain_id": "0xa4b1",
+  "head_block_number": 522704127,
+  "head_block": {
+   "number": "0x1f27d4ff",
+   "hash": "0x8a8e456d02613bbd38072abb6081627fc4a554692fa873bdfb1287a078086843",
+   "timestamp": "0x6af1da73",
+   "baseFeePerGas": "0x1312d00",
+   "l1BlockNumber": "0x1927ef4",
+   "timestamp_utc": "2026-11-09T14:36:35+00:00"
+  },
+  "pinned_block": 522704122,
+  "code": {
+   "univ3_factory": {
+    "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "bytecode_bytes": 24535,
+    "code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69"
+   },
+   "aave_pool": {
+    "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "bytecode_bytes": 2400,
+    "code_keccak256": "0xf168c2e9e4d04292c7d5d526a9a917175a44369ab63a2f9997537acf0ffaaf2e"
+   },
+   "aave_provider": {
+    "address": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+    "bytecode_bytes": 9846,
+    "code_keccak256": "0x1a95f317ee56e0b9aedc4f4b7abd9e546dc45c26d1d77e95bcf62b789d9a5486"
+   },
+   "aave_configurator": {
+    "address": "0x8145eddDf43f50276641b55bd3AD95944510021E",
+    "bytecode_bytes": 2400,
+    "code_keccak256": "0xf168c2e9e4d04292c7d5d526a9a917175a44369ab63a2f9997537acf0ffaaf2e"
+   }
+  },
+  "aave_pool_impl_slot": {
+   "slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+   "value": "0x000000000000000000000000f05fd3cc911b4c5e36e53c00354f645e22922c9a",
+   "error": null
+  },
+  "aave_reserves": {
+   "count": 20,
+   "assets": [
+    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+    "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
+    "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+    "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+    "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+    "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+    "0xd22a58f79e9481d1a88e00c343885a588b34b68b",
+    "0x5979d7b546e38e414f7e9822514be443a4800529",
+    "0x3f56e0c36d275367b8c502090edf38289b3dea0d",
+    "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+    "0x93b346b6bc2548da6a1e7d98e9a421b42541425b",
+    "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "0x17fc002b466eec40dae837fc4be5c67993ddbd6f",
+    "0x912ce59144191c1204e64559fe8253a0e49e6548",
+    "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
+    "0x7dff72693f6a4149b17e7c6314655f6a9f7c8b33",
+    "0x2416092f143378750bb29b79ed961ab195cceea5",
+    "0x4186bfc76e2e237523cbc30fd220fe055156b41f",
+    "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40"
+   ],
+   "error": null,
+   "block": 522704122
+  },
+  "univ3_factory_owner": {
+   "raw": "0x000000000000000000000000ff7ad5da31fecdc678796c88b05926db896b0699",
+   "error": null,
+   "value": "0xff7ad5da31fecdc678796c88b05926db896b0699"
+  },
+  "poolcreated_topic0": "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+  "poolcreated_signature": "PoolCreated(address,address,uint24,int24,address)",
+  "new_pools_univ3": {
+   "window": "24h",
+   "approx_blocks": 345600,
+   "from_block": 522358527,
+   "to_block": 522704127,
+   "count": 1,
+   "error": null,
+   "pools": [
+    {
+     "block": 522536108,
+     "tx": "0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592",
+     "token0": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+     "token1": "0xf2925a78adac85ca330643bc5584a694199afb76",
+     "fee": 3000,
+     "tick_spacing": 60,
+     "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2"
+    }
+   ],
+   "truncated_in_record": false
+  },
+  "new_pools_univ3_window_used": "24h",
+  "window_blocks": {
+   "from_block": {
+    "block": 522358527,
+    "timestamp_utc": "2026-11-08T11:49:22+00:00"
+   },
+   "to_block": {
+    "block": 522704127,
+    "timestamp_utc": "2026-11-09T14:36:35+00:00"
+   }
+  },
+  "uniswap_sdk": {
+   "http_status": 200,
+   "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc",
+   "bytes": 35066,
+   "v3_factory_present": true,
+   "v4_pool_manager_present": true,
+   "const ARBITRUM_ONE_ADDRESSES": "const ARBITRUM_ONE_ADDRESSES: ChainAddresses = {\n  ...DEFAULT_ADDRESSES,\n  multicallAddress: '0xadF885960B47eA2CD9B55E6DAc6B42b7Cb2806dB',\n  tickLensAddress: '0xbfd8137f7d1516D3ea5cA83523914859ec47F573',\n  mixedRouteQuoterV2Address: '0x5c834b6cac4173bfe288c5722a38e04b9e366e30',\n\n  v4PoolManagerAddress: '0x360e68faccca8ca495c1b759fd9eee466db9fb32',\n  v4PositionManagerAddress: '0xd88f38f930b7952f2db2432cb002e7abbf3dd869',",
+   "v3CoreFactoryAddress": "  v3CoreFactoryAddress: string\n  multicallAddress: string\n  quoterAddress: string\n  v3MigratorAddress?: string\n  nonfungiblePositionManagerAddress?: string\n  tickLensAddress?: string\n  swapRouter02Address?: string\n  mixedRouteQuoterV1Address?: string",
+   "v4PoolManagerAddress": "  v4PoolManagerAddress?: string\n  v4PositionManagerAddress?: string\n  v4StateView?: string\n  v4QuoterAddress?: string\n  permissionedV4PositionManagerAddress?: string\n  permissionedV4HooksAddress?: string\n}\n"
+  },
+  "aave_address_book": {
+   "http_status": 200,
+   "sha256": "73687faefdd3cd38c48aeb33281afb827313c5818936974749ff491ae9efc2ec",
+   "bytes": 31986,
+   "pool_present": true,
+   "provider_present": true,
+   "configurator_present": true,
+   "interesting_lines": [
+    "IPoolAddressesProvider internal constant POOL_ADDRESSES_PROVIDER =",
+    "IPool internal constant POOL = IPool(0x794a61358D6845594F94dc1DB02A252b5b4814aD);",
+    "IPoolConfigurator internal constant POOL_CONFIGURATOR =",
+    "IAaveOracle internal constant ORACLE = IAaveOracle(0xb56c2F0B653B2e0b10C9b928C8580Ac5Df02C7C7);",
+    "address internal constant UI_POOL_DATA_PROVIDER = 0x91E04cf78e53aEBe609e8a7f2003e7EECD743F2B;"
+   ],
+   "distinct_address_count": 156
+  },
+  "aave_address_book_commits_30d": {
+   "http_status": 200,
+   "count": 63,
+   "commits": [
+    {
+     "sha": "9666142204e4",
+     "date": "2026-11-09T10:20:59Z",
+     "message": "chore(main): release 4.77.0 (#1678)"
+    },
+    {
+     "sha": "d121216c60db",
+     "date": "2026-11-09T10:14:54Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1677)"
+    },
+    {
+     "sha": "cc662ae5377f",
+     "date": "2026-11-09T10:09:32Z",
+     "message": "feat: add CoW Adapter contracts (#1672)"
+    },
+    {
+     "sha": "d4c2848eeffe",
+     "date": "2026-11-08T00:23:36Z",
+     "message": "chore(main): release 4.76.2 (#1674)"
+    },
+    {
+     "sha": "91ee3195f54d",
+     "date": "2026-11-08T00:17:39Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1675)"
+    },
+    {
+     "sha": "506b86708cc2",
+     "date": "2026-11-06T00:18:44Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1673)"
+    },
+    {
+     "sha": "b71495aeb994",
+     "date": "2026-11-05T00:26:16Z",
+     "message": "chore(main): release 4.76.1 (#1670)"
+    },
+    {
+     "sha": "730fb565c7fd",
+     "date": "2026-11-05T00:19:13Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1671)"
+    },
+    {
+     "sha": "d3c0db323664",
+     "date": "2026-11-04T16:36:33Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1668)"
+    },
+    {
+     "sha": "10bd2d36f059",
+     "date": "2026-11-04T16:25:38Z",
+     "message": "chore(main): release 4.76.0 (#1669)"
+    },
+    {
+     "sha": "69b0c5d54e60",
+     "date": "2026-11-04T16:06:52Z",
+     "message": "feat: add new Security Council address for all deployed networks (#1667)"
+    },
+    {
+     "sha": "09ffd9eaa8dd",
+     "date": "2026-11-03T00:22:35Z",
+     "message": "chore(main): release 4.75.8 (#1666)"
+    },
+    {
+     "sha": "c0dd346ce028",
+     "date": "2026-11-03T00:15:52Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1665)"
+    },
+    {
+     "sha": "e8ae93884d30",
+     "date": "2026-11-01T19:53:31Z",
+     "message": "chore(main): release 4.75.7 (#1663)"
+    },
+    {
+     "sha": "41f2d1d345f1",
+     "date": "2026-11-01T19:48:23Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1662)"
+    },
+    {
+     "sha": "5ae5e47f5d2b",
+     "date": "2026-11-01T19:44:10Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1660)"
+    },
+    {
+     "sha": "909537b46e4d",
+     "date": "2026-10-31T00:22:23Z",
+     "message": "chore(main): release 4.75.6 (#1659)"
+    },
+    {
+     "sha": "c9d763cefc32",
+     "date": "2026-10-31T00:15:39Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1658)"
+    },
+    {
+     "sha": "8259b4e02597",
+     "date": "2026-10-30T00:28:29Z",
+     "message": "chore(main): release 4.75.5 (#1657)"
+    },
+    {
+     "sha": "7280724c9851",
+     "date": "2026-10-30T00:20:33Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1656)"
+    },
+    {
+     "sha": "41b77cb9c05d",
+     "date": "2026-10-29T00:26:50Z",
+     "message": "chore(main): release 4.75.4 (#1654)"
+    },
+    {
+     "sha": "07eacb66ed46",
+     "date": "2026-10-29T00:20:33Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1653)"
+    },
+    {
+     "sha": "aafdffd1a650",
+     "date": "2026-10-27T22:05:51Z",
+     "message": "chore(main): release 4.75.3 (#1652)"
+    },
+    {
+     "sha": "6b7485b9e74e",
+     "date": "2026-10-27T22:00:26Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1651)"
+    },
+    {
+     "sha": "7389dfa30d44",
+     "date": "2026-10-27T21:55:22Z",
+     "message": "fix: Add horizon config engine and RWA aToken impl (#1641)"
+    },
+    {
+     "sha": "dc51d233e347",
+     "date": "2026-10-27T00:31:24Z",
+     "message": "chore(main): release 4.75.2 (#1649)"
+    },
+    {
+     "sha": "c680703bc565",
+     "date": "2026-10-27T00:25:06Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1648)"
+    },
+    {
+     "sha": "217f423914a6",
+     "date": "2026-10-25T00:32:29Z",
+     "message": "chore(main): release 4.75.1 (#1647)"
+    },
+    {
+     "sha": "09df59fad952",
+     "date": "2026-10-25T00:25:56Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1646)"
+    },
+    {
+     "sha": "f201556a5c2f",
+     "date": "2026-10-23T16:57:04Z",
+     "message": "chore(main): release 4.75.0 (#1644)"
+    },
+    {
+     "sha": "ce652ccabf84",
+     "date": "2026-10-23T16:50:18Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1645)"
+    },
+    {
+     "sha": "dfe74c129cbf",
+     "date": "2026-10-23T16:45:00Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1643)"
+    },
+    {
+     "sha": "c6f469947b79",
+     "date": "2026-10-23T16:35:53Z",
+     "message": "feat: add the AgentHub and LlamaRisk PT oracle addresses on X Layer (#1630)"
+    },
+    {
+     "sha": "4a7aef015700",
+     "date": "2026-10-23T12:09:34Z",
+     "message": "chore(main): release 4.74.7 (#1642)"
+    },
+    {
+     "sha": "deaf19308265",
+     "date": "2026-10-23T12:00:38Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1640)"
+    },
+    {
+     "sha": "e796b7d71f37",
+     "date": "2026-10-21T00:30:27Z",
+     "message": "chore(main): release 4.74.6 (#1639)"
+    },
+    {
+     "sha": "86dec5a9b1ce",
+     "date": "2026-10-21T00:23:39Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1638)"
+    },
+    {
+     "sha": "1a8681e61bae",
+     "date": "2026-10-20T09:19:06Z",
+     "message": "chore(main): release 4.74.5 (#1637)"
+    },
+    {
+     "sha": "8221e6fdf53f",
+     "date": "2026-10-20T09:13:18Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1636)"
+    },
+    {
+     "sha": "4a19be5242ca",
+     "date": "2026-10-19T19:39:16Z",
+     "message": "chore(main): release 4.74.4 (#1635)"
+    },
+    {
+     "sha": "e55e23332028",
+     "date": "2026-10-19T19:30:32Z",
+     "message": "fix: replace BGD Labs branding with Aave DAO (#1634)"
+    },
+    {
+     "sha": "89f566a69b93",
+     "date": "2026-10-19T19:15:42Z",
+     "message": "chore(main): release 4.74.3 (#1633)"
+    },
+    {
+     "sha": "db578faa90d8",
+     "date": "2026-10-19T18:20:11Z",
+     "message": "fix: add StkGhoMigrator to GhoEthereum (#1621)"
+    },
+    {
+     "sha": "d24749ac7468",
+     "date": "2026-10-19T12:17:38Z",
+     "message": "fix: Add `AaveGhoCcipBridge` missing addresses (#1629)"
+    },
+    {
+     "sha": "fbe1622ea103",
+     "date": "2026-10-19T00:32:37Z",
+     "message": "chore(main): release 4.74.2 (#1632)"
+    },
+    {
+     "sha": "cb7f8fa5dc8c",
+     "date": "2026-10-19T00:26:25Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1631)"
+    },
+    {
+     "sha": "3cd68031dad4",
+     "date": "2026-10-16T15:06:54Z",
+     "message": "fix: add ethena spoke on avalanche (#1623)"
+    },
+    {
+     "sha": "d577cdfc8f10",
+     "date": "2026-10-15T00:34:47Z",
+     "message": "chore(main): release 4.74.1 (#1628)"
+    },
+    {
+     "sha": "10f71e523f4a",
+     "date": "2026-10-15T00:24:39Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1627)"
+    },
+    {
+     "sha": "0e8681741ea9",
+     "date": "2026-10-14T19:38:30Z",
+     "message": "chore(main): release 4.74.0 (#1626)"
+    },
+    {
+     "sha": "c1060f324df6",
+     "date": "2026-10-14T19:31:09Z",
+     "message": "feat: V4 Sentora curated market  (#1620)"
+    },
+    {
+     "sha": "124e39d46b22",
+     "date": "2026-10-14T19:16:36Z",
+     "message": "chore(main): release 4.73.6 (#1625)"
+    },
+    {
+     "sha": "f227a57124bd",
+     "date": "2026-10-14T19:09:31Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1624)"
+    },
+    {
+     "sha": "6463b76862f4",
+     "date": "2026-10-13T07:05:57Z",
+     "message": "chore(main): release 4.73.5 (#1622)"
+    },
+    {
+     "sha": "5ed601e75ba5",
+     "date": "2026-10-13T07:02:23Z",
+     "message": "fix: add horizon risk admin and prime GHO Aave steward (#1567)"
+    },
+    {
+     "sha": "2086839ab292",
+     "date": "2026-10-12T11:44:37Z",
+     "message": "chore(main): release 4.73.4 (#1619)"
+    },
+    {
+     "sha": "95f2354c5e62",
+     "date": "2026-10-12T11:41:33Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1618)"
+    },
+    {
+     "sha": "f86629206a94",
+     "date": "2026-10-12T11:38:49Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1617)"
+    },
+    {
+     "sha": "15f573f1d309",
+     "date": "2026-10-12T11:35:29Z",
+     "message": "chore(main): release 4.73.3 (#1616)"
+    },
+    {
+     "sha": "38f57964f2ae",
+     "date": "2026-10-12T11:32:32Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1615)"
+    },
+    {
+     "sha": "73676d409a24",
+     "date": "2026-10-12T11:29:32Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1614)"
+    },
+    {
+     "sha": "b5da40f58dd2",
+     "date": "2026-10-11T00:31:49Z",
+     "message": "chore(main): release 4.73.2 (#1613)"
+    },
+    {
+     "sha": "c4d9c98e84c0",
+     "date": "2026-10-11T00:28:57Z",
+     "message": "fix(cache): automated cache update - updated addresses (#1612)"
+    }
+   ]
+  },
+  "uniswap_sdks_commits_30d": {
+   "http_status": 200,
+   "count": 18,
+   "commits": [
+    {
+     "sha": "12914250e919",
+     "date": "2026-11-06T19:06:33Z",
+     "message": "feat(universal-router-sdk): opt-in omission of a redundant settlement sweep (#768)"
+    },
+    {
+     "sha": "5b2321d29b65",
+     "date": "2026-11-05T22:13:48Z",
+     "message": "feat(sdk-core): set Base block time to 200 ms for the Denim hard fork (#784)"
+    },
+    {
+     "sha": "7a67fb9b0f3f",
+     "date": "2026-11-05T19:56:48Z",
+     "message": "fix(sdk-core): point testnet v4QuoterAddress at the msgSender-capable quoters (#783)"
+    },
+    {
+     "sha": "493502740192",
+     "date": "2026-11-05T00:08:38Z",
+     "message": "ci: remove ai-toolkit and internal-tools review workflows (#780)"
+    },
+    {
+     "sha": "187a6218bc10",
+     "date": "2026-11-03T13:53:18Z",
+     "message": "chore(sdks): Version Packages (#779)"
+    },
+    {
+     "sha": "913cf9b8b071",
+     "date": "2026-11-02T21:54:29Z",
+     "message": "chore(ci): bump bullfrog to v0.11.1 for the kernel 7.0 runner image (#778)"
+    },
+    {
+     "sha": "c773d2afbcef",
+     "date": "2026-11-02T21:39:07Z",
+     "message": "feat(liquidity-launcher-sdk): follow Base Denim 200ms block time (#777)"
+    },
+    {
+     "sha": "9c5105f8948f",
+     "date": "2026-10-28T21:47:03Z",
+     "message": "chore(sdks): Version Packages (#773)"
+    },
+    {
+     "sha": "d99df9a3ddd2",
+     "date": "2026-10-28T21:04:05Z",
+     "message": "feat(universal-router-sdk): settle input before the swap for listed v4 hooks (#772)"
+    },
+    {
+     "sha": "058d0d945dc1",
+     "date": "2026-10-28T18:14:17Z",
+     "message": "ci(review): install tooling before PR checkout, skip fork PRs (#771)"
+    },
+    {
+     "sha": "9b0caaa5003f",
+     "date": "2026-10-26T17:28:49Z",
+     "message": "chore(sdks): Version Packages (#767)"
+    },
+    {
+     "sha": "0d47773f41ab",
+     "date": "2026-10-26T16:16:50Z",
+     "message": "feat(sdk-core): register average block times for listed testnets (#766)"
+    },
+    {
+     "sha": "ecffab39cb8e",
+     "date": "2026-10-22T22:01:50Z",
+     "message": "chore(ci): move Node/Bun CI pins to patched releases (CVE-2026-111497) (#764)"
+    },
+    {
+     "sha": "b3851aa4b538",
+     "date": "2026-10-21T15:28:01Z",
+     "message": "chore(sdks): Version Packages (#762)"
+    },
+    {
+     "sha": "54f5ed7a1842",
+     "date": "2026-10-20T18:08:21Z",
+     "message": "fix(sdk-core): point v4QuoterAddress and mixedRouteQuoterV2Address at the msgSender-capable quoters on every chain (#761)"
+    },
+    {
+     "sha": "b5c4f36ea814",
+     "date": "2026-10-20T15:13:35Z",
+     "message": "fix(sdks): publish sources so sourcemaps resolve (#758)"
+    },
+    {
+     "sha": "81db6f17e5d9",
+     "date": "2026-10-15T18:39:14Z",
+     "message": "chore(sdks): Version Packages (#759)"
+    },
+    {
+     "sha": "d9032a62c27d",
+     "date": "2026-10-14T21:04:05Z",
+     "message": "feat(liquidity-launcher-sdk)!: derive permanence from the time horizon only (LP-1362) (#704)"
+    }
+   ]
+  }
+ },
+ "requests": [
+  {
+   "label": "eth_chainId",
+   "method": "eth_chainId",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.002,
+   "retrieved_at_utc": "2026-11-09T14:36:35.527480+00:00"
+  },
+  {
+   "label": "eth_blockNumber",
+   "method": "eth_blockNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.43,
+   "retrieved_at_utc": "2026-11-09T14:36:36.308285+00:00"
+  },
+  {
+   "label": "head block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.43,
+   "retrieved_at_utc": "2026-11-09T14:36:37.088432+00:00"
+  },
+  {
+   "label": "getCode univ3_factory",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.453,
+   "retrieved_at_utc": "2026-11-09T14:36:37.892101+00:00"
+  },
+  {
+   "label": "getCode aave_pool",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.479,
+   "retrieved_at_utc": "2026-11-09T14:36:38.721953+00:00"
+  },
+  {
+   "label": "getCode aave_provider",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.459,
+   "retrieved_at_utc": "2026-11-09T14:36:39.531270+00:00"
+  },
+  {
+   "label": "getCode aave_configurator",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.416,
+   "retrieved_at_utc": "2026-11-09T14:36:40.297579+00:00"
+  },
+  {
+   "label": "aave pool impl slot",
+   "method": "eth_getStorageAt",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.422,
+   "retrieved_at_utc": "2026-11-09T14:36:41.070355+00:00"
+  },
+  {
+   "label": "aave getReservesList",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.427,
+   "retrieved_at_utc": "2026-11-09T14:36:41.847500+00:00"
+  },
+  {
+   "label": "aave getReservesList latest",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.425,
+   "retrieved_at_utc": "2026-11-09T14:36:42.624074+00:00"
+  },
+  {
+   "label": "univ3 factory owner",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.422,
+   "retrieved_at_utc": "2026-11-09T14:36:43.396818+00:00"
+  },
+  {
+   "label": "getLogs univ3 24h",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T14:36:44.171955+00:00"
+  },
+  {
+   "label": "block from_block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.412,
+   "retrieved_at_utc": "2026-11-09T14:36:44.935293+00:00"
+  },
+  {
+   "label": "block to_block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.424,
+   "retrieved_at_utc": "2026-11-09T14:36:45.709769+00:00"
+  },
+  {
+   "label": "uniswap-sdk-addresses",
+   "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.026,
+   "retrieved_at_utc": "2026-11-09T14:36:47.086041+00:00",
+   "bytes": 35066,
+   "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc"
+  },
+  {
+   "label": "aave-address-book",
+   "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.447,
+   "retrieved_at_utc": "2026-11-09T14:36:47.884251+00:00",
+   "bytes": 31986,
+   "sha256": "73687faefdd3cd38c48aeb33281afb827313c5818936974749ff491ae9efc2ec"
+  },
+  {
+   "label": "aave-address-book-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 1.802,
+   "retrieved_at_utc": "2026-11-09T14:36:50.037160+00:00",
+   "bytes": 309850,
+   "sha256": "eee5ccd01bbc2e651cd75b27dd57773f59c4a2d75e7cd4166d9b97e3030150f2"
+  },
+  {
+   "label": "uniswap-sdks-commits-30d",
+   "url": "https://api.github.com/repos/Uniswap/sdks/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 200,
+   "error": null,
+   "elapsed_s": 0.694,
+   "retrieved_at_utc": "2026-11-09T14:36:51.083419+00:00",
+   "bytes": 82264,
+   "sha256": "faa0ddc4da09fd9e07e9e9fa7043ee39089f775d089576e17a728a7609caf6b4"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:36:51.434717+00:00",
+ "request_count": 18
+}

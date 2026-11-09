@@ -2435,6 +2435,320 @@
       },
       "q00_review": null,
       "initial_research_status": "QUOTED"
+    },
+    {
+      "finding_id": "ARB-AAVE-V3-COW-ADAPTERS-20261109",
+      "first_seen_at": "2026-11-09T14:38:45+00:00",
+      "status": "RULE_GAP",
+      "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+      "mechanism": "Aave 官方地址书 2026-11-09T10:09:32Z 提交 cc662ae5377f 为 Arbitrum 新增 CoW 适配器组（factory + collateral swap / debt swap / repay-with-collateral / leverage）。若被 Aave/CoW 授权启用，可将 Aave 头寸的抵押品替换、债务替换、用抵押品还款、杠杆操作通过 CoW intent 单流程完成，改变清算阈值与退出成本的计算路径。链上 5 个地址代码已确认存在；授权/生效/行为未读。",
+      "evidence_urls": [
+        "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://arb1.arbitrum.io/rpc"
+      ],
+      "net_result": "unknown（仅机制线索，无报价/净额）",
+      "unknown_costs": [
+        "授权与开关状态",
+        "适配器 gas/撮合成本",
+        "Aave 清算阈值影响",
+        "L2 gas 与 L1 数据费"
+      ],
+      "handoff_to": [
+        "M00"
+      ],
+      "invalidation_conditions": [
+        "适配器未被注册授权/未启用",
+        "实现与描述不符",
+        "权限不允许公开使用"
+      ],
+      "owner": "N-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:38:45+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:38:45+00:00",
+      "capacity": "unknown；BLPX/USDC 池 liquidity=24,259,911,431,500,377（uint128，按当前价格约合极小美元量级，未换算）；Aave 储备 20 个但未读可用流动性；CoW 适配器容量/权限未读",
+      "observations_by_role": {
+        "N-ARB": {
+          "finding_id": "ARB-AAVE-V3-COW-ADAPTERS-20261109",
+          "status": "RULE_GAP",
+          "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+          "mechanism": "Aave 官方地址书 2026-11-09T10:09:32Z 提交 cc662ae5377f 为 Arbitrum 新增 CoW 适配器组（factory + collateral swap / debt swap / repay-with-collateral / leverage）。若被 Aave/CoW 授权启用，可将 Aave 头寸的抵押品替换、债务替换、用抵押品还款、杠杆操作通过 CoW intent 单流程完成，改变清算阈值与退出成本的计算路径。链上 5 个地址代码已确认存在；授权/生效/行为未读。",
+          "evidence_urls": [
+            "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+            "https://arb1.arbitrum.io/rpc"
+          ],
+          "net_result": "unknown（仅机制线索，无报价/净额）",
+          "unknown_costs": [
+            "授权与开关状态",
+            "适配器 gas/撮合成本",
+            "Aave 清算阈值影响",
+            "L2 gas 与 L1 数据费"
+          ],
+          "handoff_to": [
+            "M00"
+          ],
+          "invalidation_conditions": [
+            "适配器未被注册授权/未启用",
+            "实现与描述不符",
+            "权限不允许公开使用"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "RULE_GAP"
+    },
+    {
+      "finding_id": "ARB-UNISWAP-V3-BLPX-USDC-POOL-20261109",
+      "first_seen_at": "2026-11-09T14:38:45+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+      "mechanism": "Uniswap V3 Arbitrum 24h 内唯一新建池：BLPX(BlueChipDEX Token, 18 位)/原生 USDC，fee 0.3%；创建块 522,536,108（2026-11-09T01:50:32Z）。池身份与 BLPX 元数据已链上核验，liquidity 极小；未报价、未判断可交易性。",
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+        "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+      ],
+      "net_result": "unknown（无报价）",
+      "unknown_costs": [
+        "价格冲击/流动性",
+        "BLPX 可卖性/转账限制",
+        "gas 与 L1 数据费"
+      ],
+      "handoff_to": [
+        "ARB01"
+      ],
+      "invalidation_conditions": [
+        "BLPX 不可卖/有转账税",
+        "流动性不足无法报价",
+        "池被移除或迁移"
+      ],
+      "owner": "N-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:38:45+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:38:45+00:00",
+      "capacity": "unknown；BLPX/USDC 池 liquidity=24,259,911,431,500,377（uint128，按当前价格约合极小美元量级，未换算）；Aave 储备 20 个但未读可用流动性；CoW 适配器容量/权限未读",
+      "observations_by_role": {
+        "N-ARB": {
+          "finding_id": "ARB-UNISWAP-V3-BLPX-USDC-POOL-20261109",
+          "status": "UNVERIFIED",
+          "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+          "mechanism": "Uniswap V3 Arbitrum 24h 内唯一新建池：BLPX(BlueChipDEX Token, 18 位)/原生 USDC，fee 0.3%；创建块 522,536,108（2026-11-09T01:50:32Z）。池身份与 BLPX 元数据已链上核验，liquidity 极小；未报价、未判断可交易性。",
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+            "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+          ],
+          "net_result": "unknown（无报价）",
+          "unknown_costs": [
+            "价格冲击/流动性",
+            "BLPX 可卖性/转账限制",
+            "gas 与 L1 数据费"
+          ],
+          "handoff_to": [
+            "ARB01"
+          ],
+          "invalidation_conditions": [
+            "BLPX 不可卖/有转账税",
+            "流动性不足无法报价",
+            "池被移除或迁移"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BASE-AERODROME-CLONE-FACTORY-NEW-POOLS",
+      "first_seen_at": "2026-11-09T14:45:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30 | BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+      "mechanism": "Aerodrome 工厂 allPools(index) 枚举的最新 2 个池，经 isPool/factory()/45 字节克隆目标/implementation() 与 token symbol/decimals 链上核验；两者均为 stable=false 波动池（默认 volatileFee=30/10000=0.30%），创建于最新块前约 28～51 分钟与 31～36 分钟。新市场身份成立，但储备/费率/容量/交易均未读，无经济结论。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+        "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+        "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "池级 customFee",
+        "储备与价格冲击",
+        "L2/L1 费",
+        "包装资产成本"
+      ],
+      "handoff_to": [
+        "M00",
+        "BASE05",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "池 factory()/克隆目标不符",
+        "token symbol/contract 与官方不符",
+        "池被暂停或 implementation 变化"
+      ],
+      "owner": "N-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:45:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:45:00+00:00",
+      "capacity": "unknown（未读两新池储备/LP/TVL；allPoolsLength 只是工厂总池数，不是容量）",
+      "observations_by_role": {
+        "N-BASE": {
+          "finding_id": "BASE-AERODROME-CLONE-FACTORY-NEW-POOLS",
+          "status": "UNVERIFIED",
+          "chain": "BASE",
+          "protocol": "Aerodrome",
+          "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30 | BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+          "evidence_urls": [
+            "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+            "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+            "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"
+          ],
+          "mechanism": "Aerodrome 工厂 allPools(index) 枚举的最新 2 个池，经 isPool/factory()/45 字节克隆目标/implementation() 与 token symbol/decimals 链上核验；两者均为 stable=false 波动池（默认 volatileFee=30/10000=0.30%），创建于最新块前约 28～51 分钟与 31～36 分钟。新市场身份成立，但储备/费率/容量/交易均未读，无经济结论。",
+          "net_result": null,
+          "unknown_costs": [
+            "池级 customFee",
+            "储备与价格冲击",
+            "L2/L1 费",
+            "包装资产成本"
+          ],
+          "handoff_to": [
+            "M00",
+            "BASE05",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "池 factory()/克隆目标不符",
+            "token symbol/contract 与官方不符",
+            "池被暂停或 implementation 变化"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "BASE-AERODROME-IMPLEMENTATION-UPGRADE-SURFACE",
+      "first_seen_at": "2026-11-09T14:45:00+00:00",
+      "status": "UNVERIFIED",
+      "market_id": null,
+      "mechanism": "工厂 implementation()=0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7（21,057 字节），新池都是指向它的 45 字节克隆；实现替换会一次性改变新池规则（费用/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立监控面；EIP-1967 实现槽为 0，说明实现存储走自定义方式（待读源码）。",
+      "evidence_urls": [
+        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+        "https://basescan.org/address/0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7"
+      ],
+      "net_result": null,
+      "unknown_costs": [],
+      "handoff_to": [
+        "M00",
+        "BASE05",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "implementation() 或实现代码哈希变化（则需重新核验规则）",
+        "工厂被替换/迁移"
+      ],
+      "owner": "N-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:45:00+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:45:00+00:00",
+      "capacity": "unknown（未读两新池储备/LP/TVL；allPoolsLength 只是工厂总池数，不是容量）",
+      "observations_by_role": {
+        "N-BASE": {
+          "finding_id": "BASE-AERODROME-IMPLEMENTATION-UPGRADE-SURFACE",
+          "status": "UNVERIFIED",
+          "chain": "BASE",
+          "protocol": "Aerodrome",
+          "market_id": null,
+          "evidence_urls": [
+            "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+            "https://basescan.org/address/0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7"
+          ],
+          "mechanism": "工厂 implementation()=0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7（21,057 字节），新池都是指向它的 45 字节克隆；实现替换会一次性改变新池规则（费用/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立监控面；EIP-1967 实现槽为 0，说明实现存储走自定义方式（待读源码）。",
+          "net_result": null,
+          "unknown_costs": [],
+          "handoff_to": [
+            "M00",
+            "BASE05",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "implementation() 或实现代码哈希变化（则需重新核验规则）",
+            "工厂被替换/迁移"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
+    },
+    {
+      "finding_id": "OP-CONTRACTS-V9-ALLOWLIST-RELEASE-NOT-ACTIVATED",
+      "first_seen_at": "2026-11-09T14:44:03.579294+00:00",
+      "status": "UNVERIFIED",
+      "market_id": null,
+      "mechanism": "Optimism releases atom 显示 30 天窗口内（2026-10-10～2026-11-09）发布 op-contracts v9.0.0+allowlist（2026-11-06T01:51:48Z）与 op-deployer v0.9.0-allowlist（2026-11-06T02:06:22Z），命名含 allowlist，属 OP Stack 合约/部署器规则级发布；但未核验 OP Mainnet 链上激活或配置变更，不能当已生效规则。superchain-registry 的 op.toml 在 30 天内无提交，最新 hardfork 为 karst_time（2026-07-08），说明主网链配置尚未变化。",
+      "evidence_urls": [
+        "https://github.com/ethereum-optimism/optimism/releases.atom",
+        "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+        "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+      ],
+      "net_result": null,
+      "unknown_costs": [
+        "实际激活时间与影响面",
+        "是否需要 L1 合约升级",
+        "是否影响 L2 用户操作/费用"
+      ],
+      "handoff_to": [
+        "M00",
+        "OP01",
+        "Q00"
+      ],
+      "invalidation_conditions": [
+        "发布只是 RC/测试网",
+        "OP Mainnet 已在窗口内升级但未反映在 op.toml",
+        "该 allowlist 与公开市场无关"
+      ],
+      "owner": "N-OP",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-OP/live-20261109T141903Z/record.json",
+      "last_observed_at": "2026-11-09T14:44:03.579294+00:00",
+      "last_verified_onchain_at": "2026-11-09T14:44:03.579294+00:00",
+      "capacity": "unknown；仅记录 WETH/USDC 0.05% 池 liquidity=11702808516554365（L）与 slot0；未做指定数量报价",
+      "observations_by_role": {
+        "N-OP": {
+          "finding_id": "OP-CONTRACTS-V9-ALLOWLIST-RELEASE-NOT-ACTIVATED",
+          "status": "UNVERIFIED",
+          "chain": "OP",
+          "market_id": null,
+          "first_seen_at": "2026-11-09T14:41:15+00:00",
+          "last_observed_run": "live-20261109T141903Z",
+          "mechanism": "Optimism releases atom 显示 30 天窗口内（2026-10-10～2026-11-09）发布 op-contracts v9.0.0+allowlist（2026-11-06T01:51:48Z）与 op-deployer v0.9.0-allowlist（2026-11-06T02:06:22Z），命名含 allowlist，属 OP Stack 合约/部署器规则级发布；但未核验 OP Mainnet 链上激活或配置变更，不能当已生效规则。superchain-registry 的 op.toml 在 30 天内无提交，最新 hardfork 为 karst_time（2026-07-08），说明主网链配置尚未变化。",
+          "evidence_urls": [
+            "https://github.com/ethereum-optimism/optimism/releases.atom",
+            "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+            "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+          ],
+          "net_result": null,
+          "unknown_costs": [
+            "实际激活时间与影响面",
+            "是否需要 L1 合约升级",
+            "是否影响 L2 用户操作/费用"
+          ],
+          "handoff_to": [
+            "M00",
+            "OP01",
+            "Q00"
+          ],
+          "invalidation_conditions": [
+            "发布只是 RC/测试网",
+            "OP Mainnet 已在窗口内升级但未反映在 op.toml",
+            "该 allowlist 与公开市场无关"
+          ]
+        }
+      },
+      "q00_review": null,
+      "initial_research_status": "UNVERIFIED"
     }
   ],
   "status": "LIVE_ROUND_IN_PROGRESS",

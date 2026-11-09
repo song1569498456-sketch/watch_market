@@ -128,16 +128,17 @@
     {
       "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
       "chain": "ARB",
-      "protocol": "Uniswap v3 factory (discovery registry, not a traded pool)",
+      "protocol": "Uniswap V3 factory（发现注册表）",
       "asset_ids": [],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+        "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+        "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
       ],
-      "identity_status": "OFFICIAL_SDK_SOURCE_ONLY_NOT_CHAIN_VERIFIED",
-      "next_check": "ARB01核对chainId=42161及Uniswap v3 factory代码；限明确区块范围读取PoolCreated，得到token0/token1/fee并核对资产地址，建立跨DEX池队列。",
+      "identity_status": "CHAIN_VERIFIED：代码 24,535 B/keccak 0x4d7b8525…；owner=0xff7ad5da…；7 天 PoolCreated 17 条已记录",
+      "next_check": "与 v4 PoolManager 及其他 DEX 工厂交叉；补 30 天窗口与旧池轮转",
       "owner": "N-ARB",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
       "observations_by_role": {
         "ARB01": {
           "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
@@ -152,28 +153,55 @@
           "owner": "ARB01",
           "last_observed_run": "full-20261108T152118Z",
           "source_record": "evidence/ARB01/full-20261108T152118Z/record.json"
+        },
+        "N-ARB": {
+          "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 factory（发现注册表）",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+            "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代码 24,535 B/keccak 0x4d7b8525…；owner=0xff7ad5da…；7 天 PoolCreated 17 条已记录",
+          "next_check": "与 v4 PoolManager 及其他 DEX 工厂交叉；补 30 天窗口与旧池轮转"
         }
       },
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
+      "current_onchain_verified": true,
       "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
     },
     {
       "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
       "chain": "ARB",
-      "protocol": "Aave V3 Arbitrum pool registry",
+      "protocol": "Aave V3 Arbitrum Pool（借贷市场注册表）",
       "asset_ids": [],
       "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol"
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+        "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
       ],
-      "identity_status": "OFFICIAL_ADDRESS_BOOK_ONLY_NOT_CHAIN_VERIFIED",
-      "next_check": "M00单列Aave V3 Arbitrum借贷池机制覆盖缺口；只有实际需求证据时考虑新建单链正常清算专项，不把它塞给DEX价差岗。",
+      "identity_status": "CHAIN_VERIFIED：代理代码 2400 B，impl=0xf05fd3cc…；储备列表 20 项；24h 新储备 0",
+      "next_check": "Aave 30 天规则事件、储备参数；Aave 专项覆盖由 M00 决定",
       "owner": "N-ARB",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-ARB/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "N-ARB": {
+          "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+          "chain": "ARB",
+          "protocol": "Aave V3 Arbitrum Pool（借贷市场注册表）",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+            "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+          ],
+          "identity_status": "CHAIN_VERIFIED：代理代码 2400 B，impl=0xf05fd3cc…；储备列表 20 项；24h 新储备 0",
+          "next_check": "Aave 30 天规则事件、储备参数；Aave 专项覆盖由 M00 决定"
+        }
+      }
     },
     {
       "market_id": "BASE:8453:Aerodrome:PoolFactory:0x420dd381b31aef6683db6b902084cb0ffece40da",
@@ -214,19 +242,63 @@
       "market_id": "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
       "chain": "OP",
       "protocol": "Aave V3 Optimism",
-      "asset_ids": [],
-      "evidence_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
-        "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"
+      "asset_ids": [
+        "10:0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "10:0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+        "10:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+        "10:0x68f180fcce6836688e9084f035309e29bf0a2095",
+        "10:0x4200000000000000000000000000000000000006",
+        "10:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+        "10:0x76fb31fb4af56892a25e32cfc43de717950c9278",
+        "10:0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+        "10:0x4200000000000000000000000000000000000042",
+        "10:0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+        "10:0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+        "10:0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+        "10:0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+        "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
       ],
-      "identity_status": "OFFICIAL_ADDRESSBOOK_ONLY_UNVERIFIED_LIVE",
-      "next_check": "读取chainId、provider.getPool、proxy code/implementation、reserve列表及可提流动性。",
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL",
+      "next_check": "diff 官方 Assets 清单；读利率/暂停/流动性；新增储备交 OP01",
       "owner": "N-OP",
-      "last_observed_run": "full-20261108T152118Z",
-      "source_record": "evidence/N-OP/full-20261108T152118Z/record.json",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-OP/live-20261109T141903Z/record.json",
       "protocol_version": "unknown",
-      "current_onchain_verified": false,
-      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION"
+      "current_onchain_verified": true,
+      "monitoring_status": "NEEDS_CURRENT_STATE_VERIFICATION",
+      "observations_by_role": {
+        "N-OP": {
+          "market_id": "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+          "chain": "OP",
+          "protocol": "Aave V3 Optimism",
+          "asset_ids": [
+            "10:0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+            "10:0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+            "10:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+            "10:0x68f180fcce6836688e9084f035309e29bf0a2095",
+            "10:0x4200000000000000000000000000000000000006",
+            "10:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+            "10:0x76fb31fb4af56892a25e32cfc43de717950c9278",
+            "10:0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+            "10:0x4200000000000000000000000000000000000042",
+            "10:0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+            "10:0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+            "10:0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+            "10:0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+            "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+          ],
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+            "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol"
+          ],
+          "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL",
+          "next_check": "diff 官方 Assets 清单；读利率/暂停/流动性；新增储备交 OP01"
+        }
+      }
     },
     {
       "market_id": "POLY:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
@@ -1464,6 +1536,214 @@
           ],
           "identity_status": "ONCHAIN_VERIFIED_POOL_OWNER_AND_MINTS",
           "next_check": "tick arrays 校验；同 slot 重取报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+      "chain": "ARB",
+      "protocol": "Uniswap V3 BLPX/USDC 0.3%",
+      "asset_ids": [
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "0xf2925a78adac85ca330643bc5584a694199afb76"
+      ],
+      "evidence_urls": [
+        "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+        "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+      ],
+      "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：块 522,536,108 创建，池 token0/token1/fee/tickSpacing 与事件一致；BLPX 代码/符号/总量已读；流动性极小",
+      "next_check": "读池储备与报价、BLPX 部署者与可卖性；交 ARB01 建立池队列",
+      "owner": "N-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-ARB": {
+          "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+          "chain": "ARB",
+          "protocol": "Uniswap V3 BLPX/USDC 0.3%",
+          "asset_ids": [
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "0xf2925a78adac85ca330643bc5584a694199afb76"
+          ],
+          "evidence_urls": [
+            "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+            "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+          ],
+          "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：块 522,536,108 创建，池 token0/token1/fee/tickSpacing 与事件一致；BLPX 代码/符号/总量已读；流动性极小",
+          "next_check": "读池储备与报价、BLPX 部署者与可卖性；交 ARB01 建立池队列"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+      "chain": "ARB",
+      "protocol": "Aave V3 Arbitrum + CoW Protocol 适配器组",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+        "https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83"
+      ],
+      "identity_status": "OFFICIAL_REPO_REGISTERED_AND_ONCHAIN_CODE_PRESENT（5 地址 getCode 已核，1096-10055 B）；授权/生效未核",
+      "next_check": "读源码/授权/开关；若生效交 M00 决定 Aave 专项覆盖",
+      "owner": "N-ARB",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-ARB": {
+          "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+          "chain": "ARB",
+          "protocol": "Aave V3 Arbitrum + CoW Protocol 适配器组",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+            "https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83"
+          ],
+          "identity_status": "OFFICIAL_REPO_REGISTERED_AND_ONCHAIN_CODE_PRESENT（5 地址 getCode 已核，1096-10055 B）；授权/生效未核",
+          "next_check": "读源码/授权/开关；若生效交 M00 决定 Aave 专项覆盖"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+      "chain": "BASE",
+      "protocol": "Aerodrome Volatile AMM",
+      "asset_ids": [
+        "0x4200000000000000000000000000000000000006",
+        "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（WETH/PRIME，volatile）",
+      "next_check": "读储备与池级费率；确认 PRIME 发行方",
+      "owner": "N-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BASE": {
+          "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+          "chain": "BASE",
+          "protocol": "Aerodrome Volatile AMM",
+          "asset_ids": [
+            "0x4200000000000000000000000000000000000006",
+            "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+            "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（WETH/PRIME，volatile）",
+          "next_check": "读储备与池级费率；确认 PRIME 发行方"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+      "chain": "BASE",
+      "protocol": "Aerodrome Volatile AMM",
+      "asset_ids": [
+        "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+        "0x329105c15ac753c8d23a9105abe2c63578f6002a"
+      ],
+      "evidence_urls": [
+        "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+      ],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（xUSDT/bsdETH，volatile）",
+      "next_check": "核 xUSDT/bsdETH 包装/计息机制后再决定是否进专项",
+      "owner": "N-BASE",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-BASE": {
+          "market_id": "BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+          "chain": "BASE",
+          "protocol": "Aerodrome Volatile AMM",
+          "asset_ids": [
+            "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+            "0x329105c15ac753c8d23a9105abe2c63578f6002a"
+          ],
+          "evidence_urls": [
+            "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+            "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          ],
+          "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（xUSDT/bsdETH，volatile）",
+          "next_check": "核 xUSDT/bsdETH 包装/计息机制后再决定是否进专项"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "10:uniswap-v3-factory:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "OP",
+      "protocol": "Uniswap V3",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+      ],
+      "identity_status": "CHAIN_VERIFIED_FACTORY",
+      "next_check": "扩大 PoolCreated 窗口；对已知池取 Quoter 报价",
+      "owner": "N-OP",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-OP/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-OP": {
+          "market_id": "10:uniswap-v3-factory:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+          "chain": "OP",
+          "protocol": "Uniswap V3",
+          "asset_ids": [],
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+            "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+          ],
+          "identity_status": "CHAIN_VERIFIED_FACTORY",
+          "next_check": "扩大 PoolCreated 窗口；对已知池取 Quoter 报价"
+        }
+      },
+      "current_onchain_verified": true,
+      "monitoring_status": "BASELINE_PARTIAL"
+    },
+    {
+      "market_id": "10:uniswap-v3-pool:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+      "chain": "OP",
+      "protocol": "Uniswap V3 WETH/USDC 0.05%",
+      "asset_ids": [
+        "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+        "10:0x4200000000000000000000000000000000000006"
+      ],
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b"
+      ],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "Quoter v1 指定数量报价；作为旧池轮转基线",
+      "owner": "N-OP",
+      "last_observed_run": "live-20261109T141903Z",
+      "source_record": "evidence/N-OP/live-20261109T141903Z/record.json",
+      "observations_by_role": {
+        "N-OP": {
+          "market_id": "10:uniswap-v3-pool:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+          "chain": "OP",
+          "protocol": "Uniswap V3 WETH/USDC 0.05%",
+          "asset_ids": [
+            "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+            "10:0x4200000000000000000000000000000000000006"
+          ],
+          "evidence_urls": [
+            "https://optimistic.etherscan.io/address/0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b"
+          ],
+          "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+          "next_check": "Quoter v1 指定数量报价；作为旧池轮转基线"
         }
       },
       "current_onchain_verified": true,

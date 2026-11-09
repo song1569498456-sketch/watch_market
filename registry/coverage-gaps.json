@@ -3087,6 +3087,234 @@
         "记录大额 swap、流动性撤出与 7 天 spread 分布，解释本轮符号翻转（-5.22→+10.42bps）的驱动。",
         "若后续允许只读交易模拟，用真实两腿指令检查原子性；本轮只做 QUOTED，不声称 SIMULATED。"
       ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "CoW 适配器仅确认「官方地址书新增 + 链上代码存在」；Aave/CoW 注册授权、调用权限、启用开关、实际行为均未读，不能当规则已生效。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Aave 30 天规则/链上事件窗口未覆盖（仅 24h ReserveInitialized=0 条）；未读储备参数、借款/清算规则变化。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动只覆盖 Uniswap V3 工厂新建池（17 条）；未覆盖 Swap/借贷/清算事件、其他 DEX（Camelot 等）与 v4 PoolManager、旧小池轮转。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "新池 BLPX/USDC 未取报价、未核验 BLPX 部署者/源码/权限/可卖性；liquidity 极小，尚不可交易性。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未使用 DEX 聚合器 API 交叉发现（入口为工厂事件+官方地址书）；Arbitrum 生态门户本轮未重试。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-ARB",
+      "run_id": "live-20261109T141903Z",
+      "gap": "无任何指定数量报价与净额核算，故无 QUOTED/SIMULATED 结论。",
+      "next_check": [
+        "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+        "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+        "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+        "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天 PoolCreated 分页未完成：eth_getLogs 被公共 RPC 限流（-32011）、Blockscout API 三次 403；只有 allPools index 枚举 + 创建窗口，不能给近 7 天新增池统计。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口只覆盖 base/base 节点发布（窗口内 5 个版本）与工厂 implementation 身份；未覆盖 Aerodrome 治理、FactoryRegistry 变更、费用管理者事件。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "两新池的池级 customFee/getFee、储备/LP、TVL、交易活动未读；getFee(pool) 未返回结果。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "xUSDT/bsdETH/PRIME 的包装/计息/赎回机制与发行方未核，不能当普通 ETH/USDT 权益。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "工厂 admin/implementation setter 权限、代理结构（EIP-1967 槽为 0，但 implementation() 有返回值）未完全解释。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-BASE",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做旧小池退出窗口轮转；未做报价/模拟（本岗位不做价差）；最新池索引队列 29928～29911 仅登记地址，未全部读 token 身份。",
+      "next_check": [
+        "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+        "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+        "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+        "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+        "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+        "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "7 天活动窗口未覆盖：仅扫最近 5000 区块（≈2.78 小时）的 Uniswap V3 PoolCreated；mainnet.optimism.io 对 20000/100000 区块 getLogs 返回 -32602（需 personal token），无 archive/indexer 能力。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未读近 24 小时交易与 5 组代表交易；未查 Aave 储备的利率/流动性/暂停状态，也未查其它 DEX（Velodrome 等）工厂事件。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "Aave 官方 Assets 文件 404，未能对 14 个 reserve 做官方清单逐项 diff；仅确认 POOL_IMPL 一致。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "30 天规则窗口只核 op.toml（提交=0）与 releases atom；未核 L1 合约版本/激活记录（跨链 L1，超出本轮范围）与治理提案状态。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "未做指定数量报价/只读模拟；WETH/USDC 快照的 2118.87 USDC/WETH 是从 slot0 推导，不是 Quoter 报价。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "本轮外部请求 61 次（≤80，符合上限）。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
+    },
+    {
+      "agent_id": "N-OP",
+      "run_id": "live-20261109T141903Z",
+      "gap": "上一轮登记的 Aave reserve/资产身份虽在本轮补充链上核验，但未与官方 Assets 清单 diff，仍不能断言“无新增储备”。",
+      "next_check": [
+        "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+        "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+        "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+        "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+        "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+      ]
     }
   ],
   "status": "OPEN",

@@ -1,0 +1,262 @@
+{
+ "started_at_utc": "2026-11-09T14:41:09.570297+00:00",
+ "chain_id": 10,
+ "head_block": 159318247,
+ "head_block_info": {
+  "number": "0x97f00e7",
+  "timestamp": "0x6af1db87",
+  "hash": "0x54310f7ded3f8330eb4ec96b4ab949a33ce8f7372bca44457391bc8968dc4a2d",
+  "gasLimit": "0x2625a00",
+  "baseFeePerGas": "0x228"
+ },
+ "head_block_time_utc": "2026-11-09T14:41:11+00:00",
+ "pinned_block": 159318245,
+ "uni_op_addresses": {
+  "lines": [
+   {
+    "line": "| [UniswapV3Factory](https://github.com/Uniswap/uniswap-v3-core/blob/v1.0.0/contracts/UniswapV3Factory.sol)                                                    |",
+    "addresses": [
+     "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+     "0xAfE208a311B21f13EF87E33A90049fC17A7acDEc"
+    ]
+   },
+   {
+    "line": "| [Multicall2](https://etherscan.io/address/0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696#code)                                                                   |",
+    "addresses": [
+     "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696",
+     "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696",
+     "0x633987602DE5C4F337e3DbF265303A1080324204"
+    ]
+   },
+   {
+    "line": "| [ProxyAdmin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.1-solc-0.7-2/contracts/proxy/ProxyAdmin.sol)                                   |",
+    "addresses": [
+     "0xB753548F6E010e7e680BA186F9Ca1BdAB2E90cf2",
+     "0xc1b262Dd7643D4B7cA9e51631bBd900a564BF49A"
+    ]
+   },
+   {
+    "line": "| [TickLens](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/TickLens.sol)                                                          |",
+    "addresses": [
+     "0xbfd8137f7d1516D3ea5cA83523914859ec47F573",
+     "0x5f115D9113F88e0a0Db1b5033D90D4a9690AcD3D"
+    ]
+   },
+   {
+    "line": "| [Quoter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/Quoter.sol)                                                              |",
+    "addresses": [
+     "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+     "0x82825d0554fA07f7FC52Ab63c961F330fdEFa8E8"
+    ]
+   },
+   {
+    "line": "| [SwapRouter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/SwapRouter.sol)                                                           |",
+    "addresses": [
+     "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+     "0x5615CDAb10dc425a742d643d949a7F474C01abc4"
+    ]
+   },
+   {
+    "line": "| [NFTDescriptor](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/libraries/NFTDescriptor.sol)                                           |",
+    "addresses": [
+     "0x42B24A95702b9986e82d421cC3568932790A48Ec",
+     "0xa9Fd765d85938D278cb0b108DbE4BF7186831186"
+    ]
+   },
+   {
+    "line": "| [NonfungibleTokenPositionDescriptor](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/NonfungibleTokenPositionDescriptor.sol)           |",
+    "addresses": [
+     "0x91ae842A5Ffd8d12023116943e72A606179294f3",
+     "0x644023b316bB65175C347DE903B60a756F6dd554"
+    ]
+   },
+   {
+    "line": "| [TransparentUpgradeableProxy](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.1-solc-0.7-2/contracts/proxy/TransparentUpgradeableProxy.sol) |",
+    "addresses": [
+     "0xEe6A57eC80ea46401049E92587E52f5Ec1c24785",
+     "0x505B43c452AA4443e0a6B84bb37771494633Fde9"
+    ]
+   },
+   {
+    "line": "| [NonfungiblePositionManager](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/NonfungiblePositionManager.sol)                           |",
+    "addresses": [
+     "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+     "0x3d79EdAaBC0EaB6F08ED885C05Fc0B014290D95A"
+    ]
+   },
+   {
+    "line": "| [V3Migrator](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/V3Migrator.sol)                                                           |",
+    "addresses": [
+     "0xA5644E29708357803b5A882D272c41cC0dF92B34",
+     "0x3cFd4d48EDfDCC53D3f173F596f621064614C582"
+    ]
+   }
+  ]
+ },
+ "aave_pool_proxy": {
+  "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "bytes": 2400,
+  "sha256": "7a042f7fd7d51b45273edcfe5ff9984c73410e01fd41e7f0fcef2b51e1a8f610"
+ },
+ "aave_pool_impl": "0x00000000000000000000000066185e53343336d4faea5317d1fcca103dd4088d",
+ "aave_pool_admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+ "aave_provider_getPool": "0x794a61358d6845594f94dc1db02a252b5b4814ad",
+ "aave_reserves": [
+  "0x0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+  "0x0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+  "0x0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+  "0x0x68f180fcce6836688e9084f035309e29bf0a2095",
+  "0x0x4200000000000000000000000000000000000006",
+  "0x0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+  "0x0x76fb31fb4af56892a25e32cfc43de717950c9278",
+  "0x0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+  "0x0x4200000000000000000000000000000000000042",
+  "0x0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+  "0x0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+  "0x0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+  "0x0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+  "0x0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+ ],
+ "aave_reserves_count": 14,
+ "uni_factory": {
+  "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+  "bytes": 24535,
+  "sha256": "fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572"
+ },
+ "uni_owner": "0xec23cf5a1db3dcc6595385d28b2a4d9b52503be4",
+ "uni_fee_tiers": {
+  "100": {
+   "tickSpacing": 1,
+   "error": null
+  },
+  "500": {
+   "tickSpacing": 10,
+   "error": null
+  },
+  "3000": {
+   "tickSpacing": 60,
+   "error": null
+  },
+  "10000": {
+   "tickSpacing": 200,
+   "error": null
+  }
+ },
+ "uni_getPool": {
+  "WETH_USDC_500": {
+   "tokenA": "0x4200000000000000000000000000000000000006",
+   "tokenB": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+   "fee": 500,
+   "pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+   "error": null
+  },
+  "WETH_USDCe_500": {
+   "tokenA": "0x4200000000000000000000000000000000000006",
+   "tokenB": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+   "fee": 500,
+   "pool": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+   "error": null
+  },
+  "USDC_USDT_100": {
+   "tokenA": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+   "tokenB": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+   "fee": 100,
+   "pool": "0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+   "error": null
+  },
+  "OP_WETH_3000": {
+   "tokenA": "0x4200000000000000000000000000000000000042",
+   "tokenB": "0x4200000000000000000000000000000000000006",
+   "fee": 3000,
+   "pool": "0x68f5c0a2de713a54991e01858fd27a3832401849",
+   "error": null
+  }
+ },
+ "uni_poolcreated_scan": {
+  "attempts": [
+   {
+    "span": 5000,
+    "from": 159313247,
+    "to": 159318247,
+    "count": 0,
+    "error": null
+   }
+  ],
+  "success": {
+   "from_block": 159313247,
+   "to_block": 159318247,
+   "count": 0
+  },
+  "parsed": [],
+  "window_start_time_utc": "2026-11-09T11:54:31+00:00"
+ },
+ "superchain_op_toml_head": "name = \"OP Mainnet\"\npublic_rpc = \"https://mainnet.optimism.io\"\nsequencer_rpc = \"https://mainnet-sequencer.optimism.io\"\nexplorer = \"https://explorer.optimism.io\"\ngoverned_by_optimism = true\nsuperchain_time = 0\ndata_availability_type = \"eth-da\"\nchain_id = 10\nbatch_inbox_addr = \"0xFF00000000000000000000000000000000000010\"\nblock_time = 2\nseq_window_size = 3600\nmax_sequencer_drift = 600\n\n[hardforks]\n  canyon_time = 1704992401 # Thu 11 Jan 2024 17:00:01 UTC\n  delta_time = 1708560000 # Thu 22 Feb 2024 00:00:00 UTC\n  ecotone_time = 1710374401 # Thu 14 Mar 2024 00:00:01 UTC\n  fjord_time = 1720627201 # Wed 10 Jul 2024 16:00:01 UTC\n  granite_time = 1726070401 # Wed 11 Sep 2024 16:00:01 UTC\n  holocene_time = 1736445601 # Thu 9 Jan 2025 18:00:01 UTC\n  isthmus_time = 1746806401 # Fri 9 May 2025 16:00:01 UTC\n  jovian_time = 1764691201 # Tue 2 Dec 2025 16:00:01 UTC\n  karst_time = 1783526401 # Wed 8 Jul 2026 16:00:01 UTC\n  keep_karst_upgrade_gas = true\n\n[optimism]\n  eip1559_elasticity = 6\n  eip1559_denominator = 50\n  eip1559_denominator_canyon = 250\n\n[genesis]\n  l2_time = 1686068903\n  [genesis.l1]\n    hash = \"0x438335a20d98863a4c0c97999eb2481921ccd28553eac6f913af7c12aec04108\"\n    number = 17422590\n  [genesis.l2]\n    hash = \"0xdbf6a80fef073de06add9b0d14026d6e5a86c85f6d102c36d3d8e9cf89c2afd3\"\n    number = 105235063\n  [genesis.system_config]\n    batcherAddress = \"0x6887246668a3b87F54DeB3b94Ba47a6f63F32985\"\n    overhead = \"0x00000000000000000000000000000000000000000000000000000000000000bc\"\n    scalar = \"0x00000000000000000000000000000000000000000000000000000000000a6fe0\"\n    gasLimit = 30000000\n\n[roles]\n  ProxyAdminOwner = \"0x5a0Aae59D09fccBdDb6C6CcEB07B7279367C3d2A\"\n\n[addresses]\n  L1StandardBridgeProxy = \"0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1\"\n  OptimismPortalProxy = \"0xbEb5Fc579115071764c7423A4f12eDde41f106Ed\"\n  SystemConfigProxy = \"0x229047fed2591dbec1eF1118d64F7aF3dB9EB290\"\n  DisputeGameFactoryProxy = \"0xe5965Ab5962eDc7477C8520243A95517CD252fA9\"\n",
+ "superchain_hardfork_lines": {
+  "[hardforks]": [
+   "[hardforks]",
+   "canyon_time = 1704992401 # Thu 11 Jan 2024 17:00:01 UTC",
+   "delta_time = 1708560000 # Thu 22 Feb 2024 00:00:00 UTC",
+   "ecotone_time = 1710374401 # Thu 14 Mar 2024 00:00:01 UTC",
+   "fjord_time = 1720627201 # Wed 10 Jul 2024 16:00:01 UTC",
+   "granite_time = 1726070401 # Wed 11 Sep 2024 16:00:01 UTC",
+   "holocene_time = 1736445601 # Thu 9 Jan 2025 18:00:01 UTC",
+   "isthmus_time = 1746806401 # Fri 9 May 2025 16:00:01 UTC",
+   "jovian_time = 1764691201 # Tue 2 Dec 2025 16:00:01 UTC",
+   "karst_time = 1783526401 # Wed 8 Jul 2026 16:00:01 UTC"
+  ]
+ },
+ "op_releases": [
+  {
+   "title": "op-reth/v2.8.2-rc.1",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.2-rc.1",
+   "updated": "2026-11-09T14:08:11Z"
+  },
+  {
+   "title": "op-deployer v0.9.0-allowlist",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.9.0-allowlist",
+   "updated": "2026-11-06T02:06:22Z"
+  },
+  {
+   "title": "op-contracts v9.0.0+allowlist",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-contracts%2Fv9.0.0%2Ballowlist",
+   "updated": "2026-11-06T01:51:48Z"
+  },
+  {
+   "title": "v1.20.1",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/v1.20.1",
+   "updated": "2026-11-05T13:59:29Z"
+  },
+  {
+   "title": "untagged-9be03a6937a8bc7884c5: ci,op-deployer,op-up: remove goreleaser and op-up releases (#23914)",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/untagged-9be03a6937a8bc7884c5",
+   "updated": "2026-11-05T10:33:12Z"
+  },
+  {
+   "title": "op-supernode v1.1.1",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-supernode%2Fv1.1.1",
+   "updated": "2026-11-05T15:13:00Z"
+  },
+  {
+   "title": "op-reth v2.8.1",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.1",
+   "updated": "2026-11-05T15:44:41Z"
+  },
+  {
+   "title": "op-reth/v2.8.1-rc.2",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.1-rc.2",
+   "updated": "2026-11-05T06:28:39Z"
+  },
+  {
+   "title": "op-node v1.20.1",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-node%2Fv1.20.1",
+   "updated": "2026-11-05T15:09:58Z"
+  },
+  {
+   "title": "op-deployer v0.9.0-dev-test.3",
+   "link": "https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.9.0-dev-test.3",
+   "updated": "2026-11-05T21:48:20Z"
+  }
+ ],
+ "finished_at_utc": "2026-11-09T14:41:25.996451+00:00",
+ "request_count_this_script": 25
+}

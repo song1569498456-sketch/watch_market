@@ -1,0 +1,100 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:42:07.823772+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:42:08.984483+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_poolcreated_100000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:42:09.547842+00:00",
+  "http_status": 413,
+  "rpc_error": {
+   "code": -32614,
+   "message": "eth_getLogs is limited to a 10,000 range"
+  }
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "optimism-publicnode",
+  "tag": "uni_poolcreated_100000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:42:10.042925+00:00",
+  "http_status": 403,
+  "rpc_error": {
+   "code": -32602,
+   "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+  }
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_poolcreated_20000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:42:11.070009+00:00",
+  "http_status": 413,
+  "rpc_error": {
+   "code": -32614,
+   "message": "eth_getLogs is limited to a 10,000 range"
+  }
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "optimism-publicnode",
+  "tag": "uni_poolcreated_20000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:42:11.557672+00:00",
+  "http_status": 403,
+  "rpc_error": {
+   "code": -32602,
+   "message": "Archive requests require a personal token. Get one at: https://www.allnodes.com/publicnode"
+  }
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_poolcreated_5000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:42:11.923793+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "block_wstart",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:42:12.422796+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "gh_superchain_op_commits",
+  "url": "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z&per_page=20",
+  "at_utc": "2026-11-09T14:42:12.923668+00:00",
+  "http_status": 200,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+ }
+]

@@ -1,0 +1,301 @@
+{
+ "chain": "ARB",
+ "pinned_block": 522704122,
+ "head_block": 522704127,
+ "started_at_utc": "2026-11-09T14:37:28.275980+00:00",
+ "new_pool_identity": {
+  "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+  "block": 522536108,
+  "tx": "0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592",
+  "token0": {
+   "raw": "0x000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e5831",
+   "decoded": [
+    "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+   ],
+   "error": null
+  },
+  "token1": {
+   "raw": "0x000000000000000000000000f2925a78adac85ca330643bc5584a694199afb76",
+   "decoded": [
+    "0xf2925a78adac85ca330643bc5584a694199afb76"
+   ],
+   "error": null
+  },
+  "fee": {
+   "raw": "0x0000000000000000000000000000000000000000000000000000000000000bb8",
+   "decoded": [
+    "3000"
+   ],
+   "error": null
+  },
+  "tickSpacing": {
+   "raw": "0x000000000000000000000000000000000000000000000000000000000000003c",
+   "decoded": [
+    "60"
+   ],
+   "error": null
+  },
+  "liquidity": {
+   "raw": "0x00000000000000000000000000000000000000000000000000563042cb283259",
+   "decoded": [
+    "24259911431500377"
+   ],
+   "error": null
+  },
+  "slot0": {
+   "raw": "0x0000000000000000000000000000000000d7cab79facd4e1d959e24c200349ab000000000000000000000000000000000000000000000000000000000005065d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000660000000000000000000000000000000000000000000000000000000000000001",
+   "decoded": [
+    "1120455419495722798374638764549163435",
+    "329309",
+    "0",
+    "1",
+    "1",
+    "102",
+    "True"
+   ],
+   "error": null
+  },
+  "code": {
+   "bytecode_bytes": 22142,
+   "code_keccak256": "0x98187912f53460fef9f4463408612cab8546e6eb54590c2cc2206d000340d98f"
+  },
+  "creation_block_timestamp_utc": "2026-11-09T01:50:32+00:00"
+ },
+ "unknown_token": {
+  "address": "0xf2925a78adac85ca330643bc5584a694199afb76",
+  "fields": {
+   "symbol": {
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004424c505800000000000000000000000000000000000000000000000000000000",
+    "decoded": [
+     "BLPX"
+    ],
+    "error": null
+   },
+   "name": {
+    "raw": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000011426c75654368697044455820546f6b656e000000000000000000000000000000",
+    "decoded": [
+     "BlueChipDEX Token"
+    ],
+    "error": null
+   },
+   "decimals": {
+    "raw": "0x0000000000000000000000000000000000000000000000000000000000000012",
+    "decoded": [
+     "18"
+    ],
+    "error": null
+   },
+   "totalSupply": {
+    "raw": "0x00000000000000000000000000000000000000000052b7d2dcc80cd2e4000000",
+    "decoded": [
+     "100000000000000000000000000"
+    ],
+    "error": null
+   },
+   "code": {
+    "bytecode_bytes": 1793,
+    "code_keccak256": "0x703636a7bff05d398d0550aebce0f4b896715d462257761368c6d221287597f4"
+   }
+  }
+ },
+ "aave_arb_commits": {
+  "http_status": 200,
+  "count": 2,
+  "commits": [
+   {
+    "sha": "cc662ae5377f",
+    "date": "2026-11-09T10:09:32Z",
+    "message": "feat: add CoW Adapter contracts (#1672)"
+   },
+   {
+    "sha": "38f57964f2ae",
+    "date": "2026-10-12T11:32:32Z",
+    "message": "fix(cache): automated cache update - updated addresses (#1615)"
+   }
+  ]
+ },
+ "aave_reserve_initialized": {
+  "source": {
+   "http_status": 200,
+   "sha256": "53d43f13200d87c4283ae70c3711c88481133eefc0b351962ddee3f6fa419779",
+   "bytes": 19432,
+   "event_excerpt": null
+  },
+  "event_signature": "ReserveInitialized(address,address,address,address,address)",
+  "topic0": "0x3a0ca721fc364424566385a1aa271ed508cc2c0949c2272575fb3013a163a45f",
+  "window_from_block": 522358527,
+  "window_to_block": 522704127,
+  "count": 0,
+  "error": null,
+  "logs": []
+ },
+ "univ3_7d_attempt": {
+  "from_block": 520284927,
+  "to_block": 522704127,
+  "error": null,
+  "count": 0
+ },
+ "requests": [
+  {
+   "label": "pool token0",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:28.903628+00:00"
+  },
+  {
+   "label": "pool token1",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:29.594885+00:00"
+  },
+  {
+   "label": "pool fee",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:30.279956+00:00"
+  },
+  {
+   "label": "pool tickSpacing",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:30.988518+00:00"
+  },
+  {
+   "label": "pool liquidity",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:31.677446+00:00"
+  },
+  {
+   "label": "pool slot0",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:32.373921+00:00"
+  },
+  {
+   "label": "getCode new pool",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:33.120614+00:00"
+  },
+  {
+   "label": "creation block",
+   "method": "eth_getBlockByNumber",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:33.815101+00:00"
+  },
+  {
+   "label": "token1 symbol",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:34.503586+00:00"
+  },
+  {
+   "label": "token1 name",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:35.202166+00:00"
+  },
+  {
+   "label": "token1 decimals",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:35.886200+00:00"
+  },
+  {
+   "label": "token1 totalSupply",
+   "method": "eth_call",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:36.587815+00:00"
+  },
+  {
+   "label": "getCode token1",
+   "method": "eth_getCode",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:37.282856+00:00"
+  },
+  {
+   "label": "aave-arbitrum-file-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?path=src/AaveV3Arbitrum.sol&since=2026-10-10T00:00:00Z&per_page=100",
+   "http_status": 200,
+   "error": null,
+   "sha256": "a75b00470129f3bf17610341e29f7b1f3aae29a0b422dd26be118868e4057f9c",
+   "bytes": 9772,
+   "retrieved_at_utc": "2026-11-09T14:37:39.167723+00:00"
+  },
+  {
+   "label": "aave-poolconfigurator-source",
+   "url": "https://raw.githubusercontent.com/aave/aave-v3-core/master/contracts/protocol/pool/PoolConfigurator.sol",
+   "http_status": 200,
+   "error": null,
+   "sha256": "53d43f13200d87c4283ae70c3711c88481133eefc0b351962ddee3f6fa419779",
+   "bytes": 19432,
+   "retrieved_at_utc": "2026-11-09T14:37:40.580612+00:00"
+  },
+  {
+   "label": "getLogs aave ReserveInitialized 24h",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:41.262736+00:00"
+  },
+  {
+   "label": "getLogs univ3 7d attempt",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:41.945744+00:00"
+  },
+  {
+   "label": "getLogs univ3 PoolCreated 7d",
+   "method": "eth_getLogs",
+   "http_status": 200,
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:37:42.648162+00:00"
+  }
+ ],
+ "univ3_7d_attempt2": {
+  "from_block": 520284927,
+  "to_block": 522704127,
+  "topic0": "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+  "error": null,
+  "count": 17,
+  "sample": [
+   {
+    "block": 520291019,
+    "tx": "0x801360fddd39c3087d1cb32bc3d115ae65b95261d7cb21c823f874f78e2b8461"
+   },
+   {
+    "block": 520295440,
+    "tx": "0xbeb4c652d96c0bc8685cada43d92bddfc3821f71a73639c7641b67b895f63793"
+   },
+   {
+    "block": 520297235,
+    "tx": "0x69fedf0aacac87c1b39eaaa51fef1d990c3d0328d12b554aee364a3957a2d180"
+   },
+   {
+    "block": 520376533,
+    "tx": "0xabc5dbeac162e637ff8e692c60e22cfd121c6358fae5bc583f6b74362eb47ffe"
+   },
+   {
+    "block": 520380548,
+    "tx": "0x47e2f9d3326967aad0e0aeb879781304f052a25008d3e5e548f9c92d1e40fdab"
+   }
+  ]
+ },
+ "finished_at_utc": "2026-11-09T14:37:42.998346+00:00",
+ "request_count": 18
+}

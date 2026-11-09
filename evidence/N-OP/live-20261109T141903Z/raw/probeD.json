@@ -1,0 +1,53 @@
+{
+ "started_at_utc": "2026-11-09T14:43:56.191803+00:00",
+ "deploys_table_headers": [
+  {
+   "line_index": 4,
+   "line": "| Contract                                                                                                                                                     | Mainnet, Polygon, Optimism, Arbitrum, Testnets Address | Celo Address                                 |"
+  }
+ ],
+ "deploys_rows": {
+  "UniswapV3Factory": "| [UniswapV3Factory](https://github.com/Uniswap/uniswap-v3-core/blob/v1.0.0/contracts/UniswapV3Factory.sol)                                                    | `0x1F98431c8aD98523631AE4a59f267346ea31F984`           | `0xAfE208a311B21f13EF87E33A90049fC17A7acDEc` |",
+  "Quoter": "| [Quoter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/lens/Quoter.sol)                                                              | `0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6`           | `0x82825d0554fA07f7FC52Ab63c961F330fdEFa8E8` |",
+  "SwapRouter": "| [SwapRouter](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/SwapRouter.sol)                                                           | `0xE592427A0AEce92De3Edee1F18E0157C05861564`           | `0x5615CDAb10dc425a742d643d949a7F474C01abc4` |",
+  "NonfungiblePositionManager": "| [NonfungiblePositionManager](https://github.com/Uniswap/uniswap-v3-periphery/blob/v1.0.0/contracts/NonfungiblePositionManager.sol)                           | `0xC36442b4a4522E871399CD717aBDD847Ab11FE88`           | `0x3d79EdAaBC0EaB6F08ED885C05Fc0B014290D95A` |"
+ },
+ "head_block": 159318330,
+ "head_block_time_utc": "2026-11-09T14:43:57+00:00",
+ "pinned_block": 159318328,
+ "candidate_factory": {
+  "address": "0xAfE208a311B21f13EF87E33A90049fC17A7acDE1",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tickSpacing_500": {
+   "value": null,
+   "error": "InsufficientDataBytes('Tried to read 32 bytes, only got 0 bytes.')"
+  },
+  "tickSpacing_3000": {
+   "value": null,
+   "error": "InsufficientDataBytes('Tried to read 32 bytes, only got 0 bytes.')"
+  }
+ },
+ "uniswap_v3_pool_snapshot": {
+  "address": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+  "code_bytes": 22142,
+  "code_sha256": "c3799de2bd3cb0d8257a3e404aebd5be954cdb5bcf9cb05d056cb31de3efbd49",
+  "token0": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+  "token0_error": null,
+  "token1": "0x4200000000000000000000000000000000000006",
+  "token1_error": null,
+  "fee": 500,
+  "fee_error": null,
+  "slot0_decoded": {
+   "sqrtPriceX96": "1721181472937990164490443118442909",
+   "tick": 199733,
+   "observationCardinality": 2000
+  },
+  "price_token1_per_token0_raw": "471948008.4390405618564032696",
+  "slot0_error": null,
+  "liquidity": "11702808516554365",
+  "liquidity_error": null
+ },
+ "finished_at_utc": "2026-11-09T14:44:03.579294+00:00",
+ "request_count_this_script": 11
+}

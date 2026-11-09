@@ -1,0 +1,16 @@
+{
+ "started_at_utc": "2026-11-09T14:40:29.160383+00:00",
+ "chain_id": 8453,
+ "chain_id_hex": "0x2105",
+ "latest_block": 55224268,
+ "latest_block_time_utc": "2026-11-09T14:40:29+00:00",
+ "base_fee_wei": "0x4c7487",
+ "gas_used": "0xb16cc",
+ "selector_source": "pycryptodome_keccak",
+ "factory_code_bytes": 3516,
+ "factory_code_head": "0x608060405234801561001057600080fd5b50600436106101585760003560e01c80635c60da1b11",
+ "registry_code_bytes": 2649,
+ "registry_code_head": "0x608060405234801561001057600080fd5b50600436106100b45760003560e01c8063715018a611",
+ "all_pools_length_raw": "0x00000000000000000000000000000000000000000000000000000000000074eb",
+ "all_pools_length": 29931
+}

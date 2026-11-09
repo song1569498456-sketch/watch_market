@@ -1,0 +1,101 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:43:56.191955+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:43:57.319947+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_candidate_factory",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:43:57.877915+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "cand_fee_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:58.403938+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "cand_fee_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:58.927341+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "code_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:43:59.426331+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "v3pool_token0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:44:01.024000+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "v3pool_token1",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:44:01.542506+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "v3pool_fee",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:44:02.042497+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "v3pool_slot0",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:44:02.559857+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "mainnet.optimism.io",
+  "tag": "v3pool_liquidity",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:44:03.067319+00:00",
+  "http_status": 200
+ }
+]

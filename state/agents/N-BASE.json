@@ -2,15 +2,88 @@
   "agent_id": "N-BASE",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:42:21+00:00",
   "observed_cursor": {
-    "official_source": "base/base",
-    "official_release_tag": "v1.5.4",
-    "release_published_at": "2026-11-06T01:25:10Z",
-    "last_block": null,
-    "pool_events_scanned": 0,
-    "transactions_analyzed": 0,
+    "kind": "chain_snapshot_plus_factory_index_enumeration",
+    "run_id": "live-20261109T141903Z",
+    "chain": "base-mainnet",
+    "chain_id": 8453,
+    "latest_block": 55224420,
+    "latest_block_time_utc": "2026-11-09T14:40:59+00:00",
+    "measured_block_time_approx": "0.2s",
+    "factory": {
+      "protocol": "Aerodrome",
+      "address": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+      "code_bytes": 3516,
+      "allPoolsLength": 29931,
+      "stableFee": 5,
+      "volatileFee": 30,
+      "implementation": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+      "implementation_code_bytes": 21057
+    },
+    "newest_pools_verified": [
+      {
+        "index": 29930,
+        "pool": "0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+        "tokens": [
+          "0x4200000000000000000000000000000000000006:WETH",
+          "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60:PRIME"
+        ],
+        "stable": false,
+        "clone_target": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+        "created_blocks_ago_approx": [
+          8325,
+          15300
+        ],
+        "created_time_approx_utc": "2026-11-09T13:50～14:13"
+      },
+      {
+        "index": 29929,
+        "pool": "0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+        "tokens": [
+          "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f:xUSDT",
+          "0x329105c15ac753c8d23a9105abe2c63578f6002a:bsdETH"
+        ],
+        "stable": false,
+        "created_blocks_ago_approx": [
+          9225,
+          10800
+        ],
+        "created_time_approx_utc": "2026-11-09T14:05～14:10"
+      }
+    ],
+    "queued_pool_indices": [
+      29928,
+      29927,
+      29926,
+      29925,
+      29924,
+      29923,
+      29922,
+      29921,
+      29920,
+      29919,
+      29918,
+      29917,
+      29916,
+      29915,
+      29914,
+      29913,
+      29912,
+      29911
+    ],
+    "base_releases_in_30d": [
+      "v1.5.0",
+      "v1.5.1",
+      "v1.5.2",
+      "v1.5.3",
+      "v1.5.4"
+    ],
+    "source_failures": [
+      "eth_getLogs -32011 request limit reached",
+      "base.blockscout.com/api/v2 HTTP 403 ×3"
+    ],
     "history_window_complete": false
   },
   "published_cursor": {
@@ -28,30 +101,28 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
-    "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
-    "Aerodrome README列PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da及FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0。",
-    "工厂源码getFee可用customFee[pool]覆盖默认stableFee/volatileFee，特殊ZERO_FEE_INDICATOR映射0费用；不能将源码常量当实时报价。",
-    "Aerodrome README说明LP入Gauge换取排放时池手续费权利交予Gauge；提供BASE05专项线索，不在本岗位计算该策略收益。"
+    "链身份链上核验：eth_chainId=0x2105（8453），最新块 55,224,420（2026-11-09T14:40:59Z），base fee 0.005 gwei，实测约 0.2 秒/块。",
+    "Aerodrome PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da 链上核验：代码 3,516 字节、allPoolsLength=29,931、isPool(最新2池)=true、stableFee=5/volatileFee=30、implementation=0xa4e46b4f…（代码 21,057 字节）；新池为 45 字节 EIP-1167 克隆。",
+    "最新池枚举：allPools index 29930～29911 共 20 个地址；index 29930（WETH/PRIME，volatile）与 29929（xUSDT/bsdETH，volatile）完成 token symbol/decimals、factory、克隆目标与创建窗口核验；两者创建于最新块前约 28～51 分钟与 31～36 分钟。",
+    "30 天规则窗口（PARTIAL）：base/base 最近 10 个发布，窗口内 v1.5.0(10-14)/v1.5.1(10-22)/v1.5.2(11-04)/v1.5.3(11-05)/v1.5.4(11-06)；节点软件发布≠链上规则生效。",
+    "7 天活动窗口（NOT_COMPLETED）：eth_getLogs 被公共 RPC 限流（-32011）、Blockscout API 三次 403；未做 PoolCreated 7 天分页，不能给新增池统计。",
+    "失败记录：公共 RPC 单批 eth_call 超过约 40 个后出现空洞（batch=100 的后半段元数据缺失），后续批量控制在 ~40 以内。"
   ],
   "pending_questions": [
-    "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
-    "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
-    "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
-    "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
+    "7 天 PoolCreated 分页未完成（日志源受限）；需要允许 getLogs 的端点或索引服务，或用 allPoolsLength 每轮增量差值。",
+    "两新池储备/LP/TVL/交易活动未读；池级 customFee/getFee(pool) 未返回，0.30% 默认费是否生效未确认。",
+    "xUSDT/bsdETH/PRIME 的包装/计息/赎回机制与发行方未核，不能当普通 ETH/USDT 权益。",
+    "工厂 admin/implementation setter 权限未读；EIP-1967 实现槽为 0 但 implementation() 有返回值，实现存储方式待读源码。",
+    "FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 仅确认有代码，未读清单变化；未覆盖 Aerodrome 治理与费用管理者事件。",
+    "索引 29928～29911 只登记地址，token 身份未全部读取；未做旧小池退出窗口轮转。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:30:38.025797+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-BASE/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "verified_at": "2026-11-08T15:30:59.022489+00:00",
-    "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
-  },
+  "last_attempt_at": "2026-11-09T14:45:00+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-BASE/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-BASE/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
   "review_corrections": "evidence/Q00/full-20261108T152118Z/corrections.json",
   "normalized_time_reference": "runs/full-20261108T152118Z/normalized-report-times.json"
 }

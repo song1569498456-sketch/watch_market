@@ -2,67 +2,132 @@
   "agent_id": "N-OP",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:44:03+00:00",
   "observed_cursor": {
-    "kind": "static_source_fetch_only",
-    "fetched_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
-      "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
-    ],
-    "fetched_at": "2026-11-08T15:29:38.443377+00:00",
-    "chain_block": null,
-    "event_pages_completed": 0,
-    "history_complete": false
+    "chain_id": 10,
+    "head_block": 159318330,
+    "head_block_time_utc": "2026-11-09T14:43:57+00:00",
+    "block_time_seconds": 2,
+    "aave": {
+      "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+      "impl_matches_official_addressbook": true,
+      "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+      "provider_getPool": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+      "reserves_count": 14,
+      "pool_code_bytes": 2400,
+      "pool_code_sha256": "7a042f7fd7d51b45273edcfe5ff9984c73410e01fd41e7f0fcef2b51e1a8f610"
+    },
+    "uniswap_v3": {
+      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "factory_code_bytes": 24535,
+      "factory_code_sha256": "fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572",
+      "owner": "0xec23cf5a1db3dcc6595385d28b2a4d9b52503be4",
+      "fee_tiers": {
+        "100": 1,
+        "500": 10,
+        "3000": 60,
+        "10000": 200
+      },
+      "known_pools": {
+        "WETH_USDC_500": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+        "WETH_USDCe_500": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+        "USDC_USDT_100": "0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e",
+        "OP_WETH_3000": "0x68f5c0a2de713a54991e01858fd27a3832401849"
+      },
+      "poolcreated_scan": {
+        "from_block": 159313247,
+        "to_block": 159318247,
+        "count": 0,
+        "window_start_utc": "2026-11-09T11:54:31+00:00",
+        "window_end_utc": "2026-11-09T14:41:11+00:00"
+      },
+      "weth_usdc_pool_snapshot": {
+        "pool": "0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+        "pinned_block": 159318328,
+        "token0": "0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+        "token1": "0x4200000000000000000000000000000000000006",
+        "fee": 500,
+        "tick": 199733,
+        "sqrtPriceX96": "1721181472937990164490443118442909",
+        "liquidity": "11702808516554365",
+        "liquidity_L": "11702808516554365",
+        "derived_weth_per_usdc": "0.0004719480084390405618564032696"
+      }
+    },
+    "rule_window": {
+      "hardfork_last": "karst_time=1783526401（2026-07-08T16:00:01Z）",
+      "hardfork_prev": "jovian_time=1764691201（2025-12-02）",
+      "op_toml_commits_since_2026_10_10": 0,
+      "op_toml_sha256": "419779a2c50fa240b97d2e783cb356ec718072011d6d86636c9d10b922121c99",
+      "releases_30d": [
+        "op-reth/v2.8.2-rc.1 @2026-11-09T14:08:11Z",
+        "op-deployer v0.9.0-allowlist @2026-11-06T02:06:22Z",
+        "op-contracts v9.0.0+allowlist @2026-11-06T01:51:48Z",
+        "op-supernode v1.1.1 @2026-11-05T15:13:00Z",
+        "op-node v1.20.1 @2026-11-05T15:09:58Z",
+        "v1.20.1 @2026-11-05T13:59:29Z"
+      ],
+      "releases_atom_sha256": "1dd204fea1daf6e5032bdc0ee21abb82aea94c1f3012f88003615a1840645b62"
+    },
+    "chain_block": 159318330,
+    "event_pages_completed": 1,
+    "history_30d_complete": false,
+    "activity_7d_complete": false,
+    "requests_this_run": 61
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
     "observed": {
-      "kind": "static_source_fetch_only",
-      "fetched_urls": [
-        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
-        "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
-      ],
-      "fetched_at": "2026-11-08T15:29:38.443377+00:00",
-      "chain_block": null,
-      "event_pages_completed": 0,
-      "history_complete": false
+      "chain_id": 10,
+      "chain_block": 159318330,
+      "aave_pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+      "aave_reserves_count": 14,
+      "uniswap_v3_factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+      "uniswap_poolcreated_window": "159313247-159318247",
+      "uniswap_poolcreated_count": 0,
+      "op_toml_commits_since_2026_10_10": 0,
+      "requests_this_run": 61,
+      "event_pages_completed": 1,
+      "history_30d_complete": false,
+      "activity_7d_complete": false
     },
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "run_id": "full-20261108T152118Z"
+    "evidence_commit": null,
+    "run_id": "live-20261109T141903Z"
   },
   "coverage": [
-    {
-      "protocol": "Aave V3 Optimism",
-      "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
-      "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
-      "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
-      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
-    },
-    {
-      "protocol": "Uniswap V3",
-      "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-      "source_scope": "OP部署表静态登记",
-      "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
-    }
+    "链身份与区块：chainId=10、head 159318330（2026-11-09T14:43:57Z），block_time≈2s 与官方 op.toml 一致。",
+    "Aave V3 OP 链上身份核验：POOL proxy 0x794a61358D6845594F94dc1DB02A252b5b4814aD（2400 bytes，sha256 7a042f7f…），EIP-1967 impl=0x66185E53… 与官方地址簿 POOL_IMPL 一致；provider.getPool() 一致；14 个 reserve 及 symbol/decimals 已读。",
+    "Uniswap V3 OP 工厂核验：0x1F98431c8aD98523631AE4a59f267346ea31F984（24535 bytes，sha256 fd5e0ec0…），官方 deploys.md 共享地址列确认；4 个 fee 档 tickSpacing=1/10/60/200；4 个已知池 getPool 命中；Celo 列地址 0xAfE208… 在 OP 代码为空已排除。",
+    "新市场排除：PoolCreated 在 5000 块窗口 159313247-159318247（11:54:31Z-14:41:11Z，≈2.78h）count=0；主网 RPC 对 20000/100000 块 getLogs 返回 -32602（archive token 限制），无法扩窗。",
+    "30 天规则窗口：op.toml 自 2026-10-10 提交数=0；最新 hardfork karst 2026-07-08，30 天内无 hardfork 激活 → 无 OP 链配置规则变更。",
+    "30 天发布级变更：op-contracts v9.0.0+allowlist、op-deployer v0.9.0-allowlist（2026-11-06）等已在 releases atom 记录；未验证 OP Mainnet 链上激活（L1 版本未读）。",
+    "旧池快照：WETH/USDC 0.05% 池 0x1fb3cf6e… 在 pinned 159318328 的 token0/token1/fee/slot0/liquidity 全部读取；slot0 推导 WETH≈2118.87 USDC（非报价）。",
+    "上轮遗留的 Aave/Uniswap 静态身份已升级为 CHAIN_VERIFIED；上轮静态基线未删除，仅追加本轮证据。"
   ],
   "pending_questions": [
-    "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
-    "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
-    "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
-    "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
-    "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+    "7 天活动窗口未覆盖：仅 5000 块（≈2.78h）Uniswap V3 PoolCreated；无 archive token 无法扩窗；未读近 24h 交易与 5 组代表交易。",
+    "其它 OP DEX（Velodrome 等）工厂事件未扫；需先核官方工厂地址。",
+    "Aave 官方 Assets 文件 404，14 个 reserve 未与官方清单 diff；不能断言无新增储备。",
+    "op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 是否在 OP Mainnet 生效未核（需 L1 合约版本/激活记录，跨链，交 M00 决定范围）。",
+    "未做指定数量报价/只读模拟；WETH/USDC 价格为 slot0 推导。",
+    "Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（deploys 共享地址列）未在 OP 上做 getCode 验证。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:29:38.443377+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-OP/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "verified_at": "2026-11-08T15:30:59.022489+00:00",
-    "record": "evidence/N-OP/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:44:03.579294+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-OP/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-OP/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null,
+  "run_request_count": 61,
+  "data_sources_used": [
+    "https://mainnet.optimism.io",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+    "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+    "https://github.com/ethereum-optimism/optimism/releases.atom",
+    "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+  ]
 }

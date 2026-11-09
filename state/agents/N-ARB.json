@@ -2,17 +2,27 @@
   "agent_id": "N-ARB",
   "status": "PARTIAL",
   "research_started": true,
-  "last_research_run_id": "full-20261108T152118Z",
-  "last_success_at": null,
+  "last_research_grade": "RULE_GAP",
+  "last_research_run_id": "live-20261109T141903Z",
+  "last_success_at": "2026-11-09T14:38:39+00:00",
   "observed_cursor": {
-    "type": "STATIC_SOURCE_ONLY",
-    "source_urls": [
-      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
-      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts"
+    "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+    "source_count": 8,
+    "retrieved_at_utc": "2026-11-09T14:38:39+00:00",
+    "chain_id": 42161,
+    "head_block": 522704127,
+    "pinned_blocks": [
+      522704122,
+      522536108
     ],
-    "complete_block_range": null,
-    "complete_event_time_window": null,
-    "retrieved_at_utc": "2026-11-08T15:29:57.007506+00:00"
+    "urls": [
+      "https://arb1.arbitrum.io/rpc",
+      "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+      "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+      "https://api.github.com/repos/bgd-labs/aave-address-book/commits/cc662ae5377f"
+    ],
+    "complete_block_range": "状态/代码：块 522,704,122；Uniswap V3 PoolCreated：520,284,927-522,704,127（17 条，完整覆盖）；新池创建块 522,536,108",
+    "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-01T13:48Z～2026-11-09T14:36Z（7.03 天）；Aave ReserveInitialized 仅 24h（按假定签名 0 条，弱证据）；30 天 Aave 规则/7 天全类活动未覆盖"
   },
   "published_cursor": {
     "scope": "PARTIAL_BASELINE",
@@ -30,27 +40,26 @@
     "run_id": "full-20261108T152118Z"
   },
   "coverage": [
-    "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
-    "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
-    "未确认新增市场、已生效规则、新交易结构、旧市场复活或可执行候选。"
+    "链身份核验：eth_chainId=0xa4b1（42161），head=522,704,127（2026-11-09T14:36:35Z），状态/代码固定块 522,704,122；L2 baseFee 0.02 gwei（不含 L1 数据费）。",
+    "新市场：Uniswap V3 Arbitrum 24h 内唯一新池 0x7c03126d…（BLPX/原生 USDC 0.3%，创建块 522,536,108，2026-11-09T01:50:32Z）；池 token0/token1/fee/tickSpacing 与创建事件一致，BLPX 元数据（符号/18 位/总量 1e26/1793 B 代码）已读，liquidity 24,259,911,431,500,377（极小）。",
+    "7 天窗口（工厂）：Uniswap V3 Arbitrum PoolCreated 块 520,284,927-522,704,127 共 17 条新池，其中 15 条涉 WETH/USDC.e/USDT 等蓝筹；窗口约 2026-11-01T13:48Z-2026-11-09T14:36Z。",
+    "新机制线索：Aave 官方地址书提交 cc662ae5377f（2026-11-09T10:09:32Z）新增 5 个 CoW 适配器地址（factory/collateral swap/debt swap/repay-with-collateral/leverage）；5 地址在块 522,704,122 均有部署代码（1096-10055 B，keccak 已存）；授权/生效/调用权限未读。",
+    "Aave 状态：Pool 代理 impl=0xf05fd3cc…；getReservesList() 20 项；24h ReserveInitialized 按假定签名 0 条（弱证据）。",
+    "旧对象：Uniswap SDK 地址文件 sha 与上一轮相同（b438f734…）；Aave 地址书 sha 由 6b8f9a12… 变为 73687fae…（CoW 适配器提交+自动缓存）；30 天仓库提交 aave-address-book 63 条、uniswap/sdks 18 条。",
+    "外部请求 45 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；无报价/无交易/无签名。"
   ],
   "pending_questions": [
-    "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
-    "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
-    "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
-    "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
-    "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
+    "CoW 适配器是否被 Aave DAO/CoW 注册授权、调用权限与启用开关；实现行为与是否可公开使用。",
+    "Aave 30 天规则/事件（储备参数、新储备、借贷/清算规则变化）未覆盖；24h ReserveInitialized 0 条仅弱证据（事件签名未从源码确认）。",
+    "7 天活动只覆盖 Uniswap V3 工厂新池，未覆盖 Swap/借贷/清算事件、其他 DEX（Camelot 等）与 v4 PoolManager、旧小池轮转。",
+    "BLPX/USDC 新池未报价、BLPX 部署者/源码/权限/可卖性未核验。",
+    "未用 DEX 聚合器 API 交叉发现；Arbitrum 生态门户未重试。"
   ],
   "initialized_at": "2026-11-08T15:17:15.896871+00:00",
   "initialization_reason": "首次发布正式规则；无已完成研究历史。空检查点是合法起点，不是缺失文件。",
-  "last_attempt_at": "2026-11-08T15:29:57.007506+00:00",
-  "last_attempt_storage": "REMOTE_VERIFIED",
-  "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
-  "record": "evidence/N-ARB/full-20261108T152118Z/record.json",
-  "last_verified_attempt": {
-    "run_id": "full-20261108T152118Z",
-    "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-    "verified_at": "2026-11-08T15:30:59.022489+00:00",
-    "record": "evidence/N-ARB/full-20261108T152118Z/record.json"
-  }
+  "last_attempt_at": "2026-11-09T14:38:45+00:00",
+  "last_attempt_storage": "PENDING_REMOTE_VERIFY",
+  "report": "reports/agents/N-ARB/2026-11-09/live-20261109T141903Z.md",
+  "record": "evidence/N-ARB/live-20261109T141903Z/record.json",
+  "last_verified_attempt": null
 }

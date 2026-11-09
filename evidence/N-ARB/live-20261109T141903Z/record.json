@@ -1,0 +1,232 @@
+{
+ "agent_id": "N-ARB",
+ "run_id": "live-20261109T141903Z",
+ "chain": "ARB",
+ "scope": "Arbitrum One 新市场/新规则/新操作发现：Uniswap V3 工厂新池窗口、Aave V3 Arbitrum 官方地址书/链上状态、CoW 适配器新机制线索",
+ "started_at": "2026-11-09T14:36:25+00:00",
+ "finished_at": "2026-11-09T14:38:45+00:00",
+ "duration_seconds": 140,
+ "execution_status": "PARTIAL",
+ "status": "RULE_GAP",
+ "as_of": {
+  "utc": "2026-11-09T14:38:39+00:00",
+  "beijing": "2026-11-09T22:38:39+08:00",
+  "data_time": "链状态/代码固定在块 522,704,122（block timestamp 2026-11-09T14:36:35Z）；新池创建块 522,536,108（2026-11-09T01:50:32Z）；工厂日志窗口 520,284,927-522,704,127（约 2026-11-01T13:48Z-2026-11-09T14:36Z）；官方源抓取 14:36:14-14:38:39Z"
+ },
+ "block_or_slot": 522704122,
+ "market_ids": [
+  "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+  "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+  "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+  "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83"
+ ],
+ "asset_ids": [
+  "eip155:42161/erc20:0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+  "eip155:42161/erc20:0xf2925a78adac85ca330643bc5584a694199afb76",
+  "eip155:42161/erc20:0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+  "eip155:42161/erc20:0x912ce59144191c1204e64559fe8253a0e49e6548"
+ ],
+ "discovery_source": [
+  {
+   "source": "arbitrum-rpc",
+   "url": "https://arb1.arbitrum.io/rpc",
+   "retrieved_at_utc": "2026-11-09T14:36:25+00:00",
+   "request": "只读 JSON-RPC：eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode x10/eth_getStorageAt/eth_call x20/eth_getLogs x4；全部返回结果",
+   "http_status": 200,
+   "error": null
+  },
+  {
+   "source": "uniswap-sdk-addresses",
+   "url": "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+   "retrieved_at_utc": "2026-11-09T14:36:40+00:00",
+   "http_status": 200,
+   "bytes_read": 35066,
+   "sha256": "b438f73481177f75c5a6fcce4b255fe6531c00761dc9c8d9b866f806628d2ebc",
+   "note": "ARBITRUM_ONE v3 factory 0x1F98431c8…、v4 PoolManager 0x360e68fa…；sha 与上一轮相同"
+  },
+  {
+   "source": "aave-address-book-arbitrum",
+   "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+   "retrieved_at_utc": "2026-11-09T14:36:42+00:00",
+   "http_status": 200,
+   "bytes_read": null,
+   "sha256": "73687faefdd3cd38c48aeb33281afb827313c5818936974749ff491ae9efc2ec",
+   "note": "sha 与上一轮 6b8f9a12… 不同；pool/provider/configurator/oracle 均存在，distinct address 156"
+  },
+  {
+   "source": "aave-address-book-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "retrieved_at_utc": "2026-11-09T14:36:45+00:00",
+   "http_status": 200,
+   "request": "未认证公开 GET；30 天 63 条提交（多为 release/自动缓存更新）"
+  },
+  {
+   "source": "aave-arbitrum-file-commits-30d",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits?path=src/AaveV3Arbitrum.sol&since=2026-10-10T00:00:00Z&per_page=100",
+   "retrieved_at_utc": "2026-11-09T14:37:20+00:00",
+   "http_status": 200,
+   "request": "AaveV3Arbitrum.sol 30 天仅 2 条提交：cc662ae5377f(2026-11-09T10:09:32Z feat: add CoW Adapter contracts #1672)、38f57964f2ae(2026-10-12 自动缓存)"
+  },
+  {
+   "source": "aave-commit-diff-cc662ae5377f",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits/cc662ae5377f",
+   "retrieved_at_utc": "2026-11-09T14:37:22+00:00",
+   "http_status": 200,
+   "request": "43 个文件；AaveV3Arbitrum.sol patch 新增 5 个 COW_* 常量地址（factory/collateral swap/debt swap/repay with collateral/leverage）"
+  },
+  {
+   "source": "uniswap-sdks-commits-30d",
+   "url": "https://api.github.com/repos/Uniswap/sdks/commits?since=2026-10-10T00:00:00Z&per_page=100",
+   "retrieved_at_utc": "2026-11-09T14:36:47+00:00",
+   "http_status": 200,
+   "request": "30 天 18 条提交；Arbitrum 地址表未变，未见部署变更"
+  },
+  {
+   "source": "aave-poolconfigurator-source",
+   "url": "https://raw.githubusercontent.com/aave/aave-v3-core/master/contracts/protocol/pool/PoolConfigurator.sol",
+   "retrieved_at_utc": "2026-11-09T14:37:25+00:00",
+   "http_status": 200,
+   "bytes_read": 19432,
+   "sha256": "53d43f13200d87c4283ae70c3711c88481133eefc0b351962ddee3f6fa419779",
+   "note": "源码未匹配到 event ReserveInitialized 声明（可能在接口文件，excerpt=null）；24h 日志用假定签名 ReserveInitialized(address,address,address,address,address)，结果为 0 条，仅作弱证据"
+  }
+ ],
+ "mechanism": "同一权益/头寸的规则接口差异线索：Aave V3 Arbitrum 头寸调整（抵押品替换、债务替换、用抵押品还款、杠杆）传统上需多步借贷/还款；官方地址书 2026-11-09 新增的 CoW 适配器（collateral swap / debt swap / repay-with-collateral / leverage + factory）若被注册授权，可用 CoW intent 撮合在单流程内改变抵押品/债务构成，从而改变清算阈值与退出路径的计算。另一条为新市场发现：Uniswap V3 新建 BLPX/USDC 0.3% 池（24h 内唯一新池），但流动性极小、代币来源未核验，无可执行报价。",
+ "observations": [
+  "链身份：eth_chainId=0xa4b1（42161）；head=522,704,127（2026-11-09T14:36:35Z，hash 0x8a8e456d…）；固定块 522,704,122；L2 baseFee=20,000,000 wei（0.02 gwei，不含 L1 数据费）。",
+  "Uniswap V3 工厂 0x1F98431c8…：代码 24,535 B/keccak 0x4d7b8525…；owner()=0xff7ad5da31fecdc678796c88b05926db896b0699；PoolCreated 7 天窗口 520,284,927-522,704,127 共 17 条（15 条涉 WETH/USDC.e/USDT 等蓝筹），24h 窗口仅 1 条。",
+  "新池 0x7c03126dc25748c658efb946d32b42a4a84d49d2：块 522,536,108（2026-11-09T01:50:32Z），tx 0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592；token0=0xaf88d065…（原生 USDC）、token1=0xf2925a78…（BLPX，BlueChipDEX Token，18 位，总量 1e26，代码 1793 B/keccak 0x703636a7…）、fee=3000、tickSpacing=60；池上 token0/token1/fee/tickSpacing 与事件一致；liquidity=24,259,911,431,500,377（uint128，极小）；slot0 tick=329,309。",
+  "Aave V3 Arbitrum Pool 0x794a6135…：代码 2400 B/keccak 0xf168c2e9…；EIP-1967 impl 槽→0xf05fd3cc911b4c5e36e53c00354f645e22922c9a；getReservesList() 20 项（含 DAI/FRAX/USDC.e/WBTC/WETH/USDT/ARB/原生 USDC 等）。",
+  "Aave 24h ReserveInitialized 日志（PoolConfigurator 0x8145eddD…，块 522,358,527-522,704,127）按假定签名查询 0 条；事件签名未从所取 PoolConfigurator.sol 源码确认（excerpt=null），该 0 条仅作弱证据，不外推 30 天。",
+  "CoW 适配器官方提交 cc662ae5377f（2026-11-09T10:09:32Z，feat: add CoW Adapter contracts #1672）在 AaveV3Arbitrum.sol 新增：COW_ADAPTER_FACTORY 0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83、COW_COLLATERAL_SWAP_ADAPTER 0xa1138627412212e53C208e220696f14b0185a82c、COW_DEBT_SWAP_ADAPTER 0xC898f87b572018ED25F501FFD620894a32dCa1AC、COW_REPAY_WITH_COLLATERAL_ADAPTER 0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a、COW_LEVERAGE_ADAPTER 0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a。",
+  "5 个 CoW 适配器地址在块 522,704,122 均有部署代码：1096 B/0xd51d775a…、9534 B/0x2189cb66…、8383 B/0xed72053a…、8741 B/0x5b594386…、10055 B/0xc9e3735b…；是否被 Aave/CoW 注册授权、调用权限与开关未读。",
+  "官方源：Uniswap SDK addresses.ts sha256 b438f734…（与上一轮同，v3 factory/v4 PoolManager 地址仍在）；Aave 地址书 sha256 73687fae…（上一轮 6b8f9a12…，差异来自 CoW 适配器提交+自动缓存）；30 天仓库提交 aave-address-book 63 条、uniswap/sdks 18 条。",
+  "外部请求 45 次（≤80），同 host 间隔≥0.35s，无连续 3 次失败；未签名/广播/交易；本轮无报价，不写 QUOTED。"
+ ],
+ "quotes": [],
+ "net_result": {
+  "value": null,
+  "unit": "n/a（本轮无指定数量报价）",
+  "type": "no_quote_no_claim",
+  "realized": false,
+  "unknown_costs": [
+   "新池 BLPX/USDC 价格冲击与流动性（liquidity 极小）",
+   "CoW 适配器是否授权/生效、gas 与撮合成本",
+   "L2 gas 与 L1 数据费（Arbitrum 两段费用，未测算）",
+   "代币可卖性/转账限制（BLPX 未核验）"
+  ]
+ },
+ "capacity": "unknown；BLPX/USDC 池 liquidity=24,259,911,431,500,377（uint128，按当前价格约合极小美元量级，未换算）；Aave 储备 20 个但未读可用流动性；CoW 适配器容量/权限未读",
+ "permissions": "unknown；CoW 适配器是否注册授权、谁可调用、Aave Pool 交互权限均未读；Aave Pool/Configurator 为代理，impl=0xf05fd3cc…",
+ "liabilities": "未执行任何交易、无新增负债；本轮仅发现与链上身份核验",
+ "waiting_time": "n/a；无跨链/结算等待对象",
+ "invalidation_conditions": [
+  "CoW 适配器地址书新增但未被 Aave DAO/CoW 注册授权或未启用",
+  "适配器实现与官方描述不符、或权限不允许公开使用",
+  "新池 BLPX 代币存在权限/转账税/不可卖，或流动性不足以报价",
+  "工厂事件窗口之外还有未覆盖的新市场（本轮只覆盖 Uni V3 工厂 7 天）"
+ ],
+ "evidence_urls": [
+  "https://arb1.arbitrum.io/rpc",
+  "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol",
+  "https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f",
+  "https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts",
+  "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+  "https://arbiscan.io/address/0xf2925a78adac85ca330643bc5584a694199afb76",
+  "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83"
+ ],
+ "coverage_gaps": [
+  "CoW 适配器仅确认「官方地址书新增 + 链上代码存在」；Aave/CoW 注册授权、调用权限、启用开关、实际行为均未读，不能当规则已生效。",
+  "Aave 30 天规则/链上事件窗口未覆盖（仅 24h ReserveInitialized=0 条）；未读储备参数、借款/清算规则变化。",
+  "7 天活动只覆盖 Uniswap V3 工厂新建池（17 条）；未覆盖 Swap/借贷/清算事件、其他 DEX（Camelot 等）与 v4 PoolManager、旧小池轮转。",
+  "新池 BLPX/USDC 未取报价、未核验 BLPX 部署者/源码/权限/可卖性；liquidity 极小，尚不可交易性。",
+  "未使用 DEX 聚合器 API 交叉发现（入口为工厂事件+官方地址书）；Arbitrum 生态门户本轮未重试。",
+  "无任何指定数量报价与净额核算，故无 QUOTED/SIMULATED 结论。"
+ ],
+ "next_check": [
+  "读 CoW 适配器官方源码/接口、Aave 治理提案与 CoW 注册表，确认 5 个适配器授权与开关；若生效，作为「Aave 头寸 CoW 换仓/抵押还款/杠杆」机制跟踪并交 M00 决定专项覆盖。",
+  "对 0x7c03126d… BLPX/USDC 池读储备与报价，核验 BLPX 部署者/可卖性；7 天 17 个新池中优先建立 WETH/USDC.e 蓝筹对池队列。",
+  "补齐 Aave 30 天 ReserveInitialized/规则事件、其他 Arbitrum DEX 工厂（含 v4 PoolManager）与旧小池轮转；记录真实区块范围与分页。",
+  "有报价后交 Q00 复核；新对象交接 ARB01（DEX 池）与 M00（Aave CoW 机制覆盖）。"
+ ],
+ "handoff_to": [
+  "ARB01",
+  "M00"
+ ],
+ "markets": [
+  {
+   "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+   "chain": "ARB",
+   "protocol": "Uniswap V3 BLPX/USDC 0.3%",
+   "asset_ids": ["0xaf88d065e77c8cc2239327c5edb3a432268e5831", "0xf2925a78adac85ca330643bc5584a694199afb76"],
+   "evidence_urls": ["https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2", "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"],
+   "identity_status": "EVENT_AND_ONCHAIN_VERIFIED：块 522,536,108 创建，池 token0/token1/fee/tickSpacing 与事件一致；BLPX 代码/符号/总量已读；流动性极小",
+   "next_check": "读池储备与报价、BLPX 部署者与可卖性；交 ARB01 建立池队列"
+  },
+  {
+   "market_id": "ARB:UNISWAP_V3:FACTORY:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+   "chain": "ARB",
+   "protocol": "Uniswap V3 factory（发现注册表）",
+   "asset_ids": [],
+   "evidence_urls": ["https://raw.githubusercontent.com/Uniswap/sdks/main/sdks/sdk-core/src/addresses.ts", "https://arbiscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984"],
+   "identity_status": "CHAIN_VERIFIED：代码 24,535 B/keccak 0x4d7b8525…；owner=0xff7ad5da…；7 天 PoolCreated 17 条已记录",
+   "next_check": "与 v4 PoolManager 及其他 DEX 工厂交叉；补 30 天窗口与旧池轮转"
+  },
+  {
+   "market_id": "ARB:AAVE_V3:POOL:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+   "chain": "ARB",
+   "protocol": "Aave V3 Arbitrum Pool（借贷市场注册表）",
+   "asset_ids": [],
+   "evidence_urls": ["https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol", "https://arbiscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD"],
+   "identity_status": "CHAIN_VERIFIED：代理代码 2400 B，impl=0xf05fd3cc…；储备列表 20 项；24h 新储备 0",
+   "next_check": "Aave 30 天规则事件、储备参数；Aave 专项覆盖由 M00 决定"
+  },
+  {
+   "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+   "chain": "ARB",
+   "protocol": "Aave V3 Arbitrum + CoW Protocol 适配器组",
+   "asset_ids": [],
+   "evidence_urls": ["https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f", "https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83"],
+   "identity_status": "OFFICIAL_REPO_REGISTERED_AND_ONCHAIN_CODE_PRESENT（5 地址 getCode 已核，1096-10055 B）；授权/生效未核",
+   "next_check": "读源码/授权/开关；若生效交 M00 决定 Aave 专项覆盖"
+  }
+ ],
+ "findings": [
+  {
+   "finding_id": "ARB-AAVE-V3-COW-ADAPTERS-20261109",
+   "status": "RULE_GAP",
+   "market_id": "ARB:AAVE_V3:COW_ADAPTERS:0xd2cc30cb0e77b80a34b879ccb6da67799e4ecd83",
+   "mechanism": "Aave 官方地址书 2026-11-09T10:09:32Z 提交 cc662ae5377f 为 Arbitrum 新增 CoW 适配器组（factory + collateral swap / debt swap / repay-with-collateral / leverage）。若被 Aave/CoW 授权启用，可将 Aave 头寸的抵押品替换、债务替换、用抵押品还款、杠杆操作通过 CoW intent 单流程完成，改变清算阈值与退出成本的计算路径。链上 5 个地址代码已确认存在；授权/生效/行为未读。",
+   "evidence_urls": ["https://github.com/bgd-labs/aave-address-book/commit/cc662ae5377f", "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Arbitrum.sol", "https://arb1.arbitrum.io/rpc"],
+   "net_result": "unknown（仅机制线索，无报价/净额）",
+   "unknown_costs": ["授权与开关状态", "适配器 gas/撮合成本", "Aave 清算阈值影响", "L2 gas 与 L1 数据费"],
+   "handoff_to": ["M00"],
+   "invalidation_conditions": ["适配器未被注册授权/未启用", "实现与描述不符", "权限不允许公开使用"]
+  },
+  {
+   "finding_id": "ARB-UNISWAP-V3-BLPX-USDC-POOL-20261109",
+   "status": "UNVERIFIED",
+   "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+   "mechanism": "Uniswap V3 Arbitrum 24h 内唯一新建池：BLPX(BlueChipDEX Token, 18 位)/原生 USDC，fee 0.3%；创建块 522,536,108（2026-11-09T01:50:32Z）。池身份与 BLPX 元数据已链上核验，liquidity 极小；未报价、未判断可交易性。",
+   "evidence_urls": ["https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2", "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"],
+   "net_result": "unknown（无报价）",
+   "unknown_costs": ["价格冲击/流动性", "BLPX 可卖性/转账限制", "gas 与 L1 数据费"],
+   "handoff_to": ["ARB01"],
+   "invalidation_conditions": ["BLPX 不可卖/有转账税", "流动性不足无法报价", "池被移除或迁移"]
+  }
+ ],
+ "rejections": [
+  {"claim": "官方地址书新增地址=新规则已生效或存在机会", "reason": "仅证明官方仓库登记与地址上存在代码；Aave/CoW 注册授权、调用权限、启用开关未读，且无任何报价。"},
+  {"claim": "Uniswap V3 24h 只建 1 个池=Arbitrum 无其他新市场", "reason": "仅覆盖该工厂 24h 窗口；其他 DEX、v4、以及 30 天规则/事件未覆盖，不能外推。"},
+  {"claim": "24h 无 ReserveInitialized=30 天内 Aave 无新储备上线", "reason": "只查了 24h 窗口；30 天 Aave 规则/事件未读。"},
+  {"claim": "BLPX/USDC 是新池即可交易/有机会", "reason": "liquidity 仅 2.4e16 量级（uint128），无报价与可卖性核验。"}
+ ],
+ "observed_cursor": {
+  "type": "PINNED_BLOCK_CHAIN_READS_PLUS_PUBLIC_SOURCES",
+  "source_count": 8,
+  "retrieved_at_utc": "2026-11-09T14:38:39+00:00",
+  "complete_block_range": "状态/代码：块 522,704,122；Uniswap V3 PoolCreated：520,284,927-522,704,127（17 条，完整覆盖该窗口）；新池创建块 522,536,108",
+  "complete_event_time_window": "Uniswap V3 新池事件约 2026-11-01T13:48Z～2026-11-09T14:36Z（7.03 天）；Aave ReserveInitialized 仅 24h（0 条）；30 天 Aave 规则/7 天全类活动未覆盖"
+ }
+}

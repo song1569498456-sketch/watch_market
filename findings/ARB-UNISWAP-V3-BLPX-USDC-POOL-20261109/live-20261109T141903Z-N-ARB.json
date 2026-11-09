@@ -1,0 +1,27 @@
+{
+  "finding_id": "ARB-UNISWAP-V3-BLPX-USDC-POOL-20261109",
+  "status": "UNVERIFIED",
+  "market_id": "ARB:UNISWAP_V3:POOL:0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+  "mechanism": "Uniswap V3 Arbitrum 24h 内唯一新建池：BLPX(BlueChipDEX Token, 18 位)/原生 USDC，fee 0.3%；创建块 522,536,108（2026-11-09T01:50:32Z）。池身份与 BLPX 元数据已链上核验，liquidity 极小；未报价、未判断可交易性。",
+  "evidence_urls": [
+    "https://arbiscan.io/address/0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+    "https://arbiscan.io/tx/0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592"
+  ],
+  "net_result": "unknown（无报价）",
+  "unknown_costs": [
+    "价格冲击/流动性",
+    "BLPX 可卖性/转账限制",
+    "gas 与 L1 数据费"
+  ],
+  "handoff_to": [
+    "ARB01"
+  ],
+  "invalidation_conditions": [
+    "BLPX 不可卖/有转账税",
+    "流动性不足无法报价",
+    "池被移除或迁移"
+  ],
+  "owner": "N-ARB",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-ARB/live-20261109T141903Z/record.json"
+}

@@ -1,0 +1,36 @@
+{
+ "at_utc": "2026-11-09T14:42:20.629446+00:00",
+ "requests": [
+  {
+   "name": "final_verify",
+   "http_status": 200,
+   "at": "2026-11-09T14:42:20.629196+00:00",
+   "n_calls": 9,
+   "bytes": 1979,
+   "sha256": "266bfb55cf2c0161e9b128bbbe6a7b4742c593f424f13a34b68f21e20a1ab910",
+   "elapsed_s": 0.944
+  }
+ ],
+ "pool_clone_code": "0x363d3d373d3d3d363d73a4e46b4f701c62e14df11b48dce76a7d793cd6d75af43d82803e903d91602b57fd5bf3",
+ "pool_clone_code_bytes": 45,
+ "clone_target": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+ "tokens": {
+  "0x4200000000000000000000000000000000000006": {
+   "symbol": "WETH",
+   "name": "Wrapped Ether"
+  },
+  "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60": {
+   "symbol": "PRIME",
+   "name": "Prime Link 79"
+  },
+  "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f": {
+   "symbol": "xUSDT",
+   "name": "xUSDT"
+  },
+  "0x329105c15ac753c8d23a9105abe2c63578f6002a": {
+   "symbol": "bsdETH",
+   "name": "Wrapped Based ETH "
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:42:20.629550+00:00"
+}

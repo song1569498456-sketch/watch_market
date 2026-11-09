@@ -1,0 +1,147 @@
+[
+ {
+  "n": 1,
+  "kind": "GET",
+  "host": "api.github.com",
+  "tag": "gh_aave_book_tree",
+  "url": "https://api.github.com/repos/bgd-labs/aave-address-book/git/trees/main?recursive=1",
+  "at_utc": "2026-11-09T14:43:09.761972+00:00",
+  "http_status": 200,
+  "sha256": "39d0fedfd64199c91c1d079c692c766fc31555a4b6a3fa7ccb96a02ff9b74291"
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "reserves_list",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:11.502020+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:12.587469+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:13.106800+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 5,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_reserve_data",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:13.607833+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 6,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:14.104856+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 7,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:14.606156+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 8,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_reserve_data",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:15.132232+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:15.691645+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:16.243719+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_reserve_data",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:16.773547+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_symbol",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:17.268739+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_decimals",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:17.781414+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "extra_reserve_data",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:43:18.280131+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "head",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:43:18.778021+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:43:19.277268+00:00",
+  "http_status": 200
+ }
+]

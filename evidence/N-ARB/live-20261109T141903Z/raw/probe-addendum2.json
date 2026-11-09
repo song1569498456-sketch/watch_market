@@ -1,0 +1,293 @@
+{
+ "started_at_utc": "2026-11-09T14:38:12.494536+00:00",
+ "head_block": 522704127,
+ "requests": [
+  {
+   "label": "getLogs univ3 7d full",
+   "method": "eth_getLogs",
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:38:13.519330+00:00",
+   "elapsed_s": 1.025
+  },
+  {
+   "label": "block first",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:38:14.329427+00:00",
+   "elapsed_s": 0.456
+  },
+  {
+   "label": "block last",
+   "method": "eth_getBlockByNumber",
+   "error": null,
+   "retrieved_at_utc": "2026-11-09T14:38:15.563504+00:00",
+   "elapsed_s": 0.884
+  },
+  {
+   "label": "aave-commit-cc662ae",
+   "url": "https://api.github.com/repos/bgd-labs/aave-address-book/commits/cc662ae5377f",
+   "http_status": 200,
+   "error": null,
+   "sha256": "9defc5ebc3d11f8b43806101bafddcafc716100fd257a49dbf05d9a3293c4f17",
+   "bytes": 95861,
+   "retrieved_at_utc": "2026-11-09T14:38:17.582027+00:00"
+  }
+ ],
+ "univ3_poolcreated_7d": {
+  "from_block": 520284927,
+  "to_block": 522704127,
+  "count": 17,
+  "error": null,
+  "pools": [
+   {
+    "block": 520291019,
+    "tx": "0x801360fddd39c3087d1cb32bc3d115ae65b95261d7cb21c823f874f78e2b8461",
+    "token0": "0x2734e56686bfaa620b73da3ca338ded86c704a71",
+    "token1": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+    "fee": 500,
+    "tick_spacing": 10,
+    "pool": "0xe27a07a4711e0f4f697e7bdeaee15d41e185f3a2",
+    "blue_chips": [
+     "USDC.e"
+    ]
+   },
+   {
+    "block": 520295440,
+    "tx": "0xbeb4c652d96c0bc8685cada43d92bddfc3821f71a73639c7641b67b895f63793",
+    "token0": "0x88e572187744b4ceb15c0e12ed44229e1bc7ebed",
+    "token1": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+    "fee": 500,
+    "tick_spacing": 10,
+    "pool": "0x14c1b7f8dbcf48ab1163849a512c0459d26852cf",
+    "blue_chips": [
+     "USDC.e"
+    ]
+   },
+   {
+    "block": 520297235,
+    "tx": "0x69fedf0aacac87c1b39eaaa51fef1d990c3d0328d12b554aee364a3957a2d180",
+    "token0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "token1": "0x8d601631bf3f693917e398b89dbcf82e1bfc8f55",
+    "fee": 500,
+    "tick_spacing": 10,
+    "pool": "0x33e5a50f57dfc56a2d8ceb0b07fdad62aa50a313",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520376533,
+    "tx": "0xabc5dbeac162e637ff8e692c60e22cfd121c6358fae5bc583f6b74362eb47ffe",
+    "token0": "0x77643d2afc2496aab18e2c6a38e32c9cb1beb497",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 100,
+    "tick_spacing": 1,
+    "pool": "0x5f1f6882f9ffa37835de80df893a15cf7f12f541",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520380548,
+    "tx": "0x47e2f9d3326967aad0e0aeb879781304f052a25008d3e5e548f9c92d1e40fdab",
+    "token0": "0x77643d2afc2496aab18e2c6a38e32c9cb1beb497",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 500,
+    "tick_spacing": 10,
+    "pool": "0x0dd26bf7d70922b2492011aafa660a0303c8c3ce",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520390167,
+    "tx": "0x2ca4dd85f68baff0e3435b2323c21b7bb078bf2f5818923071bc1270277b4256",
+    "token0": "0x77643d2afc2496aab18e2c6a38e32c9cb1beb497",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0xa9ac81ee3221828f7fb9509eaea26355b9f5f7ef",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520468052,
+    "tx": "0xe3b690a0fe1c87da27644786cd6387fd5ea34e214dc9472cbae99ce177f39d07",
+    "token0": "0x35fd03f84c6077c1aea7ba8e87c4b429b650c781",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0xcbb3741d988511fca2d85b2817f71d1a85ef30b5",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520468057,
+    "tx": "0xad693b13146901ab9e759c0427ce8dbc010575630f7d74607781d53d2707f7ff",
+    "token0": "0x35fd03f84c6077c1aea7ba8e87c4b429b650c781",
+    "token1": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0xe51b9d8d214b7acda6429cc74f22fe00c33860a5",
+    "blue_chips": [
+     "USDC"
+    ]
+   },
+   {
+    "block": 520519626,
+    "tx": "0x5d50753feffdca145c423ed3db97b6ecaab5392afa5b84be1352458dbb848d14",
+    "token0": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "token1": "0xce78c6f08acab57ee073b255662cf14487621b4b",
+    "fee": 10000,
+    "tick_spacing": 200,
+    "pool": "0x45715a909a1ad8f1bf30a41830021305d9cf6d99",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520738823,
+    "tx": "0x553adc583b41a45082db0fb483aa8787ef33aa8c4d781eb47140fdcf40ccd0b7",
+    "token0": "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8",
+    "token1": "0x4debfb9ed639144cf1e401674af361ffffcefb58",
+    "fee": 500,
+    "tick_spacing": 10,
+    "pool": "0x25065dbc1e63c9b868a05684c34f346b745824dd",
+    "blue_chips": []
+   },
+   {
+    "block": 520803106,
+    "tx": "0x6aced392f5c82ce9517dfa5a4655846f729cc347f6705d4019d6ade864883c9c",
+    "token0": "0x2fc467848f2600ae5d021840f07e44adeadf240e",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0x7140bafaa711c50df58254746c4dd40eb68f8025",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 520972926,
+    "tx": "0xb49ddda21a78ebad843e852d5a7ed0029e85509d595b0357b1653a440d71c8f8",
+    "token0": "0x902c6e5e02f79a11a7dd1cb2cfd0b54396da46ab",
+    "token1": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0x12d2e5609695fde75fe4caf0ba7dc66e5728cc5f",
+    "blue_chips": [
+     "USDT"
+    ]
+   },
+   {
+    "block": 521157769,
+    "tx": "0xd34385e790ff7ef98c0470886900b2981916711df47d62edad15af48b75f583f",
+    "token0": "0x77643d2afc2496aab18e2c6a38e32c9cb1beb497",
+    "token1": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "fee": 10000,
+    "tick_spacing": 200,
+    "pool": "0xf0213edd76abf62979434bf4ec5b236e35801565",
+    "blue_chips": [
+     "USDC"
+    ]
+   },
+   {
+    "block": 521158996,
+    "tx": "0x0a8eb388d8a1e16ed47a3706ea24c5df0089957e88323ccccb1a4073788cede7",
+    "token0": "0x77643d2afc2496aab18e2c6a38e32c9cb1beb497",
+    "token1": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "fee": 10000,
+    "tick_spacing": 200,
+    "pool": "0x9900afe7c2f0aaf7bb4c0d8526a11fe677633bbf",
+    "blue_chips": [
+     "WETH"
+    ]
+   },
+   {
+    "block": 521199678,
+    "tx": "0xea8b274b3f505b3f6c6a9c85c3f274fc98667ff1a094905863b47024149418ac",
+    "token0": "0x6efa9b8883dfb78fd75cd89d8474c44c3cbda469",
+    "token1": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0x91c28b978fd699b1a9bd91f80316d22160ab8532",
+    "blue_chips": [
+     "USDT"
+    ]
+   },
+   {
+    "block": 521846546,
+    "tx": "0x7655ca80221f4bb2e18a93ecbed203a6b54847475f917309a80cefbc1f6c2915",
+    "token0": "0x01d1e02ee618ba3e6eb5d145ad3c9a90f34155f3",
+    "token1": "0x5542f81425d0662bfc6163324337d0890067ffb6",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0x6d3e9e546e423ba80893be1f5c068de9869e1e54",
+    "blue_chips": []
+   },
+   {
+    "block": 522536108,
+    "tx": "0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592",
+    "token0": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "token1": "0xf2925a78adac85ca330643bc5584a694199afb76",
+    "fee": 3000,
+    "tick_spacing": 60,
+    "pool": "0x7c03126dc25748c658efb946d32b42a4a84d49d2",
+    "blue_chips": [
+     "USDC"
+    ]
+   }
+  ],
+  "blue_chip_count": 15
+ },
+ "aave_commit_diff": {
+  "http_status": 200,
+  "message": "feat: add CoW Adapter contracts (#1672)",
+  "date": "2026-11-09T10:09:32Z",
+  "file_count": 43,
+  "arbitrum_files": [
+   {
+    "filename": "src/AaveV3Arbitrum.sol",
+    "status": "modified",
+    "additions": 17,
+    "deletions": 0,
+    "patch_head": "@@ -124,6 +124,23 @@ library AaveV3Arbitrum {\n \n   // https://arbiscan.io/address/0xfB1D12D7C9c3Eb6b40fe0502801CdFCE816a0d18\n   address internal constant POOL_EXPOSURE_STEWARD = 0xfB1D12D7C9c3Eb6b40fe0502801CdFCE816a0d18;\n+\n+  // https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83\n+  address internal constant COW_ADAPTER_FACTORY = 0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83;\n+\n+  // https://arbiscan.io/address/0xa1138627412212e53C208e220696f14b0185a82c\n+  address internal constant COW_COLLATERAL_SWAP_ADAPTER =\n+    0xa1138627412212e53C208e220696f14b0185a82c;\n+\n+  // https://arbiscan.io/address/0xC898f87b572018ED25F501FFD620894a32dCa1AC\n+  address internal constant COW_DEBT_SWAP_ADAPTER = 0xC898f87b572018ED25F501FFD620894a32dCa1AC;\n+\n+  // https://arbiscan.io/address/0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a\n+  address internal constant COW_REPAY_WITH_COLLATERAL_ADAPTER =\n+    0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a;\n+\n+  // https://arbiscan.io/address/0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a\n+  address internal constant COW_LEVERAGE_ADAPTER = 0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a;\n }\n library AaveV3ArbitrumAssets {\n   // https://arbiscan.io/address/0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
+   },
+   {
+    "filename": "src/ts/AaveV3Arbitrum.ts",
+    "status": "modified",
+    "additions": 15,
+    "deletions": 0,
+    "patch_head": "@@ -110,6 +110,21 @@ export const CLINIC_STEWARD = '0x7B58055fC6bE4B23cF8c9287b7d3C4adBE919a9c';\n // https://arbiscan.io/address/0xfB1D12D7C9c3Eb6b40fe0502801CdFCE816a0d18\n export const POOL_EXPOSURE_STEWARD = '0xfB1D12D7C9c3Eb6b40fe0502801CdFCE816a0d18';\n \n+// https://arbiscan.io/address/0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83\n+export const COW_ADAPTER_FACTORY = '0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83';\n+\n+// https://arbiscan.io/address/0xa1138627412212e53C208e220696f14b0185a82c\n+export const COW_COLLATERAL_SWAP_ADAPTER = '0xa1138627412212e53C208e220696f14b0185a82c';\n+\n+// https://arbiscan.io/address/0xC898f87b572018ED25F501FFD620894a32dCa1AC\n+export const COW_DEBT_SWAP_ADAPTER = '0xC898f87b572018ED25F501FFD620894a32dCa1AC';\n+\n+// https://arbiscan.io/address/0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a\n+export const COW_REPAY_WITH_COLLATERAL_ADAPTER = '0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a';\n+\n+// https://arbiscan.io/address/0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a\n+export const COW_LEVERAGE_ADAPTER = '0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a';\n+\n export const CHAIN_ID = 42161;\n export const ASSETS = {\n   DAI: {"
+   }
+  ],
+  "first_files": [
+   "safe.csv",
+   "scripts/configs/pools/arbitrum.ts",
+   "scripts/configs/pools/avalanche.ts",
+   "scripts/configs/pools/base.ts",
+   "scripts/configs/pools/bnb.ts",
+   "scripts/configs/pools/ethereum.ts",
+   "scripts/configs/pools/gnosis.ts",
+   "scripts/configs/pools/linea.ts",
+   "scripts/configs/pools/plasma.ts",
+   "scripts/configs/pools/polygon.ts",
+   "scripts/configs/types.ts",
+   "scripts/configs/v4/avalanche.ts"
+  ]
+ },
+ "pool_block_times": {
+  "first": {
+   "block": 520291019,
+   "timestamp_utc": "2026-11-01T13:48:35+00:00"
+  },
+  "last": {
+   "block": 522536108,
+   "timestamp_utc": "2026-11-09T01:50:32+00:00"
+  }
+ },
+ "finished_at_utc": "2026-11-09T14:38:17.932744+00:00",
+ "request_count": 4
+}

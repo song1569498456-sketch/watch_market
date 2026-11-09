@@ -106,39 +106,40 @@
       "agent_id": "N-ARB",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:29:57.007506+00:00",
+      "last_success_at": "2026-11-09T14:38:45+00:00",
+      "last_attempt_at": "2026-11-09T14:38:45+00:00",
       "actual_coverage": [
-        "Uniswap官方SDK地址源ARBITRUM_ONE_ADDRESSES继承DEFAULT_ADDRESSES，v3 factory地址已提取；未读任何池事件。",
-        "Aave地址书AaveV3Arbitrum明确POOL与POOL_ADDRESSES_PROVIDER；未读储备资产、风险参数或借款人。",
-        "未确认新增市场、已生效规则、新交易结构、旧市场复活或可执行候选。"
+        "链身份：eth_chainId=0xa4b1（42161）；head=522,704,127（2026-11-09T14:36:35Z，hash 0x8a8e456d…）；固定块 522,704,122；L2 baseFee=20,000,000 wei（0.02 gwei，不含 L1 数据费）。",
+        "Uniswap V3 工厂 0x1F98431c8…：代码 24,535 B/keccak 0x4d7b8525…；owner()=0xff7ad5da31fecdc678796c88b05926db896b0699；PoolCreated 7 天窗口 520,284,927-522,704,127 共 17 条（15 条涉 WETH/USDC.e/USDT 等蓝筹），24h 窗口仅 1 条。",
+        "新池 0x7c03126dc25748c658efb946d32b42a4a84d49d2：块 522,536,108（2026-11-09T01:50:32Z），tx 0x4dbb5c008b7937563ea7ab6e1dd2aec140f93c1b8a89b5087fd26bd9653b6592；token0=0xaf88d065…（原生 USDC）、token1=0xf2925a78…（BLPX，BlueChipDEX Token，18 位，总量 1e26，代码 1793 B/keccak 0x703636a7…）、fee=3000、tickSpacing=60；池上 token0/token1/fee/tickSpacing 与事件一致；liquidity=24,259,911,431,500,377（uint128，极小）；slot0 tick=329,309。",
+        "Aave V3 Arbitrum Pool 0x794a6135…：代码 2400 B/keccak 0xf168c2e9…；EIP-1967 impl 槽→0xf05fd3cc911b4c5e36e53c00354f645e22922c9a；getReservesList() 20 项（含 DAI/FRAX/USDC.e/WBTC/WETH/USDT/ARB/原生 USDC 等）。",
+        "Aave 24h ReserveInitialized 日志（PoolConfigurator 0x8145eddD…，块 522,358,527-522,704,127）按假定签名查询 0 条；事件签名未从所取 PoolConfigurator.sol 源码确认（excerpt=null），该 0 条仅作弱证据，不外推 30 天。",
+        "CoW 适配器官方提交 cc662ae5377f（2026-11-09T10:09:32Z，feat: add CoW Adapter contracts #1672）在 AaveV3Arbitrum.sol 新增：COW_ADAPTER_FACTORY 0xD2CC30cB0e77B80a34b879ccB6da67799e4ecD83、COW_COLLATERAL_SWAP_ADAPTER 0xa1138627412212e53C208e220696f14b0185a82c、COW_DEBT_SWAP_ADAPTER 0xC898f87b572018ED25F501FFD620894a32dCa1AC、COW_REPAY_WITH_COLLATERAL_ADAPTER 0x4AE46995af9ED4f4EdFC6FF1523b114EE4D7053a、COW_LEVERAGE_ADAPTER 0xaEE8B0666BF8a584e9D67bFaa65007E74c70b26a。",
+        "5 个 CoW 适配器地址在块 522,704,122 均有部署代码：1096 B/0xd51d775a…、9534 B/0x2189cb66…、8383 B/0xed72053a…、8741 B/0x5b594386…、10055 B/0xc9e3735b…；是否被 Aave/CoW 注册授权、调用权限与开关未读。",
+        "官方源：Uniswap SDK addresses.ts sha256 b438f734…（与上一轮同，v3 factory/v4 PoolManager 地址仍在）；Aave 地址书 sha256 73687fae…（上一轮 6b8f9a12…，差异来自 CoW 适配器提交+自动缓存）；30 天仓库提交 aave-address-book 63 条、uniswap/sdks 18 条。"
       ],
       "coverage_gaps": [
-        "30天规则/部署/公告变更未回溯（2026-10-09至11-08）；静态地址不证明本日新增或生效。",
-        "7天活动未扫描（2026-11-01至11-08）；无任何PoolCreated/Swap或借贷事件、交易数0。",
-        "Arbitrum One RPC eth_chainId CONNECT 403，链活性、代码、L2最终确认与gas/L1数据费未核验。",
-        "官方生态门户CONNECT 403；未取得完整候选目录、工厂白名单或分页队列。",
-        "没有资产对/池级身份、份额比例、数量报价或退出核算；不能认定有价差。"
+        "CoW 适配器仅确认「官方地址书新增 + 链上代码存在」；Aave/CoW 注册授权、调用权限、启用开关、实际行为均未读，不能当规则已生效。",
+        "Aave 30 天规则/链上事件窗口未覆盖（仅 24h ReserveInitialized=0 条）；未读储备参数、借款/清算规则变化。",
+        "7 天活动只覆盖 Uniswap V3 工厂新建池（17 条）；未覆盖 Swap/借贷/清算事件、其他 DEX（Camelot 等）与 v4 PoolManager、旧小池轮转。",
+        "新池 BLPX/USDC 未取报价、未核验 BLPX 部署者/源码/权限/可卖性；liquidity 极小，尚不可交易性。",
+        "未使用 DEX 聚合器 API 交叉发现（入口为工厂事件+官方地址书）；Arbitrum 生态门户本轮未重试。",
+        "无任何指定数量报价与净额核算，故无 QUOTED/SIMULATED 结论。"
       ],
-      "report": "reports/agents/N-ARB/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-ARB/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "ARB",
       "owner": "worker_a",
       "prompt": "prompts/agents/N-ARB.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 8,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-        "verified_at": "2026-11-08T15:30:59.022489+00:00",
-        "record": "evidence/N-ARB/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-AVAX",
@@ -182,40 +183,181 @@
       "agent_id": "N-BASE",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:30:38.025797+00:00",
+      "last_success_at": "2026-11-09T14:45:00+00:00",
+      "last_attempt_at": "2026-11-09T14:45:00+00:00",
       "actual_coverage": [
-        "独立读取旧官方仓库归档说明和新官方仓库README，证实文档来源迁移，不据第三方/旧注册表缺失判停链。",
-        "v1.5.4发布页时间2026-11-06T01:25:10Z；改engine persistence默认值并修复200ms同步。发布不等于当前链状态。",
-        "Aerodrome README列PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da及FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0。",
-        "工厂源码getFee可用customFee[pool]覆盖默认stableFee/volatileFee，特殊ZERO_FEE_INDICATOR映射0费用；不能将源码常量当实时报价。",
-        "Aerodrome README说明LP入Gauge换取排放时池手续费权利交予Gauge；提供BASE05专项线索，不在本岗位计算该策略收益。"
+        {
+          "type": "chain_identity",
+          "address": "base-mainnet",
+          "fields": {
+            "eth_chainId": "0x2105",
+            "chain_id": 8453,
+            "latest_block": 55224420,
+            "latest_block_time_utc": "2026-11-09T14:40:59+00:00",
+            "base_fee_wei": "0x4c4b40",
+            "base_fee_gwei": "0.005",
+            "measured_block_time_approx": "0.2s（块 55,223,070 时间 2026-11-09T14:36:29Z 到最新块 55,224,420）"
+          },
+          "evidence_file": "raw/nbase_summary.json"
+        },
+        {
+          "type": "factory_identity",
+          "protocol": "Aerodrome",
+          "address": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+          "fields": {
+            "code_bytes": 3516,
+            "allPoolsLength": 29931,
+            "isPool_29930": true,
+            "isPool_29929": true,
+            "stableFee": 5,
+            "volatileFee": 30,
+            "implementation": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+            "implementation_code_bytes": 21057,
+            "eip1967_implementation_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "getFee_pool_calls": "无返回值（revert 或接口不匹配，待确认）"
+          },
+          "block": 55224420,
+          "evidence_file": "raw/verify_batch1.json"
+        },
+        {
+          "type": "new_market_identity",
+          "protocol": "Aerodrome Volatile AMM",
+          "address": "0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+          "fields": {
+            "factory_index": 29930,
+            "token0": "0x4200000000000000000000000000000000000006",
+            "token0_symbol": "WETH",
+            "token1": "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60",
+            "token1_symbol": "PRIME",
+            "token1_name": "Prime Link 79",
+            "stable": false,
+            "factory_verified": true,
+            "pool_code_bytes": 45,
+            "clone_target": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+            "created_offset_blocks_range": [
+              8325,
+              15300
+            ],
+            "created_time_approx_utc": "2026-11-09T13:50～14:13（按实测约0.2s/块）"
+          },
+          "block": 55224420,
+          "evidence_file": "raw/verify_summary.json"
+        },
+        {
+          "type": "new_market_identity",
+          "protocol": "Aerodrome Volatile AMM",
+          "address": "0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+          "fields": {
+            "factory_index": 29929,
+            "token0": "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+            "token0_symbol": "xUSDT",
+            "token1": "0x329105c15ac753c8d23a9105abe2c63578f6002a",
+            "token1_symbol": "bsdETH",
+            "token1_name": "Wrapped Based ETH",
+            "stable": false,
+            "factory_verified": true,
+            "pool_code_bytes": 45,
+            "created_offset_blocks_range": [
+              9225,
+              10800
+            ],
+            "created_time_approx_utc": "2026-11-09T14:05～14:10（按实测约0.2s/块）"
+          },
+          "block": 55224420,
+          "evidence_file": "raw/verify_summary.json"
+        },
+        {
+          "type": "registered_queue",
+          "protocol": "Aerodrome",
+          "address": "allPools indices 29928～29911",
+          "fields": {
+            "count": 18,
+            "sample": {
+              "29928": {
+                "token0": "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+                "token1": "0xaa9f8d8ad4bc9e39d5a8c735b701239e5b7623d4"
+              },
+              "29927": {
+                "token0": "0x4200000000000000000000000000000000000006",
+                "token1": null
+              },
+              "29926": {
+                "token0": "0x4200000000000000000000000000000000000006",
+                "token1": "0x582ee35af2d435e93d30c6c0fb1d4e35cdffa158"
+              }
+            },
+            "note": "批量 eth_call 超过约 40 调用后出现空洞，本轮只完成 29930/29929 全字段核验，其余登记为待查队列"
+          },
+          "evidence_file": "raw/nbase_summary.json"
+        },
+        {
+          "type": "rule_window_partial",
+          "protocol": "base/base",
+          "address": "GitHub releases",
+          "fields": {
+            "in_30d_window": [
+              {
+                "tag": "v1.5.0",
+                "published_at": "2026-10-14T20:52:39Z"
+              },
+              {
+                "tag": "v1.5.1",
+                "published_at": "2026-10-22T17:47:20Z"
+              },
+              {
+                "tag": "v1.5.2",
+                "published_at": "2026-11-04T22:10:58Z"
+              },
+              {
+                "tag": "v1.5.3",
+                "published_at": "2026-11-05T16:01:04Z"
+              },
+              {
+                "tag": "v1.5.4",
+                "published_at": "2026-11-06T01:25:10Z"
+              }
+            ],
+            "note": "节点软件发布≠链上规则已生效；本轮未读发布内容差异"
+          },
+          "evidence_file": "raw/nbase_summary.json"
+        },
+        {
+          "type": "source_failure",
+          "protocol": "log discovery",
+          "address": "eth_getLogs / blockscout",
+          "fields": {
+            "eth_getLogs_error": {
+              "code": -32011,
+              "message": "request limit reached"
+            },
+            "blockscout_http": 403,
+            "consequence": "未完成 7 天 PoolCreated 分页；仅按 allPools index 枚举最新池与创建窗口"
+          },
+          "evidence_file": "raw/probe.py 输出 / raw/nbase_summary.json"
+        }
       ],
       "coverage_gaps": [
-        "30天规则窗口局部核查Base节点迁移和v1.5.2/v1.5.4发布；未遍历所有协议/治理、未证明变更链上生效。",
-        "7天链上活动完全未扫描：mainnet.base.org eth_chainId请求代理CONNECT 403，未取得区块、日志、交易。",
-        "Aerodrome工厂/注册表仅文档部署入口；未做eth_getCode、PoolCreated事件、真实池与资产核验。",
-        "当前报价、L2执行费、L1数据费、代理实现和旧小池轮转均未完成；不能声称Base停链或无机会。"
+        "7 天 PoolCreated 分页未完成：eth_getLogs 被公共 RPC 限流（-32011）、Blockscout API 三次 403；只有 allPools index 枚举 + 创建窗口，不能给近 7 天新增池统计。",
+        "30 天规则窗口只覆盖 base/base 节点发布（窗口内 5 个版本）与工厂 implementation 身份；未覆盖 Aerodrome 治理、FactoryRegistry 变更、费用管理者事件。",
+        "两新池的池级 customFee/getFee、储备/LP、TVL、交易活动未读；getFee(pool) 未返回结果。",
+        "xUSDT/bsdETH/PRIME 的包装/计息/赎回机制与发行方未核，不能当普通 ETH/USDT 权益。",
+        "工厂 admin/implementation setter 权限、代理结构（EIP-1967 槽为 0，但 implementation() 有返回值）未完全解释。",
+        "未做旧小池退出窗口轮转；未做报价/模拟（本岗位不做价差）；最新池索引队列 29928～29911 仅登记地址，未全部读 token 身份。"
       ],
-      "report": "reports/agents/N-BASE/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-BASE/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "BASE",
       "owner": "worker_b",
       "prompt": "prompts/agents/N-BASE.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 4,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-        "verified_at": "2026-11-08T15:30:59.022489+00:00",
-        "record": "evidence/N-BASE/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-BNB",
@@ -301,49 +443,41 @@
       "agent_id": "N-OP",
       "enabled": true,
       "status": "PARTIAL",
-      "last_success_at": null,
-      "last_attempt_at": "2026-11-08T15:29:38.443377+00:00",
+      "last_success_at": "2026-11-09T14:44:03.579294+00:00",
+      "last_attempt_at": "2026-11-09T14:44:03.579294+00:00",
       "actual_coverage": [
-        {
-          "protocol": "Aave V3 Optimism",
-          "pool_proxy": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
-          "pool_impl": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
-          "provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
-          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
-        },
-        {
-          "protocol": "Uniswap V3",
-          "factory": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-          "source_scope": "OP部署表静态登记",
-          "identity_status": "SOURCE_ONLY_NOT_ONCHAIN_VERIFIED"
-        }
+        "链身份：eth_chainId=10（0x0a）；head=159318330（2026-11-09T14:43:57Z）；区块时间间隔符合 superchain 官方 op.toml block_time=2。",
+        "Aave V3 OP 身份链上核验：POOL proxy 0x794a61358D6845594F94dc1DB02A252b5b4814aD 代码 2400 bytes（sha256=7a042f7fd7d51b45273edcfe5ff9984c73410e01fd41e7f0fcef2b51e1a8f610）；EIP-1967 impl slot=0x66185E53343336d4FaeA5317d1Fcca103Dd4088D，与官方地址簿 POOL_IMPL 完全一致；POOL_ADDRESSES_PROVIDER 0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb 的 getPool() 返回同一 POOL 地址。结论：Aave V3 OP 代理与实现自地址簿生成以来未变，无升级规则变化。",
+        "Aave V3 OP 储备（getReservesList，14 个）：DAI 0xDA10009c…、LINK 0x350a791B…、USDC.e 0x7F5c764c…、WBTC 0x68f180fc…、WETH 0x4200…0006、USDT 0x94b008aA…、AAVE 0x76FB31fb…、sUSD 0x8c6f28f2…、OP 0x4200…0042、wstETH 0x1F32b1c2…、LUSD 0xc40F949F…、MAI 0xdFA46478…、rETH 0x9Bcef72b…、原生 USDC 0x0b2C639c…；每项均以（地址、symbol、decimals）链上读取（DAI 18、LINK 18、USDC.e 6、WBTC 8、USDC 6 等）。",
+        "Uniswap V3 OP 工厂身份：0x1F98431c8aD98523631AE4a59f267346ea31F984 代码 24535 bytes（sha256=fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572）；owner=0xec23cf5a1db3dcc6595385d28b2a4d9b52503be4；feeAmountTickSpacing：100→1、500→10、3000→60、10000→200（pinned 块 159318328）。官方 deploys.md 表头为「Mainnet, Polygon, Optimism, Arbitrum, Testnets Address」列，共享地址 0x1F98…；Celo 专用地址列 0xAfE208a3… 在 OP 上代码 0 字节（排除误用）。",
+        "Uniswap V3 OP 已知池 getPool 复核（pinned）：WETH/USDC(原生) 500 = 0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b；WETH/USDC.e 500 = 0x85149247691df622eaf1a8bd0cafd40bc45154a9；USDC/USDT 100 = 0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e；OP/WETH 3000 = 0x68f5c0a2de713a54991e01858fd27a3832401849。",
+        "新市场排除（显式）：Uniswap V3 工厂 PoolCreated 事件在 5000 区块窗口 159313247-159318247（2026-11-09T11:54:31Z-14:41:11Z，按 block_time=2 约 2.78 小时）内共 0 条；该窗口内无新 Uniswap V3 池。主网 RPC 对 20000/100000 区块跨度的 getLogs 返回 -32602「Archive requests require a personal token」，无法在无 token 情况下扩大窗口。",
+        "WETH/USDC 0.05% 池快照（pinned 159318328）：pool 代码 22142 bytes（sha256=c3799de2bd3cb0d8257a3e404aebd5be954cdb5bcf9cb05d056cb31de3efbd49）；token0=原生 USDC 0x0b2C639c…、token1=WETH 0x4200…0006、fee=500；slot0 sqrtPriceX96=1.721181472937990164490443118442909e33、tick=199733、observationCardinality=2000；liquidity=11702808516554365。由 slot0 推导 1 WETH≈2118.87 USDC（原始价 token1/token0=471948008.439），为快照参考值而非可执行报价。",
+        "30 天规则窗口（2026-10-10～2026-11-09）：superchain-registry 的 op.toml 在该区间 GitHub 提交数=0（2026-11-09T14:42:12Z 查询）；op.toml 硬分叉表最后一项为 karst_time=1783526401（2026-07-08T16:00:01Z），jovian_time=1764691201（2025-12-02），30 天内无 hardfork 激活 → OP Mainnet 链配置规则在本窗口无变化。"
       ],
       "coverage_gaps": [
-        "30天规则窗口未覆盖：无治理提案、生效事件或版本提交历史核验。",
-        "7天活动及最近24小时交易未覆盖：OP RPC CONNECT403，未取区块/日志。",
-        "当前eth_chainId=10、合约代码、proxy implementation与资产reserve身份未链上核验。",
-        "未扫描工厂PoolCreated日志、未读旧小池/退出窗口与分页。",
-        "没有指定数量报价或L1数据费、L2 gas和提现等待数据。"
+        "7 天活动窗口未覆盖：仅扫最近 5000 区块（≈2.78 小时）的 Uniswap V3 PoolCreated；mainnet.optimism.io 对 20000/100000 区块 getLogs 返回 -32602（需 personal token），无 archive/indexer 能力。",
+        "未读近 24 小时交易与 5 组代表交易；未查 Aave 储备的利率/流动性/暂停状态，也未查其它 DEX（Velodrome 等）工厂事件。",
+        "Aave 官方 Assets 文件 404，未能对 14 个 reserve 做官方清单逐项 diff；仅确认 POOL_IMPL 一致。",
+        "30 天规则窗口只核 op.toml（提交=0）与 releases atom；未核 L1 合约版本/激活记录（跨链 L1，超出本轮范围）与治理提案状态。",
+        "未做指定数量报价/只读模拟；WETH/USDC 快照的 2118.87 USDC/WETH 是从 slot0 推导，不是 Quoter 报价。",
+        "本轮外部请求 61 次（≤80，符合上限）。",
+        "上一轮登记的 Aave reserve/资产身份虽在本轮补充链上核验，但未与官方 Assets 清单 diff，仍不能断言“无新增储备”。"
       ],
-      "report": "reports/agents/N-OP/2026-11-08/full-20261108T152118Z.md",
+      "report": "reports/agents/N-OP/2026-11-09/live-20261109T141903Z.md",
       "task": "新市场、新规则与新操作发现",
       "chain": "OP",
       "owner": "worker_c",
       "prompt": "prompts/agents/N-OP.txt",
       "planned_frequency": "本轮手动；云端定时未建立",
       "actual_capabilities": {
-        "public_http_requests": "see per-source evidence",
+        "public_http_requests": 7,
         "current_quote_obtained": false,
-        "block_or_slot_obtained": false,
+        "block_or_slot_obtained": true,
         "broadcast_or_signing_used": false,
         "background_schedule_created": false
       },
-      "last_verified_attempt": {
-        "run_id": "full-20261108T152118Z",
-        "evidence_commit": "022880d9718527daec93b12fb06241d1bec53347",
-        "verified_at": "2026-11-08T15:30:59.022489+00:00",
-        "record": "evidence/N-OP/full-20261108T152118Z/record.json"
-      }
+      "last_verified_attempt": null
     },
     {
       "agent_id": "N-POLY",

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:https://github.com/ethereum-optimism/optimism/releases</id>
+  <link type="text/html" rel="alternate" href="https://github.com/ethereum-optimism/optimism/releases"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/ethereum-optimism/optimism/releases.atom"/>
+  <title>Release notes from optimism</title>
+  <updated>2026-11-09T14:08:11Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-reth/v2.8.2-rc.1</id>
+    <updated>2026-11-09T14:08:11Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.2-rc.1"/>
+    <title>op-reth/v2.8.2-rc.1</title>
+    <content type="html">&lt;p&gt;Tag created with op-workbench.&lt;/p&gt;</content>
+    <author>
+      <name>geoknee</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/1833419?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-deployer/v0.9.0-allowlist</id>
+    <updated>2026-11-06T02:06:22Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.9.0-allowlist"/>
+    <title>op-deployer v0.9.0-allowlist</title>
+    <content type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;markdown-alert markdown-alert-important&quot;&gt;&lt;p class=&quot;markdown-alert-title&quot;&gt;&lt;svg data-component=&quot;Octicon&quot; class=&quot;octicon octicon-report mr-2&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Important&lt;/p&gt;&lt;p&gt;This is the op-deployer release for &lt;a href=&quot;https://github.com/ethereum-optimism/optimism/releases/tag/op-contracts%2Fv9.0.0%2Ballowlist&quot;&gt;op-contracts/v9.0.0+allowlist&lt;/a&gt;. It deploys op-contracts/v9.0.0+allowlist through the allowlist OPCM when an intent names it. It is otherwise identical to &lt;a href=&quot;https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.9.0&quot;&gt;op-deployer/v0.9.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Other changes&lt;/h2&gt;
+&lt;h3&gt;Deploy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;To deploy or upgrade a chain with op-contracts/v9.0.0+allowlist, set &lt;code&gt;opcmAddress&lt;/code&gt; in the intent to the allowlist OPCM. That address is &lt;code&gt;0x12f00d96414fe43cc3a19acc1254d7bd83d5bed0&lt;/code&gt; on Mainnet and &lt;code&gt;0xb72366fb8f855779f01800aed1ebfae886f37ace&lt;/code&gt; on Sepolia. This requires intent type &lt;code&gt;custom&lt;/code&gt; or &lt;code&gt;standard-overrides&lt;/code&gt;, because a &lt;code&gt;standard&lt;/code&gt; intent rejects any OPCM other than the registry&#39;s. Without &lt;code&gt;opcmAddress&lt;/code&gt;, op-deployer uses the op-contracts/v9.0.0 OPCM from the superchain registry, as v0.9.0 does (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6212172057&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23929&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23929/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23929&quot;&gt;#23929&lt;/a&gt;, &lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6212677182&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23933&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23933/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23933&quot;&gt;#23933&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a class=&quot;commit-link&quot; href=&quot;https://github.com/ethereum-optimism/optimism/compare/op-deployer/v0.9.0...op-deployer/v0.9.0-allowlist&quot;&gt;&lt;tt&gt;op-deployer/v0.9.0...op-deployer/v0.9.0-allowlist&lt;/tt&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🚢 Docker Image:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:v0.9.0-allowlist&quot; rel=&quot;nofollow&quot;&gt;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-deployer:v0.9.0-allowlist&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>github-actions[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-contracts/v9.0.0+allowlist</id>
+    <updated>2026-11-06T01:51:48Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-contracts%2Fv9.0.0%2Ballowlist"/>
+    <title>op-contracts v9.0.0+allowlist</title>
+    <content type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;markdown-alert markdown-alert-important&quot;&gt;&lt;p class=&quot;markdown-alert-title&quot;&gt;&lt;svg data-component=&quot;Octicon&quot; class=&quot;octicon octicon-report mr-2&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Important&lt;/p&gt;&lt;p&gt;This is a variant of &lt;a href=&quot;https://github.com/ethereum-optimism/optimism/releases/tag/op-contracts%2Fv9.0.0&quot;&gt;op-contracts/v9.0.0&lt;/a&gt; (&lt;a href=&quot;https://gov.optimism.io/t/upgrade-21-interop-readiness/10948&quot; rel=&quot;nofollow&quot;&gt;Upgrade 21&lt;/a&gt;). It is intended ONLY for use by a specific fork OP chain which restrict L1 deposits and withdrawals to an allowlist. It is identical to v9.0.0 except for &lt;code&gt;OptimismPortal2&lt;/code&gt;, which enforces the allowlist. Other chains should not use this release.&lt;/p&gt;
+&lt;/div&gt;</content>
+    <author>
+      <name>maurelian</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/23033765?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/v1.20.1</id>
+    <updated>2026-11-05T13:59:29Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/v1.20.1"/>
+    <title>v1.20.1</title>
+    <content type="html">&lt;p&gt;Tag created with op-workbench.&lt;/p&gt;</content>
+    <author>
+      <name>sebastianst</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/2607372?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/untagged-9be03a6937a8bc7884c5</id>
+    <updated>2026-11-05T10:33:12Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/untagged-9be03a6937a8bc7884c5"/>
+    <title>untagged-9be03a6937a8bc7884c5: ci,op-deployer,op-up: remove goreleaser and op-up releases (#23914)</title>
+    <content type="html">&lt;p&gt;Co-authored-by: Claude Opus 5.5 &lt;a href=&quot;mailto:noreply@anthropic.com&quot;&gt;noreply@anthropic.com&lt;/a&gt;&lt;/p&gt;</content>
+    <author>
+      <name>sebastianst</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/2607372?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-supernode/v1.1.1</id>
+    <updated>2026-11-05T15:13:00Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-supernode%2Fv1.1.1"/>
+    <title>op-supernode v1.1.1</title>
+    <content type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;markdown-alert markdown-alert-note&quot;&gt;&lt;p class=&quot;markdown-alert-title&quot;&gt;&lt;svg data-component=&quot;Octicon&quot; class=&quot;octicon octicon-info mr-2&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Note&lt;/p&gt;&lt;p&gt;This is an optional release for all op-supernode operators. It removes op-node&#39;s &lt;code&gt;sequencer.max-safe-lag&lt;/code&gt; option from the virtual nodes, and updates &lt;code&gt;golang.org/x/net&lt;/code&gt; past two advisories that do not affect op-supernode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Virtual-node &lt;code&gt;sequencer.max-safe-lag&lt;/code&gt; flags removed&lt;/strong&gt; (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6085042408&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23738&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23738/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23738&quot;&gt;#23738&lt;/a&gt;). Sequencing no longer pauses when the unsafe head runs ahead of the safe head. Remove &lt;code&gt;--vn.all.sequencer.max-safe-lag&lt;/code&gt; and &lt;code&gt;--vn.&amp;lt;chainID&amp;gt;.sequencer.max-safe-lag&lt;/code&gt; from the launch configuration before upgrading, because op-supernode rejects them as unknown flags. The &lt;code&gt;OP_SUPERNODE_VN_ALL_SEQUENCER_MAX_SAFE_LAG&lt;/code&gt; and &lt;code&gt;OP_SUPERNODE_VN_&amp;lt;chainID&amp;gt;_SEQUENCER_MAX_SAFE_LAG&lt;/code&gt; environment variables are no longer read. The option was disabled by default, so a supernode that never set it is unaffected.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Other changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Update &lt;code&gt;golang.org/x/net&lt;/code&gt; to v0.62.0, which fixes &lt;a title=&quot;CVE-2026-78661&quot; data-hovercard-type=&quot;advisory&quot; data-hovercard-url=&quot;/advisories/GHSA-75pg-wvh3-34jr/hovercard&quot; href=&quot;https://github.com/advisories/GHSA-75pg-wvh3-34jr&quot;&gt;CVE-2026-78661&lt;/a&gt; and &lt;a title=&quot;CVE-2026-97045&quot; data-hovercard-type=&quot;advisory&quot; data-hovercard-url=&quot;/advisories/GHSA-vwcj-r8v9-p53f/hovercard&quot; href=&quot;https://github.com/advisories/GHSA-vwcj-r8v9-p53f&quot;&gt;CVE-2026-97045&lt;/a&gt; (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6073555873&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23728&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23728/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23728&quot;&gt;#23728&lt;/a&gt;). Both are in the module&#39;s &lt;code&gt;html&lt;/code&gt; package, which op-supernode does not use, so earlier releases were not affected; the update clears vulnerability-scanner findings against the module.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a class=&quot;commit-link&quot; href=&quot;https://github.com/ethereum-optimism/optimism/compare/op-supernode/v1.1.0...op-supernode/v1.1.1&quot;&gt;&lt;tt&gt;op-supernode/v1.1.0...op-supernode/v1.1.1&lt;/tt&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🚢 Docker Image:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-supernode:v1.1.1&quot; rel=&quot;nofollow&quot;&gt;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-supernode:v1.1.1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</content>
+    <author>
+      <name>sebastianst</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/2607372?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-reth/v2.8.1</id>
+    <updated>2026-11-05T15:44:41Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.1"/>
+    <title>op-reth v2.8.1</title>
+    <content type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;markdown-alert markdown-alert-important&quot;&gt;&lt;p class=&quot;markdown-alert-title&quot;&gt;&lt;svg data-component=&quot;Octicon&quot; class=&quot;octicon octicon-report mr-2&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Important&lt;/p&gt;&lt;p&gt;All node operators should upgrade to this release. It contains a bug fix for the &lt;code&gt;eth_capabilities&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Other changes&lt;/h2&gt;
+&lt;h3&gt;RPC&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;eth_capabilities&lt;/code&gt; no longer advertises history below the Bedrock block. On OP Mainnet it reported &lt;code&gt;blocks&lt;/code&gt;, &lt;code&gt;tx&lt;/code&gt;, &lt;code&gt;receipts&lt;/code&gt;, &lt;code&gt;logs&lt;/code&gt; and &lt;code&gt;state&lt;/code&gt; from block 0, so clients routing by &lt;code&gt;eth_capabilities&lt;/code&gt; sent pre-Bedrock requests to nodes that cannot answer them. Every resource now reports an &lt;code&gt;oldestBlock&lt;/code&gt; no lower than the Bedrock block, also with &lt;code&gt;--rollup.historicalrpc&lt;/code&gt; set. Chains with Bedrock at genesis are unaffected (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6067600679&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23718&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23718/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23718&quot;&gt;#23718&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a class=&quot;commit-link&quot; href=&quot;https://github.com/ethereum-optimism/optimism/compare/op-reth/v2.8.0...op-reth/v2.8.1&quot;&gt;&lt;tt&gt;op-reth/v2.8.0...op-reth/v2.8.1&lt;/tt&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🚢 Docker Image:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-reth:v2.8.1&quot; rel=&quot;nofollow&quot;&gt;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-reth:v2.8.1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+</content>
+    <author>
+      <name>sebastianst</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/2607372?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-reth/v2.8.1-rc.2</id>
+    <updated>2026-11-05T06:28:39Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-reth%2Fv2.8.1-rc.2"/>
+    <title>op-reth/v2.8.1-rc.2</title>
+    <content type="html">&lt;p&gt;Tag created with op-workbench.&lt;/p&gt;</content>
+    <author>
+      <name>pcw109550</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/29061389?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-node/v1.20.1</id>
+    <updated>2026-11-05T15:09:58Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-node%2Fv1.20.1"/>
+    <title>op-node v1.20.1</title>
+    <content type="html">&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;markdown-alert markdown-alert-note&quot;&gt;&lt;p class=&quot;markdown-alert-title&quot;&gt;&lt;svg data-component=&quot;Octicon&quot; class=&quot;octicon octicon-info mr-2&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;Note&lt;/p&gt;&lt;p&gt;This is an optional release for all operators. It contains two removals that are breaking for operators who still use them, the &lt;code&gt;--sequencer.max-safe-lag&lt;/code&gt; flag and the built-in Holesky L1 chain config, and a &lt;code&gt;brotli&lt;/code&gt; dependency update for &lt;a title=&quot;CVE-2026-111497&quot; data-hovercard-type=&quot;advisory&quot; data-hovercard-url=&quot;/advisories/GHSA-9v8h-qqgm-4m35/hovercard&quot; href=&quot;https://github.com/advisories/GHSA-9v8h-qqgm-4m35&quot;&gt;CVE-2026-111497&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;--sequencer.max-safe-lag&lt;/code&gt; removed&lt;/strong&gt; (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6085042408&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23738&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23738/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23738&quot;&gt;#23738&lt;/a&gt;). The sequencer no longer pauses block production when the safe head falls behind the unsafe head. op-node now refuses to start with &lt;code&gt;--sequencer.max-safe-lag&lt;/code&gt;, so remove it from your launch configuration before upgrading. A leftover &lt;code&gt;OP_NODE_SEQUENCER_MAX_SAFE_LAG&lt;/code&gt; is ignored, with an &lt;code&gt;Unknown env var&lt;/code&gt; warning at startup.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Built-in Holesky L1 chain config removed&lt;/strong&gt; (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;5961924649&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23554&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23554/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23554&quot;&gt;#23554&lt;/a&gt;). Holesky has shut down. An op-node whose L1 is Holesky now fails to start unless it is given the L1 chain config with &lt;code&gt;--rollup.l1-chain-config&lt;/code&gt;, like any other L1 without a built-in config. The built-in configs for Ethereum Mainnet, Sepolia and Hoodi are unchanged.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Other changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;github.com/andybalholm/brotli&lt;/code&gt; is updated to v1.2.7 for &lt;a title=&quot;CVE-2026-111497&quot; data-hovercard-type=&quot;advisory&quot; data-hovercard-url=&quot;/advisories/GHSA-9v8h-qqgm-4m35/hovercard&quot; href=&quot;https://github.com/advisories/GHSA-9v8h-qqgm-4m35&quot;&gt;CVE-2026-111497&lt;/a&gt;. Go&#39;s bounds checks already kept op-node memory-safe, so it was not exposed. Malformed brotli channels are now rejected earlier, and derivation results are unchanged (&lt;a class=&quot;issue-link js-issue-link&quot; data-error-text=&quot;Failed to load title&quot; data-id=&quot;6062582583&quot; data-permission-text=&quot;Title is private&quot; data-url=&quot;https://github.com/ethereum-optimism/optimism/issues/23689&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/ethereum-optimism/optimism/pull/23689/hovercard&quot; href=&quot;https://github.com/ethereum-optimism/optimism/pull/23689&quot;&gt;#23689&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a class=&quot;commit-link&quot; href=&quot;https://github.com/ethereum-optimism/optimism/compare/op-node/v1.20.0...op-node/v1.20.1&quot;&gt;&lt;tt&gt;op-node/v1.20.0...op-node/v1.20.1&lt;/tt&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🚢 Docker Image:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.20.1&quot; rel=&quot;nofollow&quot;&gt;https://us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.20.1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+</content>
+    <author>
+      <name>sebastianst</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/2607372?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/238797860/op-deployer/v0.9.0-dev-test.3</id>
+    <updated>2026-11-05T21:48:20Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.9.0-dev-test.3"/>
+    <title>op-deployer v0.9.0-dev-test.3</title>
+    <content>No content.</content>
+    <author>
+      <name>github-actions[bot]</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=60&amp;v=4"/>
+  </entry>
+</feed>

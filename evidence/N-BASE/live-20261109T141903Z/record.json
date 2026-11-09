@@ -1,0 +1,259 @@
+{
+  "agent_id": "N-BASE",
+  "run_id": "live-20261109T141903Z",
+  "chain": "BASE",
+  "scope": "Base 8453 新市场/新规则/新操作发现：链身份核验、Aerodrome PoolFactory 链上身份与实现结构、最新新池枚举与身份核验、30 天节点发布窗口与 7 天工厂活动尝试（受日志源限制）",
+  "started_at": "2026-11-09T14:40:00+00:00",
+  "finished_at": "2026-11-09T14:45:00+00:00",
+  "duration_seconds": 300,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T14:42:21+00:00",
+    "beijing": "2026-11-09T22:42:21+08:00",
+    "data_time": "链上读取 2026-11-09T14:40:29Z～14:42:21Z；最新块 55,224,420（区块时间 2026-11-09T14:40:59Z）；GitHub 发布列表抓取 2026-11-09T14:41:08Z"
+  },
+  "block_or_slot": 55224420,
+  "market_ids": [
+    "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+    "BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"
+  ],
+  "asset_ids": [
+    "0x4200000000000000000000000000000000000006",
+    "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60",
+    "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+    "0x329105c15ac753c8d23a9105abe2c63578f6002a"
+  ],
+  "discovery_source": [
+    {
+      "source": "Base 公共 RPC（只读 JSON-RPC）",
+      "url": "https://mainnet.base.org",
+      "retrieved_at_utc": "2026-11-09T14:40:29+00:00～2026-11-09T14:42:21+00:00",
+      "http_status": 200,
+      "request": "eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_call/eth_getStorageAt/eth_getLogs；15 次外部 HTTP 请求；eth_getLogs 返回 -32011 request limit reached；单批超过约 40 个 eth_call 时后续调用出现空洞（batch=0x64 那次后半段元数据缺失）"
+    },
+    {
+      "source": "Aerodrome 官方部署表/工厂（上一轮已读取，本轮链上核验）",
+      "url": "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+      "retrieved_at_utc": "（上一轮）2026-11-08；本轮用其地址做链上核验",
+      "request": "PoolFactory=0x420DD381b31aEf6683db6B902084cB0FFECe40Da、FactoryRegistry=0x5C3F18F06CC09CA1910767A34a20F771039E37C0；本轮 eth_getCode/eth_call 验证"
+    },
+    {
+      "source": "base/base 官方 GitHub releases API（无 key）",
+      "url": "https://api.github.com/repos/base/base/releases?per_page=10",
+      "retrieved_at_utc": "2026-11-09T14:41:08+00:00",
+      "http_status": 200,
+      "sha256": "2b567e002044b46291f0b0f803565abdd24759e2aa72d63d1a4da4a5dc2179b9",
+      "request": "最近 10 个正式发布；30 天窗口内 v1.5.0(2026-10-14)、v1.5.1(10-22)、v1.5.2(11-04)、v1.5.3(11-05)、v1.5.4(11-06)"
+    },
+    {
+      "source": "Blockscout Base 公共浏览器 API（无 key，失败）",
+      "url": "https://base.blockscout.com/api/v2/addresses/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+      "retrieved_at_utc": "2026-11-09T14:41:04+00:00～14:41:07+00:00",
+      "http_status": 403,
+      "error": "Cloudflare 403；三次连续失败后停止（含最新 3 个池地址），未再重试"
+    }
+  ],
+  "mechanism": "Aerodrome PoolFactory 以 EIP-1167 最小代理（45 字节）克隆方式部署池，克隆目标为工厂 implementation() 返回的 0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7（21,057 字节代码）。默认费率 getter：stableFee=5、volatileFee=30（单位 1/10000）。新池身份核验链：工厂 allPools(index) 枚举地址 → 工厂 isPool=true → 池 factory()=工厂 → 池 45 字节克隆目标=implementation → token0/token1/stable 与 token symbol/decimals 链上读取。由于克隆共享单一实现，implementation 地址或其代码变化会整体改变新池规则（费率/权限/swap 逻辑），这是每日应监控的规则变更面；本轮未观察到变化。两个最新池均为 stable=false 波动池，且为包装/计息资产对（WETH/PRIME、xUSDT/bsdETH），不能按币名等同普通 ETH/USDT 权益。",
+  "observations": [
+    {
+      "type": "chain_identity",
+      "address": "base-mainnet",
+      "fields": {"eth_chainId": "0x2105", "chain_id": 8453, "latest_block": 55224420,
+                 "latest_block_time_utc": "2026-11-09T14:40:59+00:00",
+                 "base_fee_wei": "0x4c4b40", "base_fee_gwei": "0.005",
+                 "measured_block_time_approx": "0.2s（块 55,223,070 时间 2026-11-09T14:36:29Z 到最新块 55,224,420）"},
+      "evidence_file": "raw/nbase_summary.json"
+    },
+    {
+      "type": "factory_identity",
+      "protocol": "Aerodrome",
+      "address": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+      "fields": {"code_bytes": 3516, "allPoolsLength": 29931,
+                 "isPool_29930": true, "isPool_29929": true,
+                 "stableFee": 5, "volatileFee": 30,
+                 "implementation": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+                 "implementation_code_bytes": 21057,
+                 "eip1967_implementation_slot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                 "getFee_pool_calls": "无返回值（revert 或接口不匹配，待确认）"},
+      "block": 55224420,
+      "evidence_file": "raw/verify_batch1.json"
+    },
+    {
+      "type": "new_market_identity",
+      "protocol": "Aerodrome Volatile AMM",
+      "address": "0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+      "fields": {"factory_index": 29930, "token0": "0x4200000000000000000000000000000000000006",
+                 "token0_symbol": "WETH", "token1": "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60",
+                 "token1_symbol": "PRIME", "token1_name": "Prime Link 79", "stable": false,
+                 "factory_verified": true, "pool_code_bytes": 45,
+                 "clone_target": "0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+                 "created_offset_blocks_range": [8325, 15300],
+                 "created_time_approx_utc": "2026-11-09T13:50～14:13（按实测约0.2s/块）"},
+      "block": 55224420,
+      "evidence_file": "raw/verify_summary.json"
+    },
+    {
+      "type": "new_market_identity",
+      "protocol": "Aerodrome Volatile AMM",
+      "address": "0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+      "fields": {"factory_index": 29929, "token0": "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f",
+                 "token0_symbol": "xUSDT", "token1": "0x329105c15ac753c8d23a9105abe2c63578f6002a",
+                 "token1_symbol": "bsdETH", "token1_name": "Wrapped Based ETH", "stable": false,
+                 "factory_verified": true, "pool_code_bytes": 45,
+                 "created_offset_blocks_range": [9225, 10800],
+                 "created_time_approx_utc": "2026-11-09T14:05～14:10（按实测约0.2s/块）"},
+      "block": 55224420,
+      "evidence_file": "raw/verify_summary.json"
+    },
+    {
+      "type": "registered_queue",
+      "protocol": "Aerodrome",
+      "address": "allPools indices 29928～29911",
+      "fields": {"count": 18, "sample": {"29928": {"token0": "0x2f84b9599b710447a9faa4f6242d6da0a3d5521f", "token1": "0xaa9f8d8ad4bc9e39d5a8c735b701239e5b7623d4"},
+                                       "29927": {"token0": "0x4200000000000000000000000000000000000006", "token1": null},
+                                       "29926": {"token0": "0x4200000000000000000000000000000000000006", "token1": "0x582ee35af2d435e93d30c6c0fb1d4e35cdffa158"}},
+                 "note": "批量 eth_call 超过约 40 调用后出现空洞，本轮只完成 29930/29929 全字段核验，其余登记为待查队列"},
+      "evidence_file": "raw/nbase_summary.json"
+    },
+    {
+      "type": "rule_window_partial",
+      "protocol": "base/base",
+      "address": "GitHub releases",
+      "fields": {"in_30d_window": [{"tag": "v1.5.0", "published_at": "2026-10-14T20:52:39Z"},
+                                    {"tag": "v1.5.1", "published_at": "2026-10-22T17:47:20Z"},
+                                    {"tag": "v1.5.2", "published_at": "2026-11-04T22:10:58Z"},
+                                    {"tag": "v1.5.3", "published_at": "2026-11-05T16:01:04Z"},
+                                    {"tag": "v1.5.4", "published_at": "2026-11-06T01:25:10Z"}],
+                 "note": "节点软件发布≠链上规则已生效；本轮未读发布内容差异"},
+      "evidence_file": "raw/nbase_summary.json"
+    },
+    {
+      "type": "source_failure",
+      "protocol": "log discovery",
+      "address": "eth_getLogs / blockscout",
+      "fields": {"eth_getLogs_error": {"code": -32011, "message": "request limit reached"},
+                 "blockscout_http": 403,
+                 "consequence": "未完成 7 天 PoolCreated 分页；仅按 allPools index 枚举最新池与创建窗口"},
+      "evidence_file": "raw/probe.py 输出 / raw/nbase_summary.json"
+    }
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "realized": false,
+    "unknown_costs": ["池级实际费率（customFee/getFee 未确认）", "L2 执行费", "L1 数据费", "价格冲击", "包装/计息资产的取得与赎回成本"]
+  },
+  "capacity": "unknown（未读两新池储备/LP/TVL；allPoolsLength 只是工厂总池数，不是容量）",
+  "permissions": "unknown（未读工厂 owner/admin、implementation setter 权限；FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 仅确认有代码，未读清单变更）",
+  "liabilities": "none（只读读取；未建仓、无债务、无交易）",
+  "waiting_time": "unknown（未读任何存款/退出/赎回时间）",
+  "invalidation_conditions": [
+    "官方部署表地址与链上代码不一致（本轮 PoolFactory 地址代码/isPool 已核验一致）",
+    "eth_chainId 非 8453 或最新块异常（本轮 8453、55,224,420）",
+    "池 factory()/克隆目标与 implementation() 不一致",
+    "同名资产不同合约/不同包装机制（xUSDT/bsdETH/PRIME 机制未核，不能当同一权益）",
+    "implementation() 或其代码哈希变化（规则变更，需重新核验）"
+  ],
+  "evidence_urls": [
+    "https://mainnet.base.org",
+    "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+    "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+    "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+    "https://basescan.org/address/0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7",
+    "https://raw.githubusercontent.com/aerodrome-finance/contracts/main/README.md",
+    "https://api.github.com/repos/base/base/releases?per_page=10"
+  ],
+  "coverage_gaps": [
+    "7 天 PoolCreated 分页未完成：eth_getLogs 被公共 RPC 限流（-32011）、Blockscout API 三次 403；只有 allPools index 枚举 + 创建窗口，不能给近 7 天新增池统计。",
+    "30 天规则窗口只覆盖 base/base 节点发布（窗口内 5 个版本）与工厂 implementation 身份；未覆盖 Aerodrome 治理、FactoryRegistry 变更、费用管理者事件。",
+    "两新池的池级 customFee/getFee、储备/LP、TVL、交易活动未读；getFee(pool) 未返回结果。",
+    "xUSDT/bsdETH/PRIME 的包装/计息/赎回机制与发行方未核，不能当普通 ETH/USDT 权益。",
+    "工厂 admin/implementation setter 权限、代理结构（EIP-1967 槽为 0，但 implementation() 有返回值）未完全解释。",
+    "未做旧小池退出窗口轮转；未做报价/模拟（本岗位不做价差）；最新池索引队列 29928～29911 仅登记地址，未全部读 token 身份。"
+  ],
+  "next_check": [
+    "用允许 getLogs 的端点/索引服务扫最近 24h/7d PoolCreated；仍不可用则记录 allPoolsLength 快照并每轮做增量差值（本轮 29,931）。",
+    "读两新池储备与费率：customFee(pool)/getFee(pool)（确认 selector）、getReserves()、token 余额，确认 0.30% 默认费是否生效。",
+    "每日监控 implementation() 地址与代码哈希（当前 0xa4e46b4f…，21,057 字节）及 base/base 新 release；变化即建差异基线。",
+    "核 xUSDT/bsdETH/PRIME 合约源码与官方文档，确认包装/计息机制，禁止同名当同一权益。",
+    "批量枚举 index 29928～29911 的 token0/token1（每批 ≤40 个 eth_call），补全登记队列。",
+    "读 FactoryRegistry 0x5C3F18F06CC09CA1910767A34a20F771039E37C0 源码/ABI，跟踪 factory 清单变化。"
+  ],
+  "handoff_to": ["M00", "BASE05", "Q00"],
+  "markets": [
+    {
+      "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+      "chain": "BASE",
+      "protocol": "Aerodrome Volatile AMM",
+      "asset_ids": ["0x4200000000000000000000000000000000000006", "0x9554b45fd068bc3fe780e5ae4cfcc9a7191c5a60"],
+      "evidence_urls": ["https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+                        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（WETH/PRIME，volatile）",
+      "next_check": "读储备与池级费率；确认 PRIME 发行方"
+    },
+    {
+      "market_id": "BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+      "chain": "BASE",
+      "protocol": "Aerodrome Volatile AMM",
+      "asset_ids": ["0x2f84b9599b710447a9faa4f6242d6da0a3d5521f", "0x329105c15ac753c8d23a9105abe2c63578f6002a"],
+      "evidence_urls": ["https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+                        "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da"],
+      "identity_status": "ONCHAIN_VERIFIED_FACTORY_CLONE_AND_TOKENS（xUSDT/bsdETH，volatile）",
+      "next_check": "核 xUSDT/bsdETH 包装/计息机制后再决定是否进专项"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "BASE-AERODROME-CLONE-FACTORY-NEW-POOLS",
+      "status": "UNVERIFIED",
+      "chain": "BASE",
+      "protocol": "Aerodrome",
+      "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30 | BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+      "evidence_urls": ["https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+                        "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+                        "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"],
+      "mechanism": "Aerodrome 工厂 allPools(index) 枚举的最新 2 个池，经 isPool/factory()/45 字节克隆目标/implementation() 与 token symbol/decimals 链上核验；两者均为 stable=false 波动池（默认 volatileFee=30/10000=0.30%），创建于最新块前约 28～51 分钟与 31～36 分钟。新市场身份成立，但储备/费率/容量/交易均未读，无经济结论。",
+      "net_result": null,
+      "unknown_costs": ["池级 customFee", "储备与价格冲击", "L2/L1 费", "包装资产成本"],
+      "handoff_to": ["M00", "BASE05", "Q00"],
+      "invalidation_conditions": ["池 factory()/克隆目标不符", "token symbol/contract 与官方不符", "池被暂停或 implementation 变化"]
+    },
+    {
+      "finding_id": "BASE-AERODROME-IMPLEMENTATION-UPGRADE-SURFACE",
+      "status": "UNVERIFIED",
+      "chain": "BASE",
+      "protocol": "Aerodrome",
+      "market_id": null,
+      "evidence_urls": ["https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+                        "https://basescan.org/address/0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7"],
+      "mechanism": "工厂 implementation()=0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7（21,057 字节），新池都是指向它的 45 字节克隆；实现替换会一次性改变新池规则（费用/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立监控面；EIP-1967 实现槽为 0，说明实现存储走自定义方式（待读源码）。",
+      "net_result": null,
+      "unknown_costs": [],
+      "handoff_to": ["M00", "BASE05", "Q00"],
+      "invalidation_conditions": ["implementation() 或实现代码哈希变化（则需重新核验规则）", "工厂被替换/迁移"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "用同名资产（xUSDT/bsdETH/PRIME）直接当 USDT/ETH 的同一权益",
+      "reason": "链上只读到 symbol/name/decimals，包装/计息/赎回机制未读；按规则不能仅因名称相同合并资产，已排除该等同假设。"
+    },
+    {
+      "claim": "公共 RPC eth_getLogs 报错说明 Base 无新池活动",
+      "reason": "-32011 request limit reached 是端点限制，不是链上事实；已改用 allPools index 枚举最新池并给出创建窗口，明确排除该覆盖主张。"
+    },
+    {
+      "claim": "节点软件 release（v1.5.x）等于链上规则已生效",
+      "reason": "release 只是节点软件发布；链上规则面在工厂 implementation 与注册表，两者未建立对应关系，排除该断言。"
+    }
+  ],
+  "observed_cursor": {
+    "type": "chain_snapshot_plus_factory_index_enumeration",
+    "source_count": 5,
+    "retrieved_at_utc": "2026-11-09T14:42:21+00:00",
+    "complete_block_range": "点读最新块 55,224,420 与少量历史块（latest-1,350 等）；无连续日志区间",
+    "complete_event_time_window": "不完整：仅最新池创建窗口约 2026-11-09T13:50Z～14:13Z；7 天活动窗口未覆盖"
+  }
+}

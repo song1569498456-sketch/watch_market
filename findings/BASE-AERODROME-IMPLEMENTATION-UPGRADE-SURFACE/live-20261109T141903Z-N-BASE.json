@@ -1,0 +1,26 @@
+{
+  "finding_id": "BASE-AERODROME-IMPLEMENTATION-UPGRADE-SURFACE",
+  "status": "UNVERIFIED",
+  "chain": "BASE",
+  "protocol": "Aerodrome",
+  "market_id": null,
+  "evidence_urls": [
+    "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+    "https://basescan.org/address/0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7"
+  ],
+  "mechanism": "工厂 implementation()=0xa4e46b4f701c62e14df11b48dce76a7d793cd6d7（21,057 字节），新池都是指向它的 45 字节克隆；实现替换会一次性改变新池规则（费用/权限/swap 逻辑），地址不变。本轮未观察到变化，仅建立监控面；EIP-1967 实现槽为 0，说明实现存储走自定义方式（待读源码）。",
+  "net_result": null,
+  "unknown_costs": [],
+  "handoff_to": [
+    "M00",
+    "BASE05",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "implementation() 或实现代码哈希变化（则需重新核验规则）",
+    "工厂被替换/迁移"
+  ],
+  "owner": "N-BASE",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json"
+}

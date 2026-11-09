@@ -1,0 +1,237 @@
+[
+ {
+  "n": 1,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "chainId",
+  "rpc_method": "eth_chainId",
+  "at_utc": "2026-11-09T14:41:09.570311+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 2,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "blockNumber",
+  "rpc_method": "eth_blockNumber",
+  "at_utc": "2026-11-09T14:41:10.726012+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 3,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "headBlock",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:41:11.262236+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 4,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "uni_deploys",
+  "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+  "at_utc": "2026-11-09T14:41:11.795170+00:00",
+  "http_status": 200,
+  "bytes": 4239,
+  "sha256": "7daa52b28d2fc15eb5888a86b5261604a7d32cb43113cde8ca8ea1516d24b8de"
+ },
+ {
+  "n": 5,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "aave_op_addrbook",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+  "at_utc": "2026-11-09T14:41:12.855587+00:00",
+  "http_status": 200,
+  "bytes": 26145,
+  "sha256": "7293779f07de26540c859635a381cb37a8f9370497fda4cb951a3cd0269092c9"
+ },
+ {
+  "n": 6,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "aave_op_assets",
+  "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3OptimismAssets.sol",
+  "at_utc": "2026-11-09T14:41:13.326205+00:00",
+  "http_status": 404,
+  "bytes": 14,
+  "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+ },
+ {
+  "n": 7,
+  "kind": "GET",
+  "host": "raw.githubusercontent.com",
+  "tag": "superchain_op_toml",
+  "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+  "at_utc": "2026-11-09T14:41:13.843223+00:00",
+  "http_status": 200,
+  "bytes": 1967,
+  "sha256": "419779a2c50fa240b97d2e783cb356ec718072011d6d86636c9d10b922121c99"
+ },
+ {
+  "n": 8,
+  "kind": "GET",
+  "host": "github.com",
+  "tag": "op_releases_atom",
+  "url": "https://github.com/ethereum-optimism/optimism/releases.atom",
+  "at_utc": "2026-11-09T14:41:14.378236+00:00",
+  "http_status": 200,
+  "bytes": 23170,
+  "sha256": "1dd204fea1daf6e5032bdc0ee21abb82aea94c1f3012f88003615a1840645b62"
+ },
+ {
+  "n": 9,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "code_aave_pool",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:41:16.828993+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 10,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "aave_impl_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:41:17.333683+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 11,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "aave_admin_slot",
+  "rpc_method": "eth_getStorageAt",
+  "at_utc": "2026-11-09T14:41:17.842256+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 12,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "aave_provider_getPool",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:18.364763+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 13,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "aave_reservesList",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:18.863176+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 14,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "code_uni_factory",
+  "rpc_method": "eth_getCode",
+  "at_utc": "2026-11-09T14:41:19.364902+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 15,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_owner",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:20.181788+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 16,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_fee_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:20.683544+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 17,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_fee_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:21.226621+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 18,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_fee_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:21.762834+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 19,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_fee_10000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:22.324046+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 20,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_getPool_WETH_USDC_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:22.829044+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 21,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_getPool_WETH_USDCe_500",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:23.359201+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 22,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_getPool_USDC_USDT_100",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:23.902477+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 23,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_getPool_OP_WETH_3000",
+  "rpc_method": "eth_call",
+  "at_utc": "2026-11-09T14:41:24.426013+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 24,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "uni_poolcreated_5000",
+  "rpc_method": "eth_getLogs",
+  "at_utc": "2026-11-09T14:41:24.942564+00:00",
+  "http_status": 200
+ },
+ {
+  "n": 25,
+  "kind": "POST",
+  "host": "optimism-mainnet",
+  "tag": "block_window_start",
+  "rpc_method": "eth_getBlockByNumber",
+  "at_utc": "2026-11-09T14:41:25.469364+00:00",
+  "http_status": 200
+ }
+]

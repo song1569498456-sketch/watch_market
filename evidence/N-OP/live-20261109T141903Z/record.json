@@ -1,0 +1,249 @@
+{
+  "agent_id": "N-OP",
+  "run_id": "live-20261109T141903Z",
+  "chain": "OP",
+  "scope": "OP Mainnet（chainId 10）新市场/规则/操作发现：Aave V3 OP 身份与储备、Uniswap V3 OP 工厂与近期 PoolCreated、OP Superchain 规则窗口与发布",
+  "started_at": "2026-11-09T14:41:09.570297+00:00",
+  "finished_at": "2026-11-09T14:44:03.579294+00:00",
+  "duration_seconds": 174.0,
+  "execution_status": "PARTIAL",
+  "status": "UNVERIFIED",
+  "as_of": {
+    "utc": "2026-11-09T14:44:03+00:00",
+    "beijing": "2026-11-09T22:44:03+08:00",
+    "data_time": "head 159318330 @ 2026-11-09T14:43:57Z；PoolCreated 扫描窗口 159313247-159318247（2026-11-09T11:54:31Z-14:41:11Z）；池快照 pinned 159318328"
+  },
+  "block_or_slot": 159318330,
+  "market_ids": [
+    "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+    "10:uniswap-v3-factory:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+    "10:uniswap-v3-pool:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b"
+  ],
+  "asset_ids": [
+    "10:0x4200000000000000000000000000000000000006",
+    "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85",
+    "10:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+    "10:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+    "10:0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+    "10:0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+    "10:0x68f180fcce6836688e9084f035309e29bf0a2095",
+    "10:0x76fb31fb4af56892a25e32cfc43de717950c9278",
+    "10:0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+    "10:0x4200000000000000000000000000000000000042",
+    "10:0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+    "10:0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+    "10:0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+    "10:0x9bcef72be871e61ed4fbbc7630889bee758eb81d"
+  ],
+  "discovery_source": [
+    {
+      "source": "Uniswap 官方 v3-periphery deploys.md（OP 与 Mainnet/Polygon/Arbitrum/Testnets 共享地址列）",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+      "retrieved_at_utc": "2026-11-09T14:41:12Z",
+      "http_status": 200,
+      "sha256": "7daa52b28d2fc15eb5888a86b5261604a7d32cb43113cde8ca8ea1516d24b8de"
+    },
+    {
+      "source": "Aave 官方地址簿 AaveV3Optimism.sol（POOL/POOL_IMPL/POOL_ADDRESSES_PROVIDER）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+      "retrieved_at_utc": "2026-11-09T14:41:13Z",
+      "http_status": 200,
+      "sha256": "7293779f07de26540c859635a381cb37a8f9370497fda4cb951a3cd0269092c9"
+    },
+    {
+      "source": "OP Superchain 官方注册表 op.toml（hardfork 时间表与链参数）",
+      "url": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+      "retrieved_at_utc": "2026-11-09T14:41:14Z",
+      "http_status": 200,
+      "sha256": "419779a2c50fa240b97d2e783cb356ec718072011d6d86636c9d10b922121c99"
+    },
+    {
+      "source": "Optimism 官方 releases atom（30 天窗口内发布列表）",
+      "url": "https://github.com/ethereum-optimism/optimism/releases.atom",
+      "retrieved_at_utc": "2026-11-09T14:41:15Z",
+      "http_status": 200,
+      "sha256": "1dd204fea1daf6e5032bdc0ee21abb82aea94c1f3012f88003615a1840645b62"
+    },
+    {
+      "source": "superchain-registry op.toml 最近 30 天提交历史（规则变更核验）",
+      "url": "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z&per_page=20",
+      "retrieved_at_utc": "2026-11-09T14:42:12Z",
+      "http_status": 200,
+      "sha256": null,
+      "note": "count=0，30 天内 op.toml 无提交"
+    },
+    {
+      "source": "OP Mainnet 只读 RPC（mainnet.optimism.io）",
+      "url": "https://mainnet.optimism.io",
+      "retrieved_at_utc": "2026-11-09T14:41:10Z-2026-11-09T14:44:03Z",
+      "request": "POST JSON-RPC 共 61 次（本岗位总计），全部只读 eth_chainId/eth_blockNumber/eth_getBlockByNumber/eth_getCode/eth_getStorageAt/eth_call/eth_getLogs",
+      "http_status": 200
+    },
+    {
+      "source": "Aave address book Assets 文件（尝试失败：路径不存在，无法做官方储备清单 diff）",
+      "url": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3OptimismAssets.sol",
+      "retrieved_at_utc": "2026-11-09T14:41:13Z",
+      "http_status": 404,
+      "error": "HTTP 404；GitHub tree 中 Optimism+Asset 路径候选为空，未再猜路径"
+    }
+  ],
+  "mechanism": "发现岗基线核验：用官方部署表/地址簿/注册表建立身份，再用 OP Mainnet 链上 eth_getCode/eth_getStorageAt/eth_call/eth_getLogs 核验。Aave V3 OP 的 POOL(proxy)、POOL_IMPL 与 provider.getPool() 均与官方地址簿一致（未升级）；14 个 reserve 全部读出。Uniswap V3 OP 工厂地址与官方 deploys.md 的共享地址列一致，四个费用档与已知池 getPool 均可读。规则窗口：op.toml 30 天无提交、30 天内无 hardfork 激活，故无链配置规则变化；30 天内的 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 属发布级变更，未验证 OP Mainnet 链上生效。新市场：Uniswap V3 工厂在 5000 区块窗口内 PoolCreated=0 条。",
+  "observations": [
+    "链身份：eth_chainId=10（0x0a）；head=159318330（2026-11-09T14:43:57Z）；区块时间间隔符合 superchain 官方 op.toml block_time=2。",
+    "Aave V3 OP 身份链上核验：POOL proxy 0x794a61358D6845594F94dc1DB02A252b5b4814aD 代码 2400 bytes（sha256=7a042f7fd7d51b45273edcfe5ff9984c73410e01fd41e7f0fcef2b51e1a8f610）；EIP-1967 impl slot=0x66185E53343336d4FaeA5317d1Fcca103Dd4088D，与官方地址簿 POOL_IMPL 完全一致；POOL_ADDRESSES_PROVIDER 0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb 的 getPool() 返回同一 POOL 地址。结论：Aave V3 OP 代理与实现自地址簿生成以来未变，无升级规则变化。",
+    "Aave V3 OP 储备（getReservesList，14 个）：DAI 0xDA10009c…、LINK 0x350a791B…、USDC.e 0x7F5c764c…、WBTC 0x68f180fc…、WETH 0x4200…0006、USDT 0x94b008aA…、AAVE 0x76FB31fb…、sUSD 0x8c6f28f2…、OP 0x4200…0042、wstETH 0x1F32b1c2…、LUSD 0xc40F949F…、MAI 0xdFA46478…、rETH 0x9Bcef72b…、原生 USDC 0x0b2C639c…；每项均以（地址、symbol、decimals）链上读取（DAI 18、LINK 18、USDC.e 6、WBTC 8、USDC 6 等）。",
+    "Uniswap V3 OP 工厂身份：0x1F98431c8aD98523631AE4a59f267346ea31F984 代码 24535 bytes（sha256=fd5e0ec0633afeb92b2f6b6cac36e13a9732bd1914f8158a78f127d51d54a572）；owner=0xec23cf5a1db3dcc6595385d28b2a4d9b52503be4；feeAmountTickSpacing：100→1、500→10、3000→60、10000→200（pinned 块 159318328）。官方 deploys.md 表头为「Mainnet, Polygon, Optimism, Arbitrum, Testnets Address」列，共享地址 0x1F98…；Celo 专用地址列 0xAfE208a3… 在 OP 上代码 0 字节（排除误用）。",
+    "Uniswap V3 OP 已知池 getPool 复核（pinned）：WETH/USDC(原生) 500 = 0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b；WETH/USDC.e 500 = 0x85149247691df622eaf1a8bd0cafd40bc45154a9；USDC/USDT 100 = 0xa73c628eaf6e283e26a7b1f8001cf186aa4c0e8e；OP/WETH 3000 = 0x68f5c0a2de713a54991e01858fd27a3832401849。",
+    "新市场排除（显式）：Uniswap V3 工厂 PoolCreated 事件在 5000 区块窗口 159313247-159318247（2026-11-09T11:54:31Z-14:41:11Z，按 block_time=2 约 2.78 小时）内共 0 条；该窗口内无新 Uniswap V3 池。主网 RPC 对 20000/100000 区块跨度的 getLogs 返回 -32602「Archive requests require a personal token」，无法在无 token 情况下扩大窗口。",
+    "WETH/USDC 0.05% 池快照（pinned 159318328）：pool 代码 22142 bytes（sha256=c3799de2bd3cb0d8257a3e404aebd5be954cdb5bcf9cb05d056cb31de3efbd49）；token0=原生 USDC 0x0b2C639c…、token1=WETH 0x4200…0006、fee=500；slot0 sqrtPriceX96=1.721181472937990164490443118442909e33、tick=199733、observationCardinality=2000；liquidity=11702808516554365。由 slot0 推导 1 WETH≈2118.87 USDC（原始价 token1/token0=471948008.439），为快照参考值而非可执行报价。",
+    "30 天规则窗口（2026-10-10～2026-11-09）：superchain-registry 的 op.toml 在该区间 GitHub 提交数=0（2026-11-09T14:42:12Z 查询）；op.toml 硬分叉表最后一项为 karst_time=1783526401（2026-07-08T16:00:01Z），jovian_time=1764691201（2025-12-02），30 天内无 hardfork 激活 → OP Mainnet 链配置规则在本窗口无变化。",
+    "30 天发布级变更（不是链上生效）：Optimism releases atom 显示窗口内 op-contracts v9.0.0+allowlist（2026-11-06T01:51:48Z）、op-deployer v0.9.0-allowlist（2026-11-06T02:06:22Z）、op-node v1.20.1 / op-reth v2.8.1（2026-11-05）、op-supernode v1.1.1 等；未核验其在 OP Mainnet 的具体生效（需读 L1 合约版本/激活记录，属跨链 L1 读取，本轮不展开）。",
+    "7 天活动窗口远未覆盖：仅扫最近 5000 区块（≈2.78 小时）；无 archive token 时无法扩大 getLogs；未读近 24h 交易/代表性交易，未做 5 组代表交易深读。",
+    "Aave 官方 Assets 文件尝试 404（地址簿仓库 main 分支无该路径），故未能把 14 个链上 reserve 与官方清单做逐项 diff；只能确认地址簿 POOL_IMPL 与链上一致。"
+  ],
+  "quotes": [],
+  "net_result": {
+    "value": null,
+    "unit": null,
+    "type": "not_computed",
+    "realized": false,
+    "unknown_costs": ["L1 数据费", "L2 gas", "协议费", "滑点与退出等待", "容量"]
+  },
+  "capacity": "unknown；仅记录 WETH/USDC 0.05% 池 liquidity=11702808516554365（L）与 slot0；未做指定数量报价",
+  "permissions": "Aave V3 OP：POOL/POOL_IMPL/provider 与官方地址簿一致（管理权限在 ACL/ProxyAdmin，未读）；Uniswap V3 OP 工厂 owner=0xec23cf5a…（身份未核验，未读权限动作）",
+  "liabilities": "unknown；本轮纯只读，无仓位/借款",
+  "waiting_time": "unknown；未涉及提现/跨链等待",
+  "invalidation_conditions": [
+    "官方部署表/地址簿更新且与链上代码不一致",
+    "Aave POOL_IMPL 或 provider.getPool 变更（升级）",
+    "Uniswap V3 工厂地址/费用档与官方 deploys 或链上状态不一致",
+    "op.toml 出现 30 天内提交或新 hardfork 激活时间",
+    "新池窗口出现 PoolCreated（下一轮应扫更大窗口或换索引器）"
+  ],
+  "evidence_urls": [
+    "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "https://optimistic.etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+    "https://optimistic.etherscan.io/address/0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+    "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md",
+    "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol",
+    "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+    "https://github.com/ethereum-optimism/optimism/releases.atom",
+    "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+  ],
+  "coverage_gaps": [
+    "7 天活动窗口未覆盖：仅扫最近 5000 区块（≈2.78 小时）的 Uniswap V3 PoolCreated；mainnet.optimism.io 对 20000/100000 区块 getLogs 返回 -32602（需 personal token），无 archive/indexer 能力。",
+    "未读近 24 小时交易与 5 组代表交易；未查 Aave 储备的利率/流动性/暂停状态，也未查其它 DEX（Velodrome 等）工厂事件。",
+    "Aave 官方 Assets 文件 404，未能对 14 个 reserve 做官方清单逐项 diff；仅确认 POOL_IMPL 一致。",
+    "30 天规则窗口只核 op.toml（提交=0）与 releases atom；未核 L1 合约版本/激活记录（跨链 L1，超出本轮范围）与治理提案状态。",
+    "未做指定数量报价/只读模拟；WETH/USDC 快照的 2118.87 USDC/WETH 是从 slot0 推导，不是 Quoter 报价。",
+    "本轮外部请求 61 次（≤80，符合上限）。",
+    "上一轮登记的 Aave reserve/资产身份虽在本轮补充链上核验，但未与官方 Assets 清单 diff，仍不能断言“无新增储备”。"
+  ],
+  "next_check": [
+    "扩大 UNI V3 PoolCreated 扫描（换可用的公共索引/分批 5000 区块窗口覆盖 7 天；或按 tx 从 Uniswap 前端/官方 API 发现后链上核验），确认 24h/7 天新池，尤其 fee=100 稳定币池。",
+    "用 Uniswap Quoter v1 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6（官方 deploys 共享地址列；本轮未取代码验证）对 WETH/USDC 500 取指定数量报价，补齐报价证据。",
+    "核验 Aave V3 OP 14 个 reserve 的官方 Assets 清单（换文件路径/版本），diff 是否有新增/移除；若有新增则作为 OP 新市场候选交 OP01/OP02。",
+    "跟踪 op-contracts v9.0.0+allowlist / op-deployer v0.9.0-allowlist 在 OP Mainnet 的生效证据（需 L1 SystemConfig/OPCM 版本，交 M00 决定是否跨链读取）。",
+    "补 Velodrome 等 OP 主 DEX 的工厂事件（下一轮先用官方文档/仓库确认工厂地址，不猜）。"
+  ],
+  "handoff_to": ["M00", "OP01", "OP02", "Q00"],
+  "markets": [
+    {
+      "market_id": "10:aave-v3:0x794a61358d6845594f94dc1db02a252b5b4814ad",
+      "chain": "OP",
+      "protocol": "Aave V3 Optimism",
+      "asset_ids": [
+        "10:0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "10:0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6",
+        "10:0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+        "10:0x68f180fcce6836688e9084f035309e29bf0a2095",
+        "10:0x4200000000000000000000000000000000000006",
+        "10:0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+        "10:0x76fb31fb4af56892a25e32cfc43de717950c9278",
+        "10:0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9",
+        "10:0x4200000000000000000000000000000000000042",
+        "10:0x1f32b1c2345538c0c6f582fcb022739c4a194ebb",
+        "10:0xc40f949f8a4e094d1b49a23ea9241d289b7b2819",
+        "10:0xdfa46478f9e5ea86d57387849598dbfb2e964b02",
+        "10:0x9bcef72be871e61ed4fbbc7630889bee758eb81d",
+        "10:0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+      ],
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+        "https://raw.githubusercontent.com/bgd-labs/aave-address-book/main/src/AaveV3Optimism.sol"
+      ],
+      "identity_status": "CHAIN_VERIFIED_PROXY_IMPL_MATCHES_OFFICIAL",
+      "next_check": "diff 官方 Assets 清单；读利率/暂停/流动性；新增储备交 OP01"
+    },
+    {
+      "market_id": "10:uniswap-v3-factory:0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "chain": "OP",
+      "protocol": "Uniswap V3",
+      "asset_ids": [],
+      "evidence_urls": [
+        "https://optimistic.etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "https://raw.githubusercontent.com/Uniswap/v3-periphery/main/deploys.md"
+      ],
+      "identity_status": "CHAIN_VERIFIED_FACTORY",
+      "next_check": "扩大 PoolCreated 窗口；对已知池取 Quoter 报价"
+    },
+    {
+      "market_id": "10:uniswap-v3-pool:0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b",
+      "chain": "OP",
+      "protocol": "Uniswap V3 WETH/USDC 0.05%",
+      "asset_ids": ["10:0x0b2c639c533813f4aa9d7837caf62653d097ff85", "10:0x4200000000000000000000000000000000000006"],
+      "evidence_urls": ["https://optimistic.etherscan.io/address/0x1fb3cf6e48f1e7b10213e7b6d87d4c073c7fdb7b"],
+      "identity_status": "CHAIN_VERIFIED_POOL_STATE_READ",
+      "next_check": "Quoter v1 指定数量报价；作为旧池轮转基线"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "OP-CONTRACTS-V9-ALLOWLIST-RELEASE-NOT-ACTIVATED",
+      "status": "UNVERIFIED",
+      "chain": "OP",
+      "market_id": null,
+      "first_seen_at": "2026-11-09T14:41:15+00:00",
+      "last_observed_run": "live-20261109T141903Z",
+      "mechanism": "Optimism releases atom 显示 30 天窗口内（2026-10-10～2026-11-09）发布 op-contracts v9.0.0+allowlist（2026-11-06T01:51:48Z）与 op-deployer v0.9.0-allowlist（2026-11-06T02:06:22Z），命名含 allowlist，属 OP Stack 合约/部署器规则级发布；但未核验 OP Mainnet 链上激活或配置变更，不能当已生效规则。superchain-registry 的 op.toml 在 30 天内无提交，最新 hardfork 为 karst_time（2026-07-08），说明主网链配置尚未变化。",
+      "evidence_urls": [
+        "https://github.com/ethereum-optimism/optimism/releases.atom",
+        "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/main/superchain/configs/mainnet/op.toml",
+        "https://api.github.com/repos/ethereum-optimism/superchain-registry/commits?path=superchain/configs/mainnet/op.toml&since=2026-10-10T00:00:00Z"
+      ],
+      "net_result": null,
+      "unknown_costs": ["实际激活时间与影响面", "是否需要 L1 合约升级", "是否影响 L2 用户操作/费用"],
+      "handoff_to": ["M00", "OP01", "Q00"],
+      "invalidation_conditions": ["发布只是 RC/测试网", "OP Mainnet 已在窗口内升级但未反映在 op.toml", "该 allowlist 与公开市场无关"]
+    }
+  ],
+  "rejections": [
+    {
+      "claim": "本窗口内 OP Mainnet 出现了新的 Uniswap V3 池/新市场",
+      "reason": "经官方 deploys.md 身份核验的 Uniswap V3 工厂 0x1F98…（代码 24535B、4 个 fee 档可读）在 159313247-159318247（约 2.78h）内 PoolCreated=0；但窗口小、无法覆盖 7 天，因此只能排除“该窗口无新池”，不能排除整周无新池。",
+      "evidence": "eth_getLogs 于 mainnet.optimism.io，块 159313247-159318247，topics=[PoolCreated]，count=0"
+    },
+    {
+      "claim": "Aave V3 OP 在本窗口发生了实现升级/规则变化",
+      "reason": "POOL proxy 的 EIP-1967 impl slot = 0x66185E53343336d4FaeA5317d1Fcca103Dd4088D，与官方地址簿 POOL_IMPL 完全一致；provider.getPool() 与 POOL 一致。",
+      "evidence": "eth_getStorageAt impl slot + provider.getPool()，块 159318274"
+    },
+    {
+      "claim": "OP Mainnet 在 30 天窗口内发生了链配置/硬分叉规则变更",
+      "reason": "superchain-registry op.toml 在 2026-10-10 起的提交数为 0；op.toml 中最新 hardfork 为 karst_time=2026-07-08（此前 jovian=2025-12-02），30 天窗口内无 hardfork 激活时间。",
+      "evidence": "GitHub commits API（count=0）+ op.toml [hardforks] 字段"
+    },
+    {
+      "claim": "把官方部署表 Celo 列地址 0xAfE208a3… 当作 OP Uniswap 工厂",
+      "reason": "deploys.md 表头为「Mainnet, Polygon, Optimism, Arbitrum, Testnets Address」共享列（0x1F98…）与独立「Celo Address」列（0xAfE208a3…）；0xAfE208 在 OP 上代码 0 字节，已排除。",
+      "evidence": "deploys.md 表头/行 + eth_getCode(0xAfE208…) = 0x"
+    }
+  ],
+  "observed_cursor": {
+    "type": "block",
+    "source_count": 6,
+    "retrieved_at_utc": "2026-11-09T14:44:03Z",
+    "complete_block_range": "159318328（池快照 pinned）与 159313247-159318247（PoolCreated 扫描）；身份读取块 159318274/159318330",
+    "complete_event_time_window": "2026-11-09T11:54:31Z-2026-11-09T14:41:11Z（Uniswap V3 PoolCreated）；30 天规则窗口 2026-10-10～2026-11-09 由 op.toml 提交历史与 hardfork 表覆盖"
+  }
+}

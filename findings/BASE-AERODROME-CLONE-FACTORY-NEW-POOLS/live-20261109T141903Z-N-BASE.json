@@ -1,0 +1,33 @@
+{
+  "finding_id": "BASE-AERODROME-CLONE-FACTORY-NEW-POOLS",
+  "status": "UNVERIFIED",
+  "chain": "BASE",
+  "protocol": "Aerodrome",
+  "market_id": "BASE:aerodrome-pool:0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30 | BASE:aerodrome-pool:0x26fac2eb8299e6bddf69b1788392a0d31c2c771d",
+  "evidence_urls": [
+    "https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+    "https://basescan.org/address/0x7cc81e85c1fbb207c13dbb5cdb387c1953808e30",
+    "https://basescan.org/address/0x26fac2eb8299e6bddf69b1788392a0d31c2c771d"
+  ],
+  "mechanism": "Aerodrome 工厂 allPools(index) 枚举的最新 2 个池，经 isPool/factory()/45 字节克隆目标/implementation() 与 token symbol/decimals 链上核验；两者均为 stable=false 波动池（默认 volatileFee=30/10000=0.30%），创建于最新块前约 28～51 分钟与 31～36 分钟。新市场身份成立，但储备/费率/容量/交易均未读，无经济结论。",
+  "net_result": null,
+  "unknown_costs": [
+    "池级 customFee",
+    "储备与价格冲击",
+    "L2/L1 费",
+    "包装资产成本"
+  ],
+  "handoff_to": [
+    "M00",
+    "BASE05",
+    "Q00"
+  ],
+  "invalidation_conditions": [
+    "池 factory()/克隆目标不符",
+    "token symbol/contract 与官方不符",
+    "池被暂停或 implementation 变化"
+  ],
+  "owner": "N-BASE",
+  "last_observed_run": "live-20261109T141903Z",
+  "source_record": "evidence/N-BASE/live-20261109T141903Z/record.json"
+}
